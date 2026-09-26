@@ -1,285 +1,294 @@
-"""Invoice -> fixed-schema JSON.
+"""Invoice -> the 31-field output JSON.
 
-Pipeline:
-  1. ingest: Docling layout/tables (HunyuanOCR for scanned pages), see ingest.py
-  2. LLM (Qwen3-VL 8B via Ollama, JSON-schema constrained): header fields + every charge
-     line with a semantic category chosen from the glossary
-  3. deterministic post-processing: synonym lexicon cross-check, ISO 6346
-     container detection, amount-in-source verification, subtotal reconciliation
-  4. aggregate line items per category into the requested output fields
+Backends
+  layout      OCR/PDF word boxes -> label/value geometry + charges-table parser -> semantic charge
+              mapper -> validators. Every value is copied from the page, so it cannot invent one.
+  layout+llm  as layout; charge lines the lexicon cannot place are classified by the LLM (category only).
+  llm         the research.md LLM path: page text -> Qwen3-VL (JSON-schema constrained) -> post-checks.
+
+Common post-processing: ISO 6346 / MAWB check digits, date normalisation, amount grounding,
+subtotal reconciliation, per-field confidence, strict output contract (schema.finalize).
 """
 
 from __future__ import annotations
 
-import json
 import re
 import time
-from datetime import datetime
+from collections import Counter
 
-import ollama
+from . import header as hdr
+from . import llm as llm_mod
+from . import tables
+from .ingest import Page, attach_docling_markdown, is_digital, load_document_readings, pages_to_prompt_text
+from .ocr import ENSEMBLE, ENSEMBLE_FALLBACK
+from .layout import build_rows, reading_order_text
+from .schema import CHARGE_FIELDS, OUTPUT_FIELDS, finalize
+from .semantic import classify_charge
+from .validators import find_containers, normalize_mawb, parse_date, parse_number
 
-from .ingest import load_pages, pages_to_prompt_text, pages_to_raw_text
-from .schema import (
-    CHARGE_CATEGORIES,
-    CHARGE_FIELDS,
-    LLM_JSON_SCHEMA,
-    OUTPUT_FIELDS,
-    glossary_text,
-)
-
-DEFAULT_MODEL = "qwen3-vl:8b-instruct"
 RECONCILE_TOLERANCE_INR = 1.0
-FALLBACK_BUCKETS = {"Other Charges", "Misc"}
-
-SYSTEM_PROMPT = f"""You are an expert freight-forwarding / logistics invoice analyst.
-You read the raw text of one invoice (possibly several pages, columns may be misaligned)
-and return a JSON object that follows the given schema exactly.
-
-HEADER RULES
-- vendor_name: the company that ISSUED the invoice (the service provider / seller), exactly as printed.
-  Never the bill-to customer, shipper, consignee, buyer, or bank.
-- invoice_no: the issuer's own invoice / document number (labels vary: Invoice No, INV NO, Document No,
-  Tax Invoice No). NOT "Party Invoice No", shipper commercial invoice numbers, IRN, Ack No, job or customer numbers.
-- invoice_date: the invoice/document date as printed (not due date, not ack date, not service date).
-- transport_mode: sea, air or road, based on the shipment (vessel, container, B/L => sea; flight, AWB => air).
-- destination_country: country of the port of discharge / final destination, "" if unknown.
-- container_numbers: every shipping container number (4 letters + 7 digits, e.g. MSCU1234567). No seal numbers.
-- mawb_no / hawb_no: ONLY for air shipments (master / house air waybill). "" for sea shipments.
-- master_bl_no / house_bl_no: for sea shipments. Labels vary: MBL, M B/L, Ocean Bill of Lading, B/L / SWB No
-  (master); HBL, H B/L, House Bill of Lading, BL No (house). A label like "H B/L No./HAWB No." holds the house
-  document; decide B/L vs AWB from the transport mode. If only one BL number exists and it is not clearly
-  master, put it in house_bl_no.
-- gross_weight / chargeable_weight: total shipment weight with unit as printed (e.g. "10669 KG"), "" if absent.
-- exchange_rates: every foreign-currency -> INR rate printed on the invoice (one entry per currency, skip INR).
-- subtotal_before_tax: total of all charges before GST/tax. total_invoice_amount: final amount payable incl. tax.
-  Use null if not printed.
-
-LINE ITEM RULES
-- One entry per chargeable service line in the charges table(s), across all pages.
-- Do NOT include: sub-totals, GST/CGST/SGST/IGST/tax lines, round-off, grand totals, brought-forward/carry-forward
-  rows, HSN/SAC tax summaries or tax-slab breakdown tables.
-- If the same charges are listed twice (e.g. a summary table and a detailed breakdown or attachment page),
-  include each charge only once.
-- description: the full charge text including any sub-description printed under it
-  (e.g. a row "OTHER CHARGES" with "THC" printed below it => "OTHER CHARGES THC").
-- amount_inr: the charge amount in INR EXCLUDING GST (taxable value + any non-taxable value). For foreign-currency
-  charges use the INR amount printed on the invoice (after exchange-rate conversion). Copy numbers exactly.
-- category: pick the ONE category whose MEANING matches the charge, even when the wording differs.
-  When a row has a generic title like "OTHER CHARGES" plus a specific sub-description, classify by the
-  sub-description. Use "Other Charges" only when nothing else fits.
-
-CATEGORIES (meaning and common aliases):
-{glossary_text()}
-
-Use "" for any text field that is not present on the invoice. Never invent values."""
-
-CONTAINER_RE = re.compile(r"\b([A-Z]{3}[UJZ])\s?(\d{6})\s?(\d)\b")
+BACKENDS = ("layout", "layout+llm", "llm")
 
 
-def _iso6346_valid(owner_cat: str, serial: str, check: str) -> bool:
-    values = {}
-    v = 10
-    for ch in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-        if v % 11 == 0:
-            v += 1
-        values[ch] = v
-        v += 1
-    code = owner_cat + serial
-    total = sum((values[c] if c.isalpha() else int(c)) * (2 ** i) for i, c in enumerate(code))
-    return (total % 11) % 10 == int(check)
+def _exrate_from_text(all_text: str) -> float | None:
+    for m in re.finditer(r"1\s*(USD|EUR|GBP)\s*=\s*(?:INR|Rs\.?)?\s*(\d{2,3}\.\d{1,4})", all_text, re.I):
+        v = parse_number(m.group(2))
+        if v and 30 < v < 200:
+            return v
+    for m in re.finditer(r"@\s*(\d{2,3}\.\d{2,4})\b", all_text):
+        v = parse_number(m.group(1))
+        if v and 30 < v < 200:
+            return v
+    return None
 
 
-def find_containers(text: str) -> list[str]:
-    found = []
-    for m in CONTAINER_RE.finditer(text):
-        if _iso6346_valid(m.group(1), m.group(2), m.group(3)):
-            cn = "".join(m.groups())
-            if cn not in found:
-                found.append(cn)
-    return found
-
-
-def lexicon_categories(description: str) -> list[str]:
-    hits = []
-    for name, spec in CHARGE_CATEGORIES.items():
-        if any(re.search(p, description, re.IGNORECASE) for p in spec["patterns"]):
-            hits.append(name)
-    return hits
-
-
-def _amount_variants(amount: float) -> set[str]:
-    neg = amount < 0
-    amount = abs(round(amount, 2))
-    whole, frac = f"{amount:.2f}".split(".")
-    western = f"{int(whole):,}"
-    if len(whole) > 3:
-        head, tail = whole[:-3], whole[-3:]
-        head = ",".join(re.findall(r"\d{1,2}", head[::-1]))[::-1]
-        indian = f"{head},{tail}"
-    else:
-        indian = whole
-    variants = {f"{western}.{frac}", f"{indian}.{frac}", f"{whole}.{frac}"}
-    if frac == "00":
-        variants |= {western, indian, whole}
-    if frac.endswith("0"):
-        variants |= {f"{western}.{frac[0]}", f"{indian}.{frac[0]}", f"{whole}.{frac[0]}"}
-    return {("-" + v if neg else v) for v in variants}
-
-
-def amount_in_text(amount: float, text: str) -> bool:
-    for v in _amount_variants(amount):
-        if re.search(r"(?<![\d,.])" + re.escape(v) + r"(?![\d]|,\d)", text):
-            return True
-    return False
-
-
-DATE_FORMATS = [
-    "%d-%m-%Y", "%d/%m/%Y", "%d.%m.%Y", "%d-%b-%Y", "%d-%b-%y", "%d %b %Y", "%d %B %Y",
-    "%d-%B-%Y", "%Y-%m-%d", "%d/%m/%y", "%d-%m-%y", "%b %d, %Y", "%d %b %y",
-]
-
-
-def normalize_date(raw: str) -> str:
-    s = re.sub(r"\s+", " ", raw.strip().replace(",", ", ")).replace(" ,", ",")
-    s = re.sub(r",\s+", ", ", s)
-    for fmt in DATE_FORMATS:
-        try:
-            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
-        except ValueError:
-            continue
-    return raw.strip()
-
-
-def call_llm(document_text: str, model: str) -> dict:
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"INVOICE TEXT:\n\n{document_text}\n\nReturn the JSON now."},
-    ]
-    last_err = None
-    for attempt in range(2):
-        resp = ollama.chat(
-            model=model,
-            messages=messages,
-            format=LLM_JSON_SCHEMA,
-            think=False,
-            options={"temperature": 0, "seed": 7 + attempt, "num_ctx": 32768, "num_predict": 8192},
-            keep_alive="15m",
-        )
-        try:
-            return json.loads(resp["message"]["content"])
-        except json.JSONDecodeError as exc:
-            last_err = exc
-    raise RuntimeError(f"LLM returned invalid JSON twice: {last_err}")
-
-
-def _clean(s) -> str:
-    return re.sub(r"\s+", " ", str(s or "")).strip()
-
-
-def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = False) -> tuple[dict, dict]:
-    """Returns (fields, audit). `fields` has exactly OUTPUT_FIELDS; missing values are ""."""
-    t0 = time.time()
-    pages = load_pages(path, force_ocr=force_ocr)
-    doc_text = pages_to_prompt_text(pages)
-    evidence = pages_to_raw_text(pages) + "\n" + doc_text
-    t_ingest = time.time() - t0
-
-    raw = call_llm(doc_text, model)
-    t_llm = time.time() - t0 - t_ingest
-
-    mode = raw.get("transport_mode", "unknown")
+def extract_layout(pages: list[Page], llm_model: str | None = None) -> tuple[dict, dict]:
+    pages_rows = [(p.number, build_rows(p.words)) for p in pages if p.words]
+    if not pages_rows:
+        raise RuntimeError("no word boxes on any page (the layout backend needs an OCR engine with boxes)")
+    all_text = "\n".join(reading_order_text(rows) for _, rows in pages_rows)
+    cands = hdr.collect_candidates(pages_rows)
+    mode = hdr.transport_mode(all_text, cands)
     fields = {k: "" for k in OUTPUT_FIELDS}
-    fields["Invoice No"] = _clean(raw.get("invoice_no"))
-    fields["Invoice Date"] = normalize_date(_clean(raw.get("invoice_date"))) if raw.get("invoice_date") else ""
-    fields["Vendor Name"] = _clean(raw.get("vendor_name"))
+    conf: dict[str, float] = {}
+    basis: dict[str, str] = {}
 
-    containers = [c.replace(" ", "").upper() for c in raw.get("container_numbers") or []]
-    containers = [c for c in containers if CONTAINER_RE.fullmatch(c)]
-    for c in find_containers(evidence):
-        if c not in containers:
-            containers.append(c)
-    fields["Container Number"] = ", ".join(containers)
+    def put(field: str, cand):
+        if cand is not None and cand.value not in (None, ""):
+            fields[field], conf[field], basis[field] = cand.value, round(cand.conf, 3), cand.basis
 
-    if mode != "sea":
-        fields["MAWB No"] = _clean(raw.get("mawb_no"))
-        fields["HAWB No"] = _clean(raw.get("hawb_no"))
-    fields["Bill of Lading / HBL"] = _clean(raw.get("house_bl_no")) or _clean(raw.get("master_bl_no"))
-    fields["Weight"] = _clean(raw.get("gross_weight")) or _clean(raw.get("chargeable_weight"))
+    put("Invoice No", hdr.best(cands, "invoice_no"))
+    put("Invoice Date", hdr.best(cands, "invoice_date") or hdr.fallback_date(pages_rows))
+    put("Vendor Name", hdr.vendor_name(pages_rows))
+    put("Container Number", hdr.containers(all_text))
+    put("MAWB No", hdr.best(cands, "mawb") or hdr.best(cands, "awb"))
+    put("HAWB No", hdr.best(cands, "hawb"))
+    put("Bill of Lading / HBL", hdr.best(cands, "hbl") or hdr.best(cands, "bl") or hdr.best(cands, "mbl"))
+    put("Weight", hdr.best(cands, "gross_weight"))
 
-    rates = []
-    for r in raw.get("exchange_rates") or []:
-        cur = _clean(r.get("currency")).upper()
-        rate = r.get("rate")
-        if cur and cur != "INR" and isinstance(rate, (int, float)) and rate > 0 and rate != 1:
-            entry = f"{cur} {rate:g}"
-            if entry not in rates:
-                rates.append(entry)
-    fields["Ex Rate"] = ", ".join(rates)
+    lines, tinfo = tables.extract_lines(pages_rows)
+    fx_votes = Counter(round(l.exrate, 4) for l in lines if l.exrate and 30 < l.exrate < 200)
+    if fx_votes:
+        fields["Ex Rate"], conf["Ex Rate"], basis["Ex Rate"] = fx_votes.most_common(1)[0][0], 0.9, "table"
+    else:
+        put("Ex Rate", hdr.best(cands, "ex_rate"))
+        if not fields["Ex Rate"]:
+            v = _exrate_from_text(all_text)
+            if v:
+                fields["Ex Rate"], conf["Ex Rate"], basis["Ex Rate"] = v, 0.7, "inline-pattern"
 
-    totals: dict[str, float] = {}
-    audit_items = []
-    for item in raw.get("line_items") or []:
-        desc = _clean(item.get("description"))
-        amount = item.get("amount_inr")
-        if not desc or not isinstance(amount, (int, float)):
+    items = []
+    for l in lines:
+        if l.amount_inr is None:
             continue
-        llm_cat = item.get("category") if item.get("category") in CHARGE_FIELDS else "Other Charges"
-        lex = lexicon_categories(desc)
-        category, basis = llm_cat, "llm"
-        if llm_cat in FALLBACK_BUCKETS and len(lex) == 1 and lex[0] not in FALLBACK_BUCKETS:
-            category, basis = lex[0], "lexicon-override"
-        elif lex and llm_cat in lex:
-            basis = "llm+lexicon"
-        verified = amount_in_text(amount, evidence)
-        totals[category] = round(totals.get(category, 0.0) + amount, 2)
-        audit_items.append({
-            "description": desc,
-            "amount_inr": amount,
-            "category": category,
-            "category_basis": basis,
-            "llm_category": llm_cat,
-            "lexicon_matches": lex,
-            "amount_found_in_document": verified,
-        })
+        cat, c_conf, c_basis = classify_charge(l.description, mode)
+        items.append({"description": l.description, "amount_inr": l.amount_inr, "category": cat,
+                      "category_basis": c_basis, "category_conf": c_conf, "amount_conf": l.conf,
+                      "arithmetic_checks": l.checks, "currency": l.currency, "page": l.page})
+    if llm_model:
+        todo = [i for i, it in enumerate(items) if it["category_basis"] == "default"]
+        try:
+            cats = llm_mod.classify_lines([items[i]["description"] for i in todo], mode, llm_model)
+        except Exception as exc:  # LLM unavailable: keep lexicon result, say so
+            cats = None
+            tinfo["llm_error"] = str(exc)[:200]
+        for i, c in zip(todo, cats or []):
+            items[i]["category"], items[i]["category_basis"], items[i]["category_conf"] = c, "llm", 0.8
 
-    for cat, total in totals.items():
-        fields[cat] = total
-
-    items_sum = round(sum(i["amount_inr"] for i in audit_items), 2)
-    subtotal = raw.get("subtotal_before_tax")
-    reconciled = None
-    if isinstance(subtotal, (int, float)):
-        reconciled = abs(items_sum - subtotal) <= RECONCILE_TOLERANCE_INR
+    items_sum = round(sum(i["amount_inr"] for i in items), 2)
+    subtotal = tables.printed_subtotal(pages_rows)
+    reconciled = None if subtotal is None else abs(items_sum - subtotal) <= RECONCILE_TOLERANCE_INR
+    rec_factor = 1.0 if reconciled else (0.85 if reconciled is None else 0.6)
+    totals: dict[str, float] = {}
+    for it in items:
+        c = it["category"]
+        totals[c] = round(totals.get(c, 0.0) + it["amount_inr"], 2)
+        line_conf = it["amount_conf"] * it["category_conf"] * rec_factor
+        conf[c] = round(min(conf.get(c, 1.0), line_conf), 3)
+        basis[c] = "table"
+    fields.update(totals)
 
     warnings = []
     if reconciled is False:
-        warnings.append(f"Line items sum {items_sum:,.2f} != invoice subtotal {subtotal:,.2f}")
-    unverified = [i["description"] for i in audit_items if not i["amount_found_in_document"]]
-    if unverified:
-        warnings.append("Amounts not found verbatim in document: " + "; ".join(unverified))
-    disagreements = [i["description"] for i in audit_items
-                     if i["lexicon_matches"] and i["category"] not in i["lexicon_matches"]]
-    if disagreements:
-        warnings.append("LLM category differs from synonym lexicon (review): " + "; ".join(disagreements))
-    for key in ("Invoice No", "Vendor Name"):
-        if fields[key] and fields[key].replace(" ", "").lower() not in re.sub(r"\s+", "", evidence).lower():
-            warnings.append(f"{key} '{fields[key]}' not found verbatim in document")
-
-    audit = {
-        "file": path,
-        "model": model,
-        "pages": [{"page": p.number, "source": p.source, "chars": len(p.text), "notes": p.notes} for p in pages],
-        "transport_mode": mode,
-        "destination_country": _clean(raw.get("destination_country")),
-        "master_bl_no": _clean(raw.get("master_bl_no")),
-        "house_bl_no": _clean(raw.get("house_bl_no")),
-        "line_items": audit_items,
-        "line_items_sum_inr": items_sum,
-        "subtotal_before_tax": subtotal,
-        "total_invoice_amount": raw.get("total_invoice_amount"),
-        "subtotal_reconciled": reconciled,
-        "needs_review": bool(warnings),
-        "warnings": warnings,
-        "timing_sec": {"ingest": round(t_ingest, 2), "llm": round(t_llm, 2)},
-    }
+        warnings.append(f"Line items sum {items_sum:,.2f} != printed subtotal {subtotal:,.2f}")
+    if tinfo["unparsed_rows"]:
+        warnings.append(f"{tinfo['unparsed_rows']} table row(s) could not be parsed")
+    low = [f for f, c in conf.items() if c < 0.6]
+    if low:
+        warnings.append("Low confidence: " + ", ".join(low))
+    audit = {"transport_mode": mode, "field_confidence": conf, "field_basis": basis, "line_items": items,
+             "line_items_sum_inr": items_sum, "subtotal_before_tax": subtotal, "subtotal_reconciled": reconciled,
+             "tables": tinfo, "warnings": warnings, "needs_review": bool(warnings)}
     return fields, audit
+
+
+def extract_llm(pages: list[Page], model: str) -> tuple[dict, dict]:
+    """The research.md path: Docling/OCR text -> LLM JSON -> deterministic checks."""
+    doc_text = pages_to_prompt_text(pages)
+    raw, raw_valid = llm_mod.call_llm(doc_text, model)
+    mode = raw.get("transport_mode", "unknown")
+    clean = lambda s: re.sub(r"\s+", " ", str(s or "")).strip()
+    fields = {k: "" for k in OUTPUT_FIELDS}
+    fields["Invoice No"] = clean(raw.get("invoice_no"))
+    fields["Invoice Date"] = parse_date(clean(raw.get("invoice_date"))) or "" if raw.get("invoice_date") else ""
+    fields["Vendor Name"] = clean(raw.get("vendor_name"))
+    conts = [c for c in (clean(x).replace(" ", "").upper() for x in raw.get("container_numbers") or []) if find_containers(c)]
+    for c in find_containers(doc_text):
+        if c not in conts:
+            conts.append(c)
+    fields["Container Number"] = ", ".join(conts)
+    if mode != "sea":
+        fields["MAWB No"] = normalize_mawb(clean(raw.get("mawb_no"))) or clean(raw.get("mawb_no"))
+        fields["HAWB No"] = clean(raw.get("hawb_no"))
+    fields["Bill of Lading / HBL"] = clean(raw.get("house_bl_no")) or clean(raw.get("master_bl_no"))
+    w = parse_number(re.sub(r"[^\d.,]", "", clean(raw.get("gross_weight")) or clean(raw.get("chargeable_weight"))) or "")
+    fields["Weight"] = w if w else ""
+    rates = [r.get("rate") for r in raw.get("exchange_rates") or [] if isinstance(r.get("rate"), (int, float)) and r.get("rate") > 1]
+    fields["Ex Rate"] = rates[0] if rates else ""
+    items = []
+    for it in raw.get("line_items") or []:
+        if isinstance(it.get("amount_inr"), (int, float)) and clean(it.get("description")):
+            cat = it.get("category") if it.get("category") in CHARGE_FIELDS else "Other Charges"
+            items.append({"description": clean(it.get("description")), "amount_inr": it["amount_inr"], "category": cat})
+            fields[cat] = round((fields[cat] or 0) + it["amount_inr"], 2)
+    audit = {"transport_mode": mode, "llm_raw_valid_json": raw_valid, "line_items": items,
+             "field_confidence": {}, "warnings": [], "needs_review": False}
+    return fields, audit
+
+
+HEADER_OUT = ["Invoice No", "Invoice Date", "Container Number", "MAWB No", "HAWB No", "Vendor Name",
+              "Bill of Lading / HBL", "Weight"]
+
+
+def _vote_key(field: str, v) -> str:
+    if field == "Vendor Name":
+        return re.sub(r"[^a-z0-9]", "", str(v).lower())
+    if field == "Weight":
+        return f"{float(v):.3f}" if isinstance(v, (int, float)) else str(v)
+    return re.sub(r"[^A-Z0-9]", "", str(v).upper())
+
+
+def table_score(audit: dict) -> float:
+    """Verification evidence for a reading's charges table: reconciliation with the printed subtotal and
+    line items whose amount is confirmed by >= 2 independent arithmetic paths."""
+    items = audit.get("line_items") or []
+    verified = sum(len(it.get("arithmetic_checks") or []) >= 2 for it in items)
+    return 10.0 * bool(audit.get("subtotal_reconciled")) + verified + 0.1 * len(items)
+
+
+def merge_readings(results: dict[str, tuple[dict, dict]]) -> tuple[dict, dict]:
+    """Combine OCR readings: charges from the best-verified table, header fields by confidence-weighted vote,
+    containers as the union of check-digit-valid numbers."""
+    names = list(results)
+    best = max(names, key=lambda n: (table_score(results[n][1]), -names.index(n)))
+    fields = {k: "" for k in OUTPUT_FIELDS}
+    bf, ba = results[best]
+    fields["Ex Rate"] = bf.get("Ex Rate", "")
+    conf = {k: v for k, v in ba["field_confidence"].items() if k == "Ex Rate"}
+    basis = {k: f"{best}:{v}" for k, v in ba["field_basis"].items() if k in conf}
+    # classify each chosen line with the best-read description of the same amount in any reading
+    # (PP-OCRv4 drops inter-word spaces, which defeats the lexicon)
+    rank = {"lexicon": 3, "lexicon-paren": 2, "freight-mode": 1, "default": 0}
+    items = []
+    for it in ba.get("line_items") or []:
+        alts = [it] + [o for n in names if n != best for o in results[n][1].get("line_items") or []
+                       if abs(o["amount_inr"] - it["amount_inr"]) <= 0.01]
+        pick = max(alts, key=lambda o: (rank.get(o["category_basis"], 0), o["description"].count(" ")))
+        items.append({**it, "description": pick["description"], "category": pick["category"],
+                      "category_basis": pick["category_basis"], "category_conf": pick["category_conf"]})
+    rec = ba.get("subtotal_reconciled")
+    rec_factor = 1.0 if rec else (0.85 if rec is None else 0.6)
+    for it in items:
+        c = it["category"]
+        fields[c] = round((fields[c] or 0.0) + it["amount_inr"], 2)
+        conf[c] = round(min(conf.get(c, 1.0), it["amount_conf"] * it["category_conf"] * rec_factor), 3)
+        basis[c] = f"{best}:table"
+    votes_log = {}
+    for f in HEADER_OUT:
+        groups: dict[str, list] = {}
+        for n in names:
+            v = results[n][0].get(f, "")
+            if v in ("", None):
+                continue
+            c = results[n][1]["field_confidence"].get(f, 0.5)
+            groups.setdefault(_vote_key(f, v), []).append((c, n, v))
+        if f == "Container Number":
+            seen = []
+            for n in names:
+                for c in str(results[n][0].get(f, "") or "").split(","):
+                    c = c.strip()
+                    if c and c not in seen:
+                        seen.append(c)
+            if seen:
+                fields[f], conf[f], basis[f] = ", ".join(seen), 0.95, "union-iso6346"
+            continue
+        if not groups:
+            continue
+        key, members = max(groups.items(), key=lambda kv: (sum(c for c, _, _ in kv[1]), max(c for c, _, _ in kv[1])))
+        c, n, v = max(members)
+        fields[f] = v
+        conf[f] = round(min(0.99, c + 0.1 * (len(members) - 1)), 3)
+        basis[f] = f"vote {len(members)}/{len(names)}"
+        votes_log[f] = {k: [m[1] for m in ms] for k, ms in groups.items()}
+    audit = dict(ba)
+    audit["line_items"] = items
+    audit.update({"field_confidence": conf, "field_basis": basis, "ensemble": {
+        "readings": names, "table_from": best,
+        "table_scores": {n: table_score(results[n][1]) for n in names}, "header_votes": votes_log}})
+    return fields, audit
+
+
+def extract_invoice(path: str, backend: str = "layout", ocr: str = "tesseract", model: str = llm_mod.DEFAULT_MODEL,
+                    force_ocr: bool = False) -> tuple[dict, dict]:
+    """Returns (fields, audit). `fields` has exactly the 31 output keys; absent values are "".
+    ocr: tesseract | tesseract-raw | rapidocr | hunyuan | ensemble (tesseract + tesseract-raw + rapidocr)."""
+    if backend not in BACKENDS:
+        raise ValueError(f"backend must be one of {BACKENDS}")
+    t0 = time.time()
+    readings = ENSEMBLE if ocr == "ensemble" else [ocr]
+    per = load_document_readings(path, readings, force_ocr=force_ocr)
+    if len(readings) > 1 and is_digital(per[readings[0]]):
+        per = {readings[0]: per[readings[0]]}          # exact text layer: one reading is enough
+    t_ingest = time.time() - t0
+    llm_model = model if backend == "layout+llm" else None
+    if backend == "llm":
+        pages = per[readings[0]]
+        attach_docling_markdown(path, pages)
+        fields, audit = extract_llm(pages, model)
+    elif len(per) == 1:
+        pages = next(iter(per.values()))
+        fields, audit = extract_layout(pages, llm_model=llm_model)
+    else:
+        results = {}
+        for name, pages in per.items():
+            try:
+                results[name] = extract_layout(pages, llm_model=None)
+            except RuntimeError:
+                continue
+        if ocr == "ensemble" and not any(r[1].get("subtotal_reconciled") for r in results.values()):
+            # cascade: the slower PP-OCRv4 reading only when no Tesseract reading reconciles its table
+            t1 = time.time()
+            more = load_document_readings(path, ENSEMBLE_FALLBACK, force_ocr=force_ocr)
+            t_ingest += time.time() - t1
+            for name, pages in more.items():
+                per[name] = pages
+                try:
+                    results[name] = extract_layout(pages, llm_model=None)
+                except RuntimeError:
+                    continue
+        if not results:
+            raise RuntimeError("no OCR reading produced word boxes")
+        fields, audit = merge_readings(results)
+        if llm_model:   # classify unplaced lines once, on the chosen table
+            pages = per[audit["ensemble"]["table_from"]]
+            fields2, audit2 = extract_layout(pages, llm_model=llm_model)
+            for k in CHARGE_FIELDS:
+                fields[k] = fields2.get(k, "")
+            audit["line_items"] = audit2["line_items"]
+        pages = per[audit["ensemble"]["table_from"]]
+    audit.update({
+        "file": path, "backend": backend, "ocr": ocr,
+        "pages": [{"page": p.number, "source": p.source, "words": len(p.words), **p.notes} for p in pages],
+        "timing_sec": {"ingest": round(t_ingest, 2), "extract": round(time.time() - t0 - t_ingest, 2)},
+    })
+    return finalize(fields), audit

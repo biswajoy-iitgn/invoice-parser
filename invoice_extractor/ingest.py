@@ -1,165 +1,132 @@
-"""Turn a document (PDF or image) into page text for the extraction LLM.
+"""Document -> pages of word boxes (+ text for the LLM backend).
 
-Follows the two-tier blueprint from research.md:
-
-  Tier 1  IBM Docling (RT-DETR layout + TableFormer), reading the PDF's own text
-          cells, exported as markdown with 2D tables.
-  Tier 2  HunyuanOCR Q8_0 (llama.cpp, Metal) for pages without a text layer
-          (scans / photos) and for image inputs.
-
-When Docling's table structure degrades on a digital page (fewer than 3 columns,
-or several amounts merged into one cell) the page's layout-preserving text layer
-is appended, because it carries the exact printed digits; OCR of a rendered
-digital page can corrupt Indian digit grouping (8,00,806.36 -> 8,007.80636).
-
-`Page.raw_text` always holds the most literal text available (PDF text layer, or
-the OCR output) and is used to verify that extracted amounts really exist.
+  * Digital PDF page (has a text layer): exact words and boxes from PyMuPDF. No OCR, so no
+    OCR error can enter; this is also what makes digital PDFs the 'oracle OCR' stratum.
+  * Raster page (image file, or image-only PDF page): the page image at native resolution is
+    OCR'd by the selected engine (see ocr.py).
+  * For the LLM backend, `Page.text` is reading-order text rebuilt from the word boxes. When the
+    research.md stack is installed, Docling markdown (digital pages) or HunyuanOCR markdown
+    (raster pages) replaces it, as in the two-tier blueprint.
 """
 
 from __future__ import annotations
 
 import os
-import re
-import shutil
-import subprocess
 import tempfile
 from dataclasses import dataclass, field
-from pathlib import Path
 
-import fitz
+import cv2
+import numpy as np
+import pymupdf as fitz
+
+from . import ocr as ocr_mod
+from .layout import Word, build_rows, reading_order_text
 
 MIN_TEXT_CHARS = 80
-RENDER_DPI = 200
+RENDER_DPI = 300
 IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp"}
-
-HUNYUAN_MODEL = Path(os.environ.get("HUNYUAN_GGUF", Path.home() / "models/HunyuanOCR-GGUF/HunyuanOCR-Q8_0.gguf"))
-HUNYUAN_MMPROJ = Path(os.environ.get("HUNYUAN_MMPROJ", Path.home() / "models/HunyuanOCR-GGUF/mmproj-HunyuanOCR-Q8_0.gguf"))
-# Vendor document-parsing prompt; the model was trained on these exact strings.
-HUNYUAN_PARSE_PROMPT = (
-    "提取文档图片中正文的所有信息用markdown格式表示，其中页眉、页脚部分忽略，"
-    "表格用html格式表达，文档中公式用latex格式表示，按照阅读顺序组织进行解析。"
-)
-HUNYUAN_TOKEN_JUNK = re.compile(r"<｜hy_[^｜]*｜>(\(\d+,\d+\),\(\d+,\d+\))?")
-AMOUNT_RE = re.compile(r"\d[\d,]*\.\d{2}\b")
 
 
 @dataclass
 class Page:
     number: int
-    text: str          # what the LLM reads
-    raw_text: str      # most literal text, used for verification
-    source: str        # docling / docling+textlayer / hunyuan-ocr
-    notes: list[str] = field(default_factory=list)
+    width: float
+    height: float
+    words: list[Word]
+    source: str                      # pdf-text | tesseract | rapidocr | hunyuan
+    text: str = ""                   # what the LLM backend reads
+    notes: dict = field(default_factory=dict)
 
 
-def _alnum_count(text: str) -> int:
+def _alnum(text: str) -> int:
     return sum(ch.isalnum() for ch in text)
 
 
-def hunyuan_available() -> bool:
-    return bool(shutil.which("llama-mtmd-cli")) and HUNYUAN_MODEL.exists() and HUNYUAN_MMPROJ.exists()
+def _pdf_page_image(doc, page) -> np.ndarray:
+    """Native-resolution image when the page is a single full-page raster, else a 300 DPI render."""
+    imgs = page.get_images(full=True)
+    if len(imgs) == 1:
+        info = doc.extract_image(imgs[0][0])
+        arr = cv2.imdecode(np.frombuffer(info["image"], np.uint8), cv2.IMREAD_COLOR)
+        if arr is not None and arr.shape[1] >= 800:
+            return arr
+    pix = page.get_pixmap(dpi=RENDER_DPI)
+    arr = np.frombuffer(pix.samples, np.uint8).reshape(pix.height, pix.width, pix.n)
+    return cv2.cvtColor(arr, cv2.COLOR_RGB2BGR if pix.n == 3 else cv2.COLOR_RGBA2BGR)
 
 
-def hunyuan_ocr(png_path: str, timeout: float = 600.0) -> str:
-    if not hunyuan_available():
-        raise RuntimeError(f"HunyuanOCR unavailable (need llama-mtmd-cli and {HUNYUAN_MODEL})")
-    proc = subprocess.run(
-        ["llama-mtmd-cli", "-m", str(HUNYUAN_MODEL), "--mmproj", str(HUNYUAN_MMPROJ),
-         "--image", png_path, "-p", HUNYUAN_PARSE_PROMPT, "-ngl", "99", "-c", "8192",
-         "--temp", "0", "--repeat-penalty", "1.08", "-n", "4096", "--no-warmup"],
-        capture_output=True, text=True, timeout=timeout,
-    )
-    if proc.returncode != 0 or not proc.stdout.strip():
-        raise RuntimeError(f"llama-mtmd-cli failed: {(proc.stderr or '')[-400:]}")
-    return HUNYUAN_TOKEN_JUNK.sub("", proc.stdout).strip()
+def _ocr_pages(number: int, img: np.ndarray, readings: list[str]) -> dict[str, Page]:
+    if readings == ["hunyuan"]:
+        with tempfile.TemporaryDirectory() as tmp:
+            png = os.path.join(tmp, f"p{number}.png")
+            cv2.imwrite(png, img)
+            text = ocr_mod.hunyuan_text(png)
+        return {"hunyuan": Page(number, img.shape[1], img.shape[0], [], "hunyuan", text)}
+    out = {}
+    for name, (words, w, h, meta) in ocr_mod.ocr_readings(img, readings).items():
+        out[name] = Page(number, w, h, words, name, reading_order_text(build_rows(words)), meta)
+    return out
 
 
-_converter = None
+def load_document_readings(path: str, readings: list[str], force_ocr: bool = False) -> dict[str, list[Page]]:
+    """One page list per OCR reading. Digital pages carry their exact text layer in every reading."""
+    ext = os.path.splitext(path)[1].lower()
+    per: dict[str, list[Page]] = {r: [] for r in readings}
+    if ext in IMAGE_EXTS:
+        img = cv2.imread(path, cv2.IMREAD_COLOR)
+        if img is None:
+            raise ValueError(f"cannot read image {path}")
+        for r, pg in _ocr_pages(1, img, readings).items():
+            per[r].append(pg)
+        return per
+    with fitz.open(path) as doc:
+        for i, page in enumerate(doc):
+            raw = page.get_text("text")
+            if not force_ocr and _alnum(raw) >= MIN_TEXT_CHARS:
+                words = [Word(w[4], w[0], w[1], w[2], w[3], 1.0) for w in page.get_text("words")]
+                pg = Page(i + 1, page.rect.width, page.rect.height, words, "pdf-text",
+                          reading_order_text(build_rows(words)))
+                for r in readings:
+                    per[r].append(pg)
+            else:
+                for r, pg in _ocr_pages(i + 1, _pdf_page_image(doc, page), readings).items():
+                    per[r].append(pg)
+    return per
 
 
-def _docling_converter():
-    global _converter
-    if _converter is None:
+def is_digital(pages: list[Page]) -> bool:
+    return all(p.source == "pdf-text" for p in pages)
+
+
+def load_document(path: str, ocr: str = "tesseract", force_ocr: bool = False) -> list[Page]:
+    return load_document_readings(path, [ocr], force_ocr)[ocr]
+
+
+def attach_docling_markdown(path: str, pages: list[Page]) -> None:
+    """Optional (LLM backend): replace text of digital pages with Docling markdown with 2D tables."""
+    try:
         from docling.datamodel.accelerator_options import AcceleratorDevice, AcceleratorOptions
         from docling.datamodel.base_models import InputFormat
         from docling.datamodel.pipeline_options import PdfPipelineOptions, TableFormerMode
         from docling.document_converter import DocumentConverter, PdfFormatOption
-
-        # CPU: the RT-DETR layout model builds float64 tensors, which MPS rejects.
-        opts = PdfPipelineOptions(
-            do_ocr=False,
-            do_table_structure=True,
-            accelerator_options=AcceleratorOptions(device=AcceleratorDevice.CPU),
-        )
-        opts.table_structure_options.mode = TableFormerMode.ACCURATE
-        _converter = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)})
-    return _converter
-
-
-def _degraded_tables(doc, page_no: int) -> list[str]:
-    issues = []
-    for i, table in enumerate(doc.tables):
-        if not table.prov or table.prov[0].page_no != page_no:
-            continue
-        df = table.export_to_dataframe(doc=doc)
-        if df.shape[1] < 3 and df.shape[0] >= 2:
-            issues.append(f"table {i}: collapsed to {df.shape[1]} columns")
-            continue
-        merged = sum(len(AMOUNT_RE.findall(str(v))) >= 2 for v in df.to_numpy().ravel())
-        if merged:
-            issues.append(f"table {i}: {merged} cells with merged amounts")
-    return issues
-
-
-def _ocr_page(page_number: int, png: str) -> Page:
-    text = hunyuan_ocr(png)
-    return Page(page_number, text, text, "hunyuan-ocr")
-
-
-def load_pages(path: str, force_ocr: bool = False) -> list[Page]:
-    ext = os.path.splitext(path)[1].lower()
-    if ext in IMAGE_EXTS:
-        return [_ocr_page(1, path)]
-
-    with fitz.open(path) as pdf:
-        layer = [p.get_text("text", sort=True) for p in pdf]
-        scanned = [force_ocr or _alnum_count(t) < MIN_TEXT_CHARS for t in layer]
-        ocr_pages: dict[int, Page] = {}
-        if any(scanned):
-            with tempfile.TemporaryDirectory() as tmp:
-                for i, is_scan in enumerate(scanned):
-                    if is_scan:
-                        png = os.path.join(tmp, f"p{i + 1}.png")
-                        pdf[i].get_pixmap(dpi=RENDER_DPI).save(png)
-                        ocr_pages[i + 1] = _ocr_page(i + 1, png)
-
-    if all(scanned):
-        return [ocr_pages[n] for n in sorted(ocr_pages)]
-
-    doc = _docling_converter().convert(path).document
-    pages = []
-    for n in range(1, len(layer) + 1):
-        if n in ocr_pages:
-            pages.append(ocr_pages[n])
-            continue
-        md = doc.export_to_markdown(page_no=n).strip()
-        issues = _degraded_tables(doc, n)
-        if issues or _alnum_count(md) < MIN_TEXT_CHARS:
-            text = f"{md}\n\n[Exact PDF text layer of this page]\n{_squeeze(layer[n - 1])}"
-            pages.append(Page(n, text, layer[n - 1], "docling+textlayer", issues or ["docling output too short"]))
-        else:
-            pages.append(Page(n, md, layer[n - 1], "docling"))
-    return pages
-
-
-def _squeeze(text: str) -> str:
-    body = "\n".join(line.rstrip() for line in text.splitlines())
-    return re.sub(r"\n{3,}", "\n\n", body).strip()
+    except ImportError:
+        return
+    opts = PdfPipelineOptions(do_ocr=False, do_table_structure=True,
+                              accelerator_options=AcceleratorOptions(device=AcceleratorDevice.CPU))
+    opts.table_structure_options.mode = TableFormerMode.ACCURATE
+    conv = DocumentConverter(format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)})
+    doc = conv.convert(path).document
+    for p in pages:
+        if p.source == "pdf-text":
+            md = doc.export_to_markdown(page_no=p.number).strip()
+            if _alnum(md) >= MIN_TEXT_CHARS:
+                p.text = f"{md}\n\n[Exact PDF text layer of this page]\n{p.text}"
+                p.notes["docling"] = True
 
 
 def pages_to_prompt_text(pages: list[Page]) -> str:
-    return "\n\n".join(f"===== PAGE {p.number} =====\n{_squeeze(p.text)}" for p in pages)
+    return "\n\n".join(f"===== PAGE {p.number} =====\n{p.text}" for p in pages)
 
 
 def pages_to_raw_text(pages: list[Page]) -> str:
-    return "\n".join(p.raw_text for p in pages)
+    return "\n".join(p.text for p in pages)

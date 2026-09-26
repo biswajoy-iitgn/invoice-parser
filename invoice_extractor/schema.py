@@ -72,7 +72,8 @@ CHARGE_CATEGORIES = {
     "BL Charges": {
         "meaning": "Fee for issuing the Bill of Lading / documentation. "
         "Aliases: B/L fee, BL fees, bill of lading charges, documentation fee, doc fee, SWB fee.",
-        "patterns": [r"\bB/?L\s+(fee|charge)", r"\bBL\s+FEES?\b", r"bill\s+of\s+lading", r"^\s*B/L\b",
+        # dev-set additions (seen wording only): r"\b[HM]B/?L\s+(fee|charge)" for "HBL Fee"
+        "patterns": [r"\bB/?L\s+(fee|charge)", r"\b[HM]B/?L\s+(fee|charge)", r"\bBL\s+FEES?\b", r"bill\s+of\s+lading", r"^\s*B/L\b",
                      r"documentation\s+(fee|charge)", r"\bdoc(s)?\s+fee"],
     },
     "ENS Charges": {
@@ -101,7 +102,8 @@ CHARGE_CATEGORIES = {
     "AMS Charges": {
         "meaning": "US Automated Manifest System (AMS) / ISF security filing for cargo to the USA. "
         "Aliases: AMS fee, AMS security fee, ISF, ACI (Canada). Generic 'security manifest' filing on a USA-bound shipment belongs here.",
-        "patterns": [r"\bAMS\b", r"\bISF\b", r"\bACI\b"],
+        # dev-set addition (seen wording only): r"automated\s+manifest" for "Automated Manifest System Fee"
+        "patterns": [r"\bAMS\b", r"\bISF\b", r"\bACI\b", r"automated\s+manifest"],
     },
     "Handling Charges": {
         "meaning": "Cargo handling other than terminal handling: loading/unloading, labour, handling import/export, "
@@ -112,17 +114,21 @@ CHARGE_CATEGORIES = {
         "meaning": "Inland transport from shipper / ICD to the port of loading BEFORE the main voyage. "
         "Aliases: pre-carriage, inland haulage charges (IHC), carrier haulage origin, carrier charges origin, "
         "origin haulage, linehaul to port, rail/ICD haulage to port.",
-        "patterns": [r"pre[\s-]*carriage", r"inland\s+haulage", r"\bIHC\b", r"origin\s+haulage", r"carrier\s+charges?\s+origin"],
+        # dev-set addition (seen wording only): r"carrier\s+haulage" for "Carrier Haulage - Origin"
+        "patterns": [r"pre[\s-]*carriage", r"inland\s+haulage", r"\bIHC\b", r"origin\s+haulage", r"carrier\s+charges?\s+origin",
+                     r"carrier\s+haulage"],
     },
     "Transportation": {
         "meaning": "Local/domestic trucking not tied to a specific leg above: transportation, local freight, "
         "cartage, trucking, road freight, haulage from port to warehouse, on-carriage.",
-        "patterns": [r"transportation", r"local\s+freigh?t", r"cartage", r"trucking", r"on[\s-]*carriage"],
+        # dev-set addition (seen wording only): r"\btransport\b" for "Road Transport (Factory to CFS)"
+        "patterns": [r"transportation", r"\btransport\b", r"local\s+freigh?t", r"cartage", r"trucking", r"on[\s-]*carriage"],
     },
     "Warehouse Charges Port": {
         "meaning": "Storage / warehouse / CFS / ICD / air-cargo complex charges at the port. "
         "Aliases: warehouse charge (port/CFS/ICD/air cargo), CFS charges, ground rent, storage, demurrage at CFS.",
-        "patterns": [r"warehous\w*\s+(charges?|fees?|rent)", r"\bCFS\b", r"ground\s+rent", r"storage"],
+        # dev-set addition (seen wording only): r"warehousing" for "Port Warehousing"
+        "patterns": [r"warehous\w*\s+(charges?|fees?|rent)", r"warehousing", r"\bCFS\b", r"ground\s+rent", r"storage"],
     },
     "Examination Charges": {
         "meaning": "Customs examination / inspection of cargo. Aliases: examination charges, customs exam, inspection, scanning.",
@@ -161,6 +167,48 @@ CHARGE_CATEGORIES = {
 CHARGE_FIELDS = list(CHARGE_CATEGORIES)
 
 assert set(OUTPUT_FIELDS) == set(HEADER_FIELDS) | set(CHARGE_FIELDS) | {"Ex Rate"}
+
+
+NUMERIC_FIELDS = CHARGE_FIELDS + ["Ex Rate"]
+TEXT_FIELDS = HEADER_FIELDS
+
+# JSON Schema of the final output: all 31 keys, no others; "" means "not on the document".
+OUTPUT_JSON_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": OUTPUT_FIELDS,
+    "properties": {
+        **{f: {"type": "string"} for f in TEXT_FIELDS},
+        **{f: {"anyOf": [{"type": "number"}, {"const": ""}]} for f in NUMERIC_FIELDS},
+        "Invoice Date": {"anyOf": [{"type": "string", "pattern": r"^\d{4}-\d{2}-\d{2}$"}, {"const": ""}]},
+    },
+}
+
+
+def _fmt_weight(v) -> str:
+    if isinstance(v, (int, float)):
+        return ("%.3f" % v).rstrip("0").rstrip(".") + " KG"
+    return str(v or "").strip()
+
+
+def finalize(fields: dict) -> dict:
+    """Coerce to the output contract: exact key set and order, strings for text, numbers or "" otherwise."""
+    out = {}
+    for f in OUTPUT_FIELDS:
+        v = fields.get(f, "")
+        if f in NUMERIC_FIELDS:
+            if isinstance(v, str):
+                v = v.strip()
+                try:
+                    v = float(v.replace(",", "")) if v else ""
+                except ValueError:
+                    v = ""
+            out[f] = "" if v == "" or v is None else round(float(v), 4 if f == "Ex Rate" else 2)
+        elif f == "Weight":
+            out[f] = _fmt_weight(v)
+        else:
+            out[f] = "" if v is None else str(v).strip()
+    return out
 
 
 def glossary_text() -> str:

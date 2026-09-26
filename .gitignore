@@ -5,3 +5,7 @@ __pycache__/
 output/
 bench/
 sample invoices/
+
+# evaluation scratch runs (final results are copied to evaluation/results/)
+evaluation/runs/
+.pytest_cache/

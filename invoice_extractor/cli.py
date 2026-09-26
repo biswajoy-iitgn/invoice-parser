@@ -6,7 +6,8 @@ import json
 import os
 import sys
 
-from .extract import DEFAULT_MODEL, extract_invoice
+from .extract import BACKENDS, extract_invoice
+from .llm import DEFAULT_MODEL
 from .ingest import IMAGE_EXTS
 
 SUPPORTED_EXTS = {".pdf"} | IMAGE_EXTS
@@ -41,7 +42,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     ap.add_argument("inputs", nargs="+", help="PDF/image files or folders")
     ap.add_argument("-o", "--out-dir", default="output", help="where to write JSON (default: ./output)")
-    ap.add_argument("--model", default=DEFAULT_MODEL, help=f"Ollama model for extraction (default: {DEFAULT_MODEL})")
+    ap.add_argument("--backend", default="layout", choices=BACKENDS,
+                    help="layout (default, CPU, grounded) | layout+llm (LLM classifies unplaced charge lines) | llm")
+    ap.add_argument("--ocr", default="ensemble", choices=["ensemble", "tesseract", "tesseract-raw", "rapidocr", "hunyuan"],
+                    help="OCR for raster pages (default: ensemble = Tesseract x2 + PP-OCRv4 with verification-based "
+                         "selection); hunyuan only feeds --backend llm")
+    ap.add_argument("--model", default=DEFAULT_MODEL, help=f"Ollama model for LLM backends (default: {DEFAULT_MODEL})")
     ap.add_argument("--force-ocr", action="store_true", help="OCR every page even when a text layer exists")
     ap.add_argument("--no-audit", action="store_true", help="do not write the *.audit.json sidecar files")
     args = ap.parse_args(argv)
@@ -65,9 +71,10 @@ def main(argv: list[str] | None = None) -> int:
                 audit = {**audit, "file": path, "duplicate_of": cache[digest][1]["file"]}
                 note = "duplicate, reused result"
             else:
-                fields, audit = extract_invoice(path, model=args.model, force_ocr=args.force_ocr)
+                fields, audit = extract_invoice(path, backend=args.backend, ocr=args.ocr, model=args.model,
+                                                force_ocr=args.force_ocr)
                 cache[digest] = (fields, audit)
-                note = f"{audit['timing_sec']['llm']:.1f}s"
+                note = f"{sum(audit['timing_sec'].values()):.1f}s"
         except Exception as exc:
             failures += 1
             print(f"FAIL {name}: {exc}", file=sys.stderr)

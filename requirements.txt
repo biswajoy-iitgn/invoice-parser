@@ -1,3 +1,19 @@
+# core extractor (CPU)
 pymupdf>=1.24
+numpy>=1.26
+opencv-python-headless>=4.9
+rapidocr-onnxruntime>=1.4      # PP-OCRv4 det/rec ONNX weights ship inside the wheel
+onnxruntime>=1.17
+rapidfuzz>=3.0
+jsonschema>=4.0
+# system: tesseract-ocr 5.x with eng data (brew install tesseract / apt install tesseract-ocr)
+# optional: /usr/share/dict/words (macOS built-in; Debian/Ubuntu: apt install wamerican) for OCR spelling repair
+
+# optional LLM paths (research.md stack): --backend llm | layout+llm
 ollama>=0.5
 docling>=2.130
+
+# dataset generation and tests
+playwright>=1.44
+pytest>=8.0
+matplotlib>=3.8
