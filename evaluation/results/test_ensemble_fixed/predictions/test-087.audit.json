@@ -1,0 +1,229 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Sea Freight": 0.772,
+    "Terminal Handling Charges": 0.737,
+    "BL Charges": 0.739,
+    "ENS Charges": 0.728,
+    "Misc": 0.776,
+    "Fuel Charges": 0.584,
+    "Agency Charges": 0.271,
+    "Shipping Bill Charges": 0.768,
+    "Invoice No": 0.941,
+    "Invoice Date": 0.796,
+    "Vendor Name": 0.7,
+    "Bill of Lading / HBL": 0.846,
+    "Weight": 0.981
+  },
+  "field_basis": {
+    "Sea Freight": "tesseract-raw:table",
+    "Terminal Handling Charges": "tesseract-raw:table",
+    "BL Charges": "tesseract-raw:table",
+    "ENS Charges": "tesseract-raw:table",
+    "Misc": "tesseract-raw:table",
+    "Fuel Charges": "tesseract-raw:table",
+    "Agency Charges": "tesseract-raw:table",
+    "Shipping Bill Charges": "tesseract-raw:table",
+    "Invoice No": "vote 1/2",
+    "Invoice Date": "vote 1/2",
+    "Vendor Name": "vote 1/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Freight",
+      "amount_inr": 39852.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.813,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "OTHC",
+      "amount_inr": 13700.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.776,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "amount_inr": 4400.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.778,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ENS Charges",
+      "amount_inr": 3500.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.766,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sundries",
+      "amount_inr": 1300.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS) Clearing kes Fee",
+      "amount_inr": 11390.17,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.615,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "amount_inr": 3350.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.285,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "amount_inr": 1850.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.808,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 79342.17,
+  "subtotal_before_tax": 79342.17,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Fuel Charges, Agency Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract-raw",
+    "table_scores": {
+      "tesseract": 0.6000000000000001,
+      "tesseract-raw": 10.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "T1844036": [
+          "tesseract"
+        ],
+        "C1240464": [
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260204": [
+          "tesseract"
+        ],
+        "20260131": [
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "forwarderspvtltd": [
+          "tesseract"
+        ],
+        "harbourlinefreightforwarderspvtltd": [
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "HFFSE2476357": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "5335.000": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-087.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract-raw",
+      "words": 217,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.61,
+      "upscale": 1.89,
+      "inverted_dark_fraction": 0.004,
+      "reading": "tesseract-raw"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 6.41,
+    "extract": 0.13
+  },
+  "wall_sec": 6.54,
+  "error": null
+}

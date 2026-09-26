@@ -1,0 +1,235 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.874,
+    "Terminal Handling Charges": 0.511,
+    "Other Charges": 0.41,
+    "Misc": 0.941,
+    "Transportation": 0.931,
+    "Fuel Charges": 0.894,
+    "Agency Charges": 0.937,
+    "Shipping Bill Charges": 0.921,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Transportation": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "O/F Charges (FCL)",
+      "amount_inr": 9550.08,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.92,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "OTHC",
+      "amount_inr": 5150.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.538,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ElectronicData InterchangeFee",
+      "amount_inr": 1000.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.82,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sundry Charges",
+      "amount_inr": 2050.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.99,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Transportation Charges",
+      "amount_inr": 13150.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.98,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Fuel Adjustment Charges",
+      "amount_inr": 13823.7,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.941,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 6700.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.986,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "amount_inr": 1350.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.97,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 52773.78,
+  "subtotal_before_tax": 52773.78,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Description ofService",
+          "sac:SAC",
+          "taxable:Taxable Value (INR)",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Terminal Handling Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 6.8,
+      "tesseract-raw": 6.8,
+      "rapidocr": 16.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "CSCFF242529151": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20240430": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "continentalshippingco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "CSCHBL25261860": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-067.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 168,
+      "deskew_deg": 0.16,
+      "noise_sigma": 1.44,
+      "upscale": 1.72,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 16.87,
+    "extract": 0.13
+  },
+  "wall_sec": 17.01,
+  "error": null
+}

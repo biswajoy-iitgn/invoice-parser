@@ -1,0 +1,190 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.7,
+    "Terminal Handling Charges": 0.865,
+    "AMS Charges": 0.885,
+    "Agency Charges": 0.914,
+    "Sea Freight": 0.878,
+    "Other Charges": 0.48,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.922,
+    "Weight": 0.937
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:inline-pattern",
+    "Terminal Handling Charges": "tesseract:table",
+    "AMS Charges": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 1/2",
+    "Weight": "vote 1/2"
+  },
+  "line_items": [
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "amount_inr": 10250.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.911,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AMS Charges (USD 33.00 @",
+      "amount_inr": 2744.94,
+      "category": "AMS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.932,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 1900.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.962,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Ocean Freight (USD 289.76",
+      "amount_inr": 24102.24,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.924,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "amount_inr": 5400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.96,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 44397.18,
+  "subtotal_before_tax": 44397.18,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description of Service",
+          "unknown:",
+          "sac:SAC",
+          "taxable:Taxable Value",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total (INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 15.5,
+      "tesseract-raw": 5.5
+    },
+    "header_votes": {
+      "Invoice No": {
+        "4348312989": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20240830": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "harbourlineforwardingprivatelimited": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "HBL2783821": [
+          "tesseract"
+        ],
+        "HBL2763621": [
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "5984.400": [
+          "tesseract"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-071.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 208,
+      "deskew_deg": 0.76,
+      "noise_sigma": 1.02,
+      "upscale": 1.74,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 7.57,
+    "extract": 0.06
+  },
+  "wall_sec": 7.62,
+  "error": null
+}

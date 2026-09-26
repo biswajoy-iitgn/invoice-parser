@@ -1,0 +1,211 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Airway Bill Charges": 0.868,
+    "Fuel Charges": 0.797,
+    "Other Charges": 0.476,
+    "Air Freight": 0.689,
+    "Invoice No": 0.726,
+    "Invoice Date": 0.55,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.6,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Air Freight": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 1/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Air Waybill Fee",
+      "amount_inr": 3150.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.914,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "amount_inr": 145233.49,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.839,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "amount_inr": 12850.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.963,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Air Cargo Freight",
+      "amount_inr": 455769.5,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.918,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "DO Charges",
+      "amount_inr": 8600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.952,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 625602.99,
+  "subtotal_before_tax": 625602.99,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "sac:SAC/HSN",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Quantity",
+          "fc_amount:Amount(CUR)",
+          "exrate:Ex.Rate",
+          "non_gst:Non GST Value (INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_pct:IGST%",
+          "gst_amt:IGST Amt",
+          "total:Total (INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 15.5,
+      "tesseract-raw": 15.5
+    },
+    "header_votes": {
+      "Invoice No": {
+        "1233429": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250618": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "09876260564": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "HAWB519616": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "lusd832623inr": [
+          "tesseract"
+        ],
+        "ponss": [
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "1979.744": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-043.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 236,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.0,
+      "upscale": 1.1,
+      "inverted_dark_fraction": 0.005,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 2.98,
+    "extract": 0.05
+  },
+  "wall_sec": 3.04,
+  "error": null
+}

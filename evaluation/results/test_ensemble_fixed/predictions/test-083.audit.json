@@ -1,0 +1,184 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.985,
+    "Agency Charges": 0.776,
+    "Sea Freight": 0.775,
+    "Terminal Handling Charges": 0.778,
+    "DAP Charges": 0.777,
+    "Seal Charges": 0.779,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.914
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:label:inline",
+    "Agency Charges": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "DAP Charges": "tesseract:table",
+    "Seal Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Agency Charges",
+      "amount_inr": 1050.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.821,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Ocean Freight",
+      "amount_inr": 282400.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.816,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Agency Fee",
+      "amount_inr": 4850.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "amount_inr": 21500.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.819,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP Destination Charges",
+      "amount_inr": 35815.76,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.818,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Seal Fee",
+      "amount_inr": 600.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.82,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 346215.76,
+  "subtotal_before_tax": 346215.76,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [],
+  "needs_review": false,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.6,
+      "tesseract-raw": 10.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "3383317595": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260227": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "everfastfreightforwardersprivatelimited": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "CMDU557409086": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-083.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 215,
+      "deskew_deg": 0.28,
+      "noise_sigma": 0.42,
+      "upscale": 1.64,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 5.52,
+    "extract": 0.11
+  },
+  "wall_sec": 5.62,
+  "error": null
+}

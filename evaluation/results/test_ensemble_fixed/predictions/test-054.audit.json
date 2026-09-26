@@ -1,0 +1,222 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Transportation": 0.921,
+    "Other Charges": 0.473,
+    "Airway Bill Charges": 0.938,
+    "AMS Charges": 0.812,
+    "Air Freight": 0.73,
+    "Fuel Charges": 0.918,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Transportation": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Airway Bill Charges": "rapidocr:table",
+    "AMS Charges": "rapidocr:table",
+    "Air Freight": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "HAWB No": "vote 3/3",
+    "Vendor Name": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Cartage Charges",
+      "amount_inr": 14050.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.97,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Security Scan",
+      "amount_inr": 750.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.946,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AWB Fee",
+      "amount_inr": 1850.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.987,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Advance Manifest (AMS)",
+      "amount_inr": 3050.0,
+      "category": "AMS Charges",
+      "category_basis": "lexicon-paren",
+      "category_conf": 0.85,
+      "amount_conf": 0.955,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Airline Freight Charges",
+      "amount_inr": 48199.8,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.974,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "MYC/ Fuel Surcharge",
+      "amount_inr": 16103.52,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.966,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 84003.32,
+  "subtotal_before_tax": 84003.32,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Charge Description",
+          "basis:Basis",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount(INR)",
+          "gst_pct:GST%",
+          "total:Total(INR)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 6.6,
+      "tesseract-raw": 6.6,
+      "rapidocr": 16.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "KCMSE242514701": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20241212": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "17629161613": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "HAWB590030": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "konarkcargomoversco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-054.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 154,
+      "deskew_deg": -0.12,
+      "noise_sigma": 1.0,
+      "upscale": 1.67,
+      "inverted_dark_fraction": 0.03,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 24.32,
+    "extract": 0.28
+  },
+  "wall_sec": 24.6,
+  "error": null
+}

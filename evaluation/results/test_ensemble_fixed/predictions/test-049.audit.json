@@ -1,0 +1,215 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.527,
+    "Airway Bill Charges": 0.711,
+    "AMS Charges": 0.308,
+    "Transportation": 0.162,
+    "Shipping Bill Charges": 0.182,
+    "Other Charges": 0.4,
+    "Invoice No": 0.922,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.842,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Air Freight": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "AMS Charges": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 1/2",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Airline Freight Charges",
+      "amount_inr": 787088.06,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.703,
+      "arithmetic_checks": [
+        "fc*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Fee Air Waybill",
+      "amount_inr": 1950.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.748,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "amount_inr": 3200.0,
+      "category": "AMS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.324,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Transportation Charges",
+      "amount_inr": 12450.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.17,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "amount_inr": 550.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.192,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Peak Season Surcharge",
+      "amount_inr": 5700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.799,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 810938.06,
+  "subtotal_before_tax": 810938.06,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "sac:SAC/HSN Cur",
+          "unknown:",
+          "unknown:",
+          "qty:Quantity",
+          "fc_amount:Amount(CUR)",
+          "exrate:Ex.Rate",
+          "taxable:GST Value (INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_pct:IGST%",
+          "gst_amt:IGST Amt",
+          "total:Total (INR)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Air Freight, AMS Charges, Transportation, Shipping Bill Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 16.6,
+      "tesseract-raw": 16.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "EXP252876": [
+          "tesseract"
+        ]
+      },
+      "Invoice Date": {
+        "20240628": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "15701294720": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "HAWB438594": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "pioneerlogisticsltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-049.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 260,
+      "deskew_deg": -1.72,
+      "noise_sigma": 1.11,
+      "upscale": 1.56,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 4.82,
+    "extract": 0.09
+  },
+  "wall_sec": 4.91,
+  "error": null
+}

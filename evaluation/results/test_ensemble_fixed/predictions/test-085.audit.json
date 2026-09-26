@@ -1,0 +1,209 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.982,
+    "Air Freight": 0.588,
+    "Airway Bill Charges": 0.743,
+    "Handling Charges": 0.777,
+    "Other Charges": 0.394,
+    "Fuel Charges": 0.748,
+    "Cargo Screening": 0.78,
+    "Shipping Bill Charges": 0.779,
+    "Invoice Date": 0.55,
+    "MAWB No": 0.973,
+    "HAWB No": 0.973,
+    "Vendor Name": 0.99,
+    "Weight": 0.973
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:label:inline",
+    "Air Freight": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Air Cargo Freight",
+      "amount_inr": 300258.84,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.784,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AWB Fee",
+      "amount_inr": 2050.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.782,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Handling Fee",
+      "amount_inr": 3400.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.818,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "amount_inr": 15550.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.788,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Fuel Surcharge",
+      "amount_inr": 104544.9,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.787,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Screening",
+      "amount_inr": 850.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.821,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "amount_inr": 2850.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.82,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 429503.74,
+  "subtotal_before_tax": 429503.74,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 7
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Air Freight, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.7,
+      "tesseract-raw": 10.7
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20240319": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "12591776064": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "HAWB667624": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "polarisgloballogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "874.930": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-085.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 221,
+      "deskew_deg": -0.32,
+      "noise_sigma": 0.64,
+      "upscale": 1.74,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.13,
+    "extract": 0.06
+  },
+  "wall_sec": 3.19,
+  "error": null
+}

@@ -1,0 +1,184 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Invoice No": 0.85,
+    "Invoice Date": 0.85,
+    "Vendor Name": 0.95,
+    "Weight": 0.85,
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.807,
+    "Terminal Handling Charges": 0.95,
+    "BL Charges": 0.95,
+    "ENS Charges": 0.807,
+    "EDI Fees": 0.807,
+    "Warehouse Charges Port": 0.95,
+    "Examination Charges": 0.95,
+    "Other Charges": 0.425
+  },
+  "field_basis": {
+    "Invoice No": "label:below",
+    "Invoice Date": "label:below",
+    "Vendor Name": "top+for-line",
+    "Weight": "label:below",
+    "Ex Rate": "table",
+    "Sea Freight": "table",
+    "Terminal Handling Charges": "table",
+    "BL Charges": "table",
+    "ENS Charges": "table",
+    "EDI Fees": "table",
+    "Warehouse Charges Port": "table",
+    "Examination Charges": "table",
+    "Other Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "Sea Freight Charges",
+      "amount_inr": 10376.51,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "THC Port of Loading",
+      "amount_inr": 9250.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HBL Fee",
+      "amount_inr": 5300.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ENS Charges",
+      "amount_inr": 2287.44,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "EDI Charges",
+      "amount_inr": 900.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CFS Charges",
+      "amount_inr": 5450.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Examination",
+      "amount_inr": 2150.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Port Security Surcharge",
+      "amount_inr": 600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 36313.95,
+  "subtotal_before_tax": 36313.95,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-031.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 247
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.03,
+    "extract": 0.07
+  },
+  "wall_sec": 0.1,
+  "error": null
+}

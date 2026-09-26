@@ -1,0 +1,266 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.664,
+    "EDI Fees": 0.903,
+    "DAP Charges": 0.911,
+    "Handling Charges": 0.886,
+    "Transportation": 0.914,
+    "Examination Charges": 0.912,
+    "Fuel Charges": 0.91,
+    "Other Charges": 0.478,
+    "Agency Charges": 0.911,
+    "Invoice No": 0.921,
+    "Invoice Date": 0.55,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Air Freight": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "DAP Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Freight Charges - Air",
+      "amount_inr": 198229.62,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.886,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "amount_inr": 600.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.951,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP Destination Charges",
+      "amount_inr": 13260.25,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Handling & Coordination",
+      "amount_inr": 6600.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.933,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Transportation Charges",
+      "amount_inr": 14300.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.962,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "amount_inr": 4850.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.96,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "amount_inr": 86725.46,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.958,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Cargo Security Scan psi",
+      "amount_inr": 3050.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.957,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Clearance Charges",
+      "amount_inr": 6500.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 334115.33,
+  "subtotal_before_tax": 334115.33,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex. Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 19.9,
+      "tesseract-raw": 10.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "AE25265026": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260211": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "15755413982": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "GFF2537207": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "gatewayfreightforwardersco": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "744.830": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-008.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 270,
+      "deskew_deg": 0.48,
+      "noise_sigma": 1.12,
+      "upscale": 1.65,
+      "inverted_dark_fraction": 0.044,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 8.34,
+    "extract": 0.09
+  },
+  "wall_sec": 8.44,
+  "error": null
+}

@@ -1,0 +1,231 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.692,
+    "Airway Bill Charges": 0.771,
+    "EDI Fees": 0.732,
+    "Handling Charges": 0.77,
+    "Examination Charges": 0.777,
+    "Fuel Charges": 0.879,
+    "Other Charges": 0.475,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.55,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Air Freight": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "AIRLINE FREIGHT CHARGES",
+      "amount_inr": 138229.17,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.923,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "AIRWAY BILL CHARGES",
+      "amount_inr": 2700.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.812,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "E-MANIFEST EDI TRANSMISSION",
+      "amount_inr": 400.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.771,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EXPORT HANDLING CHARGES",
+      "amount_inr": 3550.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.811,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "E-MANIFEST EDI TRANSMISSION",
+      "amount_inr": 400.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.81,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EXAMINATION CHARGES",
+      "amount_inr": 3400.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.818,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "FUEL SURCHARGE",
+      "amount_inr": 86860.67,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.925,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "PEAK SEASON SURCHARGE",
+      "amount_inr": 7050.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.951,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 242589.84,
+  "subtotal_before_tax": 242589.84,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "qty:QTY",
+          "exrate:ROE",
+          "amount:AMOUNT",
+          "amount:INR",
+          "gst_pct:GST%"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 13.8,
+      "tesseract-raw": 13.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "NAS24804126": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250503": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "61891812081": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "NAS2528992": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "navkarairseallp": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-024.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 252,
+      "deskew_deg": 0.56,
+      "noise_sigma": 0.77,
+      "upscale": 1.62,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 8.37,
+    "extract": 0.08
+  },
+  "wall_sec": 8.45,
+  "error": null
+}

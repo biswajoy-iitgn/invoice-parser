@@ -1,0 +1,227 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.716,
+    "Other Charges": 0.467,
+    "Terminal Handling Charges": 0.913,
+    "BL Charges": 0.912,
+    "VGM": 0.907,
+    "Handling Charges": 0.908,
+    "Pre Carriage Haulage": 0.877,
+    "Invoice Date": 0.938,
+    "Container Number": 0.95,
+    "Vendor Name": 0.7,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "VGM": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Pre Carriage Haulage": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 1/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Marine Freight",
+      "amount_inr": 33906.34,
+      "category": "Sea Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.954,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Container Terminal Charges",
+      "amount_inr": 13550.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.949,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "THC Port of Loading",
+      "amount_inr": 5850.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.961,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HBL Fee",
+      "amount_inr": 3650.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.96,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "amount_inr": 1100.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.955,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "amount_inr": 8450.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.956,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Pre-Carriage Haulage",
+      "amount_inr": 29950.0,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.923,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ISPS Charges",
+      "amount_inr": 8200.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.934,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 104656.34,
+  "subtotal_before_tax": 104656.34,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex. Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 18.8,
+      "tesseract-raw": 15.8
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20260128": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "nirmalpharmaexportsllp": [
+          "tesseract"
+        ],
+        "arihantairseaco": [
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "46393691641": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-007.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 285,
+      "deskew_deg": -0.76,
+      "noise_sigma": 0.76,
+      "upscale": 1.83,
+      "inverted_dark_fraction": 0.041,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 6.2,
+    "extract": 0.09
+  },
+  "wall_sec": 6.29,
+  "error": null
+}

@@ -1,0 +1,212 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Transportation": 0.929,
+    "Warehouse Charges Port": 0.911,
+    "Other Charges": 0.482,
+    "Agency Charges": 0.887,
+    "Shipping Bill Charges": 0.923,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Transportation": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "HAWB No": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Local Transportation",
+      "amount_inr": 10400.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.978,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "amount_inr": 10600.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Security Scan",
+      "amount_inr": 1700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.964,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Agency Fee",
+      "amount_inr": 3750.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.934,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "S/B Charges",
+      "amount_inr": 1350.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.972,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 27800.0,
+  "subtotal_before_tax": 27800.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Charge Description",
+          "basis:Basis",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount(INR)",
+          "gst_pct:GST%",
+          "total:Total(INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 5.5,
+      "tesseract-raw": 5.5,
+      "rapidocr": 15.5
+    },
+    "header_votes": {
+      "Invoice No": {
+        "AE24254052": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20240315": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "15781418960": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "TAS2589662": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "tricolourairseapvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "1223.761": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-053.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 144,
+      "deskew_deg": 0.16,
+      "noise_sigma": 0.82,
+      "upscale": 1.8,
+      "inverted_dark_fraction": 0.032,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 21.41,
+    "extract": 0.12
+  },
+  "wall_sec": 21.53,
+  "error": null
+}

@@ -1,0 +1,177 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Invoice No": 1.0,
+    "Invoice Date": 0.45,
+    "Vendor Name": 0.95,
+    "Bill of Lading / HBL": 0.95,
+    "Ex Rate": 0.9,
+    "Other Charges": 0.5,
+    "Handling Charges": 0.95,
+    "Examination Charges": 0.95,
+    "Sea Freight": 0.75,
+    "DAP Charges": 0.95
+  },
+  "field_basis": {
+    "Invoice No": "label:inline",
+    "Invoice Date": "fallback:first-date",
+    "Vendor Name": "top+for-line",
+    "Bill of Lading / HBL": "label:inline",
+    "Ex Rate": "table",
+    "Other Charges": "table",
+    "Handling Charges": "table",
+    "Examination Charges": "table",
+    "Sea Freight": "table",
+    "DAP Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "1 Container Terminal Charges",
+      "amount_inr": 8400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "2 Hdlg. Charges",
+      "amount_inr": 5550.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "3 Godown Rent (Port)",
+      "amount_inr": 6500.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "4 Exam. Charges",
+      "amount_inr": 2250.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "5 BL Printing Charges",
+      "amount_inr": 4700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "6 Freight Charges - Ocean",
+      "amount_inr": 41216.25,
+      "category": "Sea Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "7 DAP Destination Charges",
+      "amount_inr": 23000.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 91616.25,
+  "subtotal_before_tax": 91616.25,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Charge Description",
+          "basis:Basis",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount (INR)",
+          "gst_pct:GST%",
+          "total:Total (INR)"
+        ],
+        "lines": 7
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-051.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 285
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.02,
+    "extract": 0.07
+  },
+  "wall_sec": 0.09,
+  "error": null
+}

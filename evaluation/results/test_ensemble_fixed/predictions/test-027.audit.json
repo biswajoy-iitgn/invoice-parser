@@ -1,0 +1,247 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Misc": 0.401,
+    "Warehouse Charges Port": 0.0,
+    "Cargo Screening": 0.266,
+    "Airway Bill Charges": 0.283,
+    "EDI Fees": 0.295,
+    "Air Freight": 0.333,
+    "Transportation": 0.485,
+    "Invoice No": 0.826,
+    "Container Number": 0.95,
+    "MAWB No": 0.766,
+    "HAWB No": 0.985,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Misc": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Air Freight": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Invoice No": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "MAWB No": "vote 2/3",
+    "HAWB No": "vote 2/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "MISCELLANEOUS CHARGES",
+      "amount_inr": 1600.0018,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.497,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC WAREHOUSE CHARGES",
+      "amount_inr": 18.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.0,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC WAREHOUSE CHARGES",
+      "amount_inr": 18.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.681,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CARGO SCREENING",
+      "amount_inr": 4650.0018,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.329,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AIR WAYBILL DOCUMENTATION",
+      "amount_inr": 1350.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.35,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI-FILING",
+      "amount_inr": 1500.0018,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.365,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AIR EXPORT FREIGHT",
+      "amount_inr": 371944.35,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.523,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC WAREHOUSE CHARGES",
+      "amount_inr": 18.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.425,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "TRANSPORTATION",
+      "amount_inr": 2.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.601,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 381100.36,
+  "subtotal_before_tax": null,
+  "subtotal_reconciled": null,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "unknown:",
+          "amount:AMOUNT",
+          "amount:INR"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 2
+  },
+  "warnings": [
+    "2 table row(s) could not be parsed",
+    "Low confidence: Misc, Warehouse Charges Port, Handling Charges, Cargo Screening, Airway Bill Charges, Other Charges, Air Freight, Transportation"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 0.9,
+      "tesseract-raw": 0.9,
+      "rapidocr": 0.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "OLP26437908": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "19696537560": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "17696537560": [
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "HAWBE68497": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "orientlogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "1144.000": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-027.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 232,
+      "deskew_deg": -2.28,
+      "noise_sigma": 0.82,
+      "upscale": 2.06,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 24.45,
+    "extract": 0.15
+  },
+  "wall_sec": 24.61,
+  "error": null
+}

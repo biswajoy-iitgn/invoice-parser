@@ -1,0 +1,137 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.736,
+    "Terminal Handling Charges": 0.699,
+    "Shipping Bill Charges": 0.767,
+    "Invoice Date": 0.939,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.938
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "O/F Charges (FCL)",
+      "amount_inr": 74765.6,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.775,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Terminal Hdlg. Chgs",
+      "amount_inr": 8700.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.736,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "amount_inr": 2200.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.807,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 85665.6,
+  "subtotal_before_tax": 85665.6,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 3
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [],
+  "needs_review": false,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.3,
+      "tesseract-raw": 10.3
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20250316": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "konarklogisticsltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "20863498956": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-035.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 169,
+      "deskew_deg": 0.36,
+      "noise_sigma": 0.72,
+      "upscale": 1.81,
+      "inverted_dark_fraction": 0.003,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.47,
+    "extract": 0.07
+  },
+  "wall_sec": 3.54,
+  "error": null
+}

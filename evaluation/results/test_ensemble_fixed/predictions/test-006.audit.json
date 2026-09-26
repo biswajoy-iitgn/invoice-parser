@@ -1,0 +1,244 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Air Freight": 0.717,
+    "EDI Fees": 0.897,
+    "Handling Charges": 0.908,
+    "Transportation": 0.913,
+    "Warehouse Charges Port": 0.911,
+    "Fuel Charges": 0.906,
+    "Cargo Screening": 0.889,
+    "Shipping Bill Charges": 0.912,
+    "Invoice No": 0.925,
+    "Invoice Date": 0.939,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Air Freight": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Airline Freight Charges",
+      "amount_inr": 163137.0,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.956,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Filing",
+      "amount_inr": 800.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.944,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "amount_inr": 6550.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.956,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Trucking Charges",
+      "amount_inr": 8900.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.961,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "amount_inr": 2050.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "amount_inr": 39957.84,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.954,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Charges",
+      "amount_inr": 1250.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.936,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "amount_inr": 2650.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.96,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 225294.84,
+  "subtotal_before_tax": 225294.84,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "rate:Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [],
+  "needs_review": false,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 18.8,
+      "tesseract-raw": 18.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "VMS26334669": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20251116": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "15726866965": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "DELHA703547": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "vayumaritimeservicesindiapvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "635.800": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-006.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 264,
+      "deskew_deg": 0.2,
+      "noise_sigma": 0.81,
+      "upscale": 1.75,
+      "inverted_dark_fraction": 0.07,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 4.49,
+    "extract": 0.08
+  },
+  "wall_sec": 4.57,
+  "error": null
+}

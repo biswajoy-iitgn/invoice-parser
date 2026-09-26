@@ -1,0 +1,217 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "EDI Fees": 0.776,
+    "Misc": 0.775,
+    "Transportation": 0.777,
+    "Warehouse Charges Port": 0.778,
+    "Examination Charges": 0.778,
+    "Cargo Screening": 0.778,
+    "Agency Charges": 0.77,
+    "Shipping Bill Charges": 0.776,
+    "Invoice Date": 0.938,
+    "MAWB No": 0.937,
+    "Vendor Name": 0.99,
+    "Weight": 0.939
+  },
+  "field_basis": {
+    "EDI Fees": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "EDI Transmission Fee",
+      "amount_inr": 700.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "amount_inr": 1600.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.816,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Trucking Charges",
+      "amount_inr": 11500.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.818,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "amount_inr": 9950.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.819,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Exam. Charges",
+      "amount_inr": 1650.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.819,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Screening",
+      "amount_inr": 3100.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.819,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 3450.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.811,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "amount_inr": 2650.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 34600.0,
+  "subtotal_before_tax": 34600.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:Qty",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [],
+  "needs_review": false,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.8,
+      "tesseract-raw": 10.8
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20241003": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "23500526271": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "crescentgloballogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "696.570": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-036.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 195,
+      "deskew_deg": 0.04,
+      "noise_sigma": 0.92,
+      "upscale": 1.84,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 5.22,
+    "extract": 0.14
+  },
+  "wall_sec": 5.36,
+  "error": null
+}

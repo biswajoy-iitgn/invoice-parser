@@ -1,0 +1,850 @@
+{
+  "documents": 60,
+  "micro": {
+    "precision": 0.9013254786450663,
+    "recall": 0.7669172932330827,
+    "f1": 0.8287068381855112
+  },
+  "macro_f1": 0.8328376227003366,
+  "field_accuracy_incl_empty": 0.8924731182795699,
+  "mAP": 0.7488774203723395,
+  "hallucination": {
+    "fabrication_rate": 0.020618556701030927,
+    "ungrounded_rate": 0.041237113402061855,
+    "predicted_values": 679
+  },
+  "wrong_value_rate": 0.06641604010025062,
+  "document_exact_match": 0.18333333333333332,
+  "schema": {
+    "compliance_rate": 1.0,
+    "violations": {}
+  },
+  "fields": {
+    "Invoice No": {
+      "precision": 0.8809523809523809,
+      "recall": 0.6166666666666667,
+      "f1": 0.7254901960784315,
+      "ap": 0.6113842496448402,
+      "support": 60,
+      "tp": 37,
+      "fp": 5,
+      "fn": 23,
+      "tn": 0,
+      "wrong": 5,
+      "missed": 18,
+      "fabricated": 0,
+      "ungrounded": 4
+    },
+    "Invoice Date": {
+      "precision": 0.9824561403508771,
+      "recall": 0.9333333333333333,
+      "f1": 0.9572649572649572,
+      "ap": 0.9333333333333333,
+      "support": 60,
+      "tp": 56,
+      "fp": 1,
+      "fn": 4,
+      "tn": 0,
+      "wrong": 1,
+      "missed": 3,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Container Number": {
+      "precision": 0.8076923076923077,
+      "recall": 0.8076923076923077,
+      "f1": 0.8076923076923077,
+      "ap": 0.7123916227331121,
+      "support": 26,
+      "tp": 21,
+      "fp": 5,
+      "fn": 5,
+      "tn": 33,
+      "wrong": 4,
+      "missed": 1,
+      "fabricated": 1,
+      "ungrounded": 2
+    },
+    "MAWB No": {
+      "precision": 1.0,
+      "recall": 0.8947368421052632,
+      "f1": 0.9444444444444444,
+      "ap": 0.8947368421052632,
+      "support": 19,
+      "tp": 17,
+      "fp": 0,
+      "fn": 2,
+      "tn": 41,
+      "wrong": 0,
+      "missed": 2,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "HAWB No": {
+      "precision": 0.8,
+      "recall": 0.6,
+      "f1": 0.6857142857142857,
+      "ap": 0.5634933122433121,
+      "support": 20,
+      "tp": 12,
+      "fp": 3,
+      "fn": 8,
+      "tn": 40,
+      "wrong": 3,
+      "missed": 5,
+      "fabricated": 0,
+      "ungrounded": 3
+    },
+    "Vendor Name": {
+      "precision": 0.9166666666666666,
+      "recall": 0.9166666666666666,
+      "f1": 0.9166666666666666,
+      "ap": 0.9166666666666666,
+      "support": 60,
+      "tp": 55,
+      "fp": 5,
+      "fn": 5,
+      "tn": 0,
+      "wrong": 5,
+      "missed": 0,
+      "fabricated": 0,
+      "ungrounded": 2
+    },
+    "Bill of Lading / HBL": {
+      "precision": 0.896551724137931,
+      "recall": 0.7647058823529411,
+      "f1": 0.8253968253968255,
+      "ap": 0.6835185992448486,
+      "support": 34,
+      "tp": 26,
+      "fp": 3,
+      "fn": 8,
+      "tn": 26,
+      "wrong": 3,
+      "missed": 5,
+      "fabricated": 0,
+      "ungrounded": 1
+    },
+    "Weight": {
+      "precision": 0.8947368421052632,
+      "recall": 0.6181818181818182,
+      "f1": 0.7311827956989247,
+      "ap": 0.6005383925143863,
+      "support": 55,
+      "tp": 34,
+      "fp": 4,
+      "fn": 21,
+      "tn": 5,
+      "wrong": 4,
+      "missed": 17,
+      "fabricated": 0,
+      "ungrounded": 4
+    },
+    "Sea Freight": {
+      "precision": 0.9230769230769231,
+      "recall": 0.8275862068965517,
+      "f1": 0.8727272727272727,
+      "ap": 0.8247701149425287,
+      "support": 29,
+      "tp": 24,
+      "fp": 2,
+      "fn": 5,
+      "tn": 31,
+      "wrong": 2,
+      "missed": 3,
+      "fabricated": 0,
+      "ungrounded": 1
+    },
+    "Air Freight": {
+      "precision": 0.8666666666666667,
+      "recall": 0.7647058823529411,
+      "f1": 0.8125,
+      "ap": 0.7605042016806722,
+      "support": 17,
+      "tp": 13,
+      "fp": 2,
+      "fn": 4,
+      "tn": 43,
+      "wrong": 2,
+      "missed": 2,
+      "fabricated": 0,
+      "ungrounded": 1
+    },
+    "Terminal Handling Charges": {
+      "precision": 0.9090909090909091,
+      "recall": 0.8,
+      "f1": 0.8510638297872342,
+      "ap": 0.7455189851428241,
+      "support": 25,
+      "tp": 20,
+      "fp": 2,
+      "fn": 5,
+      "tn": 35,
+      "wrong": 2,
+      "missed": 3,
+      "fabricated": 0,
+      "ungrounded": 1
+    },
+    "Airway Bill Charges": {
+      "precision": 0.9230769230769231,
+      "recall": 0.8,
+      "f1": 0.8571428571428571,
+      "ap": 0.8,
+      "support": 15,
+      "tp": 12,
+      "fp": 1,
+      "fn": 3,
+      "tn": 45,
+      "wrong": 1,
+      "missed": 2,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "BL Charges": {
+      "precision": 1.0,
+      "recall": 0.42857142857142855,
+      "f1": 0.6,
+      "ap": 0.42857142857142855,
+      "support": 21,
+      "tp": 9,
+      "fp": 0,
+      "fn": 12,
+      "tn": 39,
+      "wrong": 0,
+      "missed": 12,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "ENS Charges": {
+      "precision": 0.9166666666666666,
+      "recall": 0.8461538461538461,
+      "f1": 0.8799999999999999,
+      "ap": 0.7677017427017425,
+      "support": 13,
+      "tp": 11,
+      "fp": 1,
+      "fn": 2,
+      "tn": 47,
+      "wrong": 1,
+      "missed": 1,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Seal Charges": {
+      "precision": 1.0,
+      "recall": 0.7333333333333333,
+      "f1": 0.846153846153846,
+      "ap": 0.7333333333333333,
+      "support": 15,
+      "tp": 11,
+      "fp": 0,
+      "fn": 4,
+      "tn": 45,
+      "wrong": 0,
+      "missed": 4,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "VGM": {
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1": 0.9473684210526316,
+      "ap": 0.9,
+      "support": 10,
+      "tp": 9,
+      "fp": 0,
+      "fn": 1,
+      "tn": 50,
+      "wrong": 0,
+      "missed": 1,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "EDI Fees": {
+      "precision": 1.0,
+      "recall": 0.5555555555555556,
+      "f1": 0.7142857142857143,
+      "ap": 0.5555555555555556,
+      "support": 27,
+      "tp": 15,
+      "fp": 0,
+      "fn": 12,
+      "tn": 33,
+      "wrong": 0,
+      "missed": 12,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "DAP Charges": {
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.9333333333333333,
+      "ap": 0.875,
+      "support": 8,
+      "tp": 7,
+      "fp": 0,
+      "fn": 1,
+      "tn": 52,
+      "wrong": 0,
+      "missed": 1,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Other Charges": {
+      "precision": 0.25,
+      "recall": 0.38095238095238093,
+      "f1": 0.3018867924528302,
+      "ap": 0.1082265726803542,
+      "support": 21,
+      "tp": 8,
+      "fp": 24,
+      "fn": 13,
+      "tn": 27,
+      "wrong": 12,
+      "missed": 1,
+      "fabricated": 12,
+      "ungrounded": 4
+    },
+    "AMS Charges": {
+      "precision": 1.0,
+      "recall": 0.8571428571428571,
+      "f1": 0.923076923076923,
+      "ap": 0.8571428571428571,
+      "support": 7,
+      "tp": 6,
+      "fp": 0,
+      "fn": 1,
+      "tn": 53,
+      "wrong": 0,
+      "missed": 1,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Handling Charges": {
+      "precision": 1.0,
+      "recall": 0.65,
+      "f1": 0.787878787878788,
+      "ap": 0.65,
+      "support": 20,
+      "tp": 13,
+      "fp": 0,
+      "fn": 7,
+      "tn": 40,
+      "wrong": 0,
+      "missed": 7,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Pre Carriage Haulage": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "ap": 1.0,
+      "support": 12,
+      "tp": 12,
+      "fp": 0,
+      "fn": 0,
+      "tn": 48,
+      "wrong": 0,
+      "missed": 0,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Ex Rate": {
+      "precision": 0.975609756097561,
+      "recall": 0.8888888888888888,
+      "f1": 0.9302325581395349,
+      "ap": 0.8847839268357025,
+      "support": 45,
+      "tp": 40,
+      "fp": 1,
+      "fn": 5,
+      "tn": 14,
+      "wrong": 0,
+      "missed": 5,
+      "fabricated": 1,
+      "ungrounded": 1
+    },
+    "Misc": {
+      "precision": 1.0,
+      "recall": 0.7727272727272727,
+      "f1": 0.8717948717948718,
+      "ap": 0.7727272727272727,
+      "support": 22,
+      "tp": 17,
+      "fp": 0,
+      "fn": 5,
+      "tn": 38,
+      "wrong": 0,
+      "missed": 5,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Transportation": {
+      "precision": 0.9411764705882353,
+      "recall": 0.8,
+      "f1": 0.8648648648648648,
+      "ap": 0.7970588235294118,
+      "support": 20,
+      "tp": 16,
+      "fp": 1,
+      "fn": 4,
+      "tn": 40,
+      "wrong": 1,
+      "missed": 3,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Warehouse Charges Port": {
+      "precision": 0.9473684210526315,
+      "recall": 0.75,
+      "f1": 0.8372093023255814,
+      "ap": 0.75,
+      "support": 24,
+      "tp": 18,
+      "fp": 1,
+      "fn": 6,
+      "tn": 36,
+      "wrong": 1,
+      "missed": 5,
+      "fabricated": 0,
+      "ungrounded": 1
+    },
+    "Examination Charges": {
+      "precision": 0.9444444444444444,
+      "recall": 0.8947368421052632,
+      "f1": 0.918918918918919,
+      "ap": 0.8819186446508427,
+      "support": 19,
+      "tp": 17,
+      "fp": 1,
+      "fn": 2,
+      "tn": 41,
+      "wrong": 1,
+      "missed": 1,
+      "fabricated": 0,
+      "ungrounded": 1
+    },
+    "Fuel Charges": {
+      "precision": 1.0,
+      "recall": 0.9642857142857143,
+      "f1": 0.9818181818181818,
+      "ap": 0.9642857142857143,
+      "support": 28,
+      "tp": 27,
+      "fp": 0,
+      "fn": 1,
+      "tn": 32,
+      "wrong": 0,
+      "missed": 1,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Cargo Screening": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.888888888888889,
+      "ap": 0.8,
+      "support": 15,
+      "tp": 12,
+      "fp": 0,
+      "fn": 3,
+      "tn": 45,
+      "wrong": 0,
+      "missed": 3,
+      "fabricated": 0,
+      "ungrounded": 0
+    },
+    "Agency Charges": {
+      "precision": 0.8095238095238095,
+      "recall": 0.6071428571428571,
+      "f1": 0.6938775510204083,
+      "ap": 0.5724726218852159,
+      "support": 28,
+      "tp": 17,
+      "fp": 4,
+      "fn": 11,
+      "tn": 32,
+      "wrong": 4,
+      "missed": 7,
+      "fabricated": 0,
+      "ungrounded": 2
+    },
+    "Shipping Bill Charges": {
+      "precision": 0.9523809523809523,
+      "recall": 0.8695652173913043,
+      "f1": 0.909090909090909,
+      "ap": 0.8695652173913043,
+      "support": 23,
+      "tp": 20,
+      "fp": 1,
+      "fn": 3,
+      "tn": 37,
+      "wrong": 1,
+      "missed": 2,
+      "fabricated": 0,
+      "ungrounded": 0
+    }
+  },
+  "lines": {
+    "line_recall": 0.8695652173913043,
+    "line_precision": 0.9382716049382716,
+    "gold_lines": 437,
+    "spurious_lines": 25,
+    "category_accuracy": {
+      "seen": 0.9652777777777778,
+      "heldout": 0.717391304347826
+    },
+    "category_counts": {
+      "seen": {
+        "correct": 278,
+        "wrong": 10
+      },
+      "heldout": {
+        "wrong": 26,
+        "correct": 66
+      }
+    },
+    "top_confusions": [
+      {
+        "description": "Seaway Bill Fee",
+        "gold": "BL Charges",
+        "pred": "Other Charges",
+        "n": 4
+      },
+      {
+        "description": "E-Manifest EDI Transmission",
+        "gold": "EDI Fees",
+        "pred": "Other Charges",
+        "n": 3
+      },
+      {
+        "description": "Container Terminal Charges",
+        "gold": "Terminal Handling Charges",
+        "pred": "Other Charges",
+        "n": 2
+      },
+      {
+        "description": "Electronic Data Interchange Fee",
+        "gold": "EDI Fees",
+        "pred": "Other Charges",
+        "n": 2
+      },
+      {
+        "description": "Brokerage Charges",
+        "gold": "Agency Charges",
+        "pred": "Other Charges",
+        "n": 2
+      },
+      {
+        "description": "Truck Freight (Local)",
+        "gold": "Transportation",
+        "pred": "Other Charges",
+        "n": 2
+      },
+      {
+        "description": "Customs Brokerage Fee",
+        "gold": "Agency Charges",
+        "pred": "Other Charges",
+        "n": 2
+      },
+      {
+        "description": "BL Printing Charges",
+        "gold": "BL Charges",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "BL Printing Charges",
+        "gold": "BL Charges",
+        "pred": "Agency Charges",
+        "n": 1
+      },
+      {
+        "description": "Seaway Bill Fee",
+        "gold": "BL Charges",
+        "pred": "ENS Charges",
+        "n": 1
+      },
+      {
+        "description": "Terminal Hdlg. Chgs.",
+        "gold": "Terminal Handling Charges",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Handling Charges",
+        "gold": "Handling Charges",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Cartage Charges",
+        "gold": "Transportation",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Godown Rent (Port)",
+        "gold": "Warehouse Charges Port",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "HBL Fee",
+        "gold": "BL Charges",
+        "pred": "Examination Charges",
+        "n": 1
+      },
+      {
+        "description": "Delivered-at-Place Charges",
+        "gold": "DAP Charges",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Sundry Charges",
+        "gold": "Misc",
+        "pred": "Agency Charges",
+        "n": 1
+      },
+      {
+        "description": "Ocean Freight",
+        "gold": "Sea Freight",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Bill of Lading Fee",
+        "gold": "BL Charges",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Hdlg. Charges",
+        "gold": "Handling Charges",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Cargo Security Scan",
+        "gold": "Cargo Screening",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "A/F Charges",
+        "gold": "Air Freight",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "EDI Filing",
+        "gold": "EDI Fees",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Ground Rent",
+        "gold": "Warehouse Charges Port",
+        "pred": "Other Charges",
+        "n": 1
+      },
+      {
+        "description": "Seal Fee",
+        "gold": "Seal Charges",
+        "pred": "Other Charges",
+        "n": 1
+      }
+    ]
+  },
+  "ci95": {
+    "micro_f1": [
+      0.7812,
+      0.8688
+    ],
+    "recall": [
+      0.7042,
+      0.8225
+    ],
+    "precision": [
+      0.8668,
+      0.9311
+    ],
+    "fabrication_rate": [
+      0.0101,
+      0.031
+    ],
+    "ungrounded_rate": [
+      0.0243,
+      0.0601
+    ]
+  },
+  "by_tier": {
+    "clean": {
+      "n": 14,
+      "micro_f1": 0.9129287598944592,
+      "recall": 0.8826530612244898,
+      "precision": 0.9453551912568307,
+      "fabrication_rate": 0.02185792349726776,
+      "doc_exact": 0.21428571428571427
+    },
+    "medium": {
+      "n": 29,
+      "micro_f1": 0.9105914718019258,
+      "recall": 0.8803191489361702,
+      "precision": 0.9430199430199431,
+      "fabrication_rate": 0.014245014245014245,
+      "doc_exact": 0.27586206896551724
+    },
+    "scan": {
+      "n": 17,
+      "micro_f1": 0.5822102425876011,
+      "recall": 0.4778761061946903,
+      "precision": 0.7448275862068966,
+      "fabrication_rate": 0.034482758620689655,
+      "doc_exact": 0.0
+    }
+  },
+  "by_format": {
+    "jpg": {
+      "n": 35,
+      "micro_f1": 0.8043217286914766,
+      "recall": 0.737885462555066,
+      "precision": 0.8839050131926122,
+      "fabrication_rate": 0.021108179419525065,
+      "doc_exact": 0.2
+    },
+    "pdf_digital": {
+      "n": 8,
+      "micro_f1": 0.9411764705882353,
+      "recall": 0.9122807017543859,
+      "precision": 0.9719626168224299,
+      "fabrication_rate": 0.018691588785046728,
+      "doc_exact": 0.375
+    },
+    "pdf_raster": {
+      "n": 15,
+      "micro_f1": 0.8097826086956521,
+      "recall": 0.7412935323383084,
+      "precision": 0.8922155688622755,
+      "fabrication_rate": 0.023952095808383235,
+      "doc_exact": 0.06666666666666667
+    },
+    "png": {
+      "n": 2,
+      "micro_f1": 0.8727272727272727,
+      "recall": 0.8275862068965517,
+      "precision": 0.9230769230769231,
+      "fabrication_rate": 0.0,
+      "doc_exact": 0.0
+    }
+  },
+  "by_template": {
+    "T1": {
+      "n": 10,
+      "micro_f1": 0.8264462809917356,
+      "recall": 0.7575757575757576,
+      "precision": 0.9090909090909091,
+      "fabrication_rate": 0.02727272727272727,
+      "doc_exact": 0.1
+    },
+    "T2": {
+      "n": 10,
+      "micro_f1": 0.7966101694915254,
+      "recall": 0.7175572519083969,
+      "precision": 0.8952380952380953,
+      "fabrication_rate": 0.01904761904761905,
+      "doc_exact": 0.2
+    },
+    "T3": {
+      "n": 10,
+      "micro_f1": 0.763779527559055,
+      "recall": 0.7028985507246377,
+      "precision": 0.8362068965517241,
+      "fabrication_rate": 0.017241379310344827,
+      "doc_exact": 0.2
+    },
+    "T4": {
+      "n": 10,
+      "micro_f1": 0.9112903225806451,
+      "recall": 0.889763779527559,
+      "precision": 0.9338842975206612,
+      "fabrication_rate": 0.01652892561983471,
+      "doc_exact": 0.3
+    },
+    "T5": {
+      "n": 10,
+      "micro_f1": 0.7866108786610879,
+      "recall": 0.6911764705882353,
+      "precision": 0.912621359223301,
+      "fabrication_rate": 0.02912621359223301,
+      "doc_exact": 0.0
+    },
+    "T6": {
+      "n": 10,
+      "micro_f1": 0.883720930232558,
+      "recall": 0.8507462686567164,
+      "precision": 0.9193548387096774,
+      "fabrication_rate": 0.016129032258064516,
+      "doc_exact": 0.3
+    }
+  },
+  "by_mode": {
+    "air": {
+      "n": 18,
+      "micro_f1": 0.8407079646017699,
+      "recall": 0.7851239669421488,
+      "precision": 0.9047619047619048,
+      "fabrication_rate": 0.009523809523809525,
+      "doc_exact": 0.16666666666666666
+    },
+    "clearance": {
+      "n": 12,
+      "micro_f1": 0.7808764940239045,
+      "recall": 0.6901408450704225,
+      "precision": 0.8990825688073395,
+      "fabrication_rate": 0.01834862385321101,
+      "doc_exact": 0.16666666666666666
+    },
+    "sea_fcl": {
+      "n": 21,
+      "micro_f1": 0.822463768115942,
+      "recall": 0.7668918918918919,
+      "precision": 0.88671875,
+      "fabrication_rate": 0.03515625,
+      "doc_exact": 0.14285714285714285
+    },
+    "sea_lcl": {
+      "n": 9,
+      "micro_f1": 0.8738738738738739,
+      "recall": 0.8220338983050848,
+      "precision": 0.9326923076923077,
+      "fabrication_rate": 0.009615384615384616,
+      "doc_exact": 0.3333333333333333
+    }
+  },
+  "by_unseen_template": {
+    "False": {
+      "n": 60,
+      "micro_f1": 0.8287068381855112,
+      "recall": 0.7669172932330827,
+      "precision": 0.9013254786450663,
+      "fabrication_rate": 0.020618556701030927,
+      "doc_exact": 0.18333333333333332
+    }
+  },
+  "latency_sec": {
+    "mean": 12.541833333333333,
+    "median": 6.305,
+    "p95": 30.23
+  },
+  "errors": [],
+  "needs_review_rate": 0.7666666666666667,
+  "config": {
+    "split": "dev",
+    "backend": "layout",
+    "ocr": "ensemble",
+    "model": null
+  }
+}

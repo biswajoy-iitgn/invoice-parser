@@ -1,0 +1,237 @@
+{
+  "transport_mode": "unknown",
+  "field_confidence": {
+    "Other Charges": 0.0,
+    "VGM": 0.255,
+    "AMS Charges": 0.073,
+    "Handling Charges": 0.226,
+    "Transportation": 0.052,
+    "Fuel Charges": 0.158,
+    "Invoice Date": 0.856,
+    "Container Number": 0.95,
+    "Vendor Name": 0.95,
+    "Bill of Lading / HBL": 0.881,
+    "Weight": 0.881
+  },
+  "field_basis": {
+    "Other Charges": "tesseract:table",
+    "VGM": "tesseract:table",
+    "AMS Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Invoice Date": "vote 1/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 1/2",
+    "Bill of Lading / HBL": "vote 1/2",
+    "Weight": "vote 1/2"
+  },
+  "line_items": [
+    {
+      "description": "OVF Charges (FCL} (USD 3,380.00} oN",
+      "amount_inr": 0.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.078,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGM Certificate rnd",
+      "amount_inr": 2000.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.316,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "\u201cAMS Charges  < ge",
+      "amount_inr": 3190.14,
+      "category": "AMS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.09,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Handlin:",
+      "amount_inr": 8956.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.28,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Trucking Charges",
+      "amount_inr": 3950.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.065,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Fuel Adjustment Charges",
+      "amount_inr": 7600.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.196,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Brokerage Charges",
+      "amount_inr": 4050.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.173,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Survey Charges",
+      "amount_inr": 2950.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.228,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ve",
+      "amount_inr": -1.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.0,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 32695.14,
+  "subtotal_before_tax": null,
+  "subtotal_reconciled": null,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "unknown:",
+          "sr:S.No",
+          "desc:.28 Nature of Charges",
+          "unknown:",
+          "unknown:",
+          "unknown:",
+          "taxable:Amount (Rs.}",
+          "unknown:"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 1
+  },
+  "warnings": [
+    "1 table row(s) could not be parsed",
+    "Low confidence: Other Charges, VGM, AMS Charges, Handling Charges, Transportation, Fuel Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "rapidocr"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 0.9,
+      "rapidocr": 0.0
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20281113": [
+          "tesseract"
+        ],
+        "20241113": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "silverlinechainsolutionsindiapvt": [
+          "tesseract"
+        ],
+        "silverlinesupplychainsolutionsindiapvtltd": [
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "O0LUBO5085733": [
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "45654.980": [
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-089.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 851,
+      "deskew_deg": 0.6,
+      "noise_sigma": 30.88,
+      "denoised": true,
+      "upscale": 2.03,
+      "inverted_dark_fraction": 0.018,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 165.92,
+    "extract": 0.19
+  },
+  "wall_sec": 166.11,
+  "error": null
+}

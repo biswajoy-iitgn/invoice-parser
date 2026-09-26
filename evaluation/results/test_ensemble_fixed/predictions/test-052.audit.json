@@ -1,0 +1,195 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Misc": 0.921,
+    "AMS Charges": 0.922,
+    "Air Freight": 0.709,
+    "Fuel Charges": 0.91,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "AMS Charges": "rapidocr:table",
+    "Air Freight": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "HAWB No": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Incidental Expenses",
+      "amount_inr": 1350.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.97,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "amount_inr": 2443.0,
+      "category": "AMS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.971,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Air Export Freight",
+      "amount_inr": 495655.04,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.945,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "amount_inr": 80893.89,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.958,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 580341.93,
+  "subtotal_before_tax": 580341.93,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Charge Description",
+          "basis:Basis",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount (iNR) GST AUDITED",
+          "gst_pct:GST%",
+          "total:Total(INR)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [],
+  "needs_review": false,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 2.4,
+      "tesseract-raw": 0.4,
+      "rapidocr": 14.4
+    },
+    "header_votes": {
+      "Invoice No": {
+        "T1233265": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20260527": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "61801653960": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "HAWB996714": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "samudracargomoversllp": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "952.000": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-052.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 140,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.24,
+      "upscale": 1.83,
+      "inverted_dark_fraction": 0.034,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 23.49,
+    "extract": 0.13
+  },
+  "wall_sec": 23.63,
+  "error": null
+}

@@ -1,0 +1,248 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.878,
+    "Other Charges": 0.212,
+    "BL Charges": 0.528,
+    "VGM": 0.45,
+    "Misc": 0.547,
+    "Examination Charges": 0.547,
+    "Agency Charges": 0.545,
+    "Shipping Bill Charges": 0.54,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "VGM": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Freight Charges",
+      "amount_inr": 113839.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.924,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Terminal Hdig. Chgs.",
+      "amount_inr": 23500.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.425,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "amount_inr": 6500.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.556,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "amount_inr": 4800.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.474,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc Expenses",
+      "amount_inr": 1900.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.576,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Exam. Charges",
+      "amount_inr": 5300.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.576,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 4900.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.574,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Agency Fee",
+      "amount_inr": 2700.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.578,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "amount_inr": 750.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.568,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 164189.0,
+  "subtotal_before_tax": 164189.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Particulars",
+          "sac:SAC",
+          "cur:Cur",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex. Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST %",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges, BL Charges, VGM, Misc, Examination Charges, Agency Charges, Shipping Bill Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 11.9,
+      "tesseract-raw": 11.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "FF25265222": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260111": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "pioneerlogisticsco": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "13677066229": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "43359.779": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-014.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 295,
+      "deskew_deg": 0.16,
+      "noise_sigma": 1.03,
+      "upscale": 1.82,
+      "inverted_dark_fraction": 0.093,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 6.29,
+    "extract": 0.18
+  },
+  "wall_sec": 6.47,
+  "error": null
+}

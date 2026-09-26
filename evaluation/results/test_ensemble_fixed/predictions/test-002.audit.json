@@ -1,0 +1,177 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.903,
+    "Terminal Handling Charges": 0.912,
+    "Handling Charges": 0.911,
+    "Other Charges": 0.466,
+    "Invoice No": 0.922,
+    "Invoice Date": 0.55,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Sea Freight Charges",
+      "amount_inr": 345261.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.951,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "amount_inr": 32400.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.96,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "amount_inr": 8850.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "amount_inr": 32500.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.931,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 419011.0,
+  "subtotal_before_tax": 419011.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "sac:SAC",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex. Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 14.4,
+      "tesseract-raw": 14.4
+    },
+    "header_votes": {
+      "Invoice No": {
+        "FF25261251": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260512": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "skywaysexpresscargoltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "MAEU121337142": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "28735.100": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-002.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 245,
+      "deskew_deg": 0.04,
+      "noise_sigma": 0.97,
+      "upscale": 1.35,
+      "inverted_dark_fraction": 0.073,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.97,
+    "extract": 0.08
+  },
+  "wall_sec": 4.05,
+  "error": null
+}

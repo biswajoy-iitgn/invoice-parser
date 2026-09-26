@@ -1,0 +1,269 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.985,
+    "Air Freight": 0.605,
+    "Airway Bill Charges": 0.743,
+    "EDI Fees": 0.757,
+    "Other Charges": 0.378,
+    "Handling Charges": 0.779,
+    "Transportation": 0.773,
+    "Warehouse Charges Port": 0.691,
+    "Fuel Charges": 0.766,
+    "Cargo Screening": 0.778,
+    "Agency Charges": 0.775,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "HAWB No": 0.962,
+    "Vendor Name": 0.99,
+    "Weight": 0.962
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:label:inline",
+    "Air Freight": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Air Export Freight",
+      "amount_inr": 359489.28,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.806,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Air Waybill Documentation",
+      "amount_inr": 2750.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.782,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Charges",
+      "amount_inr": 1050.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.797,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Delivered-at-Place Charges",
+      "amount_inr": 13600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.789,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Handling Charges",
+      "amount_inr": 5800.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.82,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "amount_inr": 4350.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "amount_inr": 4300.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.727,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "FSC",
+      "amount_inr": 98859.55,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.806,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Charges",
+      "amount_inr": 2150.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.819,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 4200.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.816,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Port Security Surcharge",
+      "amount_inr": 4700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.755,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 501248.83,
+  "subtotal_before_tax": 501248.83,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 11
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 11.1,
+      "tesseract-raw": 11.1
+    },
+    "header_votes": {
+      "Invoice No": {
+        "CFF26121559": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260205": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "BOMHA437709": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "crescentfreightforwarderspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "739.600": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-077.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 231,
+      "deskew_deg": 0.04,
+      "noise_sigma": 0.94,
+      "upscale": 1.35,
+      "inverted_dark_fraction": 0.009,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.31,
+    "extract": 0.08
+  },
+  "wall_sec": 3.39,
+  "error": null
+}

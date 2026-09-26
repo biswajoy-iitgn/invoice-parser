@@ -1,0 +1,220 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.868,
+    "Other Charges": 0.458,
+    "BL Charges": 0.911,
+    "ENS Charges": 0.863,
+    "Misc": 0.917,
+    "Fuel Charges": 0.878,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.55,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "ENS Charges": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Sea Freight Charges",
+      "amount_inr": 288547.2,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.914,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Container Terminal Charges",
+      "amount_inr": 11700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.961,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HBL Fee",
+      "amount_inr": 2650.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ICS2 / ENS Filing",
+      "amount_inr": 3355.2,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.908,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "amount_inr": 68800.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.916,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sundry Charges",
+      "amount_inr": 1600.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.965,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS) (USD 290.00 @",
+      "amount_inr": 24325.2,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.924,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Brokerage Charges",
+      "amount_inr": 5200.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.961,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 406177.6,
+  "subtotal_before_tax": 406177.6,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description of Service",
+          "unknown:",
+          "sac:SAC",
+          "taxable:Taxable Value (INR)",
+          "gst_amt:IGST",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 18.8,
+      "tesseract-raw": 18.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "SE24250712": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260416": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "arihantshippingprivatelimited": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-064.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 236,
+      "deskew_deg": 0.52,
+      "noise_sigma": 1.11,
+      "upscale": 1.78,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 7.51,
+    "extract": 0.14
+  },
+  "wall_sec": 7.66,
+  "error": null
+}

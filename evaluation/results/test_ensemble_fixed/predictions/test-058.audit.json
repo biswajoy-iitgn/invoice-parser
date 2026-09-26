@@ -1,0 +1,133 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Sea Freight": 0.067,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.832,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Sea Freight": "tesseract:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/3",
+    "Bill of Lading / HBL": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "\u201cBasic Ocean Freight",
+      "amount_inr": 8.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.083,
+      "arithmetic_checks": [
+        "total"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 8.0,
+  "subtotal_before_tax": null,
+  "subtotal_reconciled": null,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "total:\u2018Sub Total",
+          "desc:Origin Charges",
+          "unknown:",
+          "unknown:",
+          "unknown:",
+          "unknown:",
+          "unknown:",
+          "unknown:",
+          "unknown:"
+        ],
+        "lines": 1
+      }
+    ],
+    "unparsed_rows": 1
+  },
+  "warnings": [
+    "1 table row(s) could not be parsed",
+    "Low confidence: Sea Freight"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 0.1,
+      "tesseract-raw": 0.0,
+      "rapidocr": 0.0
+    },
+    "header_votes": {
+      "Invoice No": {
+        "VFSSE252606991": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "EXP26Z008": [
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20280406": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "20250521": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "vayufreightsystemsprivatelimited": [
+          "tesseract",
+          "rapidocr"
+        ],
+        "hevayufreightsystemsprivatelimited": [
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "VFSMU2529431": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-058.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 291,
+      "deskew_deg": 3.04,
+      "noise_sigma": 18.3,
+      "denoised": true,
+      "upscale": 1.84,
+      "inverted_dark_fraction": 0.013,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 30.89,
+    "extract": 0.16
+  },
+  "wall_sec": 31.05,
+  "error": null
+}

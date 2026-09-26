@@ -1,0 +1,211 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.718,
+    "Cargo Screening": 0.934,
+    "EDI Fees": 0.926,
+    "Fuel Charges": 0.934,
+    "Invoice No": 0.85,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Air Freight": "rapidocr:table",
+    "Cargo Screening": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "HAWB No": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Air Export Freight",
+      "amount_inr": 75380.3,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.958,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Security Screening Fee",
+      "amount_inr": 1200.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.983,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Filing",
+      "amount_inr": 400.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.975,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "FSC",
+      "amount_inr": 17482.21,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.983,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Security Screening Fee",
+      "amount_inr": 1200.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.99,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 95662.51,
+  "subtotal_before_tax": 95662.51,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex.Rate GSTAUDITED",
+          "taxable:Taxable(INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 1.5,
+      "tesseract-raw": 0.5,
+      "rapidocr": 15.5
+    },
+    "header_votes": {
+      "Invoice No": {
+        "TI638173": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260329": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "15765185971": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "HAWB581029": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "coastalmaritimeservicespvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "156.300": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-005.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 136,
+      "deskew_deg": 0.64,
+      "noise_sigma": 0.73,
+      "upscale": 1.65,
+      "inverted_dark_fraction": 0.046,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 16.67,
+    "extract": 0.16
+  },
+  "wall_sec": 16.82,
+  "error": null
+}

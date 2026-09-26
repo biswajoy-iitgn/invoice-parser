@@ -1,0 +1,278 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.689,
+    "Terminal Handling Charges": 0.753,
+    "BL Charges": 0.694,
+    "Seal Charges": 0.695,
+    "EDI Fees": 0.754,
+    "Other Charges": 0.399,
+    "Misc": 0.679,
+    "Warehouse Charges Port": 0.728,
+    "Shipping Bill Charges": 0.736,
+    "Invoice No": 0.849,
+    "Invoice Date": 0.948,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.953
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "Seal Charges": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Freight",
+      "amount_inr": 381307.2,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.853,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "THC - Origin",
+      "amount_inr": 30750.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.933,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "amount_inr": 5850.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.859,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Boit Seal Charges",
+      "amount_inr": 1950.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.861,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Charges",
+      "amount_inr": 1050.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.934,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "amount_inr": 75000.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.94,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc Expenses",
+      "amount_inr": 1400.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.841,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Truck Freight (Local) ACC Warehouse Charges",
+      "amount_inr": 11000.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.928,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "amount_inr": 13800.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.901,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "amount_inr": 1950.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.912,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 524057.2,
+  "subtotal_before_tax": null,
+  "subtotal_reconciled": null,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex.Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 10
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.8,
+      "tesseract-raw": 1.0,
+      "rapidocr": 11.0
+    },
+    "header_votes": {
+      "Invoice No": {
+        "MUMCH2424294": [
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20260326": [
+          "tesseract",
+          "rapidocr"
+        ],
+        "20260320": [
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "kestrelfreightsystemsco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "20949827411": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "COSUIN6262905": [
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-009.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 248,
+      "deskew_deg": -1.0,
+      "noise_sigma": 1.38,
+      "upscale": 2.07,
+      "inverted_dark_fraction": 0.062,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 29.89,
+    "extract": 0.2
+  },
+  "wall_sec": 30.09,
+  "error": null
+}

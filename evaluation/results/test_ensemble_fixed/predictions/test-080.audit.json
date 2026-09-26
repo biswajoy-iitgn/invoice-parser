@@ -1,0 +1,179 @@
+{
+  "transport_mode": "unknown",
+  "field_confidence": {
+    "Seal Charges": 0.798,
+    "Handling Charges": 0.782,
+    "Misc": 0.799,
+    "Examination Charges": 0.798,
+    "Agency Charges": 0.803,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Weight": 0.96
+  },
+  "field_basis": {
+    "Seal Charges": "rapidocr:table",
+    "Handling Charges": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "SealFee",
+      "amount_inr": 900.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.84,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Export Handling Charges",
+      "amount_inr": 2600.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.823,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "MiscExpenses",
+      "amount_inr": 400.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.841,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Examination Charges",
+      "amount_inr": 2100.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.84,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 1250.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.845,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 7250.0,
+  "subtotal_before_tax": 7250.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.0,
+      "rapidocr": 10.5
+    },
+    "header_votes": {
+      "Invoice No": {
+        "INV2024423014": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20241221": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "20250105": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "meridianmaritimeservicesprivatelimited": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "22724.750": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-080.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 85,
+      "deskew_deg": -0.12,
+      "noise_sigma": 1.02,
+      "upscale": 1.76,
+      "inverted_dark_fraction": 0.004,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 21.95,
+    "extract": 0.06
+  },
+  "wall_sec": 22.01,
+  "error": null
+}

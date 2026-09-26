@@ -1,0 +1,220 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.703,
+    "BL Charges": 0.545,
+    "Seal Charges": 0.889,
+    "Other Charges": 0.446,
+    "Pre Carriage Haulage": 0.901,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "Seal Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Pre Carriage Haulage": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 2/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Freight Charges-Ocean",
+      "amount_inr": 76320.15,
+      "category": "Sea Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.937,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "amount_inr": 6050.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.574,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "amount_inr": 1000.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.936,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGMCertificate",
+      "amount_inr": 1900.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.891,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "amount_inr": 26000.0,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.948,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EquipmentImbalanceSurcharge",
+      "amount_inr": 7400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.941,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 118670.15,
+  "subtotal_before_tax": 118670.15,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SrNo",
+          "desc:Description",
+          "sac:SAC/HSN",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Quantity",
+          "fc_amount:Amount(CUR)",
+          "exrate:Ex.Rate",
+          "non_gst:Non GST Value(INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total(INR)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: BL Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.0,
+      "rapidocr": 16.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "INV2024629023": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20240514": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "polarislogisticsindiapvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "PLPHBL24259128": [
+          "tesseract",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "11179.300": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-045.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 187,
+      "deskew_deg": -0.6,
+      "noise_sigma": 0.88,
+      "upscale": 1.52,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 25.52,
+    "extract": 0.14
+  },
+  "wall_sec": 25.65,
+  "error": null
+}

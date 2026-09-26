@@ -1,0 +1,45 @@
+== dev_final_ensemble: split=dev backend=layout ocr=ensemble  (60 docs)
+micro P/R/F1   0.901 / 0.767 / 0.829   F1 95% CI [0.7812, 0.8688]
+macro F1       0.833    mAP 0.749    field acc (incl. empty) 0.892
+hallucination  fabricated 2.062%   ungrounded 4.124%   wrong-value 6.642%
+doc exact      0.183    schema compliance 1.000 {}
+lines          recall 0.870  precision 0.938  category acc {'seen': 0.965, 'heldout': 0.717}
+latency        {'mean': 12.541833333333333, 'median': 6.305, 'p95': 30.23}   errors []
+
+per field (P / R / F1 / AP | tp fp fn | wrong missed fabricated ungrounded):
+  Invoice No                   0.881 0.617 0.725 0.611 |  37   5  23 |   5  18   0   4
+  Invoice Date                 0.982 0.933 0.957 0.933 |  56   1   4 |   1   3   0   0
+  Container Number             0.808 0.808 0.808 0.712 |  21   5   5 |   4   1   1   2
+  MAWB No                      1.000 0.895 0.944 0.895 |  17   0   2 |   0   2   0   0
+  HAWB No                      0.800 0.600 0.686 0.563 |  12   3   8 |   3   5   0   3
+  Vendor Name                  0.917 0.917 0.917 0.917 |  55   5   5 |   5   0   0   2
+  Bill of Lading / HBL         0.897 0.765 0.825 0.684 |  26   3   8 |   3   5   0   1
+  Weight                       0.895 0.618 0.731 0.601 |  34   4  21 |   4  17   0   4
+  Sea Freight                  0.923 0.828 0.873 0.825 |  24   2   5 |   2   3   0   1
+  Air Freight                  0.867 0.765 0.812 0.761 |  13   2   4 |   2   2   0   1
+  Terminal Handling Charges    0.909 0.800 0.851 0.746 |  20   2   5 |   2   3   0   1
+  Airway Bill Charges          0.923 0.800 0.857 0.800 |  12   1   3 |   1   2   0   0
+  BL Charges                   1.000 0.429 0.600 0.429 |   9   0  12 |   0  12   0   0
+  ENS Charges                  0.917 0.846 0.880 0.768 |  11   1   2 |   1   1   0   0
+  Seal Charges                 1.000 0.733 0.846 0.733 |  11   0   4 |   0   4   0   0
+  VGM                          1.000 0.900 0.947 0.900 |   9   0   1 |   0   1   0   0
+  EDI Fees                     1.000 0.556 0.714 0.556 |  15   0  12 |   0  12   0   0
+  DAP Charges                  1.000 0.875 0.933 0.875 |   7   0   1 |   0   1   0   0
+  Other Charges                0.250 0.381 0.302 0.108 |   8  24  13 |  12   1  12   4
+  AMS Charges                  1.000 0.857 0.923 0.857 |   6   0   1 |   0   1   0   0
+  Handling Charges             1.000 0.650 0.788 0.650 |  13   0   7 |   0   7   0   0
+  Pre Carriage Haulage         1.000 1.000 1.000 1.000 |  12   0   0 |   0   0   0   0
+  Ex Rate                      0.976 0.889 0.930 0.885 |  40   1   5 |   0   5   1   1
+  Misc                         1.000 0.773 0.872 0.773 |  17   0   5 |   0   5   0   0
+  Transportation               0.941 0.800 0.865 0.797 |  16   1   4 |   1   3   0   0
+  Warehouse Charges Port       0.947 0.750 0.837 0.750 |  18   1   6 |   1   5   0   1
+  Examination Charges          0.944 0.895 0.919 0.882 |  17   1   2 |   1   1   0   1
+  Fuel Charges                 1.000 0.964 0.982 0.964 |  27   0   1 |   0   1   0   0
+  Cargo Screening              1.000 0.800 0.889 0.800 |  12   0   3 |   0   3   0   0
+  Agency Charges               0.810 0.607 0.694 0.572 |  17   4  11 |   4   7   0   2
+  Shipping Bill Charges        0.952 0.870 0.909 0.870 |  20   1   3 |   1   2   0   0
+by_tier: clean(n=14) F1 0.913  medium(n=29) F1 0.911  scan(n=17) F1 0.582
+by_format: jpg(n=35) F1 0.804  pdf_digital(n=8) F1 0.941  pdf_raster(n=15) F1 0.810  png(n=2) F1 0.873
+by_template: T1(n=10) F1 0.826  T2(n=10) F1 0.797  T3(n=10) F1 0.764  T4(n=10) F1 0.911  T5(n=10) F1 0.787  T6(n=10) F1 0.884
+by_mode: air(n=18) F1 0.841  clearance(n=12) F1 0.781  sea_fcl(n=21) F1 0.822  sea_lcl(n=9) F1 0.874
+by_unseen_template: False(n=60) F1 0.829

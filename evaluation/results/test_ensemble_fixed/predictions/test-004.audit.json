@@ -1,0 +1,219 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.71,
+    "Airway Bill Charges": 0.871,
+    "Other Charges": 0.479,
+    "Warehouse Charges Port": 0.903,
+    "Fuel Charges": 0.902,
+    "Cargo Screening": 0.915,
+    "Shipping Bill Charges": 0.914,
+    "Invoice No": 0.762,
+    "Invoice Date": 0.938,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Air Freight": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Air Export Freight",
+      "amount_inr": 175812.89,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.947,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "Air Waybill Documentation",
+      "amount_inr": 3100.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.917,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "amount_inr": 300.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "amount_inr": 9050.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.951,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "FSC",
+      "amount_inr": 58676.4,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.949,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Screening Charges",
+      "amount_inr": 1850.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.963,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "amount_inr": 2200.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.962,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 250989.29,
+  "subtotal_before_tax": 250989.29,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description",
+          "unknown:",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex. Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 7
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 17.7,
+      "tesseract-raw": 17.7
+    },
+    "header_votes": {
+      "Invoice No": {
+        "TI320957": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250228": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "seabirdfreightsystemsprivatelimited": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "574.000": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-004.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 262,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.07,
+      "upscale": 1.35,
+      "inverted_dark_fraction": 0.077,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.96,
+    "extract": 0.07
+  },
+  "wall_sec": 4.03,
+  "error": null
+}

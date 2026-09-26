@@ -1,0 +1,224 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Shipping Bill Charges": 0.025,
+    "Examination Charges": 0.355,
+    "Transportation": 0.019,
+    "Handling Charges": 0.039,
+    "Misc": 0.221,
+    "EDI Fees": 0.132,
+    "Cargo Screening": 0.286,
+    "Other Charges": 0.151,
+    "Invoice No": 0.875,
+    "MAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Shipping Bill Charges": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Misc": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Cargo Screening": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 2/3",
+    "MAWB No": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "SHIPPING BILL FILING",
+      "amount_inr": 3450.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.044,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CUSTOMS EXAMINATION",
+      "amount_inr": 2956.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.623,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "TRANSPORTATION CHARGES",
+      "amount_inr": 24200.6,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.034,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "FORWARDER HANDLING FEE",
+      "amount_inr": 0.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.068,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SUNDRY CHARGES",
+      "amount_inr": 1700.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.388,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI FEES",
+      "amount_inr": 1150.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.232,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SECURITY SCREENING FEE",
+      "amount_inr": 2450.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.501,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EQUIPMENT IMBALANCE SURCHARGE ewe",
+      "amount_inr": 4600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.505,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 40506.6,
+  "subtotal_before_tax": 36250.0,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "qty:Qty et",
+          "exrate:ROE",
+          "amount:AMOUNT",
+          "unknown:"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 40,506.60 != printed subtotal 36,250.00",
+    "Low confidence: Shipping Bill Charges, Examination Charges, Transportation, Handling Charges, Misc, EDI Fees, Cargo Screening, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 0.8,
+      "tesseract-raw": 0.8,
+      "rapidocr": 0.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "TIS27279": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "15737210876": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "zenithexpresscargoltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "330.070": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-028.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 215,
+      "deskew_deg": 1.28,
+      "noise_sigma": 2.06,
+      "upscale": 1.89,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 26.52,
+    "extract": 0.18
+  },
+  "wall_sec": 26.69,
+  "error": null
+}

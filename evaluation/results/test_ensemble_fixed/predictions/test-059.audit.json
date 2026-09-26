@@ -1,0 +1,241 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "VGM": 0.479,
+    "Seal Charges": 0.218,
+    "Transportation": 0.441,
+    "Agency Charges": 0.178,
+    "BL Charges": 0.178,
+    "Other Charges": 0.224,
+    "Fuel Charges": 0.518,
+    "Invoice No": 0.851,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "VGM": "rapidocr:table",
+    "Seal Charges": "rapidocr:table",
+    "Transportation": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "Verified Gross Mass Declaration",
+      "amount_inr": 4300.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.84,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "E-Seal Fee",
+      "amount_inr": 1.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.382,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Trucking Charoes",
+      "amount_inr": 13350.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.773,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Agency Charges",
+      "amount_inr": 5700.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.312,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "amount_inr": 2400.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.766,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (BA)",
+      "amount_inr": 4700.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.313,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Ocean Freignt",
+      "amount_inr": 275845.5,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.747,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Fuel Surcharge",
+      "amount_inr": 39900.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.908,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 346196.5,
+  "subtotal_before_tax": 347195.5,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:Charge Description",
+          "unknown:",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 346,196.50 != printed subtotal 347,195.50",
+    "Low confidence: Invoice Date, VGM, Seal Charges, Transportation, Agency Charges, BL Charges, Other Charges, Fuel Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.8,
+      "tesseract-raw": 0.8,
+      "rapidocr": 5.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "11365838": [
+          "tesseract"
+        ],
+        "11365638": [
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250526": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "20250519": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "orientlogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "HLCU977589931": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-059.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 216,
+      "deskew_deg": 1.72,
+      "noise_sigma": 1.42,
+      "upscale": 1.89,
+      "inverted_dark_fraction": 0.028,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 24.45,
+    "extract": 0.19
+  },
+  "wall_sec": 24.64,
+  "error": null
+}

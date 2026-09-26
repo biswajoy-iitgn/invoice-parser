@@ -1,0 +1,200 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Sea Freight": 0.22,
+    "Other Charges": 0.126,
+    "Warehouse Charges Port": 0.49,
+    "Invoice Date": 0.45,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Sea Freight": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Invoice Date": "vote 1/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Sea Freight Charges",
+      "amount_inr": 118800.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.386,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Container Terminal Charges",
+      "amount_inr": 19800.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.42,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Seaway Ba Fee",
+      "amount_inr": 3950.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.505,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Origin tniand Hautage",
+      "amount_inr": 67400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.909,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Warehouse Charges (Pon)",
+      "amount_inr": 15150.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.86,
+      "arithmetic_checks": [
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Brokerage Fee",
+      "amount_inr": 3050.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.508,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SB.Chages",
+      "amount_inr": 300.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.442,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 228450.0,
+  "subtotal_before_tax": 230450.0,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Cur",
+          "exrate:Ex.Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total gINR)"
+        ],
+        "lines": 7
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 228,450.00 != printed subtotal 230,450.00",
+    "Low confidence: Invoice Date, Sea Freight, Other Charges, Warehouse Charges Port"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.30000000000000004,
+      "tesseract-raw": 0.0,
+      "rapidocr": 2.7
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20250925": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "seahawkcargomoversco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "SCMHBL24250437": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-010.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 180,
+      "deskew_deg": 0.76,
+      "noise_sigma": 1.11,
+      "upscale": 2.09,
+      "inverted_dark_fraction": 0.043,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 26.23,
+    "extract": 0.13
+  },
+  "wall_sec": 26.36,
+  "error": null
+}

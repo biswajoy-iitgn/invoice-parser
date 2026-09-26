@@ -1,0 +1,269 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.53,
+    "Terminal Handling Charges": 0.528,
+    "Other Charges": 0.162,
+    "Warehouse Charges Port": 0.529,
+    "Fuel Charges": 0.463,
+    "Agency Charges": 0.526,
+    "Invoice No": 0.949,
+    "Invoice Date": 0.55,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 2/3",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Seafreight Export",
+      "amount_inr": 50515.18,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.93,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "THC",
+      "amount_inr": 11000.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.927,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BLPrinting Charges",
+      "amount_inr": 3600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.931,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Miso.Charges",
+      "amount_inr": 2450.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.541,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cartaga Charges",
+      "amount_inr": 13150.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.907,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Storage Charges at CFs",
+      "amount_inr": 10600.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.928,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Low Sulpnur Surcharge (LSS)",
+      "amount_inr": 21577.4,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon-paren",
+      "category_conf": 0.85,
+      "amount_conf": 0.907,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Agency Charges",
+      "amount_inr": 7450.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.922,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Courier Charges",
+      "amount_inr": 2250.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.91,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 122592.58,
+  "subtotal_before_tax": 2258755.18,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SrNo",
+          "desc:Description",
+          "sac:SAC/HSN",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Quantity",
+          "fc_amount:Amount(CUR)",
+          "exrate:Ex.Rate",
+          "non_gst:Non GST Value (INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_pct:IGST%",
+          "gst_amt:IGSTAmt",
+          "total:Total (INR)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 122,592.58 != printed subtotal 2,258,755.18",
+    "Low confidence: Invoice Date, Sea Freight, Terminal Handling Charges, Other Charges, Warehouse Charges Port, Fuel Charges, Agency Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.0,
+      "rapidocr": 9.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "7371930698": [
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20251028": [
+          "tesseract"
+        ],
+        "20250913": [
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "tricolourfreightsystemsltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "TFSNS2472931": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-047.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 255,
+      "deskew_deg": 2.28,
+      "noise_sigma": 1.41,
+      "upscale": 1.49,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 19.57,
+    "extract": 0.15
+  },
+  "wall_sec": 19.73,
+  "error": null
+}

@@ -1,0 +1,177 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.576,
+    "Airway Bill Charges": 0.509,
+    "Agency Charges": 0.697,
+    "Other Charges": 0.23,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "Vendor Name": 0.95,
+    "Weight": 0.947
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract-raw:table",
+    "Air Freight": "tesseract-raw:table",
+    "Airway Bill Charges": "tesseract-raw:table",
+    "Agency Charges": "tesseract-raw:table",
+    "Other Charges": "tesseract-raw:table",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "Vendor Name": "vote 1/3",
+    "Weight": "vote 1/3"
+  },
+  "line_items": [
+    {
+      "description": "Air Freight",
+      "amount_inr": 498511.09,
+      "category": "Air Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.713,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "MAWB Fee",
+      "amount_inr": 1200.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.63,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 4700.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.863,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bal Filing",
+      "amount_inr": 2700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.54,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 507111.09,
+  "subtotal_before_tax": null,
+  "subtotal_reconciled": null,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Particulars",
+          "unknown:",
+          "cur:Cur",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex. Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST%",
+          "unknown:",
+          "total:Total (INR)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Air Freight, Airway Bill Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "tesseract-raw",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 4.4,
+      "rapidocr": 0.0
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20250730": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "05720358450": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "logisticspvtltd": [
+          "tesseract"
+        ],
+        "aazenithlogisticspvtltd": [
+          "tesseract-raw"
+        ],
+        "zenithlogisticspvtltd": [
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "2068.000": [
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-017.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract-raw",
+      "words": 221,
+      "deskew_deg": 0.52,
+      "noise_sigma": 2.11,
+      "upscale": 1.98,
+      "inverted_dark_fraction": 0.119,
+      "reading": "tesseract-raw"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 22.25,
+    "extract": 0.09
+  },
+  "wall_sec": 22.34,
+  "error": null
+}

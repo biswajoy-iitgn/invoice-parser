@@ -1,0 +1,255 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.7,
+    "Other Charges": 0.478,
+    "Shipping Bill Charges": 0.914,
+    "EDI Fees": 0.914,
+    "Agency Charges": 0.9,
+    "ENS Charges": 0.904,
+    "Seal Charges": 0.914,
+    "Terminal Handling Charges": 0.911,
+    "VGM": 0.866,
+    "Sea Freight": 0.879,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:inline-pattern",
+    "Other Charges": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "ENS Charges": "tesseract:table",
+    "Seal Charges": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "VGM": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "BL Printing Charges",
+      "amount_inr": 2600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.956,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "amount_inr": 3200.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.962,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Charges",
+      "amount_inr": 950.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.962,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "amount_inr": 6150.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.947,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "amount_inr": 2950.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.952,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "amount_inr": 1700.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.962,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "THC",
+      "amount_inr": 14300.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGM",
+      "amount_inr": 3500.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.912,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Ocean Freight (EUR 4,940.00 @",
+      "amount_inr": 469349.4,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.925,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 504699.4,
+  "subtotal_before_tax": 504699.4,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Description of Service",
+          "unknown:",
+          "sac:SAC",
+          "taxable:Taxable Value",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 19.9,
+      "tesseract-raw": 19.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "AMDAE2417095": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20241202": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "marigoldfreightforwarderspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "76551401901": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "47794.430": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-062.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 254,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.18,
+      "upscale": 1.35,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 7.23,
+    "extract": 0.22
+  },
+  "wall_sec": 7.46,
+  "error": null
+}

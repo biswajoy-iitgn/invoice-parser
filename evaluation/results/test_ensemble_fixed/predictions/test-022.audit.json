@@ -1,0 +1,246 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "BL Charges": 0.921,
+    "Other Charges": 0.483,
+    "Fuel Charges": 0.922,
+    "Terminal Handling Charges": 0.949,
+    "Sea Freight": 0.94,
+    "Shipping Bill Charges": 0.929,
+    "ENS Charges": 0.918,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "ENS Charges": "rapidocr:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "DOCUMENTATION FEE (B/L)",
+      "amount_inr": 3950.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.969,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BROKERAGECHARGES",
+      "amount_inr": 6900.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.998,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ISPS CHARGES",
+      "amount_inr": 8950.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.999,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EMERGENCY BUNKER SURCHARGE (EBS)",
+      "amount_inr": 7272.75,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.971,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "THC",
+      "amount_inr": 8800.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.999,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ELECTRONIC DATA INTERCHANGE FEE",
+      "amount_inr": 1200.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.967,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "O/F CHARGES (FCL)",
+      "amount_inr": 28520.82,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.989,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "SHIPPING BILLCHARGES",
+      "amount_inr": 1800.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.978,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ENTRY SUMMARY DECLARATION FEE",
+      "amount_inr": 2650.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.966,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 70043.57,
+  "subtotal_before_tax": 70043.57,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SR",
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "qty:QTY",
+          "exrate:ROE",
+          "taxable:AMOUNTINR",
+          "gst_pct:GST%"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.9,
+      "tesseract-raw": 0.9,
+      "rapidocr": 19.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "FF25263663": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20240914": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "everfastshippingagenciesindiapvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "HBL7803636": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-022.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 211,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.29,
+      "upscale": 1.35,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 27.0,
+    "extract": 0.2
+  },
+  "wall_sec": 27.2,
+  "error": null
+}

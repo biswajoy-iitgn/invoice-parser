@@ -1,0 +1,229 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Terminal Handling Charges": 0.439,
+    "Transportation": 0.303,
+    "Warehouse Charges Port": 0.286,
+    "Examination Charges": 0.289,
+    "Other Charges": 0.228,
+    "Sea Freight": 0.513,
+    "Fuel Charges": 0.544,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "Transportation": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "amount_inr": 13200.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.771,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "amount_inr": 16800.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.532,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Warehouse Charges",
+      "amount_inr": 200.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.502,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Examination",
+      "amount_inr": 3050.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.507,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BL Printing Charges",
+      "amount_inr": 2700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.897,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Electronic Data lnterchanige Fee",
+      "amount_inr": 1150.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.759,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sea Freight",
+      "amount_inr": 20178.98,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.9,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "BAF",
+      "amount_inr": 7100.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.955,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 64378.98,
+  "subtotal_before_tax": 72378.98,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:Charge Description",
+          "unknown:",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount (INR)",
+          "gst_pct:GST%",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 64,378.98 != printed subtotal 72,378.98",
+    "Low confidence: Other Charges, Transportation, Warehouse Charges Port, Examination Charges, Sea Freight, Fuel Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.9,
+      "tesseract-raw": 0.8,
+      "rapidocr": 5.8
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20260110": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "orientexpresscargopvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "OECHBL25266324": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-060.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 227,
+      "deskew_deg": 2.24,
+      "noise_sigma": 1.33,
+      "upscale": 2.02,
+      "inverted_dark_fraction": 0.035,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 23.11,
+    "extract": 0.16
+  },
+  "wall_sec": 23.27,
+  "error": null
+}

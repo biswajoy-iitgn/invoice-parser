@@ -1,0 +1,259 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Handling Charges": 0.924,
+    "Terminal Handling Charges": 0.915,
+    "VGM": 0.777,
+    "Examination Charges": 0.903,
+    "Pre Carriage Haulage": 0.917,
+    "Agency Charges": 0.911,
+    "BL Charges": 0.918,
+    "Fuel Charges": 0.934,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Handling Charges": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "VGM": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Pre Carriage Haulage": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/3",
+    "Bill of Lading / HBL": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Handling Fee",
+      "amount_inr": 5250.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.973,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "THC",
+      "amount_inr": 13700.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.963,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGM Charges",
+      "amount_inr": 1900.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.818,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Examination",
+      "amount_inr": 4150.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.951,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Pre-Carriage Haulage",
+      "amount_inr": 16700.0,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.965,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "amount_inr": 1800.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "B/L Issuance Charges",
+      "amount_inr": 5350.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.966,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BAF",
+      "amount_inr": 19180.6,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.983,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 68030.6,
+  "subtotal_before_tax": 68030.6,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Charge Description",
+          "basis:Basis",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount(INR)",
+          "gst_pct:GST%",
+          "total:Total(INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 5.8,
+      "tesseract-raw": 5.8,
+      "rapidocr": 18.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "SE24258391": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20240128": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "sapphirefreightforwardersindiapvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "sapphirefreightforwarderslndiapvtltd": [
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "SFFHBL24255767": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "12161.400": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-055.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 183,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.11,
+      "upscale": 1.71,
+      "inverted_dark_fraction": 0.03,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 29.73,
+    "extract": 0.13
+  },
+  "wall_sec": 29.86,
+  "error": null
+}

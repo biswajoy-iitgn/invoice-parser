@@ -1,0 +1,178 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Invoice No": 1.0,
+    "Invoice Date": 1.0,
+    "Vendor Name": 0.95,
+    "MAWB No": 0.9,
+    "HAWB No": 0.9,
+    "Weight": 0.9,
+    "Airway Bill Charges": 0.807,
+    "Warehouse Charges Port": 0.807,
+    "Handling Charges": 0.807,
+    "Other Charges": 0.425,
+    "Air Freight": 0.807,
+    "Fuel Charges": 0.807,
+    "EDI Fees": 0.807,
+    "Cargo Screening": 0.807
+  },
+  "field_basis": {
+    "Invoice No": "label:inline",
+    "Invoice Date": "label:inline",
+    "Vendor Name": "top+for-line",
+    "MAWB No": "label:inline",
+    "HAWB No": "label:inline",
+    "Weight": "label:inline",
+    "Airway Bill Charges": "table",
+    "Warehouse Charges Port": "table",
+    "Handling Charges": "table",
+    "Other Charges": "table",
+    "Air Freight": "table",
+    "Fuel Charges": "table",
+    "EDI Fees": "table",
+    "Cargo Screening": "table"
+  },
+  "line_items": [
+    {
+      "description": "MAWB Fee",
+      "amount_inr": 3050.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Warehouse Charges",
+      "amount_inr": 12800.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Forwarder Handling Fee",
+      "amount_inr": 1700.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Brokerage Charges",
+      "amount_inr": 6500.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Air Freight",
+      "amount_inr": 339254.45,
+      "category": "Air Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Fuel Surcharge",
+      "amount_inr": 91259.35,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Fees",
+      "amount_inr": 1250.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Charges",
+      "amount_inr": 2000.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 457813.8,
+  "subtotal_before_tax": 457813.8,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-076.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 226
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.01,
+    "extract": 0.03
+  },
+  "wall_sec": 0.04,
+  "error": null
+}

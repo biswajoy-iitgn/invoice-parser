@@ -1,0 +1,143 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Invoice No": 0.95,
+    "Invoice Date": 0.95,
+    "Vendor Name": 0.95,
+    "Container Number": 0.95,
+    "Bill of Lading / HBL": 0.902,
+    "Weight": 0.95,
+    "Ex Rate": 0.7,
+    "Other Charges": 0.5,
+    "Terminal Handling Charges": 0.95,
+    "VGM": 0.95,
+    "AMS Charges": 0.95
+  },
+  "field_basis": {
+    "Invoice No": "label:right",
+    "Invoice Date": "label:right",
+    "Vendor Name": "top+for-line",
+    "Container Number": "iso6346-scan",
+    "Bill of Lading / HBL": "label:right",
+    "Weight": "label:right",
+    "Ex Rate": "inline-pattern",
+    "Other Charges": "table",
+    "Terminal Handling Charges": "table",
+    "VGM": "table",
+    "AMS Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "@ 88.31)",
+      "amount_inr": 647753.85,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "amount_inr": 43350.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "amount_inr": 2550.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "amount_inr": 600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "US Customs AMS",
+      "amount_inr": 3150.0,
+      "category": "AMS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 697403.85,
+  "subtotal_before_tax": 697403.85,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Description of Service",
+          "sac:SAC",
+          "taxable:Taxable Value (INR)",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total (INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 1
+  },
+  "warnings": [
+    "1 table row(s) could not be parsed",
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-061.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 236
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.02,
+    "extract": 0.07
+  },
+  "wall_sec": 0.09,
+  "error": null
+}

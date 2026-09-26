@@ -1,0 +1,184 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.96,
+    "Other Charges": 0.353,
+    "Airway Bill Charges": 0.376,
+    "Warehouse Charges Port": 0.769,
+    "Fuel Charges": 0.226,
+    "Shipping Bill Charges": 0.653,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.936,
+    "HAWB No": 0.936,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:label:inline",
+    "Other Charges": "tesseract:table",
+    "Airway Bill Charges": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "MAWB No": "vote 2/2",
+    "HAWB No": "vote 2/2",
+    "Vendor Name": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Charges",
+      "amount_inr": 42443.63,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.707,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Airway Bill Charges",
+      "amount_inr": 2350.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.48,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Airway Bill Charges",
+      "amount_inr": 2350.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.396,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Storage Charges CFS at",
+      "amount_inr": 8000.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.809,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "amount_inr": 6812.52,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.238,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "amount_inr": 3250.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.687,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 65206.15,
+  "subtotal_before_tax": 65206.35,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges, Misc, Fuel Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.6,
+      "tesseract-raw": 10.6
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20250602": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "MAWB No": {
+        "02055256364": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "HAWB No": {
+        "TAA2488593": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "transasiaairseaindiapvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-088.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 229,
+      "deskew_deg": -0.68,
+      "noise_sigma": 2.04,
+      "upscale": 1.92,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 7.44,
+    "extract": 0.2
+  },
+  "wall_sec": 7.64,
+  "error": null
+}

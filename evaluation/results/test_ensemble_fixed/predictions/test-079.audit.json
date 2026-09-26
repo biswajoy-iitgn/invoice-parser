@@ -1,0 +1,278 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.996,
+    "Sea Freight": 0.455,
+    "Terminal Handling Charges": 0.402,
+    "BL Charges": 0.471,
+    "ENS Charges": 0.47,
+    "VGM": 0.475,
+    "EDI Fees": 0.475,
+    "Misc": 0.469,
+    "Transportation": 0.481,
+    "Warehouse Charges Port": 0.466,
+    "Fuel Charges": 0.48,
+    "Shipping Bill Charges": 0.479,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.905,
+    "Weight": 0.859
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:label:inline",
+    "Sea Freight": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "ENS Charges": "rapidocr:table",
+    "VGM": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Transportation": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 3/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 2/3",
+    "Weight": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "OceanFreight Charges\uff08EUR 2,015.00)",
+      "amount_inr": 184774.29,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.799,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "THC -Origin",
+      "amount_inr": 15.1,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.705,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "amount_inr": 5150.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.826,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "amount_inr": 2550.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.825,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "amount_inr": 800.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.834,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Fees",
+      "amount_inr": 1050.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.834,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "amount_inr": 1300.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.822,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Transportation",
+      "amount_inr": 3750.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.843,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Ground Rent",
+      "amount_inr": 12350.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Bunker Adjustment Factor",
+      "amount_inr": 22150.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.842,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "S/B Charges",
+      "amount_inr": 650.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.84,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 234539.39,
+  "subtotal_before_tax": 249624.29,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Natureof Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 11
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 234,539.39 != printed subtotal 249,624.29",
+    "Low confidence: Invoice Date, Sea Freight, Terminal Handling Charges, BL Charges, ENS Charges, VGM, Other Charges, Misc, Transportation, Warehouse Charges Port, Fuel Charges, Shipping Bill Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 1.0,
+      "tesseract-raw": 1.0,
+      "rapidocr": 1.1
+    },
+    "header_votes": {
+      "Invoice No": {
+        "AE24252329": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250225": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "sapphiresupplychainsolutionsprivatelimited": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "HLCU337540445": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "11559.000": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-079.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 123,
+      "deskew_deg": 0.6,
+      "noise_sigma": 0.89,
+      "upscale": 1.67,
+      "inverted_dark_fraction": 0.006,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 34.55,
+    "extract": 0.32
+  },
+  "wall_sec": 34.87,
+  "error": null
+}

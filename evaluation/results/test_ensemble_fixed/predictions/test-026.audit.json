@@ -1,0 +1,241 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.583,
+    "Terminal Handling Charges": 0.775,
+    "Other Charges": 0.399,
+    "EDI Fees": 0.771,
+    "DAP Charges": 0.725,
+    "Handling Charges": 0.773,
+    "Warehouse Charges Port": 0.772,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "DAP Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Warehouse Charges Port": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "MARINE FREIGHT",
+      "amount_inr": 28789.08,
+      "category": "Sea Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.777,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "THC",
+      "amount_inr": 5500.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.816,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SEAWAY BILL FEE",
+      "amount_inr": 6400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.812,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI FILING",
+      "amount_inr": 1200.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.812,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP CHARGES",
+      "amount_inr": 26800.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.763,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HANDLING CHARGES",
+      "amount_inr": 5250.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "TRUCK FREIGHT (LOCAL)",
+      "amount_inr": 4750.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ACC WAREHOUSE CHARGES",
+      "amount_inr": 1550.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.813,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "PORT SECURITY SURCHARGE",
+      "amount_inr": 1350.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.797,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 81589.08,
+  "subtotal_before_tax": 81589.08,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "unknown:",
+          "exrate:ROE",
+          "amount:AMOUNT",
+          "amount:INR",
+          "gst_pct:GST%"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Sea Freight, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.9,
+      "tesseract-raw": 10.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "BOMAE2677186": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250810": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "polarismaritimeservicespvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "PMSNS2635428": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "5551.549": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-026.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 265,
+      "deskew_deg": -0.32,
+      "noise_sigma": 0.94,
+      "upscale": 1.68,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 5.41,
+    "extract": 0.08
+  },
+  "wall_sec": 5.48,
+  "error": null
+}

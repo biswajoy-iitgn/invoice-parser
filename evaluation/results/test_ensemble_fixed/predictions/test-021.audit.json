@@ -1,0 +1,221 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Cargo Screening": 0.926,
+    "Air Freight": 0.734,
+    "EDI Fees": 0.918,
+    "Airway Bill Charges": 0.928,
+    "Other Charges": 0.484,
+    "Handling Charges": 0.92,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Cargo Screening": "rapidocr:table",
+    "Air Freight": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Airway Bill Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Handling Charges": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "HAWB No": "vote 2/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "SECURITY SCREENING FEE",
+      "amount_inr": 2150.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.975,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AIR CARGO FREIGHT",
+      "amount_inr": 446838.23,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.978,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "E-MANIFEST EDI TRANSMISSION",
+      "amount_inr": 550.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.966,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AIRWAY BILL CHARGES",
+      "amount_inr": 2600.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.977,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "TRUCK FREIGHT (LOCAL)",
+      "amount_inr": 16450.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.969,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HDLG. CHARGES",
+      "amount_inr": 6050.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.968,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 474638.23,
+  "subtotal_before_tax": 474638.23,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SR",
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "qty:QTY",
+          "exrate:ROE",
+          "taxable:AMOUNTINRGST%",
+          "unknown:"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.6000000000000001,
+      "tesseract-raw": 0.6000000000000001,
+      "rapidocr": 16.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "INV2025947543": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20250606": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "15739896500": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "GSA2571827": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "gatewayshippingagenciesindiapvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "1573.000": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-021.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 181,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.31,
+      "upscale": 1.35,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 31.6,
+    "extract": 0.19
+  },
+  "wall_sec": 31.78,
+  "error": null
+}

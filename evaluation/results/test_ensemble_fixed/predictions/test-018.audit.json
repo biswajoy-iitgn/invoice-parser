@@ -1,0 +1,257 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.852,
+    "Terminal Handling Charges": 0.887,
+    "BL Charges": 0.785,
+    "Seal Charges": 0.424,
+    "Handling Charges": 0.485,
+    "Misc": 0.74,
+    "Fuel Charges": 0.761,
+    "Agency Charges": 0.855,
+    "Other Charges": 0.177,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "Seal Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Agency Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Freight Charges",
+      "amount_inr": 256038.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.897,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "THC Port of Loading",
+      "amount_inr": 11400.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.934,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (B/L}",
+      "amount_inr": 5800.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.826,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Seal Fee",
+      "amount_inr": 2100.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.446,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Handling & Coordination",
+      "amount_inr": 6550.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.511,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sundry Charges",
+      "amount_inr": 2400.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.779,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "amount_inr": 35862.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.801,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Agency Charges",
+      "amount_inr": 1200.6,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.9,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bil",
+      "amount_inr": 2250.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.354,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DO Charges",
+      "amount_inr": 7250.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.694,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 330850.6,
+  "subtotal_before_tax": 330850.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:CHARGES Sr Particulars",
+          "unknown:",
+          "unknown:",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex. Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST",
+          "unknown:",
+          "total:Total (INR)"
+        ],
+        "lines": 10
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Seal Charges, Handling Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 21.0,
+      "tesseract-raw": 21.0
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20250928": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "kestrelcargomoversllp": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "14579.610": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-018.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 248,
+      "deskew_deg": -1.12,
+      "noise_sigma": 1.14,
+      "upscale": 1.89,
+      "inverted_dark_fraction": 0.106,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.86,
+    "extract": 0.09
+  },
+  "wall_sec": 3.95,
+  "error": null
+}

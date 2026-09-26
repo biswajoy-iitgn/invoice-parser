@@ -1,0 +1,224 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.962,
+    "Other Charges": 0.377,
+    "BL Charges": 0.752,
+    "ENS Charges": 0.714,
+    "Transportation": 0.785,
+    "Warehouse Charges Port": 0.761,
+    "Examination Charges": 0.776,
+    "Fuel Charges": 0.767,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.968
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:label:inline",
+    "Other Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "ENS Charges": "rapidocr:table",
+    "Transportation": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Invoice Date": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Frelght (USD 685.8z)",
+      "amount_inr": 59570.33,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.754,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Container Terminal Charges",
+      "amount_inr": 8850.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BL Charges",
+      "amount_inr": 4500.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.792,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ICS2 / ENS Filing",
+      "amount_inr": 2750.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.752,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cartage Charges",
+      "amount_inr": 3900.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.826,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "amount_inr": 7600.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.801,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Ground Rent",
+      "amount_inr": 5150.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.81,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Examination Charges",
+      "amount_inr": 4100.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSs)",
+      "amount_inr": 7350.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.807,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 103770.33,
+  "subtotal_before_tax": 103770.33,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Nature'of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.9,
+      "rapidocr": 10.9
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20260110": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "meridianmaritimeservicesindiapvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "4472.940": [
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-086.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 136,
+      "deskew_deg": 1.48,
+      "noise_sigma": 1.22,
+      "upscale": 1.96,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 25.42,
+    "extract": 0.11
+  },
+  "wall_sec": 25.54,
+  "error": null
+}

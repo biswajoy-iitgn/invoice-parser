@@ -1,0 +1,23 @@
+{
+  "note": "single process, 4 vCPU, no GPU; 12 test docs (3 per tier/format stratum)",
+  "seconds_per_document": {
+    "ensemble": {
+      "n": 12,
+      "mean": 6.07,
+      "median": 4.25,
+      "max": 17.49
+    },
+    "tesseract": {
+      "n": 12,
+      "mean": 1.72,
+      "median": 2.16,
+      "max": 2.94
+    },
+    "rapidocr": {
+      "n": 12,
+      "mean": 5.51,
+      "median": 6.93,
+      "max": 9.61
+    }
+  }
+}

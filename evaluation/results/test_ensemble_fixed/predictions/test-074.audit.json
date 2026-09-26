@@ -1,0 +1,200 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.945,
+    "Other Charges": 0.33,
+    "Shipping Bill Charges": 0.836,
+    "Fuel Charges": 0.89,
+    "Airway Bill Charges": 0.716,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.943,
+    "Vendor Name": 0.99,
+    "Weight": 0.927
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:label:right",
+    "Other Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Fuel Charges": "rapidocr:table",
+    "Airway Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 2/3",
+    "HAWB No": "vote 1/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 1/3"
+  },
+  "line_items": [
+    {
+      "description": "Airline Frelght Charges (USD 9.312.46 @84.00)",
+      "amount_inr": 782246.64,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.66,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "fat \u2018Cargo \u2018Security Sean",
+      "amount_inr": 1900.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.911,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "(3. | SB Filing Fee nie ER",
+      "amount_inr": 1000.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.88,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AirlineFuel Lavy",
+      "amount_inr": 202124.48,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.937,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "5 Airwaybill Issuance",
+      "amount_inr": 2150.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.754,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 989421.12,
+  "subtotal_before_tax": 989421.12,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:Description ofService",
+          "sac:SAC",
+          "taxable:Taxable Value (INR)",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total (INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.5,
+      "tesseract-raw": 0.6000000000000001,
+      "rapidocr": 15.5
+    },
+    "header_votes": {
+      "Invoice No": {
+        "PGL24878161": [
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20240317": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "15799076261": [
+          "tesseract",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "DELHA131729": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "pioneergloballogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "1689.890": [
+          "tesseract-raw"
+        ],
+        "16.000": [
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-074.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 150,
+      "deskew_deg": -2.24,
+      "noise_sigma": 1.07,
+      "upscale": 2.01,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 21.8,
+    "extract": 0.08
+  },
+  "wall_sec": 21.88,
+  "error": null
+}

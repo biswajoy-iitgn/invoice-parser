@@ -1,0 +1,263 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.7,
+    "Sea Freight": 0.741,
+    "BL Charges": 0.753,
+    "ENS Charges": 0.908,
+    "VGM": 0.883,
+    "Handling Charges": 0.908,
+    "Other Charges": 0.455,
+    "Misc": 0.867,
+    "Transportation": 0.911,
+    "Examination Charges": 0.913,
+    "Fuel Charges": 0.879,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.55,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:inline-pattern",
+    "Sea Freight": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "ENS Charges": "tesseract:table",
+    "VGM": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Sea Freight (USD 1,505.00 @",
+      "amount_inr": 132069.62,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.78,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "B/L Fee",
+      "amount_inr": 6350.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.793,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ENS Charges",
+      "amount_inr": 3700.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.956,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGM Filing Fee",
+      "amount_inr": 950.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.93,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Export Handling Charges",
+      "amount_inr": 7650.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.956,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "amount_inr": 33150.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.909,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sundry Charges",
+      "amount_inr": 2000.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.913,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Transportation",
+      "amount_inr": 16300.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Examination Charges",
+      "amount_inr": 3550.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.961,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Fuel Surcharge (USD 255.00",
+      "amount_inr": 22377.24,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.925,
+      "arithmetic_checks": [
+        "column",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 228096.86,
+  "subtotal_before_tax": 228096.86,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Description of Service",
+          "unknown:",
+          "sac:SAC",
+          "taxable:Taxable Value (INR)",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total (INR)"
+        ],
+        "lines": 10
+      }
+    ],
+    "unparsed_rows": 1
+  },
+  "warnings": [
+    "1 table row(s) could not be parsed",
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 19.0,
+      "tesseract-raw": 9.0
+    },
+    "header_votes": {
+      "Invoice No": {
+        "ASA25894708": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20251004": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "anchorshippingagenciesprivatelimited": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "22863858228": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-069.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 254,
+      "deskew_deg": 0.48,
+      "noise_sigma": 0.76,
+      "upscale": 1.69,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 5.18,
+    "extract": 0.09
+  },
+  "wall_sec": 5.28,
+  "error": null
+}

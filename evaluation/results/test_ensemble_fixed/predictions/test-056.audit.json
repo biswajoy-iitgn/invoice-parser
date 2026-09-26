@@ -1,0 +1,273 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Other Charges": 0.214,
+    "Seal Charges": 0.384,
+    "VGM": 0.514,
+    "Warehouse Charges Port": 0.429,
+    "Examination Charges": 0.45,
+    "Agency Charges": 0.447,
+    "Sea Freight": 0.422,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Seal Charges": "rapidocr:table",
+    "VGM": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Invoice No": "vote 3/3",
+    "Invoice Date": "vote 3/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/3",
+    "Bill of Lading / HBL": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "THCPort of Loading",
+      "amount_inr": 6400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.916,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HighSecunity Seal",
+      "amount_inr": 58.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.674,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGM Certificate",
+      "amount_inr": 700.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.901,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Pre-Caniage Haulage",
+      "amount_inr": 10850.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.746,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Warehouse Charges",
+      "amount_inr": 13250.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.752,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Examination Charges",
+      "amount_inr": 5250.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.789,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Brokerage Fee",
+      "amount_inr": 6500.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.714,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "amount_inr": 1500.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.785,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Seatreight Export",
+      "amount_inr": 48204.8,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.74,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Seafreight Export",
+      "amount_inr": 48204.8,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.763,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 140917.6,
+  "subtotal_before_tax": 69361.5,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "unknown:",
+          "desc:Charge Descriptlon",
+          "basis:Basis",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Units",
+          "exrate:ROE",
+          "taxable:Amount(INR) GST",
+          "unknown:",
+          "total:Total (INR)"
+        ],
+        "lines": 10
+      }
+    ],
+    "unparsed_rows": 1
+  },
+  "warnings": [
+    "Line items sum 140,917.60 != printed subtotal 69,361.50",
+    "1 table row(s) could not be parsed",
+    "Low confidence: Other Charges, Seal Charges, VGM, Warehouse Charges Port, Examination Charges, Agency Charges, Sea Freight"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 1.0,
+      "tesseract-raw": 1.0,
+      "rapidocr": 4.0
+    },
+    "header_votes": {
+      "Invoice No": {
+        "INV2026030349": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20260620": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "marigoldfreightsystemsindiapvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "marigoldfreightsystemslndiapvtltd": [
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "CMDU282662002": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "13903.000": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-056.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 238,
+      "deskew_deg": 1.24,
+      "noise_sigma": 2.7,
+      "upscale": 1.91,
+      "inverted_dark_fraction": 0.035,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 28.15,
+    "extract": 0.27
+  },
+  "wall_sec": 28.42,
+  "error": null
+}

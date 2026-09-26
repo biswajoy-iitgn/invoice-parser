@@ -1,0 +1,168 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Air Freight": 0.174,
+    "DAP Charges": 0.123,
+    "Fuel Charges": 0.248,
+    "Other Charges": 0.188,
+    "Invoice No": 0.727,
+    "Invoice Date": 0.55,
+    "MAWB No": 0.885,
+    "HAWB No": 0.885,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Air Freight": "tesseract:table",
+    "DAP Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 2/3",
+    "MAWB No": "vote 1/3",
+    "HAWB No": "vote 1/3",
+    "Vendor Name": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Airfreight Charges (usp. 4 S15. 60) :",
+      "amount_inr": 395077.52,
+      "category": "Air Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.305,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP Terminal & Delivery",
+      "amount_inr": 3849635.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.216,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "FSC",
+      "amount_inr": 14282145.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.435,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Equi pment imbalance",
+      "amount_inr": -78000.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.625,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 18448857.52,
+  "subtotal_before_tax": 584195.32,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Nature of Charges",
+          "amount:Amount"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 18,448,857.52 != printed subtotal 584,195.32",
+    "Low confidence: Invoice Date, Air Freight, DAP Charges, Fuel Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 0.4,
+      "tesseract-raw": 0.0,
+      "rapidocr": 0.4
+    },
+    "header_votes": {
+      "Invoice No": {
+        "9523139": [
+          "tesseract"
+        ]
+      },
+      "Invoice Date": {
+        "20280120": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "20250130": [
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "15736953243": [
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "PMS7012196": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "polarismaritimeservicesco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-090.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 190,
+      "deskew_deg": 0.12,
+      "noise_sigma": 19.5,
+      "denoised": true,
+      "upscale": 2.02,
+      "inverted_dark_fraction": 0.02,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 18.92,
+    "extract": 0.06
+  },
+  "wall_sec": 18.98,
+  "error": null
+}

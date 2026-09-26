@@ -1,0 +1,249 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.74,
+    "Other Charges": 0.406,
+    "Seal Charges": 0.776,
+    "EDI Fees": 0.771,
+    "Pre Carriage Haulage": 0.709,
+    "Misc": 0.775,
+    "Transportation": 0.777,
+    "Examination Charges": 0.773,
+    "Shipping Bill Charges": 0.773,
+    "Invoice No": 0.938,
+    "Invoice Date": 0.55,
+    "Container Number": 0.95,
+    "Vendor Name": 0.95,
+    "Bill of Lading / HBL": 0.861,
+    "Weight": 0.935
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Seal Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "Pre Carriage Haulage": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 1/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Freight Charges",
+      "amount_inr": 633286.59,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.779,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Container Terminal Charges",
+      "amount_inr": 36150.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.813,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "amount_inr": 3600.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Fees",
+      "amount_inr": 1050.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.812,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Pre-Carriage (ICD to Port)",
+      "amount_inr": 34500.0,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.746,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc. Charges",
+      "amount_inr": 300.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.816,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Transportation",
+      "amount_inr": 8950.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.818,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Examination Charges",
+      "amount_inr": 3500.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SB Filing Fee",
+      "amount_inr": 2300.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 723636.59,
+  "subtotal_before_tax": 723636.59,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.9,
+      "tesseract-raw": 10.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "4462561460": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20241112": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "bluewaterforwardingco": [
+          "tesseract"
+        ],
+        "orionbearingsltd": [
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "BFCHBL24252859": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "35021.990": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-037.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 246,
+      "deskew_deg": 0.16,
+      "noise_sigma": 1.06,
+      "upscale": 1.7,
+      "inverted_dark_fraction": 0.003,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 6.14,
+    "extract": 0.16
+  },
+  "wall_sec": 6.31,
+  "error": null
+}

@@ -1,0 +1,237 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Terminal Handling Charges": 0.221,
+    "BL Charges": 0.718,
+    "VGM": 0.733,
+    "AMS Charges": 0.686,
+    "Other Charges": 0.231,
+    "Pre Carriage Haulage": 0.607,
+    "Shipping Bill Charges": 0.694,
+    "DAP Charges": 0.738,
+    "Invoice No": 0.904,
+    "Invoice Date": 0.55,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Weight": 0.925
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract-raw:table",
+    "Terminal Handling Charges": "tesseract-raw:table",
+    "BL Charges": "tesseract-raw:table",
+    "VGM": "tesseract-raw:table",
+    "AMS Charges": "tesseract-raw:table",
+    "Other Charges": "tesseract-raw:table",
+    "Pre Carriage Haulage": "tesseract-raw:table",
+    "Shipping Bill Charges": "tesseract-raw:table",
+    "DAP Charges": "tesseract-raw:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "THC Port of Loading",
+      "amount_inr": 29600.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.233,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BL Charges",
+      "amount_inr": 5050.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.756,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "amount_inr": 1500.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.772,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Advance Manifest (AMS) Fee",
+      "amount_inr": 2600.0,
+      "category": "AMS Charges",
+      "category_basis": "lexicon-paren",
+      "category_conf": 0.85,
+      "amount_conf": 0.807,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Mandatory User Charges",
+      "amount_inr": 3800.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.779,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Origin inland Haulage",
+      "amount_inr": 42500.0,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.639,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "S.B. Charges",
+      "amount_inr": 1400.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.731,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "OIF Charges (FCL)",
+      "amount_inr": 294279.7,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.462,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "DAP Charges",
+      "amount_inr": 17848.33,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.777,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 398578.03,
+  "subtotal_before_tax": 398578.03,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "unknown:",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Terminal Handling Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract-raw",
+    "table_scores": {
+      "tesseract": 0.8,
+      "tesseract-raw": 10.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "TGLIFF252643510": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20251229": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "tricolourgloballogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "41057.400": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-039.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract-raw",
+      "words": 235,
+      "deskew_deg": 0.88,
+      "noise_sigma": 2.62,
+      "upscale": 1.86,
+      "reading": "tesseract-raw"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 4.23,
+    "extract": 0.08
+  },
+  "wall_sec": 4.3,
+  "error": null
+}

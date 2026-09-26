@@ -1,0 +1,241 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.982,
+    "EDI Fees": 0.734,
+    "Seal Charges": 0.77,
+    "BL Charges": 0.773,
+    "Terminal Handling Charges": 0.773,
+    "Sea Freight": 0.607,
+    "Pre Carriage Haulage": 0.767,
+    "Other Charges": 0.407,
+    "DAP Charges": 0.776,
+    "VGM": 0.751,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.982,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.857,
+    "Weight": 0.92
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:label:inline",
+    "EDI Fees": "tesseract:table",
+    "Seal Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Pre Carriage Haulage": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "DAP Charges": "tesseract:table",
+    "VGM": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2",
+    "Weight": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "EDI Filing",
+      "amount_inr": 650.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.773,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "High Security Seal",
+      "amount_inr": 800.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.811,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HBL Fee",
+      "amount_inr": 2650.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "THC",
+      "amount_inr": 10150.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.814,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Marine Freight",
+      "amount_inr": 161360.58,
+      "category": "Sea Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.809,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "amount_inr": 29800.0,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.807,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Container Terminal Charges",
+      "amount_inr": 16050.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.815,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP Delivery Charges",
+      "amount_inr": 9000.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "VGM Certificate",
+      "amount_inr": 1200.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.791,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 231660.58,
+  "subtotal_before_tax": 231660.58,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 10.9,
+      "tesseract-raw": 10.9
+    },
+    "header_votes": {
+      "Invoice No": {
+        "SFS25208529": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20240915": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "seabirdfreightsystemspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "MEDUAB5168858": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "15887.000": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-082.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 226,
+      "deskew_deg": -0.32,
+      "noise_sigma": 0.67,
+      "upscale": 1.78,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 6.95,
+    "extract": 0.2
+  },
+  "wall_sec": 7.15,
+  "error": null
+}

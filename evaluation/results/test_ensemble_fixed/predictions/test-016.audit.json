@@ -1,0 +1,170 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.909,
+    "Terminal Handling Charges": 0.883,
+    "BL Charges": 0.884,
+    "Other Charges": 0.465,
+    "Invoice No": 0.95,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Basic Ocean Freight",
+      "amount_inr": 13619.81,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.957,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "THC Origin",
+      "amount_inr": 12350.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.93,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "amount_inr": 3950.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.931,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "amount_inr": 14400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.93,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 44319.81,
+  "subtotal_before_tax": 44319.81,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:Sr",
+          "desc:Particulars",
+          "unknown:",
+          "unknown:",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex. Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST %",
+          "unknown:",
+          "total:Total (INR)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 14.4,
+      "tesseract-raw": 14.4
+    },
+    "header_votes": {
+      "Invoice No": {
+        "SGL26053739": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250625": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "seahawkgloballogisticspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "SGLMU2482001": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-016.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 211,
+      "deskew_deg": -0.08,
+      "noise_sigma": 0.85,
+      "upscale": 1.83,
+      "inverted_dark_fraction": 0.124,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 4.45,
+    "extract": 0.05
+  },
+  "wall_sec": 4.5,
+  "error": null
+}

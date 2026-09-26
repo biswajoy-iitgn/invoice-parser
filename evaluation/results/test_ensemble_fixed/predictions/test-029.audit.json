@@ -1,0 +1,277 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.421,
+    "Other Charges": 0.138,
+    "EDI Fees": 0.39,
+    "Pre Carriage Haulage": 0.244,
+    "Examination Charges": 0.258,
+    "Agency Charges": 0.427,
+    "Shipping Bill Charges": 0.421,
+    "Invoice No": 0.948,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.891
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Pre Carriage Haulage": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 1/3"
+  },
+  "line_items": [
+    {
+      "description": "X:OCEAN FREIGHT CHARGES",
+      "amount_inr": 115478.4054,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.738,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "2THC PORT OF LOADING",
+      "amount_inr": 640000.18,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.787,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "3 SEAWAY\u00b7BILLFEE",
+      "amount_inr": 5300.0018,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.46,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "4SEAL CHARGES",
+      "amount_inr": 1100.00188,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.733,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SVGM CHARGES",
+      "amount_inr": 2200.0018,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.749,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "GE-HANIFEST EDI.TRANSMISSION",
+      "amount_inr": 1450.00188,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.684,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "7.PRE-CARRIAGE (ICD TO",
+      "amount_inr": 1515000.5,
+      "category": "Pre Carriage Haulage",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.428,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "8 EXAMINATION FEE",
+      "amount_inr": 800.0018,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.452,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "\u6bcf EMERGENCYBURKERSURCHARGE.IEBS:USO",
+      "amount_inr": 22175.2,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.621,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA CHARGES",
+      "amount_inr": 3650.00188,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.75,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SHIPPING BILL CHARGES",
+      "amount_inr": 3250.0018,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.739,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "12.CONGESTION SURCHARGE",
+      "amount_inr": 375000.8,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.722,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 2685405.1,
+  "subtotal_before_tax": 90703.6,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:\u00b7PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "exrate:ROE",
+          "amount:INR"
+        ],
+        "lines": 12
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum 2,685,405.10 != printed subtotal 90,703.60",
+    "Low confidence: Invoice Date, Sea Freight, Other Charges, EDI Fees, Pre Carriage Haulage, Examination Charges, Agency Charges, Shipping Bill Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 1.1,
+      "tesseract-raw": 1.1,
+      "rapidocr": 1.2000000000000002
+    },
+    "header_votes": {
+      "Invoice No": {
+        "1NV2024405435": [
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20240902": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "20240901": [
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "bluewaterfreightsystemsco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "MEDUAB6S51511": [
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-029.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 184,
+      "deskew_deg": -1.0,
+      "noise_sigma": 17.59,
+      "denoised": true,
+      "upscale": 2.07,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 30.59,
+    "extract": 0.37
+  },
+  "wall_sec": 30.97,
+  "error": null
+}

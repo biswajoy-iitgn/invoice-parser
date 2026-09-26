@@ -1,0 +1,143 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Invoice No": 0.95,
+    "Invoice Date": 0.45,
+    "Vendor Name": 0.95,
+    "Container Number": 0.95,
+    "Bill of Lading / HBL": 0.95,
+    "Weight": 0.95,
+    "Ex Rate": 0.9,
+    "Misc": 0.95,
+    "BL Charges": 0.95,
+    "Sea Freight": 0.95,
+    "Terminal Handling Charges": 0.95
+  },
+  "field_basis": {
+    "Invoice No": "label:right",
+    "Invoice Date": "fallback:first-date",
+    "Vendor Name": "top+for-line",
+    "Container Number": "iso6346-scan",
+    "Bill of Lading / HBL": "label:right",
+    "Weight": "label:right",
+    "Ex Rate": "table",
+    "Misc": "table",
+    "BL Charges": "table",
+    "Sea Freight": "table",
+    "Terminal Handling Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "Misc. Charges",
+      "amount_inr": 2150.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BL Charges",
+      "amount_inr": 5400.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sea Freight",
+      "amount_inr": 60782.15,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "amount_inr": 14750.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 83082.15,
+  "subtotal_before_tax": 83082.15,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:Sr No",
+          "desc:Description",
+          "sac:SAC/HSN",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Quantity",
+          "fc_amount:Amount(CUR)",
+          "exrate:Ex.Rate",
+          "non_gst:Non GST Value (INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_pct:IGST%",
+          "gst_amt:IGST Amt",
+          "total:Total (INR)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-041.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 238
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.01,
+    "extract": 0.02
+  },
+  "wall_sec": 0.04,
+  "error": null
+}

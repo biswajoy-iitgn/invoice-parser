@@ -1,0 +1,242 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.518,
+    "Terminal Handling Charges": 0.91,
+    "BL Charges": 0.882,
+    "EDI Fees": 0.871,
+    "AMS Charges": 0.905,
+    "Misc": 0.911,
+    "Transportation": 0.881,
+    "Examination Charges": 0.896,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "AMS Charges": "tesseract:table",
+    "Misc": "tesseract:table",
+    "Transportation": "tesseract:table",
+    "Examination Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Basic Ocean Freight",
+      "amount_inr": 9416.06,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.545,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "amount_inr": 5050.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.958,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "B/L Issuance Charges",
+      "amount_inr": 4250.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.928,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "amount_inr": 1300.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.917,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "AMS Security Fee",
+      "amount_inr": 2700.0,
+      "category": "AMS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.953,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc Expenses",
+      "amount_inr": 1850.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Local Transportation",
+      "amount_inr": 3000.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.927,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Exam. Charges",
+      "amount_inr": 6300.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.943,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 33866.06,
+  "subtotal_before_tax": 33866.06,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:Sr",
+          "desc:Particulars",
+          "sac:SAC",
+          "cur:Cur",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex. Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST %",
+          "gst_amt:GST Amt",
+          "total:Total (INR)"
+        ],
+        "lines": 8
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Sea Freight"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 18.8,
+      "tesseract-raw": 18.8
+    },
+    "header_votes": {
+      "Invoice No": {
+        "CMSAE242544112": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250401": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "continentalmaritimeservicesllp": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "CMSHBL25264454": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-011.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 245,
+      "deskew_deg": 0.04,
+      "noise_sigma": 1.16,
+      "upscale": 1.35,
+      "inverted_dark_fraction": 0.113,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 3.7,
+    "extract": 0.11
+  },
+  "wall_sec": 3.81,
+  "error": null
+}

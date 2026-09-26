@@ -1,0 +1,153 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Invoice No": 0.85,
+    "Invoice Date": 0.85,
+    "Vendor Name": 0.95,
+    "MAWB No": 0.85,
+    "Weight": 0.85,
+    "Ex Rate": 0.9,
+    "Air Freight": 0.637,
+    "Airway Bill Charges": 0.95,
+    "DAP Charges": 0.95,
+    "Handling Charges": 0.95,
+    "Cargo Screening": 0.95
+  },
+  "field_basis": {
+    "Invoice No": "label:below",
+    "Invoice Date": "label:below",
+    "Vendor Name": "top+for-line",
+    "MAWB No": "label:below",
+    "Weight": "label:below",
+    "Ex Rate": "table",
+    "Air Freight": "table",
+    "Airway Bill Charges": "table",
+    "DAP Charges": "table",
+    "Handling Charges": "table",
+    "Cargo Screening": "table"
+  },
+  "line_items": [
+    {
+      "description": "Freight Charges - Air",
+      "amount_inr": 1201487.62,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "Airwaybill Issuance",
+      "amount_inr": 2500.0,
+      "category": "Airway Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP Terminal & Delivery",
+      "amount_inr": 25450.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Hdlg. Charges",
+      "amount_inr": 6600.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Handling Charges",
+      "amount_inr": 2850.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Security Screening Fee",
+      "amount_inr": 1400.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 1240287.62,
+  "subtotal_before_tax": 1240287.62,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [],
+  "needs_review": false,
+  "file": "dataset/invoices/test-034.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 231
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.02,
+    "extract": 0.06
+  },
+  "wall_sec": 0.08,
+  "error": null
+}

@@ -1,0 +1,151 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Invoice No": 0.95,
+    "Invoice Date": 0.45,
+    "Vendor Name": 0.95,
+    "HAWB No": 0.95,
+    "Ex Rate": 0.7,
+    "Air Freight": 0.382,
+    "DAP Charges": 0.484,
+    "Misc": 0.484,
+    "Fuel Charges": 0.484,
+    "Other Charges": 0.255,
+    "Cargo Screening": 0.484
+  },
+  "field_basis": {
+    "Invoice No": "label:right",
+    "Invoice Date": "fallback:first-date",
+    "Vendor Name": "top+for-line",
+    "HAWB No": "label:right",
+    "Ex Rate": "inline-pattern",
+    "Air Freight": "table",
+    "DAP Charges": "table",
+    "Misc": "table",
+    "Fuel Charges": "table",
+    "Other Charges": "table",
+    "Cargo Screening": "table"
+  },
+  "line_items": [
+    {
+      "description": "Air Cargo Freight (USD 3,544.70 @",
+      "amount_inr": -304999704.99,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DAP Delivery Charges",
+      "amount_inr": -984990150.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc Expenses",
+      "amount_inr": -7999200.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Customs Examination MYC / Fuel Surcharge (USD 1,191.33",
+      "amount_inr": -639993600.0,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "86.1300)",
+      "amount_inr": -102506640.75,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Screening",
+      "amount_inr": -319996800.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": -2360486095.74,
+  "subtotal_before_tax": 428164.26,
+  "subtotal_reconciled": false,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Description of Service",
+          "unknown:",
+          "sac:SAC",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total (INR)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Line items sum -2,360,486,095.74 != printed subtotal 428,164.26",
+    "Low confidence: Invoice Date, Air Freight, DAP Charges, Misc, Fuel Charges, Other Charges, Cargo Screening"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-063.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 230
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.02,
+    "extract": 0.06
+  },
+  "wall_sec": 0.08,
+  "error": null
+}

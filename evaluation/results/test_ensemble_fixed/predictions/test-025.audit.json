@@ -1,0 +1,255 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "BL Charges": 0.732,
+    "Terminal Handling Charges": 0.746,
+    "Handling Charges": 0.772,
+    "Other Charges": 0.39,
+    "Seal Charges": 0.776,
+    "EDI Fees": 0.739,
+    "VGM": 0.742,
+    "Shipping Bill Charges": 0.655,
+    "Sea Freight": 0.735,
+    "ENS Charges": 0.691,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.93
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "BL Charges": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Seal Charges": "tesseract:table",
+    "EDI Fees": "tesseract:table",
+    "VGM": "tesseract:table",
+    "Shipping Bill Charges": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "ENS Charges": "tesseract:table",
+    "Invoice No": "vote 2/2",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "BILL OF LADING FEE",
+      "amount_inr": 3150.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.771,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "TERMINAL HANDLING (ORIGIN)",
+      "amount_inr": 10100.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.785,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "HANDLING FEE",
+      "amount_inr": 5200.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.813,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "GODOWN RENT (PORT)",
+      "amount_inr": 1950.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.78,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BOLT SEAL CHARGES",
+      "amount_inr": 2200.0,
+      "category": "Seal Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "E-MANIFEST EDI TRANSMISSION",
+      "amount_inr": 500.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.778,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SOLAS WEIGHMENT FEE",
+      "amount_inr": 1500.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.781,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "S.B. CHARGES",
+      "amount_inr": 1700.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.689,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SEAFREIGHT EXPORT",
+      "amount_inr": 279557.5,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.774,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "EU ADVANCE MANIFEST (ENS)",
+      "amount_inr": 3100.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon-paren",
+      "category_conf": 0.85,
+      "amount_conf": 0.813,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 308957.5,
+  "subtotal_before_tax": 308957.5,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SR",
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "qty:QTY",
+          "exrate:ROE",
+          "amount:AMOUNT",
+          "amount:INR",
+          "gst_pct:GST%"
+        ],
+        "lines": 10
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 11.0,
+      "tesseract-raw": 11.0
+    },
+    "header_votes": {
+      "Invoice No": {
+        "2875999513": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20260612": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "tricolourfreightforwarderspvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "HBL2382450": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-025.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 265,
+      "deskew_deg": 0.12,
+      "noise_sigma": 0.81,
+      "upscale": 1.83,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 7.04,
+    "extract": 0.09
+  },
+  "wall_sec": 7.13,
+  "error": null
+}

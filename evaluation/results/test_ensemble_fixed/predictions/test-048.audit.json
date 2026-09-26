@@ -1,0 +1,158 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Examination Charges": 0.278,
+    "Agency Charges": 0.706,
+    "Other Charges": 0.374,
+    "Invoice Date": 0.45,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Examination Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Invoice Date": "vote 1/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Caro Examinatipn Charges",
+      "amount_inr": 0.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.344,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 7050.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.874,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bi Charges",
+      "amount_inr": 3400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.902,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ISPS Charges",
+      "amount_inr": 700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.879,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 11150.0,
+  "subtotal_before_tax": null,
+  "subtotal_reconciled": null,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SrNo",
+          "desc:Description",
+          "sac:SAC/HSN",
+          "cur:Cur",
+          "rate:Rate",
+          "unknown:",
+          "fc_amount:Amount(CuR)",
+          "exrate:Ex.Rate",
+          "non_gst:Non GST Value (INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_pct:GST%",
+          "gst_amt:IGSTAmt",
+          "total:Total (INR)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 1
+  },
+  "warnings": [
+    "1 table row(s) could not be parsed",
+    "Low confidence: Examination Charges, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.0,
+      "rapidocr": 3.4
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20240602": [
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "sapphirefreightsystemspvtltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-048.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 160,
+      "deskew_deg": 2.44,
+      "noise_sigma": 2.01,
+      "upscale": 1.66,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 15.7,
+    "extract": 0.06
+  },
+  "wall_sec": 15.77,
+  "error": null
+}

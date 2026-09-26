@@ -1,0 +1,236 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Air Freight": 0.682,
+    "DAP Charges": 0.894,
+    "Misc": 0.911,
+    "Other Charges": 0.469,
+    "Shipping Bill Charges": 0.895,
+    "Invoice No": 0.949,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "HAWB No": 0.99,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Air Freight": "rapidocr:table",
+    "DAP Charges": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "HAWB No": "vote 3/3",
+    "Vendor Name": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "Air Cargo Freight",
+      "amount_inr": 382212.7,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.909,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "DAP Charges",
+      "amount_inr": 31700.0,
+      "category": "DAP Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.941,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Sundry Charges",
+      "amount_inr": 2300.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Security Scan",
+      "amount_inr": 2100.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.939,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "S/B Charges",
+      "amount_inr": 2200.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.942,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Other Charges",
+      "amount_inr": 1200.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.94,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "amount_inr": 2050.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.938,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 423762.7,
+  "subtotal_before_tax": 423762.7,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:Sr",
+          "desc:Particulars",
+          "sac:SAC",
+          "cur:Cur",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex.Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST%",
+          "gst_amt:GSTAmt",
+          "total:Total (INR)"
+        ],
+        "lines": 7
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.7000000000000001,
+      "tesseract-raw": 0.7000000000000001,
+      "rapidocr": 17.7
+    },
+    "header_votes": {
+      "Invoice No": {
+        "MAAAE2511503": [
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20241108": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "17683907526": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "HAWB No": {
+        "OAS6331060": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "airsealtd": [
+          "tesseract"
+        ],
+        "orientairsealtd": [
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-019.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 188,
+      "deskew_deg": 0.88,
+      "noise_sigma": 0.97,
+      "upscale": 1.86,
+      "inverted_dark_fraction": 0.111,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 25.27,
+    "extract": 0.16
+  },
+  "wall_sec": 25.43,
+  "error": null
+}

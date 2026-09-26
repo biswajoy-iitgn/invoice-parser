@@ -1,0 +1,218 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "VGM": 0.724,
+    "EDI Fees": 0.732,
+    "Other Charges": 0.364,
+    "Misc": 0.665,
+    "Examination Charges": 0.768,
+    "Agency Charges": 0.765,
+    "Invoice Date": 0.65,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99
+  },
+  "field_basis": {
+    "VGM": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Examination Charges": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Invoice Date": "vote 3/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "amount_inr": 2050.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.762,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Charges",
+      "amount_inr": 450.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.771,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Handing Charges",
+      "amount_inr": 5650.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.728,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Incidental Expenses",
+      "amount_inr": 800.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.7,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Examination Charges",
+      "amount_inr": 5850.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.808,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 4550.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.805,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SBFiling Fee",
+      "amount_inr": 1500.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.739,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Congestion Surcharge",
+      "amount_inr": 600.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.73,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "amount_inr": 7700.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.764,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 29150.0,
+  "subtotal_before_tax": 29150.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNITPRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNTINR",
+          "gst_pct:TAX"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.0,
+      "rapidocr": 10.9
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20260513": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "anchorshippingagenciesco": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-040.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 158,
+      "deskew_deg": -0.48,
+      "noise_sigma": 1.5,
+      "upscale": 2.03,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 23.4,
+    "extract": 0.13
+  },
+  "wall_sec": 23.53,
+  "error": null
+}

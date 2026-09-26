@@ -1,0 +1,250 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Terminal Handling Charges": 0.61,
+    "Misc": 0.913,
+    "ENS Charges": 0.883,
+    "Fuel Charges": 0.907,
+    "Other Charges": 0.479,
+    "Handling Charges": 0.897,
+    "Sea Freight": 0.849,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "tesseract:table",
+    "Terminal Handling Charges": "tesseract:table",
+    "Misc": "tesseract:table",
+    "ENS Charges": "tesseract:table",
+    "Fuel Charges": "tesseract:table",
+    "Other Charges": "tesseract:table",
+    "Handling Charges": "tesseract:table",
+    "Sea Freight": "tesseract:table",
+    "Invoice Date": "vote 2/2",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/2",
+    "Bill of Lading / HBL": "vote 2/2"
+  },
+  "line_items": [
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "amount_inr": 15000.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.642,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc Expenses",
+      "amount_inr": 1500.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.961,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "ENS Filing Fee",
+      "amount_inr": 2850.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.93,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "amount_inr": 18989.4,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.955,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "BL Printing Charges",
+      "amount_inr": 4750.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.959,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Handling Fee",
+      "amount_inr": 1900.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.944,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "amount_inr": 4650.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.96,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "O/F Charges (FCL)",
+      "amount_inr": 232967.47,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.894,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "EUR",
+      "page": 1
+    },
+    {
+      "description": "ENS Filing Fee",
+      "amount_inr": 2850.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.958,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 285456.87,
+  "subtotal_before_tax": 285456.87,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:Sr",
+          "desc:Particulars",
+          "sac:SAC",
+          "cur:Cur",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex. Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST %",
+          "gst_amt:GST Amt",
+          "total:Total (INR)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract",
+    "table_scores": {
+      "tesseract": 19.9,
+      "tesseract-raw": 19.9
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20240414": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "bluewatershippingllp": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "EGLVBO7037094": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-012.png",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract",
+      "words": 275,
+      "deskew_deg": 0.04,
+      "noise_sigma": 0.99,
+      "upscale": 1.35,
+      "inverted_dark_fraction": 0.106,
+      "reading": "tesseract"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 5.28,
+    "extract": 0.08
+  },
+  "wall_sec": 5.36,
+  "error": null
+}

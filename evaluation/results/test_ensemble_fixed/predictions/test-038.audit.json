@@ -1,0 +1,185 @@
+{
+  "transport_mode": "unknown",
+  "field_confidence": {
+    "Fuel Charges": 0.709,
+    "Cargo Screening": 0.543,
+    "Warehouse Charges Port": 0.721,
+    "Air Freight": 0.352,
+    "Transportation": 0.709,
+    "Handling Charges": 0.441,
+    "Invoice Date": 0.55,
+    "Vendor Name": 0.99,
+    "Weight": 0.816
+  },
+  "field_basis": {
+    "Fuel Charges": "tesseract-raw:table",
+    "Cargo Screening": "tesseract-raw:table",
+    "Warehouse Charges Port": "tesseract-raw:table",
+    "Air Freight": "tesseract-raw:table",
+    "Transportation": "tesseract-raw:table",
+    "Handling Charges": "tesseract-raw:table",
+    "Invoice Date": "vote 2/2",
+    "Vendor Name": "vote 2/2",
+    "Weight": "vote 1/2"
+  },
+  "line_items": [
+    {
+      "description": "Fuel Surcharge",
+      "amount_inr": 14914.27,
+      "category": "Fuel Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.746,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Screening",
+      "amount_inr": 1700.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.572,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CFS Charges",
+      "amount_inr": 15150.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.759,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Freight Charges Air",
+      "amount_inr": 26114.69,
+      "category": "Air Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.47,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Trucking Charges",
+      "amount_inr": 17900.0,
+      "category": "Transportation",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.746,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Export Handling Charges",
+      "amount_inr": 8650.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.464,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 84428.96,
+  "subtotal_before_tax": 84428.96,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "unknown:",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date, Cargo Screening, Other Charges, Handling Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw"
+    ],
+    "table_from": "tesseract-raw",
+    "table_scores": {
+      "tesseract": 10.6,
+      "tesseract-raw": 11.6
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20260327": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "seabirdairseapvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Weight": {
+        "111.351": [
+          "tesseract"
+        ],
+        "1.000": [
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-038.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "tesseract-raw",
+      "words": 202,
+      "deskew_deg": -1.04,
+      "noise_sigma": 1.45,
+      "upscale": 1.97,
+      "inverted_dark_fraction": 0.002,
+      "reading": "tesseract-raw"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 5.73,
+    "extract": 0.06
+  },
+  "wall_sec": 5.78,
+  "error": null
+}

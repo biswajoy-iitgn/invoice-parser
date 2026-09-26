@@ -1,0 +1,198 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Sea Freight": 0.549,
+    "Other Charges": 0.3,
+    "VGM": 0.734,
+    "Misc": 0.596,
+    "Warehouse Charges Port": 0.613,
+    "Invoice No": 0.99,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99
+  },
+  "field_basis": {
+    "Sea Freight": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "VGM": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Warehouse Charges Port": "rapidocr:table",
+    "Invoice No": "vote 2/3",
+    "Invoice Date": "vote 3/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/3",
+    "Bill of Lading / HBL": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "OCEAN FREIGHT CHARGES",
+      "amount_inr": 263200.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.578,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CONTAINER TERMINAL CHARGES",
+      "amount_inr": 9300.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.697,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BILFOR LADING FEE",
+      "amount_inr": 6150.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.6,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "SOLAS WEIGHMENT FEE",
+      "amount_inr": 1100.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.773,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "MISC.CHARGES",
+      "amount_inr": 900.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.627,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "WAREHOUSE CHARGES (PORT)",
+      "amount_inr": 13500.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.645,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 294150.0,
+  "subtotal_before_tax": 294150.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SR",
+          "desc:PARTICULARS",
+          "cur:CUR",
+          "rate:RATE",
+          "unknown:",
+          "exrate:ROE",
+          "amount:AMOUNT",
+          "amount:INR",
+          "gst_pct:GST"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Sea Freight, Other Charges, Misc"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.6000000000000001,
+      "tesseract-raw": 0.6000000000000001,
+      "rapidocr": 10.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "NMSAE252647660": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Invoice Date": {
+        "20250513": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "navkarmaritimeservicesindiapvtltd": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "180mahipalpurextnnavimumbai4oo706india": [
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "ONEY898500916": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-030.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 160,
+      "deskew_deg": 2.28,
+      "noise_sigma": 1.1,
+      "upscale": 2.01,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 20.55,
+    "extract": 0.15
+  },
+  "wall_sec": 20.7,
+  "error": null
+}

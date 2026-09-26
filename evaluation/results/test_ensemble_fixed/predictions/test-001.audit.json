@@ -1,0 +1,148 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Invoice No": 0.85,
+    "Invoice Date": 0.85,
+    "Vendor Name": 0.95,
+    "MAWB No": 1.0,
+    "HAWB No": 1.0,
+    "Weight": 1.0,
+    "Misc": 0.95,
+    "Examination Charges": 0.95,
+    "Shipping Bill Charges": 0.95,
+    "Other Charges": 0.5
+  },
+  "field_basis": {
+    "Invoice No": "label:below",
+    "Invoice Date": "label:below",
+    "Vendor Name": "top+for-line",
+    "MAWB No": "label:inline",
+    "HAWB No": "label:inline",
+    "Weight": "label:inline",
+    "Misc": "table",
+    "Examination Charges": "table",
+    "Shipping Bill Charges": "table",
+    "Other Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "Sundry Charges",
+      "amount_inr": 750.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Cargo Examination Charges",
+      "amount_inr": 3900.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "amount_inr": 2800.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Congestion Surcharge",
+      "amount_inr": 3800.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Mandatory User Charges",
+      "amount_inr": 6750.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total/(1+gst)"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 18000.0,
+  "subtotal_before_tax": 18000.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:#",
+          "desc:Description",
+          "sac:SAC",
+          "qty:Qty",
+          "rate:Rate",
+          "cur:Curr",
+          "exrate:Ex. Rate",
+          "taxable:Taxable (INR)",
+          "gst_pct:GST",
+          "total:Total (INR)"
+        ],
+        "lines": 5
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-001.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 244
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.02,
+    "extract": 0.06
+  },
+  "wall_sec": 0.08,
+  "error": null
+}

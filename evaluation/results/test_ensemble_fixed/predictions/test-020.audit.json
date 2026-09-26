@@ -1,0 +1,224 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.846,
+    "Other Charges": 0.461,
+    "BL Charges": 0.886,
+    "VGM": 0.873,
+    "EDI Fees": 0.89,
+    "Invoice No": 0.947,
+    "Invoice Date": 0.99,
+    "Container Number": 0.95,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:table",
+    "Sea Freight": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "VGM": "rapidocr:table",
+    "EDI Fees": "rapidocr:table",
+    "Invoice No": "vote 1/3",
+    "Invoice Date": "vote 2/3",
+    "Container Number": "union-iso6346",
+    "Vendor Name": "vote 2/3",
+    "Bill of Lading / HBL": "vote 3/3",
+    "Weight": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "Ocean Freight Charoes",
+      "amount_inr": 80908.8,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.891,
+      "arithmetic_checks": [
+        "column",
+        "fc*roe",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Hdig. Chgs. Terminal",
+      "amount_inr": 5400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.922,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "BL Charges",
+      "amount_inr": 4900.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.933,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verfied Gross Mass Declaration",
+      "amount_inr": 1300.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.919,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "amount_inr": 400.0,
+      "category": "EDI Fees",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.937,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Hdig. Chgs. Terminal",
+      "amount_inr": 5400.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.947,
+      "arithmetic_checks": [
+        "column",
+        "total/(1+gst)",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 98308.8,
+  "subtotal_before_tax": 98308.8,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:Sr",
+          "desc:Particulars",
+          "sac:SAC",
+          "cur:Cur",
+          "fc_amount:Amount (FC)",
+          "exrate:Ex.Rate",
+          "taxable:Amount (INR)",
+          "gst_pct:GST%",
+          "gst_amt:GSTAmt",
+          "total:Total (INR)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 5.5,
+      "tesseract-raw": 5.5,
+      "rapidocr": 16.6
+    },
+    "header_votes": {
+      "Invoice No": {
+        "AE24254401": [
+          "rapidocr"
+        ]
+      },
+      "Invoice Date": {
+        "20241118": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      },
+      "Vendor Name": {
+        "navkarexpresscargoco": [
+          "tesseract",
+          "rapidocr"
+        ],
+        "minavkarexpresscargoco": [
+          "tesseract-raw"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "NECSE2499590": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "19529.700": [
+          "tesseract",
+          "tesseract-raw"
+        ],
+        "19.529": [
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-020.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 208,
+      "deskew_deg": -0.8,
+      "noise_sigma": 1.22,
+      "upscale": 1.87,
+      "inverted_dark_fraction": 0.106,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 30.7,
+    "extract": 0.23
+  },
+  "wall_sec": 30.93,
+  "error": null
+}

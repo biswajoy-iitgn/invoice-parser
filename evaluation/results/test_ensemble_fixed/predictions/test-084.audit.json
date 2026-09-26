@@ -1,0 +1,153 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Ex Rate": 0.995,
+    "Sea Freight": 0.623,
+    "Misc": 0.776,
+    "Terminal Handling Charges": 0.788,
+    "BL Charges": 0.769,
+    "Invoice Date": 0.935,
+    "Vendor Name": 0.99,
+    "Bill of Lading / HBL": 0.904
+  },
+  "field_basis": {
+    "Ex Rate": "rapidocr:label:inline",
+    "Sea Freight": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Terminal Handling Charges": "rapidocr:table",
+    "BL Charges": "rapidocr:table",
+    "Invoice Date": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Bill of Lading / HBL": "vote 2/3"
+  },
+  "line_items": [
+    {
+      "description": "Freight Charges - Ocean",
+      "amount_inr": 54135.22,
+      "category": "Sea Freight",
+      "category_basis": "freight-mode",
+      "category_conf": 0.75,
+      "amount_conf": 0.831,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "Misc. Charges",
+      "amount_inr": 950.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.817,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "amount_inr": 14300.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.83,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "amount_inr": 6250.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.81,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 75635.22,
+  "subtotal_before_tax": 75635.22,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Invoice Date"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.2,
+      "tesseract-raw": 0.2,
+      "rapidocr": 10.4
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20240928": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "vayufreightforwardersltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Bill of Lading / HBL": {
+        "VFFSE2569541": [
+          "tesseract",
+          "tesseract-raw"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-084.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 70,
+      "deskew_deg": -0.24,
+      "noise_sigma": 0.8,
+      "upscale": 1.86,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 19.87,
+    "extract": 0.11
+  },
+  "wall_sec": 19.98,
+  "error": null
+}

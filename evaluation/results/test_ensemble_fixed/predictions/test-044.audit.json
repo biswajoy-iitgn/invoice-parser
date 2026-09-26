@@ -1,0 +1,214 @@
+{
+  "transport_mode": "air",
+  "field_confidence": {
+    "Handling Charges": 0.886,
+    "Misc": 0.917,
+    "Cargo Screening": 0.832,
+    "Agency Charges": 0.874,
+    "Shipping Bill Charges": 0.925,
+    "Other Charges": 0.387,
+    "Invoice Date": 0.99,
+    "MAWB No": 0.99,
+    "Vendor Name": 0.99,
+    "Weight": 0.99
+  },
+  "field_basis": {
+    "Handling Charges": "rapidocr:table",
+    "Misc": "rapidocr:table",
+    "Cargo Screening": "rapidocr:table",
+    "Agency Charges": "rapidocr:table",
+    "Shipping Bill Charges": "rapidocr:table",
+    "Other Charges": "rapidocr:table",
+    "Invoice Date": "vote 3/3",
+    "MAWB No": "vote 3/3",
+    "Vendor Name": "vote 3/3",
+    "Weight": "vote 3/3"
+  },
+  "line_items": [
+    {
+      "description": "ForwarderHandlingFee",
+      "amount_inr": 5050.0,
+      "category": "Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.933,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "MiscExpenses",
+      "amount_inr": 850.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.965,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "X-Ray Screening",
+      "amount_inr": 950.0,
+      "category": "Cargo Screening",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.876,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 1350.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.92,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping BillProcessing",
+      "amount_inr": 3250.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.974,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Port Security Surcharge",
+      "amount_inr": 4800.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.774,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe",
+        "total-gst"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 16250.0,
+  "subtotal_before_tax": 16250.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:SrNo",
+          "desc:Description",
+          "sac:SAC/HSN",
+          "cur:Cur",
+          "rate:Rate",
+          "qty:Quantity",
+          "fc_amount:Amount(CUR)",
+          "exrate:Ex.Rate",
+          "non_gst:Non GST Value(INR)",
+          "taxable:Taxable Value(INR)",
+          "gst_amt:CGST",
+          "gst_amt:SGST",
+          "total:Total(INR)"
+        ],
+        "lines": 6
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "ensemble": {
+    "readings": [
+      "tesseract",
+      "tesseract-raw",
+      "rapidocr"
+    ],
+    "table_from": "rapidocr",
+    "table_scores": {
+      "tesseract": 0.0,
+      "tesseract-raw": 0.0,
+      "rapidocr": 16.6
+    },
+    "header_votes": {
+      "Invoice Date": {
+        "20250306": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "MAWB No": {
+        "17616635043": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Vendor Name": {
+        "transasiaforwardingltd": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      },
+      "Weight": {
+        "1405.000": [
+          "tesseract",
+          "tesseract-raw",
+          "rapidocr"
+        ]
+      }
+    }
+  },
+  "file": "dataset/invoices/test-044.jpg",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "rapidocr",
+      "words": 168,
+      "deskew_deg": -0.64,
+      "noise_sigma": 1.16,
+      "upscale": 1.52,
+      "inverted_dark_fraction": 0.007,
+      "reading": "rapidocr"
+    }
+  ],
+  "timing_sec": {
+    "ingest": 21.12,
+    "extract": 0.11
+  },
+  "wall_sec": 21.23,
+  "error": null
+}

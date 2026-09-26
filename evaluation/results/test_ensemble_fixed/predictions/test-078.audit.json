@@ -1,0 +1,191 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Invoice No": 1.0,
+    "Invoice Date": 1.0,
+    "Vendor Name": 0.95,
+    "Bill of Lading / HBL": 0.9,
+    "Ex Rate": 0.7,
+    "Sea Freight": 0.807,
+    "Terminal Handling Charges": 0.807,
+    "BL Charges": 0.807,
+    "Misc": 0.807,
+    "Warehouse Charges Port": 0.807,
+    "Examination Charges": 0.807,
+    "Agency Charges": 0.807,
+    "Shipping Bill Charges": 0.807,
+    "Other Charges": 0.425
+  },
+  "field_basis": {
+    "Invoice No": "label:inline",
+    "Invoice Date": "label:inline",
+    "Vendor Name": "top+for-line",
+    "Bill of Lading / HBL": "label:inline",
+    "Ex Rate": "inline-pattern",
+    "Sea Freight": "table",
+    "Terminal Handling Charges": "table",
+    "BL Charges": "table",
+    "Misc": "table",
+    "Warehouse Charges Port": "table",
+    "Examination Charges": "table",
+    "Agency Charges": "table",
+    "Shipping Bill Charges": "table",
+    "Other Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "O/F Charges (FCL)",
+      "amount_inr": 10008.46,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "OTHC",
+      "amount_inr": 6200.0,
+      "category": "Terminal Handling Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "amount_inr": 5250.0,
+      "category": "BL Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Misc. Charges",
+      "amount_inr": 2200.0,
+      "category": "Misc",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "amount_inr": 14400.0,
+      "category": "Warehouse Charges Port",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Examination Charges",
+      "amount_inr": 3850.0,
+      "category": "Examination Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "CHA Charges",
+      "amount_inr": 4800.0,
+      "category": "Agency Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "amount_inr": 2500.0,
+      "category": "Shipping Bill Charges",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "DO Charges",
+      "amount_inr": 6950.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 0.85,
+      "arithmetic_checks": [
+        "column"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 56158.46,
+  "subtotal_before_tax": 56158.46,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "sr:S.No",
+          "desc:Nature of Charges",
+          "taxable:Amount (Rs.)"
+        ],
+        "lines": 9
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-078.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 233
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.01,
+    "extract": 0.03
+  },
+  "wall_sec": 0.05,
+  "error": null
+}

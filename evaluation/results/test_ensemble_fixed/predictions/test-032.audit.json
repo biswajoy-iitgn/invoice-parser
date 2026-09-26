@@ -1,0 +1,126 @@
+{
+  "transport_mode": "sea",
+  "field_confidence": {
+    "Invoice No": 0.85,
+    "Invoice Date": 0.85,
+    "Vendor Name": 0.95,
+    "Container Number": 0.95,
+    "Weight": 0.85,
+    "Ex Rate": 0.9,
+    "Sea Freight": 0.95,
+    "ENS Charges": 0.85,
+    "VGM": 0.95,
+    "Other Charges": 0.5
+  },
+  "field_basis": {
+    "Invoice No": "label:below",
+    "Invoice Date": "label:below",
+    "Vendor Name": "top+for-line",
+    "Container Number": "iso6346-scan",
+    "Weight": "label:below",
+    "Ex Rate": "table",
+    "Sea Freight": "table",
+    "ENS Charges": "table",
+    "VGM": "table",
+    "Other Charges": "table"
+  },
+  "line_items": [
+    {
+      "description": "Basic Ocean Freight",
+      "amount_inr": 243716.0,
+      "category": "Sea Freight",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "USD",
+      "page": 1
+    },
+    {
+      "description": "EU Advance Manifest (ENS)",
+      "amount_inr": 3150.0,
+      "category": "ENS Charges",
+      "category_basis": "lexicon-paren",
+      "category_conf": 0.85,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "amount_inr": 3300.0,
+      "category": "VGM",
+      "category_basis": "lexicon",
+      "category_conf": 0.95,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "amount_inr": 10950.0,
+      "category": "Other Charges",
+      "category_basis": "default",
+      "category_conf": 0.5,
+      "amount_conf": 1.0,
+      "arithmetic_checks": [
+        "column",
+        "qty*rate*roe"
+      ],
+      "currency": "INR",
+      "page": 1
+    }
+  ],
+  "line_items_sum_inr": 261116.0,
+  "subtotal_before_tax": 261116.0,
+  "subtotal_reconciled": true,
+  "tables": {
+    "tables": [
+      {
+        "page": 1,
+        "columns": [
+          "desc:DESCRIPTION",
+          "qty:QTY",
+          "rate:UNIT PRICE",
+          "cur:CUR",
+          "exrate:ROE",
+          "taxable:AMOUNT INR",
+          "gst_pct:TAX"
+        ],
+        "lines": 4
+      }
+    ],
+    "unparsed_rows": 0
+  },
+  "warnings": [
+    "Low confidence: Other Charges"
+  ],
+  "needs_review": true,
+  "file": "dataset/invoices/test-032.pdf",
+  "backend": "layout",
+  "ocr": "ensemble",
+  "pages": [
+    {
+      "page": 1,
+      "source": "pdf-text",
+      "words": 222
+    }
+  ],
+  "timing_sec": {
+    "ingest": 0.02,
+    "extract": 0.04
+  },
+  "wall_sec": 0.07,
+  "error": null
+}
