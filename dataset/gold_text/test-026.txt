@@ -1,0 +1,44 @@
+POLARIS MARITIME SERVICES PVT. LTD.
+328, NARIMAN POINT, AHMEDABAD - 380009, INDIA
+GSTIN: 24TERPU2563R1Z5 PAN: TERPU2563R
+BILL TO: MADHAV SPICES PVT. LTD., 75 ANNA NAGAR 3RD CROSS, NOIDA 201301 GSTIN: 33PGJAV9650X1ZE
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+TAX INVOICE NO : BOMAE2677186                     DATE           : 10/08/25
+PAY BY         : 09/09/25                         CUSTOMER CODE  : PMS26750
+YOUR REF       : PO-87389                         PLACE OF SUPPLY: 24 GUJARAT
+CONVERSION RATE: 1 USD = 86.6358 INR              LOAD PORT      : INNSA - NHAVA SHEVA
+POD            : CNSHA - SHANGHAI                 VESSEL / VOYAGE: WAN HAI 516 / 467E
+SOB DATE       : 10/08/25                         LINER BL NO    : CMDUIN1233062
+H B/L NO       : PMSNS2635428                     PACKAGES       : 29 BOXES
+WEIGHT         : 5,551.549 KGS                    CBM            : 4.552 CBM
+TERMS OF DELIVERY: DAP                            SHIPPING BILL NO: 7640338 DT 05/08/25
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  MARINE FREIGHT                    USD        73.00     4.552   86.6358        28789.08   5%
+  2  THC                               INR      5500.00         1      1.00         5500.00  18%
+  3  SEAWAY BILL FEE                   INR      6400.00         1      1.00         6400.00  18%
+  4  EDI FILING                        INR      1200.00         1      1.00         1200.00  18%
+  5  DAP CHARGES                       INR     26800.00         1      1.00        26800.00  18%
+  6  HANDLING CHARGES                  INR      5250.00         1      1.00         5250.00  18%
+  7  TRUCK FREIGHT (LOCAL)             INR      4750.00         1      1.00         4750.00  18%
+  8  ACC WAREHOUSE CHARGES             INR      1550.00         1      1.00         1550.00  18%
+  9  PORT SECURITY SURCHARGE           INR      1350.00         1      1.00         1350.00  18%
+------------------------------------------------------------------------------------------------
+                                                       NET AMOUNT                       81589.08
+                                                       CGST                              5471.73
+                                                       SGST                              5471.72
+                                                       ROUND OFF                            0.47
+                                                       TOTAL AMOUNT PAYABLE             92533.00
+------------------------------------------------------------------------------------------------
+INR NINETY TWO THOUSAND FIVE HUNDRED THIRTY THREE AND PAISE ZERO ONLY
+
+BANK: STATE BANK OF INDIA | A/C NO 90344849820 | IFSC YESB0502027
+SUBJECT TO MUMBAI JURISDICTION. E. & O.E.
+
+                                                            FOR POLARIS MARITIME SERVICES PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY
+ORIGINAL

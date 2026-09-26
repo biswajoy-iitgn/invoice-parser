@@ -1,0 +1,138 @@
+{
+  "id": "test-086",
+  "split": "test",
+  "file": "invoices/test-086.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": true,
+  "maker_seed": 188871,
+  "maker_difficulty": {
+    "faint": true,
+    "stamp": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.839,
+    "rotation_deg": -1.48,
+    "blur_sigma": 0.71,
+    "illumination": true,
+    "noise_sigma": 11.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 57,
+    "pixels": [
+      1327,
+      1525
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI416147",
+    "Invoice Date": "2026-01-10",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Meridian Maritime Services (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "MMS/HBL/25-26/2821",
+    "Weight": "4472.94 KG",
+    "Sea Freight": 59570.33,
+    "Air Freight": "",
+    "Terminal Handling Charges": 8850,
+    "Airway Bill Charges": "",
+    "BL Charges": 4500,
+    "ENS Charges": 2750,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.86,
+    "Misc": "",
+    "Transportation": 3900,
+    "Warehouse Charges Port": 12750,
+    "Examination Charges": 4100,
+    "Fuel Charges": 7350,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 59570.33,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "BL Charges",
+      "category": "BL Charges",
+      "amount_inr": 4500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ICS2 / ENS Filing",
+      "category": "ENS Charges",
+      "amount_inr": 2750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 3900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 7600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 5150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 4100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "category": "Fuel Charges",
+      "amount_inr": 7350,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "gw": false
+  }
+}

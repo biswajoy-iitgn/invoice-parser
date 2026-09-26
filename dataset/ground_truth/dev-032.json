@@ -1,0 +1,108 @@
+{
+  "id": "dev-032",
+  "split": "dev",
+  "file": "invoices/dev-032.pdf",
+  "format": "pdf_raster",
+  "tier": "clean",
+  "template": "T4",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 606370,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 92,
+    "pixels": [
+      1920,
+      1712
+    ]
+  },
+  "fields": {
+    "Invoice No": "CCM26774076",
+    "Invoice Date": "2024-10-01",
+    "Container Number": "",
+    "MAWB No": "020-91941290",
+    "HAWB No": "CCM/25/74927",
+    "Vendor Name": "Crescent Cargo Movers Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "305.3 KG",
+    "Sea Freight": "",
+    "Air Freight": 134566.44,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3100,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.96,
+    "Misc": 550,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 36712.92,
+    "Cargo Screening": 2150,
+    "Agency Charges": 7300,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Freight",
+      "category": "Air Freight",
+      "amount_inr": 134566.44,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Waybill Documentation",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 36712.92,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Clearance Charges",
+      "category": "Agency Charges",
+      "amount_inr": 7300,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

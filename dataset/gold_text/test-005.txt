@@ -1,0 +1,62 @@
+Coastal Maritime Services Pvt Ltd
+261, CG Road, Navi Mumbai - 400706, India
+GSTIN
+27LLJAN9602M1ZD
+PAN
+LLJAN9602M
+CONTACT
+accounts@coastallogistics.example | +91 36 6932 8909
+SERVICE INVOICE
+ORIGINAL
+BILL TO
+Vardhaman Yarns & Exports
+31 Station Road, Kolkata 700016
+GSTIN 29LAWPH7280N1ZC
+Consignee: Nordic Parts AB, Gothenburg, Sweden
+INVOICE DETAILS
+TAX INVOICE NO
+TI638173
+BILL DATE
+29/03/2026
+DUE ON
+28/04/2026
+CLIENT CODE
+CMS35875
+SHIPPER INV NO
+EXP/266511
+BUYER REF
+PO-97691
+PLACE OF SUPPLY
+33 Tamil Nadu
+SHIPMENT
+Airport of Departure: BLR - Bengaluru
+Airport of Destination: FRA - Frankfurt
+Flight No: QR 625 / 24/03/2026
+Master AWB: 157 6518 5971
+House Air Waybill: HAWB581029
+Packages: 103 CTNS
+Gross Weight: 156.3 Kgs
+Ch. Wt: 224.0 KG
+Terms of Delivery: DAP
+Shipping Bill No: 4225054 dt 17/03/2026
+CARGO
+Organic chemicals (non-haz) | 103 CTNS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Air Export Freight	996531	224.0	4.01	USD	83.92	75,380.30	0%	75,380.30
+2	AWB Fee	996713	1	1,200.00	INR	1.00	1,200.00	18%	1,416.00
+3	EDI Filing	998599	1	400.00	INR	1.00	400.00	18%	472.00
+4	FSC	996531	224.0	0.93	USD	83.92	17,482.21	18%	20,629.01
+5	Security Screening Fee	996719	1	1,200.00	INR	1.00	1,200.00	18%	1,416.00
+Total (Before Tax)	95,662.51
+CGST	1,825.40
+SGST	1,825.40
+Round Off	-0.31
+Total Amount Payable	99,313.00
+Amount in words: INR Ninety Nine Thousand Three Hundred Thirteen and Paise Zero Only
+BANK DETAILS
+Yes Bank | A/c No 30998336470 | IFSC SBIN0913841
+Please quote invoice number with remittance.
+FOR COASTAL MARITIME SERVICES PVT LTD
+Authorised Signatory
+E & O.E.
+GST AUDITED

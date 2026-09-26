@@ -1,0 +1,37 @@
+Meridian Maritime Services Private Limited
+176, Mahipalpur Extn, Navi Mumbai - 400706, India
+GSTIN: 27RUSCC1749Y1ZA | accounts@meridianlogistics.example | +91 65 3652 1759
+FREIGHT INVOICE
+
+Tax Invoice No INV-2024-423014    Invoice Dt 2024-12-21
+
+Due Date: 2025-01-05  |  Customer Code: MMS92942  |  File No: JOB/MMS/25/0975  |  Exporter Inv. Ref: EXP/243128  |  Buyer Ref: PO-58818  |  State: 33 Tamil Nadu
+
+To,
+Madhav Spices Pvt. Ltd.
+99 Nehru Street, Chennai 600040
+GSTIN: 19PFYFN6795S1ZA
+
+Being charges in respect of your shipment of Cotton yarn in cartons consigned to Gulf Star Trading LLC, Jebel Ali, UAE. Load Port INCCU - Kolkata; Destination CNSHA - Shanghai; Container No MRKU4882153 / 40HC; Seal 6289619; No. of Packages 37 BOXES; Total Weight 22724.750 KG; Terms of Delivery DAP; SB No & Date 5443640 dt 2024-12-10.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Seal Fee	900.00
+2	Export Handling Charges	2,600.00
+3	Misc Expenses	400.00
+4	Examination Charges	2,100.00
+5	CHA Charges	1,250.00
+	Net Amount	7,250.00
+	Add: CGST	652.50
+	Add: SGST	652.50
+	Grand Total	8,555.00
+
+(INR Eight Thousand Five Hundred Fifty Five and Paise Zero Only)
+
+Kotak Mahindra Bank | A/c No 46603876301 | IFSC UTIB0193606
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Meridian Maritime Services Private Limited
+
+
+Authorised Signatory
+GST AUDITED

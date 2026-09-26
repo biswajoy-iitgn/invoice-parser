@@ -1,0 +1,59 @@
+Globelink Logistics Pvt Ltd
+102, Bund Garden Road, Gandhidham - 370201, India
+GSTIN 24NDGAV5823J1ZC | accounts@globelinklogistics.example | +91 62 1178 7663
+TAX INVOICE
+BILL TO
+Madhav Spices Pvt. Ltd.
+3 Park Street, Kolkata 700016 | GSTIN 09SMNAU1673J1ZB
+DOCUMENT NO
+GLP25386757
+INVOICE DATE
+07/06/2026
+PAY BY
+22/06/2026
+CUST. ID
+GLP27196
+JOB NO
+GLP/25/0129
+COMMERCIAL INVOICE NO
+CI251406
+YOUR REF
+PO-32248
+PLACE OF SUPPLY
+09 Uttar Pradesh
+AIRPORT OF DEPARTURE
+DEL - Delhi
+AIRPORT OF DESTINATION
+MXP - Milan
+FLIGHT DETAILS
+QR 455 / 06/06/2026
+M.AWB NO
+157 1264 7891
+PACKAGES
+105 PKGS
+GROSS WEIGHT
+2,074.150 KGS
+CH. WT
+3,239.0 KG
+TERMS OF DELIVERY
+DAP
+SHIPPING BILL NO
+7692884 dt 25/05/2026
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Freight Charges - Air	3239.0	3.84	EUR	96.60	1,201,487.62	18%
+Airwaybill Issuance	1	2,500.00	INR	1.00	2,500.00	18%
+DAP Terminal & Delivery	1	25,450.00	INR	1.00	25,450.00	18%
+Hdlg. Charges	1	6,600.00	INR	1.00	6,600.00	18%
+Handling Charges	1	2,850.00	INR	1.00	2,850.00	18%
+Security Screening Fee	1	1,400.00	INR	1.00	1,400.00	18%
+Total (Before Tax)	1,240,287.62
+CGST	111,625.89
+SGST	111,625.88
+Net Payable	1,463,539.39
+INR Fourteen Lakh Sixty Three Thousand Five Hundred Thirty Nine and Paise Thirty Nine Only
+Kotak Mahindra Bank | A/c No 40841871411 | IFSC ICIC0790368
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Globelink Logistics Pvt Ltd
+
+
+Authorised Signatory

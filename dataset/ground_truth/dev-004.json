@@ -1,0 +1,120 @@
+{
+  "id": "dev-004",
+  "split": "dev",
+  "file": "invoices/dev-004.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 697964,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.889,
+    "rotation_deg": 0.76,
+    "blur_sigma": 0.28,
+    "noise_sigma": 4.4,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 79,
+    "pixels": [
+      1514,
+      1554
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2026-138154",
+    "Invoice Date": "2024-07-22",
+    "Container Number": "TCNU2899502, TCNU4022894",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Coastal Shipping Private Limited",
+    "Bill of Lading / HBL": "HBL3190030",
+    "Weight": "43154.936 KG",
+    "Sea Freight": 78804,
+    "Air Freight": "",
+    "Terminal Handling Charges": 47200,
+    "Airway Bill Charges": "",
+    "BL Charges": 6150,
+    "ENS Charges": 3850.65,
+    "Seal Charges": "",
+    "VGM": 4900,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 89.55,
+    "Misc": 1750,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 78804,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 30500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 6150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 3850.65,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Filing Fee",
+      "category": "VGM",
+      "amount_inr": 4900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc. Charges",
+      "category": "Misc",
+      "amount_inr": 1750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

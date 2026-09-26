@@ -1,0 +1,42 @@
+Continental Maritime Services LLP
+77, Residency Road, Chennai - 600001, India
+GSTIN 33ELRPP6685G1ZB | accounts@continentallogistics.example | +91 82 8195 5722
+FREIGHT INVOICE
+Billed To
+Rotomech Engineering Pvt. Ltd.
+26 Park Street, Kolkata 700016
+GSTIN: 29SGRFW2112P1ZS
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Inv. Date	01/04/2025
+Document No	CMS/AE/2425/44112
+Payment Due	01/05/2025
+Customer Code	CMS17045
+Buyer Ref	PO-59941
+Place of Supply	07 Delhi
+SHIPMENT DETAILS
+Port of Loading	INMUN - Mundra	Destination	USHOU - Houston
+Vessel / Voyage	Northern Jaguar / 422W	Sailing Date	30/03/2025
+Carrier B/L	ONEY470027422	House B/L	CMS/HBL/25-26/4454
+Pkgs	15 PKGS	Wt (Gross)	3559.4 kg
+Incoterms	EXW		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Basic Ocean Freight	996521	USD	108.64	86.6721	9,416.06	5%	470.80	9,886.86
+2	Terminal Handling Charges	996719	INR	5,050.00	1.00	5,050.00	18%	909.00	5,959.00
+3	B/L Issuance Charges	996713	INR	4,250.00	1.00	4,250.00	18%	765.00	5,015.00
+4	E-Manifest EDI Transmission	998599	INR	1,300.00	1.00	1,300.00	18%	234.00	1,534.00
+5	AMS Security Fee	996713	INR	2,700.00	1.00	2,700.00	18%	486.00	3,186.00
+6	Misc Expenses	998599	INR	1,850.00	1.00	1,850.00	18%	333.00	2,183.00
+7	Local Transportation	996511	INR	3,000.00	1.00	3,000.00	18%	540.00	3,540.00
+8	Exam. Charges	998599	INR	6,300.00	1.00	6,300.00	18%	1,134.00	7,434.00
+Net Amount	33,866.06
+CGST	2,435.90
+SGST	2,435.90
+Net Payable	38,737.86
+INR Thirty Eight Thousand Seven Hundred Thirty Seven and Paise Eighty Six Only
+Yes Bank | A/c No 53263350736 | IFSC HDFC0274109
+Subject to Mumbai jurisdiction. E. & O.E.
+For Continental Maritime Services LLP
+
+
+Authorised Signatory

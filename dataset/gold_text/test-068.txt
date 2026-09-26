@@ -1,0 +1,37 @@
+Continental Express Cargo & Co.
+161, Bund Garden Road, Chennai - 600001, India
+GSTIN: 33HJJAG9433W1Z7   PAN: HJJAG9433W
+accounts@continentallogistics.example | +91 72 3833 4203
+FREIGHT INVOICE
+Customer: Deccan Granite Exports, 28 Lake View Road, Delhi 110034 (GSTIN 27NCWCE5099N1ZB)
+Bill Date	04 Mar 2024	Invoice Ref	TI578347
+Pay By	18 Apr 2024	Customer Code	CU46127
+File No	FILE/CEC/24/1553	PO No	PO-62677
+Place of Supply	27 Maharashtra	Port of Loading	INMUN - Mundra
+Destination	USHOU - Houston	Vsl/Voy	Wan Hai 516 / 861W
+ETD	03 Mar 2024	House BL Ref	CEC/HBL/25-26/4751
+Pkgs	34 PKGS	Gross Weight	3845 KG
+Measurement	1.343 CBM	Incoterms	FOB
+S/Bill No	3341706 dt 29 Feb 2024		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Freight Charges - Ocean (USD 87.30 @ 84.93)	996521	7,414.39	0.00	0.00	7,414.39
+2	Container Terminal Charges	996719	9,500.00	855.00	855.00	11,210.00
+3	HBL Fee	996713	3,550.00	319.50	319.50	4,189.00
+4	Advance Manifest (AMS) Fee	996713	2,000.00	180.00	180.00	2,360.00
+5	Misc Expenses	998599	550.00	49.50	49.50	649.00
+6	Road Transport (Factory to CFS)	996511	13,450.00	336.25	336.25	14,122.50
+7	Transportation Charges	996511	15,500.00	1,395.00	1,395.00	18,290.00
+8	Clearing Agency Fee	996713	2,750.00	247.50	247.50	3,245.00
+9	Peak Season Surcharge	998599	3,100.00	279.00	279.00	3,658.00
+Taxable Amount	57,814.39
+CGST	3,661.75
+SGST	3,661.75
+Round Off	0.11
+Total Invoice Value	65,138.00
+INR Sixty Five Thousand One Hundred Thirty Eight and Paise Zero Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 64826284607 | IFSC UTIB0586832
+Please quote invoice number with remittance.
+FOR CONTINENTAL EXPRESS CARGO & CO.
+Authorised Signatory
+E & O.E.

@@ -1,0 +1,138 @@
+{
+  "id": "test-039",
+  "split": "test",
+  "file": "invoices/test-039.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 341981,
+  "maker_difficulty": {
+    "stamp": true,
+    "watermark": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.898,
+    "rotation_deg": -0.87,
+    "blur_sigma": 0.54,
+    "illumination": true,
+    "noise_sigma": 13.6,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 70,
+    "pixels": [
+      1400,
+      1414
+    ]
+  },
+  "fields": {
+    "Invoice No": "TGL/FF/25-26/43510",
+    "Invoice Date": "2025-12-29",
+    "Container Number": "TRHU8692500, MSCU6159721",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Tricolour Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "TGLSE2560650",
+    "Weight": "41057.4 KG",
+    "Sea Freight": 294279.7,
+    "Air Freight": "",
+    "Terminal Handling Charges": 29600,
+    "Airway Bill Charges": "",
+    "BL Charges": 5050,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 1500,
+    "EDI Fees": "",
+    "DAP Charges": 17848.33,
+    "Other Charges": 3800,
+    "AMS Charges": 2600,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 42500,
+    "Ex Rate": 87.065,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1400
+  },
+  "lines": [
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 29600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Charges",
+      "category": "BL Charges",
+      "amount_inr": 5050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "category": "VGM",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Advance Manifest (AMS) Fee",
+      "category": "AMS Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Mandatory User Charges",
+      "category": "Other Charges",
+      "amount_inr": 3800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Origin Inland Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 42500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "S.B. Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 294279.7,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Charges",
+      "category": "DAP Charges",
+      "amount_inr": 17848.33,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

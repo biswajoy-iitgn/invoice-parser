@@ -1,0 +1,47 @@
+Tricolour Logistics & Co.
+233, Mahipalpur Extn, Chennai - 600001, India
+GSTIN 33HBRFR6111V1Z7 | accounts@tricolourlogistics.example | +91 26 8057 3353
+TAX INVOICE
+Billed To
+Triveni Auto Components Ltd.
+87 Gandhi Nagar, Mumbai 400050
+GSTIN: 09UEACY8654T1ZB
+Consignee: Optima Handel GmbH, Hamburg, Germany
+Invoice Ref	TLC/AE/2425/70998
+Dated	23-Dec-2024
+Due On	07-Jan-2025
+A/c Code	TLC29856
+Job No	TLC/26/7812
+Exporter Inv. Ref	CI241316
+Your Ref	PO-99589
+Place of Supply	24 Gujarat
+Exchange Rate (EUR)	92.8089
+SHIPMENT DETAILS
+Place of Receipt	ICD Khodiyar	POL	INNSA - Nhava Sheva
+Port of Discharge	ITGOA - Genoa	Vsl/Voy	Wan Hai 516 / 696W
+ETD	14-Dec-2024	HBL	TLCMU2481097
+Equipment No	TCNU 205818 3 / 40HC	Seal No(s)	ML-IN7470219
+Packages	40 BOXES	G.W.	4,612.30 KGS
+CBM	28.017 CBM	Incoterms	FCA
+Shipping Bill No	4543802 dt 11-Dec-2024		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Sea Freight Charges	996521	EUR	900.00	92.8089	83,528.01	5%	4,176.40	87,704.41
+2	Terminal Handling (Origin)	996719	INR	6,450.00	1.00	6,450.00	18%	1,161.00	7,611.00
+3	Bolt Seal Charges	996719	INR	800.00	1.00	800.00	18%	144.00	944.00
+4	Verified Gross Mass (VGM)	996719	INR	1,950.00	1.00	1,950.00	18%	351.00	2,301.00
+5	Origin Inland Haulage	996511	INR	10,300.00	1.00	10,300.00	5%	515.00	10,815.00
+6	Emergency Bunker Surcharge (EBS)	996521	EUR	280.00	92.8089	25,986.49	5%	1,299.32	27,285.81
+7	Agency Fee	996713	INR	6,700.00	1.00	6,700.00	18%	1,206.00	7,906.00
+Total (Before Tax)	135,714.50
+CGST	4,426.36
+SGST	4,426.36
+Total Invoice Value	144,567.22
+INR One Lakh Forty Four Thousand Five Hundred Sixty Seven and Paise Twenty Two Only
+ICICI Bank | A/c No 16004950706 | IFSC HDFC0515888
+Cheque / RTGS in favour of the company only.
+For Tricolour Logistics & Co.
+
+
+Authorised Signatory
+GST AUDITED

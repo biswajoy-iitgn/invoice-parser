@@ -1,0 +1,40 @@
+Seahawk Supply Chain Solutions Ltd.
+349, Sahar Road, Kochi - 682003, India
+GSTIN: 32YUAFS6612L1Z7 | accounts@seahawklogistics.example | +91 75 3158 1286
+FREIGHT INVOICE
+
+Tax Invoice No INV/2425/0755    Invoice Dt 25th September 2025
+
+Pay By: 10th October 2025  |  A/c Code: C73115  |  Job Ref: SSC/26/0329  |  Party Invoice No: CI250512  |  Place of Supply: 33 Tamil Nadu
+
+To,
+Rotomech Engineering Pvt. Ltd.
+94 Park Street, Ahmedabad 380015
+GSTIN: 27DFJAC3236P1ZC
+
+Being charges in respect of your shipment of Pressed steel bearing cages consigned to Rheinmetal Components, Duisburg, Germany. Departure AMD - Ahmedabad; Dest. AMS - Amsterdam; Flight No SQ 344 / 20th September 2025; MAWB No 618-22493516; House Air Waybill BLR-HA-690178; Pkgs 90 PKGS; G.W. 1062.0 KG; Chargeable Wt 1,617.5 KG; Terms of Delivery FOB; S/Bill No 8665194 dt 12th September 2025.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	MAWB Fee	3,050.00
+2	Warehouse Charges	12,800.00
+3	Forwarder Handling Fee	1,700.00
+4	Brokerage Charges	6,500.00
+5	Air Freight	3,39,254.45
+6	Fuel Surcharge	91,259.35
+7	EDI Fees	1,250.00
+8	X-Ray Charges	2,000.00
+	Taxable Amount	4,57,813.80
+	Add: CGST	41,203.24
+	Add: SGST	41,203.24
+	Round Off	-0.28
+	Total Amount Payable	5,40,220.00
+
+(INR Five Lakh Forty Thousand Two Hundred Twenty and Paise Zero Only)
+
+Kotak Mahindra Bank | A/c No 41047307248 | IFSC UTIB0115781
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+
+For Seahawk Supply Chain Solutions Ltd.
+
+
+Authorised Signatory

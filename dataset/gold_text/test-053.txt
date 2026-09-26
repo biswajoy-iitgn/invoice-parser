@@ -1,0 +1,46 @@
+Tricolour Air & Sea Pvt. Ltd.
+16, CG Road, Pune - 411001, India
+GSTIN 27WUMCF5508M1ZA | accounts@tricolourlogistics.example | +91 58 1362 9960
+TAX INVOICE
+Invoice #: AE/2425/4052
+Invoice Date: 15/03/2024
+A/c Code: C58512
+Shipment ID: FILE/TAS/26/9980
+Commercial Invoice No: CI245936
+Buyer Ref: PO-71189
+Place of Supply: 09 Uttar Pradesh
+Bill To
+Apex Pumps & Valves Pvt. Ltd.
+82 Park Street, Chennai 600040
+GSTIN 33HFLCF8915B1ZB
+Consignee: Maas Trading BV, Rotterdam, Netherlands
+Origin: AMD - Ahmedabad
+Destination: AMS - Amsterdam
+M.AWB No: 157-81418960
+House Air Waybill: TAS/25/89662
+Pkgs: 59 CTNS
+Gross Weight: 1,223.761 KG
+Ch. Wt: 1,944.0 KG
+Inco: FOB
+SB No & Date: 9068452 dt 09/03/2024
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Local Transportation	SHPT	INR	10,400.00	1	1.00	10,400.00	5%	10,920.00
+2	ACC Warehouse Charges	SHPT	INR	10,600.00	1	1.00	10,600.00	18%	12,508.00
+3	Cargo Security Scan	SHPT	INR	1,700.00	1	1.00	1,700.00	18%	2,006.00
+4	Agency Fee	SHPT	INR	3,750.00	1	1.00	3,750.00	18%	4,425.00
+	Sub Total - Origin Charges	26,450.00		29,859.00
+Documentation & Filing
+5	S/B Charges	SHPT	INR	1,350.00	1	1.00	1,350.00	18%	1,593.00
+	Sub Total - Documentation & Filing	1,350.00		1,593.00
+Net Amount	27,800.00
+CGST	1,826.00
+SGST	1,826.00
+Total Amount Payable	31,452.00
+INR Thirty One Thousand Four Hundred Fifty Two and Paise Zero Only
+State Bank of India | A/c No 75845192100 | IFSC YESB0405373
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Tricolour Air & Sea Pvt. Ltd.
+
+
+Authorised Signatory

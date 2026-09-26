@@ -1,0 +1,35 @@
+Marigold Air & Sea Pvt. Ltd.
+137, Nariman Point, Pune - 411001, India
+GSTIN: 27YWXAX9466F1ZB | PAN: YWXAX9466F
+accounts@marigoldlogistics.example | +91 23 4619 8487
+
+Bill To: Apex Pumps & Valves Pvt. Ltd., 96 Park Street, Mumbai 400050 | GSTIN 07GFXPW3256F1ZB
+Invoice Ref	AMDAE2424226
+Document Date	2025-10-26
+A/c Code	MAS75508
+Job No	JOB/MAS/24/4389
+State	33 Tamil Nadu
+Currency Rate (EUR)	95.92
+INVOICE
+Departure	AMD - Ahmedabad	Destination	CDG - Paris	Flight Details	TK 564 / 2025-10-22
+Master AWB	235-26590874	House Airway Bill No	MAS8065429	No. of Packages	104 BOXES
+Total Weight	2,095.721 KG	Chargeable Weight	2,979.5 KG	Inco	FOB
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	A/F Charges	996531	EUR	2.68	2979.5	7,985.06	95.92	7,65,926.96	0.00	0.00	0.00	7,65,926.96
+2	AWB Charges	996713	INR	1,800.00	1	1,800.00	1.00	0.00	1,800.00	162.00	162.00	2,124.00
+3	Fuel Surcharge (FSC)	996531	INR	91.10	2979.5	2,71,432.45	1.00	2,71,432.45	0.00	0.00	0.00	2,71,432.45
+4	Customs Inspection Charges	998599	INR	5,700.00	1	5,700.00	1.00	0.00	5,700.00	513.00	513.00	6,726.00
+5	CFS Charges	996729	INR	12,500.00	1	12,500.00	1.00	0.00	12,500.00	1,125.00	1,125.00	14,750.00
+6	Screening Charges	996719	INR	1,900.00	1	1,900.00	1.00	0.00	1,900.00	171.00	171.00	2,242.00
+Total Non-Taxable Value	10,37,359.41
+Total Taxable Value	21,900.00
+CGST	1,971.00
+SGST	1,971.00
+Total Invoice Value	10,63,201.41
+INR Ten Lakh Sixty Three Thousand Two Hundred One and Paise Forty One Only
+BANK DETAILS
+Axis Bank | A/c No 78094809520 | IFSC SBIN0165108
+Cheque / RTGS in favour of the company only.
+FOR MARIGOLD AIR & SEA PVT. LTD.
+Authorised Signatory
+E & O.E.

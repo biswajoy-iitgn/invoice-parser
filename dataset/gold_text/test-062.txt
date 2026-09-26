@@ -1,0 +1,39 @@
+Marigold Freight Forwarders Pvt Ltd
+320, CG Road, Kolkata - 700001, India
+GSTIN: 19NHMCX7821Y1Z5   PAN: NHMCX7821Y
+accounts@marigoldlogistics.example | +91 49 1696 6132
+SERVICE INVOICE
+Customer: Lotus Garments Exports, 30 Station Road, Mumbai 400050 (GSTIN 29VJDAR6327B1ZD)
+INV NO	AMDAE2417095	Inv. Date	02/12/2024
+Pay By	01/01/2025	Customer Code	CU25994
+Job No	JOB/MFF/26/5870	Exporter Inv. Ref	EI-246796
+Place of Supply	33 Tamil Nadu	Load Port	INNSA - Nhava Sheva
+Destination	ITGOA - Genoa	Vessel / Voyage	Wan Hai 516 / 783E
+SOB Date	01/12/2024	House Bill of Lading	76551401901
+Container No(s)	CAIU1168475 / 40GP
+CAIU9932189	Seal No(s)	ML-IN1975916, 3465711
+Pkgs	104 CTNS	G.W.	47,794.43 KGS
+CBM	83.763 CBM	Incoterms	FCA
+S/Bill No	2183818 dt 29/11/2024		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	BL Printing Charges	996713	2,600.00	234.00	234.00	3,068.00
+2	Shipping Bill Charges	996713	3,200.00	288.00	288.00	3,776.00
+3	EDI Charges	998599	950.00	85.50	85.50	1,121.00
+4	Clearing Agency Fee	996713	6,150.00	553.50	553.50	7,257.00
+5	Entry Summary Declaration Fee	996713	2,950.00	265.50	265.50	3,481.00
+6	Bolt Seal Charges	996719	1,700.00	153.00	153.00	2,006.00
+7	THC	996719	14,300.00	1,287.00	1,287.00	16,874.00
+8	VGM	996719	3,500.00	315.00	315.00	4,130.00
+9	Ocean Freight (EUR 4,940.00 @ 95.01)	996521	469,349.40	11,733.74	11,733.73	492,816.87
+Total Taxable Value	504,699.40
+CGST	14,915.24
+SGST	14,915.23
+Round Off	0.13
+Total Invoice Value	534,530.00
+INR Five Lakh Thirty Four Thousand Five Hundred Thirty and Paise Zero Only
+BANK DETAILS
+HDFC Bank | A/c No 14496850525 | IFSC ICIC0768793
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR MARIGOLD FREIGHT FORWARDERS PVT LTD
+Authorised Signatory
+E & O.E.

@@ -1,0 +1,54 @@
+Harbourline Shipping Agencies (India) Pvt. Ltd.
+46, Bund Garden Road, Mumbai - 400001, India
+GSTIN 27PHTCA7440T1Z7 | accounts@harbourlinelogistics.example | +91 98 6644 4282
+TAX INVOICE
+BILL TO
+Bharat Brass Fittings
+91 FC Road, Mumbai 400050 | GSTIN 33BHCFJ5497X1ZD
+INVOICE DATE
+2026-01-26
+INVOICE NO
+HSA/SE/24-25/81385
+DUE DATE
+2026-02-10
+CUST. ID
+CU27565
+STATE
+24 Gujarat
+ORIGIN
+BOM - Mumbai
+DEST.
+AMS - Amsterdam
+MASTER AIR WAYBILL
+176 5345 7176
+PKGS
+44 PALLETS
+GROSS WT
+261 KG
+CHARGEABLE WT
+261.5 KG
+INCO
+DAP
+SB NO & DATE
+1181613 dt 2026-01-22
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Agency Charges	1	4,150.00	INR	1.00	4,150.00	18%
+Handling Fee	1	2,550.00	INR	1.00	2,550.00	18%
+Container Cleaning Charges	1	1,600.00	INR	1.00	1,600.00	18%
+ISPS Charges	1	2,750.00	INR	1.00	2,750.00	18%
+Shipping Bill Charges	1	1,800.00	INR	1.00	1,800.00	18%
+Screening Charges	1	2,850.00	INR	1.00	2,850.00	18%
+EDI Charges	1	350.00	INR	1.00	350.00	18%
+Customs Inspection Charges	1	2,850.00	INR	1.00	2,850.00	18%
+Transportation Charges	1	6,850.00	INR	1.00	6,850.00	18%
+Total (Before Tax)	25,750.00
+CGST	2,317.50
+SGST	2,317.50
+Total Amount Payable	30,385.00
+INR Thirty Thousand Three Hundred Eighty Five and Paise Zero Only
+State Bank of India | A/c No 20856717813 | IFSC ICIC0479495
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Harbourline Shipping Agencies (India) Pvt. Ltd.
+
+
+Authorised Signatory

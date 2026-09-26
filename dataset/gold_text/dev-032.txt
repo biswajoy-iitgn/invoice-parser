@@ -1,0 +1,60 @@
+Crescent Cargo Movers Pvt Ltd
+392, Sector 9, Chennai - 600001, India
+GSTIN 33JSYFC8515G1ZD | accounts@crescentlogistics.example | +91 75 7684 9069
+INVOICE
+BILL TO
+Bharat Brass Fittings
+96 Nehru Street, Pune 411005 | GSTIN 09FUVFC2183D1ZA
+INVOICE NUMBER
+CCM26774076
+DOCUMENT DATE
+2024-10-01
+DUE DATE
+2024-10-31
+CUST. ID
+CCM98108
+SHIPMENT ID
+CCM/26/5656
+PARTY INVOICE NO
+EI-261951
+YOUR REF
+PO-95529
+PLACE OF SUPPLY
+06 Haryana
+CURRENCY RATE
+1 USD = 84.96 INR
+ORIGIN
+DEL - Delhi
+AIRPORT OF DESTINATION
+CDG - Paris
+FLIGHT / DATE
+LH 875 / 2024-09-26
+MASTER AWB
+020-91941290
+HAWB
+CCM/25/74927
+NO. OF PACKAGES
+11 BOXES
+TOTAL WEIGHT
+305.3 KG
+CHARGEABLE WEIGHT
+394.0 KG
+INCO
+CFR
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Air Freight	394.0	4.02	USD	84.96	1,34,566.44	18%
+Air Waybill Documentation	1	3,100.00	INR	1.00	3,100.00	18%
+Miscellaneous Charges	1	550.00	INR	1.00	550.00	18%
+MYC / Fuel Surcharge	394.0	93.18	INR	1.00	36,712.92	0%
+X-Ray Screening	1	2,150.00	INR	1.00	2,150.00	18%
+Customs Clearance Charges	1	7,300.00	INR	1.00	7,300.00	18%
+Total (Before Tax)	1,84,379.36
+IGST	26,579.96
+Net Payable	2,10,959.32
+INR Two Lakh Ten Thousand Nine Hundred Fifty Nine and Paise Thirty Two Only
+Kotak Mahindra Bank | A/c No 98260143129 | IFSC KKBK0914731
+Please quote invoice number with remittance.
+For Crescent Cargo Movers Pvt Ltd
+
+
+Authorised Signatory

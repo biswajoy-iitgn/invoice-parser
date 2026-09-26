@@ -1,0 +1,144 @@
+{
+  "id": "test-018",
+  "split": "test",
+  "file": "invoices/test-018.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 537048,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.89,
+    "rotation_deg": 0.25,
+    "perspective": true,
+    "blur_sigma": 0.58,
+    "illumination": true,
+    "noise_sigma": 9.5,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 66,
+    "pixels": [
+      1374,
+      1444
+    ]
+  },
+  "fields": {
+    "Invoice No": "KCM25947929",
+    "Invoice Date": "2025-09-28",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Kestrel Cargo Movers LLP",
+    "Bill of Lading / HBL": "HBL7600921",
+    "Weight": "14579.61 KG",
+    "Sea Freight": 256038,
+    "Air Freight": "",
+    "Terminal Handling Charges": 11400,
+    "Airway Bill Charges": "",
+    "BL Charges": 5800,
+    "ENS Charges": "",
+    "Seal Charges": 2100,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 7250,
+    "AMS Charges": "",
+    "Handling Charges": 6550,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.4,
+    "Misc": 2400,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 35862,
+    "Cargo Screening": "",
+    "Agency Charges": 1200,
+    "Shipping Bill Charges": 2250
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 256038,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 11400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 5800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling & Coordination",
+      "category": "Handling Charges",
+      "amount_inr": 6550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 2400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "category": "Fuel Charges",
+      "amount_inr": 35862,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DO Charges",
+      "category": "Other Charges",
+      "amount_inr": 7250,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "gw": false
+  }
+}

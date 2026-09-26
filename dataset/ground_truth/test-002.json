@@ -1,0 +1,94 @@
+{
+  "id": "test-002",
+  "split": "test",
+  "file": "invoices/test-002.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 751862,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1882
+    ]
+  },
+  "fields": {
+    "Invoice No": "FF/2526/1251",
+    "Invoice Date": "2026-05-12",
+    "Container Number": "HLXU6934655, CAIU3113018",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Skyways Express Cargo Ltd.",
+    "Bill of Lading / HBL": "SECNS2645491",
+    "Weight": "28735.1 KG",
+    "Sea Freight": 345261,
+    "Air Freight": "",
+    "Terminal Handling Charges": 32400,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 8850,
+    "Pre Carriage Haulage": 32500,
+    "Ex Rate": 84.21,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 345261,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 32400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 8850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 32500,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

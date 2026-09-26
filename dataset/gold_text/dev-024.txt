@@ -1,0 +1,39 @@
+NORTHSTAR FORWARDING LLP
+347, RAJAJI SALAI, AHMEDABAD - 380009, INDIA
+GSTIN: 24BLXCD8891X1Z7 PAN: BLXCD8891X
+BILL TO: SHREEJI POLYMERS LTD., 54 NEHRU STREET, DELHI 110034 GSTIN: 33CVFFD6653M1ZB
+================================================================================================
+                                        FREIGHT INVOICE
+================================================================================================
+INVOICE REF    : TI756908                         DATE           : 25-OCT-24
+PAYMENT DUE    : 09-DEC-24                        A/C CODE       : NFL70750
+SHIPMENT ID    : JOB/NFL/26/3227                  BUYER REF      : PO-50901
+PLACE OF SUPPLY: 07 DELHI                         POL            : INMUN - MUNDRA
+POD            : SEGOT - GOTHENBURG               VESSEL         : HYUNDAI PRIDE / 254A
+ETD            : 24-OCT-24                        HBL NO         : NFLSE2498725
+NO. OF PACKAGES: 28 CTNS                          WEIGHT         : 453 KG
+CBM            : 1.523 CBM                        INCOTERMS      : CIF
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  OCEAN FREIGHT CHARGES             USD        58.00     1.523   86.4085         7632.46   0%
+  2  OTHC                              INR     13800.00         1      1.00        13800.00  18%
+  3  DOCUMENTATION FEE (B/L)           INR      2700.00         1      1.00         2700.00  18%
+  4  ENS DECLARATION                   USD        39.00         1   86.4085         3369.93  18%
+  5  SUNDRY CHARGES                    INR      1150.00         1      1.00         1150.00  18%
+  6  BUNKER SURCHARGE                  INR     17650.00         1      1.00        17650.00   0%
+  7  CLEARING AGENCY FEE               INR      1150.00         1      1.00         1150.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL (BEFORE TAX)               47452.39
+                                                       CGST                              1995.30
+                                                       SGST                              1995.29
+                                                       NET PAYABLE                      51442.98
+------------------------------------------------------------------------------------------------
+INR FIFTY ONE THOUSAND FOUR HUNDRED FORTY TWO AND PAISE NINETY EIGHT ONLY
+
+BANK: KOTAK MAHINDRA BANK | A/C NO 39272380599 | IFSC ICIC0839915
+CHEQUE / RTGS IN FAVOUR OF THE COMPANY ONLY.
+
+                                                            FOR NORTHSTAR FORWARDING LLP
+
+                                                            AUTHORISED SIGNATORY

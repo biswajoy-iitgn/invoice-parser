@@ -1,0 +1,137 @@
+{
+  "id": "test-047",
+  "split": "test",
+  "file": "invoices/test-047.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 306485,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.899,
+    "rotation_deg": -2.27,
+    "blur_sigma": 0.54,
+    "illumination": true,
+    "noise_sigma": 11.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 59,
+    "pixels": [
+      1740,
+      1197
+    ]
+  },
+  "fields": {
+    "Invoice No": "7371930698",
+    "Invoice Date": "2025-09-13",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Tricolour Freight Systems Ltd.",
+    "Bill of Lading / HBL": "TFSNS2472931",
+    "Weight": "",
+    "Sea Freight": 50515.18,
+    "Air Freight": "",
+    "Terminal Handling Charges": 11000,
+    "Airway Bill Charges": "",
+    "BL Charges": 3600,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 2250,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.99,
+    "Misc": 2450,
+    "Transportation": 13150,
+    "Warehouse Charges Port": 10600,
+    "Examination Charges": "",
+    "Fuel Charges": 21577.4,
+    "Cargo Screening": "",
+    "Agency Charges": 7450,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 50515.18,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 11000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 3600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc. Charges",
+      "category": "Misc",
+      "amount_inr": 2450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 13150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 10600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "category": "Fuel Charges",
+      "amount_inr": 21577.4,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 7450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Courier Charges",
+      "category": "Other Charges",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "hbl": false
+  }
+}

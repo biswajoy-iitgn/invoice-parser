@@ -1,0 +1,134 @@
+{
+  "id": "test-046",
+  "split": "test",
+  "file": "invoices/test-046.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 667615,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.862,
+    "rotation_deg": 0.74,
+    "blur_sigma": 0.46,
+    "noise_sigma": 4.2,
+    "encoding": "jpeg",
+    "jpeg_quality": 72,
+    "pixels": [
+      1795,
+      1181
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI691415",
+    "Invoice Date": "2025-07-16",
+    "Container Number": "CAIU2519949, CMAU3064528",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Northstar Express Cargo (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "ONEYIN8870726",
+    "Weight": "33980.98 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 1500,
+    "VGM": 3700,
+    "EDI Fees": 1050,
+    "DAP Charges": "",
+    "Other Charges": 5100,
+    "AMS Charges": "",
+    "Handling Charges": 2200,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 13650,
+    "Examination Charges": 6400,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 5700,
+    "Shipping Bill Charges": 2050
+  },
+  "lines": [
+    {
+      "description": "Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Charges",
+      "category": "VGM",
+      "amount_inr": 3700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 13650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 5700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 5100,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": true,
+    "gw": false
+  }
+}

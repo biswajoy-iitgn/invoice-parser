@@ -1,0 +1,125 @@
+{
+  "id": "test-010",
+  "split": "test",
+  "file": "invoices/test-010.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 599388,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.8,
+    "rotation_deg": -0.73,
+    "blur_sigma": 0.78,
+    "illumination": true,
+    "noise_sigma": 10.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 55,
+    "pixels": [
+      1244,
+      1271
+    ]
+  },
+  "fields": {
+    "Invoice No": "DELSE2575919",
+    "Invoice Date": "2025-09-25",
+    "Container Number": "MRKU9780935, MSCU4960808",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seahawk Cargo Movers & Co.",
+    "Bill of Lading / HBL": "SCM/HBL/24-25/0437",
+    "Weight": "32154.886 KG",
+    "Sea Freight": 118800,
+    "Air Freight": "",
+    "Terminal Handling Charges": 19800,
+    "Airway Bill Charges": "",
+    "BL Charges": 3950,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 67400,
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 15150,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 3050,
+    "Shipping Bill Charges": 2300
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 118800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 19800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 3950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Origin Inland Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 67400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 15150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Brokerage Fee",
+      "category": "Agency Charges",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "S.B. Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2300,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

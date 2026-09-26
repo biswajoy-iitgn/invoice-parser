@@ -1,0 +1,38 @@
+Northstar Express Cargo (India) Pvt. Ltd.
+369, Bund Garden Road, Chennai - 600001, India
+GSTIN: 33HECCA8766H1Z5 | PAN: HECCA8766H
+accounts@northstarlogistics.example | +91 92 2277 9937
+
+Bill To: Gajanan Castings Pvt. Ltd., 2 Sector 18 Market, Bengaluru 560001 | GSTIN 09AMNPE1592Y1ZC
+Document Date	Jul 16, 2025
+Bill No	TI691415
+Cust. ID	CU37537
+Commercial Invoice No	EXP/264834
+Buyer Ref	PO-71541
+Place of Supply	09 Uttar Pradesh
+SERVICE INVOICE
+POL	INPAV - Pipavav	POD	ITGOA - Genoa	M B/L No	ONEYIN8870726
+Ctr #	CAIU2519949 / 40GP, CMAU3064528	Packages	57 PALLETS	G.W.	33,980.98 KG
+Volume	41.525 CBM	Terms of Delivery	EXW	S/Bill No	2838057 dt Jul 07, 2025
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Seal Charges	996719	INR	750.00	2	1,500.00	1.00	0.00	1,500.00	135.00	135.00	1,770.00
+2	VGM Charges	996719	INR	1,850.00	2	3,700.00	1.00	0.00	3,700.00	333.00	333.00	4,366.00
+3	EDI Transmission Fee	998599	INR	1,050.00	1	1,050.00	1.00	0.00	1,050.00	94.50	94.50	1,239.00
+4	Hdlg. Charges	996719	INR	2,200.00	1	2,200.00	1.00	0.00	2,200.00	198.00	198.00	2,596.00
+5	Warehouse Charges	996729	INR	13,650.00	1	13,650.00	1.00	0.00	13,650.00	1,228.50	1,228.50	16,107.00
+6	Examination Charges	998599	INR	6,400.00	1	6,400.00	1.00	0.00	6,400.00	576.00	576.00	7,552.00
+7	Clearing Agency Fee	996713	INR	5,700.00	1	5,700.00	1.00	0.00	5,700.00	513.00	513.00	6,726.00
+8	Shipping Bill Passing	996713	INR	2,050.00	1	2,050.00	1.00	0.00	2,050.00	184.50	184.50	2,419.00
+9	Congestion Surcharge	998599	INR	5,100.00	1	5,100.00	1.00	0.00	5,100.00	459.00	459.00	6,018.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	41,350.00
+CGST	3,721.50
+SGST	3,721.50
+Total Invoice Value	48,793.00
+INR Forty Eight Thousand Seven Hundred Ninety Three and Paise Zero Only
+BANK DETAILS
+ICICI Bank | A/c No 93277027786 | IFSC UTIB0192192
+Cheque / RTGS in favour of the company only.
+FOR NORTHSTAR EXPRESS CARGO (INDIA) PVT. LTD.
+Authorised Signatory
+E & O.E.

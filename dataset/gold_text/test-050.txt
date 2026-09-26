@@ -1,0 +1,38 @@
+Meridian Supply Chain Solutions Pvt. Ltd.
+183, Mahipalpur Extn, Navi Mumbai - 400706, India
+GSTIN: 27BNWAS3349L1ZA | PAN: BNWAS3349L
+accounts@meridianlogistics.example | +91 44 9985 5033
+
+Bill To: Madhav Spices Pvt. Ltd., 42 Anna Nagar 3rd Cross, Ahmedabad 380015 | GSTIN 29TAMAT2932P1ZS
+Inv. Serial No	CCUSE2495064
+Dated	07 Dec 2025
+Client Code	CU66352
+Job Ref	JOB/MSC/25/7974
+Buyer Ref	PO-61336
+Place of Supply	27 Maharashtra
+Ex. Rate	1 USD = 84.70 INR
+TAX INVOICE
+Load Port	INMUN - Mundra	Destination	USLAX - Los Angeles	Vsl/Voy	Ever Gentle / 355W
+Sailing Date	27 Nov 2025	Liner BL No	MAEUAB4675307	Container No(s)	CMAU 517121 1 / 40GP, HLXU 834061 0 / 40GP
+Pkgs	117 BOXES	Gross Mass	43345.35 kg	Volume	113.341 CBM
+Terms of Delivery	FCA	Shipping Bill No	1391206 dt 21 Nov 2025		
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Shipping Bill Processing	996713	INR	950.00	1	950.00	1.00	0.00	950.00	85.50	85.50	1,121.00
+2	OTHC	996719	INR	8,800.00	2	17,600.00	1.00	0.00	17,600.00	1,584.00	1,584.00	20,768.00
+3	Seal Fee	996719	INR	800.00	2	1,600.00	1.00	0.00	1,600.00	144.00	144.00	1,888.00
+4	US Customs AMS	996713	INR	2,100.00	1	2,100.00	1.00	0.00	2,100.00	189.00	189.00	2,478.00
+5	Sundries	998599	INR	2,050.00	1	2,050.00	1.00	0.00	2,050.00	184.50	184.50	2,419.00
+6	Ocean Freight	996521	USD	2,650.00	2	5,300.00	84.70	4,48,910.00	0.00	0.00	0.00	4,48,910.00
+Total Non-Taxable Value	4,48,910.00
+Total Taxable Value	24,300.00
+CGST	2,187.00
+SGST	2,187.00
+Total Amount Payable	4,77,584.00
+INR Four Lakh Seventy Seven Thousand Five Hundred Eighty Four and Paise Zero Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 20141428576 | IFSC KKBK0910722
+Cheque / RTGS in favour of the company only.
+FOR MERIDIAN SUPPLY CHAIN SOLUTIONS PVT. LTD.
+Authorised Signatory
+E & O.E.
+PAID

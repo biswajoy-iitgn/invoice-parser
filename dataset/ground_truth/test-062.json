@@ -1,0 +1,128 @@
+{
+  "id": "test-062",
+  "split": "test",
+  "file": "invoices/test-062.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 591445,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1976
+    ]
+  },
+  "fields": {
+    "Invoice No": "AMDAE2417095",
+    "Invoice Date": "2024-12-02",
+    "Container Number": "CAIU1168475, CAIU9932189",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Marigold Freight Forwarders Pvt Ltd",
+    "Bill of Lading / HBL": "76551401901",
+    "Weight": "47794.43 KG",
+    "Sea Freight": 469349.4,
+    "Air Freight": "",
+    "Terminal Handling Charges": 14300,
+    "Airway Bill Charges": "",
+    "BL Charges": 2600,
+    "ENS Charges": 2950,
+    "Seal Charges": 1700,
+    "VGM": 3500,
+    "EDI Fees": 950,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 95.01,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 6150,
+    "Shipping Bill Charges": 3200
+  },
+  "lines": [
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 6150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "category": "ENS Charges",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 14300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM",
+      "category": "VGM",
+      "amount_inr": 3500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 469349.4,
+      "currency": "EUR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

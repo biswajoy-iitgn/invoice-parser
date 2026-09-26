@@ -1,0 +1,114 @@
+{
+  "id": "dev-045",
+  "split": "dev",
+  "file": "invoices/dev-045.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 273245,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.905,
+    "rotation_deg": 0.25,
+    "blur_sigma": 0.35,
+    "noise_sigma": 5.1,
+    "encoding": "jpeg",
+    "jpeg_quality": 77,
+    "pixels": [
+      1873,
+      1123
+    ]
+  },
+  "fields": {
+    "Invoice No": "AMDAE2424226",
+    "Invoice Date": "2025-10-26",
+    "Container Number": "",
+    "MAWB No": "235-26590874",
+    "HAWB No": "MAS8065429",
+    "Vendor Name": "Marigold Air & Sea Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "2095.721 KG",
+    "Sea Freight": "",
+    "Air Freight": 765926.96,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1800,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 95.92,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 12500,
+    "Examination Charges": 5700,
+    "Fuel Charges": 271432.45,
+    "Cargo Screening": 1900,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "A/F Charges",
+      "category": "Air Freight",
+      "amount_inr": 765926.96,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "AWB Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge (FSC)",
+      "category": "Fuel Charges",
+      "amount_inr": 271432.45,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 12500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Screening Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": true,
+    "date": false,
+    "mawb": false,
+    "hawb": true,
+    "gw": false
+  }
+}

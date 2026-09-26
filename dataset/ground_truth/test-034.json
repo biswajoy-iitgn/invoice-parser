@@ -1,0 +1,102 @@
+{
+  "id": "test-034",
+  "split": "test",
+  "file": "invoices/test-034.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T4",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 154108,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "GLP25386757",
+    "Invoice Date": "2026-06-07",
+    "Container Number": "",
+    "MAWB No": "157-12647891",
+    "HAWB No": "",
+    "Vendor Name": "Globelink Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "2074.15 KG",
+    "Sea Freight": "",
+    "Air Freight": 1201487.62,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2500,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 25450,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 9450,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 96.6,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 1400,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Air",
+      "category": "Air Freight",
+      "amount_inr": 1201487.62,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airwaybill Issuance",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Terminal & Delivery",
+      "category": "DAP Charges",
+      "amount_inr": 25450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 6600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "gw": false
+  }
+}

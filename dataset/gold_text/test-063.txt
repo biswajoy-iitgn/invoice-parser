@@ -1,0 +1,32 @@
+Everfast Freight Systems & Co.
+116, Strand Road, Kochi - 682003, India
+GSTIN: 32MBLPF3588N1ZA   PAN: MBLPF3588N
+accounts@everfastlogistics.example | +91 50 1088 6216
+TAX INVOICE
+Customer: Bharat Brass Fittings, 64 Anna Nagar 3rd Cross, Pune 411005 (GSTIN 24YWEPY9558L1ZS)
+Invoice #	AMDAE2467037	Dated	30/10/24
+Payment Due	14/11/24	Client Code	EFS18139
+Exporter Inv. Ref	EI-269800	State	27 Maharashtra
+Conversion Rate (USD)	86.1300	Origin	AMD - Ahmedabad
+Airport of Destination	SIN - Singapore	Flight / Date	EK 683 / 27/10/24
+H.AWB No	BLR-HA-225229	No. of Packages	120 PALLETS
+Gross Mass	847 kg	Chargeable Wt	976.5 KG
+Incoterms	DAP		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Air Cargo Freight (USD 3,544.70 @ 86.1300)	996531	3,05,305.01	0.00	0.00	3,05,305.01
+2	DAP Delivery Charges	996719	9,850.00	886.50	886.50	11,623.00
+3	Misc Expenses	998599	800.00	72.00	72.00	944.00
+4	Customs Examination	998599	6,400.00	576.00	576.00	7,552.00
+5	MYC / Fuel Surcharge (USD 1,191.33 @ 86.1300)	996531	1,02,609.25	0.00	0.00	1,02,609.25
+6	X-Ray Screening	996719	3,200.00	288.00	288.00	3,776.00
+Taxable Amount	4,28,164.26
+CGST	1,822.50
+SGST	1,822.50
+Invoice Total	4,31,809.26
+INR Four Lakh Thirty One Thousand Eight Hundred Nine and Paise Twenty Six Only
+BANK DETAILS
+Axis Bank | A/c No 67469396130 | IFSC ICIC0590160
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR EVERFAST FREIGHT SYSTEMS & CO.
+Authorised Signatory
+E & O.E.

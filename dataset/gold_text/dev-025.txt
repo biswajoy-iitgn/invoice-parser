@@ -1,0 +1,37 @@
+BLUEWATER SHIPPING PVT. LTD.
+440, SAHAR ROAD, BENGALURU - 560001, INDIA
+GSTIN: 29EGMCM3191R1ZC PAN: EGMCM3191R
+BILL TO: ORION BEARINGS LTD., 91 ANNA NAGAR 3RD CROSS, PUNE 411005 GSTIN: 06BNLAG9437V1ZD
+================================================================================================
+                                        FREIGHT INVOICE
+================================================================================================
+INV. SERIAL NO : INV/2526/4255                    DATE OF ISSUE  : 24 JUN 2024
+DUE ON         : 08 AUG 2024                      CUSTOMER CODE  : C95225
+SHIPMENT ID    : FILE/BSP/25/0791                 STATE          : 24 GUJARAT
+EXCH. RATE     : 1 EUR = 93.17 INR                DEPARTURE      : AMD - AHMEDABAD
+AIRPORT OF DESTINATION: FRA - FRANKFURT           FLIGHT NO      : AI 491 / 21 JUN 2024
+MASTER AWB     : 098 4031 8585                    FORWARDER AWB  : BSP3763363
+NO. OF PACKAGES: 76 CTNS                          G.W.           : 1,934.72 KGS
+CHARGEABLE WT  : 2,283.0 KG                       INCO           : FCA
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  AIR EXPORT FREIGHT                EUR         4.19    2283.0     93.17       891242.79  18%
+  2  AIRWAY BILL CHARGES               INR      2250.00         1      1.00         2250.00  18%
+  3  ACC WAREHOUSE CHARGES             INR      2350.00         1      1.00         2350.00  18%
+  4  MYC / FUEL SURCHARGE              EUR         1.05    2283.0     93.17       223342.47  18%
+  5  SHIPPING BILL PROCESSING          INR       600.00         1      1.00          600.00  18%
+------------------------------------------------------------------------------------------------
+                                                       NET AMOUNT                     1119785.26
+                                                       CGST                            100780.67
+                                                       SGST                            100780.67
+                                                       NET PAYABLE                    1321346.60
+------------------------------------------------------------------------------------------------
+INR THIRTEEN LAKH TWENTY ONE THOUSAND THREE HUNDRED FORTY SIX AND PAISE SIXTY ONLY
+
+BANK: AXIS BANK | A/C NO 11804342414 | IFSC KKBK0395032
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR BLUEWATER SHIPPING PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY

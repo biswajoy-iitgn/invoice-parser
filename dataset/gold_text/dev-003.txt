@@ -1,0 +1,63 @@
+Silverline Air & Sea Pvt Ltd
+225, Sector 9, Kolkata - 700001, India
+GSTIN
+19GHBAU8640L1ZD
+PAN
+GHBAU8640L
+CONTACT
+accounts@silverlinelogistics.example | +91 41 3302 4439
+TAX INVOICE
+ORIGINAL FOR RECIPIENT
+BILL TO
+Gajanan Castings Pvt. Ltd.
+46 Linking Road, Delhi 110034
+GSTIN 06HXKCU9597X1ZA
+Consignee: Optima Handel GmbH, Hamburg, Germany
+INVOICE DETAILS
+INVOICE NUMBER
+INV-2024-021294
+INV. DATE
+09-Sep-2024
+CUST. ID
+SAS55876
+JOB NO
+JOB/SAS/24/8155
+PLACE OF SUPPLY
+06 Haryana
+EXCH. RATE
+1 EUR = 90.0516 INR
+SHIPMENT
+Place of Receipt: ICD Dadri
+Port of Loading: INCOK - Kochi
+Port of Discharge: ITGOA - Genoa
+Vessel / Voyage: ONE Harmony / 820E
+ETD: 31-Aug-2024
+Master B/L: ONEY406046531
+Cont. No.: CMAU0909112 / 20GP
+Seal: ML-IN9662613
+Pkgs: 85 PKGS
+Gr. Wt.: 22510.31 KG
+CBM: 50.763 CBM
+Incoterms: FCA
+CARGO
+Brass fittings | 85 PKGS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Verified Gross Mass (VGM)	996719	1	1,250.00	INR	1.00	1,250.00	18%	1,475.00
+2	ENS Declaration	996713	1	2,700.00	INR	1.00	2,700.00	18%	3,186.00
+3	Carrier Haulage - Origin	996511	1	37,350.00	INR	1.00	37,350.00	5%	39,217.50
+4	Basic Ocean Freight	996521	1	795.00	EUR	90.0516	71,591.02	0%	71,591.02
+5	BAF	996521	1	265.00	EUR	90.0516	23,863.67	5%	25,056.85
+6	BL Printing Charges	996713	1	3,100.00	INR	1.00	3,100.00	18%	3,658.00
+7	Terminal Handling (Origin)	996719	1	13,100.00	INR	1.00	13,100.00	18%	15,458.00
+8	Agency Fee	996713	1	3,100.00	INR	1.00	3,100.00	18%	3,658.00
+Taxable Amount	1,56,054.69
+IGST	7,245.68
+Round Off	-0.37
+Invoice Total	1,63,300.00
+Amount in words: INR One Lakh Sixty Three Thousand Three Hundred and Paise Zero Only
+BANK DETAILS
+ICICI Bank | A/c No 69947315973 | IFSC HDFC0992330
+Please quote invoice number with remittance.
+FOR SILVERLINE AIR & SEA PVT LTD
+Authorised Signatory
+E & O.E.

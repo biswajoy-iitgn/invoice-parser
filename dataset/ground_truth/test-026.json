@@ -1,0 +1,135 @@
+{
+  "id": "test-026",
+  "split": "test",
+  "file": "invoices/test-026.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 231356,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.92,
+    "rotation_deg": 0.32,
+    "blur_sigma": 0.51,
+    "noise_sigma": 5.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 78,
+    "pixels": [
+      1551,
+      1249
+    ]
+  },
+  "fields": {
+    "Invoice No": "BOMAE2677186",
+    "Invoice Date": "2025-08-10",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Polaris Maritime Services Pvt. Ltd.",
+    "Bill of Lading / HBL": "PMSNS2635428",
+    "Weight": "5551.549 KG",
+    "Sea Freight": 28789.08,
+    "Air Freight": "",
+    "Terminal Handling Charges": 5500,
+    "Airway Bill Charges": "",
+    "BL Charges": 6400,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1200,
+    "DAP Charges": 26800,
+    "Other Charges": 1350,
+    "AMS Charges": "",
+    "Handling Charges": 5250,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.6358,
+    "Misc": "",
+    "Transportation": 4750,
+    "Warehouse Charges Port": 1550,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Marine Freight",
+      "category": "Sea Freight",
+      "amount_inr": 28789.08,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 5500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Charges",
+      "category": "DAP Charges",
+      "amount_inr": 26800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 5250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 4750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 1550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "hbl": false,
+    "gw": false
+  }
+}

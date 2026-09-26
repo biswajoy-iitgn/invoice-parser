@@ -1,0 +1,124 @@
+{
+  "id": "dev-021",
+  "split": "dev",
+  "file": "invoices/dev-021.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 703931,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "CCUSE2443545",
+    "Invoice Date": "2024-04-30",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Coastal Shipping Ltd.",
+    "Bill of Lading / HBL": "CSL/HBL/25-26/9952",
+    "Weight": "5417 KG",
+    "Sea Freight": 17123.35,
+    "Air Freight": "",
+    "Terminal Handling Charges": 16300,
+    "Airway Bill Charges": "",
+    "BL Charges": 3450,
+    "ENS Charges": 3590.5,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1250,
+    "DAP Charges": "",
+    "Other Charges": 4900,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.5,
+    "Misc": "",
+    "Transportation": 10750,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 2950,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 3050,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 17123.35,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 3590.5,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 10750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Clearance Charges",
+      "category": "Agency Charges",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Mandatory User Charges",
+      "category": "Other Charges",
+      "amount_inr": 4900,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": true,
+    "hbl": false,
+    "gw": false
+  }
+}

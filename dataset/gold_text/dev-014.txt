@@ -1,0 +1,43 @@
+Tricolour Forwarding Pvt. Ltd.
+281, CG Road, Kolkata - 700001, India
+GSTIN 19BEMAK7316S1ZD | accounts@tricolourlogistics.example | +91 29 3616 7410
+FREIGHT INVOICE
+Billed To
+Deccan Granite Exports
+25 Gandhi Nagar, Delhi 110034
+GSTIN: 09ELWPF1758B1ZB
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Bill No	3091703546
+Inv. Date	26/03/26
+Cust. ID	TFP50602
+Job Ref	FILE/TFP/26/6795
+Place of Supply	07 Delhi
+Conversion Rate	1 USD = 88.01 INR
+SHIPMENT DETAILS
+Origin	AMD - Ahmedabad	Destination	JFK - New York
+Flight No	AI 496 / 23/03/26	MAWB No	098-46712562
+HAWB	BOM-HA-789767	No. of Packages	90 PALLETS
+Total Weight	1,914.033 KGS	Ch. Wt	1,925.5 KG
+Incoterms	EXW		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Security Screening Fee	996719	INR	3,400.00	1.00	3,400.00	18%	612.00	4,012.00
+2	Warehouse Charges	996729	INR	10,450.00	1.00	10,450.00	18%	1,881.00	12,331.00
+3	Container Cleaning Charges	998599	INR	2,300.00	1.00	2,300.00	18%	414.00	2,714.00
+4	Warehouse Charges (Port)	996729	INR	15,000.00	1.00	15,000.00	18%	2,700.00	17,700.00
+5	Electronic Data Interchange Fee	998599	INR	850.00	1.00	850.00	18%	153.00	1,003.00
+6	Airway Bill Charges	996713	INR	3,000.00	1.00	3,000.00	18%	540.00	3,540.00
+7	FSC	996531	USD	1,732.95	88.01	152,516.93	18%	27,453.05	179,969.98
+8	A/F Charges	996531	USD	3,023.04	88.01	266,057.75	0%	0.00	266,057.75
+9	Customs Examination	998599	INR	1,950.00	1.00	1,950.00	18%	351.00	2,301.00
+Total Taxable Value	455,524.68
+CGST	17,052.03
+SGST	17,052.02
+Total Invoice Value	489,628.73
+INR Four Lakh Eighty Nine Thousand Six Hundred Twenty Eight and Paise Seventy Three Only
+State Bank of India | A/c No 73306517498 | IFSC UTIB0286441
+Subject to Mumbai jurisdiction. E. & O.E.
+For Tricolour Forwarding Pvt. Ltd.
+
+
+Authorised Signatory

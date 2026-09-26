@@ -1,0 +1,44 @@
+Orient Air & Sea Ltd.
+26, CG Road, Kolkata - 700001, India
+GSTIN 19CJVPB7298H1ZA | accounts@orientlogistics.example | +91 85 1275 1304
+TAX INVOICE
+Billed To
+Shreeji Polymers Ltd.
+95 Station Road, Kolkata 700016
+GSTIN: 29BTYAX5868L1ZE
+Consignee: Lone Star Industrial, Houston, USA
+Invoice #	MAAAE2511503
+Invoice Date	08-Nov-24
+Payment Due	08-Dec-24
+Client Code	CU85305
+File No	JOB/OAS/26/6011
+PO No	PO-29671
+Place of Supply	07 Delhi
+Exch. Rate	1 USD = 88.65 INR
+SHIPMENT DETAILS
+Airport of Departure	BOM - Mumbai	Destination	JFK - New York
+Flight / Date	EK 495 / 06-Nov-24	MAWB	176-83907526
+HAWB	OAS6331060	Packages	111 PALLETS
+Gross Mass	1642.161 kg	Ch. Wt	1,891.0 KG
+Inco	DAP		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Air Cargo Freight	996531	USD	4,311.48	88.65	3,82,212.70	18%	68,798.29	4,51,010.99
+2	DAP Charges	996719	INR	31,700.00	1.00	31,700.00	18%	5,706.00	37,406.00
+3	Sundry Charges	998599	INR	2,300.00	1.00	2,300.00	18%	414.00	2,714.00
+4	Cargo Security Scan	996719	INR	2,100.00	1.00	2,100.00	18%	378.00	2,478.00
+5	S/B Charges	996713	INR	2,200.00	1.00	2,200.00	18%	396.00	2,596.00
+6	Other Charges	998599	INR	1,200.00	1.00	1,200.00	18%	216.00	1,416.00
+7	Equipment Imbalance Surcharge	998599	INR	2,050.00	1.00	2,050.00	18%	369.00	2,419.00
+Total Taxable Value	4,23,762.70
+IGST	76,277.29
+Round Off	0.01
+Total Amount Payable	5,00,040.00
+INR Five Lakh Forty and Paise Zero Only
+Kotak Mahindra Bank | A/c No 69019440382 | IFSC KKBK0671674
+Subject to Mumbai jurisdiction. E. & O.E.
+For Orient Air & Sea Ltd.
+
+
+Authorised Signatory
+COMPUTER COPY

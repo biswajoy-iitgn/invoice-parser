@@ -1,0 +1,143 @@
+{
+  "id": "test-025",
+  "split": "test",
+  "file": "invoices/test-025.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 231356,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.846,
+    "rotation_deg": -0.1,
+    "blur_sigma": 0.52,
+    "noise_sigma": 3.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 79,
+    "pixels": [
+      1424,
+      1240
+    ]
+  },
+  "fields": {
+    "Invoice No": "2875999513",
+    "Invoice Date": "2026-06-12",
+    "Container Number": "TGBU2519080, CAIU9738018",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Tricolour Freight Forwarders Pvt Ltd",
+    "Bill of Lading / HBL": "HBL2382450",
+    "Weight": "41207.3 KG",
+    "Sea Freight": 279557.5,
+    "Air Freight": "",
+    "Terminal Handling Charges": 10100,
+    "Airway Bill Charges": "",
+    "BL Charges": 3150,
+    "ENS Charges": 3100,
+    "Seal Charges": 2200,
+    "VGM": 1500,
+    "EDI Fees": 500,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 5200,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.45,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 1950,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1700
+  },
+  "lines": [
+    {
+      "description": "Bill of Lading Fee",
+      "category": "BL Charges",
+      "amount_inr": 3150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 10100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 5200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "SOLAS Weighment Fee",
+      "category": "VGM",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "S.B. Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 279557.5,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "EU Advance Manifest (ENS)",
+      "category": "ENS Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "dev-044",
+  "split": "dev",
+  "file": "invoices/dev-044.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 273245,
+  "maker_difficulty": {
+    "faint": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.847,
+    "rotation_deg": 0.11,
+    "blur_sigma": 0.3,
+    "noise_sigma": 3.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 81,
+    "pixels": [
+      1749,
+      1012
+    ]
+  },
+  "fields": {
+    "Invoice No": "3336078853",
+    "Invoice Date": "2024-11-04",
+    "Container Number": "GESU5658832, EGHU2899480",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Gateway Logistics & Co.",
+    "Bill of Lading / HBL": "GLCSE2662457",
+    "Weight": "47493.21 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 1200,
+    "Shipping Bill Charges": 2000
+  },
+  "lines": [
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": true,
+    "hbl": true,
+    "cntr": true,
+    "gw": false
+  }
+}

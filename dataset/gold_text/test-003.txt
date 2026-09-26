@@ -1,0 +1,67 @@
+Indus Supply Chain Solutions (India) Pvt. Ltd.
+434, Willingdon Island, New Delhi - 110037, India
+GSTIN
+07XDYAB7957S1Z7
+PAN
+XDYAB7957S
+CONTACT
+accounts@induslogistics.example | +91 80 2754 8035
+TAX INVOICE
+ORIGINAL
+BILL TO
+Kaveri Agro Foods Ltd.
+56 Station Road, Mumbai 400050
+GSTIN 29BEMAF1429A1ZB
+Consignee: Harbor Supply LLC, Savannah, USA
+INVOICE DETAILS
+INVOICE DT
+17-Jun-25
+BILL NO
+DELSE2592624
+DUE DATE
+02-Jul-25
+CLIENT CODE
+CU97017
+JOB REF
+ISC/24/9088
+PARTY INVOICE NO
+EI-251088
+PLACE OF SUPPLY
+27 Maharashtra
+EXCH. RATE (USD)
+82.55
+SHIPMENT
+Port of Loading: INCCU - Kolkata
+Port of Discharge: USNYC - New York
+Vessel: Hyundai Pride / 891E
+Sailing Date: 12-Jun-25
+House B/L: HBL6665189
+Container No(s): EGHU5095531
+Seal No(s): 6437492
+Packages: 60 CTNS
+Gr. Wt.: 14318.9 kg
+Incoterms: FCA
+CARGO
+Granite slabs | 60 CTNS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Terminal Handling Charges	996719	1	11,050.00	INR	1.00	11,050.00	18%	13,039.00
+2	Bunker Surcharge	996521	1	175.00	USD	82.55	14,446.25	5%	15,168.56
+3	HBL Fee	996713	1	3,750.00	INR	1.00	3,750.00	18%	4,425.00
+4	E-Manifest EDI Transmission	998599	1	350.00	INR	1.00	350.00	18%	413.00
+5	Misc. Charges	998599	1	1,950.00	INR	1.00	1,950.00	18%	2,301.00
+6	E-Seal Fee	996719	1	550.00	INR	1.00	550.00	18%	649.00
+7	Customs Inspection Charges	998599	1	5,000.00	INR	1.00	5,000.00	18%	5,900.00
+8	Advance Manifest (AMS) Fee	996713	1	2,300.00	INR	1.00	2,300.00	18%	2,714.00
+9	CFS Charges	996729	1	4,400.00	INR	1.00	4,400.00	18%	5,192.00
+10	Sea Freight Charges	996521	1	2,555.00	USD	82.55	2,10,915.25	0%	2,10,915.25
+Total (Before Tax)	2,54,711.50
+CGST	3,002.66
+SGST	3,002.65
+Net Payable	2,60,716.81
+Amount in words: INR Two Lakh Sixty Thousand Seven Hundred Sixteen and Paise Eighty One Only
+BANK DETAILS
+HDFC Bank | A/c No 82537555950 | IFSC SBIN0893035
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR INDUS SUPPLY CHAIN SOLUTIONS (INDIA) PVT. LTD.
+Authorised Signatory
+E & O.E.

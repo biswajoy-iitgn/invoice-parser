@@ -1,0 +1,113 @@
+{
+  "id": "test-065",
+  "split": "test",
+  "file": "invoices/test-065.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.849,
+    "rotation_deg": -0.21,
+    "blur_sigma": 0.26,
+    "noise_sigma": 4.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 84,
+    "pixels": [
+      1430,
+      1229
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI284367",
+    "Invoice Date": "2024-07-06",
+    "Container Number": "",
+    "MAWB No": "618-46713376",
+    "HAWB No": "DEL-HA-542211",
+    "Vendor Name": "Marigold Maritime Services Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "534.88 KG",
+    "Sea Freight": "",
+    "Air Freight": 144013.23,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.53,
+    "Misc": "",
+    "Transportation": 16550,
+    "Warehouse Charges Port": 2050,
+    "Examination Charges": 4300,
+    "Fuel Charges": 51592.8,
+    "Cargo Screening": 1850,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "A/F Charges",
+      "category": "Air Freight",
+      "amount_inr": 144013.23,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 16550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 4300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 51592.8,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Screening Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

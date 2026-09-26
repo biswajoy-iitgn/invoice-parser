@@ -1,0 +1,112 @@
+{
+  "id": "dev-023",
+  "split": "dev",
+  "file": "invoices/dev-023.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 145822,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.882,
+    "rotation_deg": 0.02,
+    "blur_sigma": 0.51,
+    "noise_sigma": 5.8,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 76,
+    "pixels": [
+      1482,
+      1066
+    ]
+  },
+  "fields": {
+    "Invoice No": "3883045192",
+    "Invoice Date": "2024-10-20",
+    "Container Number": "BMOU4562688",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seahawk Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "SGLSE2623642",
+    "Weight": "17662.183 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 650,
+    "VGM": "",
+    "EDI Fees": 1450,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 3600,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": 3900,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 1500,
+    "Shipping Bill Charges": 3200
+  },
+  "lines": [
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 1450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 3600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "category": "Transportation",
+      "amount_inr": 3900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": true,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

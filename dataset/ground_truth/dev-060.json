@@ -1,0 +1,144 @@
+{
+  "id": "dev-060",
+  "split": "dev",
+  "file": "invoices/dev-060.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 239692,
+  "maker_difficulty": {
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.834,
+    "rotation_deg": 0.36,
+    "blur_sigma": 0.45,
+    "illumination": true,
+    "noise_sigma": 10.0,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 69,
+    "pixels": [
+      1288,
+      1200
+    ]
+  },
+  "fields": {
+    "Invoice No": "CCUCH2620300",
+    "Invoice Date": "2026-04-01",
+    "Container Number": "",
+    "MAWB No": "176-05843493",
+    "HAWB No": "ASC8965861",
+    "Vendor Name": "Anchor Supply Chain Solutions Private Limited",
+    "Bill of Lading / HBL": "",
+    "Weight": "598.49 KG",
+    "Sea Freight": "",
+    "Air Freight": 207973.18,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2800,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1300,
+    "DAP Charges": "",
+    "Other Charges": 3450,
+    "AMS Charges": "",
+    "Handling Charges": 2100,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.03,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 3700,
+    "Examination Charges": 6350,
+    "Fuel Charges": 64984.95,
+    "Cargo Screening": 2950,
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1400
+  },
+  "lines": [
+    {
+      "description": "Forwarder Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Warehousing",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 3700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 6350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AWB Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Freight Charges - Air",
+      "category": "Air Freight",
+      "amount_inr": 207973.18,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 64984.95,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": true,
+    "mawb": false,
+    "hawb": true,
+    "gw": true
+  }
+}

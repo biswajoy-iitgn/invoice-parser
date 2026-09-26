@@ -1,0 +1,96 @@
+{
+  "id": "test-001",
+  "split": "test",
+  "file": "invoices/test-001.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T1",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 751862,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "5115143667",
+    "Invoice Date": "2024-01-26",
+    "Container Number": "",
+    "MAWB No": "020-70019434",
+    "HAWB No": "MAA-HA-234181",
+    "Vendor Name": "Northstar Logistics (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "833.4 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 10550,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 750,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 3900,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2800
+  },
+  "lines": [
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 3900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 3800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Mandatory User Charges",
+      "category": "Other Charges",
+      "amount_inr": 6750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "test-085",
+  "split": "test",
+  "file": "invoices/test-085.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T8",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 22532,
+  "maker_difficulty": {
+    "watermark": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.886,
+    "rotation_deg": 0.3,
+    "blur_sigma": 0.55,
+    "noise_sigma": 4.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 82,
+    "pixels": [
+      1497,
+      1597
+    ]
+  },
+  "fields": {
+    "Invoice No": "PGL25994595",
+    "Invoice Date": "2024-03-19",
+    "Container Number": "",
+    "MAWB No": "125-91776064",
+    "HAWB No": "HAWB667624",
+    "Vendor Name": "Polaris Global Logistics Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "874.93 KG",
+    "Sea Freight": "",
+    "Air Freight": 300258.84,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2050,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 3400,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 92.81,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 15550,
+    "Examination Charges": "",
+    "Fuel Charges": 104544.9,
+    "Cargo Screening": 850,
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2850
+  },
+  "lines": [
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 300258.84,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AWB Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 3400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 15550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 104544.9,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": true,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "test-088",
+  "split": "test",
+  "file": "invoices/test-088.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T8",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 188871,
+  "maker_difficulty": {
+    "grain": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.87,
+    "rotation_deg": 0.69,
+    "blur_sigma": 0.76,
+    "illumination": true,
+    "noise_sigma": 13.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 64,
+    "pixels": [
+      1353,
+      1404
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI408360",
+    "Invoice Date": "2025-06-02",
+    "Container Number": "",
+    "MAWB No": "020-55256364",
+    "HAWB No": "TAA/24/88593",
+    "Vendor Name": "Trans Asia Air & Sea (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "141.34 KG",
+    "Sea Freight": "",
+    "Air Freight": 42443.83,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2350,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.6,
+    "Misc": 2350,
+    "Transportation": "",
+    "Warehouse Charges Port": 8000,
+    "Examination Charges": "",
+    "Fuel Charges": 6812.52,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 3250
+  },
+  "lines": [
+    {
+      "description": "A/F Charges",
+      "category": "Air Freight",
+      "amount_inr": 42443.83,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 2350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 8000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 6812.52,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3250,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

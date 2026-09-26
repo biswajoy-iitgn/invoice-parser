@@ -1,0 +1,43 @@
+Coastal Maritime Services Pvt. Ltd.
+210, Sector 9, Chennai - 600001, India
+GSTIN 33SWCAJ2273D1Z5 | accounts@coastallogistics.example | +91 33 9493 6004
+SERVICE INVOICE
+Billed To
+Kaveri Agro Foods Ltd.
+91 Station Road, Bengaluru 560001
+GSTIN: 29BVRFM2573H1ZA
+Consignee: Harbor Supply LLC, Savannah, USA
+Bill No	TI559257
+Dated	13/08/2024
+Due On	12/09/2024
+A/c Code	CMS93838
+File No	JOB/CMS/26/6682
+Place of Supply	29 Karnataka
+Ex. Rate	USD 85.1465
+SHIPMENT DETAILS
+Load Port	INCCU - Kolkata	Destination	USSAV - Savannah
+Vessel	ONE Harmony / 976N	ETD	05/08/2024
+Carrier B/L	HLCU463876834	Equipment No	GESU 233809 6, TCNU 459721 9 / 40HC
+Seal No	1606237, SL6787928	Pkgs	9 BOXES
+Gross Mass	17,211 Kgs	Inco	DAP
+Shipping Bill No	8446674 dt 03/08/2024		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Congestion Surcharge	998599	INR	1,500.00	1.00	1,500.00	18%	270.00	1,770.00
+2	DAP Destination Charges	996719	INR	13,000.00	1.00	13,000.00	18%	2,340.00	15,340.00
+3	Advance Manifest (AMS) Fee	996713	USD	30.00	85.1465	2,554.40	18%	459.79	3,014.19
+4	Sundry Charges	998599	INR	1,450.00	1.00	1,450.00	18%	261.00	1,711.00
+5	Shipping Bill Charges	996713	INR	2,600.00	1.00	2,600.00	18%	468.00	3,068.00
+6	Seafreight Export	996521	USD	2,820.00	85.1465	2,40,113.13	5%	12,005.66	2,52,118.79
+7	Bunker Surcharge	996521	USD	160.00	85.1465	13,623.44	0%	0.00	13,623.44
+8	Bill of Lading Fee	996713	INR	3,900.00	1.00	3,900.00	18%	702.00	4,602.00
+Net Amount	2,78,740.97
+IGST	16,506.45
+Total Amount Payable	2,95,247.42
+INR Two Lakh Ninety Five Thousand Two Hundred Forty Seven and Paise Forty Two Only
+State Bank of India | A/c No 22542165822 | IFSC ICIC0154750
+Subject to Mumbai jurisdiction. E. & O.E.
+For Coastal Maritime Services Pvt. Ltd.
+
+
+Authorised Signatory

@@ -1,0 +1,132 @@
+{
+  "id": "dev-019",
+  "split": "dev",
+  "file": "invoices/dev-019.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 275381,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.894,
+    "rotation_deg": -1.28,
+    "blur_sigma": 0.77,
+    "illumination": true,
+    "noise_sigma": 13.5,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 69,
+    "pixels": [
+      1407,
+      1584
+    ]
+  },
+  "fields": {
+    "Invoice No": "ACM25694480",
+    "Invoice Date": "2024-09-08",
+    "Container Number": "TRHU9037442, MRKU7803477, SEGU5610540",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Cargo Movers Private Limited",
+    "Bill of Lading / HBL": "HBL9426765",
+    "Weight": "60021.49 KG",
+    "Sea Freight": 129575.25,
+    "Air Freight": "",
+    "Terminal Handling Charges": 23100,
+    "Airway Bill Charges": "",
+    "BL Charges": 5600,
+    "ENS Charges": 2600,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 30916.2,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 113700,
+    "Ex Rate": 90.93,
+    "Misc": "",
+    "Transportation": 6150,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 5600,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 23100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 5600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "category": "ENS Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Delivered-at-Place Charges",
+      "category": "DAP Charges",
+      "amount_inr": 30916.2,
+      "currency": "EUR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Pre-Carriage (ICD to Port)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 113700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 6150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 129575.25,
+      "currency": "EUR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": true,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

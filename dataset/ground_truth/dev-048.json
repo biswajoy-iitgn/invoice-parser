@@ -1,0 +1,136 @@
+{
+  "id": "dev-048",
+  "split": "dev",
+  "file": "invoices/dev-048.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 698938,
+  "maker_difficulty": {
+    "faint": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.876,
+    "rotation_deg": 0.71,
+    "blur_sigma": 0.59,
+    "illumination": true,
+    "noise_sigma": 11.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 61,
+    "pixels": [
+      1667,
+      1157
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI979111",
+    "Invoice Date": "2025-08-27",
+    "Container Number": "",
+    "MAWB No": "235-65599645",
+    "HAWB No": "MAA-HA-912590",
+    "Vendor Name": "Konark Cargo Movers Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "722 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 250,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 4800,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 300,
+    "Transportation": 9200,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 6150,
+    "Fuel Charges": "",
+    "Cargo Screening": 2850,
+    "Agency Charges": 6350,
+    "Shipping Bill Charges": 3150
+  },
+  "lines": [
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 4800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 9200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 6150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3150,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": true,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

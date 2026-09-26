@@ -1,0 +1,39 @@
+Seahawk Global Logistics Pvt Ltd
+468, Residency Road, Gandhidham - 370201, India
+GSTIN 24FKUAW2858J1ZA | accounts@seahawklogistics.example | +91 32 5277 3958
+TAX INVOICE
+Billed To
+Apex Pumps & Valves Pvt. Ltd.
+68 Sector 18 Market, Noida 201301
+GSTIN: 27JTJFR5308H1ZB
+Consignee: Kanto Machinery KK, Yokohama, Japan
+Tax Invoice No	SGL26053739
+Inv. Date	25/06/25
+Client Code	C58180
+Your Ref	PO-73270
+Place of Supply	06 Haryana
+Exchange Rate	USD 84.4482
+SHIPMENT DETAILS
+Load Port	INMUN - Mundra	Destination	SGSIN - Singapore
+Vessel	Kota Lestari / 442W	Sailing Date	22/06/25
+MBL	MEDUBO7118385	House B/L	SGLMU2482001
+Pkgs	74 PALLETS	Gross Wt	768.79 KG
+Measurement	4.480 CBM	Incoterms	FCA
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Basic Ocean Freight	996521	USD	161.28	84.4482	13,619.81	0%	0.00	13,619.81
+2	THC - Origin	996719	INR	12,350.00	1.00	12,350.00	18%	2,223.00	14,573.00
+3	Documentation Fee (B/L)	996713	INR	3,950.00	1.00	3,950.00	18%	711.00	4,661.00
+4	Godown Rent (Port)	996729	INR	14,400.00	1.00	14,400.00	18%	2,592.00	16,992.00
+Net Amount	44,319.81
+CGST	2,763.00
+SGST	2,763.00
+Round Off	0.19
+Grand Total	49,846.00
+INR Forty Nine Thousand Eight Hundred Forty Six and Paise Zero Only
+HDFC Bank | A/c No 69372304382 | IFSC UTIB0836836
+Subject to Mumbai jurisdiction. E. & O.E.
+For Seahawk Global Logistics Pvt Ltd
+
+
+Authorised Signatory

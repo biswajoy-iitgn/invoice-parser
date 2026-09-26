@@ -1,0 +1,38 @@
+SEAHAWK GLOBAL LOGISTICS PVT LTD
+99, SECTOR 9, AHMEDABAD - 380009, INDIA
+GSTIN: 24YBLFS7808A1ZA PAN: YBLFS7808A
+BILL TO: DECCAN GRANITE EXPORTS, 7 ANNA NAGAR 3RD CROSS, CHENNAI 600040 GSTIN: 07RRCAC6459G1ZS
+================================================================================================
+                                        SERVICE INVOICE
+================================================================================================
+INVOICE #      : 3883045192                       DATE OF ISSUE  : 2024-10-20
+PAYMENT DUE    : 2024-11-04                       CLIENT CODE    : CU53623
+SHIPMENT ID    : SGL/24/0512                      PLACE OF SUPPLY: 07 DELHI
+POL            : INPAV - PIPAVAV                  DESTINATION    : NLRTM - ROTTERDAM
+H B/L NO       : SGLSE2623642                     CONTAINER      : BMOU 456268 8 / 20GP
+PACKAGES       : 89 BOXES                         TOTAL WEIGHT   : 17,662.183 KG
+VOLUME         : 65.186 CBM                       TERMS OF DELIVERY: EXW
+SB NO & DATE   : 7080051 DT 2024-10-05
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  HIGH SECURITY SEAL                INR       650.00         1      1.00          650.00  18%
+  2  EDI TRANSMISSION FEE              INR     1,450.00         1      1.00        1,450.00  18%
+  3  HDLG. CHARGES                     INR     3,600.00         1      1.00        3,600.00  18%
+  4  ROAD TRANSPORT (FACTORY TO CFS)   INR     3,900.00         1      1.00        3,900.00   5%
+  5  CHA CHARGES                       INR     1,500.00         1      1.00        1,500.00  18%
+  6  SHIPPING BILL CHARGES             INR     3,200.00         1      1.00        3,200.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TAXABLE AMOUNT                  14,300.00
+                                                       CGST                             1,033.50
+                                                       SGST                             1,033.50
+                                                       GRAND TOTAL                     16,367.00
+------------------------------------------------------------------------------------------------
+INR SIXTEEN THOUSAND THREE HUNDRED SIXTY SEVEN AND PAISE ZERO ONLY
+
+BANK: KOTAK MAHINDRA BANK | A/C NO 21288606123 | IFSC ICIC0298603
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR SEAHAWK GLOBAL LOGISTICS PVT LTD
+
+                                                            AUTHORISED SIGNATORY

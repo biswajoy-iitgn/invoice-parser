@@ -1,0 +1,43 @@
+Polaris Freight Systems (India) Pvt. Ltd.
+158, CG Road, Mumbai - 400001, India
+GSTIN: 27SJGPE1790D1Z5 | PAN: SJGPE1790D
+accounts@polarislogistics.example | +91 62 1980 4283
+
+Bill To: Vardhaman Yarns & Exports, 31 Station Road, Mumbai 400050 | GSTIN 07PFJCM2467K1ZE
+Bill No	TI241468
+Bill Date	03 Jan 2025
+Due On	18 Jan 2025
+Customer Code	C74308
+Buyer Ref	PO-92078
+State	27 Maharashtra
+Exch. Rate	USD 82.7919
+FREIGHT INVOICE
+Place of Receipt	ICD Khodiyar	POL	INCCU - Kolkata	Destination	JPYOK - Yokohama
+Vessel / Voyage	Ever Gentle / 797N	SOB Date	03 Jan 2025	House Bill of Lading	PFSMU2657130
+Container Number	CAIU4351540, FFAU2659258 / 40HC, GESU0985093	Pkgs	79 BOXES	Wt (Gross)	67,003 KG
+Measurement	186.680 CBM	Terms of Delivery	DAP		
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Sea Freight Charges	996521	USD	1,100.00	3	3,300.00	82.7919	0.00	2,73,213.27	6,830.33	6,830.33	2,86,873.93
+2	Truck Freight (Local)	996511	INR	9,250.00	1	9,250.00	1.00	0.00	9,250.00	555.00	555.00	10,360.00
+3	DAP Terminal & Delivery	996719	USD	350.00	1	350.00	82.7919	0.00	28,977.17	2,607.95	2,607.94	34,193.06
+4	Cargo Handling Charges	996719	INR	7,900.00	1	7,900.00	1.00	0.00	7,900.00	711.00	711.00	9,322.00
+5	Carrier Haulage - Origin	996511	INR	16,500.00	3	49,500.00	1.00	0.00	49,500.00	4,455.00	4,455.00	58,410.00
+6	HBL Fee	996713	INR	6,300.00	1	6,300.00	1.00	0.00	6,300.00	567.00	567.00	7,434.00
+7	S.B. Charges	996713	INR	3,450.00	1	3,450.00	1.00	0.00	3,450.00	310.50	310.50	4,071.00
+8	Port Warehousing	996729	INR	1,850.00	1	1,850.00	1.00	0.00	1,850.00	166.50	166.50	2,183.00
+9	OTHC	996719	INR	8,450.00	3	25,350.00	1.00	0.00	25,350.00	2,281.50	2,281.50	29,913.00
+10	Seal Fee	996719	INR	900.00	3	2,700.00	1.00	0.00	2,700.00	243.00	243.00	3,186.00
+11	Handling & Coordination	996719	INR	5,150.00	1	5,150.00	1.00	0.00	5,150.00	463.50	463.50	6,077.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	4,13,640.44
+CGST	19,191.28
+SGST	19,191.27
+Round Off	0.01
+Total Invoice Value	4,52,023.00
+INR Four Lakh Fifty Two Thousand Twenty Three and Paise Zero Only
+BANK DETAILS
+ICICI Bank | A/c No 30044225186 | IFSC KKBK0650027
+Cheque / RTGS in favour of the company only.
+FOR POLARIS FREIGHT SYSTEMS (INDIA) PVT. LTD.
+Authorised Signatory
+E & O.E.

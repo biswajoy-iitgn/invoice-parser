@@ -1,0 +1,112 @@
+{
+  "id": "test-044",
+  "split": "test",
+  "file": "invoices/test-044.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 667615,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.822,
+    "rotation_deg": 0.63,
+    "blur_sigma": 0.43,
+    "noise_sigma": 5.2,
+    "encoding": "jpeg",
+    "jpeg_quality": 82,
+    "pixels": [
+      1709,
+      1031
+    ]
+  },
+  "fields": {
+    "Invoice No": "TAF/SE/2425/84769",
+    "Invoice Date": "2025-03-06",
+    "Container Number": "",
+    "MAWB No": "176-16635043",
+    "HAWB No": "",
+    "Vendor Name": "Trans Asia Forwarding Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1405 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 4800,
+    "AMS Charges": "",
+    "Handling Charges": 5050,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 850,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 950,
+    "Agency Charges": 1350,
+    "Shipping Bill Charges": 3250
+  },
+  "lines": [
+    {
+      "description": "Forwarder Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 5050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 4800,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": true,
+    "date": false,
+    "mawb": false,
+    "gw": false
+  }
+}

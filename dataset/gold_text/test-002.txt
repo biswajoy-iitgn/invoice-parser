@@ -1,0 +1,65 @@
+Skyways Express Cargo Ltd.
+293, Mahipalpur Extn, New Delhi - 110037, India
+GSTIN
+07RJCFE7456A1ZB
+PAN
+RJCFE7456A
+CONTACT
+accounts@skywayslogistics.example | +91 83 1440 8386
+SERVICE INVOICE
+DUPLICATE
+BILL TO
+Rotomech Engineering Pvt. Ltd.
+6 Park Street, Bengaluru 560001
+GSTIN 33LJWPJ1577J1ZA
+Consignee: Pacific Imports Inc., Los Angeles, USA
+INVOICE DETAILS
+INVOICE NO
+FF/2526/1251
+DATE OF ISSUE
+12/05/2026
+CUST. ID
+CU61665
+SHIPMENT ID
+JOB/SEC/25/8386
+PARTY INVOICE NO
+EI-264589
+BUYER REF
+PO-92669
+STATE
+19 West Bengal
+EXCH. RATE (USD)
+84.21
+SHIPMENT
+Place of Receipt: ICD Khodiyar
+Load Port: INMAA - Chennai
+Port of Discharge: USSAV - Savannah
+Vsl/Voy: CMA CGM Tage / 831E
+Sailing Date: 10/05/2026
+MBL No: MAEU121337142
+House BL Ref: SECNS2645491
+Container: HLXU6934655, CAIU3113018
+Seal No: 6497928, ML-IN8865554
+No. of Packages: 53 PALLETS
+G.W.: 28,735.1 Kgs
+Incoterms: DAP
+SB No & Date: 5696263 dt 09/05/2026
+CARGO
+Readymade garments | 53 PALLETS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Sea Freight Charges	996521	2	2,050.00	USD	84.21	345,261.00	5%	362,524.05
+2	Terminal Handling Charges	996719	2	16,200.00	INR	1.00	32,400.00	18%	38,232.00
+3	Cargo Handling Charges	996719	1	8,850.00	INR	1.00	8,850.00	18%	10,443.00
+4	Precarriage Rail Haulage	996511	2	16,250.00	INR	1.00	32,500.00	18%	38,350.00
+Taxable Amount	419,011.00
+CGST	15,269.03
+SGST	15,269.02
+Round Off	-0.05
+Net Payable	449,549.00
+Amount in words: INR Four Lakh Forty Nine Thousand Five Hundred Forty Nine and Paise Zero Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 62636349166 | IFSC KKBK0209095
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR SKYWAYS EXPRESS CARGO LTD.
+Authorised Signatory
+E & O.E.

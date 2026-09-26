@@ -1,0 +1,49 @@
+Continental Express Cargo (India) Pvt. Ltd.
+42, Residency Road, Ahmedabad - 380009, India
+GSTIN 24DAYCP9820E1ZB | accounts@continentallogistics.example | +91 76 5831 8156
+INVOICE
+Invoice No: TI363819
+Bill Date: Mar 06, 2026
+Due On: Mar 21, 2026
+Cust. ID: CEC44311
+Job No: JOB/CEC/26/5682
+PO No: PO-46163
+Place of Supply: 07 Delhi
+Bill To
+Shreeji Polymers Ltd.
+61 Nehru Street, Ahmedabad 380015
+GSTIN 09YHCCB2904J1ZD
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Port of Loading: INNSA - Nhava Sheva
+Port of Discharge: USHOU - Houston
+Cntr No: CMAU7556280
+Seal No(s): ML-IN2233825
+Pkgs: 97 PKGS
+Weight: 20,209.553 KGS
+Incoterms: DAP
+SB No & Date: 5769117 dt Feb 25, 2026
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Handling Fee	SHPT	INR	8,900.00	1	1.00	8,900.00	18%	10,502.00
+2	Miscellaneous Charges	SHPT	INR	1,000.00	1	1.00	1,000.00	18%	1,180.00
+3	Local Transportation	SHPT	INR	9,900.00	1	1.00	9,900.00	5%	10,395.00
+4	Customs Examination	SHPT	INR	5,800.00	1	1.00	5,800.00	18%	6,844.00
+5	Agency Charges	SHPT	INR	3,800.00	1	1.00	3,800.00	18%	4,484.00
+6	Congestion Surcharge	SHPT	INR	750.00	1	1.00	750.00	18%	885.00
+	Sub Total - Origin Charges	30,150.00		34,290.00
+Documentation & Filing
+7	EDI Filing	SHPT	INR	400.00	1	1.00	400.00	18%	472.00
+8	S/B Charges	SHPT	INR	2,650.00	1	1.00	2,650.00	18%	3,127.00
+	Sub Total - Documentation & Filing	3,050.00		3,599.00
+Sub Total	33,200.00
+CGST	2,344.50
+SGST	2,344.50
+Round Off	0.00
+Grand Total	37,889.00
+INR Thirty Seven Thousand Eight Hundred Eighty Nine and Paise Zero Only
+State Bank of India | A/c No 59774613720 | IFSC ICIC0775791
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Continental Express Cargo (India) Pvt. Ltd.
+
+
+Authorised Signatory

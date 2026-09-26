@@ -1,0 +1,52 @@
+Konark Cargo Movers & Co.
+325, Mahipalpur Extn, New Delhi - 110037, India
+GSTIN 07KEKAA5320A1Z5 | accounts@konarklogistics.example | +91 50 5638 8306
+TAX INVOICE
+INV NO: KCM/SE/24-25/14701
+Document Date: 12 Dec 2024
+Due Date: 27 Dec 2024
+Customer Code: C46364
+Shipment ID: KCM/25/2889
+Your Ref: PO-14717
+State: 24 Gujarat
+Currency Rate (USD): 88.38
+Bill To
+Orion Bearings Ltd.
+70 MG Road, Kolkata 700016
+GSTIN 07PKJPT3377R1ZD
+Consignee: Lone Star Industrial, Houston, USA
+Origin: BLR - Bengaluru
+Destination: ORD - Chicago
+Flight No: EK 672 / 08 Dec 2024
+Master AWB: 176 2916 1613
+HAWB: HAWB590030
+Packages: 41 PKGS
+Gross Mass: 102.21 kg
+Ch. Wt: 159.0 KG
+Incoterms: EXW
+Shipping Bill No: 5914648 dt 04 Dec 2024
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Cartage Charges	SHPT	INR	14,050.00	1	1.00	14,050.00	12%	15,736.00
+2	Cargo Security Scan	SHPT	INR	750.00	1	1.00	750.00	18%	885.00
+	Sub Total - Origin Charges	14,800.00		16,621.00
+Documentation & Filing
+3	AWB Fee	SHPT	INR	1,850.00	1	1.00	1,850.00	18%	2,183.00
+4	Advance Manifest (AMS) Fee	SHPT	INR	3,050.00	1	1.00	3,050.00	18%	3,599.00
+	Sub Total - Documentation & Filing	4,900.00		5,782.00
+Freight Charges
+5	Airline Freight Charges	KG	USD	3.43	159.0	88.38	48,199.80	18%	56,875.76
+6	MYC / Fuel Surcharge	KG	INR	101.28	159.0	1.00	16,103.52	18%	19,002.15
+	Sub Total - Freight Charges	64,303.32		75,877.91
+Total Taxable Value	84,003.32
+IGST	14,277.59
+Round Off	0.09
+Net Payable	98,281.00
+INR Ninety Eight Thousand Two Hundred Eighty One and Paise Zero Only
+ICICI Bank | A/c No 93770449450 | IFSC YESB0417841
+Please quote invoice number with remittance.
+For Konark Cargo Movers & Co.
+
+
+Authorised Signatory
+TAX INVOICE

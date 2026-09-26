@@ -1,0 +1,138 @@
+{
+  "id": "test-027",
+  "split": "test",
+  "file": "invoices/test-027.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T3",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 123522,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.799,
+    "rotation_deg": 2.27,
+    "blur_sigma": 0.63,
+    "illumination": true,
+    "noise_sigma": 8.3,
+    "encoding": "jpeg",
+    "jpeg_quality": 58,
+    "pixels": [
+      1263,
+      972
+    ]
+  },
+  "fields": {
+    "Invoice No": "OLP26437908",
+    "Invoice Date": "2024-12-22",
+    "Container Number": "",
+    "MAWB No": "176-96537560",
+    "HAWB No": "HAWB868497",
+    "Vendor Name": "Orient Logistics Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1144 KG",
+    "Sea Freight": "",
+    "Air Freight": 371944.35,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1350,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1500,
+    "DAP Charges": "",
+    "Other Charges": 8350,
+    "AMS Charges": "",
+    "Handling Charges": 4950,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.4916,
+    "Misc": 1600,
+    "Transportation": 6050,
+    "Warehouse Charges Port": 12350,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 1650,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 1600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 12350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 4950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 1650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Waybill Documentation",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Export Freight",
+      "category": "Air Freight",
+      "amount_inr": 371944.35,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Other Charges",
+      "category": "Other Charges",
+      "amount_inr": 8350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 6050,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

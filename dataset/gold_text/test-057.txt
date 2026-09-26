@@ -1,0 +1,61 @@
+Samudra Shipping Private Limited
+36, Willingdon Island, Ahmedabad - 380009, India
+GSTIN 24RVLFW9831P1ZC | accounts@samudralogistics.example | +91 32 7605 9033
+SERVICE INVOICE
+Inv. Serial No: 5511659750
+Date: 16-Sep-25
+Due Date: 16-Oct-25
+Client Code: SSP65713
+Job No: SSP/24/3417
+Shipper Inv No: EI-257684
+Your Ref: PO-61000
+State: 06 Haryana
+Conversion Rate (USD): 86.96
+Bill To
+Gajanan Castings Pvt. Ltd.
+80 Linking Road, Noida 201301
+GSTIN 29PXBCP3232F1ZA
+Consignee: Gulf Star Trading LLC, Jebel Ali, UAE
+Load Port: INNSA - Nhava Sheva
+Destination: AEJEA - Jebel Ali
+Vessel / Voyage: CMA CGM Tage / 152N
+SOB Date: 12-Sep-25
+Ocean B/L No: CMDUIN9228732
+House BL Ref: SSP/HBL/25-26/2304
+Container Number: SEGU6901854 / 40HC, OOLU3048427 / 40HC
+Seal No: ML-IN7231349, ML-IN4344974
+No. of Packages: 35 PKGS
+Total Weight: 26127.838 kg
+Measurement: 122.288 CBM
+Terms of Delivery: DAP
+Shipping Bill No: 2916224 dt 06-Sep-25
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Terminal Handling Charges	CNTR	INR	14,200.00	2	1.00	28,400.00	18%	33,512.00
+2	Container Seal	CNTR	INR	1,000.00	2	1.00	2,000.00	18%	2,360.00
+3	SOLAS Weighment Fee	CNTR	INR	2,200.00	2	1.00	4,400.00	18%	5,192.00
+4	Local Transportation	SHPT	INR	12,700.00	1	1.00	12,700.00	12%	14,224.00
+	Sub Total - Origin Charges	47,500.00		55,288.00
+Documentation & Filing
+5	B/L Issuance Charges	SHPT	INR	3,650.00	1	1.00	3,650.00	18%	4,307.00
+	Sub Total - Documentation & Filing	3,650.00		4,307.00
+Freight Charges
+6	Sea Freight	CNTR	USD	1,140.00	2	86.96	1,98,268.80	0%	1,98,268.80
+7	Low Sulphur Surcharge (LSS)	CNTR	USD	160.00	2	86.96	27,827.20	5%	29,218.56
+	Sub Total - Freight Charges	2,26,096.00		2,27,487.36
+Destination Charges
+8	Destination Charges (DAP)	SHPT	INR	14,600.00	1	1.00	14,600.00	18%	17,228.00
+	Sub Total - Destination Charges	14,600.00		17,228.00
+Sub Total	2,91,846.00
+CGST	6,232.18
+SGST	6,232.18
+Round Off	-0.36
+Net Payable	3,04,310.00
+INR Three Lakh Four Thousand Three Hundred Ten and Paise Zero Only
+State Bank of India | A/c No 71948714500 | IFSC HDFC0525992
+Cheque / RTGS in favour of the company only.
+For Samudra Shipping Private Limited
+
+
+Authorised Signatory
+VERIFIED

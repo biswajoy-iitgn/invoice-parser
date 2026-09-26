@@ -1,0 +1,106 @@
+{
+  "id": "dev-025",
+  "split": "dev",
+  "file": "invoices/dev-025.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 145822,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.822,
+    "rotation_deg": -0.6,
+    "blur_sigma": 0.54,
+    "noise_sigma": 3.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 84,
+    "pixels": [
+      1391,
+      984
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV/2526/4255",
+    "Invoice Date": "2024-06-24",
+    "Container Number": "",
+    "MAWB No": "098-40318585",
+    "HAWB No": "BSP3763363",
+    "Vendor Name": "Bluewater Shipping Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1934.72 KG",
+    "Sea Freight": "",
+    "Air Freight": 891242.79,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2250,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 93.17,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 2350,
+    "Examination Charges": "",
+    "Fuel Charges": 223342.47,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 600
+  },
+  "lines": [
+    {
+      "description": "Air Export Freight",
+      "category": "Air Freight",
+      "amount_inr": 891242.79,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 2350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 223342.47,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": true,
+    "mawb": false,
+    "hawb": true,
+    "gw": false
+  }
+}

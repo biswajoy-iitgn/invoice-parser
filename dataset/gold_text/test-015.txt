@@ -1,0 +1,47 @@
+Indus Shipping Private Limited
+29, Nariman Point, Gandhidham - 370201, India
+GSTIN 24PDECE6694B1Z7 | accounts@induslogistics.example | +91 85 1013 2094
+SERVICE INVOICE
+Billed To
+Apex Pumps & Valves Pvt. Ltd.
+59 Gandhi Nagar, Mumbai 400050
+GSTIN: 33DPDCJ7382L1ZD
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Invoice No	7771321222
+Date	25 Dec 2025
+Client Code	CU29882
+Job Ref	JOB/ISP/26/4252
+State	19 West Bengal
+Conversion Rate	USD 87.88
+SHIPMENT DETAILS
+POL	INNSA - Nhava Sheva	POD	USHOU - Houston
+Vessel / Voyage	ONE Harmony / 976N	SOB Date	16 Dec 2025
+MBL No	EGLV471129609	FCR / HBL No	ISPMU2636577
+Cont. No.	TRHU3176076	Seal No	ML-IN6132897
+No. of Packages	98 CTNS	Total Weight	16520 KG
+Measurement	60.437 CBM	Terms of Delivery	FCA
+SB No & Date	2011345 dt 12 Dec 2025		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Terminal Handling (Origin)	996719	INR	8,250.00	1.00	8,250.00	18%	1,485.00	9,735.00
+2	AMS / ISF Filing	996713	INR	2,250.00	1.00	2,250.00	18%	405.00	2,655.00
+3	Terminal Handling Charges	996719	INR	7,800.00	1.00	7,800.00	18%	1,404.00	9,204.00
+4	EDI Filing	998599	INR	750.00	1.00	750.00	18%	135.00	885.00
+5	High Security Seal	996719	INR	1,000.00	1.00	1,000.00	18%	180.00	1,180.00
+6	Sea Freight Charges	996521	USD	620.00	87.88	54,485.60	0%	0.00	54,485.60
+7	Congestion Surcharge	998599	INR	6,850.00	1.00	6,850.00	18%	1,233.00	8,083.00
+8	Bill of Lading Fee	996713	INR	3,100.00	1.00	3,100.00	18%	558.00	3,658.00
+9	VGM Charges	996719	INR	2,150.00	1.00	2,150.00	18%	387.00	2,537.00
+10	Road Transport (Factory to CFS)	996511	INR	8,500.00	1.00	8,500.00	5%	425.00	8,925.00
+Net Amount	95,135.60
+CGST	3,106.00
+SGST	3,106.00
+Round Off	0.40
+Net Payable	1,01,348.00
+INR One Lakh One Thousand Three Hundred Forty Eight and Paise Zero Only
+HDFC Bank | A/c No 22783315649 | IFSC UTIB0842733
+Please quote invoice number with remittance.
+For Indus Shipping Private Limited
+
+
+Authorised Signatory

@@ -1,0 +1,32 @@
+Pioneer Global Logistics Pvt Ltd
+375, Residency Road, Kochi - 682003, India
+GSTIN: 32KLFFT6750T1ZA   PAN: KLFFT6750T
+accounts@pioneerlogistics.example | +91 75 2427 7986
+FREIGHT INVOICE
+Customer: Lotus Garments Exports, 6 Linking Road, Delhi 110034 (GSTIN 06RKUAM8682K1ZC)
+Bill No	PGL24878161	Invoice Date	17-03-2024
+Due Date	01-04-2024	Client Code	PGL28057
+State	06 Haryana	Exchange Rate	USD 84.00
+Departure	DEL - Delhi	Destination	MXP - Milan
+Flight / Date	QR 637 / 17-03-2024	Master Airway Bill No	157 9907 6261
+House AWB	DEL-HA-131729	Pkgs	44 BOXES
+Gross Weight	1689.89 KG	Chargeable Wt	2,594.0 KG
+Inco	CFR	S/Bill No	3142615 dt 10-03-2024
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Airline Freight Charges (USD 9,312.46 @ 84.00)	996531	782,246.64	0.00	0.00	782,246.64
+2	Cargo Security Scan	996719	1,900.00	171.00	171.00	2,242.00
+3	SB Filing Fee	996713	1,000.00	90.00	90.00	1,180.00
+4	Airline Fuel Levy	996531	202,124.48	18,191.21	18,191.20	238,506.89
+5	Airwaybill Issuance	996713	2,150.00	193.50	193.50	2,537.00
+Sub Total	989,421.12
+CGST	18,645.71
+SGST	18,645.70
+Invoice Total	1,026,712.53
+INR Ten Lakh Twenty Six Thousand Seven Hundred Twelve and Paise Fifty Three Only
+BANK DETAILS
+Yes Bank | A/c No 68830440053 | IFSC KKBK0843756
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR PIONEER GLOBAL LOGISTICS PVT LTD
+Authorised Signatory
+E & O.E.
+TAX INVOICE

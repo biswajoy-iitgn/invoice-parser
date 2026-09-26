@@ -1,0 +1,54 @@
+Vayu Freight Systems Private Limited
+356, Strand Road, Navi Mumbai - 400706, India
+GSTIN 27VMACY5391R1ZD | accounts@vayulogistics.example | +91 83 2124 8237
+SERVICE INVOICE
+Invoice #: VFS/SE/2526/06991
+Invoice Dt: 2025-04-06
+Pay By: 2025-05-21
+Customer Code: C81219
+Job Ref: VFS/26/5581
+Shipper Inv No: EXP/262008
+Place of Supply: 24 Gujarat
+Bill To
+Gajanan Castings Pvt. Ltd.
+38 Station Road, Pune 411005
+GSTIN 19VKTAK9561T1ZS
+Consignee: Maas Trading BV, Rotterdam, Netherlands
+Place of Receipt: ICD Dadri
+Port of Loading: INCOK - Kochi
+POD: NLRTM - Rotterdam
+Vessel: ONE Harmony / 880A
+SOB Date: 2025-04-02
+FCR / HBL No: VFSMU2529431
+Container No: CMAU 482157 0, EGHU 753943 0 / 40HC
+Seal No(s): SL7773783, 8358609
+Pkgs: 109 BOXES
+Wt (Gross): 20000.2 kg
+Inco: FCA
+S/Bill No: 6388462 dt 2025-03-31
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	THC - Origin	CNTR	INR	7,150.00	2	1.00	14,300.00	18%	16,874.00
+2	Carrier Haulage - Origin	CNTR	INR	15,450.00	2	1.00	30,900.00	5%	32,445.00
+3	VGM	CNTR	INR	1,500.00	2	1.00	3,000.00	18%	3,540.00
+4	Trucking Charges	SHPT	INR	6,800.00	1	1.00	6,800.00	12%	7,616.00
+5	Seal Fee	CNTR	INR	600.00	2	1.00	1,200.00	18%	1,416.00
+6	Examination Charges	SHPT	INR	800.00	1	1.00	800.00	18%	944.00
+	Sub Total - Origin Charges	57,000.00		62,835.00
+Documentation & Filing
+7	ENS Filing Fee	SHPT	EUR	44.00	1	96.8225	4,260.19	18%	5,027.02
+	Sub Total - Documentation & Filing	4,260.19		5,027.02
+Freight Charges
+8	Basic Ocean Freight	CNTR	INR	1,37,100.00	2	1.00	2,74,200.00	5%	2,87,910.00
+	Sub Total - Freight Charges	2,74,200.00		2,87,910.00
+Sub Total	3,35,460.19
+IGST	20,311.83
+Total Amount Payable	3,55,772.02
+INR Three Lakh Fifty Five Thousand Seven Hundred Seventy Two and Paise Two Only
+Kotak Mahindra Bank | A/c No 11161923620 | IFSC SBIN0111841
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Vayu Freight Systems Private Limited
+
+
+Authorised Signatory
+ORIGINAL

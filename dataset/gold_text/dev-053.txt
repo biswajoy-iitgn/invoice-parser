@@ -1,0 +1,52 @@
+Pioneer Forwarding LLP
+24, Nariman Point, Bengaluru - 560001, India
+GSTIN 29NUYFK5366U1Z7 | accounts@pioneerlogistics.example | +91 27 6824 9172
+SERVICE INVOICE
+Bill No: FF/2425/6878
+Invoice Dt: 23/02/2026
+Pay By: 25/03/2026
+Cust. ID: C47034
+Shipment ID: JOB/PFL/26/2828
+Place of Supply: 09 Uttar Pradesh
+Bill To
+Deccan Granite Exports
+46 Park Street, Noida 201301
+GSTIN 07YSDAT5668R1ZA
+Consignee: Lion City Traders, Singapore
+Place of Receipt: ICD Dadri
+Load Port: INCOK - Kochi
+Port of Discharge: AEJEA - Jebel Ali
+Vsl/Voy: CMA CGM Tage / 809N
+Sailing Date: 16/02/2026
+Liner BL No: EGLV496366982
+Equipment No: FFAU0984053 / 40HC, MSCU2086890, EGHU3510870 / 40HC
+Seal No(s): ML-IN2148933, 4908135, ML-IN1905317
+Pkgs: 84 CTNS
+Gr. Wt.: 22,403.7 Kgs
+Incoterms: FOB
+SB No & Date: 1408076 dt 13/02/2026
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Container Terminal Charges	CNTR	INR	12,450.00	3	1.00	37,350.00	18%	44,073.00
+2	THC	CNTR	INR	12,650.00	3	1.00	37,950.00	18%	44,781.00
+3	Container Seal	CNTR	INR	750.00	3	1.00	2,250.00	18%	2,655.00
+4	VGM Charges	CNTR	INR	2,300.00	3	1.00	6,900.00	18%	8,142.00
+5	Carrier Haulage - Origin	CNTR	INR	35,200.00	3	1.00	1,05,600.00	5%	1,10,880.00
+	Sub Total - Origin Charges	1,90,050.00		2,10,531.00
+Documentation & Filing
+6	E-Manifest EDI Transmission	SHPT	INR	450.00	1	1.00	450.00	18%	531.00
+	Sub Total - Documentation & Filing	450.00		531.00
+Freight Charges
+7	Freight Charges - Ocean	CNTR	USD	1,800.00	3	86.69	4,68,126.00	5%	4,91,532.30
+	Sub Total - Freight Charges	4,68,126.00		4,91,532.30
+Sub Total	6,58,626.00
+CGST	21,984.15
+SGST	21,984.15
+Grand Total	7,02,594.30
+INR Seven Lakh Two Thousand Five Hundred Ninety Four and Paise Thirty Only
+HDFC Bank | A/c No 63085277634 | IFSC UTIB0298282
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Pioneer Forwarding LLP
+
+
+Authorised Signatory

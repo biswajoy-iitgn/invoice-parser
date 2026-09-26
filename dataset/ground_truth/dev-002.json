@@ -1,0 +1,102 @@
+{
+  "id": "dev-002",
+  "split": "dev",
+  "file": "invoices/dev-002.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T1",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 12261,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "SE/25-26/5050",
+    "Invoice Date": "2024-12-24",
+    "Container Number": "",
+    "MAWB No": "235-37752735",
+    "HAWB No": "DEL-HA-583297",
+    "Vendor Name": "Anchor Freight Forwarders & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "",
+    "Sea Freight": "",
+    "Air Freight": 456296.29,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 750,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2269.17,
+    "Handling Charges": 3950,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.0433,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 85918.31,
+    "Cargo Screening": 2750,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Forwarder Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 3950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airline Freight Charges",
+      "category": "Air Freight",
+      "amount_inr": 456296.29,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 85918.31,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "category": "AMS Charges",
+      "amount_inr": 2269.17,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 2750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": true
+  }
+}

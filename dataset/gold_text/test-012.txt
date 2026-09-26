@@ -1,0 +1,45 @@
+Bluewater Shipping LLP
+307, Strand Road, Ahmedabad - 380009, India
+GSTIN 24TWLAD4376L1ZD | accounts@bluewaterlogistics.example | +91 62 8158 7369
+INVOICE
+Billed To
+Gajanan Castings Pvt. Ltd.
+60 Lake View Road, Noida 201301
+GSTIN: 33WRTPC9166V1ZE
+Consignee: Optima Handel GmbH, Hamburg, Germany
+Inv. Serial No	BSL24017424
+Document Date	14/04/24
+Client Code	BSL84851
+Job Ref	JOB/BSL/24/3690
+State	33 Tamil Nadu
+Conversion Rate (EUR)	92.6312
+SHIPMENT DETAILS
+Place of Receipt	ICD Sabarmati	POL	INMAA - Chennai
+Destination	NLRTM - Rotterdam	Vessel	SSL Mumbai / 785A
+Sailing Date	10/04/24	MBL No	EGLVBO7037094
+Cont. No.	MRKU1501103 / 40HC	Seal No(s)	SL8494816
+Packages	94 PKGS	Gross Mass	18680.53 kg
+Inco	CIF	SB No & Date	1607511 dt 06/04/24
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Terminal Hdlg. Chgs.	996719	INR	15,000.00	1.00	15,000.00	18%	2,700.00	17,700.00
+2	Misc Expenses	998599	INR	1,500.00	1.00	1,500.00	18%	270.00	1,770.00
+3	Hdlg. Charges	996719	INR	2,850.00	1.00	2,850.00	18%	513.00	3,363.00
+4	Emergency Bunker Surcharge (EBS)	996521	EUR	205.00	92.6312	18,989.40	5%	949.47	19,938.87
+5	BL Printing Charges	996713	INR	4,750.00	1.00	4,750.00	18%	855.00	5,605.00
+6	Handling Fee	996719	INR	1,900.00	1.00	1,900.00	18%	342.00	2,242.00
+7	Truck Freight (Local)	996511	INR	4,650.00	1.00	4,650.00	12%	558.00	5,208.00
+8	O/F Charges (FCL)	996521	EUR	2,515.00	92.6312	2,32,967.47	0%	0.00	2,32,967.47
+9	ENS Filing Fee	996713	INR	2,850.00	1.00	2,850.00	18%	513.00	3,363.00
+Total Taxable Value	2,85,456.87
+CGST	3,350.24
+SGST	3,350.23
+Round Off	-0.34
+Net Payable	2,92,157.00
+INR Two Lakh Ninety Two Thousand One Hundred Fifty Seven and Paise Zero Only
+Kotak Mahindra Bank | A/c No 69877134696 | IFSC UTIB0192416
+Cheque / RTGS in favour of the company only.
+For Bluewater Shipping LLP
+
+
+Authorised Signatory

@@ -1,0 +1,112 @@
+{
+  "id": "dev-037",
+  "split": "dev",
+  "file": "invoices/dev-037.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 688563,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.913,
+    "rotation_deg": 0.21,
+    "blur_sigma": 0.31,
+    "noise_sigma": 4.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 71,
+    "pixels": [
+      1537,
+      1347
+    ]
+  },
+  "fields": {
+    "Invoice No": "DELCH2502734",
+    "Invoice Date": "2026-04-02",
+    "Container Number": "",
+    "MAWB No": "020-04167472",
+    "HAWB No": "",
+    "Vendor Name": "Gateway Express Cargo & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1895.221 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 6550,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": 11650,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 4250,
+    "Fuel Charges": "",
+    "Cargo Screening": 1950,
+    "Agency Charges": 5650,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 6550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 11650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 4250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 4450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mawb": true,
+    "gw": false
+  }
+}

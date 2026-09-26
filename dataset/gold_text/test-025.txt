@@ -1,0 +1,48 @@
+TRICOLOUR FREIGHT FORWARDERS PVT LTD
+18, CG ROAD, KOCHI - 682003, INDIA
+GSTIN: 32DPLCR8384N1ZC PAN: DPLCR8384N
+BILL TO: KAVERI AGRO FOODS LTD., 8 GANDHI NAGAR, AHMEDABAD 380015 GSTIN: 27MWFPG8065T1ZS
+================================================================================================
+                                            INVOICE
+================================================================================================
+INVOICE NUMBER : 2875999513                       DOCUMENT DATE  : 12/06/26
+PAYMENT DUE    : 12/07/26                         CUSTOMER CODE  : C21937
+SHIPMENT ID    : TFF/26/1152                      COMMERCIAL INVOICE NO: EXP/251589
+PLACE OF SUPPLY: 29 KARNATAKA                     ROE            : 1 USD = 83.45 INR
+PLACE OF RECEIPT: ICD DADRI                       POL            : INCCU - KOLKATA
+DESTINATION    : DEHAM - HAMBURG                  VSL/VOY        : MSC AURORA / 642N
+SAILING DATE   : 06/06/26                         MASTER B/L     : COSUBO9443256
+FCR / HBL NO   : HBL2382450
+EQUIPMENT NO   : TGBU2519080, CAIU9738018 / 40GP
+SEAL           : ML-IN8817431, ML-IN7789189       PACKAGES       : 53 BOXES
+WT (GROSS)     : 41207.3 KG                       VOLUME         : 70.556 CBM
+TERMS OF DELIVERY: FCA                            S/BILL NO      : 3043564 DT 04/06/26
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  BILL OF LADING FEE                INR      3150.00         1      1.00         3150.00  18%
+  2  TERMINAL HANDLING (ORIGIN)        INR      5050.00         2      1.00        10100.00  18%
+  3  HANDLING FEE                      INR      5200.00         1      1.00         5200.00  18%
+  4  GODOWN RENT (PORT)                INR      1950.00         1      1.00         1950.00  18%
+  5  BOLT SEAL CHARGES                 INR      1100.00         2      1.00         2200.00  18%
+  6  E-MANIFEST EDI TRANSMISSION       INR       500.00         1      1.00          500.00  18%
+  7  SOLAS WEIGHMENT FEE               INR       750.00         2      1.00         1500.00  18%
+  8  S.B. CHARGES                      INR      1700.00         1      1.00         1700.00  18%
+  9  SEAFREIGHT EXPORT                 USD      1675.00         2     83.45       279557.50   5%
+ 10  EU ADVANCE MANIFEST (ENS)         INR      3100.00         1      1.00         3100.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL TAXABLE VALUE             308957.50
+                                                       CGST                              9634.94
+                                                       SGST                              9634.94
+                                                       ROUND OFF                           -0.38
+                                                       GRAND TOTAL                     328227.00
+------------------------------------------------------------------------------------------------
+INR THREE LAKH TWENTY EIGHT THOUSAND TWO HUNDRED TWENTY SEVEN AND PAISE ZERO ONLY
+
+BANK: KOTAK MAHINDRA BANK | A/C NO 38534001880 | IFSC YESB0577518
+PLEASE QUOTE INVOICE NUMBER WITH REMITTANCE.
+
+                                                            FOR TRICOLOUR FREIGHT FORWARDERS PVT LTD
+
+                                                            AUTHORISED SIGNATORY
+ORIGINAL

@@ -1,0 +1,35 @@
+Kestrel Shipping Agencies Ltd.
+152, Bund Garden Road, Pune - 411001, India
+GSTIN: 27SSEFV8961W1ZD | PAN: SSEFV8961W
+accounts@kestrellogistics.example | +91 57 7907 9901
+
+Bill To: Deccan Granite Exports, 69 Lake View Road, Mumbai 400050 | GSTIN 27FHCCD8745C1ZA
+Inv. Serial No	KSA26062225
+Date	24-Jan-2024
+A/c Code	C62016
+Commercial Invoice No	EI-257175
+Place of Supply	33 Tamil Nadu
+TAX INVOICE
+Origin	BOM - Mumbai	Airport of Destination	CDG - Paris	House Air Waybill	KSA8185293
+No. of Packages	80 PALLETS	Wt (Gross)	50.777 kg	Chargeable Wt	69.0 KG
+Terms of Delivery	DAP	SB No & Date	1810337 dt 16-Jan-2024		
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	EDI Charges	998599	INR	1,050.00	1	1,050.00	1.00	0.00	1,050.00	94.50	94.50	1,239.00
+2	Incidental Expenses	998599	INR	700.00	1	700.00	1.00	0.00	700.00	63.00	63.00	826.00
+3	Cartage Charges	996511	INR	16,900.00	1	16,900.00	1.00	0.00	16,900.00	1,521.00	1,521.00	19,942.00
+4	Examination Fee	998599	INR	6,400.00	1	6,400.00	1.00	0.00	6,400.00	576.00	576.00	7,552.00
+5	X-Ray Screening	996719	INR	2,100.00	1	2,100.00	1.00	0.00	2,100.00	189.00	189.00	2,478.00
+6	CHA Charges	996713	INR	4,450.00	1	4,450.00	1.00	0.00	4,450.00	400.50	400.50	5,251.00
+7	Shipping Bill Filing	996713	INR	3,200.00	1	3,200.00	1.00	0.00	3,200.00	288.00	288.00	3,776.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	34,800.00
+CGST	3,132.00
+SGST	3,132.00
+Grand Total	41,064.00
+INR Forty One Thousand Sixty Four and Paise Zero Only
+BANK DETAILS
+Yes Bank | A/c No 50932960854 | IFSC YESB0668156
+Please quote invoice number with remittance.
+FOR KESTREL SHIPPING AGENCIES LTD.
+Authorised Signatory
+E & O.E.

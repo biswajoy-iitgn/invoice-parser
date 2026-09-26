@@ -1,0 +1,134 @@
+{
+  "id": "test-008",
+  "split": "test",
+  "file": "invoices/test-008.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 768072,
+  "maker_difficulty": {
+    "faint": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.932,
+    "rotation_deg": -0.48,
+    "blur_sigma": 0.35,
+    "noise_sigma": 5.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 75,
+    "pixels": [
+      1578,
+      1590
+    ]
+  },
+  "fields": {
+    "Invoice No": "AE/25-26/5026",
+    "Invoice Date": "2026-02-11",
+    "Container Number": "",
+    "MAWB No": "157-55413982",
+    "HAWB No": "GFF/25/37207",
+    "Vendor Name": "Gateway Freight Forwarders & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "744.83 KG",
+    "Sea Freight": "",
+    "Air Freight": 198229.62,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 600,
+    "DAP Charges": 13260.25,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 6600,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.55,
+    "Misc": "",
+    "Transportation": 14300,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 4850,
+    "Fuel Charges": 86725.46,
+    "Cargo Screening": 3050,
+    "Agency Charges": 6500,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Air",
+      "category": "Air Freight",
+      "amount_inr": 198229.62,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Destination Charges",
+      "category": "DAP Charges",
+      "amount_inr": 13260.25,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling & Coordination",
+      "category": "Handling Charges",
+      "amount_inr": 6600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Transportation Charges",
+      "category": "Transportation",
+      "amount_inr": 14300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 4850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "category": "Fuel Charges",
+      "amount_inr": 86725.46,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Customs Clearance Charges",
+      "category": "Agency Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

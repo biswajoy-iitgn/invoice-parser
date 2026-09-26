@@ -1,0 +1,117 @@
+{
+  "id": "dev-031",
+  "split": "dev",
+  "file": "invoices/dev-031.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 606370,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "EXP/2425/8802",
+    "Invoice Date": "2024-03-19",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Vayu Shipping (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "HBL2285054",
+    "Weight": "1788.04 KG",
+    "Sea Freight": 125687.1,
+    "Air Freight": "",
+    "Terminal Handling Charges": 5650,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2950,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.67,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 13600,
+    "Examination Charges": 6350,
+    "Fuel Charges": 19427.45,
+    "Cargo Screening": "",
+    "Agency Charges": 3450,
+    "Shipping Bill Charges": 2950
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 125687.1,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 5650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "AMS Charges",
+      "category": "AMS Charges",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Warehousing",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 13600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 6350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "category": "Fuel Charges",
+      "amount_inr": 19427.45,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": false
+  }
+}

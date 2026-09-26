@@ -1,0 +1,37 @@
+Vayu Freight Forwarders Ltd.
+275, Bund Garden Road, Mumbai - 400001, India
+GSTIN: 27PJEFP2999H1Z5 | accounts@vayulogistics.example | +91 22 1065 8945
+TAX INVOICE
+
+Inv. Serial No MAAAE2473174    Bill Date 28th September 2024
+
+Due Date: 12th November 2024  |  Cust. ID: VFF28645  |  Shipment ID: JOB/VFF/26/8217  |  Place of Supply: 09 Uttar Pradesh
+
+To,
+Bharat Brass Fittings
+66 Anna Nagar 3rd Cross, Noida 201301
+GSTIN: 27DXRPD4060D1ZC
+
+Being charges in respect of your shipment of Ceramic floor tiles consigned to Kanto Machinery KK, Yokohama, Japan. Port of Loading INMAA - Chennai; POD AEJEA - Jebel Ali; Vessel / Voyage Maersk Kinloss / 384E; SOB Date 18th September 2024; MBL HLCU400399077; B/L No VFFSE2569541; No. of Packages 76 CTNS; Gross Wt 1341.444 KG; Incoterms CIF; S/Bill No 9487119 dt 13th September 2024.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Freight Charges - Ocean (USD 622.96)	54,135.22
+2	Misc. Charges	950.00
+3	Terminal Hdlg. Chgs.	14,300.00
+4	Bill of Lading Fee	6,250.00
+	Total (Before Tax)	75,635.22
+	Add: CGST	3,288.38
+	Add: SGST	3,288.38
+	Invoice Total	82,211.98
+
+ROE: 1 USD = INR 86.90
+
+(INR Eighty Two Thousand Two Hundred Eleven and Paise Ninety Eight Only)
+
+ICICI Bank | A/c No 36668582046 | IFSC YESB0344266
+Please quote invoice number with remittance.
+
+For Vayu Freight Forwarders Ltd.
+
+
+Authorised Signatory

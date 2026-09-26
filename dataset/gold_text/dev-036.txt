@@ -1,0 +1,61 @@
+Sapphire Cargo Movers & Co.
+222, CG Road, Ahmedabad - 380009, India
+GSTIN 24NDBCC5359N1ZD | accounts@sapphirelogistics.example | +91 22 3104 4302
+INVOICE
+BILL TO
+Vardhaman Yarns & Exports
+13 Nehru Street, Delhi 110034 | GSTIN 29PTJPN1078U1ZC
+BILL NO
+FF/2526/4121
+DOCUMENT DATE
+31.08.2025
+PAY BY
+15.10.2025
+CUST. ID
+CU17535
+JOB NO
+SCM/26/9672
+PO NO
+PO-65116
+STATE
+19 West Bengal
+AIRPORT OF DEPARTURE
+BLR - Bengaluru
+AIRPORT OF DESTINATION
+MXP - Milan
+FLIGHT NO
+AF 384 / 27.08.2025
+MASTER AWB
+05798891030
+H.AWB NO
+SCM/24/40734
+PACKAGES
+5 BOXES
+TOTAL WEIGHT
+752 KG
+CHARGEABLE WT
+1,020.0 KG
+INCOTERMS
+FCA
+S/BILL NO
+7703290 dt 26.08.2025
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Airfreight Charges	1020.0	122.91	INR	1.00	125,368.20	0%
+Incidental Expenses	1	1,900.00	INR	1.00	1,900.00	18%
+Transportation Charges	1	11,600.00	INR	1.00	11,600.00	5%
+ACC Warehouse Charges	1	10,000.00	INR	1.00	10,000.00	18%
+Fuel Surcharge	1020.0	90.07	INR	1.00	91,871.40	18%
+X-Ray Screening	1	1,650.00	INR	1.00	1,650.00	18%
+Agency Charges	1	5,500.00	INR	1.00	5,500.00	18%
+Clearing Agency Fee	1	7,100.00	INR	1.00	7,100.00	18%
+Shipping Bill Charges	1	1,450.00	INR	1.00	1,450.00	18%
+Sub Total	256,439.60
+IGST	22,084.85
+Total Amount Payable	278,524.45
+INR Two Lakh Seventy Eight Thousand Five Hundred Twenty Four and Paise Forty Five Only
+HDFC Bank | A/c No 32785299594 | IFSC ICIC0602825
+Please quote invoice number with remittance.
+For Sapphire Cargo Movers & Co.
+
+
+Authorised Signatory

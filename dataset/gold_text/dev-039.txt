@@ -1,0 +1,72 @@
+Seahawk Forwarding Ltd.
+87, Sahar Road, Kolkata - 700001, India
+GSTIN 19VFKFG8383T1ZC | accounts@seahawklogistics.example | +91 89 5620 1892
+TAX INVOICE
+BILL TO
+Madhav Spices Pvt. Ltd.
+53 Gandhi Nagar, Chennai 600040 | GSTIN 06BBCAY4550J1ZC
+DATE
+16-05-2026
+TAX INVOICE NO
+SFL/SE/24-25/37791
+DUE ON
+31-05-2026
+A/C CODE
+C98626
+JOB NO
+JOB/SFL/26/4507
+SHIPPER INV NO
+EXP/264364
+YOUR REF
+PO-55421
+PLACE OF SUPPLY
+24 Gujarat
+CURRENCY RATE
+USD 87.4120
+PLACE OF RECEIPT
+ICD Khodiyar
+PORT OF LOADING
+INMUN - Mundra
+POD
+DEHAM - Hamburg
+VSL/VOY
+Wan Hai 516 / 509E
+SAILING DATE
+13-05-2026
+B/L NO
+36384003087
+CONTAINER NO(S)
+FFAU5361328
+PACKAGES
+31 CTNS
+MEASUREMENT
+45.046 CBM
+INCO
+DAP
+S/BILL NO
+2710073 dt 08-05-2026
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Freight Charges - Ocean	1	1,180.00	USD	87.4120	1,03,146.16	5%
+Terminal Hdlg. Chgs.	1	12,100.00	INR	1.00	12,100.00	18%
+B/L Fee	1	6,100.00	INR	1.00	6,100.00	18%
+VGM Certificate	1	650.00	INR	1.00	650.00	18%
+Destination Charges (DAP)	1	425.00	USD	87.4120	37,150.10	18%
+Pre-Carriage Haulage	1	9,550.00	INR	1.00	9,550.00	18%
+Transportation Charges	1	17,050.00	INR	1.00	17,050.00	5%
+Clearing Agency Fee	1	1,000.00	INR	1.00	1,000.00	18%
+Customs Clearance Charges	1	1,700.00	INR	1.00	1,700.00	18%
+Congestion Surcharge	1	2,700.00	INR	1.00	2,700.00	18%
+Total Taxable Value	1,91,146.26
+CGST	9,390.42
+SGST	9,390.41
+Round Off	-0.09
+Net Payable	2,09,927.00
+INR Two Lakh Nine Thousand Nine Hundred Twenty Seven and Paise Zero Only
+Yes Bank | A/c No 18460756093 | IFSC YESB0221815
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Seahawk Forwarding Ltd.
+
+
+Authorised Signatory
+ORIGINAL
+ORIGINAL

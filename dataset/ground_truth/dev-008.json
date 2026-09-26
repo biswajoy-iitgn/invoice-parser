@@ -1,0 +1,97 @@
+{
+  "id": "dev-008",
+  "split": "dev",
+  "file": "invoices/dev-008.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 729292,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.797,
+    "rotation_deg": 2.16,
+    "blur_sigma": 0.74,
+    "illumination": true,
+    "noise_sigma": 13.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 61,
+    "pixels": [
+      1267,
+      1222
+    ]
+  },
+  "fields": {
+    "Invoice No": "DELAE2548914",
+    "Invoice Date": "2024-06-10",
+    "Container Number": "GESU0507176, TGBU3460073, BMOU5451499",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seahawk Cargo Movers LLP",
+    "Bill of Lading / HBL": "SCMMU2673872",
+    "Weight": "13622.455 KG",
+    "Sea Freight": 432625.68,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 1300,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 106950,
+    "Ex Rate": 84.5798,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 432625.68,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 106950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Peak Season Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

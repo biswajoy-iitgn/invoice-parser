@@ -1,0 +1,106 @@
+{
+  "id": "dev-054",
+  "split": "dev",
+  "file": "invoices/dev-054.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 754616,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.938,
+    "rotation_deg": 0.47,
+    "blur_sigma": 0.53,
+    "noise_sigma": 3.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 72,
+    "pixels": [
+      1587,
+      1349
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV/2425/3258",
+    "Invoice Date": "2025-07-20",
+    "Container Number": "MSCU5703743, MSCU4078852",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Konark Global Logistics Pvt. Ltd.",
+    "Bill of Lading / HBL": "ONEYBO4640029",
+    "Weight": "15881.383 KG",
+    "Sea Freight": 184660.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 18300,
+    "Airway Bill Charges": "",
+    "BL Charges": 5700,
+    "ENS Charges": 3625.76,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.32,
+    "Misc": "",
+    "Transportation": 17050,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 18300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Local Transportation",
+      "category": "Transportation",
+      "amount_inr": 17050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 5700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 3625.76,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 184660.8,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

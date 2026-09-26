@@ -1,0 +1,108 @@
+{
+  "id": "dev-001",
+  "split": "dev",
+  "file": "invoices/dev-001.pdf",
+  "format": "pdf_raster",
+  "tier": "clean",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 12261,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 92,
+    "pixels": [
+      1920,
+      1896
+    ]
+  },
+  "fields": {
+    "Invoice No": "TAF/AE/25-26/98809",
+    "Invoice Date": "2024-04-16",
+    "Container Number": "GESU2345095, SEGU6670992",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Trans Asia Forwarding Private Limited",
+    "Bill of Lading / HBL": "41573172637",
+    "Weight": "",
+    "Sea Freight": 241213.78,
+    "Air Freight": "",
+    "Terminal Handling Charges": 28100,
+    "Airway Bill Charges": "",
+    "BL Charges": 4850,
+    "ENS Charges": "",
+    "Seal Charges": 1700,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.7141,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 5300,
+    "Fuel Charges": 36839.92,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 241213.78,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 28100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 4850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 1700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "category": "Fuel Charges",
+      "amount_inr": 36839.92,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": true,
+    "mbl": false,
+    "hbl": false,
+    "cntr": true
+  }
+}

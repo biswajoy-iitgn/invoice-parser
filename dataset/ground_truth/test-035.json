@@ -1,0 +1,93 @@
+{
+  "id": "test-035",
+  "split": "test",
+  "file": "invoices/test-035.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 566834,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.853,
+    "rotation_deg": -0.34,
+    "blur_sigma": 0.46,
+    "noise_sigma": 4.5,
+    "encoding": "jpeg",
+    "jpeg_quality": 75,
+    "pixels": [
+      1440,
+      1131
+    ]
+  },
+  "fields": {
+    "Invoice No": "KLL/FF/24-25/64588",
+    "Invoice Date": "2025-03-16",
+    "Container Number": "MRKU2387989",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Konark Logistics Ltd.",
+    "Bill of Lading / HBL": "20863498956",
+    "Weight": "",
+    "Sea Freight": 74765.6,
+    "Air Freight": "",
+    "Terminal Handling Charges": 8700,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.48,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2200
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 74765.6,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "hbl": false,
+    "cntr": true
+  }
+}

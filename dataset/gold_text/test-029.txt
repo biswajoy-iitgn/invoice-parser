@@ -1,0 +1,46 @@
+BLUEWATER FREIGHT SYSTEMS & CO.
+146, SECTOR 9, BENGALURU - 560001, INDIA
+GSTIN: 29JGPFA9744H1Z5 PAN: JGPFA9744H
+BILL TO: SHREEJI POLYMERS LTD., 47 ANNA NAGAR 3RD CROSS, DELHI 110034 GSTIN: 33RVFPP4179E1ZS
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+BILL DATE      : 2024-09-01                       DOCUMENT NO    : INV-2024-405435
+DUE DATE       : 2024-09-16                       A/C CODE       : CU97887
+JOB REF        : JOB/BFS/25/3897                  YOUR REF       : PO-53870
+STATE          : 27 MAHARASHTRA                   PLACE OF RECEIPT: ICD DADRI
+POL            : INCOK - KOCHI                    PORT OF DISCHARGE: USNYC - NEW YORK
+VESSEL         : NORTHERN JAGUAR / 942W           SAILING DATE   : 2024-09-01
+MASTER B/L     : MEDUAB6561511                    FCR / HBL NO   : BFS/HBL/24-25/8904
+CONTAINER      : TGBU 470324 4                    PKGS           : 108 CTNS
+TERMS OF DELIVERY: EXW
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  OCEAN FREIGHT CHARGES             USD      1380.00         1     83.68       115478.40   5%
+  2  THC PORT OF LOADING               INR      6400.00         1      1.00         6400.00  18%
+  3  SEAWAY BILL FEE                   INR      5300.00         1      1.00         5300.00  18%
+  4  SEAL CHARGES                      INR      1100.00         1      1.00         1100.00  18%
+  5  VGM CHARGES                       INR      2200.00         1      1.00         2200.00  18%
+  6  E-MANIFEST EDI TRANSMISSION       INR      1450.00         1      1.00         1450.00  18%
+  7  PRE-CARRIAGE (ICD TO PORT)        INR     15150.00         1      1.00        15150.00   5%
+  8  EXAMINATION FEE                   INR       800.00         1      1.00          800.00  18%
+  9  EMERGENCY BUNKER SURCHARGE (EBS)  USD       265.00         1     83.68        22175.20   0%
+ 10  CHA CHARGES                       INR      3650.00         1      1.00         3650.00  18%
+ 11  SHIPPING BILL CHARGES             INR      3250.00         1      1.00         3250.00  18%
+ 12  CONGESTION SURCHARGE              INR      3750.00         1      1.00         3750.00  18%
+------------------------------------------------------------------------------------------------
+                                                       NET AMOUNT                      180703.60
+                                                       CGST                              5776.71
+                                                       SGST                              5776.71
+                                                       ROUND OFF                           -0.02
+                                                       NET PAYABLE                     192257.00
+------------------------------------------------------------------------------------------------
+INR ONE LAKH NINETY TWO THOUSAND TWO HUNDRED FIFTY SEVEN AND PAISE ZERO ONLY
+
+BANK: KOTAK MAHINDRA BANK | A/C NO 65574948319 | IFSC KKBK0423763
+CHEQUE / RTGS IN FAVOUR OF THE COMPANY ONLY.
+
+                                                            FOR BLUEWATER FREIGHT SYSTEMS & CO.
+
+                                                            AUTHORISED SIGNATORY

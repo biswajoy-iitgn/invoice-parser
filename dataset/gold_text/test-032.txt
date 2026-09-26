@@ -1,0 +1,62 @@
+Konark Forwarding Ltd.
+456, Sector 9, Gandhidham - 370201, India
+GSTIN 24VAMAV4890X1Z5 | accounts@konarklogistics.example | +91 56 7751 9753
+SERVICE INVOICE
+BILL TO
+Bharat Brass Fittings
+63 Park Street, Bengaluru 560001 | GSTIN 33VRYCW5841V1ZE
+INV NO
+KFL/AE/25-26/93633
+INVOICE DT
+2024-09-07
+DUE ON
+2024-10-22
+CUSTOMER CODE
+CU50455
+SHIPMENT ID
+KFL/25/8766
+SHIPPER INV NO
+EXP/254720
+PO NO
+PO-99463
+PLACE OF SUPPLY
+27 Maharashtra
+EX. RATE
+USD 84.04
+PLACE OF RECEIPT
+ICD Whitefield
+POL
+INCOK - Kochi
+POD
+ITGOA - Genoa
+VESSEL / VOYAGE
+CMA CGM Tage / 349W
+ETD
+2024-09-07
+LINER BL NO
+ONEY328902113
+EQUIPMENT NO
+TRHU 375602 7 / 40GP, HLXU 695345 0
+PACKAGES
+28 BOXES
+GR. WT.
+47,069.557 KGS
+INCO
+CIF
+S/BILL NO
+2264016 dt 2024-09-05
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Basic Ocean Freight	2	1,450.00	USD	84.04	2,43,716.00	5%
+EU Advance Manifest (ENS)	1	3,150.00	INR	1.00	3,150.00	18%
+Verified Gross Mass Declaration	2	1,650.00	INR	1.00	3,300.00	18%
+Truck Freight (Local)	1	10,950.00	INR	1.00	10,950.00	18%
+Total Taxable Value	2,61,116.00
+IGST	15,317.80
+Invoice Total	2,76,433.80
+INR Two Lakh Seventy Six Thousand Four Hundred Thirty Three and Paise Eighty Only
+HDFC Bank | A/c No 41321380352 | IFSC YESB0823298
+Cheque / RTGS in favour of the company only.
+For Konark Forwarding Ltd.
+
+
+Authorised Signatory

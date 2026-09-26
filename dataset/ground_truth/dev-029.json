@@ -1,0 +1,139 @@
+{
+  "id": "dev-029",
+  "split": "dev",
+  "file": "invoices/dev-029.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 666761,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.811,
+    "rotation_deg": -0.47,
+    "blur_sigma": 0.65,
+    "illumination": true,
+    "noise_sigma": 9.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 53,
+    "pixels": [
+      1254,
+      1011
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI330058",
+    "Invoice Date": "2024-12-31",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Coastal Air & Sea (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "72674893869",
+    "Weight": "13945.38 KG",
+    "Sea Freight": 203283.3,
+    "Air Freight": "",
+    "Terminal Handling Charges": 17900,
+    "Airway Bill Charges": "",
+    "BL Charges": 3300,
+    "ENS Charges": "",
+    "Seal Charges": 1700,
+    "VGM": "",
+    "EDI Fees": 1300,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 7650,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.77,
+    "Misc": 950,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 7050,
+    "Shipping Bill Charges": 600
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 203283.3,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 17900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 3300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 7650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundries",
+      "category": "Misc",
+      "amount_inr": 950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 7050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": false
+  }
+}

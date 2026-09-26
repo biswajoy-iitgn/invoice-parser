@@ -1,0 +1,126 @@
+{
+  "id": "test-036",
+  "split": "test",
+  "file": "invoices/test-036.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 566834,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.841,
+    "rotation_deg": -0.05,
+    "blur_sigma": 0.27,
+    "noise_sigma": 3.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 76,
+    "pixels": [
+      1413,
+      1325
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2024-460645",
+    "Invoice Date": "2024-10-03",
+    "Container Number": "",
+    "MAWB No": "235-00526271",
+    "HAWB No": "",
+    "Vendor Name": "Crescent Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "696.57 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 700,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 1600,
+    "Transportation": 11500,
+    "Warehouse Charges Port": 9950,
+    "Examination Charges": 1650,
+    "Fuel Charges": "",
+    "Cargo Screening": 3100,
+    "Agency Charges": 3450,
+    "Shipping Bill Charges": 2650
+  },
+  "lines": [
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 1600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 11500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 9950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Exam. Charges",
+      "category": "Examination Charges",
+      "amount_inr": 1650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": true,
+    "date": false,
+    "mawb": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,42 @@
+Silverline Supply Chain Solutions (India) Pvt. Ltd.
+401, Mahipalpur Extn, Pune - 411001, India
+GSTIN: 27YBYFR5403A1ZD | accounts@silverlinelogistics.example | +91 61 8615 5598
+SERVICE INVOICE
+
+Document No SSC26011501    Invoice Date 13th November 2024
+
+Due On: 28th November 2024  |  A/c Code: C51959  |  Shipment ID: JOB/SSC/24/0929  |  State: 19 West Bengal
+
+To,
+Triveni Auto Components Ltd.
+13 MG Road, Mumbai 400050
+GSTIN: 27REEFU6869V1ZS
+
+Being charges in respect of your shipment of Pressed steel bearing cages consigned to Lone Star Industrial, Houston, USA. Port of Loading INCCU - Kolkata; Destination USLAX - Los Angeles; Vsl/Voy SSL Mumbai / 846E; Sailing Date 8th November 2024; MBL OOLUBO5085733; House Bill of Lading SSC/HBL/24-25/2306; Cntr No TCNU 002295 7
+HLXU 669701 8; Pkgs 108 PALLETS; G.W. 45654.98 kg; Volume 64.664 CBM; Incoterms FOB; SB No & Date 9444703 dt 4th November 2024.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	O/F Charges (FCL) (USD 3,380.00)	2,91,423.60
+2	VGM Certificate	2,000.00
+3	AMS Charges (USD 37.00)	3,190.14
+4	Handling Charges	8,950.00
+5	Trucking Charges	3,950.00
+6	Fuel Adjustment Charges	7,600.00
+7	Brokerage Charges	4,050.00
+8	Survey Charges	2,950.00
+	Total (Before Tax)	3,24,113.74
+	Add: CGST	2,258.11
+	Add: SGST	2,258.12
+	Total Amount Payable	3,28,629.97
+
+Ex. Rate (USD): 1 USD = INR 86.22
+
+(INR Three Lakh Twenty Eight Thousand Six Hundred Twenty Nine and Paise Ninety Seven Only)
+
+HDFC Bank | A/c No 80529257880 | IFSC YESB0383780
+Cheque / RTGS in favour of the company only.
+
+For Silverline Supply Chain Solutions (India) Pvt. Ltd.
+
+
+Authorised Signatory

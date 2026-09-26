@@ -1,0 +1,123 @@
+{
+  "id": "test-078",
+  "split": "test",
+  "file": "invoices/test-078.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": true,
+  "maker_seed": 187994,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "2855692280",
+    "Invoice Date": "2026-05-03",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Navkar Freight Systems Pvt Ltd",
+    "Bill of Lading / HBL": "HBL9872455",
+    "Weight": "1796 KG",
+    "Sea Freight": 10008.46,
+    "Air Freight": "",
+    "Terminal Handling Charges": 6200,
+    "Airway Bill Charges": "",
+    "BL Charges": 5250,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 6950,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.51,
+    "Misc": 2200,
+    "Transportation": "",
+    "Warehouse Charges Port": 14400,
+    "Examination Charges": 3850,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 4800,
+    "Shipping Bill Charges": 2500
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 10008.46,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 6200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 5250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc. Charges",
+      "category": "Misc",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 14400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 3850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DO Charges",
+      "category": "Other Charges",
+      "amount_inr": 6950,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "dev-015",
+  "split": "dev",
+  "file": "invoices/dev-015.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 195396,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.851,
+    "rotation_deg": 0.21,
+    "blur_sigma": 0.33,
+    "noise_sigma": 4.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 70,
+    "pixels": [
+      1435,
+      1469
+    ]
+  },
+  "fields": {
+    "Invoice No": "NCM/SE/25-26/05365",
+    "Invoice Date": "2024-08-13",
+    "Container Number": "MRKU3235580, EGHU9428688, FFAU4392690",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Northstar Cargo Movers Pvt. Ltd.",
+    "Bill of Lading / HBL": "NCM/HBL/25-26/4604",
+    "Weight": "15829 KG",
+    "Sea Freight": 292146.97,
+    "Air Freight": "",
+    "Terminal Handling Charges": 55050,
+    "Airway Bill Charges": "",
+    "BL Charges": 5350,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 800,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 103050,
+    "Ex Rate": 88.1288,
+    "Misc": 1000,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 75350.12,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 292146.97,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 37200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 17850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 5350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Pre Carriage Charges",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 103050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Adjustment Charges",
+      "category": "Fuel Charges",
+      "amount_inr": 75350.12,
+      "currency": "USD",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

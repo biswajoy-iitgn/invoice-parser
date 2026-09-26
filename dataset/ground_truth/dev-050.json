@@ -1,0 +1,126 @@
+{
+  "id": "dev-050",
+  "split": "dev",
+  "file": "invoices/dev-050.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 698938,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "watermark": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.881,
+    "rotation_deg": 1.23,
+    "perspective": true,
+    "blur_sigma": 0.78,
+    "illumination": true,
+    "noise_sigma": 12.5,
+    "encoding": "jpeg",
+    "jpeg_quality": 56,
+    "pixels": [
+      1685,
+      1034
+    ]
+  },
+  "fields": {
+    "Invoice No": "5447283673",
+    "Invoice Date": "2026-06-27",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Kestrel Express Cargo Ltd.",
+    "Bill of Lading / HBL": "CMDUIN1489680",
+    "Weight": "45143 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 1000,
+    "VGM": "",
+    "EDI Fees": 1000,
+    "DAP Charges": "",
+    "Other Charges": 6450,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 11100,
+    "Examination Charges": 6350,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 12250,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 6450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 11100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 5750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 6350,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "gw": false
+  }
+}

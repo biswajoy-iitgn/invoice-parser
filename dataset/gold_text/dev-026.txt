@@ -1,0 +1,44 @@
+SAPPHIRE EXPRESS CARGO (INDIA) PVT. LTD.
+43, SAHAR ROAD, BENGALURU - 560001, INDIA
+GSTIN: 29SYBFS4168E1ZC PAN: SYBFS4168E
+BILL TO: ROTOMECH ENGINEERING PVT. LTD., 86 ANNA NAGAR 3RD CROSS, KOLKATA 700016 GSTIN: 29RPVCG9411J1ZS
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+DATE           : 2025-07-05                       INV. SERIAL NO : INV-2025-255412
+DUE ON         : 2025-08-19                       CUST. ID       : C54493
+PLACE OF SUPPLY: 07 DELHI                         EX. RATE (USD) : 86.80
+AIRPORT OF DEPARTURE: AMD - AHMEDABAD             AIRPORT OF DESTINATION: MXP - MILAN
+FLIGHT NO      : AF 385 / 2025-07-03              MAWB NO        : 057 7015 3510
+HOUSE AWB      : SEC/25/09741                     PKGS           : 50 BOXES
+WT (GROSS)     : 1,949.12 KGS                     CH. WT         : 2,467.5 KG
+INCO           : FCA
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  AIR FREIGHT                       USD         3.14    2467.5     86.80     6,72,522.06  18%
+  2  AWB CHARGES                       INR     3,250.00         1      1.00        3,250.00  18%
+  3  EDI CHARGES                       INR     1,150.00         1      1.00        1,150.00  18%
+  4  CARGO HANDLING CHARGES            INR     4,600.00         1      1.00        4,600.00  18%
+  5  MISC EXPENSES                     INR     1,900.00         1      1.00        1,900.00  18%
+  6  ACC WAREHOUSE CHARGES             INR    13,350.00         1      1.00       13,350.00  18%
+  7  FSC                               USD         0.60    2467.5     86.80     1,28,507.40   0%
+  8  CARGO SCREENING                   INR     3,100.00         1      1.00        3,100.00  18%
+  9  BROKERAGE CHARGES                 INR     2,400.00         1      1.00        2,400.00  18%
+ 10  OTHER CHARGES                     INR     3,400.00         1      1.00        3,400.00  18%
+------------------------------------------------------------------------------------------------
+                                                       SUB TOTAL                     8,34,179.46
+                                                       CGST                            63,510.49
+                                                       SGST                            63,510.48
+                                                       ROUND OFF                           -0.43
+                                                       INVOICE TOTAL                 9,61,200.00
+------------------------------------------------------------------------------------------------
+INR NINE LAKH SIXTY ONE THOUSAND TWO HUNDRED AND PAISE ZERO ONLY
+
+BANK: KOTAK MAHINDRA BANK | A/C NO 53240470027 | IFSC YESB0949435
+CHEQUE / RTGS IN FAVOUR OF THE COMPANY ONLY.
+
+                                                            FOR SAPPHIRE EXPRESS CARGO (INDIA) PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY
+PAID

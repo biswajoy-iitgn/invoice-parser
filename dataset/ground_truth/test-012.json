@@ -1,0 +1,128 @@
+{
+  "id": "test-012",
+  "split": "test",
+  "file": "invoices/test-012.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 555357,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      2016
+    ]
+  },
+  "fields": {
+    "Invoice No": "BSL24017424",
+    "Invoice Date": "2024-04-14",
+    "Container Number": "MRKU1501103",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Bluewater Shipping LLP",
+    "Bill of Lading / HBL": "EGLVBO7037094",
+    "Weight": "18680.53 KG",
+    "Sea Freight": 232967.47,
+    "Air Freight": "",
+    "Terminal Handling Charges": 15000,
+    "Airway Bill Charges": "",
+    "BL Charges": 4750,
+    "ENS Charges": 2850,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 4750,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 92.6312,
+    "Misc": 1500,
+    "Transportation": 4650,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 18989.4,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 15000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "category": "Fuel Charges",
+      "amount_inr": 18989.4,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 4750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 4650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 232967.47,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "cntr": true,
+    "gw": true
+  }
+}

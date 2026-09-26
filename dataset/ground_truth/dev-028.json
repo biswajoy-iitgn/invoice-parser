@@ -1,0 +1,117 @@
+{
+  "id": "dev-028",
+  "split": "dev",
+  "file": "invoices/dev-028.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 666761,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.846,
+    "rotation_deg": -0.86,
+    "blur_sigma": 0.68,
+    "illumination": true,
+    "noise_sigma": 9.8,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 52,
+    "pixels": [
+      1314,
+      996
+    ]
+  },
+  "fields": {
+    "Invoice No": "NEC/SE/24-25/04075",
+    "Invoice Date": "2024-07-13",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Navkar Express Cargo Pvt. Ltd.",
+    "Bill of Lading / HBL": "NEC/HBL/25-26/5569",
+    "Weight": "1747 KG",
+    "Sea Freight": 15812.09,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 2550,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 250,
+    "DAP Charges": "",
+    "Other Charges": 2900,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.48,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 9450,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1550
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 15812.09,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "category": "BL Charges",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 9450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Survey Charges",
+      "category": "Other Charges",
+      "amount_inr": 2900,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": true
+  }
+}

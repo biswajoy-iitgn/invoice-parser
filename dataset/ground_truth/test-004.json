@@ -1,0 +1,112 @@
+{
+  "id": "test-004",
+  "split": "test",
+  "file": "invoices/test-004.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T1",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 751862,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1808
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI320957",
+    "Invoice Date": "2025-02-28",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seabird Freight Systems Private Limited",
+    "Bill of Lading / HBL": "",
+    "Weight": "574 KG",
+    "Sea Freight": "",
+    "Air Freight": 175812.89,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3100,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 300,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 94.8658,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 9050,
+    "Examination Charges": "",
+    "Fuel Charges": 58676.4,
+    "Cargo Screening": 1850,
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2200
+  },
+  "lines": [
+    {
+      "description": "Air Export Freight",
+      "category": "Air Freight",
+      "amount_inr": 175812.89,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Waybill Documentation",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 9050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 58676.4,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Screening Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "gw": false
+  }
+}

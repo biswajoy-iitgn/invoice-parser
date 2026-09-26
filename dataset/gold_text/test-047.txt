@@ -1,0 +1,39 @@
+Tricolour Freight Systems Ltd.
+99, Willingdon Island, Kolkata - 700001, India
+GSTIN: 19KAWFG1130F1ZB | PAN: KAWFG1130F
+accounts@tricolourlogistics.example | +91 77 8079 8844
+
+Bill To: Shreeji Polymers Ltd., 93 Nehru Street, Bengaluru 560001 | GSTIN 09DKTFU3661C1ZC
+Document No	7371930698
+Invoice Date	13/09/25
+Due On	28/10/25
+Cust. ID	C18632
+Commercial Invoice No	CI253991
+Your Ref	PO-47970
+Place of Supply	07 Delhi
+Exchange Rate	USD 82.99
+TAX INVOICE
+Port of Loading	INMAA - Chennai	POD	USHOU - Houston	Vessel	Northern Jaguar / 471A
+SOB Date	06/09/25	Liner BL No	MAEU555028628	House B/L	TFSNS2472931
+Pkgs	64 PALLETS	CBM	11.067 CBM	Incoterms	FCA
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	IGST%	IGST Amt	Total (INR)
+1	Seafreight Export	996521	USD	55.00	11.067	608.69	82.99	0.00	50,515.18	5%	2,525.76	53,040.94
+2	THC	996719	INR	11,000.00	1	11,000.00	1.00	0.00	11,000.00	18%	1,980.00	12,980.00
+3	BL Printing Charges	996713	INR	3,600.00	1	3,600.00	1.00	0.00	3,600.00	18%	648.00	4,248.00
+4	Misc. Charges	998599	INR	2,450.00	1	2,450.00	1.00	0.00	2,450.00	18%	441.00	2,891.00
+5	Cartage Charges	996511	INR	13,150.00	1	13,150.00	1.00	0.00	13,150.00	12%	1,578.00	14,728.00
+6	Storage Charges at CFS	996729	INR	10,600.00	1	10,600.00	1.00	0.00	10,600.00	18%	1,908.00	12,508.00
+7	Low Sulphur Surcharge (LSS)	996521	USD	260.00	1	260.00	82.99	21,577.40	0.00	0%	0.00	21,577.40
+8	Agency Charges	996713	INR	7,450.00	1	7,450.00	1.00	0.00	7,450.00	18%	1,341.00	8,791.00
+9	Courier Charges	998599	INR	2,250.00	1	2,250.00	1.00	0.00	2,250.00	18%	405.00	2,655.00
+Total Non-Taxable Value	21,577.40
+Total Taxable Value	1,01,015.18
+IGST	10,826.76
+Invoice Total	1,33,419.34
+INR One Lakh Thirty Three Thousand Four Hundred Nineteen and Paise Thirty Four Only
+BANK DETAILS
+Axis Bank | A/c No 55639623869 | IFSC ICIC0829389
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR TRICOLOUR FREIGHT SYSTEMS LTD.
+Authorised Signatory
+E & O.E.

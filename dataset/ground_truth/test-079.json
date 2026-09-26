@@ -1,0 +1,149 @@
+{
+  "id": "test-079",
+  "split": "test",
+  "file": "invoices/test-079.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 22532,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.918,
+    "rotation_deg": -0.6,
+    "blur_sigma": 0.37,
+    "noise_sigma": 4.3,
+    "encoding": "jpeg",
+    "jpeg_quality": 82,
+    "pixels": [
+      1561,
+      1893
+    ]
+  },
+  "fields": {
+    "Invoice No": "AE/2425/2329",
+    "Invoice Date": "2025-02-25",
+    "Container Number": "BMOU1395102",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Sapphire Supply Chain Solutions Private Limited",
+    "Bill of Lading / HBL": "HLCU337540445",
+    "Weight": "11559 KG",
+    "Sea Freight": 184774.29,
+    "Air Freight": "",
+    "Terminal Handling Charges": 15100,
+    "Airway Bill Charges": "",
+    "BL Charges": 5150,
+    "ENS Charges": 2550,
+    "Seal Charges": "",
+    "VGM": 800,
+    "EDI Fees": 1050,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 91.6994,
+    "Misc": 1300,
+    "Transportation": 3750,
+    "Warehouse Charges Port": 12350,
+    "Examination Charges": "",
+    "Fuel Charges": 22150,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 650
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 184774.29,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 15100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "category": "BL Charges",
+      "amount_inr": 5150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "category": "ENS Charges",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 12350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bunker Adjustment Factor",
+      "category": "Fuel Charges",
+      "amount_inr": 22150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "S/B Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 650,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "cntr": true,
+    "gw": false
+  }
+}

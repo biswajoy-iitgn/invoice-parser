@@ -1,0 +1,41 @@
+Polaris Global Logistics Pvt. Ltd.
+203, Rajaji Salai, Mumbai - 400001, India
+GSTIN: 27DUYFP1202V1ZA | accounts@polarislogistics.example | +91 89 6342 4399
+TAX INVOICE
+
+Inv. Serial No PGL25994595    Dated 19th March 2024
+
+Due On: 3rd April 2024  |  Client Code: CU69634  |  Job Ref: FILE/PGL/24/6460  |  PO No: PO-59594  |  Place of Supply: 09 Uttar Pradesh
+
+To,
+Madhav Spices Pvt. Ltd.
+54 Nehru Street, Delhi 110034
+GSTIN: 27UDJCX3483N1ZB
+
+Being charges in respect of your shipment of Brass fittings consigned to Nordic Parts AB, Gothenburg, Sweden. Origin DEL - Delhi; Destination MXP - Milan; Flight No BA 935 / 15th March 2024; Master AWB 12591776064; HAWB No HAWB667624; No. of Packages 89 PKGS; Gross Wt 874.93 Kgs; Ch. Wt 1,043.0 KG; Incoterms FCA; Shipping Bill No 4140353 dt 15th March 2024.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Air Cargo Freight	3,00,258.84
+2	AWB Fee	2,050.00
+3	Handling Fee	3,400.00
+4	Godown Rent (Port)	15,550.00
+5	Fuel Surcharge (EUR 1,126.44)	1,04,544.90
+6	Cargo Screening	850.00
+7	Shipping Bill Charges	2,850.00
+	Total (Before Tax)	4,29,503.74
+	Add: CGST	29,246.30
+	Add: SGST	29,246.29
+	Net Payable	4,87,996.33
+
+Ex. Rate: 1 EUR = INR 92.81
+
+(INR Four Lakh Eighty Seven Thousand Nine Hundred Ninety Six and Paise Thirty Three Only)
+
+HDFC Bank | A/c No 23796114588 | IFSC KKBK0770670
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+
+For Polaris Global Logistics Pvt. Ltd.
+
+
+Authorised Signatory
+TAX INVOICE

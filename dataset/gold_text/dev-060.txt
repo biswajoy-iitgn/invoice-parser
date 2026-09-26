@@ -1,0 +1,54 @@
+Anchor Supply Chain Solutions Private Limited
+416, Sahar Road, New Delhi - 110037, India
+GSTIN 07SFKPB4149X1Z5 | accounts@anchorlogistics.example | +91 94 7943 2171
+SERVICE INVOICE
+Invoice No: CCUCH2620300
+Date of Issue: 01-Apr-26
+Due On: 16-May-26
+Cust. ID: ASC55224
+Job Ref: FILE/ASC/26/6298
+PO No: PO-21020
+Place of Supply: 06 Haryana
+Currency Rate (USD): 85.03
+Bill To
+Kaveri Agro Foods Ltd.
+55 Lake View Road, Mumbai 400050
+GSTIN 33HGPPS8369M1ZA
+Consignee: Lion City Traders, Singapore
+Airport of Departure: MAA - Chennai
+Airport of Destination: SIN - Singapore
+Flight Details: EK 569 / 28-Mar-26
+MAWB No: 176-05843493
+House Airway Bill No: ASC8965861
+Packages: 85 CTNS
+Wt (Gross): 598.490 KG
+Chargeable Weight: 650.5 KG
+Inco: EXW
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Forwarder Handling Fee	SHPT	INR	2,100.00	1	1.00	2,100.00	18%	2,478.00
+2	Port Warehousing	SHPT	INR	3,700.00	1	1.00	3,700.00	18%	4,366.00
+3	Examination Charges	SHPT	INR	6,350.00	1	1.00	6,350.00	18%	7,493.00
+4	X-Ray Screening	SHPT	INR	2,950.00	1	1.00	2,950.00	18%	3,481.00
+5	Congestion Surcharge	SHPT	INR	3,450.00	1	1.00	3,450.00	18%	4,071.00
+	Sub Total - Origin Charges	18,550.00		21,889.00
+Documentation & Filing
+6	AWB Charges	SHPT	INR	2,800.00	1	1.00	2,800.00	18%	3,304.00
+7	E-Manifest EDI Transmission	SHPT	INR	1,300.00	1	1.00	1,300.00	18%	1,534.00
+8	Shipping Bill Filing	SHPT	INR	1,400.00	1	1.00	1,400.00	18%	1,652.00
+	Sub Total - Documentation & Filing	5,500.00		6,490.00
+Freight Charges
+9	Freight Charges - Air	KG	USD	3.76	650.5	85.03	2,07,973.18	18%	2,45,408.35
+10	FSC	KG	INR	99.90	650.5	1.00	64,984.95	0%	64,984.95
+	Sub Total - Freight Charges	2,72,958.13		3,10,393.30
+Net Amount	2,97,008.13
+CGST	20,882.09
+SGST	20,882.08
+Total Invoice Value	3,38,772.30
+INR Three Lakh Thirty Eight Thousand Seven Hundred Seventy Two and Paise Thirty Only
+Yes Bank | A/c No 25543557479 | IFSC SBIN0167179
+Please quote invoice number with remittance.
+For Anchor Supply Chain Solutions Private Limited
+
+
+Authorised Signatory

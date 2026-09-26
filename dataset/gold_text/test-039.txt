@@ -1,0 +1,68 @@
+Tricolour Global Logistics Pvt Ltd
+93, Sector 9, Chennai - 600001, India
+GSTIN 33LKECK5237Y1ZD | accounts@tricolourlogistics.example | +91 55 4952 3104
+SERVICE INVOICE
+BILL TO
+Kaveri Agro Foods Ltd.
+31 MG Road, Kolkata 700016 | GSTIN 09EXAAA4636R1ZB
+INV NO
+TGL/FF/25-26/43510
+DATED
+29/12/2025
+DUE DATE
+13/01/2026
+CUST. ID
+TGL47038
+STATE
+19 West Bengal
+ROE (USD)
+87.0650
+PLACE OF RECEIPT
+ICD Dadri
+LOAD PORT
+INMAA - Chennai
+DESTINATION
+USSAV - Savannah
+VESSEL
+Kota Lestari / 799E
+SAILING DATE
+26/12/2025
+HOUSE BILL OF LADING
+TGLSE2560650
+CONTAINER NUMBER
+TRHU8692500, MSCU6159721 / 40HC
+SEAL NO(S)
+6805301, ML-IN3361957
+PKGS
+105 BOXES
+GROSS WT
+41,057.4 KG
+MEASUREMENT
+126.267 CBM
+INCO
+DAP
+SHIPPING BILL NO
+5589597 dt 21/12/2025
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+THC Port of Loading	2	14,800.00	INR	1.00	29,600.00	18%
+BL Charges	1	5,050.00	INR	1.00	5,050.00	18%
+Verified Gross Mass (VGM)	2	750.00	INR	1.00	1,500.00	18%
+Advance Manifest (AMS) Fee	1	2,600.00	INR	1.00	2,600.00	18%
+Mandatory User Charges	1	3,800.00	INR	1.00	3,800.00	18%
+Origin Inland Haulage	2	21,250.00	INR	1.00	42,500.00	18%
+S.B. Charges	1	1,400.00	INR	1.00	1,400.00	18%
+O/F Charges (FCL)	2	1,690.00	USD	87.0650	2,94,279.70	0%
+DAP Charges	1	205.00	USD	87.0650	17,848.33	18%
+Total Taxable Value	3,98,578.03
+CGST	9,386.85
+SGST	9,386.85
+Total Invoice Value	4,17,351.73
+INR Four Lakh Seventeen Thousand Three Hundred Fifty One and Paise Seventy Three Only
+Yes Bank | A/c No 63105438437 | IFSC KKBK0808906
+Please quote invoice number with remittance.
+For Tricolour Global Logistics Pvt Ltd
+
+
+Authorised Signatory
+GST AUDITED
+TAX INVOICE

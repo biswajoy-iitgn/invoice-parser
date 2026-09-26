@@ -1,0 +1,128 @@
+{
+  "id": "test-022",
+  "split": "test",
+  "file": "invoices/test-022.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 318146,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1542
+    ]
+  },
+  "fields": {
+    "Invoice No": "FF/2526/3663",
+    "Invoice Date": "2024-09-14",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Everfast Shipping Agencies (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "HBL7803636",
+    "Weight": "688.4 KG",
+    "Sea Freight": 28520.82,
+    "Air Freight": "",
+    "Terminal Handling Charges": 8800,
+    "Airway Bill Charges": "",
+    "BL Charges": 3950,
+    "ENS Charges": 2650,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1200,
+    "DAP Charges": "",
+    "Other Charges": 8950,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 96.97,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 7272.75,
+    "Cargo Screening": "",
+    "Agency Charges": 6900,
+    "Shipping Bill Charges": 1800
+  },
+  "lines": [
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 3950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 6900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ISPS Charges",
+      "category": "Other Charges",
+      "amount_inr": 8950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "category": "Fuel Charges",
+      "amount_inr": 7272.75,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 28520.82,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "category": "ENS Charges",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "hbl": false,
+    "gw": true
+  }
+}

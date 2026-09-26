@@ -1,0 +1,131 @@
+{
+  "id": "test-003",
+  "split": "test",
+  "file": "invoices/test-003.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 751862,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "DELSE2592624",
+    "Invoice Date": "2025-06-17",
+    "Container Number": "EGHU5095531",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Indus Supply Chain Solutions (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "HBL6665189",
+    "Weight": "14318.9 KG",
+    "Sea Freight": 210915.25,
+    "Air Freight": "",
+    "Terminal Handling Charges": 11050,
+    "Airway Bill Charges": "",
+    "BL Charges": 3750,
+    "ENS Charges": "",
+    "Seal Charges": 550,
+    "VGM": "",
+    "EDI Fees": 350,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2300,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.55,
+    "Misc": 1950,
+    "Transportation": "",
+    "Warehouse Charges Port": 4400,
+    "Examination Charges": 5000,
+    "Fuel Charges": 14446.25,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Handling Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 11050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bunker Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 14446.25,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc. Charges",
+      "category": "Misc",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Advance Manifest (AMS) Fee",
+      "category": "AMS Charges",
+      "amount_inr": 2300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 4400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 210915.25,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "test-070",
+  "split": "test",
+  "file": "invoices/test-070.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.884,
+    "rotation_deg": -0.37,
+    "blur_sigma": 0.31,
+    "noise_sigma": 3.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 76,
+    "pixels": [
+      1494,
+      1346
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2024-427433",
+    "Invoice Date": "2025-07-12",
+    "Container Number": "",
+    "MAWB No": "618-33136434",
+    "HAWB No": "BFF/24/89377",
+    "Vendor Name": "Bluewater Freight Forwarders Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1455.987 KG",
+    "Sea Freight": "",
+    "Air Freight": 324255.03,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1650,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 3850,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 3450,
+    "Fuel Charges": 111326.49,
+    "Cargo Screening": 1550,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Air",
+      "category": "Air Freight",
+      "amount_inr": 324255.03,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Waybill Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 3850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Exam. Charges",
+      "category": "Examination Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "category": "Fuel Charges",
+      "amount_inr": 111326.49,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 1550,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": true,
+    "gw": false
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "id": "test-053",
+  "split": "test",
+  "file": "invoices/test-053.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 115109,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.857,
+    "rotation_deg": -0.16,
+    "blur_sigma": 0.49,
+    "noise_sigma": 3.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 77,
+    "pixels": [
+      1443,
+      1107
+    ]
+  },
+  "fields": {
+    "Invoice No": "AE/2425/4052",
+    "Invoice Date": "2024-03-15",
+    "Container Number": "",
+    "MAWB No": "157-81418960",
+    "HAWB No": "TAS/25/89662",
+    "Vendor Name": "Tricolour Air & Sea Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1223.761 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": 10400,
+    "Warehouse Charges Port": 10600,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 1700,
+    "Agency Charges": 3750,
+    "Shipping Bill Charges": 1350
+  },
+  "lines": [
+    {
+      "description": "Local Transportation",
+      "category": "Transportation",
+      "amount_inr": 10400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 10600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 1700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "S/B Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

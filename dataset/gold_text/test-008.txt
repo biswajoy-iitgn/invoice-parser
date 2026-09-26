@@ -1,0 +1,63 @@
+Gateway Freight Forwarders & Co.
+253, Mahipalpur Extn, Ahmedabad - 380009, India
+GSTIN
+24JEVAA5282M1ZC
+PAN
+JEVAA5282M
+CONTACT
+accounts@gatewaylogistics.example | +91 81 2822 8932
+TAX INVOICE
+ORIGINAL
+BILL TO
+Sunrise Ceramics LLP
+8 Gandhi Nagar, Chennai 600040
+GSTIN 29EXBAA9276X1ZE
+Consignee: Optima Handel GmbH, Hamburg, Germany
+INVOICE DETAILS
+DATE OF ISSUE
+2026-02-11
+INV NO
+AE/25-26/5026
+DUE ON
+2026-03-13
+CLIENT CODE
+GFF41455
+COMMERCIAL INVOICE NO
+CI247331
+PLACE OF SUPPLY
+06 Haryana
+EXCHANGE RATE
+USD 85.55
+SHIPMENT
+Departure: AMD - Ahmedabad
+Destination: AMS - Amsterdam
+Flight Details: QR 136 / 2026-02-09
+MAWB: 15755413982
+HAWB No: GFF/25/37207
+No. of Packages: 80 PALLETS
+Gr. Wt.: 744.83 Kgs
+Ch. Wt: 1,114.0 KG
+Terms of Delivery: DAP
+CARGO
+Brass fittings | 80 PALLETS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Freight Charges - Air	996531	1114.0	2.08	USD	85.55	198,229.62	0%	198,229.62
+2	EDI Transmission Fee	998599	1	600.00	INR	1.00	600.00	18%	708.00
+3	DAP Destination Charges	996719	1	155.00	USD	85.55	13,260.25	18%	15,647.09
+4	Handling & Coordination	996719	1	6,600.00	INR	1.00	6,600.00	18%	7,788.00
+5	Transportation Charges	996511	1	14,300.00	INR	1.00	14,300.00	5%	15,015.00
+6	Customs Inspection Charges	998599	1	4,850.00	INR	1.00	4,850.00	18%	5,723.00
+7	Airline Fuel Levy	996531	1114.0	0.91	USD	85.55	86,725.46	0%	86,725.46
+8	Cargo Security Scan	996719	1	3,050.00	INR	1.00	3,050.00	18%	3,599.00
+9	Customs Clearance Charges	996713	1	6,500.00	INR	1.00	6,500.00	18%	7,670.00
+Taxable Amount	334,115.33
+CGST	3,494.92
+SGST	3,494.92
+Invoice Total	341,105.17
+Amount in words: INR Three Lakh Forty One Thousand One Hundred Five and Paise Seventeen Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 54537936397 | IFSC SBIN0104747
+Cheque / RTGS in favour of the company only.
+FOR GATEWAY FREIGHT FORWARDERS & CO.
+Authorised Signatory
+E & O.E.

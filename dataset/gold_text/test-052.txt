@@ -1,0 +1,49 @@
+Samudra Cargo Movers LLP
+296, Willingdon Island, Chennai - 600001, India
+GSTIN 33EXRFR5109G1ZD | accounts@samudralogistics.example | +91 27 3464 5017
+TAX INVOICE
+INV NO: TI233265
+Document Date: 27.05.2026
+Due Date: 11.07.2026
+Customer Code: SCM80945
+Job Ref: SCM/24/0465
+Commercial Invoice No: EI-243776
+Place of Supply: 06 Haryana
+Rate of Exchange (USD): 87.25
+Bill To
+Bharat Brass Fittings
+73 MG Road, Noida 201301
+GSTIN 29EECCG8119D1ZD
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Departure: DEL - Delhi
+Destination: ORD - Chicago
+Flight Details: SQ 321 / 22.05.2026
+Master AWB: 618 0165 3960
+HAWB: HAWB996714
+Pkgs: 118 CTNS
+Gross Wt: 952.0 Kgs
+Ch. Wt: 1,297.0 KG
+Terms of Delivery: CIF
+SB No & Date: 1536253 dt 16.05.2026
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Incidental Expenses	SHPT	INR	1,350.00	1	1.00	1,350.00	18%	1,593.00
+	Sub Total - Origin Charges	1,350.00		1,593.00
+Documentation & Filing
+2	AMS / ISF Filing	SHPT	USD	28.00	1	87.25	2,443.00	18%	2,882.74
+	Sub Total - Documentation & Filing	2,443.00		2,882.74
+Freight Charges
+3	Air Export Freight	KG	USD	4.38	1297.0	87.25	4,95,655.04	18%	5,84,872.95
+4	MYC / Fuel Surcharge	KG	INR	62.37	1297.0	1.00	80,893.89	18%	95,454.79
+	Sub Total - Freight Charges	5,76,548.93		6,80,327.74
+Total (Before Tax)	5,80,341.93
+IGST	1,04,461.55
+Total Amount Payable	6,84,803.48
+INR Six Lakh Eighty Four Thousand Eight Hundred Three and Paise Forty Eight Only
+State Bank of India | A/c No 78945196114 | IFSC SBIN0908806
+Subject to Mumbai jurisdiction. E. & O.E.
+For Samudra Cargo Movers LLP
+
+
+Authorised Signatory
+GST AUDITED

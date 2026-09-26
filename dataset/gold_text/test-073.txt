@@ -1,0 +1,32 @@
+Orient Cargo Movers Private Limited
+81, CG Road, Gandhidham - 370201, India
+GSTIN: 24JWTPJ4549D1ZC   PAN: JWTPJ4549D
+accounts@orientlogistics.example | +91 94 6024 8992
+INVOICE
+Customer: Shreeji Polymers Ltd., 89 Anna Nagar 3rd Cross, Delhi 110034 (GSTIN 09UPACD9649A1ZA)
+Inv. Serial No	SE/24-25/5261	Date of Issue	14/02/2026
+Pay By	31/03/2026	Customer Code	CU24173
+State	19 West Bengal	Exch. Rate	1 USD = 84.25 INR
+Departure	MAA - Chennai	Dest.	JFK - New York
+Flight / Date	LH 886 / 13/02/2026	Airline AWB No	02014213393
+Pkgs	46 CTNS	G.W.	1,033.7 KGS
+Chargeable Weight	1,193.5 KG	Terms of Delivery	FCA
+S/Bill No	2797166 dt 08/02/2026		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Airfreight Charges (USD 5,442.36 @ 84.25)	996531	4,58,518.83	0.00	0.00	4,58,518.83
+2	Airwaybill Issuance	996713	2,550.00	229.50	229.50	3,009.00
+3	AMS Charges (USD 38.00 @ 84.25)	996713	3,201.50	288.14	288.13	3,777.77
+4	Ground Rent	996729	2,000.00	180.00	180.00	2,360.00
+5	Cargo Security Scan	996719	1,900.00	171.00	171.00	2,242.00
+Net Amount	4,68,170.33
+CGST	868.64
+SGST	868.63
+Round Off	0.40
+Invoice Total	4,69,908.00
+INR Four Lakh Sixty Nine Thousand Nine Hundred Eight and Paise Zero Only
+BANK DETAILS
+ICICI Bank | A/c No 18519267665 | IFSC YESB0252266
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR ORIENT CARGO MOVERS PRIVATE LIMITED
+Authorised Signatory
+E & O.E.

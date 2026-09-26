@@ -1,0 +1,43 @@
+SEABIRD MARITIME SERVICES PVT LTD
+215, SECTOR 9, KOLKATA - 700001, INDIA
+GSTIN: 19YTAAH6755X1Z7 PAN: YTAAH6755X
+BILL TO: BHARAT BRASS FITTINGS, 76 SECTOR 18 MARKET, CHENNAI 600040 GSTIN: 06XUSPU9516Y1ZB
+================================================================================================
+                                        FREIGHT INVOICE
+================================================================================================
+DOCUMENT NO    : SMS25255566                      INVOICE DT     : 04/02/2025
+DUE DATE       : 21/03/2025                       CUSTOMER CODE  : C38848
+JOB NO         : FILE/SMS/25/2975                 EXPORTER INV. REF: EI-241440
+PLACE OF SUPPLY: 19 WEST BENGAL                   CURRENCY RATE (USD): 84.99
+DEPARTURE      : BLR - BENGALURU                  DEST.          : JFK - NEW YORK
+FLIGHT NO      : QR 253 / 02/02/2025              NO. OF PACKAGES: 115 PKGS
+TOTAL WEIGHT   : 1,814.283 KG                     CHARGEABLE WT  : 2,757.5 KG
+INCO           : EXW
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  AIR FREIGHT                       INR       286.92    2757.5      1.00       791181.90   0%
+  2  AWB CHARGES                       INR      1700.00         1      1.00         1700.00  18%
+  3  EDI FILING                        INR       950.00         1      1.00          950.00  18%
+  4  AUTOMATED MANIFEST SYSTEM FEE     USD        39.00         1     84.99         3314.61  18%
+  5  MISC. CHARGES                     INR      2400.00         1      1.00         2400.00  18%
+  6  TRANSPORTATION CHARGES            INR      9300.00         1      1.00         9300.00  12%
+  7  PORT WAREHOUSING                  INR     11400.00         1      1.00        11400.00  18%
+  8  CARGO EXAMINATION CHARGES         INR      2700.00         1      1.00         2700.00  18%
+  9  MYC / FUEL SURCHARGE              USD         1.10    2757.5     84.99       257795.92   0%
+ 10  X-RAY SCREENING                   INR      1000.00         1      1.00         1000.00  18%
+ 11  AGENCY CHARGES                    INR      4950.00         1      1.00         4950.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL (BEFORE TAX)             1086692.43
+                                                       CGST                              3115.32
+                                                       SGST                              3115.31
+                                                       TOTAL AMOUNT PAYABLE           1092923.06
+------------------------------------------------------------------------------------------------
+INR TEN LAKH NINETY TWO THOUSAND NINE HUNDRED TWENTY THREE AND PAISE SIX ONLY
+
+BANK: AXIS BANK | A/C NO 18779250371 | IFSC UTIB0842526
+SUBJECT TO MUMBAI JURISDICTION. E. & O.E.
+
+                                                            FOR SEABIRD MARITIME SERVICES PVT LTD
+
+                                                            AUTHORISED SIGNATORY

@@ -1,0 +1,133 @@
+{
+  "id": "dev-036",
+  "split": "dev",
+  "file": "invoices/dev-036.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 688563,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.826,
+    "rotation_deg": -0.66,
+    "blur_sigma": 0.35,
+    "noise_sigma": 4.1,
+    "encoding": "jpeg",
+    "jpeg_quality": 83,
+    "pixels": [
+      1403,
+      1384
+    ]
+  },
+  "fields": {
+    "Invoice No": "FF/2526/4121",
+    "Invoice Date": "2025-08-31",
+    "Container Number": "",
+    "MAWB No": "057-98891030",
+    "HAWB No": "SCM/24/40734",
+    "Vendor Name": "Sapphire Cargo Movers & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "752 KG",
+    "Sea Freight": "",
+    "Air Freight": 125368.2,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 1900,
+    "Transportation": 11600,
+    "Warehouse Charges Port": 10000,
+    "Examination Charges": "",
+    "Fuel Charges": 91871.4,
+    "Cargo Screening": 1650,
+    "Agency Charges": 12600,
+    "Shipping Bill Charges": 1450
+  },
+  "lines": [
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 125368.2,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Incidental Expenses",
+      "category": "Misc",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Transportation Charges",
+      "category": "Transportation",
+      "amount_inr": 11600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 10000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 91871.4,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 1650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 5500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 7100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1450,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

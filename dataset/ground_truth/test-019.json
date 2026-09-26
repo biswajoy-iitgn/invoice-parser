@@ -1,0 +1,124 @@
+{
+  "id": "test-019",
+  "split": "test",
+  "file": "invoices/test-019.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 537048,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.896,
+    "rotation_deg": -0.88,
+    "blur_sigma": 0.64,
+    "illumination": true,
+    "noise_sigma": 9.1,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 60,
+    "pixels": [
+      1397,
+      1394
+    ]
+  },
+  "fields": {
+    "Invoice No": "MAAAE2511503",
+    "Invoice Date": "2024-11-08",
+    "Container Number": "",
+    "MAWB No": "176-83907526",
+    "HAWB No": "OAS6331060",
+    "Vendor Name": "Orient Air & Sea Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1642.161 KG",
+    "Sea Freight": "",
+    "Air Freight": 382212.7,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 31700,
+    "Other Charges": 3250,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.65,
+    "Misc": 2300,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 2100,
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2200
+  },
+  "lines": [
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 382212.7,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Charges",
+      "category": "DAP Charges",
+      "amount_inr": 31700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 2300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "S/B Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Other Charges",
+      "category": "Other Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "test-031",
+  "split": "test",
+  "file": "invoices/test-031.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 154108,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "AMDCH2691495",
+    "Invoice Date": "2025-05-09",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Marigold Freight Systems (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "MFS/HBL/25-26/8931",
+    "Weight": "2828.3 KG",
+    "Sea Freight": 10376.51,
+    "Air Freight": "",
+    "Terminal Handling Charges": 9250,
+    "Airway Bill Charges": "",
+    "BL Charges": 5300,
+    "ENS Charges": 2287.44,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 900,
+    "DAP Charges": "",
+    "Other Charges": 600,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.72,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 5450,
+    "Examination Charges": 2150,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 10376.51,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 9250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 5300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Charges",
+      "category": "ENS Charges",
+      "amount_inr": 2287.44,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 5450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": true,
+    "gw": false
+  }
+}

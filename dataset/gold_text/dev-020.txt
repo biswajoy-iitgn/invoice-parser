@@ -1,0 +1,42 @@
+Silverline Global Logistics Pvt Ltd
+376, Sahar Road, Kolkata - 700001, India
+GSTIN 19TWEPL4206P1ZB | accounts@silverlinelogistics.example | +91 34 5019 5543
+TAX INVOICE
+Billed To
+Gajanan Castings Pvt. Ltd.
+77 Station Road, Delhi 110034
+GSTIN: 24UBTAE3434X1ZD
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Invoice No.	INV-2024-620445
+Inv. Date	04 Oct 2024
+A/c Code	SGL98145
+Shipment ID	JOB/SGL/25/4150
+Buyer Ref	PO-83177
+State	06 Haryana
+Exchange Rate (USD)	82.6300
+SHIPMENT DETAILS
+Airport of Departure	AMD - Ahmedabad	Dest.	LAX - Los Angeles
+Flight No	SQ 613 / 29 Sep 2024	MAWB No	618 0754 6626
+House AWB	HAWB867999	Pkgs	4 BOXES
+Wt (Gross)	433.556 Kgs	Chargeable Wt	452.0 KG
+Inco	CFR	S/Bill No	9650209 dt 23 Sep 2024
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Airfreight Charges	996531	USD	1,866.76	82.6300	154,250.38	0%	0.00	154,250.38
+2	Airway Bill Charges	996713	INR	1,400.00	1.00	1,400.00	18%	252.00	1,652.00
+3	EDI Filing	998599	INR	1,150.00	1.00	1,150.00	18%	207.00	1,357.00
+4	AMS Charges	996713	USD	34.00	82.6300	2,809.42	18%	505.70	3,315.12
+5	Port Warehousing	996729	INR	8,000.00	1.00	8,000.00	18%	1,440.00	9,440.00
+6	Airline Fuel Levy	996531	USD	329.96	82.6300	27,264.59	0%	0.00	27,264.59
+7	Cargo Screening	996719	INR	2,100.00	1.00	2,100.00	18%	378.00	2,478.00
+Total (Before Tax)	196,974.39
+CGST	1,391.35
+SGST	1,391.35
+Total Invoice Value	199,757.09
+INR One Lakh Ninety Nine Thousand Seven Hundred Fifty Seven and Paise Nine Only
+Yes Bank | A/c No 41903116388 | IFSC HDFC0196802
+Please quote invoice number with remittance.
+For Silverline Global Logistics Pvt Ltd
+
+
+Authorised Signatory

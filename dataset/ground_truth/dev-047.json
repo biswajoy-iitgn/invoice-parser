@@ -1,0 +1,122 @@
+{
+  "id": "dev-047",
+  "split": "dev",
+  "file": "invoices/dev-047.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 273245,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.95,
+    "rotation_deg": -0.6,
+    "blur_sigma": 0.26,
+    "noise_sigma": 3.1,
+    "encoding": "jpeg",
+    "jpeg_quality": 71,
+    "pixels": [
+      1974,
+      1296
+    ]
+  },
+  "fields": {
+    "Invoice No": "GFF/SE/25-26/18716",
+    "Invoice Date": "2025-04-14",
+    "Container Number": "",
+    "MAWB No": "176-46310456",
+    "HAWB No": "DEL-HA-471780",
+    "Vendor Name": "Globelink Freight Forwarders Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1435.494 KG",
+    "Sea Freight": "",
+    "Air Freight": 328220.3,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3150,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1500,
+    "DAP Charges": "",
+    "Other Charges": 2350,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.87,
+    "Misc": "",
+    "Transportation": 6650,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 108513.93,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 328220.3,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Air Waybill Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "category": "Transportation",
+      "amount_inr": 6650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge (FSC)",
+      "category": "Fuel Charges",
+      "amount_inr": 108513.93,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Courier Charges",
+      "category": "Other Charges",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 1550,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": true,
+    "date": false,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

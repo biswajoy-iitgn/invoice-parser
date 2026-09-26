@@ -1,0 +1,113 @@
+{
+  "id": "dev-012",
+  "split": "dev",
+  "file": "invoices/dev-012.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T2",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 107627,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1818
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI582214",
+    "Invoice Date": "2025-05-07",
+    "Container Number": "FFAU2638018",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Shipping Agencies Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "13174.9 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 600,
+    "VGM": "",
+    "EDI Fees": 1450,
+    "DAP Charges": "",
+    "Other Charges": 550,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": 6900,
+    "Warehouse Charges Port": 8550,
+    "Examination Charges": 1650,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1250
+  },
+  "lines": [
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 1650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 1450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 8550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 6900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Courier Charges",
+      "category": "Other Charges",
+      "amount_inr": 550,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "cntr": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,34 @@
+Gateway Logistics & Co.
+138, Sahar Road, Mumbai - 400001, India
+GSTIN: 27MBWCS8362M1ZA | PAN: MBWCS8362M
+accounts@gatewaylogistics.example | +91 23 8953 9599
+
+Bill To: Kaveri Agro Foods Ltd., 91 Park Street, Mumbai 400050 | GSTIN 09CJMCW9063E1ZA
+Invoice Ref	3336078853
+Dated	04-Nov-2024
+Payment Due	04-Dec-2024
+Cust. ID	C48739
+Job Ref	GLC/26/9554
+Your Ref	PO-84603
+State	06 Haryana
+INVOICE
+Load Port	INMUN - Mundra	POD	AEJEA - Jebel Ali	House BL Ref	GLCSE2662457
+Ctr #	GESU5658832, EGHU2899480 / 20GP	Seal No	SL3018576, SL5428695	No. of Packages	115 PKGS
+Total Weight	47,493.210 KG	Measurement	130.244 CBM	Terms of Delivery	EXW
+Shipping Bill No	9774069 dt 26-Oct-2024				
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	CHA Charges	996713	INR	1,200.00	1	1,200.00	1.00	0.00	1,200.00	108.00	108.00	1,416.00
+2	Shipping Bill Processing	996713	INR	2,000.00	1	2,000.00	1.00	0.00	2,000.00	180.00	180.00	2,360.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	3,200.00
+CGST	288.00
+SGST	288.00
+Round Off	0.00
+Grand Total	3,776.00
+INR Three Thousand Seven Hundred Seventy Six and Paise Zero Only
+BANK DETAILS
+HDFC Bank | A/c No 61408915272 | IFSC KKBK0652489
+Cheque / RTGS in favour of the company only.
+FOR GATEWAY LOGISTICS & CO.
+Authorised Signatory
+E & O.E.

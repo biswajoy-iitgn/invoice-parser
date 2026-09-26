@@ -1,0 +1,45 @@
+Navkar Express Cargo & Co.
+45, Mahipalpur Extn, Bengaluru - 560001, India
+GSTIN 29MATAN9392E1Z7 | accounts@navkarlogistics.example | +91 95 6678 5160
+TAX INVOICE
+Billed To
+Rotomech Engineering Pvt. Ltd.
+40 Anna Nagar 3rd Cross, Delhi 110034
+GSTIN: 27TCBAM9132J1ZE
+Consignee: Lion City Traders, Singapore
+Invoice No	AE/2425/4401
+Inv. Date	Nov 18, 2024
+Pay By	Dec 18, 2024
+Customer Code	CU21549
+Job Ref	FILE/NEC/24/2560
+Commercial Invoice No	CI255814
+Buyer Ref	PO-36836
+Place of Supply	24 Gujarat
+Exch. Rate	1 USD = 82.56 INR
+SHIPMENT DETAILS
+Port of Loading	INNSA - Nhava Sheva	Destination	JPYOK - Yokohama
+Vsl/Voy	CMA CGM Tage / 378E	Sailing Date	Nov 17, 2024
+MBL	COSUIN3826011	H B/L No	NECSE2499590
+Container No(s)	TCNU 974817 5	Packages	59 PKGS
+Gross Weight	19,529.7 Kgs	Measurement	33.694 CBM
+Terms of Delivery	FOB		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Ocean Freight Charges	996521	USD	980.00	82.56	80,908.80	5%	4,045.44	84,954.24
+2	Terminal Hdlg. Chgs.	996719	INR	5,400.00	1.00	5,400.00	18%	972.00	6,372.00
+3	BL Charges	996713	INR	4,900.00	1.00	4,900.00	18%	882.00	5,782.00
+4	Verified Gross Mass Declaration	996719	INR	1,300.00	1.00	1,300.00	18%	234.00	1,534.00
+5	EDI Transmission Fee	998599	INR	400.00	1.00	400.00	18%	72.00	472.00
+6	Other Charges	998599	INR	5,400.00	1.00	5,400.00	18%	972.00	6,372.00
+Net Amount	98,308.80
+CGST	3,588.72
+SGST	3,588.72
+Round Off	-0.24
+Grand Total	105,486.00
+INR One Lakh Five Thousand Four Hundred Eighty Six and Paise Zero Only
+Axis Bank | A/c No 72869943033 | IFSC YESB0936586
+Cheque / RTGS in favour of the company only.
+For Navkar Express Cargo & Co.
+
+
+Authorised Signatory

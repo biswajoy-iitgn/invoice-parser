@@ -1,0 +1,143 @@
+{
+  "id": "test-066",
+  "split": "test",
+  "file": "invoices/test-066.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "faint": true,
+    "watermark": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.916,
+    "rotation_deg": 0.23,
+    "blur_sigma": 0.32,
+    "noise_sigma": 5.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 80,
+    "pixels": [
+      1545,
+      1568
+    ]
+  },
+  "fields": {
+    "Invoice No": "AE/2425/0631",
+    "Invoice Date": "2025-10-20",
+    "Container Number": "MSCU5578805",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Bluewater Express Cargo Ltd.",
+    "Bill of Lading / HBL": "55233530944",
+    "Weight": "4246.1 KG",
+    "Sea Freight": 93060.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 8100,
+    "Airway Bill Charges": "",
+    "BL Charges": 4300,
+    "ENS Charges": "",
+    "Seal Charges": 850,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 13900,
+    "Ex Rate": 83.09,
+    "Misc": 1050,
+    "Transportation": 12100,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 1800,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 4250,
+    "Shipping Bill Charges": 900
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 93060.8,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 4300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Origin Inland Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 13900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 12100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 1800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

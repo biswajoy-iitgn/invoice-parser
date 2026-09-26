@@ -1,0 +1,104 @@
+{
+  "id": "test-073",
+  "split": "test",
+  "file": "invoices/test-073.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.896,
+    "rotation_deg": -0.69,
+    "blur_sigma": 0.44,
+    "noise_sigma": 3.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 78,
+    "pixels": [
+      1520,
+      1307
+    ]
+  },
+  "fields": {
+    "Invoice No": "SE/24-25/5261",
+    "Invoice Date": "2026-02-14",
+    "Container Number": "",
+    "MAWB No": "020-14213393",
+    "HAWB No": "",
+    "Vendor Name": "Orient Cargo Movers Private Limited",
+    "Bill of Lading / HBL": "",
+    "Weight": "1033.7 KG",
+    "Sea Freight": "",
+    "Air Freight": 458518.83,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2550,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 3201.5,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.25,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 2000,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 1900,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 458518.83,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airwaybill Issuance",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AMS Charges",
+      "category": "AMS Charges",
+      "amount_inr": 3201.5,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": true,
+    "mawb": true,
+    "gw": false
+  }
+}

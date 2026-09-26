@@ -1,0 +1,70 @@
+Arihant Air & Sea & Co.
+373, Residency Road, Pune - 411001, India
+GSTIN
+27HTSFM4160G1ZB
+PAN
+HTSFM4160G
+CONTACT
+accounts@arihantlogistics.example | +91 57 7626 3193
+SERVICE INVOICE
+DUPLICATE
+BILL TO
+Nirmal Pharma Exports LLP
+32 FC Road, Noida 201301
+GSTIN 09PMVCH9049V1ZD
+Consignee: Bellini Tessuti S.p.A., Genoa, Italy
+INVOICE DETAILS
+INV. DATE
+28-Jan-2026
+INVOICE REF
+AAS/AE/24-25/49249
+PAY BY
+14-Mar-2026
+CLIENT CODE
+AAS48711
+SHIPPER INV NO
+EXP/240272
+YOUR REF
+PO-57057
+PLACE OF SUPPLY
+24 Gujarat
+EXCHANGE RATE (USD)
+82.6984
+SHIPMENT
+Place of Receipt: ICD Khodiyar
+Port of Loading: INCOK - Kochi
+Destination: SEGOT - Gothenburg
+Vsl/Voy: MSC Aurora / 604W
+SOB Date: 18-Jan-2026
+M B/L No: ONEYAB9578047
+HBL: 46393691641
+Equipment No: TGBU6988589 / 40HC
+Seal No(s): ML-IN9425766
+Pkgs: 15 PKGS
+Wt (Gross): 12,360.68 Kgs
+CBM: 49.820 CBM
+Incoterms: FOB
+SB No & Date: 3285718 dt 12-Jan-2026
+CARGO
+Organic chemicals (non-haz) | 15 PKGS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Marine Freight	996521	1	410.00	USD	82.6984	33,906.34	0%	33,906.34
+2	Container Terminal Charges	996719	1	13,550.00	INR	1.00	13,550.00	18%	15,989.00
+3	THC Port of Loading	996719	1	5,850.00	INR	1.00	5,850.00	18%	6,903.00
+4	HBL Fee	996713	1	3,650.00	INR	1.00	3,650.00	18%	4,307.00
+5	Verified Gross Mass Declaration	996719	1	1,100.00	INR	1.00	1,100.00	18%	1,298.00
+6	Cargo Handling Charges	996719	1	8,450.00	INR	1.00	8,450.00	18%	9,971.00
+7	Pre-Carriage Haulage	996511	1	29,950.00	INR	1.00	29,950.00	5%	31,447.50
+8	ISPS Charges	998599	1	8,200.00	INR	1.00	8,200.00	18%	9,676.00
+Net Amount	104,656.34
+CGST	4,420.75
+SGST	4,420.75
+Total Invoice Value	113,497.84
+Amount in words: INR One Lakh Thirteen Thousand Four Hundred Ninety Seven and Paise Eighty Four Only
+BANK DETAILS
+Yes Bank | A/c No 83445819313 | IFSC UTIB0657987
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR ARIHANT AIR & SEA & CO.
+Authorised Signatory
+E & O.E.
+GST AUDITED

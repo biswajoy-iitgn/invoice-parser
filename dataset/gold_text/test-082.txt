@@ -1,0 +1,41 @@
+Seabird Freight Systems Pvt Ltd
+393, Mahipalpur Extn, Chennai - 600001, India
+GSTIN: 33DSLCA7366F1ZA | accounts@seabirdlogistics.example | +91 47 7459 3039
+TAX INVOICE
+
+Bill No SFS25208529    Date 15th September 2024
+
+Client Code: C73561  |  File No: SFS/25/2167  |  Your Ref: PO-74948  |  State: 06 Haryana
+
+To,
+Neelkanth Chemicals Ltd.
+55 Gandhi Nagar, Kolkata 700016
+GSTIN: 19TKRFW9556S1ZS
+
+Being charges in respect of your shipment of Auto components (brake parts) consigned to Lone Star Industrial, Houston, USA. Place of Receipt ICD Sabarmati; Load Port INCOK - Kochi; Port of Discharge USHOU - Houston; Vsl/Voy MSC Aurora / 576N; SOB Date 11th September 2024; Ocean B/L No MEDUAB5168858; House B/L 33649015424; Container No GESU 467329 9; Seal SL5851206; Pkgs 113 BOXES; G.W. 15,887 KGS; Inco DAP; Shipping Bill No 8387841 dt 5th September 2024.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	EDI Filing	650.00
+2	High Security Seal	800.00
+3	HBL Fee	2,650.00
+4	THC	10,150.00
+5	Marine Freight (USD 1,915.00)	161,360.58
+6	Inland Haulage (IHC)	29,800.00
+7	Container Terminal Charges	16,050.00
+8	DAP Delivery Charges	9,000.00
+9	VGM Certificate	1,200.00
+	Total Taxable Value	231,660.58
+	Add: IGST	20,722.03
+	Total Invoice Value	252,382.61
+
+Exch. Rate: 1 USD = INR 84.2614
+
+(INR Two Lakh Fifty Two Thousand Three Hundred Eighty Two and Paise Sixty One Only)
+
+State Bank of India | A/c No 16403886487 | IFSC SBIN0946408
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Seabird Freight Systems Pvt Ltd
+
+
+Authorised Signatory

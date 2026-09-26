@@ -1,0 +1,40 @@
+NAVKAR AIR & SEA LLP
+429, STRAND ROAD, PUNE - 411001, INDIA
+GSTIN: 27BLUAT5052R1ZD PAN: BLUAT5052R
+BILL TO: GAJANAN CASTINGS PVT. LTD., 60 PARK STREET, DELHI 110034 GSTIN: 29AFXAE1826Y1ZB
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+TAX INVOICE NO : NAS24804126                      DATE OF ISSUE  : 03/05/25
+DUE ON         : 18/05/25                         CLIENT CODE    : C29964
+FILE NO        : JOB/NAS/24/2628                  STATE          : 27 MAHARASHTRA
+ROE            : EUR 90.81                        AIRPORT OF DEPARTURE: DEL - DELHI
+DEST.          : AMS - AMSTERDAM                  FLIGHT / DATE  : SQ 367 / 03/05/25
+MASTER AIRWAY BILL NO: 618 9181 2081              HOUSE AIRWAY BILL NO: NAS/25/28992
+PKGS           : 115 CTNS                         GROSS MASS     : 656.018 KG
+CHARGEABLE WT  : 1,028.5 KG                       INCOTERMS      : EXW
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  AIRLINE FREIGHT CHARGES           EUR         1.48    1028.5     90.81       138229.17   0%
+  2  AIRWAY BILL CHARGES               INR      2700.00         1      1.00         2700.00  18%
+  3  E-MANIFEST EDI TRANSMISSION       INR       400.00         1      1.00          400.00  18%
+  4  EXPORT HANDLING CHARGES           INR      3550.00         1      1.00         3550.00  18%
+  5  SUNDRIES                          INR       400.00         1      1.00          400.00  18%
+  6  EXAMINATION CHARGES               INR      3400.00         1      1.00         3400.00  18%
+  7  FUEL SURCHARGE                    EUR         0.93    1028.5     90.81        86860.67   0%
+  8  PEAK SEASON SURCHARGE             INR      7050.00         1      1.00         7050.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL TAXABLE VALUE             242589.84
+                                                       CGST                              1575.00
+                                                       SGST                              1575.00
+                                                       TOTAL INVOICE VALUE             245739.84
+------------------------------------------------------------------------------------------------
+INR TWO LAKH FORTY FIVE THOUSAND SEVEN HUNDRED THIRTY NINE AND PAISE EIGHTY FOUR ONLY
+
+BANK: KOTAK MAHINDRA BANK | A/C NO 38557472424 | IFSC HDFC0671046
+CHEQUE / RTGS IN FAVOUR OF THE COMPANY ONLY.
+
+                                                            FOR NAVKAR AIR & SEA LLP
+
+                                                            AUTHORISED SIGNATORY

@@ -1,0 +1,104 @@
+{
+  "id": "test-071",
+  "split": "test",
+  "file": "invoices/test-071.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.881,
+    "rotation_deg": -0.78,
+    "blur_sigma": 0.39,
+    "noise_sigma": 5.5,
+    "encoding": "jpeg",
+    "jpeg_quality": 80,
+    "pixels": [
+      1497,
+      1324
+    ]
+  },
+  "fields": {
+    "Invoice No": "4348312989",
+    "Invoice Date": "2024-08-30",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Harbourline Forwarding Private Limited",
+    "Bill of Lading / HBL": "HBL2783821",
+    "Weight": "5984.4 KG",
+    "Sea Freight": 24102.24,
+    "Air Freight": "",
+    "Terminal Handling Charges": 10250,
+    "Airway Bill Charges": "",
+    "BL Charges": 5400,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2744.94,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.18,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 1900,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 10250,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AMS Charges",
+      "category": "AMS Charges",
+      "amount_inr": 2744.94,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 24102.24,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 5400,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "gw": false
+  }
+}

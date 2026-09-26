@@ -1,0 +1,100 @@
+{
+  "id": "test-052",
+  "split": "test",
+  "file": "invoices/test-052.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 115109,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.846,
+    "rotation_deg": -0.06,
+    "blur_sigma": 0.4,
+    "noise_sigma": 4.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 75,
+    "pixels": [
+      1423,
+      1119
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI233265",
+    "Invoice Date": "2026-05-27",
+    "Container Number": "",
+    "MAWB No": "618-01653960",
+    "HAWB No": "HAWB996714",
+    "Vendor Name": "Samudra Cargo Movers LLP",
+    "Bill of Lading / HBL": "",
+    "Weight": "952 KG",
+    "Sea Freight": "",
+    "Air Freight": 495655.04,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2443,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.25,
+    "Misc": 1350,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 80893.89,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Incidental Expenses",
+      "category": "Misc",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "category": "AMS Charges",
+      "amount_inr": 2443,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Export Freight",
+      "category": "Air Freight",
+      "amount_inr": 495655.04,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 80893.89,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

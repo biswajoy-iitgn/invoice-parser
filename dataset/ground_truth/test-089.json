@@ -1,0 +1,132 @@
+{
+  "id": "test-089",
+  "split": "test",
+  "file": "invoices/test-089.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 188871,
+  "maker_difficulty": {
+    "faint": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.822,
+    "rotation_deg": -0.69,
+    "perspective": true,
+    "blur_sigma": 0.48,
+    "illumination": true,
+    "noise_sigma": 13.3,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 60,
+    "pixels": [
+      1278,
+      1426
+    ]
+  },
+  "fields": {
+    "Invoice No": "SSC26011501",
+    "Invoice Date": "2024-11-13",
+    "Container Number": "TCNU0022957, HLXU6697018",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Silverline Supply Chain Solutions (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "SSC/HBL/24-25/2306",
+    "Weight": "45654.98 KG",
+    "Sea Freight": 291423.6,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 2000,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 2950,
+    "AMS Charges": 3190.14,
+    "Handling Charges": 8950,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.22,
+    "Misc": "",
+    "Transportation": 3950,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 7600,
+    "Cargo Screening": "",
+    "Agency Charges": 4050,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 291423.6,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Certificate",
+      "category": "VGM",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "AMS Charges",
+      "category": "AMS Charges",
+      "amount_inr": 3190.14,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 8950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 3950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Adjustment Charges",
+      "category": "Fuel Charges",
+      "amount_inr": 7600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Survey Charges",
+      "category": "Other Charges",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "id": "dev-014",
+  "split": "dev",
+  "file": "invoices/dev-014.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T2",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 195396,
+  "maker_difficulty": {
+    "faint": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.918,
+    "rotation_deg": -0.13,
+    "blur_sigma": 0.49,
+    "noise_sigma": 5.3,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 73,
+    "pixels": [
+      1545,
+      1547
+    ]
+  },
+  "fields": {
+    "Invoice No": "3091703546",
+    "Invoice Date": "2026-03-26",
+    "Container Number": "",
+    "MAWB No": "098-46712562",
+    "HAWB No": "BOM-HA-789767",
+    "Vendor Name": "Tricolour Forwarding Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1914.033 KG",
+    "Sea Freight": "",
+    "Air Freight": 266057.75,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3000,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 850,
+    "DAP Charges": "",
+    "Other Charges": 2300,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.01,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 25450,
+    "Examination Charges": 1950,
+    "Fuel Charges": 152516.93,
+    "Cargo Screening": 3400,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 3400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 10450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Cleaning Charges",
+      "category": "Other Charges",
+      "amount_inr": 2300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 15000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 152516.93,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "A/F Charges",
+      "category": "Air Freight",
+      "amount_inr": 266057.75,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

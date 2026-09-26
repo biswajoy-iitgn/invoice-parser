@@ -1,0 +1,65 @@
+Marigold Freight Systems (India) Pvt. Ltd.
+453, Bund Garden Road, Pune - 411001, India
+GSTIN 27RCLFV3441T1Z5 | accounts@marigoldlogistics.example | +91 82 3580 3276
+INVOICE
+BILL TO
+Sunrise Ceramics LLP
+10 Gandhi Nagar, Ahmedabad 380015 | GSTIN 19EKNFX6905L1ZA
+DOCUMENT NO
+AMDCH2691495
+DOCUMENT DATE
+09/05/25
+DUE ON
+23/06/25
+CUSTOMER CODE
+C23014
+SHIPMENT ID
+JOB/MFS/25/2796
+PARTY INVOICE NO
+EI-243604
+BUYER REF
+PO-57322
+PLACE OF SUPPLY
+09 Uttar Pradesh
+CONVERSION RATE
+1 USD = 84.72 INR
+LOAD PORT
+INCOK - Kochi
+POD
+ITGOA - Genoa
+VSL/VOY
+SSL Mumbai / 184W
+SAILING DATE
+03/05/25
+FCR / HBL NO
+MFS/HBL/25-26/8931
+PKGS
+71 CTNS
+WEIGHT
+2,828.3 Kgs
+VOLUME
+2.606 CBM
+TERMS OF DELIVERY
+DAP
+SB NO & DATE
+5245723 dt 30/04/25
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Sea Freight Charges	2.606	47.00	USD	84.72	10,376.51	5%
+THC Port of Loading	1	9,250.00	INR	1.00	9,250.00	18%
+HBL Fee	1	5,300.00	INR	1.00	5,300.00	18%
+ENS Charges	1	27.00	USD	84.72	2,287.44	18%
+EDI Charges	1	900.00	INR	1.00	900.00	18%
+CFS Charges	1	5,450.00	INR	1.00	5,450.00	18%
+Customs Examination	1	2,150.00	INR	1.00	2,150.00	18%
+Port Security Surcharge	1	600.00	INR	1.00	600.00	18%
+Total (Before Tax)	36,313.95
+IGST	5,187.57
+Round Off	0.48
+Invoice Total	41,502.00
+INR Forty One Thousand Five Hundred Two and Paise Zero Only
+Yes Bank | A/c No 38957956531 | IFSC SBIN0679796
+Cheque / RTGS in favour of the company only.
+For Marigold Freight Systems (India) Pvt. Ltd.
+
+
+Authorised Signatory

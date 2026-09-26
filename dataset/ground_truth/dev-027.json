@@ -1,0 +1,131 @@
+{
+  "id": "dev-027",
+  "split": "dev",
+  "file": "invoices/dev-027.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T3",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 666761,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.823,
+    "rotation_deg": 1.16,
+    "perspective": true,
+    "blur_sigma": 0.48,
+    "illumination": true,
+    "noise_sigma": 8.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 64,
+    "pixels": [
+      1283,
+      977
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2026-973298",
+    "Invoice Date": "2024-07-10",
+    "Container Number": "",
+    "MAWB No": "235-77974433",
+    "HAWB No": "HAWB995689",
+    "Vendor Name": "Bluewater Freight Systems & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "904 KG",
+    "Sea Freight": "",
+    "Air Freight": 139957.7,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1850,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 3750,
+    "AMS Charges": "",
+    "Handling Charges": 7150,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.81,
+    "Misc": 300,
+    "Transportation": "",
+    "Warehouse Charges Port": 23650,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 5950,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Airline Freight Charges",
+      "category": "Air Freight",
+      "amount_inr": 139957.7,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "AWB Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 7150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 15300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 8350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 5950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ISPS Charges",
+      "category": "Other Charges",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": true,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

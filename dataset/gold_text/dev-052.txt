@@ -1,0 +1,51 @@
+Zenith Forwarding Pvt Ltd
+382, Nariman Point, Kolkata - 700001, India
+GSTIN 19EBEAR6278E1ZA | accounts@zenithlogistics.example | +91 97 9812 9621
+TAX INVOICE
+Invoice No: DELAE2699240
+Inv. Date: 07 May 2024
+A/c Code: ZFP85977
+Place of Supply: 27 Maharashtra
+Bill To
+Apex Pumps & Valves Pvt. Ltd.
+94 Linking Road, Delhi 110034
+GSTIN 19CEWAM2336V1ZD
+Consignee: Nordic Parts AB, Gothenburg, Sweden
+Place of Receipt: ICD Sabarmati
+POL: INCOK - Kochi
+Port of Discharge: DEHAM - Hamburg
+Vessel / Voyage: Maersk Kinloss / 235A
+ETD: 30 Apr 2024
+Carrier B/L: COSUIN1245002
+Equipment No: CMAU3530945 / 40GP
+Seal No: SL8862594
+Packages: 26 PALLETS
+Gross Mass: 21,543 KGS
+Inco: FCA
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	THC - Origin	CNTR	INR	16,100.00	1	1.00	16,100.00	18%	18,998.00
+2	High Security Seal	CNTR	INR	1,100.00	1	1.00	1,100.00	18%	1,298.00
+3	SOLAS Weighment Fee	CNTR	INR	600.00	1	1.00	600.00	18%	708.00
+4	Hdlg. Charges	SHPT	INR	3,550.00	1	1.00	3,550.00	18%	4,189.00
+5	Origin Inland Haulage	CNTR	INR	30,650.00	1	1.00	30,650.00	18%	36,167.00
+6	ACC Warehouse Charges	SHPT	INR	10,400.00	1	1.00	10,400.00	18%	12,272.00
+	Sub Total - Origin Charges	62,400.00		73,632.00
+Documentation & Filing
+7	BL Charges	SHPT	INR	5,100.00	1	1.00	5,100.00	18%	6,018.00
+8	ENS Declaration	SHPT	INR	2,400.00	1	1.00	2,400.00	18%	2,832.00
+	Sub Total - Documentation & Filing	7,500.00		8,850.00
+Freight Charges
+9	Seafreight Export	CNTR	EUR	1,615.00	1	90.51	1,46,173.65	0%	1,46,173.65
+10	Bunker Adjustment Factor	CNTR	INR	3,750.00	1	1.00	3,750.00	0%	3,750.00
+	Sub Total - Freight Charges	1,49,923.65		1,49,923.65
+Taxable Amount	2,19,823.65
+IGST	12,582.00
+Invoice Total	2,32,405.65
+INR Two Lakh Thirty Two Thousand Four Hundred Five and Paise Sixty Five Only
+State Bank of India | A/c No 11600833199 | IFSC SBIN0185084
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Zenith Forwarding Pvt Ltd
+
+
+Authorised Signatory

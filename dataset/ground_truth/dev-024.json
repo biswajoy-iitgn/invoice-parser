@@ -1,0 +1,119 @@
+{
+  "id": "dev-024",
+  "split": "dev",
+  "file": "invoices/dev-024.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 145822,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.87,
+    "rotation_deg": -0.69,
+    "blur_sigma": 0.45,
+    "noise_sigma": 4.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 76,
+    "pixels": [
+      1474,
+      1093
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI756908",
+    "Invoice Date": "2024-10-25",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Northstar Forwarding LLP",
+    "Bill of Lading / HBL": "NFLSE2498725",
+    "Weight": "453 KG",
+    "Sea Freight": 7632.46,
+    "Air Freight": "",
+    "Terminal Handling Charges": 13800,
+    "Airway Bill Charges": "",
+    "BL Charges": 2700,
+    "ENS Charges": 3369.93,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.4085,
+    "Misc": 1150,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 17650,
+    "Cargo Screening": "",
+    "Agency Charges": 1150,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 7632.46,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 13800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Declaration",
+      "category": "ENS Charges",
+      "amount_inr": 3369.93,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 1150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bunker Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 17650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 1150,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": true,
+    "date": false,
+    "hbl": false,
+    "gw": false
+  }
+}

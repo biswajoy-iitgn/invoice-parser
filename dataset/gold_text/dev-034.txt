@@ -1,0 +1,55 @@
+Konark Air & Sea LLP
+420, CG Road, Pune - 411001, India
+GSTIN 27PVVFH7068J1ZC | accounts@konarklogistics.example | +91 22 6485 8070
+INVOICE
+BILL TO
+Shreeji Polymers Ltd.
+85 Nehru Street, Noida 201301 | GSTIN 07LJLCJ6755X1ZE
+INVOICE NO
+INV-2026-392197
+DATED
+19.10.2024
+CUST. ID
+C26755
+JOB NO
+KAS/25/7485
+PLACE OF SUPPLY
+29 Karnataka
+ORIGIN
+MAA - Chennai
+DEST.
+AMS - Amsterdam
+FLIGHT NO
+QR 132 / 19.10.2024
+MASTER AWB
+15764617081
+HAWB
+KAS9298163
+PACKAGES
+58 PALLETS
+TOTAL WEIGHT
+1,375 KGS
+CH. WT
+1,691.5 KG
+INCOTERMS
+DAP
+SB NO & DATE
+3122102 dt 07.10.2024
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+AWB Charges	1	2,000.00	INR	1.00	2,000.00	18%
+DAP Terminal & Delivery	1	19,350.00	INR	1.00	19,350.00	18%
+Examination Fee	1	4,050.00	INR	1.00	4,050.00	18%
+Fuel Surcharge (FSC)	1691.5	70.85	INR	1.00	1,19,842.78	0%
+ISPS Charges	1	1,750.00	INR	1.00	1,750.00	18%
+Taxable Amount	1,46,992.78
+CGST	2,443.50
+SGST	2,443.50
+Total Invoice Value	1,51,879.78
+INR One Lakh Fifty One Thousand Eight Hundred Seventy Nine and Paise Seventy Eight Only
+Axis Bank | A/c No 93809055595 | IFSC HDFC0833983
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Konark Air & Sea LLP
+
+
+Authorised Signatory
+ORIGINAL

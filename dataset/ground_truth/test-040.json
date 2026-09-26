@@ -1,0 +1,136 @@
+{
+  "id": "test-040",
+  "split": "test",
+  "file": "invoices/test-040.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T4",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 341981,
+  "maker_difficulty": {
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.826,
+    "rotation_deg": 0.48,
+    "blur_sigma": 0.72,
+    "illumination": true,
+    "noise_sigma": 11.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 65,
+    "pixels": [
+      1278,
+      1272
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI634413",
+    "Invoice Date": "2026-05-13",
+    "Container Number": "EGHU7994290",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Anchor Shipping Agencies & Co.",
+    "Bill of Lading / HBL": "ASAMU2474306",
+    "Weight": "5713 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 2050,
+    "EDI Fees": 450,
+    "DAP Charges": "",
+    "Other Charges": 8300,
+    "AMS Charges": "",
+    "Handling Charges": 5650,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 800,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 5850,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 4550,
+    "Shipping Bill Charges": 1500
+  },
+  "lines": [
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "category": "VGM",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 5650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Incidental Expenses",
+      "category": "Misc",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "SB Filing Fee",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 7700,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

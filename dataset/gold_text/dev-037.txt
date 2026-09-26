@@ -1,0 +1,55 @@
+Gateway Express Cargo & Co.
+162, CG Road, New Delhi - 110037, India
+GSTIN 07RXAPR9973E1Z7 | accounts@gatewaylogistics.example | +91 76 9327 3029
+FREIGHT INVOICE
+BILL TO
+Neelkanth Chemicals Ltd.
+68 MG Road, Bengaluru 560001 | GSTIN 27UWTFE4055G1ZA
+INVOICE NO
+DELCH2502734
+DATED
+02-Apr-26
+PAYMENT DUE
+02-May-26
+A/C CODE
+GEC72634
+FILE NO
+GEC/25/5992
+BUYER REF
+PO-52567
+PLACE OF SUPPLY
+33 Tamil Nadu
+AIRPORT OF DEPARTURE
+BOM - Mumbai
+DESTINATION
+JFK - New York
+AIRLINE AWB NO
+020 0416 7472
+PACKAGES
+114 CTNS
+TOTAL WEIGHT
+1,895.221 KGS
+CHARGEABLE WEIGHT
+2,638.0 KG
+INCO
+DAP
+SHIPPING BILL NO
+6509448 dt 26-Mar-26
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Hdlg. Charges	1	6,550.00	INR	1.00	6,550.00	18%
+Cartage Charges	1	11,650.00	INR	1.00	11,650.00	18%
+Customs Examination	1	4,250.00	INR	1.00	4,250.00	18%
+Cargo Security Scan	1	1,950.00	INR	1.00	1,950.00	18%
+Clearing Agency Fee	1	4,450.00	INR	1.00	4,450.00	18%
+CHA Charges	1	1,200.00	INR	1.00	1,200.00	18%
+Total Taxable Value	30,050.00
+CGST	2,704.50
+SGST	2,704.50
+Total Amount Payable	35,459.00
+INR Thirty Five Thousand Four Hundred Fifty Nine and Paise Zero Only
+Yes Bank | A/c No 99336382912 | IFSC HDFC0639972
+Cheque / RTGS in favour of the company only.
+For Gateway Express Cargo & Co.
+
+
+Authorised Signatory

@@ -1,0 +1,83 @@
+{
+  "id": "dev-038",
+  "split": "dev",
+  "file": "invoices/dev-038.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 688563,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.899,
+    "rotation_deg": 0.72,
+    "blur_sigma": 0.44,
+    "noise_sigma": 4.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 73,
+    "pixels": [
+      1524,
+      1193
+    ]
+  },
+  "fields": {
+    "Invoice No": "IEC/FF/2425/55912",
+    "Invoice Date": "2024-10-27",
+    "Container Number": "",
+    "MAWB No": "235-80231631",
+    "HAWB No": "HAWB399868",
+    "Vendor Name": "Indus Express Cargo & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "",
+    "Sea Freight": "",
+    "Air Freight": 585856.12,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 96.4477,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 200336.34,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "A/F Charges",
+      "category": "Air Freight",
+      "amount_inr": 585856.12,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Adjustment Charges",
+      "category": "Fuel Charges",
+      "amount_inr": 200336.34,
+      "currency": "EUR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mawb": false,
+    "hawb": false
+  }
+}

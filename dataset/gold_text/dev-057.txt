@@ -1,0 +1,51 @@
+Arihant Air & Sea Ltd.
+381, Bund Garden Road, Pune - 411001, India
+GSTIN 27ETSCH7531V1ZC | accounts@arihantlogistics.example | +91 72 6897 5825
+INVOICE
+Invoice #: DELAE2631180
+Invoice Dt: 2025-03-21
+Cust. ID: CU95505
+Shipment ID: AAS/24/0484
+Buyer Ref: PO-58363
+State: 24 Gujarat
+Bill To
+Nirmal Pharma Exports LLP
+71 Park Street, Pune 411005
+GSTIN 09EALFV2423X1ZS
+Consignee: Maas Trading BV, Rotterdam, Netherlands
+Load Port: INNSA - Nhava Sheva
+POD: SEGOT - Gothenburg
+Vessel / Voyage: Maersk Kinloss / 277A
+Sailing Date: 2025-03-15
+Master B/L: COSUBO4266749
+House B/L: AASNS2533083
+No. of Packages: 101 CTNS
+Gross Wt: 4,411.982 KG
+Incoterms: EXW
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	THC - Origin	SHPT	INR	16,100.00	1	1.00	16,100.00	18%	18,998.00
+2	Storage Charges at CFS	SHPT	INR	5,000.00	1	1.00	5,000.00	18%	5,900.00
+3	Ground Rent	SHPT	INR	5,200.00	1	1.00	5,200.00	18%	6,136.00
+	Sub Total - Origin Charges	26,300.00		31,034.00
+Documentation & Filing
+4	EDI Fees	SHPT	INR	900.00	1	1.00	900.00	18%	1,062.00
+5	S.B. Charges	SHPT	INR	600.00	1	1.00	600.00	18%	708.00
+6	Entry Summary Declaration Fee	SHPT	INR	3,200.00	1	1.00	3,200.00	18%	3,776.00
+	Sub Total - Documentation & Filing	4,700.00		5,546.00
+Freight Charges
+7	Ocean Freight Charges	W/M	USD	31.00	8.332	86.64	22,378.25	0%	22,378.25
+8	Low Sulphur Surcharge (LSS)	SHPT	INR	18,600.00	1	1.00	18,600.00	0%	18,600.00
+	Sub Total - Freight Charges	40,978.25		40,978.25
+Total (Before Tax)	71,978.25
+CGST	2,790.00
+SGST	2,790.00
+Total Invoice Value	77,558.25
+INR Seventy Seven Thousand Five Hundred Fifty Eight and Paise Twenty Five Only
+State Bank of India | A/c No 18898276162 | IFSC KKBK0504176
+Please quote invoice number with remittance.
+For Arihant Air & Sea Ltd.
+
+
+Authorised Signatory
+PAID

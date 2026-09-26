@@ -1,0 +1,106 @@
+{
+  "id": "test-005",
+  "split": "test",
+  "file": "invoices/test-005.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 768072,
+  "maker_difficulty": {
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.929,
+    "rotation_deg": -0.62,
+    "blur_sigma": 0.45,
+    "noise_sigma": 3.3,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 85,
+    "pixels": [
+      1576,
+      1502
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI638173",
+    "Invoice Date": "2026-03-29",
+    "Container Number": "",
+    "MAWB No": "157-65185971",
+    "HAWB No": "HAWB581029",
+    "Vendor Name": "Coastal Maritime Services Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "156.3 KG",
+    "Sea Freight": "",
+    "Air Freight": 75380.3,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1200,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 400,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.92,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 17482.21,
+    "Cargo Screening": 1200,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Export Freight",
+      "category": "Air Freight",
+      "amount_inr": 75380.3,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "AWB Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 17482.21,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

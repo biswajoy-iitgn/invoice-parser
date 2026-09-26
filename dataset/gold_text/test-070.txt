@@ -1,0 +1,33 @@
+Bluewater Freight Forwarders Pvt. Ltd.
+353, Rajaji Salai, Mumbai - 400001, India
+GSTIN: 27FUXCP1566D1Z5   PAN: FUXCP1566D
+accounts@bluewaterlogistics.example | +91 64 6335 9536
+SERVICE INVOICE
+Customer: Deccan Granite Exports, 79 FC Road, Delhi 110034 (GSTIN 06WLXPN9403T1ZD)
+Invoice Date	Jul 12, 2025	Bill No	INV-2024-427433
+Due Date	Jul 27, 2025	Cust. ID	CU87409
+Shipment ID	JOB/BFF/24/5245	Party Invoice No	EXP/269935
+PO No	PO-25066	State	27 Maharashtra
+Departure	BOM - Mumbai	Airport of Destination	HKG - Hong Kong
+Flight No	SQ 381 / Jul 12, 2025	MAWB	618-33136434
+House Airway Bill No	BFF/24/89377	Pkgs	88 PKGS
+Weight	1455.987 kg	Ch. Wt	1,529.0 KG
+Inco	DAP	SB No & Date	7409346 dt Jul 06, 2025
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Freight Charges - Air	996531	3,24,255.03	29,182.96	29,182.95	3,82,620.94
+2	Air Waybill Fee	996713	1,650.00	148.50	148.50	1,947.00
+3	Hdlg. Charges	996719	3,850.00	346.50	346.50	4,543.00
+4	Exam. Charges	998599	3,450.00	310.50	310.50	4,071.00
+5	Airline Fuel Levy	996531	1,11,326.49	10,019.39	10,019.38	1,31,365.26
+6	Security Screening Fee	996719	1,550.00	139.50	139.50	1,829.00
+Total (Before Tax)	4,46,081.52
+CGST	40,147.34
+SGST	40,147.34
+Total Amount Payable	5,26,376.20
+INR Five Lakh Twenty Six Thousand Three Hundred Seventy Six and Paise Twenty Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 95289823585 | IFSC KKBK0131465
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR BLUEWATER FREIGHT FORWARDERS PVT. LTD.
+Authorised Signatory
+E & O.E.

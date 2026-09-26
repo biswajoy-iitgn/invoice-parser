@@ -1,0 +1,109 @@
+{
+  "id": "dev-042",
+  "split": "dev",
+  "file": "invoices/dev-042.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 505435,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "KSA26062225",
+    "Invoice Date": "2024-01-24",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "KSA8185293",
+    "Vendor Name": "Kestrel Shipping Agencies Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "50.777 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1050,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 700,
+    "Transportation": 16900,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 6400,
+    "Fuel Charges": "",
+    "Cargo Screening": 2100,
+    "Agency Charges": 4450,
+    "Shipping Bill Charges": 3200
+  },
+  "lines": [
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Incidental Expenses",
+      "category": "Misc",
+      "amount_inr": 700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 16900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Examination Fee",
+      "category": "Examination Charges",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "hawb": false,
+    "gw": true
+  }
+}

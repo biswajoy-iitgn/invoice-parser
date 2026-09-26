@@ -1,0 +1,38 @@
+Polaris Maritime Services & Co.
+258, Residency Road, Pune - 411001, India
+GSTIN: 27MTDFC5804L1Z5 | accounts@polarislogistics.example | +91 31 4474 2018
+TAX INVOICE
+
+Inv. Serial No SE/24-25/8377    Inv. Date 30/01/25
+
+Due Date: 01/03/25  |  Cust. ID: PMS14074  |  Job No: FILE/PMS/26/1683  |  Place of Supply: 06 Haryana
+
+To,
+Shreeji Polymers Ltd.
+56 Gandhi Nagar, Bengaluru 560001
+GSTIN: 09KYXAF9585K1ZB
+
+Being charges in respect of your shipment of Pharmaceutical formulations consigned to Pacific Imports Inc., Los Angeles, USA. Airport of Departure AMD - Ahmedabad; Airport of Destination ORD - Chicago; Flight Details QR 890 / 29/01/25; MAWB 157 3695 3243; House Air Waybill PMS7012196; Packages 17 PKGS; Gross Mass 1836 kg; Ch. Wt 2,120.0 KG; Incoterms DAP; Shipping Bill No 9523139 dt 20/01/25.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Airfreight Charges (USD 4,515.60)	3,95,077.52
+2	DAP Terminal & Delivery (USD 440.00)	38,496.35
+3	FSC (USD 1,632.40)	1,42,821.45
+4	Equipment Imbalance Surcharge	7,800.00
+	Net Amount	5,84,195.32
+	Add: CGST	39,723.64
+	Add: SGST	39,723.65
+	Round Off	0.39
+	Invoice Total	6,63,643.00
+
+Ex. Rate: 1 USD = INR 87.4917
+
+(INR Six Lakh Sixty Three Thousand Six Hundred Forty Three and Paise Zero Only)
+
+HDFC Bank | A/c No 35283170421 | IFSC KKBK0188389
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Polaris Maritime Services & Co.
+
+
+Authorised Signatory

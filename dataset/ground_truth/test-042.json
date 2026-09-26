@@ -1,0 +1,110 @@
+{
+  "id": "test-042",
+  "split": "test",
+  "file": "invoices/test-042.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 245009,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "INV-2024-777056",
+    "Invoice Date": "2025-03-30",
+    "Container Number": "SEGU8696609",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Crescent Maritime Services Private Limited",
+    "Bill of Lading / HBL": "CMSSE2472925",
+    "Weight": "11272 KG",
+    "Sea Freight": 80948,
+    "Air Freight": "",
+    "Terminal Handling Charges": 9850,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 1200,
+    "VGM": 1400,
+    "EDI Fees": 1350,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 31850,
+    "Ex Rate": 82.6,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 6800,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 80948,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 9850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Filing Fee",
+      "category": "VGM",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 31850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 6800,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

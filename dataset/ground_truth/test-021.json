@@ -1,0 +1,107 @@
+{
+  "id": "test-021",
+  "split": "test",
+  "file": "invoices/test-021.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T3",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 318146,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1348
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2025-947543",
+    "Invoice Date": "2025-06-06",
+    "Container Number": "",
+    "MAWB No": "157-39896500",
+    "HAWB No": "GSA/25/71827",
+    "Vendor Name": "Gateway Shipping Agencies (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1573 KG",
+    "Sea Freight": "",
+    "Air Freight": 446838.23,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2600,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 550,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 6050,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.28,
+    "Misc": "",
+    "Transportation": 16450,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 2150,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 446838.23,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 16450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 6050,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

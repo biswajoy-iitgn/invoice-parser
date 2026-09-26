@@ -1,0 +1,133 @@
+{
+  "id": "test-058",
+  "split": "test",
+  "file": "invoices/test-058.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 541384,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.886,
+    "rotation_deg": -2.49,
+    "perspective": true,
+    "blur_sigma": 0.61,
+    "illumination": true,
+    "noise_sigma": 9.3,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 52,
+    "pixels": [
+      1414,
+      1321
+    ]
+  },
+  "fields": {
+    "Invoice No": "VFS/SE/2526/06991",
+    "Invoice Date": "2025-04-06",
+    "Container Number": "CMAU4821570, EGHU7539430",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Vayu Freight Systems Private Limited",
+    "Bill of Lading / HBL": "VFSMU2529431",
+    "Weight": "20000.2 KG",
+    "Sea Freight": 274200,
+    "Air Freight": "",
+    "Terminal Handling Charges": 14300,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": 4260.19,
+    "Seal Charges": 1200,
+    "VGM": 3000,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 30900,
+    "Ex Rate": 96.8225,
+    "Misc": "",
+    "Transportation": 6800,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 800,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 14300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Carrier Haulage - Origin",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 30900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM",
+      "category": "VGM",
+      "amount_inr": 3000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 6800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 4260.19,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Basic Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 274200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

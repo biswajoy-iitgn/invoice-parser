@@ -1,0 +1,117 @@
+{
+  "id": "test-020",
+  "split": "test",
+  "file": "invoices/test-020.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 537048,
+  "maker_difficulty": {
+    "grain": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.882,
+    "rotation_deg": 1.39,
+    "perspective": true,
+    "blur_sigma": 0.61,
+    "illumination": true,
+    "noise_sigma": 10.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 62,
+    "pixels": [
+      1388,
+      1447
+    ]
+  },
+  "fields": {
+    "Invoice No": "AE/2425/4401",
+    "Invoice Date": "2024-11-18",
+    "Container Number": "TCNU9748175",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Navkar Express Cargo & Co.",
+    "Bill of Lading / HBL": "NECSE2499590",
+    "Weight": "19529.7 KG",
+    "Sea Freight": 80908.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 5400,
+    "Airway Bill Charges": "",
+    "BL Charges": 4900,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 1300,
+    "EDI Fees": 400,
+    "DAP Charges": "",
+    "Other Charges": 5400,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.56,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 80908.8,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 5400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "BL Charges",
+      "category": "BL Charges",
+      "amount_inr": 4900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Other Charges",
+      "category": "Other Charges",
+      "amount_inr": 5400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

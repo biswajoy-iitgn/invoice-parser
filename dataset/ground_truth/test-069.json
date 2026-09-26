@@ -1,0 +1,142 @@
+{
+  "id": "test-069",
+  "split": "test",
+  "file": "invoices/test-069.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "faint": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.909,
+    "rotation_deg": -0.47,
+    "blur_sigma": 0.49,
+    "noise_sigma": 3.2,
+    "encoding": "jpeg",
+    "jpeg_quality": 70,
+    "pixels": [
+      1540,
+      1564
+    ]
+  },
+  "fields": {
+    "Invoice No": "ASA25894708",
+    "Invoice Date": "2025-10-04",
+    "Container Number": "FFAU3299599",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Anchor Shipping Agencies Private Limited",
+    "Bill of Lading / HBL": "22863858228",
+    "Weight": "5644.2 KG",
+    "Sea Freight": 132069.62,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 6350,
+    "ENS Charges": 3700,
+    "Seal Charges": "",
+    "VGM": 950,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 7650,
+    "Pre Carriage Haulage": 33150,
+    "Ex Rate": 87.7539,
+    "Misc": 2000,
+    "Transportation": 16300,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 3550,
+    "Fuel Charges": 22377.24,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 132069.62,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "B/L Fee",
+      "category": "BL Charges",
+      "amount_inr": 6350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Charges",
+      "category": "ENS Charges",
+      "amount_inr": 3700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Filing Fee",
+      "category": "VGM",
+      "amount_inr": 950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Export Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 7650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 33150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 16300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 3550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 22377.24,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "test-050",
+  "split": "test",
+  "file": "invoices/test-050.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 306485,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.841,
+    "rotation_deg": -1.62,
+    "blur_sigma": 0.67,
+    "illumination": true,
+    "noise_sigma": 13.4,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 61,
+    "pixels": [
+      1615,
+      1045
+    ]
+  },
+  "fields": {
+    "Invoice No": "CCUSE2495064",
+    "Invoice Date": "2025-12-07",
+    "Container Number": "CMAU5171211, HLXU8340610",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Meridian Supply Chain Solutions Pvt. Ltd.",
+    "Bill of Lading / HBL": "MAEUAB4675307",
+    "Weight": "43345.35 KG",
+    "Sea Freight": 448910,
+    "Air Freight": "",
+    "Terminal Handling Charges": 17600,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 1600,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2100,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.7,
+    "Misc": 2050,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 950
+  },
+  "lines": [
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 17600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 1600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "US Customs AMS",
+      "category": "AMS Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sundries",
+      "category": "Misc",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 448910,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": true,
+    "mbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

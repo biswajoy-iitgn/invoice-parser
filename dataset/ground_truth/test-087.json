@@ -1,0 +1,131 @@
+{
+  "id": "test-087",
+  "split": "test",
+  "file": "invoices/test-087.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": true,
+  "maker_seed": 188871,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.887,
+    "rotation_deg": -0.39,
+    "perspective": true,
+    "blur_sigma": 0.71,
+    "illumination": true,
+    "noise_sigma": 10.6,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 69,
+    "pixels": [
+      1373,
+      1545
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI844036",
+    "Invoice Date": "2026-02-04",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Harbourline Freight Forwarders Pvt. Ltd.",
+    "Bill of Lading / HBL": "HFFSE2476357",
+    "Weight": "5335 KG",
+    "Sea Freight": 39852,
+    "Air Freight": "",
+    "Terminal Handling Charges": 13700,
+    "Airway Bill Charges": "",
+    "BL Charges": 4400,
+    "ENS Charges": 3500,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.6167,
+    "Misc": 1300,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 11390.17,
+    "Cargo Screening": "",
+    "Agency Charges": 3350,
+    "Shipping Bill Charges": 1850
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 39852,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 13700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 4400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Charges",
+      "category": "ENS Charges",
+      "amount_inr": 3500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundries",
+      "category": "Misc",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "category": "Fuel Charges",
+      "amount_inr": 11390.17,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 3350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "gw": false
+  }
+}

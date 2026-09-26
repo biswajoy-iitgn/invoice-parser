@@ -1,0 +1,49 @@
+Arihant Cargo Movers Private Limited
+346, Willingdon Island, Chennai - 600001, India
+GSTIN 33CVXPK2347C1ZB | accounts@arihantlogistics.example | +91 57 3856 5367
+FREIGHT INVOICE
+Billed To
+Rotomech Engineering Pvt. Ltd.
+7 Nehru Street, Mumbai 400050
+GSTIN: 24LPGPD5201C1ZB
+Consignee: Rheinmetal Components, Duisburg, Germany
+Date of Issue	Sep 08, 2024
+INV NO	ACM25694480
+Customer Code	C98908
+File No	JOB/ACM/25/2515
+Commercial Invoice No	EI-259346
+Your Ref	PO-49998
+State	19 West Bengal
+Rate of Exchange	EUR 90.93
+SHIPMENT DETAILS
+Place of Receipt	ICD Khodiyar	Port of Loading	INMUN - Mundra
+Destination	DEHAM - Hamburg	Vessel	Wan Hai 516 / 875W
+Sailing Date	Sep 05, 2024	Master B/L	OOLU758692929
+FCR / HBL No	HBL9426765	Container	TRHU9037442
+MRKU7803477
+SEGU5610540 / 40GP
+Seal No	ML-IN6282700, SL3404046, 1882058	No. of Packages	20 BOXES
+Weight	60,021.49 KGS	Measurement	170.770 CBM
+Incoterms	DAP		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	THC	996719	INR	23,100.00	1.00	23,100.00	18%	4,158.00	27,258.00
+2	Customs Inspection Charges	998599	INR	5,600.00	1.00	5,600.00	18%	1,008.00	6,608.00
+3	HBL Fee	996713	INR	5,600.00	1.00	5,600.00	18%	1,008.00	6,608.00
+4	Entry Summary Declaration Fee	996713	INR	2,600.00	1.00	2,600.00	18%	468.00	3,068.00
+5	Delivered-at-Place Charges	996719	EUR	340.00	90.93	30,916.20	18%	5,564.92	36,481.12
+6	Pre-Carriage (ICD to Port)	996511	INR	113,700.00	1.00	113,700.00	18%	20,466.00	134,166.00
+7	Trucking Charges	996511	INR	6,150.00	1.00	6,150.00	12%	738.00	6,888.00
+8	O/F Charges (FCL)	996521	EUR	1,425.00	90.93	129,575.25	5%	6,478.76	136,054.01
+Total Taxable Value	317,241.45
+CGST	19,944.84
+SGST	19,944.84
+Round Off	-0.13
+Total Invoice Value	357,131.00
+INR Three Lakh Fifty Seven Thousand One Hundred Thirty One and Paise Zero Only
+ICICI Bank | A/c No 28719125357 | IFSC YESB0331250
+Please quote invoice number with remittance.
+For Arihant Cargo Movers Private Limited
+
+
+Authorised Signatory

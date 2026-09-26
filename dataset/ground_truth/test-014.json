@@ -1,0 +1,135 @@
+{
+  "id": "test-014",
+  "split": "test",
+  "file": "invoices/test-014.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 888705,
+  "maker_difficulty": {
+    "faint": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.85,
+    "rotation_deg": -0.14,
+    "blur_sigma": 0.39,
+    "noise_sigma": 4.2,
+    "encoding": "jpeg",
+    "jpeg_quality": 79,
+    "pixels": [
+      1431,
+      1643
+    ]
+  },
+  "fields": {
+    "Invoice No": "FF/2526/5222",
+    "Invoice Date": "2026-01-11",
+    "Container Number": "GESU8711669, MRKU2646689",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Pioneer Logistics & Co.",
+    "Bill of Lading / HBL": "13677066229",
+    "Weight": "43359.779 KG",
+    "Sea Freight": 113839,
+    "Air Freight": "",
+    "Terminal Handling Charges": 23500,
+    "Airway Bill Charges": "",
+    "BL Charges": 6500,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 4800,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.9,
+    "Misc": 1900,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 5300,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 7600,
+    "Shipping Bill Charges": 750
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 113839,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 23500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 4800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Exam. Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

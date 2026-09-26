@@ -1,0 +1,145 @@
+{
+  "id": "dev-009",
+  "split": "dev",
+  "file": "invoices/dev-009.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 729292,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.873,
+    "rotation_deg": -2.34,
+    "blur_sigma": 0.74,
+    "illumination": true,
+    "noise_sigma": 9.0,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 66,
+    "pixels": [
+      1396,
+      1448
+    ]
+  },
+  "fields": {
+    "Invoice No": "ASA26878820",
+    "Invoice Date": "2025-07-31",
+    "Container Number": "EGHU6739496, GESU8628934",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Anchor Shipping Agencies Ltd.",
+    "Bill of Lading / HBL": "HLCU827067518",
+    "Weight": "30652.94 KG",
+    "Sea Freight": 334952.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 28000,
+    "Airway Bill Charges": "",
+    "BL Charges": 3800,
+    "ENS Charges": 2050,
+    "Seal Charges": 1100,
+    "VGM": 3500,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 5950,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 92.02,
+    "Misc": "",
+    "Transportation": 8900,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 2150,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2500
+  },
+  "lines": [
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 334952.8,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 28000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 3800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Charges",
+      "category": "VGM",
+      "amount_inr": 3500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 5950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 8900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2500,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": true,
+    "gw": false
+  }
+}

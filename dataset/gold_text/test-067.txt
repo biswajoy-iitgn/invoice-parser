@@ -1,0 +1,37 @@
+Continental Shipping & Co.
+383, Nariman Point, Ahmedabad - 380009, India
+GSTIN: 24EHUAU5865E1ZA   PAN: EHUAU5865E
+accounts@continentallogistics.example | +91 98 9890 5190
+SERVICE INVOICE
+Customer: Vardhaman Yarns & Exports, 77 Gandhi Nagar, Ahmedabad 380015 (GSTIN 19XMTPX5073U1ZE)
+INV NO	CSC/FF/24-25/29151	Document Date	2024-04-30
+Due On	2024-06-14	Customer Code	CSC47973
+Buyer Ref	PO-79523	Place of Supply	06 Haryana
+Rate of Exchange	USD 83.78	Port of Loading	INMUN - Mundra
+Destination	JPYOK - Yokohama	Vsl/Voy	Hyundai Pride / 261N
+ETD	2024-04-28	House Bill of Lading	CSC/HBL/25-26/1860
+No. of Packages	51 BOXES	Wt (Gross)	1691.142 kg
+Volume	6.333 CBM	Inco	CFR
+Shipping Bill No	1068135 dt 2024-04-23		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	O/F Charges (FCL) (USD 113.99 @ 83.78)	996521	9,550.08	0.00	0.00	9,550.08
+2	OTHC	996719	5,150.00	463.50	463.50	6,077.00
+3	Electronic Data Interchange Fee	998599	1,000.00	90.00	90.00	1,180.00
+4	Sundry Charges	998599	2,050.00	184.50	184.50	2,419.00
+5	Transportation Charges	996511	13,150.00	789.00	789.00	14,728.00
+6	Fuel Adjustment Charges (USD 165.00 @ 83.78)	996521	13,823.70	0.00	0.00	13,823.70
+7	CHA Charges	996713	6,700.00	603.00	603.00	7,906.00
+8	Shipping Bill Processing	996713	1,350.00	121.50	121.50	1,593.00
+Taxable Amount	52,773.78
+CGST	2,251.50
+SGST	2,251.50
+Total Amount Payable	57,276.78
+INR Fifty Seven Thousand Two Hundred Seventy Six and Paise Seventy Eight Only
+BANK DETAILS
+Yes Bank | A/c No 71217689728 | IFSC HDFC0993333
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR CONTINENTAL SHIPPING & CO.
+Authorised Signatory
+E & O.E.
+GST AUDITED
+ORIGINAL

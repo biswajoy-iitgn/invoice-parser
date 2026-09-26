@@ -1,0 +1,49 @@
+Pioneer Logistics & Co.
+121, Residency Road, Kolkata - 700001, India
+GSTIN 19PVPCU5523E1ZD | accounts@pioneerlogistics.example | +91 82 1200 5316
+TAX INVOICE
+Billed To
+Apex Pumps & Valves Pvt. Ltd.
+58 Lake View Road, Kolkata 700016
+GSTIN: 09YHJAB7642D1ZC
+Consignee: Nordic Parts AB, Gothenburg, Sweden
+Invoice No.	FF/2526/5222
+Invoice Date	11.01.2026
+Pay By	10.02.2026
+Customer Code	PLC13549
+Job No	FILE/PLC/25/1558
+Shipper Inv No	CI249106
+Buyer Ref	PO-61146
+Place of Supply	24 Gujarat
+Ex. Rate	1 USD = 86.90 INR
+SHIPMENT DETAILS
+Port of Loading	INPAV - Pipavav	Port of Discharge	DEHAM - Hamburg
+Vsl/Voy	Maersk Kinloss / 411A	SOB Date	06.01.2026
+MBL	COSUBO9481400	House Bill of Lading	13677066229
+Container	GESU8711669, MRKU2646689	Seal No(s)	ML-IN5921208, SL7482870
+Packages	60 CTNS	G.W.	43359.779 kg
+Volume	60.615 CBM	Incoterms	CFR
+S/Bill No	4431018 dt 01.01.2026		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Ocean Freight Charges	996521	USD	1,310.00	86.90	1,13,839.00	5%	5,691.95	1,19,530.95
+2	Terminal Hdlg. Chgs.	996719	INR	23,500.00	1.00	23,500.00	18%	4,230.00	27,730.00
+3	Documentation Fee (B/L)	996713	INR	6,500.00	1.00	6,500.00	18%	1,170.00	7,670.00
+4	Verified Gross Mass Declaration	996719	INR	4,800.00	1.00	4,800.00	18%	864.00	5,664.00
+5	Misc Expenses	998599	INR	1,900.00	1.00	1,900.00	18%	342.00	2,242.00
+6	Exam. Charges	998599	INR	5,300.00	1.00	5,300.00	18%	954.00	6,254.00
+7	CHA Charges	996713	INR	4,900.00	1.00	4,900.00	18%	882.00	5,782.00
+8	Agency Fee	996713	INR	2,700.00	1.00	2,700.00	18%	486.00	3,186.00
+9	Shipping Bill Filing	996713	INR	750.00	1.00	750.00	18%	135.00	885.00
+Net Amount	1,64,189.00
+CGST	7,377.48
+SGST	7,377.47
+Round Off	0.05
+Net Payable	1,78,944.00
+INR One Lakh Seventy Eight Thousand Nine Hundred Forty Four and Paise Zero Only
+Kotak Mahindra Bank | A/c No 99303475769 | IFSC KKBK0271933
+Subject to Mumbai jurisdiction. E. & O.E.
+For Pioneer Logistics & Co.
+
+
+Authorised Signatory

@@ -1,0 +1,112 @@
+{
+  "id": "test-083",
+  "split": "test",
+  "file": "invoices/test-083.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 22532,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.942,
+    "rotation_deg": -0.27,
+    "blur_sigma": 0.49,
+    "noise_sigma": 3.4,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 72,
+    "pixels": [
+      1589,
+      1648
+    ]
+  },
+  "fields": {
+    "Invoice No": "3383317595",
+    "Invoice Date": "2026-02-27",
+    "Container Number": "TGBU3655882, TGBU4916872",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Everfast Freight Forwarders Private Limited",
+    "Bill of Lading / HBL": "CMDU557409086",
+    "Weight": "25452.555 KG",
+    "Sea Freight": 282400,
+    "Air Freight": "",
+    "Terminal Handling Charges": 21500,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 600,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 35815.76,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.3555,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 5900,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 282400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 4850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 21500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Destination Charges",
+      "category": "DAP Charges",
+      "amount_inr": 35815.76,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

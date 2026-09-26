@@ -1,0 +1,143 @@
+{
+  "id": "test-015",
+  "split": "test",
+  "file": "invoices/test-015.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 888705,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.9,
+    "rotation_deg": 0.77,
+    "blur_sigma": 0.25,
+    "noise_sigma": 5.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 70,
+    "pixels": [
+      1534,
+      1687
+    ]
+  },
+  "fields": {
+    "Invoice No": "7771321222",
+    "Invoice Date": "2025-12-25",
+    "Container Number": "TRHU3176076",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Indus Shipping Private Limited",
+    "Bill of Lading / HBL": "ISPMU2636577",
+    "Weight": "16520 KG",
+    "Sea Freight": 54485.6,
+    "Air Freight": "",
+    "Terminal Handling Charges": 16050,
+    "Airway Bill Charges": "",
+    "BL Charges": 3100,
+    "ENS Charges": "",
+    "Seal Charges": 1000,
+    "VGM": 2150,
+    "EDI Fees": 750,
+    "DAP Charges": "",
+    "Other Charges": 6850,
+    "AMS Charges": 2250,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.88,
+    "Misc": "",
+    "Transportation": 8500,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "category": "AMS Charges",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 7800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 54485.6,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 6850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "category": "BL Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Charges",
+      "category": "VGM",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "category": "Transportation",
+      "amount_inr": 8500,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": true,
+    "gw": false
+  }
+}

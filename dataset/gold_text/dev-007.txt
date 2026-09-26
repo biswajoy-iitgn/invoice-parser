@@ -1,0 +1,67 @@
+Anchor Cargo Movers & Co.
+238, Sector 9, Navi Mumbai - 400706, India
+GSTIN
+27SCNPC9094G1ZB
+PAN
+SCNPC9094G
+CONTACT
+accounts@anchorlogistics.example | +91 20 3638 8631
+TAX INVOICE
+ORIGINAL FOR RECIPIENT
+BILL TO
+Lotus Garments Exports
+84 Park Street, Pune 411005
+GSTIN 27EMPCR5894F1ZS
+Consignee: Optima Handel GmbH, Hamburg, Germany
+INVOICE DETAILS
+INVOICE #
+ACM/SE/2425/36729
+DATE
+2025-01-22
+DUE DATE
+2025-03-08
+CLIENT CODE
+C82608
+SHIPMENT ID
+JOB/ACM/24/2078
+PLACE OF SUPPLY
+33 Tamil Nadu
+ROE
+1 USD = 88.6971 INR
+SHIPMENT
+Port of Loading: INPAV - Pipavav
+POD: SEGOT - Gothenburg
+Vessel / Voyage: Wan Hai 516 / 137A
+Sailing Date: 2025-01-18
+House B/L: 35068478474
+Container No(s): FFAU 364205 4 / 40GP
+TCNU 767070 9 / 40HC
+No. of Packages: 42 CTNS
+G.W.: 30564.864 KG
+Volume: 131.292 CBM
+Inco: FOB
+SB No & Date: 4062667 dt 2025-01-13
+CARGO
+Auto components (brake parts) | 42 CTNS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	O/F Charges (FCL)	996521	2	765.00	USD	88.6971	1,35,706.56	0%	1,35,706.56
+2	Container Terminal Charges	996719	2	14,400.00	INR	1.00	28,800.00	18%	33,984.00
+3	ENS Filing Fee	996713	1	45.00	USD	88.6971	3,991.37	18%	4,709.82
+4	E-Seal Fee	996719	2	350.00	INR	1.00	700.00	18%	826.00
+5	Forwarder Handling Fee	996719	1	8,350.00	INR	1.00	8,350.00	18%	9,853.00
+6	Misc Expenses	998599	1	1,750.00	INR	1.00	1,750.00	18%	2,065.00
+7	Cartage Charges	996511	1	5,150.00	INR	1.00	5,150.00	18%	6,077.00
+8	Ground Rent	996729	1	10,400.00	INR	1.00	10,400.00	18%	12,272.00
+9	Emergency Bunker Surcharge (EBS)	996521	2	120.00	USD	88.6971	21,287.30	5%	22,351.67
+Sub Total	2,16,135.23
+CGST	5,854.91
+SGST	5,854.91
+Total Invoice Value	2,27,845.05
+Amount in words: INR Two Lakh Twenty Seven Thousand Eight Hundred Forty Five and Paise Five Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 25411687092 | IFSC ICIC0268399
+Please quote invoice number with remittance.
+FOR ANCHOR CARGO MOVERS & CO.
+Authorised Signatory
+E & O.E.
+VERIFIED

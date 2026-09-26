@@ -1,0 +1,42 @@
+ARIHANT SHIPPING LTD.
+228, RAJAJI SALAI, CHENNAI - 600001, INDIA
+GSTIN: 33CJTPL7185D1Z5 PAN: CJTPL7185D
+BILL TO: ORION BEARINGS LTD., 88 ANNA NAGAR 3RD CROSS, PUNE 411005 GSTIN: 29YYJPD4938D1ZB
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+INVOICE NO.    : ASL/FF/2425/35899                INVOICE DATE   : 04 DEC 2025
+A/C CODE       : ASL23741                         PLACE OF SUPPLY: 24 GUJARAT
+ROE            : USD 88.6608                      POL            : INMAA - CHENNAI
+POD            : AEJEA - JEBEL ALI                VESSEL / VOYAGE: MAERSK KINLOSS / 420W
+SAILING DATE   : 01 DEC 2025                      MBL NO         : COSU289821832
+HOUSE B/L      : HBL9368856                       CONTAINER      : CAIU6246950, CMAU6943515
+NO. OF PACKAGES: 11 BOXES                         GROSS WT       : 17,942.41 KGS
+MEASUREMENT    : 46.270 CBM                       INCOTERMS      : CIF
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  OCEAN FREIGHT CHARGES             INR    128850.00         2      1.00       257700.00   0%
+  2  TERMINAL HDLG. CHGS.              INR      6050.00         2      1.00        12100.00  18%
+  3  DOCUMENTATION FEE (B/L)           INR      6350.00         1      1.00         6350.00  18%
+  4  VERIFIED GROSS MASS DECLARATION   INR      1750.00         2      1.00         3500.00  18%
+  5  HANDLING & COORDINATION           INR      2100.00         1      1.00         2100.00  18%
+  6  TRANSPORTATION                    INR     17950.00         1      1.00        17950.00  12%
+  7  BAF                               USD       110.00         2   88.6608        19505.38   5%
+  8  BROKERAGE CHARGES                 INR      3750.00         1      1.00         3750.00  18%
+  9  EQUIPMENT IMBALANCE SURCHARGE     INR      2450.00         1      1.00         2450.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL TAXABLE VALUE             325405.38
+                                                       CGST                              4287.14
+                                                       SGST                              4287.13
+                                                       ROUND OFF                            0.35
+                                                       TOTAL AMOUNT PAYABLE            333980.00
+------------------------------------------------------------------------------------------------
+INR THREE LAKH THIRTY THREE THOUSAND NINE HUNDRED EIGHTY AND PAISE ZERO ONLY
+
+BANK: ICICI BANK | A/C NO 77209984243 | IFSC KKBK0121853
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR ARIHANT SHIPPING LTD.
+
+                                                            AUTHORISED SIGNATORY

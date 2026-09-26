@@ -1,0 +1,40 @@
+ORIENT LOGISTICS PVT. LTD.
+351, WILLINGDON ISLAND, MUMBAI - 400001, INDIA
+GSTIN: 27XWKFF1676P1ZB PAN: XWKFF1676P
+BILL TO: SHREEJI POLYMERS LTD., 21 FC ROAD, BENGALURU 560001 GSTIN: 19JTEPF2914G1ZS
+================================================================================================
+                                            INVOICE
+================================================================================================
+TAX INVOICE NO : OLP26437908                      INVOICE DT     : 22-DEC-24
+PAY BY         : 21-JAN-25                        CUST. ID       : C89488
+FILE NO        : FILE/OLP/24/1326                 STATE          : 19 WEST BENGAL
+AIRPORT OF DEPARTURE: DEL - DELHI                 DEST.          : AMS - AMSTERDAM
+FLIGHT DETAILS : EK 498 / 18-DEC-24               MASTER AWB     : 17696537560
+HOUSE AIR WAYBILL: HAWB868497                     NO. OF PACKAGES: 88 PALLETS
+TOTAL WEIGHT   : 1,144 KG                         CHARGEABLE WEIGHT: 1,781.0 KG
+INCO           : FCA                              SHIPPING BILL NO: 9561120 DT 11-DEC-24
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  MISCELLANEOUS CHARGES             INR      1600.00         1      1.00         1600.00  18%
+  2  ACC WAREHOUSE CHARGES             INR     12350.00         1      1.00        12350.00  18%
+  3  HDLG. CHARGES                     INR      4950.00         1      1.00         4950.00  18%
+  4  CARGO SCREENING                   INR      1650.00         1      1.00         1650.00  18%
+  5  AIR WAYBILL DOCUMENTATION         INR      1350.00         1      1.00         1350.00  18%
+  6  EDI FILING                        INR      1500.00         1      1.00         1500.00  18%
+  7  AIR EXPORT FREIGHT                USD         2.36    1781.0   88.4916       371944.35  18%
+  8  OTHER CHARGES                     INR      8350.00         1      1.00         8350.00  18%
+  9  TRANSPORTATION                    INR      6050.00         1      1.00         6050.00  12%
+------------------------------------------------------------------------------------------------
+                                                       TAXABLE AMOUNT                  409744.35
+                                                       IGST                             73390.98
+                                                       INVOICE TOTAL                   483135.33
+------------------------------------------------------------------------------------------------
+INR FOUR LAKH EIGHTY THREE THOUSAND ONE HUNDRED THIRTY FIVE AND PAISE THIRTY THREE ONLY
+
+BANK: YES BANK | A/C NO 24843488647 | IFSC KKBK0291403
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR ORIENT LOGISTICS PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY

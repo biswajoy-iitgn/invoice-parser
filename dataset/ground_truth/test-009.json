@@ -1,0 +1,146 @@
+{
+  "id": "test-009",
+  "split": "test",
+  "file": "invoices/test-009.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 599388,
+  "maker_difficulty": {
+    "stamp": true,
+    "watermark": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.802,
+    "rotation_deg": 1.01,
+    "blur_sigma": 0.56,
+    "illumination": true,
+    "noise_sigma": 11.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 51,
+    "pixels": [
+      1256,
+      1418
+    ]
+  },
+  "fields": {
+    "Invoice No": "MUMCH2424294",
+    "Invoice Date": "2026-03-26",
+    "Container Number": "EGHU5336011, MSCU2876513, TRHU6345288",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Kestrel Freight Systems & Co.",
+    "Bill of Lading / HBL": "20949827411",
+    "Weight": "17135.66 KG",
+    "Sea Freight": 381307.2,
+    "Air Freight": "",
+    "Terminal Handling Charges": 30750,
+    "Airway Bill Charges": "",
+    "BL Charges": 5850,
+    "ENS Charges": "",
+    "Seal Charges": 1950,
+    "VGM": "",
+    "EDI Fees": 1050,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 75000,
+    "Ex Rate": 83.62,
+    "Misc": 1400,
+    "Transportation": 11000,
+    "Warehouse Charges Port": 13800,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1950
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 381307.2,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 30750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 5850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 75000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 11000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 13800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

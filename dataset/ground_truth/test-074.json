@@ -1,0 +1,110 @@
+{
+  "id": "test-074",
+  "split": "test",
+  "file": "invoices/test-074.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T7",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 38728,
+  "maker_difficulty": {
+    "grain": true,
+    "watermark": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.815,
+    "rotation_deg": 2.23,
+    "blur_sigma": 0.8,
+    "illumination": true,
+    "noise_sigma": 11.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 51,
+    "pixels": [
+      1291,
+      1089
+    ]
+  },
+  "fields": {
+    "Invoice No": "PGL24878161",
+    "Invoice Date": "2024-03-17",
+    "Container Number": "",
+    "MAWB No": "157-99076261",
+    "HAWB No": "DEL-HA-131729",
+    "Vendor Name": "Pioneer Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "1689.89 KG",
+    "Sea Freight": "",
+    "Air Freight": 782246.64,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2150,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 202124.48,
+    "Cargo Screening": 1900,
+    "Agency Charges": "",
+    "Shipping Bill Charges": 1000
+  },
+  "lines": [
+    {
+      "description": "Airline Freight Charges",
+      "category": "Air Freight",
+      "amount_inr": 782246.64,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "SB Filing Fee",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "category": "Fuel Charges",
+      "amount_inr": 202124.48,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Airwaybill Issuance",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

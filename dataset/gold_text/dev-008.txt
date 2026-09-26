@@ -1,0 +1,60 @@
+Seahawk Cargo Movers LLP
+381, Nariman Point, Mumbai - 400001, India
+GSTIN
+27LNAAF3683N1ZA
+PAN
+LNAAF3683N
+CONTACT
+accounts@seahawklogistics.example | +91 57 1184 1016
+SERVICE INVOICE
+ORIGINAL FOR RECIPIENT
+BILL TO
+Sunrise Ceramics LLP
+19 MG Road, Kolkata 700016
+GSTIN 09DLDFL7680A1ZA
+Consignee: Harbor Supply LLC, Savannah, USA
+INVOICE DETAILS
+INVOICE NO
+DELAE2548914
+DATED
+10-Jun-2024
+CUSTOMER CODE
+SCM19310
+STATE
+33 Tamil Nadu
+EXCH. RATE (USD)
+84.5798
+SHIPMENT
+Place of Receipt: ICD Sabarmati
+POL: INMAA - Chennai
+POD: USHOU - Houston
+Vessel: Northern Jaguar / 832W
+SOB Date: 07-Jun-2024
+Ocean B/L No: COSUBO8969188
+H B/L No: SCMMU2673872
+Equipment No: GESU0507176 / 40HC
+TGBU3460073 / 40HC
+BMOU5451499
+Seal No(s): ML-IN9118719, SL9186027, SL8337404
+Packages: 8 PALLETS
+Total Weight: 13,622.455 KG
+Volume: 118.670 CBM
+Incoterms: DAP
+S/Bill No: 5263053 dt 04-Jun-2024
+CARGO
+Basmati rice in PP bags | 8 PALLETS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Ocean Freight Charges	996521	3	1,705.00	USD	84.5798	4,32,625.68	5%	4,54,256.96
+2	Inland Haulage (IHC)	996511	3	35,650.00	INR	1.00	1,06,950.00	5%	1,12,297.50
+3	Peak Season Surcharge	998599	1	1,300.00	INR	1.00	1,300.00	18%	1,534.00
+Total Taxable Value	5,40,875.68
+IGST	27,212.78
+Net Payable	5,68,088.46
+Amount in words: INR Five Lakh Sixty Eight Thousand Eighty Eight and Paise Forty Six Only
+BANK DETAILS
+State Bank of India | A/c No 82871155361 | IFSC YESB0845228
+Cheque / RTGS in favour of the company only.
+FOR SEAHAWK CARGO MOVERS LLP
+Authorised Signatory
+E & O.E.
+PAID

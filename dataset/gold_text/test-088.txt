@@ -1,0 +1,39 @@
+Trans Asia Air & Sea (India) Pvt. Ltd.
+264, Willingdon Island, Kolkata - 700001, India
+GSTIN: 19BASCY1873B1Z5 | accounts@translogistics.example | +91 83 5233 9478
+SERVICE INVOICE
+
+Invoice # TI408360    Date 2nd June 2025
+
+Due On: 17th July 2025  |  Customer Code: CU15704  |  Job No: JOB/TAA/25/6861  |  PO No: PO-25536  |  Place of Supply: 29 Karnataka
+
+To,
+Bharat Brass Fittings
+87 Linking Road, Pune 411005
+GSTIN: 09HDCAS8946A1ZS
+
+Being charges in respect of your shipment of Basmati rice in PP bags consigned to Gulf Star Trading LLC, Jebel Ali, UAE. Departure AMD - Ahmedabad; Airport of Destination DXB - Dubai; Flight / Date LH 345 / 29th May 2025; MAWB 020-55256364; House Air Waybill TAA/24/88593; Packages 17 PALLETS; Gross Mass 141.34 KGS; Chargeable Wt 143.0 KG; Terms of Delivery FCA; SB No & Date 8928360 dt 20th May 2025.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	A/F Charges (USD 479.05)	42,443.83
+2	Airway Bill Charges	2,350.00
+3	Misc Expenses	2,350.00
+4	Storage Charges at CFS	8,000.00
+5	MYC / Fuel Surcharge	6,812.52
+6	Shipping Bill Passing	3,250.00
+	Net Amount	65,206.35
+	Add: IGST	11,737.14
+	Round Off	-0.49
+	Grand Total	76,943.00
+
+Exchange Rate: 1 USD = INR 88.60
+
+(INR Seventy Six Thousand Nine Hundred Forty Three and Paise Zero Only)
+
+Axis Bank | A/c No 76121540912 | IFSC SBIN0866937
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Trans Asia Air & Sea (India) Pvt. Ltd.
+
+
+Authorised Signatory

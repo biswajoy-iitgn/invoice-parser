@@ -1,0 +1,45 @@
+Meridian Maritime Services (India) Pvt. Ltd.
+88, Nariman Point, Kolkata - 700001, India
+GSTIN: 19YYNCP7717M1ZB | accounts@meridianlogistics.example | +91 32 9967 3990
+SERVICE INVOICE
+
+Invoice Ref TI416147    Invoice Date 2026-01-10
+
+Due On: 2026-02-09  |  Customer Code: C21126  |  Job Ref: MMS/24/9806  |  State: 33 Tamil Nadu
+
+To,
+Rotomech Engineering Pvt. Ltd.
+17 Nehru Street, Ahmedabad 380015
+GSTIN: 07JMTPV1884W1ZS
+
+Being charges in respect of your shipment of Pharmaceutical formulations consigned to Rheinmetal Components, Duisburg, Germany. Load Port INNSA - Nhava Sheva; POD NLRTM - Rotterdam; Vsl/Voy Ever Gentle / 887A; SOB Date 2026-01-09; MBL No COSUAB4583898; House BL Ref MMS/HBL/25-26/2821; Pkgs 49 PALLETS; G.W. 4,472.94 Kgs; CBM 11.624 CBM; Incoterms CIF.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Ocean Freight (USD 685.82)	59,570.33
+2	Container Terminal Charges	8,850.00
+3	BL Charges	4,500.00
+4	ICS2 / ENS Filing	2,750.00
+5	Cartage Charges	3,900.00
+6	Warehouse Charges (Port)	7,600.00
+7	Ground Rent	5,150.00
+8	Examination Charges	4,100.00
+9	Low Sulphur Surcharge (LSS)	7,350.00
+	Taxable Amount	1,03,770.33
+	Add: CGST	4,805.76
+	Add: SGST	4,805.76
+	Round Off	0.15
+	Grand Total	1,13,382.00
+
+Exchange Rate (USD): 1 USD = INR 86.86
+
+(INR One Lakh Thirteen Thousand Three Hundred Eighty Two and Paise Zero Only)
+
+Axis Bank | A/c No 89139608670 | IFSC KKBK0147580
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Meridian Maritime Services (India) Pvt. Ltd.
+
+
+Authorised Signatory
+ORIGINAL
+ORIGINAL

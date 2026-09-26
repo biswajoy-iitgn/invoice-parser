@@ -1,0 +1,42 @@
+NAVKAR EXPRESS CARGO PVT. LTD.
+144, CG ROAD, NEW DELHI - 110037, INDIA
+GSTIN: 07SYVFD1780R1Z5 PAN: SYVFD1780R
+BILL TO: NIRMAL PHARMA EXPORTS LLP, 47 STATION ROAD, CHENNAI 600040 GSTIN: 29RKNPV3054X1ZD
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+INV NO         : NEC/SE/24-25/04075               DATE           : 2024-07-13
+DUE DATE       : 2024-08-12                       CLIENT CODE    : C91203
+JOB REF        : FILE/NEC/25/3284                 STATE          : 27 MAHARASHTRA
+EX. RATE       : 1 USD = 85.48 INR                PORT OF LOADING: INPAV - PIPAVAV
+PORT OF DISCHARGE: SEGOT - GOTHENBURG             VESSEL / VOYAGE: MSC AURORA / 578A
+ETD            : 2024-07-07                       MASTER B/L     : HLCU218824866
+HOUSE BILL OF LADING: NEC/HBL/25-26/5569          NO. OF PACKAGES: 60 CTNS
+GROSS MASS     : 1747 KG                          TERMS OF DELIVERY: DAP
+SB NO & DATE   : 3468521 DT 2024-07-02
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  OCEAN FREIGHT                     USD        19.00     9.736     85.48       15,812.09   0%
+  2  BILL OF LADING FEE                INR     2,550.00         1      1.00        2,550.00  18%
+  3  EDI FILING                        INR       250.00         1      1.00          250.00  18%
+  4  CFS CHARGES                       INR     9,450.00         1      1.00        9,450.00  18%
+  5  SHIPPING BILL PROCESSING          INR     1,550.00         1      1.00        1,550.00  18%
+  6  SURVEY CHARGES                    INR     2,900.00         1      1.00        2,900.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TAXABLE AMOUNT                  32,512.09
+                                                       CGST                             1,503.00
+                                                       SGST                             1,503.00
+                                                       ROUND OFF                           -0.09
+                                                       TOTAL INVOICE VALUE             35,518.00
+------------------------------------------------------------------------------------------------
+INR THIRTY FIVE THOUSAND FIVE HUNDRED EIGHTEEN AND PAISE ZERO ONLY
+
+BANK: HDFC BANK | A/C NO 77513334811 | IFSC HDFC0618135
+PLEASE QUOTE INVOICE NUMBER WITH REMITTANCE.
+
+                                                            FOR NAVKAR EXPRESS CARGO PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY
+VERIFIED
+COMPUTER COPY

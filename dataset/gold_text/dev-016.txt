@@ -1,0 +1,40 @@
+Kestrel Supply Chain Solutions Pvt Ltd
+250, Residency Road, Chennai - 600001, India
+GSTIN 33BNCFJ1237D1Z5 | accounts@kestrellogistics.example | +91 66 8799 1420
+TAX INVOICE
+Billed To
+Vardhaman Yarns & Exports
+64 Nehru Street, Noida 201301
+GSTIN: 07RLEPK7778J1ZC
+Consignee: Gulf Star Trading LLC, Jebel Ali, UAE
+Invoice No.	TI960635
+Invoice Dt	01-Mar-2025
+Pay By	31-Mar-2025
+A/c Code	C88717
+Shipment ID	FILE/KSC/25/3724
+Buyer Ref	PO-17608
+State	07 Delhi
+Conversion Rate	USD 87.84
+SHIPMENT DETAILS
+POL	INCCU - Kolkata	Port of Discharge	SGSIN - Singapore
+Vsl/Voy	ONE Harmony / 678A	Sailing Date	20-Feb-2025
+MBL	MEDUAB8809889	Ctr #	SEGU9727643 / 40HC, TCNU3738689
+Pkgs	57 CTNS	Gross Weight	16601.5 KG
+Inco	FOB	S/Bill No	5350750 dt 19-Feb-2025
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Ocean Freight	996521	USD	2,970.00	87.84	2,60,884.80	0%	0.00	2,60,884.80
+2	Terminal Hdlg. Chgs.	996719	INR	12,700.00	1.00	12,700.00	18%	2,286.00	14,986.00
+3	Transportation	996511	INR	8,350.00	1.00	8,350.00	18%	1,503.00	9,853.00
+Sub Total	2,81,934.80
+CGST	1,894.50
+SGST	1,894.50
+Round Off	0.20
+Net Payable	2,85,724.00
+INR Two Lakh Eighty Five Thousand Seven Hundred Twenty Four and Paise Zero Only
+Axis Bank | A/c No 63027425613 | IFSC UTIB0212606
+Please quote invoice number with remittance.
+For Kestrel Supply Chain Solutions Pvt Ltd
+
+
+Authorised Signatory

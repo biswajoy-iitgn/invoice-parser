@@ -1,0 +1,134 @@
+{
+  "id": "test-037",
+  "split": "test",
+  "file": "invoices/test-037.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 566834,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.907,
+    "rotation_deg": -0.2,
+    "blur_sigma": 0.38,
+    "noise_sigma": 5.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 80,
+    "pixels": [
+      1530,
+      1665
+    ]
+  },
+  "fields": {
+    "Invoice No": "4462561460",
+    "Invoice Date": "2024-11-12",
+    "Container Number": "CMAU5066290, HLXU6734488, TRHU7358206",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Bluewater Forwarding & Co.",
+    "Bill of Lading / HBL": "BFC/HBL/24-25/2859",
+    "Weight": "35021.99 KG",
+    "Sea Freight": 633286.59,
+    "Air Freight": "",
+    "Terminal Handling Charges": 36150,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 3600,
+    "VGM": "",
+    "EDI Fees": 1050,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 34500,
+    "Ex Rate": 84.9479,
+    "Misc": 300,
+    "Transportation": 8950,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 3500,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2300
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 633286.59,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 36150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 3600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Pre-Carriage (ICD to Port)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 34500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc. Charges",
+      "category": "Misc",
+      "amount_inr": 300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 8950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 3500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "SB Filing Fee",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2300,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

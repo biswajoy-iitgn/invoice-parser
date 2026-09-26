@@ -1,0 +1,109 @@
+{
+  "id": "test-051",
+  "split": "test",
+  "file": "invoices/test-051.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 144389,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "CCUSE2520476",
+    "Invoice Date": "2026-02-15",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Shipping Pvt Ltd",
+    "Bill of Lading / HBL": "78669077225",
+    "Weight": "3525.52 KG",
+    "Sea Freight": 41216.25,
+    "Air Freight": "",
+    "Terminal Handling Charges": 8400,
+    "Airway Bill Charges": "",
+    "BL Charges": 4700,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 23000,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 5550,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 6500,
+    "Examination Charges": 2250,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 5550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Exam. Charges",
+      "category": "Examination Charges",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 4700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 41216.25,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Destination Charges",
+      "category": "DAP Charges",
+      "amount_inr": 23000,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hbl": false,
+    "gw": true
+  }
+}

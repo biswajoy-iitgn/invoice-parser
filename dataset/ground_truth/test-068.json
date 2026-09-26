@@ -1,0 +1,133 @@
+{
+  "id": "test-068",
+  "split": "test",
+  "file": "invoices/test-068.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.832,
+    "rotation_deg": -0.32,
+    "blur_sigma": 0.45,
+    "noise_sigma": 3.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 77,
+    "pixels": [
+      1404,
+      1387
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI578347",
+    "Invoice Date": "2024-03-04",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Continental Express Cargo & Co.",
+    "Bill of Lading / HBL": "CEC/HBL/25-26/4751",
+    "Weight": "3845 KG",
+    "Sea Freight": 7414.39,
+    "Air Freight": "",
+    "Terminal Handling Charges": 9500,
+    "Airway Bill Charges": "",
+    "BL Charges": 3550,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 3100,
+    "AMS Charges": 2000,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.93,
+    "Misc": 550,
+    "Transportation": 28950,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 2750,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 7414.39,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 9500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 3550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Advance Manifest (AMS) Fee",
+      "category": "AMS Charges",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "category": "Transportation",
+      "amount_inr": 13450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation Charges",
+      "category": "Transportation",
+      "amount_inr": 15500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 2750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Peak Season Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "hbl": true,
+    "gw": false
+  }
+}

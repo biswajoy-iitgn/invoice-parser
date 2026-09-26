@@ -1,0 +1,125 @@
+{
+  "id": "dev-059",
+  "split": "dev",
+  "file": "invoices/dev-059.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 239692,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.82,
+    "rotation_deg": -0.71,
+    "perspective": true,
+    "blur_sigma": 0.79,
+    "illumination": true,
+    "noise_sigma": 13.4,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 58,
+    "pixels": [
+      1271,
+      1016
+    ]
+  },
+  "fields": {
+    "Invoice No": "AGL25852462",
+    "Invoice Date": "2025-09-11",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "AGL2290441",
+    "Vendor Name": "Anchor Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "303.227 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 850,
+    "DAP Charges": "",
+    "Other Charges": 8700,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 650,
+    "Transportation": 15900,
+    "Warehouse Charges Port": 6050,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 1750,
+    "Shipping Bill Charges": 1550
+  },
+  "lines": [
+    {
+      "description": "Customs Brokerage Fee",
+      "category": "Agency Charges",
+      "amount_inr": 1750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 6050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Courier Charges",
+      "category": "Other Charges",
+      "amount_inr": 8700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundries",
+      "category": "Misc",
+      "amount_inr": 650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 15900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1550,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "hawb": false,
+    "gw": false
+  }
+}

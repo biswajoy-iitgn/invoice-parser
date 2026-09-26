@@ -1,0 +1,115 @@
+{
+  "id": "dev-053",
+  "split": "dev",
+  "file": "invoices/dev-053.pdf",
+  "format": "pdf_raster",
+  "tier": "clean",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 570067,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 92,
+    "pixels": [
+      1920,
+      1812
+    ]
+  },
+  "fields": {
+    "Invoice No": "FF/2425/6878",
+    "Invoice Date": "2026-02-23",
+    "Container Number": "FFAU0984053, MSCU2086890, EGHU3510870",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Pioneer Forwarding LLP",
+    "Bill of Lading / HBL": "EGLV496366982",
+    "Weight": "22403.7 KG",
+    "Sea Freight": 468126,
+    "Air Freight": "",
+    "Terminal Handling Charges": 75300,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 2250,
+    "VGM": 6900,
+    "EDI Fees": 450,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 105600,
+    "Ex Rate": 86.69,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 37350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 37950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Seal",
+      "category": "Seal Charges",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Charges",
+      "category": "VGM",
+      "amount_inr": 6900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Carrier Haulage - Origin",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 105600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 468126,
+      "currency": "USD",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

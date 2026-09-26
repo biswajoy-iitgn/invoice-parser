@@ -1,0 +1,91 @@
+{
+  "id": "dev-016",
+  "split": "dev",
+  "file": "invoices/dev-016.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 195396,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.848,
+    "rotation_deg": -0.26,
+    "blur_sigma": 0.31,
+    "noise_sigma": 5.3,
+    "encoding": "jpeg",
+    "jpeg_quality": 84,
+    "pixels": [
+      1429,
+      1309
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI960635",
+    "Invoice Date": "2025-03-01",
+    "Container Number": "SEGU9727643, TCNU3738689",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Kestrel Supply Chain Solutions Pvt Ltd",
+    "Bill of Lading / HBL": "MEDUAB8809889",
+    "Weight": "16601.5 KG",
+    "Sea Freight": 260884.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 12700,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.84,
+    "Misc": "",
+    "Transportation": 8350,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 260884.8,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 12700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 8350,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": true,
+    "gw": false
+  }
+}

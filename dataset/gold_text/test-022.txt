@@ -1,0 +1,43 @@
+EVERFAST SHIPPING AGENCIES (INDIA) PVT. LTD.
+18, RAJAJI SALAI, KOCHI - 682003, INDIA
+GSTIN: 32DLJFA7583U1Z7 PAN: DLJFA7583U
+BILL TO: KAVERI AGRO FOODS LTD., 39 SECTOR 18 MARKET, DELHI 110034 GSTIN: 24YDJCY1933J1ZB
+================================================================================================
+                                        SERVICE INVOICE
+================================================================================================
+INVOICE NUMBER : FF/2526/3663                     INV. DATE      : 2024-09-14
+PAYMENT DUE    : 2024-09-29                       A/C CODE       : CU39194
+JOB REF        : ESA/26/1409                      EXPORTER INV. REF: EXP/256487
+STATE          : 09 UTTAR PRADESH                 POL            : INPAV - PIPAVAV
+PORT OF DISCHARGE: ITGOA - GENOA                  VESSEL         : MAERSK KINLOSS / 122A
+SOB DATE       : 2024-09-13                       LINER BL NO    : COSU831691147
+HBL            : HBL7803636                       PKGS           : 9 PKGS
+GROSS MASS     : 688.4 KG                         VOLUME         : 12.788 CBM
+INCOTERMS      : CIF
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  DOCUMENTATION FEE (B/L)           INR      3950.00         1      1.00         3950.00  18%
+  2  BROKERAGE CHARGES                 INR      6900.00         1      1.00         6900.00  18%
+  3  ISPS CHARGES                      INR      8950.00         1      1.00         8950.00  18%
+  4  EMERGENCY BUNKER SURCHARGE (EBS)  EUR        75.00         1     96.97         7272.75   0%
+  5  THC                               INR      8800.00         1      1.00         8800.00  18%
+  6  ELECTRONIC DATA INTERCHANGE FEE   INR      1200.00         1      1.00         1200.00  18%
+  7  O/F CHARGES (FCL)                 EUR        23.00    12.788     96.97        28520.82   5%
+  8  SHIPPING BILL CHARGES             INR      1800.00         1      1.00         1800.00  18%
+  9  ENTRY SUMMARY DECLARATION FEE     INR      2650.00         1      1.00         2650.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL TAXABLE VALUE              70043.57
+                                                       CGST                              3795.52
+                                                       SGST                              3795.52
+                                                       ROUND OFF                            0.39
+                                                       TOTAL AMOUNT PAYABLE             77635.00
+------------------------------------------------------------------------------------------------
+INR SEVENTY SEVEN THOUSAND SIX HUNDRED THIRTY FIVE AND PAISE ZERO ONLY
+
+BANK: YES BANK | A/C NO 36633512603 | IFSC KKBK0572349
+SUBJECT TO MUMBAI JURISDICTION. E. & O.E.
+
+                                                            FOR EVERFAST SHIPPING AGENCIES (INDIA) PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY

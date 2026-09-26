@@ -1,0 +1,101 @@
+{
+  "id": "test-048",
+  "split": "test",
+  "file": "invoices/test-048.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 306485,
+  "maker_difficulty": {
+    "stamp": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.812,
+    "rotation_deg": -2.43,
+    "blur_sigma": 0.75,
+    "illumination": true,
+    "noise_sigma": 13.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 64,
+    "pixels": [
+      1565,
+      899
+    ]
+  },
+  "fields": {
+    "Invoice No": "MUMCH2420508",
+    "Invoice Date": "2024-06-08",
+    "Container Number": "TGBU3016855",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Sapphire Freight Systems Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "23365.9 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 700,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 2700,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 7050,
+    "Shipping Bill Charges": 3400
+  },
+  "lines": [
+    {
+      "description": "Cargo Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 7050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ISPS Charges",
+      "category": "Other Charges",
+      "amount_inr": 700,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "cntr": false,
+    "gw": true
+  }
+}

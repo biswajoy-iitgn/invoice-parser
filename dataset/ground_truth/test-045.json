@@ -1,0 +1,113 @@
+{
+  "id": "test-045",
+  "split": "test",
+  "file": "invoices/test-045.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 667615,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.822,
+    "rotation_deg": 0.59,
+    "blur_sigma": 0.45,
+    "noise_sigma": 3.4,
+    "encoding": "jpeg",
+    "jpeg_quality": 79,
+    "pixels": [
+      1709,
+      1149
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2024-629023",
+    "Invoice Date": "2024-05-14",
+    "Container Number": "TCNU0267137",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Polaris Logistics (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "PLP/HBL/24-25/9128",
+    "Weight": "11179.3 KG",
+    "Sea Freight": 76320.15,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 6050,
+    "ENS Charges": "",
+    "Seal Charges": 1000,
+    "VGM": 1900,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 7400,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 26000,
+    "Ex Rate": 83.41,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 76320.15,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "category": "BL Charges",
+      "amount_inr": 6050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bolt Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Certificate",
+      "category": "VGM",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 26000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 7400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": true,
+    "gw": false
+  }
+}

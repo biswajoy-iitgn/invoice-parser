@@ -1,0 +1,72 @@
+Kestrel Freight Systems & Co.
+155, Strand Road, Ahmedabad - 380009, India
+GSTIN
+24UNAFE6419U1ZB
+PAN
+UNAFE6419U
+CONTACT
+accounts@kestrellogistics.example | +91 51 5797 2956
+TAX INVOICE
+DUPLICATE
+BILL TO
+Vardhaman Yarns & Exports
+60 Nehru Street, Bengaluru 560001
+GSTIN 29BBAAN6113T1ZD
+Consignee: Gulf Star Trading LLC, Jebel Ali, UAE
+INVOICE DETAILS
+INV. DATE
+26/03/26
+DOCUMENT NO
+MUMCH2424294
+DUE DATE
+25/04/26
+CUSTOMER CODE
+KFS22272
+SHIPMENT ID
+FILE/KFS/25/3418
+PLACE OF SUPPLY
+29 Karnataka
+EXCH. RATE (USD)
+83.62
+SHIPMENT
+Place of Receipt: ICD Whitefield
+Load Port: INMAA - Chennai
+Port of Discharge: SGSIN - Singapore
+Vsl/Voy: Maersk Kinloss / 621N
+Sailing Date: 20/03/26
+Master B/L: COSUIN6262905
+FCR / HBL No: 20949827411
+Container: EGHU5336011 / 40HC
+MSCU2876513
+TRHU6345288
+Seal No: SL6794772, ML-IN2899007, ML-IN8767103
+Pkgs: 4 PKGS
+Wt (Gross): 17135.66 KG
+Terms of Delivery: FOB
+S/Bill No: 6700681 dt 18/03/26
+CARGO
+Auto components (brake parts) | 4 PKGS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Ocean Freight	996521	3	1,520.00	USD	83.62	381,307.20	5%	400,372.56
+2	THC - Origin	996719	3	10,250.00	INR	1.00	30,750.00	18%	36,285.00
+3	Documentation Fee (B/L)	996713	1	5,850.00	INR	1.00	5,850.00	18%	6,903.00
+4	Bolt Seal Charges	996719	3	650.00	INR	1.00	1,950.00	18%	2,301.00
+5	EDI Charges	998599	1	1,050.00	INR	1.00	1,050.00	18%	1,239.00
+6	Precarriage Rail Haulage	996511	3	25,000.00	INR	1.00	75,000.00	18%	88,500.00
+7	Misc Expenses	998599	1	1,400.00	INR	1.00	1,400.00	18%	1,652.00
+8	Truck Freight (Local)	996511	1	11,000.00	INR	1.00	11,000.00	12%	12,320.00
+9	ACC Warehouse Charges	996729	1	13,800.00	INR	1.00	13,800.00	18%	16,284.00
+10	Shipping Bill Filing	996713	1	1,950.00	INR	1.00	1,950.00	18%	2,301.00
+Total (Before Tax)	524,057.20
+IGST	44,100.36
+Round Off	0.44
+Net Payable	568,158.00
+Amount in words: INR Five Lakh Sixty Eight Thousand One Hundred Fifty Eight and Paise Zero Only
+BANK DETAILS
+State Bank of India | A/c No 95104041844 | IFSC YESB0246746
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR KESTREL FREIGHT SYSTEMS & CO.
+Authorised Signatory
+E & O.E.
+GST AUDITED
+TAX INVOICE

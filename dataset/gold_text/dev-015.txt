@@ -1,0 +1,44 @@
+Northstar Cargo Movers Pvt. Ltd.
+350, Mahipalpur Extn, Pune - 411001, India
+GSTIN 27HEUPX7182F1ZC | accounts@northstarlogistics.example | +91 67 7276 9935
+TAX INVOICE
+Billed To
+Triveni Auto Components Ltd.
+68 FC Road, Delhi 110034
+GSTIN: 19KNEFS4863L1ZA
+Consignee: Kanto Machinery KK, Yokohama, Japan
+Invoice No.	NCM/SE/25-26/05365
+Bill Date	13-08-2024
+A/c Code	C99127
+Job Ref	JOB/NCM/24/7883
+Party Invoice No	EXP/257389
+Place of Supply	24 Gujarat
+Currency Rate	USD 88.1288
+SHIPMENT DETAILS
+Place of Receipt	ICD Dadri	Port of Loading	INPAV - Pipavav
+POD	JPYOK - Yokohama	Vessel / Voyage	SSL Mumbai / 641N
+Sailing Date	06-08-2024	M B/L No	MAEU195678497
+B/L No	NCM/HBL/25-26/4604	Container No	MRKU 323558 0, EGHU 942868 8, FFAU 439269 0
+Seal No	3851961, 7734519, 3829575	No. of Packages	106 BOXES
+Gross Mass	15,829 Kgs	Measurement	132.548 CBM
+Terms of Delivery	FOB		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Freight Charges - Ocean	996521	USD	3,315.00	88.1288	2,92,146.97	0%	0.00	2,92,146.97
+2	Terminal Hdlg. Chgs.	996719	INR	37,200.00	1.00	37,200.00	18%	6,696.00	43,896.00
+3	THC	996719	INR	17,850.00	1.00	17,850.00	18%	3,213.00	21,063.00
+4	Seaway Bill Fee	996713	INR	5,350.00	1.00	5,350.00	18%	963.00	6,313.00
+5	EDI Fees	998599	INR	800.00	1.00	800.00	18%	144.00	944.00
+6	Pre Carriage Charges	996511	INR	1,03,050.00	1.00	1,03,050.00	5%	5,152.50	1,08,202.50
+7	Sundry Charges	998599	INR	1,000.00	1.00	1,000.00	18%	180.00	1,180.00
+8	Fuel Adjustment Charges	996521	USD	855.00	88.1288	75,350.12	5%	3,767.51	79,117.63
+Net Amount	5,32,747.09
+IGST	20,116.01
+Total Invoice Value	5,52,863.10
+INR Five Lakh Fifty Two Thousand Eight Hundred Sixty Three and Paise Ten Only
+Axis Bank | A/c No 65015676475 | IFSC KKBK0955382
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Northstar Cargo Movers Pvt. Ltd.
+
+
+Authorised Signatory

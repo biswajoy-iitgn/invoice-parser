@@ -1,0 +1,133 @@
+{
+  "id": "dev-006",
+  "split": "dev",
+  "file": "invoices/dev-006.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 697964,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.871,
+    "rotation_deg": -0.35,
+    "blur_sigma": 0.41,
+    "noise_sigma": 3.1,
+    "encoding": "jpeg",
+    "jpeg_quality": 72,
+    "pixels": [
+      1471,
+      1471
+    ]
+  },
+  "fields": {
+    "Invoice No": "SFP/AE/2425/95137",
+    "Invoice Date": "2024-09-10",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Skyways Forwarding Pvt. Ltd.",
+    "Bill of Lading / HBL": "SFP/HBL/24-25/1007",
+    "Weight": "2108.415 KG",
+    "Sea Freight": 19381.52,
+    "Air Freight": "",
+    "Terminal Handling Charges": 16150,
+    "Airway Bill Charges": "",
+    "BL Charges": 2550,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1000,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 3365.45,
+    "Handling Charges": 5350,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.2935,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 12850,
+    "Examination Charges": 4950,
+    "Fuel Charges": 14669.89,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Bunker Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 14669.89,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "category": "AMS Charges",
+      "amount_inr": 3365.45,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "B/L Issuance Charges",
+      "category": "BL Charges",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 4950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling & Coordination",
+      "category": "Handling Charges",
+      "amount_inr": 5350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 19381.52,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 12850,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": false
+  }
+}

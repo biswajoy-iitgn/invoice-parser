@@ -1,0 +1,134 @@
+{
+  "id": "dev-046",
+  "split": "dev",
+  "file": "invoices/dev-046.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T5",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 273245,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.869,
+    "rotation_deg": -0.62,
+    "blur_sigma": 0.37,
+    "noise_sigma": 3.3,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 71,
+    "pixels": [
+      1808,
+      1248
+    ]
+  },
+  "fields": {
+    "Invoice No": "IEC24526243",
+    "Invoice Date": "2024-06-20",
+    "Container Number": "",
+    "MAWB No": "618-23320695",
+    "HAWB No": "HAWB275057",
+    "Vendor Name": "Indus Express Cargo Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "127.831 KG",
+    "Sea Freight": "",
+    "Air Freight": 33574.88,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3450,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 11350,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.2652,
+    "Misc": "",
+    "Transportation": 6400,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 9401.47,
+    "Cargo Screening": 2250,
+    "Agency Charges": 6500,
+    "Shipping Bill Charges": 1350
+  },
+  "lines": [
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 33574.88,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 9401.47,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Security Screening Fee",
+      "category": "Cargo Screening",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Passing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Mandatory User Charges",
+      "category": "Other Charges",
+      "amount_inr": 3250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Cleaning Charges",
+      "category": "Other Charges",
+      "amount_inr": 8100,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": true,
+    "gw": false
+  }
+}

@@ -1,0 +1,50 @@
+Silverline Logistics Private Limited
+439, Mahipalpur Extn, Mumbai - 400001, India
+GSTIN 27DHYPN5470N1ZC | accounts@silverlinelogistics.example | +91 94 9243 9751
+SERVICE INVOICE
+Invoice No.: SLP24579403
+Invoice Dt: 24/07/2024
+Pay By: 08/08/2024
+Customer Code: CU50168
+Job Ref: SLP/26/5995
+Party Invoice No: EXP/245363
+Buyer Ref: PO-86569
+State: 07 Delhi
+Bill To
+Vardhaman Yarns & Exports
+70 Park Street, Noida 201301
+GSTIN 07YTEPA4623G1ZE
+Consignee: Harbor Supply LLC, Savannah, USA
+Departure: BLR - Bengaluru
+Dest.: LAX - Los Angeles
+Flight No: BA 343 / 24/07/2024
+Master Airway Bill No: 125-62084816
+House Air Waybill: SLP/24/50623
+Packages: 109 PALLETS
+G.W.: 931 Kgs
+Chargeable Wt: 1,278.0 KG
+Incoterms: EXW
+S/Bill No: 5844241 dt 20/07/2024
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Customs Brokerage Fee	SHPT	INR	2,600.00	1	1.00	2,600.00	18%	3,068.00
+2	Port Security Surcharge	SHPT	INR	7,800.00	1	1.00	7,800.00	18%	9,204.00
+	Sub Total - Origin Charges	10,400.00		12,272.00
+Documentation & Filing
+3	Airwaybill Issuance	SHPT	INR	2,950.00	1	1.00	2,950.00	18%	3,481.00
+	Sub Total - Documentation & Filing	2,950.00		3,481.00
+Freight Charges
+4	Air Freight	KG	USD	4.13	1278.0	84.7565	4,47,356.67	0%	4,47,356.67
+5	Airline Fuel Levy	KG	USD	0.83	1278.0	84.7565	89,904.61	18%	1,06,087.44
+	Sub Total - Freight Charges	5,37,261.28		5,53,444.11
+Total Taxable Value	5,50,611.28
+IGST	18,585.83
+Invoice Total	5,69,197.11
+INR Five Lakh Sixty Nine Thousand One Hundred Ninety Seven and Paise Eleven Only
+Axis Bank | A/c No 83622316378 | IFSC YESB0150021
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Silverline Logistics Private Limited
+
+
+Authorised Signatory
+PAID

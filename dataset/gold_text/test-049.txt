@@ -1,0 +1,37 @@
+Pioneer Logistics Ltd.
+122, Willingdon Island, Mumbai - 400001, India
+GSTIN: 27AHRAT6510V1Z5 | PAN: AHRAT6510V
+accounts@pioneerlogistics.example | +91 40 1639 7760
+
+Bill To: Gajanan Castings Pvt. Ltd., 62 Lake View Road, Bengaluru 560001 | GSTIN 24HYMAY9315Y1ZE
+Invoice Ref	INV-2026-718504
+Bill Date	28 Jun 2024
+Cust. ID	PLL55794
+File No	FILE/PLL/24/0218
+Shipper Inv No	EXP/252876
+State	19 West Bengal
+ROE (USD)	86.90
+FREIGHT INVOICE
+Airport of Departure	AMD - Ahmedabad	Dest.	ORD - Chicago	Flight No	QR 909 / 25 Jun 2024
+Airline AWB No	157-01294720	House AWB	HAWB438594	No. of Packages	41 BOXES
+G.W.	1,512.01 KGS	Ch. Wt	1,969.0 KG	Incoterms	DAP
+Shipping Bill No	4656073 dt 19 Jun 2024				
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	IGST%	IGST Amt	Total (INR)
+1	Airline Freight Charges	996531	USD	4.60	1969.0	9,057.40	86.90	7,87,088.06	0.00	0%	0.00	7,87,088.06
+2	Air Waybill Fee	996713	INR	1,950.00	1	1,950.00	1.00	0.00	1,950.00	18%	351.00	2,301.00
+3	AMS / ISF Filing	996713	INR	3,200.00	1	3,200.00	1.00	0.00	3,200.00	18%	576.00	3,776.00
+4	Transportation Charges	996511	INR	12,450.00	1	12,450.00	1.00	0.00	12,450.00	18%	2,241.00	14,691.00
+5	Shipping Bill Charges	996713	INR	550.00	1	550.00	1.00	0.00	550.00	18%	99.00	649.00
+6	Peak Season Surcharge	998599	INR	5,700.00	1	5,700.00	1.00	0.00	5,700.00	18%	1,026.00	6,726.00
+Total Non-Taxable Value	7,87,088.06
+Total Taxable Value	23,850.00
+IGST	4,293.00
+Round Off	-0.06
+Total Amount Payable	8,15,231.00
+INR Eight Lakh Fifteen Thousand Two Hundred Thirty One and Paise Zero Only
+BANK DETAILS
+Axis Bank | A/c No 41025213808 | IFSC YESB0715189
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR PIONEER LOGISTICS LTD.
+Authorised Signatory
+E & O.E.

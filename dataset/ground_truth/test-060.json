@@ -1,0 +1,131 @@
+{
+  "id": "test-060",
+  "split": "test",
+  "file": "invoices/test-060.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 541384,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.814,
+    "rotation_deg": -2.25,
+    "blur_sigma": 0.66,
+    "illumination": true,
+    "noise_sigma": 12.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 51,
+    "pixels": [
+      1290,
+      1105
+    ]
+  },
+  "fields": {
+    "Invoice No": "OEC24610306",
+    "Invoice Date": "2026-01-10",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Orient Express Cargo Pvt Ltd",
+    "Bill of Lading / HBL": "OEC/HBL/25-26/6324",
+    "Weight": "994 KG",
+    "Sea Freight": 20178.98,
+    "Air Freight": "",
+    "Terminal Handling Charges": 13200,
+    "Airway Bill Charges": "",
+    "BL Charges": 2700,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1150,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.49,
+    "Misc": "",
+    "Transportation": 16800,
+    "Warehouse Charges Port": 8200,
+    "Examination Charges": 3050,
+    "Fuel Charges": 7100,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 13200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "category": "Transportation",
+      "amount_inr": 16800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 8200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 1150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 20178.98,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "BAF",
+      "category": "Fuel Charges",
+      "amount_inr": 7100,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "hbl": false,
+    "gw": false
+  }
+}

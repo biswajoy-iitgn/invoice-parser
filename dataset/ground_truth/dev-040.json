@@ -1,0 +1,123 @@
+{
+  "id": "dev-040",
+  "split": "dev",
+  "file": "invoices/dev-040.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 88518,
+  "maker_difficulty": {
+    "faint": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.798,
+    "rotation_deg": 1.06,
+    "blur_sigma": 0.69,
+    "illumination": true,
+    "noise_sigma": 12.1,
+    "encoding": "jpeg",
+    "jpeg_quality": 64,
+    "pixels": [
+      1248,
+      1259
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV/2526/2673",
+    "Invoice Date": "2024-07-05",
+    "Container Number": "TGBU0532312, TRHU5855707",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Orient Supply Chain Solutions LLP",
+    "Bill of Lading / HBL": "OSCSE2592797",
+    "Weight": "32750.3 KG",
+    "Sea Freight": 260803,
+    "Air Freight": "",
+    "Terminal Handling Charges": 28800,
+    "Airway Bill Charges": "",
+    "BL Charges": 6400,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 1800,
+    "EDI Fees": "",
+    "DAP Charges": 21873.8,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 3200,
+    "Pre Carriage Haulage": 22400,
+    "Ex Rate": 84.13,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 260803,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 28800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "category": "VGM",
+      "amount_inr": 1800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Delivery Charges",
+      "category": "DAP Charges",
+      "amount_inr": 21873.8,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Pre Carriage Charges",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 22400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

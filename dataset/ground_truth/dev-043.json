@@ -1,0 +1,159 @@
+{
+  "id": "dev-043",
+  "split": "dev",
+  "file": "invoices/dev-043.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 505435,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "FF/2526/8340",
+    "Invoice Date": "2024-03-07",
+    "Container Number": "BMOU3718945",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Bluewater Air & Sea Ltd.",
+    "Bill of Lading / HBL": "HBL5257005",
+    "Weight": "18778.9 KG",
+    "Sea Freight": 57800,
+    "Air Freight": "",
+    "Terminal Handling Charges": 31800,
+    "Airway Bill Charges": "",
+    "BL Charges": 3500,
+    "ENS Charges": "",
+    "Seal Charges": 700,
+    "VGM": 1750,
+    "EDI Fees": 800,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2100,
+    "Handling Charges": 7200,
+    "Pre Carriage Haulage": 17200,
+    "Ex Rate": 85,
+    "Misc": 900,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 11050,
+    "Cargo Screening": "",
+    "Agency Charges": 2550,
+    "Shipping Bill Charges": 1200
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 57800,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 15300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 3500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "VGM Filing Fee",
+      "category": "VGM",
+      "amount_inr": 1750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AMS Filing Fee",
+      "category": "AMS Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 7200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 17200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Incidental Expenses",
+      "category": "Misc",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bunker Adjustment Factor",
+      "category": "Fuel Charges",
+      "amount_inr": 11050,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

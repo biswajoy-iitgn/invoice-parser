@@ -1,0 +1,40 @@
+Crescent Maritime Services Private Limited
+79, Bund Garden Road, New Delhi - 110037, India
+GSTIN: 07TUGFM7675L1ZD | PAN: TUGFM7675L
+accounts@crescentlogistics.example | +91 34 7755 5166
+
+Bill To: Shreeji Polymers Ltd., 24 Gandhi Nagar, Noida 201301 | GSTIN 27UULCT7693P1ZS
+Invoice Number	INV-2024-777056
+Document Date	2025-03-30
+Due On	2025-04-14
+Client Code	CMS82714
+Job Ref	CMS/24/7950
+Exporter Inv. Ref	CI242642
+Your Ref	PO-66960
+State	24 Gujarat
+TAX INVOICE
+Place of Receipt	ICD Sabarmati	Port of Loading	INNSA - Nhava Sheva	Destination	SGSIN - Singapore
+Vsl/Voy	Maersk Kinloss / 411W	SOB Date	2025-03-28	House B/L	CMSSE2472925
+Container No	SEGU8696609	Seal	ML-IN1891588	Pkgs	109 PALLETS
+Weight	11,272 KGS	Incoterms	CIF		
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Sea Freight	996521	USD	980.00	1	980.00	82.60	0.00	80,948.00	2,023.70	2,023.70	84,995.40
+2	Terminal Handling (Origin)	996719	INR	9,850.00	1	9,850.00	1.00	0.00	9,850.00	886.50	886.50	11,623.00
+3	Bolt Seal Charges	996719	INR	1,200.00	1	1,200.00	1.00	0.00	1,200.00	108.00	108.00	1,416.00
+4	VGM Filing Fee	996719	INR	1,400.00	1	1,400.00	1.00	0.00	1,400.00	126.00	126.00	1,652.00
+5	EDI Filing	998599	INR	1,350.00	1	1,350.00	1.00	0.00	1,350.00	121.50	121.50	1,593.00
+6	Precarriage Rail Haulage	996511	INR	31,850.00	1	31,850.00	1.00	0.00	31,850.00	796.25	796.25	33,442.50
+7	CFS Charges	996729	INR	6,800.00	1	6,800.00	1.00	0.00	6,800.00	612.00	612.00	8,024.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	1,33,398.00
+CGST	4,673.95
+SGST	4,673.95
+Round Off	0.10
+Net Payable	1,42,746.00
+INR One Lakh Forty Two Thousand Seven Hundred Forty Six and Paise Zero Only
+BANK DETAILS
+Axis Bank | A/c No 93384201147 | IFSC YESB0169191
+Please quote invoice number with remittance.
+FOR CRESCENT MARITIME SERVICES PRIVATE LIMITED
+Authorised Signatory
+E & O.E.

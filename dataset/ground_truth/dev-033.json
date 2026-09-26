@@ -1,0 +1,127 @@
+{
+  "id": "dev-033",
+  "split": "dev",
+  "file": "invoices/dev-033.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 688563,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.905,
+    "rotation_deg": -0.67,
+    "blur_sigma": 0.49,
+    "noise_sigma": 5.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 72,
+    "pixels": [
+      1538,
+      1508
+    ]
+  },
+  "fields": {
+    "Invoice No": "EXP/2425/4011",
+    "Invoice Date": "2024-06-14",
+    "Container Number": "",
+    "MAWB No": "618-84573285",
+    "HAWB No": "BOM-HA-571661",
+    "Vendor Name": "Zenith Shipping Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1988 KG",
+    "Sea Freight": "",
+    "Air Freight": 341482.02,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1650,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 900,
+    "DAP Charges": 13503.92,
+    "Other Charges": 2100,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.3995,
+    "Misc": 1150,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 197786.01,
+    "Cargo Screening": "",
+    "Agency Charges": 5100,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 341482.02,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Air Waybill Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Charges",
+      "category": "DAP Charges",
+      "amount_inr": 13503.92,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 1150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 197786.01,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 5100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Courier Charges",
+      "category": "Other Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

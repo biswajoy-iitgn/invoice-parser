@@ -1,0 +1,112 @@
+{
+  "id": "dev-018",
+  "split": "dev",
+  "file": "invoices/dev-018.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 275381,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.837,
+    "rotation_deg": 1.02,
+    "blur_sigma": 0.65,
+    "illumination": true,
+    "noise_sigma": 9.4,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 56,
+    "pixels": [
+      1305,
+      1172
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI086640",
+    "Invoice Date": "2026-03-24",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Orient Forwarding (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "48738231456",
+    "Weight": "4071.5 KG",
+    "Sea Freight": 74484.65,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 6150,
+    "ENS Charges": 2100,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1350,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 5600,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.34,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "B/L Fee",
+      "category": "BL Charges",
+      "amount_inr": 6150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EU Advance Manifest (ENS)",
+      "category": "ENS Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 5600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 74484.65,
+      "currency": "USD",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": true
+  }
+}

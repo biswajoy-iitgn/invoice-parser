@@ -1,0 +1,117 @@
+{
+  "id": "test-076",
+  "split": "test",
+  "file": "invoices/test-076.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T8",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 187994,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "INV/2425/0755",
+    "Invoice Date": "2025-09-25",
+    "Container Number": "",
+    "MAWB No": "618-22493516",
+    "HAWB No": "BLR-HA-690178",
+    "Vendor Name": "Seahawk Supply Chain Solutions Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1062 KG",
+    "Sea Freight": "",
+    "Air Freight": 339254.45,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3050,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1250,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 1700,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 12800,
+    "Examination Charges": "",
+    "Fuel Charges": 91259.35,
+    "Cargo Screening": 2000,
+    "Agency Charges": 6500,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "MAWB Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 12800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Forwarder Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 1700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Air Freight",
+      "category": "Air Freight",
+      "amount_inr": 339254.45,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 91259.35,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 1250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

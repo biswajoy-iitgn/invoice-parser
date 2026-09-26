@@ -1,0 +1,61 @@
+Zenith Shipping Ltd.
+223, Mahipalpur Extn, Mumbai - 400001, India
+GSTIN 27UNLPE6881J1ZB | accounts@zenithlogistics.example | +91 99 5291 1535
+SERVICE INVOICE
+BILL TO
+Lotus Garments Exports
+7 Station Road, Ahmedabad 380015 | GSTIN 07NXAFF5943A1ZS
+TAX INVOICE NO
+EXP/2425/4011
+DATE
+14-Jun-2024
+PAYMENT DUE
+14-Jul-2024
+CUST. ID
+ZSL13717
+JOB REF
+FILE/ZSL/24/3413
+COMMERCIAL INVOICE NO
+EXP/245837
+STATE
+06 Haryana
+EXCH. RATE
+USD 84.3995
+DEPARTURE
+MAA - Chennai
+DEST.
+SIN - Singapore
+FLIGHT / DATE
+SQ 475 / 13-Jun-2024
+MAWB NO
+618-84573285
+H.AWB NO
+BOM-HA-571661
+NO. OF PACKAGES
+9 CTNS
+WEIGHT
+1988 KG
+CH. WT
+2,757.0 KG
+INCOTERMS
+DAP
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Air Cargo Freight	2757.0	123.86	INR	1.00	3,41,482.02	0%
+Air Waybill Fee	1	1,650.00	INR	1.00	1,650.00	18%
+E-Manifest EDI Transmission	1	900.00	INR	1.00	900.00	18%
+DAP Charges	1	160.00	USD	84.3995	13,503.92	18%
+Sundry Charges	1	1,150.00	INR	1.00	1,150.00	18%
+Fuel Surcharge	2757.0	0.85	USD	84.3995	1,97,786.01	0%
+Agency Fee	1	5,100.00	INR	1.00	5,100.00	18%
+Courier Charges	1	2,100.00	INR	1.00	2,100.00	18%
+Taxable Amount	5,63,671.95
+CGST	2,196.36
+SGST	2,196.35
+Invoice Total	5,68,064.66
+INR Five Lakh Sixty Eight Thousand Sixty Four and Paise Sixty Six Only
+Yes Bank | A/c No 65766599257 | IFSC YESB0745357
+Cheque / RTGS in favour of the company only.
+For Zenith Shipping Ltd.
+
+
+Authorised Signatory

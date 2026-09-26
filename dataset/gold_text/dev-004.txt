@@ -1,0 +1,66 @@
+Coastal Shipping Private Limited
+11, Strand Road, New Delhi - 110037, India
+GSTIN
+07NRYFY3170M1Z5
+PAN
+NRYFY3170M
+CONTACT
+accounts@coastallogistics.example | +91 26 9874 9169
+TAX INVOICE
+DUPLICATE
+BILL TO
+Orion Bearings Ltd.
+73 Linking Road, Mumbai 400050
+GSTIN 27EASFF4986L1ZD
+Consignee: Optima Handel GmbH, Hamburg, Germany
+INVOICE DETAILS
+BILL DATE
+22-Jul-24
+INV. SERIAL NO
+INV-2026-138154
+PAY BY
+21-Aug-24
+CUST. ID
+C82995
+JOB REF
+JOB/CSP/24/5586
+PO NO
+PO-17696
+STATE
+27 Maharashtra
+EXCH. RATE
+1 EUR = 89.55 INR
+SHIPMENT
+POL: INCOK - Kochi
+Port of Discharge: BEANR - Antwerp
+Vsl/Voy: CMA CGM Tage / 219W
+SOB Date: 18-Jul-24
+MBL No: ONEYAB5887579
+House BL Ref: HBL3190030
+Container No(s): TCNU2899502 / 40GP, TCNU4022894
+Seal: SL9430686, SL4663760
+Pkgs: 105 BOXES
+Gross Mass: 43,154.936 KGS
+CBM: 42.041 CBM
+Terms of Delivery: CIF
+CARGO
+Cotton yarn in cartons | 105 BOXES
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Sea Freight Charges	996521	2	440.00	EUR	89.55	78,804.00	0%	78,804.00
+2	Terminal Handling (Origin)	996719	2	8,350.00	INR	1.00	16,700.00	18%	19,706.00
+3	THC Port of Loading	996719	2	15,250.00	INR	1.00	30,500.00	18%	35,990.00
+4	Seaway Bill Fee	996713	1	6,150.00	INR	1.00	6,150.00	18%	7,257.00
+5	ENS Filing Fee	996713	1	43.00	EUR	89.55	3,850.65	18%	4,543.77
+6	VGM Filing Fee	996719	2	2,450.00	INR	1.00	4,900.00	18%	5,782.00
+7	Misc. Charges	998599	1	1,750.00	INR	1.00	1,750.00	18%	2,065.00
+Sub Total	142,654.65
+CGST	5,746.56
+SGST	5,746.56
+Total Invoice Value	154,147.77
+Amount in words: INR One Lakh Fifty Four Thousand One Hundred Forty Seven and Paise Seventy Seven Only
+BANK DETAILS
+State Bank of India | A/c No 42530585471 | IFSC HDFC0426736
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR COASTAL SHIPPING PRIVATE LIMITED
+Authorised Signatory
+E & O.E.

@@ -1,0 +1,101 @@
+{
+  "id": "test-090",
+  "split": "test",
+  "file": "invoices/test-090.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T8",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 188871,
+  "maker_difficulty": {
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.837,
+    "rotation_deg": -0.13,
+    "blur_sigma": 0.49,
+    "illumination": true,
+    "noise_sigma": 10.0,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 67,
+    "pixels": [
+      1289,
+      1300
+    ]
+  },
+  "fields": {
+    "Invoice No": "SE/24-25/8377",
+    "Invoice Date": "2025-01-30",
+    "Container Number": "",
+    "MAWB No": "157-36953243",
+    "HAWB No": "PMS7012196",
+    "Vendor Name": "Polaris Maritime Services & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1836 KG",
+    "Sea Freight": "",
+    "Air Freight": 395077.52,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 38496.35,
+    "Other Charges": 7800,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.4917,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 142821.45,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 395077.52,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Terminal & Delivery",
+      "category": "DAP Charges",
+      "amount_inr": 38496.35,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 142821.45,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 7800,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

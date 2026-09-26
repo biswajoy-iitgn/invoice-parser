@@ -1,0 +1,44 @@
+COASTAL AIR & SEA (INDIA) PVT. LTD.
+167, STRAND ROAD, BENGALURU - 560001, INDIA
+GSTIN: 29BLXPG6023C1ZC PAN: BLXPG6023C
+BILL TO: BHARAT BRASS FITTINGS, 68 GANDHI NAGAR, PUNE 411005 GSTIN: 27FPLAA6792K1ZD
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+BILL DATE      : 31.12.2024                       DOCUMENT NO    : TI330058
+DUE ON         : 30.01.2025                       CLIENT CODE    : CU98968
+COMMERCIAL INVOICE NO: CI240659                   YOUR REF       : PO-70071
+STATE          : 07 DELHI                         POL            : INPAV - PIPAVAV
+DESTINATION    : BEANR - ANTWERP                  VESSEL         : EVER GENTLE / 418N
+ETD            : 26.12.2024                       MASTER B/L     : EGLVIN4778142
+B/L NO         : 72674893869                      PKGS           : 23 PKGS
+G.W.           : 13945.380 KG                     INCO           : CFR
+SB NO & DATE   : 9946221 DT 21.12.2024
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  O/F CHARGES (FCL)                 USD     1,145.00         2     88.77     2,03,283.30   5%
+  2  THC - ORIGIN                      INR     8,950.00         2      1.00       17,900.00  18%
+  3  SEAWAY BILL FEE                   INR     3,300.00         1      1.00        3,300.00  18%
+  4  SEAL CHARGES                      INR       850.00         2      1.00        1,700.00  18%
+  5  EDI FILING                        INR     1,300.00         1      1.00        1,300.00  18%
+  6  HANDLING FEE                      INR     7,650.00         1      1.00        7,650.00  18%
+  7  SUNDRIES                          INR       950.00         1      1.00          950.00  18%
+  8  CHA CHARGES                       INR     7,050.00         1      1.00        7,050.00  18%
+  9  SHIPPING BILL PROCESSING          INR       600.00         1      1.00          600.00  18%
+------------------------------------------------------------------------------------------------
+                                                       SUB TOTAL                     2,43,733.30
+                                                       CGST                             8,722.58
+                                                       SGST                             8,722.59
+                                                       ROUND OFF                           -0.47
+                                                       TOTAL AMOUNT PAYABLE          2,61,178.00
+------------------------------------------------------------------------------------------------
+INR TWO LAKH SIXTY ONE THOUSAND ONE HUNDRED SEVENTY EIGHT AND PAISE ZERO ONLY
+
+BANK: AXIS BANK | A/C NO 30286800125 | IFSC YESB0966826
+SUBJECT TO MUMBAI JURISDICTION. E. & O.E.
+
+                                                            FOR COASTAL AIR & SEA (INDIA) PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY
+VERIFIED

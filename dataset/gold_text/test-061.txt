@@ -1,0 +1,33 @@
+Bluewater Global Logistics Pvt Ltd
+88, Sector 9, Kolkata - 700001, India
+GSTIN: 19GDNPS9859G1ZC   PAN: GDNPS9859G
+accounts@bluewaterlogistics.example | +91 39 6929 5254
+INVOICE
+Customer: Lotus Garments Exports, 52 Linking Road, Kolkata 700016 (GSTIN 06XLPPT7098L1ZC)
+Invoice #	EXP/2425/0281	Bill Date	08/04/25
+Payment Due	23/05/25	Client Code	BGL81224
+Job Ref	BGL/26/2108	State	29 Karnataka
+Port of Loading	INNSA - Nhava Sheva	Port of Discharge	USNYC - New York
+Vsl/Voy	ONE Harmony / 431W	SOB Date	08/04/25
+B/L No	16862181490	Cntr No	CAIU8112436 / 20GP, SEGU2935748, TCNU0788201 / 40GP
+Seal No	ML-IN1430900, SL5586129, SL1234940	Packages	99 CTNS
+Weight	54,017.97 KG	Volume	66.171 CBM
+Inco	FCA	SB No & Date	3016608 dt 06/04/25
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Freight Charges - Ocean (USD 7,335.00 @ 88.31)	996521	6,47,753.85	16,193.85	16,193.84	6,80,141.54
+2	Terminal Hdlg. Chgs.	996719	43,350.00	3,901.50	3,901.50	51,153.00
+3	Verified Gross Mass Declaration	996719	2,550.00	229.50	229.50	3,009.00
+4	Electronic Data Interchange Fee	998599	600.00	54.00	54.00	708.00
+5	US Customs AMS	996713	3,150.00	283.50	283.50	3,717.00
+Sub Total	6,97,403.85
+CGST	20,662.35
+SGST	20,662.34
+Round Off	0.46
+Invoice Total	7,38,729.00
+INR Seven Lakh Thirty Eight Thousand Seven Hundred Twenty Nine and Paise Zero Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 13045984283 | IFSC ICIC0632343
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR BLUEWATER GLOBAL LOGISTICS PVT LTD
+Authorised Signatory
+E & O.E.

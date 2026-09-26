@@ -1,0 +1,37 @@
+Kestrel Express Cargo Ltd.
+338, Sahar Road, New Delhi - 110037, India
+GSTIN: 07NWVCE4424V1ZD | PAN: NWVCE4424V
+accounts@kestrellogistics.example | +91 79 8538 9765
+
+Bill To: Madhav Spices Pvt. Ltd., 73 Station Road, Bengaluru 560001 | GSTIN 24MEYAR4392F1ZE
+Tax Invoice No	5447283673
+Document Date	27-06-2026
+Client Code	CU28305
+Buyer Ref	PO-16525
+Place of Supply	33 Tamil Nadu
+TAX INVOICE
+Load Port	INCCU - Kolkata	Port of Discharge	DEHAM - Hamburg	MBL No	CMDUIN1489680
+Pkgs	106 CTNS	Gr. Wt.	45143 kg	Volume	65.690 CBM
+Inco	FOB	SB No & Date	3105755 dt 19-06-2026		
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Congestion Surcharge	998599	INR	6,450.00	1	6,450.00	1.00	0.00	6,450.00	580.50	580.50	7,611.00
+2	Agency Fee	996713	INR	6,500.00	1	6,500.00	1.00	0.00	6,500.00	585.00	585.00	7,670.00
+3	EDI Filing	998599	INR	1,000.00	1	1,000.00	1.00	0.00	1,000.00	90.00	90.00	1,180.00
+4	Ground Rent	996729	INR	11,100.00	1	11,100.00	1.00	0.00	11,100.00	999.00	999.00	13,098.00
+5	Seal Fee	996719	INR	500.00	2	1,000.00	1.00	0.00	1,000.00	90.00	90.00	1,180.00
+6	CHA Charges	996713	INR	5,750.00	1	5,750.00	1.00	0.00	5,750.00	517.50	517.50	6,785.00
+7	Customs Examination	998599	INR	6,350.00	1	6,350.00	1.00	0.00	6,350.00	571.50	571.50	7,493.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	38,150.00
+CGST	3,433.50
+SGST	3,433.50
+Grand Total	45,017.00
+INR Forty Five Thousand Seventeen and Paise Zero Only
+BANK DETAILS
+Yes Bank | A/c No 62191849695 | IFSC YESB0221933
+Please quote invoice number with remittance.
+FOR KESTREL EXPRESS CARGO LTD.
+Authorised Signatory
+E & O.E.
+VERIFIED
+ORIGINAL

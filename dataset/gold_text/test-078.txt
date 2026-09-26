@@ -1,0 +1,43 @@
+Navkar Freight Systems Pvt Ltd
+58, Willingdon Island, Kochi - 682003, India
+GSTIN: 32CJFPG4257F1ZD | accounts@navkarlogistics.example | +91 66 7915 6991
+INVOICE
+
+Invoice No 2855692280    Inv. Date 3rd May 2026
+
+Payment Due: 17th June 2026  |  Cust. ID: NFS42952  |  Job No: JOB/NFS/24/2878  |  Place of Supply: 33 Tamil Nadu
+
+To,
+Orion Bearings Ltd.
+22 Gandhi Nagar, Pune 411005
+GSTIN: 24CBPCP8671T1ZD
+
+Being charges in respect of your shipment of Granite slabs consigned to Gulf Star Trading LLC, Jebel Ali, UAE. Load Port INCOK - Kochi; Port of Discharge CNSHA - Shanghai; Vessel / Voyage Ever Gentle / 540N; SOB Date 3rd May 2026; House Bill of Lading HBL9872455; Pkgs 75 PKGS; Weight 1,796 KGS; Inco FCA; SB No & Date 5902533 dt 2nd May 2026.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	O/F Charges (FCL) (USD 121.30)	10,008.46
+2	OTHC	6,200.00
+3	Documentation Fee (B/L)	5,250.00
+4	Misc. Charges	2,200.00
+5	Storage Charges at CFS	14,400.00
+6	Examination Charges	3,850.00
+7	CHA Charges	4,800.00
+8	Shipping Bill Filing	2,500.00
+9	DO Charges	6,950.00
+	Taxable Amount	56,158.46
+	Add: CGST	4,403.71
+	Add: SGST	4,403.71
+	Round Off	0.12
+	Total Invoice Value	64,966.00
+
+Rate of Exchange: 1 USD = INR 82.51
+
+(INR Sixty Four Thousand Nine Hundred Sixty Six and Paise Zero Only)
+
+Kotak Mahindra Bank | A/c No 85735859719 | IFSC ICIC0307921
+Please quote invoice number with remittance.
+
+For Navkar Freight Systems Pvt Ltd
+
+
+Authorised Signatory

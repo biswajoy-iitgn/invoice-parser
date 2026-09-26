@@ -1,0 +1,127 @@
+{
+  "id": "test-033",
+  "split": "test",
+  "file": "invoices/test-033.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T4",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 154108,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1860
+    ]
+  },
+  "fields": {
+    "Invoice No": "HSA/SE/24-25/81385",
+    "Invoice Date": "2026-01-26",
+    "Container Number": "",
+    "MAWB No": "176-53457176",
+    "HAWB No": "",
+    "Vendor Name": "Harbourline Shipping Agencies (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "261 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 350,
+    "DAP Charges": "",
+    "Other Charges": 4350,
+    "AMS Charges": "",
+    "Handling Charges": 2550,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": 6850,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 2850,
+    "Fuel Charges": "",
+    "Cargo Screening": 2850,
+    "Agency Charges": 4150,
+    "Shipping Bill Charges": 1800
+  },
+  "lines": [
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Cleaning Charges",
+      "category": "Other Charges",
+      "amount_inr": 1600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ISPS Charges",
+      "category": "Other Charges",
+      "amount_inr": 2750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Screening Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Inspection Charges",
+      "category": "Examination Charges",
+      "amount_inr": 2850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Transportation Charges",
+      "category": "Transportation",
+      "amount_inr": 6850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,55 @@
+Konark Logistics Ltd.
+415, Willingdon Island, Mumbai - 400001, India
+GSTIN 27LRUFT1371Y1ZC | accounts@konarklogistics.example | +91 41 1339 1911
+FREIGHT INVOICE
+BILL TO
+Nirmal Pharma Exports LLP
+19 Nehru Street, Bengaluru 560001 | GSTIN 27JKXPX3163T1ZE
+INVOICE REF
+KLL/FF/24-25/64588
+INVOICE DT
+16-03-2025
+CUSTOMER CODE
+C40989
+JOB NO
+KLL/26/5626
+SHIPPER INV NO
+CI254429
+STATE
+33 Tamil Nadu
+POL
+INCCU - Kolkata
+DESTINATION
+DEHAM - Hamburg
+VSL/VOY
+Ever Gentle / 566W
+SOB DATE
+07-03-2025
+H B/L NO
+20863498956
+CONT. NO.
+MRKU 238798 9
+SEAL NO
+ML-IN9797645
+PKGS
+113 BOXES
+TERMS OF DELIVERY
+DAP
+SHIPPING BILL NO
+6291514 dt 04-03-2025
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+O/F Charges (FCL)	1	845.00	USD	88.48	74,765.60	0%
+Terminal Hdlg. Chgs.	1	8,700.00	INR	1.00	8,700.00	18%
+Shipping Bill Filing	1	2,200.00	INR	1.00	2,200.00	18%
+Sub Total	85,665.60
+CGST	981.00
+SGST	981.00
+Grand Total	87,627.60
+INR Eighty Seven Thousand Six Hundred Twenty Seven and Paise Sixty Only
+HDFC Bank | A/c No 78225489740 | IFSC YESB0181436
+Please quote invoice number with remittance.
+For Konark Logistics Ltd.
+
+
+Authorised Signatory
+VERIFIED

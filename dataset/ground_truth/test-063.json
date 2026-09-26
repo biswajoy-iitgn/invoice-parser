@@ -1,0 +1,102 @@
+{
+  "id": "test-063",
+  "split": "test",
+  "file": "invoices/test-063.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T7",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 591445,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "AMDAE2467037",
+    "Invoice Date": "2024-10-30",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "BLR-HA-225229",
+    "Vendor Name": "Everfast Freight Systems & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "847 KG",
+    "Sea Freight": "",
+    "Air Freight": 305305.01,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 9850,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.13,
+    "Misc": 800,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 6400,
+    "Fuel Charges": 102609.25,
+    "Cargo Screening": 3200,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 305305.01,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Delivery Charges",
+      "category": "DAP Charges",
+      "amount_inr": 9850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 102609.25,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hawb": false,
+    "gw": true
+  }
+}

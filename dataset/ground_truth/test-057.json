@@ -1,0 +1,131 @@
+{
+  "id": "test-057",
+  "split": "test",
+  "file": "invoices/test-057.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 541384,
+  "maker_difficulty": {
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.805,
+    "rotation_deg": 2.47,
+    "perspective": true,
+    "blur_sigma": 0.46,
+    "illumination": true,
+    "noise_sigma": 8.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 50,
+    "pixels": [
+      1290,
+      1335
+    ]
+  },
+  "fields": {
+    "Invoice No": "5511659750",
+    "Invoice Date": "2025-09-16",
+    "Container Number": "SEGU6901854, OOLU3048427",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Samudra Shipping Private Limited",
+    "Bill of Lading / HBL": "SSP/HBL/25-26/2304",
+    "Weight": "26127.838 KG",
+    "Sea Freight": 198268.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 28400,
+    "Airway Bill Charges": "",
+    "BL Charges": 3650,
+    "ENS Charges": "",
+    "Seal Charges": 2000,
+    "VGM": 4400,
+    "EDI Fees": "",
+    "DAP Charges": 14600,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.96,
+    "Misc": "",
+    "Transportation": 12700,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 27827.2,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Terminal Handling Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 28400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Seal",
+      "category": "Seal Charges",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "SOLAS Weighment Fee",
+      "category": "VGM",
+      "amount_inr": 4400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Local Transportation",
+      "category": "Transportation",
+      "amount_inr": 12700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "B/L Issuance Charges",
+      "category": "BL Charges",
+      "amount_inr": 3650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 198268.8,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "category": "Fuel Charges",
+      "amount_inr": 27827.2,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Destination Charges (DAP)",
+      "category": "DAP Charges",
+      "amount_inr": 14600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

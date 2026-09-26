@@ -1,0 +1,135 @@
+{
+  "id": "dev-052",
+  "split": "dev",
+  "file": "invoices/dev-052.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 570067,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      1920,
+      1808
+    ]
+  },
+  "fields": {
+    "Invoice No": "DELAE2699240",
+    "Invoice Date": "2024-05-07",
+    "Container Number": "CMAU3530945",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Zenith Forwarding Pvt Ltd",
+    "Bill of Lading / HBL": "COSUIN1245002",
+    "Weight": "21543 KG",
+    "Sea Freight": 146173.65,
+    "Air Freight": "",
+    "Terminal Handling Charges": 16100,
+    "Airway Bill Charges": "",
+    "BL Charges": 5100,
+    "ENS Charges": 2400,
+    "Seal Charges": 1100,
+    "VGM": 600,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 3550,
+    "Pre Carriage Haulage": 30650,
+    "Ex Rate": 90.51,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 10400,
+    "Examination Charges": "",
+    "Fuel Charges": 3750,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 1100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "SOLAS Weighment Fee",
+      "category": "VGM",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 3550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Origin Inland Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 30650,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 10400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Charges",
+      "category": "BL Charges",
+      "amount_inr": 5100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Declaration",
+      "category": "ENS Charges",
+      "amount_inr": 2400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 146173.65,
+      "currency": "EUR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bunker Adjustment Factor",
+      "category": "Fuel Charges",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

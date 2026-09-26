@@ -1,0 +1,31 @@
+Everfast Forwarding (India) Pvt. Ltd.
+431, Sahar Road, Kochi - 682003, India
+GSTIN: 32REEAD7341U1ZD   PAN: REEAD7341U
+accounts@everfastlogistics.example | +91 80 8503 2074
+TAX INVOICE
+Customer: Nirmal Pharma Exports LLP, 10 FC Road, Mumbai 400050 (GSTIN 29FRBCT3624B1ZC)
+Bill Date	08/06/26	Invoice Number	EFP24743067
+Payment Due	23/07/26	Cust. ID	C55788
+Job Ref	EFP/24/6090	Shipper Inv No	EI-259009
+Your Ref	PO-62576	Place of Supply	33 Tamil Nadu
+Currency Rate	USD 86.33	Airport of Departure	DEL - Delhi
+Airport of Destination	NRT - Tokyo	Flight / Date	QR 663 / 06/06/26
+MAWB No	15742676233	House Air Waybill	EFP5991937
+Pkgs	22 PKGS	Wt (Gross)	1068.33 KG
+Chargeable Wt	1,485.5 KG	Inco	CIF
+SB No & Date	6576026 dt 01/06/26		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Airway Bill Charges	996713	1,950.00	175.50	175.50	2,301.00
+2	Screening Charges	996719	2,650.00	238.50	238.50	3,127.00
+3	Airfreight Charges (USD 5,481.50 @ 86.33)	996531	473,217.90	0.00	0.00	473,217.90
+Total (Before Tax)	477,817.90
+CGST	414.00
+SGST	414.00
+Total Invoice Value	478,645.90
+INR Four Lakh Seventy Eight Thousand Six Hundred Forty Five and Paise Ninety Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 58268009435 | IFSC SBIN0900897
+Please quote invoice number with remittance.
+FOR EVERFAST FORWARDING (INDIA) PVT. LTD.
+Authorised Signatory
+E & O.E.

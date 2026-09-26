@@ -1,0 +1,35 @@
+Arihant Shipping Private Limited
+75, Nariman Point, Kolkata - 700001, India
+GSTIN: 19KMTFT2767T1Z5   PAN: KMTFT2767T
+accounts@arihantlogistics.example | +91 95 3922 8300
+INVOICE
+Customer: Rotomech Engineering Pvt. Ltd., 65 Gandhi Nagar, Delhi 110034 (GSTIN 06SXVAD5471X1ZS)
+Date of Issue	16 Apr 2026	Invoice No.	SE/2425/0712
+A/c Code	CU22551	Job Ref	ASP/25/3160
+Place of Supply	27 Maharashtra	Place of Receipt	ICD Sabarmati
+Port of Loading	INCCU - Kolkata	Destination	BEANR - Antwerp
+Vessel	SSL Mumbai / 706N	SOB Date	06 Apr 2026
+House BL Ref	HBL9940129	Container Number	OOLU6469775, HLXU6362858
+Seal No(s)	SL6864850, SL3540660	Packages	16 PALLETS
+Wt (Gross)	33,134.754 KGS	Incoterms	CIF
+S/Bill No	5298447 dt 04 Apr 2026		
+#	Description of Service	SAC	Taxable Value (INR)	IGST	Total (INR)
+1	Sea Freight Charges (USD 3,440.00 @ 83.88)	996521	2,88,547.20	14,427.36	3,02,974.56
+2	Container Terminal Charges	996719	11,700.00	2,106.00	13,806.00
+3	HBL Fee	996713	2,650.00	477.00	3,127.00
+4	ICS2 / ENS Filing (USD 40.00 @ 83.88)	996713	3,355.20	603.94	3,959.14
+5	Precarriage Rail Haulage	996511	68,800.00	3,440.00	72,240.00
+6	Sundry Charges	998599	1,600.00	288.00	1,888.00
+7	Emergency Bunker Surcharge (EBS) (USD 290.00 @ 83.88)	996521	24,325.20	1,216.26	25,541.46
+8	Brokerage Charges	996713	5,200.00	936.00	6,136.00
+Net Amount	4,06,177.60
+IGST	23,494.56
+Total Amount Payable	4,29,672.16
+INR Four Lakh Twenty Nine Thousand Six Hundred Seventy Two and Paise Sixteen Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 69630958598 | IFSC YESB0673411
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR ARIHANT SHIPPING PRIVATE LIMITED
+Authorised Signatory
+E & O.E.
+ORIGINAL

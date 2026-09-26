@@ -1,0 +1,99 @@
+{
+  "id": "test-016",
+  "split": "test",
+  "file": "invoices/test-016.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 888705,
+  "maker_difficulty": {
+    "faint": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.844,
+    "rotation_deg": 0.09,
+    "blur_sigma": 0.51,
+    "noise_sigma": 4.0,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 74,
+    "pixels": [
+      1419,
+      1268
+    ]
+  },
+  "fields": {
+    "Invoice No": "SGL26053739",
+    "Invoice Date": "2025-06-25",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seahawk Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "SGLMU2482001",
+    "Weight": "768.79 KG",
+    "Sea Freight": 13619.81,
+    "Air Freight": "",
+    "Terminal Handling Charges": 12350,
+    "Airway Bill Charges": "",
+    "BL Charges": 3950,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.4482,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 14400,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Basic Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 13619.81,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 12350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 3950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 14400,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": false
+  }
+}

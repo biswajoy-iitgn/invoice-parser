@@ -1,0 +1,42 @@
+Polaris Cargo Movers (India) Pvt. Ltd.
+98, Sector 9, Kolkata - 700001, India
+GSTIN 19BAYAJ4462C1ZD | accounts@polarislogistics.example | +91 21 4663 6447
+TAX INVOICE
+Billed To
+Rotomech Engineering Pvt. Ltd.
+22 Linking Road, Kolkata 700016
+GSTIN: 19KKHCF1168M1ZA
+Consignee: Maas Trading BV, Rotterdam, Netherlands
+Document No	CCUAE2427478
+Date of Issue	06/03/24
+A/c Code	CU43667
+Shipper Inv No	EXP/245645
+PO No	PO-76420
+State	24 Gujarat
+ROE	EUR 94.86
+SHIPMENT DETAILS
+Airport of Departure	BOM - Mumbai	Airport of Destination	CDG - Paris
+Flight / Date	SQ 206 / 01/03/24	Master Air Waybill	618-64837754
+Packages	92 BOXES	Gross Wt	135.23 KG
+Chargeable Weight	207.5 KG	Terms of Delivery	FOB
+Shipping Bill No	7759608 dt 01/03/24		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Cargo Screening	996719	INR	2,200.00	1.00	2,200.00	18%	396.00	2,596.00
+2	Airfreight Charges	996531	EUR	454.43	94.86	43,107.23	18%	7,759.30	50,866.53
+3	Misc Expenses	998599	INR	800.00	1.00	800.00	18%	144.00	944.00
+4	Air Waybill Fee	996713	INR	2,000.00	1.00	2,000.00	18%	360.00	2,360.00
+5	Ground Rent	996729	INR	12,850.00	1.00	12,850.00	18%	2,313.00	15,163.00
+6	Port Warehousing	996729	INR	5,400.00	1.00	5,400.00	18%	972.00	6,372.00
+Sub Total	66,357.23
+CGST	5,972.15
+SGST	5,972.15
+Round Off	0.47
+Total Invoice Value	78,302.00
+INR Seventy Eight Thousand Three Hundred Two and Paise Zero Only
+Yes Bank | A/c No 77567794278 | IFSC SBIN0347251
+Cheque / RTGS in favour of the company only.
+For Polaris Cargo Movers (India) Pvt. Ltd.
+
+
+Authorised Signatory

@@ -1,0 +1,124 @@
+{
+  "id": "dev-020",
+  "split": "dev",
+  "file": "invoices/dev-020.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 275381,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.781,
+    "rotation_deg": 2.14,
+    "blur_sigma": 0.62,
+    "illumination": true,
+    "noise_sigma": 8.4,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 68,
+    "pixels": [
+      1241,
+      1209
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2024-620445",
+    "Invoice Date": "2024-10-04",
+    "Container Number": "",
+    "MAWB No": "618-07546626",
+    "HAWB No": "HAWB867999",
+    "Vendor Name": "Silverline Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "433.556 KG",
+    "Sea Freight": "",
+    "Air Freight": 154250.38,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1400,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1150,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 2809.42,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 82.63,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 8000,
+    "Examination Charges": "",
+    "Fuel Charges": 27264.59,
+    "Cargo Screening": 2100,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 154250.38,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "AMS Charges",
+      "category": "AMS Charges",
+      "amount_inr": 2809.42,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Warehousing",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 8000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "category": "Fuel Charges",
+      "amount_inr": 27264.59,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

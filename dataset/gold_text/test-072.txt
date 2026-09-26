@@ -1,0 +1,31 @@
+Tricolour Global Logistics Pvt Ltd
+145, CG Road, New Delhi - 110037, India
+GSTIN: 07HNSAC7746A1ZB   PAN: HNSAC7746A
+accounts@tricolourlogistics.example | +91 41 9563 8455
+TAX INVOICE
+Customer: Lotus Garments Exports, 89 MG Road, Kolkata 700016 (GSTIN 06PLXAA6860E1ZE)
+Invoice No	2882011309	Bill Date	2025-11-10
+Due Date	2025-12-10	Cust. ID	TGL50060
+File No	FILE/TGL/24/3688	Place of Supply	09 Uttar Pradesh
+POL	INCOK - Kochi	Port of Discharge	BEANR - Antwerp
+Vessel	Hyundai Pride / 917A	Sailing Date	2025-11-07
+Liner BL No	EGLVBO2781483	Container	CAIU8776163, EGHU6348700
+Seal	2063612, SL9957127	Pkgs	114 PKGS
+Weight	45266.500 KG	Terms of Delivery	FCA
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	CFS Charges	996729	5,600.00	504.00	504.00	6,608.00
+2	Freight Charges - Ocean (USD 2,640.00 @ 87.25)	996521	230,340.00	0.00	0.00	230,340.00
+3	Godown Rent (Port)	996729	4,550.00	409.50	409.50	5,369.00
+4	HBL Fee	996713	3,450.00	310.50	310.50	4,071.00
+Sub Total	243,940.00
+CGST	1,224.00
+SGST	1,224.00
+Grand Total	246,388.00
+INR Two Lakh Forty Six Thousand Three Hundred Eighty Eight and Paise Zero Only
+BANK DETAILS
+Axis Bank | A/c No 20181768371 | IFSC ICIC0185821
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR TRICOLOUR GLOBAL LOGISTICS PVT LTD
+Authorised Signatory
+E & O.E.
+VERIFIED

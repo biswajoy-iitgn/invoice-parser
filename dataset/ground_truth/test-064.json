@@ -1,0 +1,128 @@
+{
+  "id": "test-064",
+  "split": "test",
+  "file": "invoices/test-064.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.862,
+    "rotation_deg": -0.51,
+    "blur_sigma": 0.42,
+    "noise_sigma": 4.0,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 81,
+    "pixels": [
+      1459,
+      1333
+    ]
+  },
+  "fields": {
+    "Invoice No": "SE/2425/0712",
+    "Invoice Date": "2026-04-16",
+    "Container Number": "OOLU6469775, HLXU6362858",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Shipping Private Limited",
+    "Bill of Lading / HBL": "HBL9940129",
+    "Weight": "33134.754 KG",
+    "Sea Freight": 288547.2,
+    "Air Freight": "",
+    "Terminal Handling Charges": 11700,
+    "Airway Bill Charges": "",
+    "BL Charges": 2650,
+    "ENS Charges": 3355.2,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 68800,
+    "Ex Rate": 83.88,
+    "Misc": 1600,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 24325.2,
+    "Cargo Screening": "",
+    "Agency Charges": 5200,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 288547.2,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 11700,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ICS2 / ENS Filing",
+      "category": "ENS Charges",
+      "amount_inr": 3355.2,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Precarriage Rail Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 68800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 1600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "category": "Fuel Charges",
+      "amount_inr": 24325.2,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 5200,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

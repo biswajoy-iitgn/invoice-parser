@@ -1,0 +1,102 @@
+{
+  "id": "dev-011",
+  "split": "dev",
+  "file": "invoices/dev-011.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T2",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 107627,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "CCUAE2427478",
+    "Invoice Date": "2024-03-06",
+    "Container Number": "",
+    "MAWB No": "618-64837754",
+    "HAWB No": "",
+    "Vendor Name": "Polaris Cargo Movers (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "135.23 KG",
+    "Sea Freight": "",
+    "Air Freight": 43107.23,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2000,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 94.86,
+    "Misc": 800,
+    "Transportation": "",
+    "Warehouse Charges Port": 18250,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 2200,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Cargo Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 43107.23,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Waybill Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 12850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Warehousing",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 5400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mawb": false,
+    "gw": false
+  }
+}

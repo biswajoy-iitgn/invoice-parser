@@ -1,0 +1,54 @@
+Sapphire Freight Forwarders (India) Pvt. Ltd.
+15, Mahipalpur Extn, Kolkata - 700001, India
+GSTIN 19UPYFT9802Y1Z5 | accounts@sapphirelogistics.example | +91 63 4621 1887
+TAX INVOICE
+Document No: SE/2425/8391
+Invoice Date: 28 Jan 2024
+A/c Code: C49245
+File No: SFF/24/3046
+Shipper Inv No: EI-253598
+Place of Supply: 09 Uttar Pradesh
+Bill To
+Apex Pumps & Valves Pvt. Ltd.
+62 MG Road, Pune 411005
+GSTIN 29CSVAS9838R1ZB
+Consignee: Kanto Machinery KK, Yokohama, Japan
+Place of Receipt: ICD Sabarmati
+Load Port: INCOK - Kochi
+POD: SGSIN - Singapore
+Vessel: Maersk Kinloss / 346N
+SOB Date: 22 Jan 2024
+M B/L No: MEDU882561244
+FCR / HBL No: SFF/HBL/24-25/5767
+Ctr #: HLXU 120845 4
+Seal No: SL5531877
+Pkgs: 9 BOXES
+Gross Weight: 12,161.4 Kgs
+Inco: DAP
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Handling Fee	SHPT	INR	5,250.00	1	1.00	5,250.00	18%	6,195.00
+2	THC	CNTR	INR	13,700.00	1	1.00	13,700.00	18%	16,166.00
+3	VGM Charges	CNTR	INR	1,900.00	1	1.00	1,900.00	18%	2,242.00
+4	Customs Examination	SHPT	INR	4,150.00	1	1.00	4,150.00	18%	4,897.00
+5	Pre-Carriage Haulage	CNTR	INR	16,700.00	1	1.00	16,700.00	5%	17,535.00
+6	Clearing Agency Fee	SHPT	INR	1,800.00	1	1.00	1,800.00	18%	2,124.00
+	Sub Total - Origin Charges	43,500.00		49,159.00
+Documentation & Filing
+7	B/L Issuance Charges	SHPT	INR	5,350.00	1	1.00	5,350.00	18%	6,313.00
+	Sub Total - Documentation & Filing	5,350.00		6,313.00
+Freight Charges
+8	BAF	CNTR	USD	230.00	1	83.3939	19,180.60	0%	19,180.60
+	Sub Total - Freight Charges	19,180.60		19,180.60
+Taxable Amount	68,030.60
+CGST	3,311.00
+SGST	3,311.00
+Invoice Total	74,652.60
+INR Seventy Four Thousand Six Hundred Fifty Two and Paise Sixty Only
+HDFC Bank | A/c No 55075761612 | IFSC YESB0795438
+Cheque / RTGS in favour of the company only.
+For Sapphire Freight Forwarders (India) Pvt. Ltd.
+
+
+Authorised Signatory
+PAID

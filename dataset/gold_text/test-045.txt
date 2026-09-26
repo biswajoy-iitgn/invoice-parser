@@ -1,0 +1,39 @@
+Polaris Logistics (India) Pvt. Ltd.
+172, Bund Garden Road, Pune - 411001, India
+GSTIN: 27NVLFJ2047R1ZB | PAN: NVLFJ2047R
+accounts@polarislogistics.example | +91 49 8230 6448
+
+Bill To: Triveni Auto Components Ltd., 19 Nehru Street, Bengaluru 560001 | GSTIN 09XYNFH8914P1ZA
+Document Date	14/05/24
+Invoice Number	INV-2024-629023
+A/c Code	C80396
+Job No	FILE/PLP/25/3479
+Exporter Inv. Ref	EI-253313
+Place of Supply	33 Tamil Nadu
+Currency Rate (USD)	83.41
+TAX INVOICE
+Place of Receipt	ICD Khodiyar	POL	INCOK - Kochi	Port of Discharge	CNSHA - Shanghai
+Vessel / Voyage	ONE Harmony / 559W	SOB Date	14/05/24	HBL No	PLP/HBL/24-25/9128
+Ctr #	TCNU 026713 7 / 40HC	Seal No(s)	1497030	Pkgs	102 PALLETS
+Gross Wt	11,179.3 KGS	Measurement	42.179 CBM	Inco	EXW
+SB No & Date	6483209 dt 12/05/24				
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Freight Charges - Ocean	996521	USD	915.00	1	915.00	83.41	0.00	76,320.15	1,908.01	1,908.00	80,136.16
+2	Bill of Lading Fee	996713	INR	6,050.00	1	6,050.00	1.00	0.00	6,050.00	544.50	544.50	7,139.00
+3	Bolt Seal Charges	996719	INR	1,000.00	1	1,000.00	1.00	0.00	1,000.00	90.00	90.00	1,180.00
+4	VGM Certificate	996719	INR	1,900.00	1	1,900.00	1.00	0.00	1,900.00	171.00	171.00	2,242.00
+5	Inland Haulage (IHC)	996511	INR	26,000.00	1	26,000.00	1.00	0.00	26,000.00	2,340.00	2,340.00	30,680.00
+6	Equipment Imbalance Surcharge	998599	INR	7,400.00	1	7,400.00	1.00	0.00	7,400.00	666.00	666.00	8,732.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	1,18,670.15
+CGST	5,719.51
+SGST	5,719.50
+Round Off	-0.16
+Net Payable	1,30,109.00
+INR One Lakh Thirty Thousand One Hundred Nine and Paise Zero Only
+BANK DETAILS
+Axis Bank | A/c No 88015684701 | IFSC UTIB0862393
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR POLARIS LOGISTICS (INDIA) PVT. LTD.
+Authorised Signatory
+E & O.E.

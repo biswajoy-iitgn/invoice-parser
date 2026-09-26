@@ -1,0 +1,107 @@
+{
+  "id": "dev-056",
+  "split": "dev",
+  "file": "invoices/dev-056.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 754616,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.866,
+    "rotation_deg": -0.39,
+    "blur_sigma": 0.39,
+    "noise_sigma": 4.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 73,
+    "pixels": [
+      1461,
+      1186
+    ]
+  },
+  "fields": {
+    "Invoice No": "SLP24579403",
+    "Invoice Date": "2024-07-24",
+    "Container Number": "",
+    "MAWB No": "125-62084816",
+    "HAWB No": "SLP/24/50623",
+    "Vendor Name": "Silverline Logistics Private Limited",
+    "Bill of Lading / HBL": "",
+    "Weight": "931 KG",
+    "Sea Freight": "",
+    "Air Freight": 447356.67,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2950,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 7800,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 84.7565,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 89904.61,
+    "Cargo Screening": "",
+    "Agency Charges": 2600,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Customs Brokerage Fee",
+      "category": "Agency Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 7800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airwaybill Issuance",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Air Freight",
+      "category": "Air Freight",
+      "amount_inr": 447356.67,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "category": "Fuel Charges",
+      "amount_inr": 89904.61,
+      "currency": "USD",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

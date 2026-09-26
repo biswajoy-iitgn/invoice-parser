@@ -1,0 +1,35 @@
+Navkar Maritime Services Ltd.
+101, Sector 9, Navi Mumbai - 400706, India
+GSTIN: 27EYDFS4656M1ZA | PAN: EYDFS4656M
+accounts@navkarlogistics.example | +91 79 2722 9838
+
+Bill To: Deccan Granite Exports, 64 Nehru Street, Kolkata 700016 | GSTIN 06YTEPD6127L1ZD
+Tax Invoice No	7900607643
+Date of Issue	06-Nov-2024
+Client Code	CU61685
+Exporter Inv. Ref	EI-248355
+PO No	PO-49087
+Place of Supply	27 Maharashtra
+Exchange Rate	USD 85.01
+TAX INVOICE
+Port of Loading	INCOK - Kochi	Port of Discharge	CNSHA - Shanghai	Vessel	SSL Mumbai / 236E
+ETD	05-Nov-2024	House B/L	48230061307	Cont. No.	CAIU5966513 / 40GP
+Seal No	1460542	Pkgs	46 BOXES	Total Weight	19586 kg
+Terms of Delivery	FOB				
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	IGST%	IGST Amt	Total (INR)
+1	Misc. Charges	998599	INR	2,150.00	1	2,150.00	1.00	0.00	2,150.00	18%	387.00	2,537.00
+2	BL Charges	996713	INR	5,400.00	1	5,400.00	1.00	0.00	5,400.00	18%	972.00	6,372.00
+3	Sea Freight	996521	USD	715.00	1	715.00	85.01	0.00	60,782.15	5%	3,039.11	63,821.26
+4	Terminal Hdlg. Chgs.	996719	INR	14,750.00	1	14,750.00	1.00	0.00	14,750.00	18%	2,655.00	17,405.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	83,082.15
+IGST	7,053.11
+Round Off	-0.26
+Total Amount Payable	90,135.00
+INR Ninety Thousand One Hundred Thirty Five and Paise Zero Only
+BANK DETAILS
+Axis Bank | A/c No 29706697072 | IFSC YESB0132225
+Please quote invoice number with remittance.
+FOR NAVKAR MARITIME SERVICES LTD.
+Authorised Signatory
+E & O.E.

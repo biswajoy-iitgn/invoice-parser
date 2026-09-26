@@ -1,0 +1,63 @@
+Trans Asia Forwarding Private Limited
+203, CG Road, Kochi - 682003, India
+GSTIN
+32RBTPU2501P1Z5
+PAN
+RBTPU2501P
+CONTACT
+accounts@translogistics.example | +91 77 5401 5216
+TAX INVOICE
+ORIGINAL FOR RECIPIENT
+BILL TO
+Apex Pumps & Valves Pvt. Ltd.
+32 Linking Road, Delhi 110034
+GSTIN 06EHGFY3637W1ZC
+Consignee: Kanto Machinery KK, Yokohama, Japan
+INVOICE DETAILS
+INV. SERIAL NO
+TAF/AE/25-26/98809
+DATE OF ISSUE
+16 Apr 2024
+CLIENT CODE
+TAF54800
+JOB REF
+TAF/25/9792
+PO NO
+PO-76110
+STATE
+19 West Bengal
+ROE (USD)
+87.7141
+SHIPMENT
+Load Port: INCOK - Kochi
+POD: SGSIN - Singapore
+Vsl/Voy: CMA CGM Tage / 229E
+ETD: 10 Apr 2024
+Ocean B/L No: COSU999089702
+HBL No: 41573172637
+Cont. No.: GESU2345095 / 40HC
+SEGU6670992
+Seal No(s): SL5284704, SL7657726
+Pkgs: 59 PKGS
+Volume: 129.307 CBM
+Incoterms: EXW
+CARGO
+Granite slabs | 59 PKGS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	O/F Charges (FCL)	996521	2	1,375.00	USD	87.7141	241,213.78	0%	241,213.78
+2	Terminal Handling Charges	996719	2	14,050.00	INR	1.00	28,100.00	18%	33,158.00
+3	BL Printing Charges	996713	1	4,850.00	INR	1.00	4,850.00	18%	5,723.00
+4	High Security Seal	996719	2	850.00	INR	1.00	1,700.00	18%	2,006.00
+5	Examination Charges	998599	1	5,300.00	INR	1.00	5,300.00	18%	6,254.00
+6	Low Sulphur Surcharge (LSS)	996521	2	210.00	USD	87.7141	36,839.92	5%	38,681.92
+Sub Total	318,003.70
+CGST	4,516.50
+SGST	4,516.50
+Total Invoice Value	327,036.70
+Amount in words: INR Three Lakh Twenty Seven Thousand Thirty Six and Paise Seventy Only
+BANK DETAILS
+Kotak Mahindra Bank | A/c No 31494417439 | IFSC UTIB0889527
+Cheque / RTGS in favour of the company only.
+FOR TRANS ASIA FORWARDING PRIVATE LIMITED
+Authorised Signatory
+E & O.E.

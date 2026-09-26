@@ -1,0 +1,39 @@
+Anchor Shipping Agencies Private Limited
+287, Rajaji Salai, Chennai - 600001, India
+GSTIN: 33HLPFT9627L1Z7   PAN: HLPFT9627L
+accounts@anchorlogistics.example | +91 72 9856 1494
+INVOICE
+Customer: Vardhaman Yarns & Exports, 80 Sector 18 Market, Noida 201301 (GSTIN 07XHLCK4218M1ZA)
+Invoice Number	ASA25894708	Dated	2025-10-04
+Due On	2025-10-19	Cust. ID	C10117
+Job No	JOB/ASA/24/7844	Your Ref	PO-36249
+State	19 West Bengal	Place of Receipt	ICD Whitefield
+Load Port	INMUN - Mundra	Destination	SEGOT - Gothenburg
+Vessel / Voyage	ONE Harmony / 969E	SOB Date	2025-09-30
+House Bill of Lading	22863858228	Cntr No	FFAU 329959 9 / 40GP
+Seal	SL7911371	Pkgs	42 BOXES
+Gross Mass	5,644.2 KGS	Incoterms	FOB
+Shipping Bill No	2964843 dt 2025-09-28		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Sea Freight (USD 1,505.00 @ 87.7539)	996521	1,32,069.62	0.00	0.00	1,32,069.62
+2	B/L Fee	996713	6,350.00	571.50	571.50	7,493.00
+3	ENS Charges	996713	3,700.00	333.00	333.00	4,366.00
+4	VGM Filing Fee	996719	950.00	85.50	85.50	1,121.00
+5	Export Handling Charges	996719	7,650.00	688.50	688.50	9,027.00
+6	Precarriage Rail Haulage	996511	33,150.00	2,983.50	2,983.50	39,117.00
+7	Sundry Charges	998599	2,000.00	180.00	180.00	2,360.00
+8	Transportation	996511	16,300.00	407.50	407.50	17,115.00
+9	Cargo Examination Charges	998599	3,550.00	319.50	319.50	4,189.00
+10	Fuel Surcharge (USD 255.00 @ 87.7539)	996521	22,377.24	0.00	0.00	22,377.24
+Taxable Amount	2,28,096.86
+CGST	5,569.00
+SGST	5,569.00
+Grand Total	2,39,234.86
+INR Two Lakh Thirty Nine Thousand Two Hundred Thirty Four and Paise Eighty Six Only
+BANK DETAILS
+ICICI Bank | A/c No 53728155514 | IFSC HDFC0476718
+Subject to Mumbai jurisdiction. E. & O.E.
+FOR ANCHOR SHIPPING AGENCIES PRIVATE LIMITED
+Authorised Signatory
+E & O.E.
+PAID

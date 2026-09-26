@@ -1,0 +1,98 @@
+{
+  "id": "dev-005",
+  "split": "dev",
+  "file": "invoices/dev-005.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 697964,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.942,
+    "rotation_deg": -0.6,
+    "blur_sigma": 0.52,
+    "noise_sigma": 3.6,
+    "encoding": "jpeg",
+    "jpeg_quality": 73,
+    "pixels": [
+      1596,
+      1446
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI760955",
+    "Invoice Date": "2025-08-31",
+    "Container Number": "HLXU0314600",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seahawk Logistics (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "CMDUIN2547865",
+    "Weight": "22734.336 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": 3600,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 4000,
+    "Pre Carriage Haulage": 32450,
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 14850,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "ENS Charges",
+      "category": "ENS Charges",
+      "amount_inr": 3600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Hdlg. Charges",
+      "category": "Handling Charges",
+      "amount_inr": 4000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 32450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 14850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

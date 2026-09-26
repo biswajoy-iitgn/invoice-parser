@@ -1,0 +1,40 @@
+Everfast Freight Forwarders Private Limited
+369, CG Road, New Delhi - 110037, India
+GSTIN: 07FRFPU2533U1ZC | accounts@everfastlogistics.example | +91 83 4476 6448
+TAX INVOICE
+
+Invoice No. 3383317595    Invoice Dt 27th February 2026
+
+Due On: 14th March 2026  |  Client Code: CU29990  |  Shipment ID: EFF/25/2357  |  Party Invoice No: EI-249470  |  Place of Supply: 06 Haryana
+
+To,
+Deccan Granite Exports
+17 Linking Road, Chennai 600040
+GSTIN: 33BALFE3098C1ZA
+
+Being charges in respect of your shipment of Pharmaceutical formulations consigned to Kanto Machinery KK, Yokohama, Japan. POL INMAA - Chennai; Destination CNSHA - Shanghai; Vessel ONE Harmony / 441E; ETD 22nd February 2026; MBL CMDU557409086; Container TGBU3655882 / 40HC
+TGBU4916872 / 40HC; Packages 49 CTNS; Weight 25452.555 kg; Measurement 128.598 CBM; Inco DAP; S/Bill No 9263383 dt 16th February 2026.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Agency Charges	1,050.00
+2	Ocean Freight	282,400.00
+3	Agency Fee	4,850.00
+4	Terminal Handling Charges	21,500.00
+5	DAP Destination Charges (USD 410.00)	35,815.76
+6	Seal Fee	600.00
+	Sub Total	346,215.76
+	Add: CGST	5,743.42
+	Add: SGST	5,743.42
+	Total Amount Payable	357,702.60
+
+ROE (USD): 1 USD = INR 87.3555
+
+(INR Three Lakh Fifty Seven Thousand Seven Hundred Two and Paise Sixty Only)
+
+Kotak Mahindra Bank | A/c No 30328024944 | IFSC UTIB0335089
+Cheque / RTGS in favour of the company only.
+
+For Everfast Freight Forwarders Private Limited
+
+
+Authorised Signatory

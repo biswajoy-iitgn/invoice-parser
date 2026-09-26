@@ -1,0 +1,45 @@
+Navkar Global Logistics LLP
+242, Residency Road, Gandhidham - 370201, India
+GSTIN 24RCLPF4898C1ZC | accounts@navkarlogistics.example | +91 71 2535 3206
+SERVICE INVOICE
+Invoice No.: NGL26333790
+Date: 2024-10-17
+Payment Due: 2024-11-01
+Cust. ID: NGL30314
+Place of Supply: 24 Gujarat
+Bill To
+Deccan Granite Exports
+96 Nehru Street, Bengaluru 560001
+GSTIN 09KACCV2635Y1ZE
+Consignee: Maas Trading BV, Rotterdam, Netherlands
+Port of Loading: INCCU - Kolkata
+POD: SEGOT - Gothenburg
+Master B/L: MEDUAB4661782
+Container No(s): TCNU2801339 / 40HC
+Seal No(s): ML-IN8935495
+Packages: 23 PKGS
+Gross Wt: 4,572.35 KGS
+Inco: DAP
+S/Bill No: 6967617 dt 2024-10-04
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Miscellaneous Charges	SHPT	INR	650.00	1	1.00	650.00	18%	767.00
+2	High Security Seal	CNTR	INR	300.00	1	1.00	300.00	18%	354.00
+3	Examination Charges	SHPT	INR	4,600.00	1	1.00	4,600.00	18%	5,428.00
+4	Warehouse Charges (Port)	SHPT	INR	7,300.00	1	1.00	7,300.00	18%	8,614.00
+5	Agency Fee	SHPT	INR	3,950.00	1	1.00	3,950.00	18%	4,661.00
+	Sub Total - Origin Charges	16,800.00		19,824.00
+Documentation & Filing
+6	Shipping Bill Processing	SHPT	INR	1,850.00	1	1.00	1,850.00	18%	2,183.00
+	Sub Total - Documentation & Filing	1,850.00		2,183.00
+Total (Before Tax)	18,650.00
+CGST	1,678.50
+SGST	1,678.50
+Invoice Total	22,007.00
+INR Twenty Two Thousand Seven and Paise Zero Only
+Yes Bank | A/c No 49873666639 | IFSC YESB0774267
+Subject to Mumbai jurisdiction. E. & O.E.
+For Navkar Global Logistics LLP
+
+
+Authorised Signatory

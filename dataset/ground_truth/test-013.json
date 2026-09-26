@@ -1,0 +1,145 @@
+{
+  "id": "test-013",
+  "split": "test",
+  "file": "invoices/test-013.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 555357,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "NFF26928357",
+    "Invoice Date": "2026-06-16",
+    "Container Number": "TGBU6696231",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Northstar Freight Forwarders & Co.",
+    "Bill of Lading / HBL": "NFFMU2507482",
+    "Weight": "19901.7 KG",
+    "Sea Freight": 240827.13,
+    "Air Freight": "",
+    "Terminal Handling Charges": 9100,
+    "Airway Bill Charges": "",
+    "BL Charges": 6450,
+    "ENS Charges": 3050,
+    "Seal Charges": 850,
+    "VGM": 1950,
+    "EDI Fees": 1300,
+    "DAP Charges": 10800,
+    "Other Charges": 3650,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 16550,
+    "Ex Rate": 93.1633,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 14550,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 240827.13,
+      "currency": "EUR",
+      "heldout_wording": true
+    },
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 9100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "B/L Fee",
+      "category": "BL Charges",
+      "amount_inr": 6450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "category": "ENS Charges",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "RFID Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "VGM Filing Fee",
+      "category": "VGM",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Destination Charges",
+      "category": "DAP Charges",
+      "amount_inr": 10800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Origin Inland Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 16550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 11550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 3000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 3650,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

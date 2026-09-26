@@ -1,0 +1,65 @@
+Skyways Forwarding Pvt. Ltd.
+329, Residency Road, Chennai - 600001, India
+GSTIN
+33SSKPJ8314T1ZA
+PAN
+SSKPJ8314T
+CONTACT
+accounts@skywayslogistics.example | +91 36 8571 1791
+SERVICE INVOICE
+ORIGINAL FOR RECIPIENT
+BILL TO
+Lotus Garments Exports
+60 FC Road, Bengaluru 560001
+GSTIN 29BHGPF8971P1ZD
+Consignee: Harbor Supply LLC, Savannah, USA
+INVOICE DETAILS
+BILL DATE
+10/09/2024
+DOCUMENT NO
+SFP/AE/2425/95137
+PAY BY
+25/10/2024
+CLIENT CODE
+C40693
+SHIPMENT ID
+JOB/SFP/24/5870
+YOUR REF
+PO-57688
+PLACE OF SUPPLY
+27 Maharashtra
+EX. RATE (USD)
+86.2935
+SHIPMENT
+POL: INPAV - Pipavav
+Destination: USSAV - Savannah
+Vessel: Kota Lestari / 699W
+SOB Date: 01/09/2024
+MBL: CMDUAB4867689
+B/L No: SFP/HBL/24-25/1007
+Packages: 92 PALLETS
+Gross Wt: 2,108.415 Kgs
+Measurement: 6.606 CBM
+Incoterms: CFR
+CARGO
+Pharmaceutical formulations | 92 PALLETS
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Bunker Surcharge	996521	1	170.00	USD	86.2935	14,669.89	0%	14,669.89
+2	AMS / ISF Filing	996713	1	39.00	USD	86.2935	3,365.45	18%	3,971.23
+3	B/L Issuance Charges	996713	1	2,550.00	INR	1.00	2,550.00	18%	3,009.00
+4	Examination Charges	998599	1	4,950.00	INR	1.00	4,950.00	18%	5,841.00
+5	OTHC	996719	1	16,150.00	INR	1.00	16,150.00	18%	19,057.00
+6	Handling & Coordination	996719	1	5,350.00	INR	1.00	5,350.00	18%	6,313.00
+7	Ocean Freight Charges	996521	6.606	34.00	USD	86.2935	19,381.52	5%	20,350.60
+8	EDI Charges	998599	1	1,000.00	INR	1.00	1,000.00	18%	1,180.00
+9	Storage Charges at CFS	996729	1	12,850.00	INR	1.00	12,850.00	18%	15,163.00
+Sub Total	80,266.86
+IGST	9,287.86
+Total Invoice Value	89,554.72
+Amount in words: INR Eighty Nine Thousand Five Hundred Fifty Four and Paise Seventy Two Only
+BANK DETAILS
+State Bank of India | A/c No 37046395807 | IFSC UTIB0540215
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR SKYWAYS FORWARDING PVT. LTD.
+Authorised Signatory
+E & O.E.

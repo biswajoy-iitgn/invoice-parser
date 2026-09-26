@@ -1,0 +1,116 @@
+{
+  "id": "test-049",
+  "split": "test",
+  "file": "invoices/test-049.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 306485,
+  "maker_difficulty": {
+    "grain": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.865,
+    "rotation_deg": 1.74,
+    "blur_sigma": 0.45,
+    "illumination": true,
+    "noise_sigma": 8.3,
+    "encoding": "jpeg",
+    "jpeg_quality": 58,
+    "pixels": [
+      1662,
+      1080
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2026-718504",
+    "Invoice Date": "2024-06-28",
+    "Container Number": "",
+    "MAWB No": "157-01294720",
+    "HAWB No": "HAWB438594",
+    "Vendor Name": "Pioneer Logistics Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1512.01 KG",
+    "Sea Freight": "",
+    "Air Freight": 787088.06,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1950,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 5700,
+    "AMS Charges": 3200,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.9,
+    "Misc": "",
+    "Transportation": 12450,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 550
+  },
+  "lines": [
+    {
+      "description": "Airline Freight Charges",
+      "category": "Air Freight",
+      "amount_inr": 787088.06,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Air Waybill Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "AMS / ISF Filing",
+      "category": "AMS Charges",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation Charges",
+      "category": "Transportation",
+      "amount_inr": 12450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Peak Season Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 5700,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mawb": true,
+    "hawb": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "test-080",
+  "split": "test",
+  "file": "invoices/test-080.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T8",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": true,
+  "maker_seed": 22532,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.88,
+    "rotation_deg": 0.1,
+    "blur_sigma": 0.28,
+    "noise_sigma": 4.6,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 81,
+    "pixels": [
+      1480,
+      1443
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2024-423014",
+    "Invoice Date": "2024-12-21",
+    "Container Number": "MRKU4882153",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Meridian Maritime Services Private Limited",
+    "Bill of Lading / HBL": "",
+    "Weight": "22724.75 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 900,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 2600,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 400,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 2100,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 1250,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Export Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 1250,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "cntr": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "id": "dev-058",
+  "split": "dev",
+  "file": "invoices/dev-058.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 239692,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.787,
+    "rotation_deg": -0.97,
+    "blur_sigma": 0.56,
+    "illumination": true,
+    "noise_sigma": 12.5,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 60,
+    "pixels": [
+      1225,
+      1008
+    ]
+  },
+  "fields": {
+    "Invoice No": "BOMSE2597019",
+    "Invoice Date": "2025-01-11",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "ZFL/25/90013",
+    "Vendor Name": "Zenith Forwarding Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1695.8 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 500,
+    "DAP Charges": "",
+    "Other Charges": 7600,
+    "AMS Charges": "",
+    "Handling Charges": 5500,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 450,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 900,
+    "Fuel Charges": "",
+    "Cargo Screening": 3300,
+    "Agency Charges": 6500,
+    "Shipping Bill Charges": 3450
+  },
+  "lines": [
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Courier Charges",
+      "category": "Other Charges",
+      "amount_inr": 7600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 3300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Forwarder Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 5500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Manifest EDI Transmission",
+      "category": "EDI Fees",
+      "amount_inr": 500,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hawb": false,
+    "gw": false
+  }
+}

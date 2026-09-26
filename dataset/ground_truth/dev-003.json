@@ -1,0 +1,126 @@
+{
+  "id": "dev-003",
+  "split": "dev",
+  "file": "invoices/dev-003.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 697964,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.942,
+    "rotation_deg": 0.44,
+    "blur_sigma": 0.38,
+    "noise_sigma": 3.3,
+    "encoding": "jpeg",
+    "jpeg_quality": 73,
+    "pixels": [
+      1595,
+      1652
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2024-021294",
+    "Invoice Date": "2024-09-09",
+    "Container Number": "CMAU0909112",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Silverline Air & Sea Pvt Ltd",
+    "Bill of Lading / HBL": "ONEY406046531",
+    "Weight": "22510.31 KG",
+    "Sea Freight": 71591.02,
+    "Air Freight": "",
+    "Terminal Handling Charges": 13100,
+    "Airway Bill Charges": "",
+    "BL Charges": 3100,
+    "ENS Charges": 2700,
+    "Seal Charges": "",
+    "VGM": 1250,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 37350,
+    "Ex Rate": 90.0516,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 23863.67,
+    "Cargo Screening": "",
+    "Agency Charges": 3100,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "category": "VGM",
+      "amount_inr": 1250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ENS Declaration",
+      "category": "ENS Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Carrier Haulage - Origin",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 37350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Basic Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 71591.02,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BAF",
+      "category": "Fuel Charges",
+      "amount_inr": 23863.67,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Printing Charges",
+      "category": "BL Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 13100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": true,
+    "gw": false
+  }
+}

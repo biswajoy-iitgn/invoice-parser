@@ -1,0 +1,52 @@
+Indus Express Cargo & Co.
+379, CG Road, New Delhi - 110037, India
+GSTIN 07KVGFX8360V1ZC | accounts@induslogistics.example | +91 69 3025 2312
+FREIGHT INVOICE
+BILL TO
+Shreeji Polymers Ltd.
+64 Sector 18 Market, Chennai 600040 | GSTIN 19LDACS7923H1ZD
+DATE OF ISSUE
+27-Oct-2024
+INV NO
+IEC/FF/2425/55912
+PAYMENT DUE
+11-Dec-2024
+CUST. ID
+C19281
+YOUR REF
+PO-45402
+STATE
+29 Karnataka
+EXCH. RATE
+EUR 96.4477
+AIRPORT OF DEPARTURE
+MAA - Chennai
+AIRPORT OF DESTINATION
+MXP - Milan
+FLIGHT NO
+TK 693 / 27-Oct-2024
+MAWB
+235-80231631
+HAWB NO
+HAWB399868
+PACKAGES
+66 CTNS
+CHARGEABLE WEIGHT
+1,745.5 KG
+TERMS OF DELIVERY
+CIF
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+A/F Charges	1745.5	3.48	EUR	96.4477	585,856.12	0%
+Fuel Adjustment Charges	1745.5	1.19	EUR	96.4477	200,336.34	18%
+Total (Before Tax)	786,192.46
+CGST	18,030.27
+SGST	18,030.27
+Round Off	0.00
+Net Payable	822,253.00
+INR Eight Lakh Twenty Two Thousand Two Hundred Fifty Three and Paise Zero Only
+State Bank of India | A/c No 55415598878 | IFSC YESB0450001
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Indus Express Cargo & Co.
+
+
+Authorised Signatory

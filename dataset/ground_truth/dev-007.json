@@ -1,0 +1,135 @@
+{
+  "id": "dev-007",
+  "split": "dev",
+  "file": "invoices/dev-007.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 697964,
+  "maker_difficulty": {
+    "faint": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.928,
+    "rotation_deg": -0.36,
+    "blur_sigma": 0.38,
+    "noise_sigma": 4.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 74,
+    "pixels": [
+      1569,
+      1659
+    ]
+  },
+  "fields": {
+    "Invoice No": "ACM/SE/2425/36729",
+    "Invoice Date": "2025-01-22",
+    "Container Number": "FFAU3642054, TCNU7670709",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Anchor Cargo Movers & Co.",
+    "Bill of Lading / HBL": "35068478474",
+    "Weight": "30564.864 KG",
+    "Sea Freight": 135706.56,
+    "Air Freight": "",
+    "Terminal Handling Charges": 28800,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": 3991.37,
+    "Seal Charges": 700,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 8350,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.6971,
+    "Misc": 1750,
+    "Transportation": 5150,
+    "Warehouse Charges Port": 10400,
+    "Examination Charges": "",
+    "Fuel Charges": 21287.3,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 135706.56,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 28800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "ENS Filing Fee",
+      "category": "ENS Charges",
+      "amount_inr": 3991.37,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "E-Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Forwarder Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 8350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 1750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 5150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 10400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Emergency Bunker Surcharge (EBS)",
+      "category": "Fuel Charges",
+      "amount_inr": 21287.3,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

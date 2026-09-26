@@ -1,0 +1,40 @@
+ZENITH EXPRESS CARGO LTD.
+88, SAHAR ROAD, NEW DELHI - 110037, INDIA
+GSTIN: 07CRXPN3325K1ZC PAN: CRXPN3325K
+BILL TO: LOTUS GARMENTS EXPORTS, 28 MG ROAD, PUNE 411005 GSTIN: 09FXXCD5384R1ZC
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+INVOICE NUMBER : TI527279                         DOCUMENT DATE  : 27-11-2025
+PAYMENT DUE    : 11-01-2026                       CUST. ID       : ZEC26611
+FILE NO        : FILE/ZEC/25/8131                 STATE          : 07 DELHI
+ORIGIN         : DEL - DELHI                      AIRPORT OF DESTINATION: CDG - PARIS
+MASTER AIR WAYBILL: 157-37210876                  PKGS           : 94 CTNS
+GROSS WEIGHT   : 330.07 KGS                       CH. WT         : 367.5 KG
+INCOTERMS      : CIF                              S/BILL NO      : 5906920 DT 18-11-2025
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  SHIPPING BILL FILING              INR     3,450.00         1      1.00        3,450.00  18%
+  2  CUSTOMS EXAMINATION               INR     2,950.00         1      1.00        2,950.00  18%
+  3  TRANSPORTATION CHARGES            INR    14,200.00         1      1.00       14,200.00  18%
+  4  FORWARDER HANDLING FEE            INR     5,750.00         1      1.00        5,750.00  18%
+  5  SUNDRY CHARGES                    INR     1,700.00         1      1.00        1,700.00  18%
+  6  EDI FEES                          INR     1,150.00         1      1.00        1,150.00  18%
+  7  SECURITY SCREENING FEE            INR     2,450.00         1      1.00        2,450.00  18%
+  8  EQUIPMENT IMBALANCE SURCHARGE     INR     4,600.00         1      1.00        4,600.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL (BEFORE TAX)              36,250.00
+                                                       CGST                             3,262.50
+                                                       SGST                             3,262.50
+                                                       INVOICE TOTAL                   42,775.00
+------------------------------------------------------------------------------------------------
+INR FORTY TWO THOUSAND SEVEN HUNDRED SEVENTY FIVE AND PAISE ZERO ONLY
+
+BANK: AXIS BANK | A/C NO 89216084422 | IFSC UTIB0744710
+CHEQUE / RTGS IN FAVOUR OF THE COMPANY ONLY.
+
+                                                            FOR ZENITH EXPRESS CARGO LTD.
+
+                                                            AUTHORISED SIGNATORY
+ORIGINAL

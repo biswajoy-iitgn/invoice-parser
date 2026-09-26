@@ -1,0 +1,33 @@
+Harbourline Forwarding Private Limited
+410, Mahipalpur Extn, Chennai - 600001, India
+GSTIN: 33PBECL5597F1ZD   PAN: PBECL5597F
+accounts@harbourlinelogistics.example | +91 43 8563 8522
+SERVICE INVOICE
+Customer: Neelkanth Chemicals Ltd., 8 Lake View Road, Bengaluru 560001 (GSTIN 19KKTFU8237J1ZB)
+Document Date	2024-08-30	Invoice No.	4348312989
+Cust. ID	CU80940	File No	HFP/24/4460
+Exporter Inv. Ref	EXP/255373	Your Ref	PO-18532
+State	06 Haryana	Port of Loading	INNSA - Nhava Sheva
+Destination	USNYC - New York	Vsl/Voy	SSL Mumbai / 637W
+Sailing Date	2024-08-28	House Bill of Lading	HBL2783821
+Packages	114 PALLETS	Total Weight	5984.40 KG
+Measurement	7.244 CBM	Incoterms	FOB
+Shipping Bill No	4473408 dt 2024-08-27		
+#	Description of Service	SAC	Taxable Value (INR)	CGST	SGST	Total (INR)
+1	Terminal Hdlg. Chgs.	996719	10,250.00	922.50	922.50	12,095.00
+2	AMS Charges (USD 33.00 @ 83.18)	996713	2,744.94	247.05	247.04	3,239.03
+3	CHA Charges	996713	1,900.00	171.00	171.00	2,242.00
+4	Ocean Freight (USD 289.76 @ 83.18)	996521	24,102.24	0.00	0.00	24,102.24
+5	Seaway Bill Fee	996713	5,400.00	486.00	486.00	6,372.00
+Taxable Amount	44,397.18
+CGST	1,826.55
+SGST	1,826.54
+Round Off	-0.27
+Net Payable	48,050.00
+INR Forty Eight Thousand Fifty and Paise Zero Only
+BANK DETAILS
+HDFC Bank | A/c No 88356274871 | IFSC KKBK0410838
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR HARBOURLINE FORWARDING PRIVATE LIMITED
+Authorised Signatory
+E & O.E.

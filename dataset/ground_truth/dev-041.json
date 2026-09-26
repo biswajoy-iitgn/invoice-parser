@@ -1,0 +1,138 @@
+{
+  "id": "dev-041",
+  "split": "dev",
+  "file": "invoices/dev-041.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 505435,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "TI241468",
+    "Invoice Date": "2025-01-03",
+    "Container Number": "CAIU4351540, FFAU2659258, GESU0985093",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Polaris Freight Systems (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "PFSMU2657130",
+    "Weight": "67003 KG",
+    "Sea Freight": 273213.27,
+    "Air Freight": "",
+    "Terminal Handling Charges": 25350,
+    "Airway Bill Charges": "",
+    "BL Charges": 6300,
+    "ENS Charges": "",
+    "Seal Charges": 2700,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 28977.17,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 13050,
+    "Pre Carriage Haulage": 49500,
+    "Ex Rate": 82.7919,
+    "Misc": "",
+    "Transportation": 9250,
+    "Warehouse Charges Port": 1850,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 3450
+  },
+  "lines": [
+    {
+      "description": "Sea Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 273213.27,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 9250,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Terminal & Delivery",
+      "category": "DAP Charges",
+      "amount_inr": 28977.17,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 7900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Carrier Haulage - Origin",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 49500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 6300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "S.B. Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Port Warehousing",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 25350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Handling & Coordination",
+      "category": "Handling Charges",
+      "amount_inr": 5150,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

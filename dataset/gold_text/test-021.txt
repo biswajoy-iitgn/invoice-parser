@@ -1,0 +1,37 @@
+GATEWAY SHIPPING AGENCIES (INDIA) PVT. LTD.
+431, MAHIPALPUR EXTN, NAVI MUMBAI - 400706, INDIA
+GSTIN: 27RWJAN2839N1ZD PAN: RWJAN2839N
+BILL TO: ROTOMECH ENGINEERING PVT. LTD., 30 FC ROAD, CHENNAI 600040 GSTIN: 27WPPCS8318H1ZE
+================================================================================================
+                                            INVOICE
+================================================================================================
+INVOICE NO.    : INV-2025-947543                  BILL DATE      : 06-06-2025
+PAY BY         : 21-06-2025                       CUST. ID       : GSA29442
+JOB REF        : GSA/24/4656                      COMMERCIAL INVOICE NO: EI-252255
+PLACE OF SUPPLY: 33 TAMIL NADU                    AIRPORT OF DEPARTURE: DEL - DELHI
+DEST.          : CDG - PARIS                      FLIGHT / DATE  : QR 978 / 05-06-2025
+AIRLINE AWB NO : 15739896500                      HAWB NO        : GSA/25/71827
+NO. OF PACKAGES: 32 BOXES                         G.W.           : 1,573 KG
+CHARGEABLE WT  : 1,672.5 KG                       TERMS OF DELIVERY: EXW
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  SECURITY SCREENING FEE            INR     2,150.00         1      1.00        2,150.00  18%
+  2  AIR CARGO FREIGHT                 USD         3.17    1672.5     84.28     4,46,838.23   0%
+  3  E-MANIFEST EDI TRANSMISSION       INR       550.00         1      1.00          550.00  18%
+  4  AIRWAY BILL CHARGES               INR     2,600.00         1      1.00        2,600.00  18%
+  5  TRUCK FREIGHT (LOCAL)             INR    16,450.00         1      1.00       16,450.00   5%
+  6  HDLG. CHARGES                     INR     6,050.00         1      1.00        6,050.00  18%
+------------------------------------------------------------------------------------------------
+                                                       SUB TOTAL                     4,74,638.23
+                                                       IGST                             2,865.50
+                                                       NET PAYABLE                   4,77,503.73
+------------------------------------------------------------------------------------------------
+INR FOUR LAKH SEVENTY SEVEN THOUSAND FIVE HUNDRED THREE AND PAISE SEVENTY THREE ONLY
+
+BANK: AXIS BANK | A/C NO 49539328217 | IFSC HDFC0187519
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR GATEWAY SHIPPING AGENCIES (INDIA) PVT. LTD.
+
+                                                            AUTHORISED SIGNATORY

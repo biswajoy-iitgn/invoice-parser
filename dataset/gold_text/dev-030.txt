@@ -1,0 +1,39 @@
+MARIGOLD MARITIME SERVICES PRIVATE LIMITED
+19, SECTOR 9, AHMEDABAD - 380009, INDIA
+GSTIN: 24UJTFH4018J1ZC PAN: UJTFH4018J
+BILL TO: GAJANAN CASTINGS PVT. LTD., 99 FC ROAD, BENGALURU 560001 GSTIN: 27KVBPL9783S1ZE
+================================================================================================
+                                        FREIGHT INVOICE
+================================================================================================
+BILL NO        : 5824098379                       INVOICE DT     : 25.10.2025
+CUST. ID       : MMS46626                         JOB REF        : MMS/24/1687
+COMMERCIAL INVOICE NO: CI248504                   PO NO          : PO-16414
+PLACE OF SUPPLY: 19 WEST BENGAL                   CONVERSION RATE: 1 USD = 83.92 INR
+LOAD PORT      : INMUN - MUNDRA                   POD            : SGSIN - SINGAPORE
+VESSEL / VOYAGE: ONE HARMONY / 351W               ETD            : 18.10.2025
+MBL NO         : MEDU833491058                    HBL            : 43399996953
+NO. OF PACKAGES: 116 CTNS                         INCO           : FOB
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  SEA FREIGHT                       USD        20.00     8.682     83.92        14571.87   0%
+  2  OTHC                              INR      8400.00         1      1.00         8400.00  18%
+  3  B/L ISSUANCE CHARGES              INR      5000.00         1      1.00         5000.00  18%
+  4  EDI TRANSMISSION FEE              INR      1300.00         1      1.00         1300.00  18%
+  5  TRUCK FREIGHT (LOCAL)             INR      8950.00         1      1.00         8950.00  12%
+  6  LOCAL TRANSPORTATION              INR      4250.00         1      1.00         4250.00  18%
+  7  AGENCY FEE                        INR      3250.00         1      1.00         3250.00  18%
+  8  SHIPPING BILL FILING              INR      1400.00         1      1.00         1400.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL TAXABLE VALUE              47121.87
+                                                       IGST                              5322.00
+                                                       INVOICE TOTAL                    52443.87
+------------------------------------------------------------------------------------------------
+INR FIFTY TWO THOUSAND FOUR HUNDRED FORTY THREE AND PAISE EIGHTY SEVEN ONLY
+
+BANK: YES BANK | A/C NO 52673304420 | IFSC HDFC0128776
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR MARIGOLD MARITIME SERVICES PRIVATE LIMITED
+
+                                                            AUTHORISED SIGNATORY

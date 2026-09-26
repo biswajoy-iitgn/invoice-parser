@@ -1,0 +1,34 @@
+Sapphire Freight Systems Pvt Ltd
+126, Sahar Road, Pune - 411001, India
+GSTIN: 27GKEAY9509H1ZA | PAN: GKEAY9509H
+accounts@sapphirelogistics.example | +91 50 7403 7509
+
+Bill To: Shreeji Polymers Ltd., 6 Park Street, Ahmedabad 380015 | GSTIN 19DMVPU4037F1ZE
+Tax Invoice No	MUMCH2420508
+Date	Jun 08, 2024
+A/c Code	SFS43707
+Job No	SFS/25/3919
+State	29 Karnataka
+SERVICE INVOICE
+POL	INNSA - Nhava Sheva	Destination	NLRTM - Rotterdam	Container No(s)	TGBU 301685 5 / 40HC
+Packages	108 BOXES	Gross Mass	23,365.9 Kgs	Volume	22.591 CBM
+Inco	FCA	S/Bill No	2563786 dt Jun 02, 2024		
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	IGST%	IGST Amt	Total (INR)
+1	Cargo Examination Charges	998599	INR	2,700.00	1	2,700.00	1.00	0.00	2,700.00	18%	486.00	3,186.00
+2	CHA Charges	996713	INR	7,050.00	1	7,050.00	1.00	0.00	7,050.00	18%	1,269.00	8,319.00
+3	Shipping Bill Charges	996713	INR	3,400.00	1	3,400.00	1.00	0.00	3,400.00	18%	612.00	4,012.00
+4	ISPS Charges	998599	INR	700.00	1	700.00	1.00	0.00	700.00	18%	126.00	826.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	13,850.00
+IGST	2,493.00
+Round Off	0.00
+Grand Total	16,343.00
+INR Sixteen Thousand Three Hundred Forty Three and Paise Zero Only
+BANK DETAILS
+ICICI Bank | A/c No 69128038980 | IFSC HDFC0896176
+Please quote invoice number with remittance.
+FOR SAPPHIRE FREIGHT SYSTEMS PVT LTD
+Authorised Signatory
+E & O.E.
+ORIGINAL
+COMPUTER COPY

@@ -1,0 +1,139 @@
+{
+  "id": "dev-049",
+  "split": "dev",
+  "file": "invoices/dev-049.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T5",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 698938,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "blur": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.795,
+    "rotation_deg": -1.62,
+    "perspective": true,
+    "blur_sigma": 0.78,
+    "illumination": true,
+    "noise_sigma": 9.0,
+    "binarised": true,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 62,
+    "pixels": [
+      1527,
+      1047
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2025-370788",
+    "Invoice Date": "2024-02-19",
+    "Container Number": "GESU3667840",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Marigold Freight Systems (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "13791.12 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 650,
+    "VGM": 1600,
+    "EDI Fees": 500,
+    "DAP Charges": "",
+    "Other Charges": 950,
+    "AMS Charges": "",
+    "Handling Charges": 6950,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 2250,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 10600,
+    "Shipping Bill Charges": 3150
+  },
+  "lines": [
+    {
+      "description": "Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 1600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Export Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 6950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 2250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Clearance Charges",
+      "category": "Agency Charges",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 6850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "SB Filing Fee",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 3150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Other Charges",
+      "category": "Other Charges",
+      "amount_inr": 950,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "cntr": false,
+    "gw": false
+  }
+}

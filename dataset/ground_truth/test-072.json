@@ -1,0 +1,100 @@
+{
+  "id": "test-072",
+  "split": "test",
+  "file": "invoices/test-072.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.902,
+    "rotation_deg": -0.18,
+    "blur_sigma": 0.45,
+    "noise_sigma": 3.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 85,
+    "pixels": [
+      1519,
+      1225
+    ]
+  },
+  "fields": {
+    "Invoice No": "2882011309",
+    "Invoice Date": "2025-11-10",
+    "Container Number": "CAIU8776163, EGHU6348700",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Tricolour Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "EGLVBO2781483",
+    "Weight": "45266.5 KG",
+    "Sea Freight": 230340,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 3450,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.25,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 10150,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "CFS Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 5600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 230340,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Godown Rent (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 4550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 3450,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

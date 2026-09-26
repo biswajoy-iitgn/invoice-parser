@@ -1,0 +1,40 @@
+Indus Express Cargo Pvt. Ltd.
+390, Strand Road, Kolkata - 700001, India
+GSTIN: 19AJAAP9258S1ZB | PAN: AJAAP9258S
+accounts@induslogistics.example | +91 41 2455 2136
+
+Bill To: Shreeji Polymers Ltd., 72 Station Road, Mumbai 400050 | GSTIN 19WTKAD3438X1ZB
+Document No	IEC24526243
+Invoice Dt	20-Jun-24
+Due Date	05-Jul-24
+Customer Code	IEC39885
+Shipment ID	FILE/IEC/26/8083
+Exporter Inv. Ref	EXP/256042
+Buyer Ref	PO-59598
+Place of Supply	09 Uttar Pradesh
+TAX INVOICE
+Airport of Departure	BOM - Mumbai	Dest.	CDG - Paris	Flight Details	SQ 764 / 15-Jun-24
+Master Air Waybill	61823320695	Forwarder AWB	HAWB275057	No. of Packages	95 PKGS
+Weight	127.831 KG	Chargeable Weight	169.0 KG	Incoterms	CFR
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Airfreight Charges	996531	USD	2.33	169.0	393.77	85.2652	33,574.88	0.00	0.00	0.00	33,574.88
+2	Airway Bill Charges	996713	INR	3,450.00	1	3,450.00	1.00	0.00	3,450.00	310.50	310.50	4,071.00
+3	Cartage Charges	996511	INR	6,400.00	1	6,400.00	1.00	0.00	6,400.00	576.00	576.00	7,552.00
+4	FSC	996531	INR	55.63	169.0	9,401.47	1.00	9,401.47	0.00	0.00	0.00	9,401.47
+5	Security Screening Fee	996719	INR	2,250.00	1	2,250.00	1.00	0.00	2,250.00	202.50	202.50	2,655.00
+6	Brokerage Charges	996713	INR	6,500.00	1	6,500.00	1.00	0.00	6,500.00	585.00	585.00	7,670.00
+7	Shipping Bill Passing	996713	INR	1,350.00	1	1,350.00	1.00	0.00	1,350.00	121.50	121.50	1,593.00
+8	Mandatory User Charges	998599	INR	3,250.00	1	3,250.00	1.00	0.00	3,250.00	292.50	292.50	3,835.00
+9	Container Cleaning Charges	998599	INR	8,100.00	1	8,100.00	1.00	0.00	8,100.00	729.00	729.00	9,558.00
+Total Non-Taxable Value	42,976.35
+Total Taxable Value	31,300.00
+CGST	2,817.00
+SGST	2,817.00
+Net Payable	79,910.35
+INR Seventy Nine Thousand Nine Hundred Ten and Paise Thirty Five Only
+BANK DETAILS
+HDFC Bank | A/c No 24188664092 | IFSC YESB0532505
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR INDUS EXPRESS CARGO PVT. LTD.
+Authorised Signatory
+E & O.E.

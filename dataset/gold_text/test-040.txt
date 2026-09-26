@@ -1,0 +1,62 @@
+Anchor Shipping Agencies & Co.
+151, Sector 9, New Delhi - 110037, India
+GSTIN 07PTSCS4874X1ZC | accounts@anchorlogistics.example | +91 99 3050 7972
+FREIGHT INVOICE
+BILL TO
+Deccan Granite Exports
+23 Linking Road, Delhi 110034 | GSTIN 27RLUCS2609S1ZA
+BILL NO
+TI634413
+INVOICE DATE
+13-May-26
+DUE DATE
+12-Jun-26
+CLIENT CODE
+ASA50627
+JOB NO
+FILE/ASA/26/2019
+PO NO
+PO-16071
+PLACE OF SUPPLY
+06 Haryana
+LOAD PORT
+INMAA - Chennai
+DESTINATION
+DEHAM - Hamburg
+HBL
+ASAMU2474306
+CONTAINER NUMBER
+EGHU7994290 / 40HC
+PKGS
+102 BOXES
+GR. WT.
+5,713 Kgs
+MEASUREMENT
+33.379 CBM
+INCO
+EXW
+S/BILL NO
+9207719 dt 09-May-26
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Verified Gross Mass (VGM)	1	2,050.00	INR	1.00	2,050.00	18%
+EDI Charges	1	450.00	INR	1.00	450.00	18%
+Handling Charges	1	5,650.00	INR	1.00	5,650.00	18%
+Incidental Expenses	1	800.00	INR	1.00	800.00	18%
+Examination Charges	1	5,850.00	INR	1.00	5,850.00	18%
+CHA Charges	1	4,550.00	INR	1.00	4,550.00	18%
+SB Filing Fee	1	1,500.00	INR	1.00	1,500.00	18%
+Congestion Surcharge	1	600.00	INR	1.00	600.00	18%
+Equipment Imbalance Surcharge	1	7,700.00	INR	1.00	7,700.00	18%
+Taxable Amount	29,150.00
+CGST	2,623.50
+SGST	2,623.50
+Round Off	0.00
+Total Invoice Value	34,397.00
+INR Thirty Four Thousand Three Hundred Ninety Seven and Paise Zero Only
+HDFC Bank | A/c No 88047429211 | IFSC SBIN0128653
+Cheque / RTGS in favour of the company only.
+For Anchor Shipping Agencies & Co.
+
+
+Authorised Signatory
+ORIGINAL

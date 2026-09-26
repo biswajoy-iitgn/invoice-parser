@@ -1,0 +1,47 @@
+Bluewater Air & Sea Ltd.
+211, Nariman Point, Bengaluru - 560001, India
+GSTIN: 29GDJPG9392D1ZA | PAN: GDJPG9392D
+accounts@bluewaterlogistics.example | +91 31 4864 5761
+
+Bill To: Madhav Spices Pvt. Ltd., 25 Gandhi Nagar, Chennai 600040 | GSTIN 07DDJAR9145M1ZE
+Invoice #	FF/2526/8340
+Document Date	07-Mar-24
+Due Date	22-Mar-24
+Cust. ID	CU81720
+Commercial Invoice No	EXP/248192
+State	06 Haryana
+Exchange Rate (USD)	85.00
+TAX INVOICE
+Place of Receipt	ICD Khodiyar	Load Port	INPAV - Pipavav	Destination	USSAV - Savannah
+Vessel / Voyage	SSL Mumbai / 195W	Sailing Date	02-Mar-24	HBL No	HBL5257005
+Container	BMOU 371894 5	Seal No(s)	SL3809648	Pkgs	71 PKGS
+Weight	18778.9 kg	CBM	33.566 CBM	Incoterms	FOB
+S/Bill No	7623596 dt 27-Feb-24				
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	Sea Freight Charges	996521	USD	680.00	1	680.00	85.00	0.00	57,800.00	1,445.00	1,445.00	60,690.00
+2	OTHC	996719	INR	15,300.00	1	15,300.00	1.00	0.00	15,300.00	1,377.00	1,377.00	18,054.00
+3	THC Port of Loading	996719	INR	16,500.00	1	16,500.00	1.00	0.00	16,500.00	1,485.00	1,485.00	19,470.00
+4	Seaway Bill Fee	996713	INR	3,500.00	1	3,500.00	1.00	0.00	3,500.00	315.00	315.00	4,130.00
+5	High Security Seal	996719	INR	700.00	1	700.00	1.00	0.00	700.00	63.00	63.00	826.00
+6	VGM Filing Fee	996719	INR	1,750.00	1	1,750.00	1.00	0.00	1,750.00	157.50	157.50	2,065.00
+7	Electronic Data Interchange Fee	998599	INR	800.00	1	800.00	1.00	0.00	800.00	72.00	72.00	944.00
+8	AMS Filing Fee	996713	INR	2,100.00	1	2,100.00	1.00	0.00	2,100.00	189.00	189.00	2,478.00
+9	Handling Charges	996719	INR	7,200.00	1	7,200.00	1.00	0.00	7,200.00	648.00	648.00	8,496.00
+10	Inland Haulage (IHC)	996511	INR	17,200.00	1	17,200.00	1.00	0.00	17,200.00	1,548.00	1,548.00	20,296.00
+11	Incidental Expenses	998599	INR	900.00	1	900.00	1.00	0.00	900.00	81.00	81.00	1,062.00
+12	Bunker Adjustment Factor	996521	USD	130.00	1	130.00	85.00	0.00	11,050.00	276.25	276.25	11,602.50
+13	Clearing Agency Fee	996713	INR	2,550.00	1	2,550.00	1.00	0.00	2,550.00	229.50	229.50	3,009.00
+14	Shipping Bill Charges	996713	INR	1,200.00	1	1,200.00	1.00	0.00	1,200.00	108.00	108.00	1,416.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	1,38,550.00
+CGST	7,994.25
+SGST	7,994.25
+Round Off	0.50
+Total Amount Payable	1,54,539.00
+INR One Lakh Fifty Four Thousand Five Hundred Thirty Nine and Paise Zero Only
+BANK DETAILS
+Yes Bank | A/c No 50926708248 | IFSC ICIC0467351
+Cheque / RTGS in favour of the company only.
+FOR BLUEWATER AIR & SEA LTD.
+Authorised Signatory
+E & O.E.

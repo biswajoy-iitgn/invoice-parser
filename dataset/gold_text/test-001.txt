@@ -1,0 +1,59 @@
+Northstar Logistics (India) Pvt. Ltd.
+437, Mahipalpur Extn, Kochi - 682003, India
+GSTIN
+32MWRFF6756W1ZD
+PAN
+MWRFF6756W
+CONTACT
+accounts@northstarlogistics.example | +91 31 7265 6492
+SERVICE INVOICE
+DUPLICATE
+BILL TO
+Kaveri Agro Foods Ltd.
+36 FC Road, Noida 201301
+GSTIN 07GCUAF1562N1ZE
+Consignee: Rheinmetal Components, Duisburg, Germany
+INVOICE DETAILS
+TAX INVOICE NO
+5115143667
+DOCUMENT DATE
+26-Jan-24
+DUE ON
+11-Mar-24
+CUST. ID
+C51168
+EXPORTER INV. REF
+EI-256342
+BUYER REF
+PO-62754
+STATE
+33 Tamil Nadu
+SHIPMENT
+Airport of Departure: AMD - Ahmedabad
+Dest.: CDG - Paris
+MAWB: 020-70019434
+House AWB: MAA-HA-234181
+Packages: 92 BOXES
+Gr. Wt.: 833.4 kg
+Chargeable Wt: 931.0 KG
+Terms of Delivery: DAP
+Shipping Bill No: 9183140 dt 15-Jan-24
+CARGO
+Auto components (brake parts) | 92 BOXES
+#	Description	SAC	Qty	Rate	Curr	Ex. Rate	Taxable (INR)	GST	Total (INR)
+1	Sundry Charges	998599	1	750.00	INR	1.00	750.00	18%	885.00
+2	Cargo Examination Charges	998599	1	3,900.00	INR	1.00	3,900.00	18%	4,602.00
+3	Shipping Bill Passing	996713	1	2,800.00	INR	1.00	2,800.00	18%	3,304.00
+4	Congestion Surcharge	998599	1	3,800.00	INR	1.00	3,800.00	18%	4,484.00
+5	Mandatory User Charges	998599	1	6,750.00	INR	1.00	6,750.00	18%	7,965.00
+Total Taxable Value	18,000.00
+CGST	1,620.00
+SGST	1,620.00
+Total Invoice Value	21,240.00
+Amount in words: INR Twenty One Thousand Two Hundred Forty and Paise Zero Only
+BANK DETAILS
+Yes Bank | A/c No 35337241073 | IFSC UTIB0151929
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR NORTHSTAR LOGISTICS (INDIA) PVT. LTD.
+Authorised Signatory
+E & O.E.

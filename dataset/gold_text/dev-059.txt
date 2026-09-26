@@ -1,0 +1,50 @@
+Anchor Global Logistics Pvt Ltd
+270, Sector 9, Chennai - 600001, India
+GSTIN 33GMAPV6518D1ZA | accounts@anchorlogistics.example | +91 59 9796 3242
+INVOICE
+Invoice Dt: 11/09/25
+Invoice #: AGL25852462
+Payment Due: 11/10/25
+A/c Code: CU17745
+Job Ref: AGL/24/6618
+Shipper Inv No: EXP/241285
+Buyer Ref: PO-57109
+Place of Supply: 06 Haryana
+Bill To
+Neelkanth Chemicals Ltd.
+36 Park Street, Kolkata 700016
+GSTIN 09JUCPK6377V1ZE
+Consignee: Lone Star Industrial, Houston, USA
+Departure: BOM - Mumbai
+Destination: JFK - New York
+House AWB: AGL2290441
+No. of Packages: 92 PALLETS
+Weight: 303.227 KG
+Chargeable Wt: 421.5 KG
+Terms of Delivery: DAP
+SB No & Date: 7776829 dt 06/09/25
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Customs Brokerage Fee	SHPT	INR	1,750.00	1	1.00	1,750.00	18%	2,065.00
+2	Warehouse Charges	SHPT	INR	6,050.00	1	1.00	6,050.00	18%	7,139.00
+3	Courier Charges	SHPT	INR	8,700.00	1	1.00	8,700.00	18%	10,266.00
+4	Sundries	SHPT	INR	650.00	1	1.00	650.00	18%	767.00
+5	Transportation	SHPT	INR	15,900.00	1	1.00	15,900.00	5%	16,695.00
+	Sub Total - Origin Charges	33,050.00		36,932.00
+Documentation & Filing
+6	E-Manifest EDI Transmission	SHPT	INR	850.00	1	1.00	850.00	18%	1,003.00
+7	Shipping Bill Filing	SHPT	INR	1,550.00	1	1.00	1,550.00	18%	1,829.00
+	Sub Total - Documentation & Filing	2,400.00		2,832.00
+Total (Before Tax)	35,450.00
+CGST	2,157.00
+SGST	2,157.00
+Total Amount Payable	39,764.00
+INR Thirty Nine Thousand Seven Hundred Sixty Four and Paise Zero Only
+State Bank of India | A/c No 49538462304 | IFSC KKBK0857831
+Subject to Mumbai jurisdiction. E. & O.E.
+For Anchor Global Logistics Pvt Ltd
+
+
+Authorised Signatory
+PAID
+ORIGINAL

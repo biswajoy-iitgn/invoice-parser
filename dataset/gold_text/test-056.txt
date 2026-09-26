@@ -1,0 +1,57 @@
+Marigold Freight Systems (India) Pvt. Ltd.
+169, Bund Garden Road, Navi Mumbai - 400706, India
+GSTIN 27RNYFF7550P1ZC | accounts@marigoldlogistics.example | +91 26 4653 4716
+SERVICE INVOICE
+Document No: INV-2026-030349
+Document Date: 20.06.2026
+Pay By: 20.07.2026
+Client Code: C76350
+Job Ref: FILE/MFS/26/3471
+Exporter Inv. Ref: CI258424
+Your Ref: PO-19974
+State: 07 Delhi
+Bill To
+Deccan Granite Exports
+96 Station Road, Delhi 110034
+GSTIN 09FVCCM3363S1ZS
+Consignee: Pacific Imports Inc., Los Angeles, USA
+Place of Receipt: ICD Sabarmati
+POL: INNSA - Nhava Sheva
+Destination: USHOU - Houston
+Vessel: CMA CGM Tage / 886N
+SOB Date: 11.06.2026
+MBL No: CMDU282662002
+House BL Ref: 65689304764
+Container Number: TRHU6837729
+No. of Packages: 6 BOXES
+Gr. Wt.: 13903 kg
+Terms of Delivery: FOB
+Shipping Bill No: 1660685 dt 05.06.2026
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	THC Port of Loading	CNTR	INR	6,400.00	1	1.00	6,400.00	18%	7,552.00
+2	High Security Seal	CNTR	INR	850.00	1	1.00	850.00	18%	1,003.00
+3	VGM Certificate	CNTR	INR	700.00	1	1.00	700.00	18%	826.00
+4	Pre-Carriage Haulage	CNTR	INR	10,850.00	1	1.00	10,850.00	18%	12,803.00
+5	Transportation	SHPT	INR	15,150.00	1	1.00	15,150.00	5%	15,907.50
+6	Warehouse Charges	SHPT	INR	13,250.00	1	1.00	13,250.00	18%	15,635.00
+7	Examination Charges	SHPT	INR	5,250.00	1	1.00	5,250.00	18%	6,195.00
+8	Customs Brokerage Fee	SHPT	INR	6,500.00	1	1.00	6,500.00	18%	7,670.00
+9	Clearing Agency Fee	SHPT	INR	1,500.00	1	1.00	1,500.00	18%	1,770.00
+	Sub Total - Origin Charges	60,450.00		69,361.50
+Freight Charges
+10	Seafreight Export	CNTR	USD	560.00	1	86.08	48,204.80	0%	48,204.80
+	Sub Total - Freight Charges	48,204.80		48,204.80
+Taxable Amount	1,08,654.80
+CGST	4,455.75
+SGST	4,455.75
+Round Off	-0.30
+Net Payable	1,17,566.00
+INR One Lakh Seventeen Thousand Five Hundred Sixty Six and Paise Zero Only
+ICICI Bank | A/c No 17200326356 | IFSC HDFC0320245
+Please quote invoice number with remittance.
+For Marigold Freight Systems (India) Pvt. Ltd.
+
+
+Authorised Signatory
+GST AUDITED

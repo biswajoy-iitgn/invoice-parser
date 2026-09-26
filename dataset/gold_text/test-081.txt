@@ -1,0 +1,44 @@
+Samudra Forwarding Ltd.
+307, Rajaji Salai, Navi Mumbai - 400706, India
+GSTIN: 27SVWFN9045M1ZD | accounts@samudralogistics.example | +91 41 6357 3836
+TAX INVOICE
+
+Invoice Ref INV/2526/1986    Dated 29 Dec 2024
+
+Pay By: 12 Feb 2025  |  Cust. ID: CU24022  |  File No: FILE/SFL/25/8474  |  Shipper Inv No: EI-257125  |  State: 06 Haryana
+
+To,
+Apex Pumps & Valves Pvt. Ltd.
+24 Sector 18 Market, Pune 411005
+GSTIN: 19LCACE2289G1ZA
+
+Being charges in respect of your shipment of Cotton yarn in cartons consigned to Rheinmetal Components, Duisburg, Germany. Load Port INNSA - Nhava Sheva; Destination DEHAM - Hamburg; Vessel / Voyage Maersk Kinloss / 387W; ETD 22 Dec 2024; M B/L No ONEY375882864; House BL Ref 21149493460; Container Number MRKU4674397
+OOLU0644715 / 40GP; Pkgs 19 CTNS; Volume 74.654 CBM; Terms of Delivery FCA; SB No & Date 2095521 dt 17 Dec 2024.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	O/F Charges (FCL) (USD 4,230.00)	3,53,839.50
+2	Terminal Handling (Origin)	18,200.00
+3	Seaway Bill Fee	5,200.00
+4	EU Advance Manifest (ENS) (USD 31.00)	2,593.15
+5	Verified Gross Mass (VGM)	2,300.00
+6	EDI Fees	750.00
+7	Warehouse Charges (Port)	8,100.00
+8	Bunker Adjustment Factor (USD 180.00)	15,057.00
+9	Port Security Surcharge	1,550.00
+10	Congestion Surcharge	6,050.00
+	Sub Total	4,13,639.65
+	Add: CGST	4,403.31
+	Add: SGST	4,403.31
+	Total Amount Payable	4,22,446.27
+
+Rate of Exchange (USD): 1 USD = INR 83.65
+
+(INR Four Lakh Twenty Two Thousand Four Hundred Forty Six and Paise Twenty Seven Only)
+
+Yes Bank | A/c No 21389885749 | IFSC YESB0721461
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Samudra Forwarding Ltd.
+
+
+Authorised Signatory

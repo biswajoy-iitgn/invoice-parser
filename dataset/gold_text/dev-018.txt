@@ -1,0 +1,40 @@
+Orient Forwarding (India) Pvt. Ltd.
+216, Strand Road, New Delhi - 110037, India
+GSTIN 07GLGAT5958N1ZA | accounts@orientlogistics.example | +91 91 4273 4046
+TAX INVOICE
+Billed To
+Lotus Garments Exports
+65 Station Road, Pune 411005
+GSTIN: 19JBKAV9323T1ZC
+Consignee: Nordic Parts AB, Gothenburg, Sweden
+Date	24-03-2026
+Invoice No	TI086640
+Cust. ID	OFP11861
+Shipper Inv No	CI249047
+Place of Supply	24 Gujarat
+Exch. Rate	USD 86.34
+SHIPMENT DETAILS
+Load Port	INCOK - Kochi	Destination	NLRTM - Rotterdam
+Vessel / Voyage	MSC Aurora / 508A	ETD	17-03-2026
+Ocean B/L No	ONEY438742091	HBL	48738231456
+Pkgs	60 PALLETS	Wt (Gross)	4,071.5 Kgs
+CBM	13.071 CBM	Incoterms	FOB
+SB No & Date	8929502 dt 14-03-2026		
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	EDI Fees	998599	INR	1,350.00	1.00	1,350.00	18%	243.00	1,593.00
+2	B/L Fee	996713	INR	6,150.00	1.00	6,150.00	18%	1,107.00	7,257.00
+3	EU Advance Manifest (ENS)	996713	INR	2,100.00	1.00	2,100.00	18%	378.00	2,478.00
+4	Cargo Handling Charges	996719	INR	5,600.00	1.00	5,600.00	18%	1,008.00	6,608.00
+5	Seafreight Export	996521	USD	862.69	86.34	74,484.65	0%	0.00	74,484.65
+Sub Total	89,684.65
+IGST	2,736.00
+Grand Total	92,420.65
+INR Ninety Two Thousand Four Hundred Twenty and Paise Sixty Five Only
+Yes Bank | A/c No 47816121808 | IFSC UTIB0429438
+Please quote invoice number with remittance.
+For Orient Forwarding (India) Pvt. Ltd.
+
+
+Authorised Signatory
+PAID

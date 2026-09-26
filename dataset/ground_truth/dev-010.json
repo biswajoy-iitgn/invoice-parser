@@ -1,0 +1,110 @@
+{
+  "id": "dev-010",
+  "split": "dev",
+  "file": "invoices/dev-010.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 729292,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.846,
+    "rotation_deg": 2.25,
+    "blur_sigma": 0.63,
+    "illumination": true,
+    "noise_sigma": 11.6,
+    "binarised": true,
+    "encoding": "jpeg",
+    "jpeg_quality": 52,
+    "pixels": [
+      1346,
+      1279
+    ]
+  },
+  "fields": {
+    "Invoice No": "6774852426",
+    "Invoice Date": "2025-03-16",
+    "Container Number": "SEGU9470832, TCNU8656541, TRHU0993072",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Anchor Maritime Services Pvt Ltd",
+    "Bill of Lading / HBL": "34649790129",
+    "Weight": "56180.4 KG",
+    "Sea Freight": 390455.93,
+    "Air Freight": "",
+    "Terminal Handling Charges": 14100,
+    "Airway Bill Charges": "",
+    "BL Charges": 3000,
+    "ENS Charges": "",
+    "Seal Charges": 1950,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.6263,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 4800,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 390455.93,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 14100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 3000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Seal Charges",
+      "category": "Seal Charges",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Warehousing",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 4800,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

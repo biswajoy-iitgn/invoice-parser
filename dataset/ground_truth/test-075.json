@@ -1,0 +1,94 @@
+{
+  "id": "test-075",
+  "split": "test",
+  "file": "invoices/test-075.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T7",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 38728,
+  "maker_difficulty": {
+    "faint": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.82,
+    "rotation_deg": 1.31,
+    "blur_sigma": 0.67,
+    "illumination": true,
+    "noise_sigma": 11.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 51,
+    "pixels": [
+      1284,
+      1093
+    ]
+  },
+  "fields": {
+    "Invoice No": "EFP24743067",
+    "Invoice Date": "2026-06-08",
+    "Container Number": "",
+    "MAWB No": "157-42676233",
+    "HAWB No": "EFP5991937",
+    "Vendor Name": "Everfast Forwarding (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1068.33 KG",
+    "Sea Freight": "",
+    "Air Freight": 473217.9,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1950,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.33,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": 2650,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Airway Bill Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Screening Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airfreight Charges",
+      "category": "Air Freight",
+      "amount_inr": 473217.9,
+      "currency": "USD",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

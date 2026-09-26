@@ -1,0 +1,134 @@
+{
+  "id": "test-082",
+  "split": "test",
+  "file": "invoices/test-082.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 22532,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.865,
+    "rotation_deg": 0.35,
+    "blur_sigma": 0.51,
+    "noise_sigma": 5.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 75,
+    "pixels": [
+      1462,
+      1604
+    ]
+  },
+  "fields": {
+    "Invoice No": "SFS25208529",
+    "Invoice Date": "2024-09-15",
+    "Container Number": "GESU4673299",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Seabird Freight Systems Pvt Ltd",
+    "Bill of Lading / HBL": "33649015424",
+    "Weight": "15887 KG",
+    "Sea Freight": 161360.58,
+    "Air Freight": "",
+    "Terminal Handling Charges": 26200,
+    "Airway Bill Charges": "",
+    "BL Charges": 2650,
+    "ENS Charges": "",
+    "Seal Charges": 800,
+    "VGM": 1200,
+    "EDI Fees": 650,
+    "DAP Charges": 9000,
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 29800,
+    "Ex Rate": 84.2614,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 10150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Marine Freight",
+      "category": "Sea Freight",
+      "amount_inr": 161360.58,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Inland Haulage (IHC)",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 29800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Delivery Charges",
+      "category": "DAP Charges",
+      "amount_inr": 9000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "VGM Certificate",
+      "category": "VGM",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

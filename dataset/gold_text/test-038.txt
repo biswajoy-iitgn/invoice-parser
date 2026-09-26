@@ -1,0 +1,59 @@
+Seabird Air & Sea Pvt. Ltd.
+238, Willingdon Island, Ahmedabad - 380009, India
+GSTIN 24THXAT1296X1Z5 | accounts@seabirdlogistics.example | +91 35 3551 5609
+FREIGHT INVOICE
+BILL TO
+Madhav Spices Pvt. Ltd.
+66 Linking Road, Bengaluru 560001 | GSTIN 29BTYPD2620U1ZD
+INVOICE #
+MUMCH2695074
+DATE OF ISSUE
+2026-03-27
+PAYMENT DUE
+2026-04-26
+CLIENT CODE
+C36892
+EXPORTER INV. REF
+EXP/261382
+STATE
+09 Uttar Pradesh
+EX. RATE
+USD 84.3634
+AIRPORT OF DEPARTURE
+MAA - Chennai
+DESTINATION
+SIN - Singapore
+FLIGHT / DATE
+AF 144 / 2026-03-24
+MASTER AWB
+057 4695 9964
+HAWB
+SAS8329035
+PACKAGES
+35 PKGS
+GROSS WEIGHT
+111.351 KG
+CHARGEABLE WT
+151.0 KG
+INCO
+FOB
+S/BILL NO
+1060741 dt 2026-03-20
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Fuel Surcharge	151.0	98.77	INR	1.00	14,914.27	18%
+X-Ray Screening	1	1,700.00	INR	1.00	1,700.00	18%
+CFS Charges	1	15,150.00	INR	1.00	15,150.00	18%
+Freight Charges - Air	151.0	2.05	USD	84.3634	26,114.69	18%
+Trucking Charges	1	17,900.00	INR	1.00	17,900.00	18%
+Export Handling Charges	1	8,650.00	INR	1.00	8,650.00	18%
+Total Taxable Value	84,428.96
+CGST	7,598.61
+SGST	7,598.60
+Invoice Total	99,626.17
+INR Ninety Nine Thousand Six Hundred Twenty Six and Paise Seventeen Only
+State Bank of India | A/c No 89531181347 | IFSC ICIC0907428
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Seabird Air & Sea Pvt. Ltd.
+
+
+Authorised Signatory

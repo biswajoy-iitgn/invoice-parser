@@ -1,0 +1,128 @@
+{
+  "id": "test-006",
+  "split": "test",
+  "file": "invoices/test-006.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 768072,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.88,
+    "rotation_deg": -0.2,
+    "blur_sigma": 0.49,
+    "noise_sigma": 3.9,
+    "encoding": "jpeg",
+    "jpeg_quality": 77,
+    "pixels": [
+      1484,
+      1459
+    ]
+  },
+  "fields": {
+    "Invoice No": "VMS26334669",
+    "Invoice Date": "2025-11-16",
+    "Container Number": "",
+    "MAWB No": "157-26866965",
+    "HAWB No": "DEL-HA-703547",
+    "Vendor Name": "Vayu Maritime Services (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "635.8 KG",
+    "Sea Freight": "",
+    "Air Freight": 163137,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 800,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": 6550,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.38,
+    "Misc": "",
+    "Transportation": 8900,
+    "Warehouse Charges Port": 2050,
+    "Examination Charges": "",
+    "Fuel Charges": 39957.84,
+    "Cargo Screening": 1250,
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2650
+  },
+  "lines": [
+    {
+      "description": "Airline Freight Charges",
+      "category": "Air Freight",
+      "amount_inr": 163137,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 6550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 8900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Airline Fuel Levy",
+      "category": "Fuel Charges",
+      "amount_inr": 39957.84,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "X-Ray Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 1250,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

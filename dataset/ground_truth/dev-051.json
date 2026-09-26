@@ -1,0 +1,116 @@
+{
+  "id": "dev-051",
+  "split": "dev",
+  "file": "invoices/dev-051.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T6",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 570067,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "TI363819",
+    "Invoice Date": "2026-03-06",
+    "Container Number": "CMAU7556280",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Continental Express Cargo (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "20209.553 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 400,
+    "DAP Charges": "",
+    "Other Charges": 750,
+    "AMS Charges": "",
+    "Handling Charges": 8900,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 1000,
+    "Transportation": 9900,
+    "Warehouse Charges Port": "",
+    "Examination Charges": 5800,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 3800,
+    "Shipping Bill Charges": 2650
+  },
+  "lines": [
+    {
+      "description": "Handling Fee",
+      "category": "Handling Charges",
+      "amount_inr": 8900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Local Transportation",
+      "category": "Transportation",
+      "amount_inr": 9900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Examination",
+      "category": "Examination Charges",
+      "amount_inr": 5800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 3800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Filing",
+      "category": "EDI Fees",
+      "amount_inr": 400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "S/B Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2650,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "cntr": false,
+    "gw": false
+  }
+}

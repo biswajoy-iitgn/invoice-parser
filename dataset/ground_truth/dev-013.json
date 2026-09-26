@@ -1,0 +1,122 @@
+{
+  "id": "dev-013",
+  "split": "dev",
+  "file": "invoices/dev-013.pdf",
+  "format": "pdf_raster",
+  "tier": "clean",
+  "template": "T2",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 107627,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 92,
+    "pixels": [
+      1920,
+      1920
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI559257",
+    "Invoice Date": "2024-08-13",
+    "Container Number": "GESU2338096, TCNU4597219",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Coastal Maritime Services Pvt. Ltd.",
+    "Bill of Lading / HBL": "HLCU463876834",
+    "Weight": "17211 KG",
+    "Sea Freight": 240113.13,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 3900,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 13000,
+    "Other Charges": 1500,
+    "AMS Charges": 2554.4,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.1465,
+    "Misc": 1450,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 13623.44,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 2600
+  },
+  "lines": [
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Destination Charges",
+      "category": "DAP Charges",
+      "amount_inr": 13000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Advance Manifest (AMS) Fee",
+      "category": "AMS Charges",
+      "amount_inr": 2554.4,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 1450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 240113.13,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bunker Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 13623.44,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Bill of Lading Fee",
+      "category": "BL Charges",
+      "amount_inr": 3900,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mbl": true,
+    "cntr": false,
+    "gw": true
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "id": "dev-035",
+  "split": "dev",
+  "file": "invoices/dev-035.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 688563,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.837,
+    "rotation_deg": 0.17,
+    "blur_sigma": 0.4,
+    "noise_sigma": 4.5,
+    "encoding": "jpeg",
+    "jpeg_quality": 75,
+    "pixels": [
+      1411,
+      1374
+    ]
+  },
+  "fields": {
+    "Invoice No": "NSA25328595",
+    "Invoice Date": "2024-11-12",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Northstar Shipping Agencies Ltd.",
+    "Bill of Lading / HBL": "NSASE2442673",
+    "Weight": "5035.69 KG",
+    "Sea Freight": 78293.73,
+    "Air Freight": "",
+    "Terminal Handling Charges": 14900,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": 3054.28,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 27200,
+    "Other Charges": 3000,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 95.4464,
+    "Misc": 2200,
+    "Transportation": "",
+    "Warehouse Charges Port": 6950,
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 78293.73,
+      "currency": "EUR",
+      "heldout_wording": false
+    },
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 14900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EU Advance Manifest (ENS)",
+      "category": "ENS Charges",
+      "amount_inr": 3054.28,
+      "currency": "EUR",
+      "heldout_wording": true
+    },
+    {
+      "description": "DAP Charges",
+      "category": "DAP Charges",
+      "amount_inr": 27200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sundries",
+      "category": "Misc",
+      "amount_inr": 2200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 6950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Peak Season Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 3000,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "id": "dev-030",
+  "split": "dev",
+  "file": "invoices/dev-030.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 666761,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.892,
+    "rotation_deg": 1.62,
+    "blur_sigma": 0.52,
+    "illumination": true,
+    "noise_sigma": 12.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 59,
+    "pixels": [
+      1397,
+      1046
+    ]
+  },
+  "fields": {
+    "Invoice No": "5824098379",
+    "Invoice Date": "2025-10-25",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Marigold Maritime Services Private Limited",
+    "Bill of Lading / HBL": "43399996953",
+    "Weight": "",
+    "Sea Freight": 14571.87,
+    "Air Freight": "",
+    "Terminal Handling Charges": 8400,
+    "Airway Bill Charges": "",
+    "BL Charges": 5000,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1300,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.92,
+    "Misc": "",
+    "Transportation": 13200,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 3250,
+    "Shipping Bill Charges": 1400
+  },
+  "lines": [
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 14571.87,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 8400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "B/L Issuance Charges",
+      "category": "BL Charges",
+      "amount_inr": 5000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Transmission Fee",
+      "category": "EDI Fees",
+      "amount_inr": 1300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 8950,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Local Transportation",
+      "category": "Transportation",
+      "amount_inr": 4250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 3250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false
+  }
+}

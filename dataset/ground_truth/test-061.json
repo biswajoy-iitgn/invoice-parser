@@ -1,0 +1,96 @@
+{
+  "id": "test-061",
+  "split": "test",
+  "file": "invoices/test-061.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 591445,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "EXP/2425/0281",
+    "Invoice Date": "2025-04-08",
+    "Container Number": "CAIU8112436, SEGU2935748, TCNU0788201",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Bluewater Global Logistics Pvt Ltd",
+    "Bill of Lading / HBL": "16862181490",
+    "Weight": "54017.97 KG",
+    "Sea Freight": 647753.85,
+    "Air Freight": "",
+    "Terminal Handling Charges": 43350,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 2550,
+    "EDI Fees": 600,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 3150,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.31,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Freight Charges - Ocean",
+      "category": "Sea Freight",
+      "amount_inr": 647753.85,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 43350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 2550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "US Customs AMS",
+      "category": "AMS Charges",
+      "amount_inr": 3150,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

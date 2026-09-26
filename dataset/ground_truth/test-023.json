@@ -1,0 +1,134 @@
+{
+  "id": "test-023",
+  "split": "test",
+  "file": "invoices/test-023.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 231356,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.875,
+    "rotation_deg": 0.15,
+    "blur_sigma": 0.37,
+    "noise_sigma": 3.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 71,
+    "pixels": [
+      1473,
+      1159
+    ]
+  },
+  "fields": {
+    "Invoice No": "ASL/FF/2425/35899",
+    "Invoice Date": "2025-12-04",
+    "Container Number": "CAIU6246950, CMAU6943515",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Shipping Ltd.",
+    "Bill of Lading / HBL": "HBL9368856",
+    "Weight": "17942.41 KG",
+    "Sea Freight": 257700,
+    "Air Freight": "",
+    "Terminal Handling Charges": 12100,
+    "Airway Bill Charges": "",
+    "BL Charges": 6350,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 3500,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 2450,
+    "AMS Charges": "",
+    "Handling Charges": 2100,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.6608,
+    "Misc": "",
+    "Transportation": 17950,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 19505.38,
+    "Cargo Screening": "",
+    "Agency Charges": 3750,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 257700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 12100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 6350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 3500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Handling & Coordination",
+      "category": "Handling Charges",
+      "amount_inr": 2100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 17950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BAF",
+      "category": "Fuel Charges",
+      "amount_inr": 19505.38,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 3750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Equipment Imbalance Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 2450,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

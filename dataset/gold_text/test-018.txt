@@ -1,0 +1,45 @@
+Kestrel Cargo Movers LLP
+18, Willingdon Island, Gandhidham - 370201, India
+GSTIN 24VBJCB4108G1Z5 | accounts@kestrellogistics.example | +91 37 8136 8280
+TAX INVOICE
+Billed To
+Apex Pumps & Valves Pvt. Ltd.
+68 Nehru Street, Mumbai 400050
+GSTIN: 29TPPCA2879A1ZA
+Consignee: Nordic Parts AB, Gothenburg, Sweden
+Date	28-09-2025
+Invoice No	KCM25947929
+Cust. ID	CU17719
+File No	FILE/KCM/25/7413
+Your Ref	PO-43610
+State	06 Haryana
+Ex. Rate	USD 83.40
+SHIPMENT DETAILS
+POL	INMAA - Chennai	POD	ITGOA - Genoa
+Vessel / Voyage	ONE Harmony / 739N	ETD	26-09-2025
+House Bill of Lading	HBL7600921	No. of Packages	88 CTNS
+Gross Weight	14579.61 KG	Measurement	118.683 CBM
+Incoterms	FCA	Shipping Bill No	9071183 dt 23-09-2025
+CHARGES
+Sr	Particulars	SAC	Cur	Amount (FC)	Ex. Rate	Amount (INR)	GST %	GST Amt	Total (INR)
+1	Ocean Freight Charges	996521	USD	3,070.00	83.40	256,038.00	0%	0.00	256,038.00
+2	THC Port of Loading	996719	INR	11,400.00	1.00	11,400.00	18%	2,052.00	13,452.00
+3	Documentation Fee (B/L)	996713	INR	5,800.00	1.00	5,800.00	18%	1,044.00	6,844.00
+4	Seal Fee	996719	INR	2,100.00	1.00	2,100.00	18%	378.00	2,478.00
+5	Handling & Coordination	996719	INR	6,550.00	1.00	6,550.00	18%	1,179.00	7,729.00
+6	Sundry Charges	998599	INR	2,400.00	1.00	2,400.00	18%	432.00	2,832.00
+7	Low Sulphur Surcharge (LSS)	996521	USD	430.00	83.40	35,862.00	0%	0.00	35,862.00
+8	Agency Charges	996713	INR	1,200.00	1.00	1,200.00	18%	216.00	1,416.00
+9	Shipping Bill Processing	996713	INR	2,250.00	1.00	2,250.00	18%	405.00	2,655.00
+10	DO Charges	998599	INR	7,250.00	1.00	7,250.00	18%	1,305.00	8,555.00
+Net Amount	330,850.00
+IGST	7,011.00
+Round Off	0.00
+Grand Total	337,861.00
+INR Three Lakh Thirty Seven Thousand Eight Hundred Sixty One and Paise Zero Only
+State Bank of India | A/c No 32980053408 | IFSC KKBK0779053
+Please quote invoice number with remittance.
+For Kestrel Cargo Movers LLP
+
+
+Authorised Signatory

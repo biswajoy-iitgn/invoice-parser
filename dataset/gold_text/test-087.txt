@@ -1,0 +1,43 @@
+Harbourline Freight Forwarders Pvt. Ltd.
+421, CG Road, Pune - 411001, India
+GSTIN: 27DLFPE4028T1ZC | accounts@harbourlinelogistics.example | +91 25 1462 6974
+INVOICE
+
+Invoice No. TI844036    Invoice Dt Feb 04, 2026
+
+Pay By: Feb 19, 2026  |  Customer Code: CU29244  |  Shipment ID: HFF/25/1395  |  Commercial Invoice No: CI240464  |  State: 09 Uttar Pradesh
+
+To,
+Orion Bearings Ltd.
+11 Lake View Road, Pune 411005
+GSTIN: 33DBDFK2737K1ZE
+
+Being charges in respect of your shipment of Pressed steel bearing cages consigned to Nordic Parts AB, Gothenburg, Sweden. POL INPAV - Pipavav; Port of Discharge NLRTM - Rotterdam; Vsl/Voy Hyundai Pride / 116N; Sailing Date Jan 31, 2026; House Bill of Lading HFFSE2476357; Packages 12 PALLETS; Total Weight 5335 kg; Measurement 3.321 CBM; Terms of Delivery CFR.
+
+S.No	Nature of Charges	Amount (Rs.)
+1	Ocean Freight	39,852.00
+2	OTHC	13,700.00
+3	Documentation Fee (B/L)	4,400.00
+4	ENS Charges	3,500.00
+5	Sundries	1,300.00
+6	Emergency Bunker Surcharge (EBS) (USD 130.00)	11,390.17
+7	Clearing Agency Fee	3,350.00
+8	Shipping Bill Processing	1,850.00
+	Total Taxable Value	79,342.17
+	Add: CGST	2,813.76
+	Add: SGST	2,813.75
+	Round Off	0.32
+	Invoice Total	84,970.00
+
+Exch. Rate: 1 USD = INR 87.6167
+
+(INR Eighty Four Thousand Nine Hundred Seventy and Paise Zero Only)
+
+Axis Bank | A/c No 48036385399 | IFSC SBIN0305520
+Subject to Mumbai jurisdiction. E. & O.E.
+
+For Harbourline Freight Forwarders Pvt. Ltd.
+
+
+Authorised Signatory
+PAID

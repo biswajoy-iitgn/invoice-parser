@@ -1,0 +1,62 @@
+Northstar Shipping Agencies Ltd.
+107, CG Road, Gandhidham - 370201, India
+GSTIN 24TFDCR9437U1ZA | accounts@northstarlogistics.example | +91 79 9112 4195
+INVOICE
+BILL TO
+Rotomech Engineering Pvt. Ltd.
+33 Lake View Road, Mumbai 400050 | GSTIN 07EDSFA8217M1ZS
+BILL NO
+NSA25328595
+DOCUMENT DATE
+12/11/2024
+DUE ON
+27/12/2024
+CUSTOMER CODE
+C81183
+PARTY INVOICE NO
+EXP/263508
+YOUR REF
+PO-53886
+PLACE OF SUPPLY
+33 Tamil Nadu
+EX. RATE
+1 EUR = 95.4464 INR
+POL
+INCCU - Kolkata
+DESTINATION
+DEHAM - Hamburg
+VSL/VOY
+Northern Jaguar / 547N
+SAILING DATE
+05/11/2024
+MASTER B/L
+COSUBO9330331
+HBL NO
+NSASE2442673
+PKGS
+76 BOXES
+WEIGHT
+5,035.690 Kgs
+INCO
+DAP
+DESCRIPTION	QTY	UNIT PRICE	CUR	ROE	AMOUNT INR	TAX
+Sea Freight	12.817	64.00	EUR	95.4464	78,293.73	0%
+THC - Origin	1	14,900.00	INR	1.00	14,900.00	18%
+EU Advance Manifest (ENS)	1	32.00	EUR	95.4464	3,054.28	18%
+DAP Charges	1	27,200.00	INR	1.00	27,200.00	18%
+Sundries	1	2,200.00	INR	1.00	2,200.00	18%
+Warehouse Charges	1	6,950.00	INR	1.00	6,950.00	18%
+Peak Season Surcharge	1	3,000.00	INR	1.00	3,000.00	18%
+Sub Total	135,598.01
+CGST	5,157.39
+SGST	5,157.38
+Round Off	0.22
+Total Invoice Value	145,913.00
+INR One Lakh Forty Five Thousand Nine Hundred Thirteen and Paise Zero Only
+HDFC Bank | A/c No 28023170761 | IFSC ICIC0732239
+Subject to Mumbai jurisdiction. E. & O.E.
+For Northstar Shipping Agencies Ltd.
+
+
+Authorised Signatory
+ORIGINAL

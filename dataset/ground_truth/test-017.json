@@ -1,0 +1,104 @@
+{
+  "id": "test-017",
+  "split": "test",
+  "file": "invoices/test-017.pdf",
+  "format": "pdf_raster",
+  "tier": "scan",
+  "template": "T2",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 537048,
+  "maker_difficulty": {
+    "faint": true,
+    "stamp": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.845,
+    "rotation_deg": -0.74,
+    "perspective": true,
+    "blur_sigma": 0.65,
+    "illumination": true,
+    "noise_sigma": 13.5,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 66,
+    "pixels": [
+      1313,
+      1238
+    ]
+  },
+  "fields": {
+    "Invoice No": "ZLP26480777",
+    "Invoice Date": "2025-07-30",
+    "Container Number": "",
+    "MAWB No": "057-20358450",
+    "HAWB No": "ZLP/25/41883",
+    "Vendor Name": "Zenith Logistics Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "2068 KG",
+    "Sea Freight": "",
+    "Air Freight": 498511.09,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1200,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.3,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 4700,
+    "Shipping Bill Charges": 2700
+  },
+  "lines": [
+    {
+      "description": "Air Freight",
+      "category": "Air Freight",
+      "amount_inr": 498511.09,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "MAWB Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Filing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 2700,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mawb": true,
+    "hawb": true,
+    "gw": false
+  }
+}

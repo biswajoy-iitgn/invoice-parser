@@ -1,0 +1,147 @@
+{
+  "id": "test-056",
+  "split": "test",
+  "file": "invoices/test-056.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 541384,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "stamp": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.878,
+    "rotation_deg": -0.48,
+    "perspective": true,
+    "blur_sigma": 0.68,
+    "illumination": true,
+    "noise_sigma": 14.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 70,
+    "pixels": [
+      1359,
+      1298
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2026-030349",
+    "Invoice Date": "2026-06-20",
+    "Container Number": "TRHU6837729",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Marigold Freight Systems (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "65689304764",
+    "Weight": "13903 KG",
+    "Sea Freight": 48204.8,
+    "Air Freight": "",
+    "Terminal Handling Charges": 6400,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 850,
+    "VGM": 700,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": 10850,
+    "Ex Rate": 86.08,
+    "Misc": "",
+    "Transportation": 15150,
+    "Warehouse Charges Port": 13250,
+    "Examination Charges": 5250,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 8000,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 6400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "VGM Certificate",
+      "category": "VGM",
+      "amount_inr": 700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Pre-Carriage Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 10850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation",
+      "category": "Transportation",
+      "amount_inr": 15150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 13250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 5250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Customs Brokerage Fee",
+      "category": "Agency Charges",
+      "amount_inr": 6500,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 1500,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seafreight Export",
+      "category": "Sea Freight",
+      "amount_inr": 48204.8,
+      "currency": "USD",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false,
+    "gw": false
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "id": "test-077",
+  "split": "test",
+  "file": "invoices/test-077.pdf",
+  "format": "pdf_raster",
+  "tier": "clean",
+  "template": "T8",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": true,
+  "maker_seed": 187994,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 92,
+    "pixels": [
+      1920,
+      2336
+    ]
+  },
+  "fields": {
+    "Invoice No": "CFF26121559",
+    "Invoice Date": "2026-02-05",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "BOM-HA-437709",
+    "Vendor Name": "Crescent Freight Forwarders Pvt Ltd",
+    "Bill of Lading / HBL": "",
+    "Weight": "739.6 KG",
+    "Sea Freight": "",
+    "Air Freight": 359489.28,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2750,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1050,
+    "DAP Charges": 13600,
+    "Other Charges": 4700,
+    "AMS Charges": "",
+    "Handling Charges": 5800,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.68,
+    "Misc": "",
+    "Transportation": 4350,
+    "Warehouse Charges Port": 4300,
+    "Examination Charges": "",
+    "Fuel Charges": 98859.55,
+    "Cargo Screening": 2150,
+    "Agency Charges": 4200,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Export Freight",
+      "category": "Air Freight",
+      "amount_inr": 359489.28,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Air Waybill Documentation",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 1050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Delivered-at-Place Charges",
+      "category": "DAP Charges",
+      "amount_inr": 13600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 5800,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Road Transport (Factory to CFS)",
+      "category": "Transportation",
+      "amount_inr": 4350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 4300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 98859.55,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "X-Ray Charges",
+      "category": "Cargo Screening",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 4200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 4700,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "hawb": false,
+    "gw": false
+  }
+}

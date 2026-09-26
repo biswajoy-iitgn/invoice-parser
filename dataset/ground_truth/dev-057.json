@@ -1,0 +1,128 @@
+{
+  "id": "dev-057",
+  "split": "dev",
+  "file": "invoices/dev-057.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": false,
+  "maker_seed": 754616,
+  "maker_difficulty": {
+    "faint": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.937,
+    "rotation_deg": 0.5,
+    "blur_sigma": 0.43,
+    "noise_sigma": 5.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 70,
+    "pixels": [
+      1585,
+      1403
+    ]
+  },
+  "fields": {
+    "Invoice No": "DELAE2631180",
+    "Invoice Date": "2025-03-21",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Air & Sea Ltd.",
+    "Bill of Lading / HBL": "AASNS2533083",
+    "Weight": "4411.982 KG",
+    "Sea Freight": 22378.25,
+    "Air Freight": "",
+    "Terminal Handling Charges": 16100,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": 3200,
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 900,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.64,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 10200,
+    "Examination Charges": "",
+    "Fuel Charges": 18600,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": 600
+  },
+  "lines": [
+    {
+      "description": "THC - Origin",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 16100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Storage Charges at CFS",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 5000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Ground Rent",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 5200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "S.B. Charges",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 600,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Entry Summary Declaration Fee",
+      "category": "ENS Charges",
+      "amount_inr": 3200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Ocean Freight Charges",
+      "category": "Sea Freight",
+      "amount_inr": 22378.25,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Low Sulphur Surcharge (LSS)",
+      "category": "Fuel Charges",
+      "amount_inr": 18600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "gw": false
+  }
+}

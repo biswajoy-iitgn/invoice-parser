@@ -1,0 +1,128 @@
+{
+  "id": "test-067",
+  "split": "test",
+  "file": "invoices/test-067.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T7",
+  "template_name": null,
+  "mode": "sea_lcl",
+  "unseen_template": true,
+  "maker_seed": 375281,
+  "maker_difficulty": {
+    "grain": true,
+    "stamp": true,
+    "watermark": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.897,
+    "rotation_deg": -0.18,
+    "blur_sigma": 0.32,
+    "noise_sigma": 5.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 81,
+    "pixels": [
+      1510,
+      1416
+    ]
+  },
+  "fields": {
+    "Invoice No": "CSC/FF/24-25/29151",
+    "Invoice Date": "2024-04-30",
+    "Container Number": "",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Continental Shipping & Co.",
+    "Bill of Lading / HBL": "CSC/HBL/25-26/1860",
+    "Weight": "1691.142 KG",
+    "Sea Freight": 9550.08,
+    "Air Freight": "",
+    "Terminal Handling Charges": 5150,
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1000,
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.78,
+    "Misc": 2050,
+    "Transportation": 13150,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 13823.7,
+    "Cargo Screening": "",
+    "Agency Charges": 6700,
+    "Shipping Bill Charges": 1350
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 9550.08,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "OTHC",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 5150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Electronic Data Interchange Fee",
+      "category": "EDI Fees",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Sundry Charges",
+      "category": "Misc",
+      "amount_inr": 2050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Transportation Charges",
+      "category": "Transportation",
+      "amount_inr": 13150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Adjustment Charges",
+      "category": "Fuel Charges",
+      "amount_inr": 13823.7,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "CHA Charges",
+      "category": "Agency Charges",
+      "amount_inr": 6700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1350,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "hbl": false,
+    "gw": true
+  }
+}

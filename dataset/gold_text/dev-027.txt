@@ -1,0 +1,40 @@
+BLUEWATER FREIGHT SYSTEMS & CO.
+129, STRAND ROAD, GANDHIDHAM - 370201, INDIA
+GSTIN: 24RESFF7118X1ZD PAN: RESFF7118X
+BILL TO: VARDHAMAN YARNS & EXPORTS, 13 SECTOR 18 MARKET, BENGALURU 560001 GSTIN: 33VBDFM4866T1ZB
+================================================================================================
+                                          TAX INVOICE
+================================================================================================
+DATE OF ISSUE  : 10.07.2024                       DOCUMENT NO    : INV-2026-973298
+PAYMENT DUE    : 25.07.2024                       CLIENT CODE    : CU67893
+SHIPMENT ID    : BFS/24/1187                      BUYER REF      : PO-92805
+STATE          : 06 HARYANA                       ORIGIN         : AMD - AHMEDABAD
+AIRPORT OF DESTINATION: CDG - PARIS               FLIGHT / DATE  : TK 346 / 09.07.2024
+MAWB           : 235 7797 4433                    HAWB NO        : HAWB995689
+PKGS           : 55 CTNS                          GROSS WEIGHT   : 904 KGS
+CHARGEABLE WEIGHT: 943.0 KG                       INCOTERMS      : CIF
+SHIPPING BILL NO: 7213221 DT 28.06.2024
+------------------------------------------------------------------------------------------------
+ SR  PARTICULARS                       CUR         RATE       QTY       ROE      AMOUNT INR GST%
+------------------------------------------------------------------------------------------------
+  1  AIRLINE FREIGHT CHARGES           USD         1.75     943.0     84.81     1,39,957.70   0%
+  2  AWB FEE                           INR     1,850.00         1      1.00        1,850.00  18%
+  3  HANDLING FEE                      INR     7,150.00         1      1.00        7,150.00  18%
+  4  MISCELLANEOUS CHARGES             INR       300.00         1      1.00          300.00  18%
+  5  ACC WAREHOUSE CHARGES             INR    15,300.00         1      1.00       15,300.00  18%
+  6  WAREHOUSE CHARGES (PORT)          INR     8,350.00         1      1.00        8,350.00  18%
+  7  CHA CHARGES                       INR     5,950.00         1      1.00        5,950.00  18%
+  8  ISPS CHARGES                      INR     3,750.00         1      1.00        3,750.00  18%
+------------------------------------------------------------------------------------------------
+                                                       TOTAL TAXABLE VALUE           1,82,607.70
+                                                       IGST                             7,677.00
+                                                       TOTAL AMOUNT PAYABLE          1,90,284.70
+------------------------------------------------------------------------------------------------
+INR ONE LAKH NINETY THOUSAND TWO HUNDRED EIGHTY FOUR AND PAISE SEVENTY ONLY
+
+BANK: HDFC BANK | A/C NO 83363135149 | IFSC YESB0482737
+PAYMENT WITHIN 30 DAYS. INTEREST @18% P.A. ON DELAYED PAYMENT.
+
+                                                            FOR BLUEWATER FREIGHT SYSTEMS & CO.
+
+                                                            AUTHORISED SIGNATORY

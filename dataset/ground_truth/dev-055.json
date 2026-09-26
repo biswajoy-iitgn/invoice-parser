@@ -1,0 +1,112 @@
+{
+  "id": "dev-055",
+  "split": "dev",
+  "file": "invoices/dev-055.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "clearance",
+  "unseen_template": false,
+  "maker_seed": 754616,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.94,
+    "rotation_deg": -0.39,
+    "blur_sigma": 0.45,
+    "noise_sigma": 5.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 73,
+    "pixels": [
+      1588,
+      1256
+    ]
+  },
+  "fields": {
+    "Invoice No": "NGL26333790",
+    "Invoice Date": "2024-10-17",
+    "Container Number": "TCNU2801339",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Navkar Global Logistics LLP",
+    "Bill of Lading / HBL": "MEDUAB4661782",
+    "Weight": "4572.35 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": 300,
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": 650,
+    "Transportation": "",
+    "Warehouse Charges Port": 7300,
+    "Examination Charges": 4600,
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": 3950,
+    "Shipping Bill Charges": 1850
+  },
+  "lines": [
+    {
+      "description": "Miscellaneous Charges",
+      "category": "Misc",
+      "amount_inr": 650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "High Security Seal",
+      "category": "Seal Charges",
+      "amount_inr": 300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Examination Charges",
+      "category": "Examination Charges",
+      "amount_inr": 4600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 7300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 3950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Shipping Bill Processing",
+      "category": "Shipping Bill Charges",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": false,
+    "gw": false
+  }
+}

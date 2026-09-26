@@ -1,0 +1,132 @@
+{
+  "id": "test-059",
+  "split": "test",
+  "file": "invoices/test-059.jpg",
+  "format": "jpg",
+  "tier": "scan",
+  "template": "T6",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 541384,
+  "maker_difficulty": {
+    "faint": true,
+    "grain": true,
+    "watermark": true,
+    "scan_paper": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.864,
+    "rotation_deg": -2.49,
+    "perspective": true,
+    "blur_sigma": 0.74,
+    "illumination": true,
+    "noise_sigma": 14.0,
+    "encoding": "jpeg",
+    "jpeg_quality": 50,
+    "pixels": [
+      1379,
+      1294
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI365838",
+    "Invoice Date": "2025-05-26",
+    "Container Number": "OOLU8026890, GESU7825190",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Orient Logistics Pvt. Ltd.",
+    "Bill of Lading / HBL": "HLCU977589931",
+    "Weight": "47310.2 KG",
+    "Sea Freight": 275845.5,
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": "",
+    "BL Charges": 4700,
+    "ENS Charges": "",
+    "Seal Charges": 1000,
+    "VGM": 4300,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 87.57,
+    "Misc": "",
+    "Transportation": 13350,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 39900,
+    "Cargo Screening": "",
+    "Agency Charges": 8100,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 4300,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "E-Seal Fee",
+      "category": "Seal Charges",
+      "amount_inr": 1000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Trucking Charges",
+      "category": "Transportation",
+      "amount_inr": 13350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Agency Charges",
+      "category": "Agency Charges",
+      "amount_inr": 5700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Clearing Agency Fee",
+      "category": "Agency Charges",
+      "amount_inr": 2400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Documentation Fee (B/L)",
+      "category": "BL Charges",
+      "amount_inr": 4700,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Ocean Freight",
+      "category": "Sea Freight",
+      "amount_inr": 275845.5,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 39900,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

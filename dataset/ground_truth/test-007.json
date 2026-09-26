@@ -1,0 +1,128 @@
+{
+  "id": "test-007",
+  "split": "test",
+  "file": "invoices/test-007.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T1",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 768072,
+  "maker_difficulty": {
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.834,
+    "rotation_deg": 0.77,
+    "blur_sigma": 0.45,
+    "noise_sigma": 3.3,
+    "encoding": "jpeg",
+    "jpeg_quality": 76,
+    "pixels": [
+      1421,
+      1516
+    ]
+  },
+  "fields": {
+    "Invoice No": "AAS/AE/24-25/49249",
+    "Invoice Date": "2026-01-28",
+    "Container Number": "TGBU6988589",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Arihant Air & Sea & Co.",
+    "Bill of Lading / HBL": "46393691641",
+    "Weight": "12360.68 KG",
+    "Sea Freight": 33906.34,
+    "Air Freight": "",
+    "Terminal Handling Charges": 19400,
+    "Airway Bill Charges": "",
+    "BL Charges": 3650,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": 1100,
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 8200,
+    "AMS Charges": "",
+    "Handling Charges": 8450,
+    "Pre Carriage Haulage": 29950,
+    "Ex Rate": 82.6984,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Marine Freight",
+      "category": "Sea Freight",
+      "amount_inr": 33906.34,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Container Terminal Charges",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 13550,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "THC Port of Loading",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 5850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "HBL Fee",
+      "category": "BL Charges",
+      "amount_inr": 3650,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Verified Gross Mass Declaration",
+      "category": "VGM",
+      "amount_inr": 1100,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 8450,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Pre-Carriage Haulage",
+      "category": "Pre Carriage Haulage",
+      "amount_inr": 29950,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ISPS Charges",
+      "category": "Other Charges",
+      "amount_inr": 8200,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mbl": false,
+    "hbl": false,
+    "cntr": false,
+    "gw": true
+  }
+}

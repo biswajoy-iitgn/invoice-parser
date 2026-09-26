@@ -1,0 +1,89 @@
+{
+  "id": "test-041",
+  "split": "test",
+  "file": "invoices/test-041.pdf",
+  "format": "pdf_digital",
+  "tier": "clean",
+  "template": "T5",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": false,
+  "maker_seed": 245009,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "digital pdf (text layer)"
+  },
+  "fields": {
+    "Invoice No": "7900607643",
+    "Invoice Date": "2024-11-06",
+    "Container Number": "CAIU5966513",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Navkar Maritime Services Ltd.",
+    "Bill of Lading / HBL": "48230061307",
+    "Weight": "19586 KG",
+    "Sea Freight": 60782.15,
+    "Air Freight": "",
+    "Terminal Handling Charges": 14750,
+    "Airway Bill Charges": "",
+    "BL Charges": 5400,
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 85.01,
+    "Misc": 2150,
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": "",
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Misc. Charges",
+      "category": "Misc",
+      "amount_inr": 2150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "BL Charges",
+      "category": "BL Charges",
+      "amount_inr": 5400,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Sea Freight",
+      "category": "Sea Freight",
+      "amount_inr": 60782.15,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Hdlg. Chgs.",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 14750,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "hbl": false,
+    "cntr": true,
+    "gw": false
+  }
+}

@@ -1,0 +1,51 @@
+Arihant Shipping Pvt Ltd
+22, Rajaji Salai, Pune - 411001, India
+GSTIN 27ASVPH7378H1Z5 | accounts@arihantlogistics.example | +91 99 1448 8122
+SERVICE INVOICE
+Bill No: CCUSE2520476
+Date of Issue: 2026-02-15
+Customer Code: CU95913
+PO No: PO-38355
+State: 33 Tamil Nadu
+Exch. Rate: USD 87.00
+Bill To
+Sunrise Ceramics LLP
+2 Anna Nagar 3rd Cross, Ahmedabad 380015
+GSTIN 33XXSCJ8374R1ZB
+Consignee: Lion City Traders, Singapore
+Load Port: INNSA - Nhava Sheva
+Destination: AEJEA - Jebel Ali
+Vessel / Voyage: Hyundai Pride / 758E
+Sailing Date: 2026-02-13
+B/L No: 78669077225
+No. of Packages: 116 PKGS
+Gross Mass: 3,525.52 KG
+Measurement: 10.767 CBM
+Inco: DAP
+#	Charge Description	Basis	Cur	Rate	Units	ROE	Amount (INR)	GST%	Total (INR)
+Origin Charges
+1	Container Terminal Charges	SHPT	INR	8,400.00	1	1.00	8,400.00	18%	9,912.00
+2	Hdlg. Charges	SHPT	INR	5,550.00	1	1.00	5,550.00	18%	6,549.00
+3	Godown Rent (Port)	SHPT	INR	6,500.00	1	1.00	6,500.00	18%	7,670.00
+4	Exam. Charges	SHPT	INR	2,250.00	1	1.00	2,250.00	18%	2,655.00
+	Sub Total - Origin Charges	22,700.00		26,786.00
+Documentation & Filing
+5	BL Printing Charges	SHPT	INR	4,700.00	1	1.00	4,700.00	18%	5,546.00
+	Sub Total - Documentation & Filing	4,700.00		5,546.00
+Freight Charges
+6	Freight Charges - Ocean	W/M	USD	44.00	10.767	87.00	41,216.25	5%	43,277.06
+	Sub Total - Freight Charges	41,216.25		43,277.06
+Destination Charges
+7	DAP Destination Charges	SHPT	INR	23,000.00	1	1.00	23,000.00	18%	27,140.00
+	Sub Total - Destination Charges	23,000.00		27,140.00
+Sub Total	91,616.25
+CGST	5,566.41
+SGST	5,566.40
+Total Amount Payable	1,02,749.06
+INR One Lakh Two Thousand Seven Hundred Forty Nine and Paise Six Only
+Kotak Mahindra Bank | A/c No 12316885001 | IFSC SBIN0745457
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+For Arihant Shipping Pvt Ltd
+
+
+Authorised Signatory

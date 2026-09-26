@@ -1,0 +1,113 @@
+{
+  "id": "test-054",
+  "split": "test",
+  "file": "invoices/test-054.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T6",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 115109,
+  "maker_difficulty": {
+    "watermark": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.924,
+    "rotation_deg": 0.1,
+    "blur_sigma": 0.33,
+    "noise_sigma": 5.8,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 72,
+    "pixels": [
+      1554,
+      1328
+    ]
+  },
+  "fields": {
+    "Invoice No": "KCM/SE/24-25/14701",
+    "Invoice Date": "2024-12-12",
+    "Container Number": "",
+    "MAWB No": "176-29161613",
+    "HAWB No": "HAWB590030",
+    "Vendor Name": "Konark Cargo Movers & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "102.21 KG",
+    "Sea Freight": "",
+    "Air Freight": 48199.8,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 1850,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": "",
+    "AMS Charges": 3050,
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 88.38,
+    "Misc": "",
+    "Transportation": 14050,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 16103.52,
+    "Cargo Screening": 750,
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Cartage Charges",
+      "category": "Transportation",
+      "amount_inr": 14050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Cargo Security Scan",
+      "category": "Cargo Screening",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "AWB Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 1850,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Advance Manifest (AMS) Fee",
+      "category": "AMS Charges",
+      "amount_inr": 3050,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Airline Freight Charges",
+      "category": "Air Freight",
+      "amount_inr": 48199.8,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 16103.52,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

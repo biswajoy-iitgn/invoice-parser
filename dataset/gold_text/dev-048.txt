@@ -1,0 +1,40 @@
+Konark Cargo Movers Pvt Ltd
+305, Sahar Road, Chennai - 600001, India
+GSTIN: 33UPHPK6927X1ZD | PAN: UPHPK6927X
+accounts@konarklogistics.example | +91 94 6278 6440
+
+Bill To: Rotomech Engineering Pvt. Ltd., 1 FC Road, Ahmedabad 380015 | GSTIN 27PPXPE5770J1ZC
+Invoice No	TI979111
+Date of Issue	27/08/2025
+Payment Due	11/10/2025
+Customer Code	CU38475
+File No	FILE/KCM/26/8974
+PO No	PO-33664
+Place of Supply	07 Delhi
+FREIGHT INVOICE
+Origin	MAA - Chennai	Destination	CDG - Paris	Master Airway Bill No	23565599645
+HAWB No	MAA-HA-912590	Pkgs	68 CTNS	Gross Weight	722 KG
+Chargeable Weight	977.0 KG	Inco	DAP	Shipping Bill No	2529780 dt 13/08/2025
+Sr No	Description	SAC/HSN	Cur	Rate	Quantity	Amount(CUR)	Ex.Rate	Non GST Value (INR)	Taxable Value(INR)	CGST	SGST	Total (INR)
+1	EDI Filing	998599	INR	250.00	1	250.00	1.00	0.00	250.00	22.50	22.50	295.00
+2	Handling Fee	996719	INR	4,800.00	1	4,800.00	1.00	0.00	4,800.00	432.00	432.00	5,664.00
+3	Misc Expenses	998599	INR	300.00	1	300.00	1.00	0.00	300.00	27.00	27.00	354.00
+4	Trucking Charges	996511	INR	9,200.00	1	9,200.00	1.00	0.00	9,200.00	552.00	552.00	10,304.00
+5	Examination Charges	998599	INR	6,150.00	1	6,150.00	1.00	0.00	6,150.00	553.50	553.50	7,257.00
+6	X-Ray Screening	996719	INR	2,850.00	1	2,850.00	1.00	0.00	2,850.00	256.50	256.50	3,363.00
+7	Agency Fee	996713	INR	1,400.00	1	1,400.00	1.00	0.00	1,400.00	126.00	126.00	1,652.00
+8	Brokerage Charges	996713	INR	4,950.00	1	4,950.00	1.00	0.00	4,950.00	445.50	445.50	5,841.00
+9	Shipping Bill Charges	996713	INR	3,150.00	1	3,150.00	1.00	0.00	3,150.00	283.50	283.50	3,717.00
+Total Non-Taxable Value	0.00
+Total Taxable Value	33,050.00
+CGST	2,698.50
+SGST	2,698.50
+Round Off	0.00
+Total Invoice Value	38,447.00
+INR Thirty Eight Thousand Four Hundred Forty Seven and Paise Zero Only
+BANK DETAILS
+State Bank of India | A/c No 96905550588 | IFSC KKBK0887547
+Payment within 30 days. Interest @18% p.a. on delayed payment.
+FOR KONARK CARGO MOVERS PVT LTD
+Authorised Signatory
+E & O.E.

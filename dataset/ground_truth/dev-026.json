@@ -1,0 +1,141 @@
+{
+  "id": "dev-026",
+  "split": "dev",
+  "file": "invoices/dev-026.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T3",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 145822,
+  "maker_difficulty": {
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.877,
+    "rotation_deg": 0.73,
+    "blur_sigma": 0.53,
+    "noise_sigma": 4.7,
+    "encoding": "jpeg",
+    "jpeg_quality": 80,
+    "pixels": [
+      1487,
+      1201
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2025-255412",
+    "Invoice Date": "2025-07-05",
+    "Container Number": "",
+    "MAWB No": "057-70153510",
+    "HAWB No": "SEC/25/09741",
+    "Vendor Name": "Sapphire Express Cargo (India) Pvt. Ltd.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1949.12 KG",
+    "Sea Freight": "",
+    "Air Freight": 672522.06,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3250,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": 1150,
+    "DAP Charges": "",
+    "Other Charges": 3400,
+    "AMS Charges": "",
+    "Handling Charges": 4600,
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 86.8,
+    "Misc": 1900,
+    "Transportation": "",
+    "Warehouse Charges Port": 13350,
+    "Examination Charges": "",
+    "Fuel Charges": 128507.4,
+    "Cargo Screening": 3100,
+    "Agency Charges": 2400,
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Freight",
+      "category": "Air Freight",
+      "amount_inr": 672522.06,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "AWB Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3250,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Charges",
+      "category": "EDI Fees",
+      "amount_inr": 1150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Handling Charges",
+      "category": "Handling Charges",
+      "amount_inr": 4600,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Misc Expenses",
+      "category": "Misc",
+      "amount_inr": 1900,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ACC Warehouse Charges",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 13350,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "FSC",
+      "category": "Fuel Charges",
+      "amount_inr": 128507.4,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Cargo Screening",
+      "category": "Cargo Screening",
+      "amount_inr": 3100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Brokerage Charges",
+      "category": "Agency Charges",
+      "amount_inr": 2400,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Other Charges",
+      "category": "Other Charges",
+      "amount_inr": 3400,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": true,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": true
+  }
+}

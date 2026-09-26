@@ -1,0 +1,100 @@
+{
+  "id": "test-043",
+  "split": "test",
+  "file": "invoices/test-043.png",
+  "format": "png",
+  "tier": "clean",
+  "template": "T5",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 245009,
+  "maker_difficulty": {
+    "rotated": false
+  },
+  "degradation": {
+    "encoding": "png",
+    "pixels": [
+      2360,
+      1400
+    ]
+  },
+  "fields": {
+    "Invoice No": "TI233429",
+    "Invoice Date": "2025-06-19",
+    "Container Number": "",
+    "MAWB No": "098-76260564",
+    "HAWB No": "HAWB519616",
+    "Vendor Name": "Arihant Shipping & Co.",
+    "Bill of Lading / HBL": "",
+    "Weight": "1979.744 KG",
+    "Sea Freight": "",
+    "Air Freight": 455769.5,
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 3150,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": "",
+    "Other Charges": 8600,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.2623,
+    "Misc": "",
+    "Transportation": 12850,
+    "Warehouse Charges Port": "",
+    "Examination Charges": "",
+    "Fuel Charges": 145233.49,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "Air Waybill Fee",
+      "category": "Airway Bill Charges",
+      "amount_inr": 3150,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "MYC / Fuel Surcharge",
+      "category": "Fuel Charges",
+      "amount_inr": 145233.49,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Truck Freight (Local)",
+      "category": "Transportation",
+      "amount_inr": 12850,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Air Cargo Freight",
+      "category": "Air Freight",
+      "amount_inr": 455769.5,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "DO Charges",
+      "category": "Other Charges",
+      "amount_inr": 8600,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": false,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}

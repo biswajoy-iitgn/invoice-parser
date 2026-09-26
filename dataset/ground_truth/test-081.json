@@ -1,0 +1,141 @@
+{
+  "id": "test-081",
+  "split": "test",
+  "file": "invoices/test-081.jpg",
+  "format": "jpg",
+  "tier": "medium",
+  "template": "T8",
+  "template_name": null,
+  "mode": "sea_fcl",
+  "unseen_template": true,
+  "maker_seed": 22532,
+  "maker_difficulty": {
+    "grain": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.851,
+    "rotation_deg": 0.14,
+    "blur_sigma": 0.42,
+    "noise_sigma": 4.8,
+    "encoding": "jpeg",
+    "jpeg_quality": 75,
+    "pixels": [
+      1433,
+      1687
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV/2526/1986",
+    "Invoice Date": "2024-12-29",
+    "Container Number": "MRKU4674397, OOLU0644715",
+    "MAWB No": "",
+    "HAWB No": "",
+    "Vendor Name": "Samudra Forwarding Ltd.",
+    "Bill of Lading / HBL": "21149493460",
+    "Weight": "",
+    "Sea Freight": 353839.5,
+    "Air Freight": "",
+    "Terminal Handling Charges": 18200,
+    "Airway Bill Charges": "",
+    "BL Charges": 5200,
+    "ENS Charges": 2593.15,
+    "Seal Charges": "",
+    "VGM": 2300,
+    "EDI Fees": 750,
+    "DAP Charges": "",
+    "Other Charges": 7600,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": 83.65,
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": 8100,
+    "Examination Charges": "",
+    "Fuel Charges": 15057,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "O/F Charges (FCL)",
+      "category": "Sea Freight",
+      "amount_inr": 353839.5,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Terminal Handling (Origin)",
+      "category": "Terminal Handling Charges",
+      "amount_inr": 18200,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Seaway Bill Fee",
+      "category": "BL Charges",
+      "amount_inr": 5200,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "EU Advance Manifest (ENS)",
+      "category": "ENS Charges",
+      "amount_inr": 2593.15,
+      "currency": "USD",
+      "heldout_wording": true
+    },
+    {
+      "description": "Verified Gross Mass (VGM)",
+      "category": "VGM",
+      "amount_inr": 2300,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "EDI Fees",
+      "category": "EDI Fees",
+      "amount_inr": 750,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Warehouse Charges (Port)",
+      "category": "Warehouse Charges Port",
+      "amount_inr": 8100,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Bunker Adjustment Factor",
+      "category": "Fuel Charges",
+      "amount_inr": 15057,
+      "currency": "USD",
+      "heldout_wording": false
+    },
+    {
+      "description": "Port Security Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 1550,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Congestion Surcharge",
+      "category": "Other Charges",
+      "amount_inr": 6050,
+      "currency": "INR",
+      "heldout_wording": true
+    }
+  ],
+  "label_heldout": {
+    "exr": true,
+    "inv_no": true,
+    "date": true,
+    "mbl": false,
+    "hbl": true,
+    "cntr": false
+  }
+}

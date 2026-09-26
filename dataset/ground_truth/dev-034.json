@@ -1,0 +1,107 @@
+{
+  "id": "dev-034",
+  "split": "dev",
+  "file": "invoices/dev-034.pdf",
+  "format": "pdf_raster",
+  "tier": "medium",
+  "template": "T4",
+  "template_name": null,
+  "mode": "air",
+  "unseen_template": false,
+  "maker_seed": 688563,
+  "maker_difficulty": {
+    "faint": true,
+    "stamp": true,
+    "rotated": false
+  },
+  "degradation": {
+    "resample": 0.928,
+    "rotation_deg": 0.36,
+    "blur_sigma": 0.29,
+    "noise_sigma": 5.7,
+    "encoding": "image-only pdf (jpeg)",
+    "jpeg_quality": 71,
+    "pixels": [
+      1566,
+      1325
+    ]
+  },
+  "fields": {
+    "Invoice No": "INV-2026-392197",
+    "Invoice Date": "2024-10-19",
+    "Container Number": "",
+    "MAWB No": "157-64617081",
+    "HAWB No": "KAS9298163",
+    "Vendor Name": "Konark Air & Sea LLP",
+    "Bill of Lading / HBL": "",
+    "Weight": "1375 KG",
+    "Sea Freight": "",
+    "Air Freight": "",
+    "Terminal Handling Charges": "",
+    "Airway Bill Charges": 2000,
+    "BL Charges": "",
+    "ENS Charges": "",
+    "Seal Charges": "",
+    "VGM": "",
+    "EDI Fees": "",
+    "DAP Charges": 19350,
+    "Other Charges": 1750,
+    "AMS Charges": "",
+    "Handling Charges": "",
+    "Pre Carriage Haulage": "",
+    "Ex Rate": "",
+    "Misc": "",
+    "Transportation": "",
+    "Warehouse Charges Port": "",
+    "Examination Charges": 4050,
+    "Fuel Charges": 119842.78,
+    "Cargo Screening": "",
+    "Agency Charges": "",
+    "Shipping Bill Charges": ""
+  },
+  "lines": [
+    {
+      "description": "AWB Charges",
+      "category": "Airway Bill Charges",
+      "amount_inr": 2000,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "DAP Terminal & Delivery",
+      "category": "DAP Charges",
+      "amount_inr": 19350,
+      "currency": "INR",
+      "heldout_wording": true
+    },
+    {
+      "description": "Examination Fee",
+      "category": "Examination Charges",
+      "amount_inr": 4050,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "Fuel Surcharge (FSC)",
+      "category": "Fuel Charges",
+      "amount_inr": 119842.78,
+      "currency": "INR",
+      "heldout_wording": false
+    },
+    {
+      "description": "ISPS Charges",
+      "category": "Other Charges",
+      "amount_inr": 1750,
+      "currency": "INR",
+      "heldout_wording": false
+    }
+  ],
+  "label_heldout": {
+    "exr": false,
+    "inv_no": false,
+    "date": true,
+    "mawb": false,
+    "hawb": false,
+    "gw": false
+  }
+}
