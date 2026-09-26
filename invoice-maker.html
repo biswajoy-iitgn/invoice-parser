@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InvoiceLab Studio - Synthetic IDP Data Workbench</title>
+<!--
+  InvoiceLab Studio (single-file, offline).
+  Atlassian-token-inspired styling (hand-rolled CSS approximating @atlaskit/tokens;
+  not the official Atlaskit React package, which needs a bundler).
+  Academic purpose: synthetic invoice/receipt/bill generation for VLM OCR
+  evaluation and training. Dataset catalogue mirrors the review paper
+  "IDP for Invoice Processing" (SROIE, CORD, FUNSD, DocILE, FATURA/FATURA2,
+  RVL-CDIP, VRDU, RealKIE, InvoiceOCR-Synth, Katanaml, inv-cdip, IDSEM, ...).
+-->
+<style>
+:root{
+  --ds-surface:#ffffff; --ds-surface-sunken:#F7F8FA; --ds-surface-hover:#F1F2F4;
+  --ds-border:#DCE0E6; --ds-border-strong:#8590A2;
+  --ds-text:#172B4D; --ds-text-subtle:#626F86; --ds-text-disabled:#8590A2;
+  --ds-blue:#0C66E4; --ds-blue-hover:#0055CC; --ds-blue-subtle:#E9F2FF;
+  --ds-green:#1F845A; --ds-green-subtle:#DCFFF1;
+  --ds-orange:#E56910; --ds-orange-subtle:#FFF3EB;
+  --ds-red:#C9372C; --ds-red-subtle:#FFEDEB;
+  --ds-purple-subtle:#F3F0FF; --ds-purple:#6E5DC6;
+  --ds-radius:3px; --ds-radius-card:8px;
+  --ds-shadow:0 1px 2px rgba(9,30,66,.15);
+  --ds-font:-apple-system,BlinkMacSystemFont,"Segoe UI","Atlassian Sans",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ds-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ds-surface-sunken);color:var(--ds-text);font-family:var(--ds-font);font-size:14px;line-height:1.45}
+/* ---------- top bar ---------- */
+.topbar{height:56px;background:var(--ds-surface);border-bottom:1px solid var(--ds-border);display:flex;align-items:center;gap:12px;padding:0 16px;position:sticky;top:0;z-index:50}
+.brandmark{width:28px;height:28px;border-radius:6px;background:var(--ds-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0}
+.topbar .appname{font-weight:700;font-size:15px;white-space:nowrap}
+.topbar .appname span{color:var(--ds-text-subtle);font-weight:400}
+.topsearch{flex:1;max-width:420px;margin:0 auto}
+.topsearch input{width:100%;height:32px;border:1px solid var(--ds-border);border-radius:var(--ds-radius);background:var(--ds-surface-sunken);padding:0 10px;font-size:13px;color:var(--ds-text)}
+.topactions{display:flex;gap:8px;align-items:center;margin-left:auto}
+.avatar{width:28px;height:28px;border-radius:50%;background:#42526E;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* ---------- buttons ---------- */
+.btn{height:32px;padding:0 12px;border-radius:var(--ds-radius);border:1px solid transparent;font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:var(--ds-font);white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-default{background:#091E420F;color:var(--ds-text)}
+.btn-default:hover{background:#091E4224}
+.btn-primary{background:var(--ds-blue);color:#fff}
+.btn-primary:hover{background:var(--ds-blue-hover)}
+.btn-success{background:var(--ds-green);color:#fff}
+.btn-success:hover{background:#16673F}
+.btn-subtle{background:transparent;color:var(--ds-text)}
+.btn-subtle:hover{background:var(--ds-surface-hover)}
+.btn-danger-subtle{background:var(--ds-red-subtle);color:var(--ds-red)}
+.btn-sm{height:28px;font-size:13px;padding:0 10px}
+.btn-block{width:100%;justify-content:center;margin-top:8px}
+/* ---------- shell ---------- */
+.shell{display:flex;align-items:stretch;min-height:calc(100vh - 56px)}
+.sidenav{width:248px;flex-shrink:0;background:var(--ds-surface);border-right:1px solid var(--ds-border);padding:12px 8px;overflow:auto}
+.sidenav h5{margin:10px 8px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ds-text-subtle)}
+.navitem{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;border-radius:var(--ds-radius);padding:7px 8px;font-size:13.5px;color:var(--ds-text);cursor:pointer;font-family:var(--ds-font)}
+.navitem:hover{background:var(--ds-surface-hover)}
+.navitem.active{background:var(--ds-blue-subtle);color:var(--ds-blue);font-weight:600}
+.navitem .dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.main{flex:1;min-width:0;padding:20px 24px 60px}
+.config{width:304px;flex-shrink:0;background:var(--ds-surface);border-left:1px solid var(--ds-border);padding:16px;overflow:auto}
+.config h3{margin:0 0 4px;font-size:15px}
+.config .hint{font-size:12px;color:var(--ds-text-subtle);margin:0 0 12px}
+/* ---------- page header / tabs ---------- */
+.pagehead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.pagehead h1{font-size:20px;margin:0;font-weight:600}
+.lozenge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;border-radius:var(--ds-radius);padding:2px 6px;line-height:1.5}
+.lz-blue{background:var(--ds-blue-subtle);color:var(--ds-blue)}
+.lz-green{background:var(--ds-green-subtle);color:var(--ds-green)}
+.lz-orange{background:var(--ds-orange-subtle);color:var(--ds-orange)}
+.lz-red{background:var(--ds-red-subtle);color:var(--ds-red)}
+.lz-purple{background:var(--ds-purple-subtle);color:var(--ds-purple)}
+.lz-gray{background:var(--ds-surface-hover);color:var(--ds-text-subtle)}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--ds-border);margin:12px 0 16px}
+.tab{background:none;border:0;font-family:var(--ds-font);font-size:14px;font-weight:500;color:var(--ds-text-subtle);padding:8px 12px;cursor:pointer;margin-bottom:-2px;border-bottom:2px solid transparent}
+.tab:hover{color:var(--ds-text)}
+.tab.active{color:var(--ds-blue);border-bottom-color:var(--ds-blue)}
+.tabpanel{display:none}
+.tabpanel.active{display:block}
+/* ---------- cards / messages ---------- */
+.card{background:var(--ds-surface);border:1px solid var(--ds-border);border-radius:var(--ds-radius-card);box-shadow:var(--ds-shadow);padding:16px;margin-bottom:16px}
+.card h3{margin:0 0 8px;font-size:15px}
+.msg{border-radius:var(--ds-radius-card);padding:12px 14px;font-size:13px;margin-bottom:16px;display:flex;gap:10px}
+.msg-info{background:var(--ds-blue-subtle);border:1px solid #B3D4FF}
+.msg-ok{background:var(--ds-green-subtle);border:1px solid #7EE2B8}
+.msg-warn{background:var(--ds-orange-subtle);border:1px solid #FEC57B}
+.msg b{font-weight:700}
+/* ---------- sliders / fields ---------- */
+.ctl{margin-bottom:12px}
+.ctl label{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--ds-text-subtle);margin-bottom:4px}
+.ctl output{color:var(--ds-text);font-weight:700;font-family:var(--ds-mono);font-size:12px}
+input[type=range]{width:100%;accent-color:var(--ds-blue)}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--ds-text-subtle);margin-bottom:4px}
+.field input[type=text],.field input[type=number],.field select,.field textarea{width:100%;border:1px solid var(--ds-border);border-radius:var(--ds-radius);padding:6px 8px;font-size:13px;font-family:var(--ds-font);color:var(--ds-text);background:var(--ds-surface)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ds-blue);outline-offset:-1px;border-color:var(--ds-blue)}
+.checkrow{display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:8px}
+.checkrow input{width:16px;height:16px;accent-color:var(--ds-blue)}
+.divider{border-top:1px solid var(--ds-border);margin:14px 0}
+/* ---------- tables ---------- */
+table.grid{width:100%;border-collapse:collapse;font-size:13px}
+table.grid th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--ds-text-subtle);padding:6px 8px;border-bottom:2px solid var(--ds-border)}
+table.grid td{padding:7px 8px;border-bottom:1px solid var(--ds-border);vertical-align:top}
+table.grid tr:hover td{background:var(--ds-surface-hover)}
+.mono{font-family:var(--ds-mono);font-size:12px}
+pre.dump{background:#10141A;color:#D5DCE8;border-radius:var(--ds-radius-card);padding:14px;font-size:12px;max-height:520px;overflow:auto;font-family:var(--ds-mono)}
+/* ---------- doc stage / sheets ---------- */
+.stage{background:#DFE1E6;border:1px solid var(--ds-border);border-radius:var(--ds-radius-card);padding:28px 20px;min-height:400px}
+.sheet{background:#fff;color:#111;margin:0 auto 26px;max-width:960px;padding:28px 30px;position:relative;box-shadow:0 8px 28px rgba(9,30,66,.25);overflow:hidden}
+.sheet:last-child{margin-bottom:0}
+.receipt-sheet{max-width:360px;padding:20px 18px;font-family:var(--ds-mono);font-size:12px}
+.sheet .wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;font-weight:900;font-size:84px;opacity:.05;transform:rotate(-18deg);font-family:var(--ds-font)}
+.sheet .stamp{position:absolute;border:3px double #b91c1c;color:#b91c1c;font-weight:900;padding:4px 10px;opacity:.8;transform:rotate(-8deg);font-size:13px;letter-spacing:1px;background:rgba(255,255,255,.4)}
+.sheet .grainlayer{position:absolute;inset:0;pointer-events:none;opacity:0}
+.d-top{display:flex;gap:14px;border-bottom:3px solid #111;padding-bottom:10px;align-items:flex-start}
+.d-logo{width:130px;height:96px;border:1px solid #ccc;background:#fafafa;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:10px;color:#666;text-align:center}
+.d-logo img{width:100%;height:100%;object-fit:contain}
+.d-co{flex:1}
+.d-co h2{margin:0;font-size:20px}
+.d-addr{font-size:11.5px;color:#333}
+.d-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px;font-size:11px}
+.d-meta b{font-size:9.5px;color:#666;display:block;text-transform:uppercase}
+.d-docbar{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;background:#111;color:#fff;padding:7px 10px;margin:10px 0;font-weight:900;font-size:12px;letter-spacing:.5px}
+.d-cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.d-box{border:1px solid #333;padding:7px;font-size:11.5px}
+.d-box h4{margin:0 0 5px;font-size:10px;background:#eee;padding:3px 5px;text-transform:uppercase}
+table.d-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+table.d-tbl th{background:#111;color:#fff;padding:5px 3px;font-size:10px}
+table.d-tbl td{border:1px solid #888;padding:3px 4px}
+table.d-zebra tbody tr:nth-child(even){background:#f0f0f0}
+table.d-borderless td,table.d-borderless th{border:0;border-bottom:1px solid #aaa}
+table.d-borderless th{background:none;color:#111}
+.d-r{text-align:right}
+.d-tot{background:#111;color:#fff;font-weight:900}
+.d-words{border:1px solid #111;background:#f6f6f6;padding:5px;margin-top:6px;font-size:11.5px}
+.d-foot{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:11px}
+.d-sign{height:64px;border:1px dashed #888;margin-top:6px;display:flex;align-items:flex-end;justify-content:space-between;padding:6px}
+.d-center{text-align:center}
+.d-barcode{font-family:var(--ds-mono);letter-spacing:2px;font-size:16px;text-align:center;margin-top:8px}
+.r-line{display:flex;justify-content:space-between;gap:8px}
+.r-hr{border-top:1px dashed #333;margin:8px 0}
+.r-logo{text-align:center;margin-bottom:6px}
+.r-logo img{width:150px;height:56px;object-fit:contain}
+.r-logo span{font-size:9px;color:#666}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-bottom:12px}
+.chart{background:var(--ds-surface);border:1px solid var(--ds-border);border-radius:var(--ds-radius-card);padding:12px}
+.chart h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--ds-text-subtle)}
+.brow{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:12px}
+.brow .bl{width:120px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--ds-mono);font-size:11px}
+.brow .bt{flex:1;height:14px;background:var(--ds-surface-hover);border-radius:3px;overflow:hidden}
+.brow .bf{display:block;height:100%;border-radius:3px}
+.brow .bv{width:84px;flex-shrink:0;text-align:right;font-family:var(--ds-mono);font-size:11px;color:var(--ds-text-subtle)}
+.batchbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.statusbar{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ds-text-subtle);margin-top:12px}
+.statusbar b{color:var(--ds-text)}
+@media (max-width:1100px){.sidenav{display:none}.config{width:264px}}
+@media print{
+  body{background:#fff}
+  .topbar,.sidenav,.config,.pagehead,.tabs,.noprint{display:none!important}
+  .shell{display:block;min-height:0}
+  .main{padding:0}
+  .stage{background:#fff;border:0;padding:0}
+  .sheet{box-shadow:none;margin:0 0 12px;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">IL</div>
+  <div class="appname">InvoiceLab Studio <span>/ Synthetic IDP Data Workbench</span></div>
+  <div class="topsearch"><input id="topSearch" placeholder="Search doc types, datasets, fields ( / )" oninput="topFilter(this.value)"></div>
+  <div class="topactions">
+    <span class="lozenge lz-blue">Academic build</span>
+    <button class="btn btn-default btn-sm" id="btnGuideTop" onclick="switchTab('guide')">Review-paper guide</button>
+    <div class="avatar" title="Researcher">RS</div>
+  </div>
+</header>
+<div class="shell">
+  <aside class="sidenav" id="sideNav">
+    <h5>Document types</h5>
+    <div id="docTypeNav"></div>
+    <h5>Export presets</h5>
+    <div id="presetNav"></div>
+    <h5>Session</h5>
+    <button class="navitem" onclick="downloadFile('invoicelab_session.json', JSON.stringify({seed:state.seedUsed,docType:state.docType,opts:collectOpts()},null,2), 'application/json')">Save session config</button>
+    <button class="navitem" onclick="resetAll()">Reset workbench</button>
+    <div class="divider"></div>
+    <div style="padding:0 8px;font-size:12px;color:var(--ds-text-subtle)">Datasets in catalogue: <b id="dsCountSide">16</b> (review paper Table 2). Open the <a href="#" onclick="switchTab('datasets');return false">Datasets</a> tab to map one to a generator.</div>
+  </aside>
+  <main class="main">
+    <div class="pagehead">
+      <h1 id="pageTitle">Freight Tax Invoice</h1>
+      <span class="lozenge lz-green" id="docCountBadge">0 generated</span>
+      <span class="lozenge lz-gray" id="splitBadge">split auto 80/10/10</span>
+      <span class="lozenge lz-purple" id="seedBadge">seed random</span>
+    </div>
+    <div class="tabs noprint" role="tablist">
+      <button class="tab active" data-tab="preview" onclick="switchTab('preview')">Preview</button>
+      <button class="tab" data-tab="groundtruth" onclick="switchTab('groundtruth')">Ground truth</button>
+      <button class="tab" data-tab="card" onclick="switchTab('card')">Dataset card</button>
+      <button class="tab" data-tab="evaluate" onclick="switchTab('evaluate')">Evaluate</button>
+      <button class="tab" data-tab="datasets" onclick="switchTab('datasets')">Datasets</button>
+      <button class="tab" data-tab="guide" onclick="switchTab('guide')">Guide</button>
+    </div>
+    <section class="tabpanel active" id="tab-preview">
+      <div class="msg msg-info noprint"><div><b>Layout-preserving synthesis.</b> Geometry mirrors real freight, retail, grocery, utility and service documents; only entities are swapped per batch. Degradation sliders add scan-realistic difficulty (rotation, grain, stamps, faint print) for robustness splits: clean vs faded vs bad-scan.</div></div>
+      <div class="batchbar noprint">
+        <button class="btn btn-primary" onclick="generate()">Generate batch</button>
+        <button class="btn btn-default" onclick="scanPreset()">Scan preset</button>
+        <button class="btn btn-default" onclick="cleanPreset()">Clean preset</button>
+        <button class="btn btn-success" onclick="downloadJSON()">Ground-truth JSON</button>
+        <button class="btn btn-success" onclick="downloadJSONL()">Training JSONL</button>
+        <button class="btn btn-success" onclick="downloadPack()">Dataset pack</button>
+        <button class="btn btn-default" onclick="window.print()">Print / PDF</button>
+        <button class="btn btn-default" onclick="exportRasterPNG()">Raster PNG (.zip)</button>
+        <button class="btn btn-default" onclick="exportRasterPDF()">Raster PDF</button>
+        <span class="mono" id="renderNote" style="color:var(--ds-text-subtle)"></span>
+      </div>
+      <div class="stage" id="stage"><div style="text-align:center;color:#626F86;padding:60px 0">No batch yet. Press <b>Generate batch</b>.</div></div>
+      <div class="statusbar"><span>Rendered <b id="stRendered">0</b></span><span>In batch <b id="stBatch">0</b></span><span>Missing-field rate <b id="stMiss">15%</b></span><span>Difficult docs <b id="stHard">0</b></span></div>
+      <div class="card noprint" id="dlCenter" hidden style="margin-top:16px">
+        <h3>Download center</h3>
+        <p style="color:var(--ds-text-subtle);font-size:13px">Every export this session is kept here. In Chrome/Edge a Save dialog asks where to put each file. If your browser saved a file as "Unknown" or blocked it, click it below to retry; text files also have a <b>Copy</b> button (paste into an editor and save). Safari tips: images open in a new tab (right-click → Save Image), and an "Unknown" bundle only needs renaming to add its extension (.zip, .json…).</p>
+        <div style="margin-bottom:10px"><button class="btn btn-default btn-sm" onclick="clearDownloads()">Clear list</button></div>
+        <table class="grid" id="dlTable"><thead><tr><th>File (click to retry / open)</th><th>Size</th><th>Time</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+    <section class="tabpanel" id="tab-groundtruth">
+      <div class="card">
+        <h3>Ground truth inspector</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px" class="noprint">
+          <select id="gtFormat" onchange="renderGT()" style="height:32px;border:1px solid var(--ds-border);border-radius:var(--ds-radius)">
+            <option value="canonical">Canonical (full record)</option>
+            <option value="sroie">SROIE (4 keys)</option>
+            <option value="cord">CORD v2 (hierarchical)</option>
+            <option value="donut">Donut (image to JSON)</option>
+            <option value="bio">LayoutLM BIO tokens</option>
+            <option value="kile">DocILE KILE / LIR</option>
+            <option value="coco">COCO detection</option>
+            <option value="csv">CSV line items</option>
+            <option value="qa">VLM instruction QA</option>
+          </select>
+          <select id="gtIndex" onchange="renderGT()" style="height:32px;border:1px solid var(--ds-border);border-radius:var(--ds-radius)"></select>
+          <button class="btn btn-default btn-sm" onclick="downloadGT()">Download this format (batch)</button>
+          <button class="btn btn-default btn-sm" onclick="copyGT()">Copy</button>
+        </div>
+        <pre class="dump" id="gtPre">Generate a batch first.</pre>
+      </div>
+    </section>
+    <section class="tabpanel" id="tab-card">
+      <div class="card">
+        <h3>Dataset card</h3>
+        <p style="color:var(--ds-text-subtle);font-size:13px">Auto-built from the current batch: classes, split, and variation charts. Download it with the batch as one research pack, or pull it from an agent via <span class="mono">InvoiceLab.card()</span>.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px" class="noprint">
+          <button class="btn btn-success btn-sm" onclick="downloadPack()">Dataset pack (card + records)</button>
+          <button class="btn btn-default btn-sm" onclick="downloadCardMD()">Card (.md)</button>
+          <button class="btn btn-default btn-sm" onclick="downloadCardJSON()">Card (.json)</button>
+          <button class="btn btn-default btn-sm" onclick="navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('cardPre').textContent)">Copy</button>
+        </div>
+        <div id="cardCharts"></div>
+        <pre class="dump" id="cardPre">Generate a batch first.</pre>
+      </div>
+    </section>
+    <section class="tabpanel" id="tab-evaluate">
+      <div class="card">
+        <h3>Zero-shot / fine-tuned eval mini-harness</h3>
+        <p style="color:var(--ds-text-subtle);font-size:13px">Paste a model prediction (JSON) for the selected doc. Scored with review-paper protocol: Exact Match after light normalisation, per-field accuracy, micro precision/recall/F1. For KILE/LIR box scoring, export COCO and score externally.</p>
+        <div style="display:flex;gap:8px;margin-bottom:10px" class="noprint">
+          <select id="evalIndex" style="height:32px;border:1px solid var(--ds-border);border-radius:var(--ds-radius)"></select>
+          <button class="btn btn-primary btn-sm" onclick="runEval()">Score prediction</button>
+          <button class="btn btn-subtle btn-sm" onclick="fillPerfectPred()">Fill perfect prediction</button>
+        </div>
+        <div class="field"><label>Prediction JSON</label><textarea id="predText" rows="8" class="mono" placeholder='{"doc_no": "...", "date": "...", "grand_total": "..."}'></textarea></div>
+        <div id="evalOut"></div>
+      </div>
+    </section>
+    <section class="tabpanel" id="tab-datasets">
+      <div class="msg msg-info"><div><b>Review-paper Table 2, actionable.</b> Each row maps to a generator preset below. Sizes and links are as reported at review time (cut-off Sep 2026). Verify licences on Zenodo / Hugging Face / Kaggle before commercial reuse.</div></div>
+      <div class="card"><h3>Master dataset catalogue</h3><div style="overflow:auto"><table class="grid" id="dsTable"><thead><tr><th>#</th><th>Dataset</th><th>Description</th><th>Size</th><th>Link</th><th>Preset</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+    <section class="tabpanel" id="tab-guide">
+      <div class="card"><h3>Academic usage (from the review)</h3>
+        <table class="grid"><thead><tr><th>Paper protocol</th><th>How to run it here</th></tr></thead><tbody>
+        <tr><td>Intra vs inter template (FATURA, DocILE)</td><td>Fix <b>Template variant</b> for intra; randomise 1-50 for inter. Use <b>Split: holdout layout</b> to reserve an unseen layout cluster.</td></tr>
+        <tr><td>Clean vs faded vs bad-scan (Augraphy)</td><td>Use <b>Clean preset</b>, mid <b>Machine difficulty</b>, and <b>Scan preset</b> as the three strata. Same labels, three renders.</td></tr>
+        <tr><td>Gold vs OCR engines</td><td>Export <b>reading_order_text</b> as gold transcript; run PaddleOCR / EasyOCR / Tesseract on printed scans and compare CER/WER.</td></tr>
+        <tr><td>Native vision vs OCR to markdown (2509.04469)</td><td>Score the VLM on pixels directly, then on <b>charges_markdown</b> only. Expect the parsed pipeline to trail by 10-40pp on scans.</td></tr>
+        <tr><td>Abstention / NOT_FOUND (SCORE, RealDocBench)</td><td>Keep <b>Missing-field rate</b> near 15%. Exported <b>missing_fields</b> are the must-abstain list; hallucinating them is penalised.</td></tr>
+        <tr><td>KILE + LIR boxes (DocILE)</td><td>Export <b>COCO</b> / <b>KILE</b> after rendering at 100% zoom; boxes are measured from the live DOM in 0-1000 space.</td></tr>
+        <tr><td>Raster-only PDFs (no text leakage)</td><td>Print / PDF is vector (selectable text). For OCR-faithful eval use <b>Raster PDF</b> (image-only pages, ~192 DPI) or <b>Raster PNG (.zip)</b> (one ZIP holding every sheet PNG, opens with a double-click on macOS/Windows). Under file://, logos render as monogram plates in raster; serve the folder over localhost for full logo fidelity. Alternatively, upload one or more logo files (Logo source = uploaded image(s)) — uploads are inlined as data, so raster keeps varying brand logos even under file://.</td></tr>
+        <tr><td>AI-agent bulk runs</td><td>Open with <span class="mono">?agent=1&amp;seed=7&amp;n=500&amp;types=freight,retail,electric&amp;split=auto</span> to auto-generate (poll <span class="mono">window.InvoiceLab.done</span>), then pull <span class="mono">InvoiceLab.pack()</span> / <span class="mono">InvoiceLab.card()</span> / <span class="mono">InvoiceLab.batch()</span> via evaluate, or click <b>Dataset pack</b> for one card+records JSON. Only 24 sheets render no matter the batch size, so large-n runs stay fast.</td></tr>
+        <tr><td>Dataset card</td><td>The <b>Dataset card</b> tab auto-builds classes (doc type, split, layout cluster, template variant) plus frequency charts (difficulty flags, missing fields, items/doc, totals, rotation) from the current batch. Download as .md / .json, or bundled in the pack.</td></tr>
+        <tr><td>Downloads won't open / misnamed</td><td>All exports are generated locally as Blobs. In Chrome/Edge a <b>Save dialog</b> asks where to put each file (real files, real names — nothing stays a blob). Other browsers auto-download to the default folder. If Safari saves a file as "Unknown" with no extension (so it won't open), retry from the <b>Download center</b> under the Preview tab: text files have a <b>Copy</b> button (paste into an editor and save), images open in a tab for right-click saving, and an "Unknown" bundle only needs renaming to .zip. The PNG burst is bundled into one <b>.zip</b> so browsers never block it as "multiple automatic downloads".</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+  </main>
+  <aside class="config noprint">
+    <h3>Generation options</h3>
+    <p class="hint">Sliders drive the whole batch. Same seed reproduces the batch.</p>
+    <div id="sliders"></div>
+    <div class="field"><label>Table style</label><select id="o_tstyle"><option value="mixed">mixed</option><option value="grid">grid</option><option value="zebra">zebra</option><option value="borderless">borderless</option></select></div>
+    <div class="field"><label>Split</label><select id="o_split"><option value="auto">auto 80/10/10</option><option value="train">all train</option><option value="holdout">holdout layout (inter test)</option></select></div>
+    <div class="field"><label>Seed (blank = random)</label><input type="number" id="o_seed" placeholder="e.g. 42"></div>
+    <div class="field"><label>Logo source</label><select id="o_logo"><option value="database">database (803 invoice-lab logos)</option><option value="upload">uploaded image(s)</option><option value="none">none (placeholder)</option></select></div>
+    <div class="field"><label>Logo upload (used when source = uploaded; pick several files for varying logos)</label><input type="file" id="logoInput" accept="image/*" multiple></div>
+    <div class="checkrow"><input type="checkbox" id="o_paper"> <label for="o_paper">Scanned-paper look</label></div>
+    <div class="checkrow"><input type="checkbox" id="o_stamp" checked> <label for="o_stamp">Stamps / watermarks</label></div>
+    <button class="btn btn-primary btn-block" onclick="generate()">Generate batch</button>
+    <button class="btn btn-default btn-block" onclick="downloadJSON()">Ground-truth JSON</button>
+    <button class="btn btn-default btn-block" onclick="downloadJSONL()">Training JSONL</button>
+    <div class="divider"></div>
+    <h3>Batch mix</h3>
+    <p class="hint"> Tick extra types to mix them into one batch (layout-diversity training).</p>
+    <div id="mixBox"></div>
+  </aside>
+</div>
+<script>
+"use strict";
+/* ================= utils ================= */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+let rng=Math.random;
+const R=(a,b)=>a+Math.floor(rng()*(b-a+1));
+const pick=a=>a[Math.floor(rng()*a.length)];
+const chance=p=>rng()*100<p;
+const fmtIN=n=>Number(n).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
+const pad=(n,l)=>String(n).padStart(l,"0");
+const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const hex=n=>{let s="";for(let i=0;i<n;i++)s+="0123456789abcdef"[R(0,15)];return s};
+function numWords(n){if(n==null||isNaN(n))return "NOT_FOUND";const a=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"],b=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];function w(x){x=Math.floor(x);if(x<20)return a[x];if(x<100)return b[Math.floor(x/10)]+(x%10?" "+a[x%10]:"");if(x<1000)return a[Math.floor(x/100)]+" Hundred"+(x%100?" "+w(x%100):"");if(x<100000)return w(Math.floor(x/1000))+" Thousand"+(x%1000?" "+w(x%1000):"");if(x<10000000)return w(Math.floor(x/100000))+" Lakh"+(x%100000?" "+w(x%100000):"");return w(Math.floor(x/10000000))+" Crore"+(x%10000000?" "+w(x%10000000):"")}const p=Math.round((n%1)*100);return "INR "+w(n)+" and Paise "+(p?w(p):"Zero")+" Only"}
+function dlNote(t){const n=document.getElementById("renderNote");if(n)n.textContent=t}
+async function downloadFile(name,content,mime){
+  const b=content instanceof Blob?content:new Blob([content],{type:mime||"application/octet-stream"});
+  const url=URL.createObjectURL(b);
+  registerDownload(name,b,url);
+  if(window.showSaveFilePicker){
+    try{
+      const h=await window.showSaveFilePicker({suggestedName:name});
+      const w=await h.createWritable();await w.write(b);await w.close();
+      dlNote("Saved "+name+" to the location you chose. Also kept in the Download center below.");
+      return;
+    }catch(e){if(e&&e.name==="AbortError"){dlNote("Save cancelled for "+name+" — still available in the Download center below.");return}}
+  }
+  const a=document.createElement("a");a.href=url;a.download=name;
+  document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),100);
+  dlNote("Saved "+name+" — retry any time from the Download center below.");
+}
+async function pickSaveTarget(suggested){
+  if(!window.showSaveFilePicker)return undefined;
+  try{return await window.showSaveFilePicker({suggestedName:suggested})}
+  catch(e){return e&&e.name==="AbortError"?null:undefined}
+}
+async function writeHandle(h,blob){const w=await h.createWritable();await w.write(blob);await w.close()}
+const dlRegistry=[];
+function fmtSize(n){return n>1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB"}
+function registerDownload(name,blob,url){
+  const idx=dlRegistry.push({name,url,blob})-1;
+  document.getElementById("dlCenter").hidden=false;
+  const tr=document.createElement("tr");
+  const copyable=/\.(json|jsonl|csv|md|txt)$/i.test(name)||(blob.type||"").startsWith("text/")||blob.type==="application/json";
+  tr.innerHTML=`<td><a href="${url}" download="${esc(name)}" target="_blank" rel="noopener">${esc(name)}</a>${copyable?` <button class="btn btn-default btn-sm" data-copy="${idx}">Copy</button>`:""}</td><td class="mono">${fmtSize(blob.size)}</td><td class="mono">${new Date().toLocaleTimeString()}</td>`;
+  if(copyable)tr.querySelector("button").addEventListener("click",()=>copyDownload(idx,tr.querySelector("button")));
+  document.querySelector("#dlTable tbody").prepend(tr);
+}
+async function copyDownload(idx,btn){
+  const d=dlRegistry[idx];if(!d)return;
+  try{
+    const text=await d.blob.text();
+    if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(text)}
+    else{const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove()}
+    if(btn){btn.textContent="Copied";setTimeout(()=>btn.textContent="Copy",1500)}
+  }catch(e){alert("Copy failed: "+(e&&e.message||e))}
+}
+function clearDownloads(){dlRegistry.forEach(d=>{try{URL.revokeObjectURL(d.url)}catch(e){}});dlRegistry.length=0;document.querySelector("#dlTable tbody").innerHTML="";document.getElementById("dlCenter").hidden=true}
+const GST_STATES=["24 Gujarat","27 Maharashtra","29 Karnataka","07 Delhi","19 West Bengal","33 Tamil Nadu","06 Haryana","09 Uttar Pradesh"];
+function genPAN(){const L="ABCDEFGHJKLMNPRSTUVWXY";let s="";for(let i=0;i<3;i++)s+=L[R(0,L.length-1)];s+=pick(["P","C","F","A"])+L[R(0,L.length-1)];return s+pad(R(1000,9999),4)+L[R(0,L.length-1)]}
+function genGSTIN(){const st=pad(pick([6,7,9,19,24,27,29,33]),2);return st+genPAN()+"1Z"+pick(["A","B","C","D","E","S"])}
+function randDate(y0,y1){const d=new Date(R(y0,y1),R(0,11),R(1,28));return d.toISOString().slice(0,10)}
+function addDays(ds,n){const d=new Date(ds);d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+
+/* ================= document types ================= */
+const DOC_TYPES=[
+ {id:"freight", name:"Freight Tax Invoice", color:"#0C66E4", desc:"Dense GST freight invoice (DACHSER/DSV style)"},
+ {id:"retail",  name:"Store Bill / Receipt", color:"#1F845A", desc:"Thermal retail receipt (SROIE / CORD proxy)"},
+ {id:"grocery", name:"Grocery GST Invoice", color:"#E56910", desc:"Indian grocery tax invoice with HSN table"},
+ {id:"electric",name:"Electricity Bill", color:"#6E5DC6", desc:"Utility energy bill with slabs (IDSEM proxy)"},
+ {id:"restaurant",name:"Restaurant Bill", color:"#C9372C", desc:"Dine-in bill with KOT, GST split"},
+ {id:"service", name:"Service Invoice (clean)", color:"#42526E", desc:"Minimal e-invoice (Donut-500 style)"}
+];
+const PRESETS=[
+ {id:"sroie", name:"SROIE 4-key receipt eval"},
+ {id:"cord", name:"CORD hierarchical training"},
+ {id:"donut", name:"Donut image-to-JSON"},
+ {id:"kile", name:"DocILE KILE / LIR boxes"},
+ {id:"intra", name:"FATURA intra-template"},
+ {id:"inter", name:"FATURA inter-template"}
+];
+/* Review-paper Table 2 catalogue (cut-off Sep 2026; verify licences before commercial use) */
+const DATASETS=[
+ {n:1,name:"SROIE (ICDAR 2019)",desc:"973 scanned receipts, skew/lighting variation. Boxes + transcripts + 4 keys: company, address, date, total.",size:"973 imgs (626/347)",link:"https://rrc.cvc.uab.es/?ch=13&com=downloads",map:{doc:"retail",fmt:"sroie"}},
+ {n:2,name:"CORD v1/v2",desc:"1,000 receipts, 30 hierarchical fields (menu, subtotal, total). Donut/LayoutLM receipt standard.",size:"1,000 (800/100/100)",link:"https://huggingface.co/datasets/naver-clova-ix/cord-v2",map:{doc:"retail",fmt:"cord"}},
+ {n:3,name:"FUNSD",desc:"199 noisy scanned forms, entity + linking labels. Form-document proxy.",size:"199 forms",link:"https://guillaumejaume.github.io/FUNSD/",map:{doc:"service",fmt:"bio"}},
+ {n:4,name:"DocILE (KILE + LIR)",desc:"Business-doc benchmark: invoices/orders/receipts, 55 classes, line-item assignment, layout clusters.",size:"6.7k + 100k synth + 1M unlabeled",link:"https://github.com/rossumai/docile",map:{doc:"freight",fmt:"kile"}},
+ {n:5,name:"FATURA",desc:"10k invoice images, 50 templates, 24 text regions. Intra vs inter template protocol.",size:"10,000 images",link:"https://zenodo.org/record/8261508",map:{doc:"service",fmt:"coco"}},
+ {n:6,name:"FATURA2 (HF mirror)",desc:"10k white-bg + 10k coloured + JSON triplets. HF parquet with tokens/bboxes/ner_tags.",size:"10k rows, 342 MB",link:"https://huggingface.co/datasets/mathieu1256/FATURA2-invoices",map:{doc:"service",fmt:"bio"}},
+ {n:7,name:"RVL-CDIP (+ invoice)",desc:"400k grayscale docs, 16 classes. Classification pre-training; invoice slice for IDP.",size:"400k (320k/40k/40k)",link:"https://huggingface.co/datasets/chainyo/rvl-cdip-invoice",map:{doc:"service",fmt:"donut"}},
+ {n:8,name:"VRDU (ad-buy + invoice)",desc:"Industry-realistic hierarchical entities, tables, layout diversity. Few-shot protocol.",size:"2 sets",link:"https://arxiv.org/abs/2211.15421",map:{doc:"freight",fmt:"cord"}},
+ {n:9,name:"RealKIE",desc:"Enterprise KIE: SEC S1, NDAs, charity, FCC invoices, contracts. Long docs, complex tables.",size:"5 sets",link:"https://arxiv.org/abs/2403.20101",map:{doc:"freight",fmt:"kile"}},
+ {n:10,name:"InvoiceOCR-Synth",desc:"Generate-then-render: 32-field JSON, Jinja HTML, 150 DPI, Augraphy clean/faded/bad-scan.",size:"938 x3 = 2,814 imgs",link:"https://huggingface.co/datasets/alamgirqazi/invoice-ocr-synthetic",map:{doc:"grocery",fmt:"donut"}},
+ {n:11,name:"Katanaml Invoices-Donut",desc:"500 e-invoices, Donut-ready image + ground_truth.",size:"501 (425/50/26)",link:"https://huggingface.co/datasets/katanaml-org/invoices-donut-data-v1",map:{doc:"service",fmt:"donut"}},
+ {n:12,name:"Donut-500 / inv-cdip / IDSEM",desc:"500 synth clean invoices; 350 scanned Tobacco invoices; Spanish electricity subset.",size:"500 + 350 + elec",link:"https://arxiv.org/abs/2509.04469",map:{doc:"electric",fmt:"donut"}},
+ {n:13,name:"Voxel51 invoice images",desc:"8,181 synthetic invoice images for OCR/document understanding.",size:"8,181 images",link:"https://huggingface.co/datasets/Voxel51/high-quality-invoice-images-for-ocr",map:{doc:"service",fmt:"coco"}},
+ {n:14,name:"Kaggle HQ invoice images",desc:"Curated clean structured invoices, multi-industry/currency/tax/layouts.",size:"2.3 GB; 13,201 dl",link:"https://www.kaggle.com/datasets/osamahosamabdellatif/high-quality-invoice-images-for-ocr",map:{doc:"freight",fmt:"donut"}},
+ {n:15,name:"Kaggle NER / PDFs / GST",desc:"Invoice NER text; 100 synth PDFs+JSON; 169 real Indian grocery tax invoices.",size:"<1K each",link:"https://www.kaggle.com/datasets/surajitsadhukhan/indian-grocery-tax-invoice-image-dataset",map:{doc:"grocery",fmt:"bio"}},
+ {n:16,name:"InvoicesReceiptsPT / SROIE-Donut / CORD-LM3",desc:"1,003 PT invoices+receipts; SROIE in Donut JSON; CORD in LayoutLMv3 format.",size:"1,003 + 973 + 1,000",link:"https://huggingface.co/datasets/Francisco-Cruz/InvoicesReceiptsPT",map:{doc:"retail",fmt:"cord"}}
+];
+/* ================= sliders ================= */
+const SLIDERS=[
+ {id:"count",label:"Batch size",min:1,max:200,val:12,fmt:v=>v},
+ {id:"items",label:"Items per doc",min:1,max:20,val:6,fmt:v=>v},
+ {id:"layout",label:"Layout variety",min:0,max:100,val:70,fmt:v=>v+"%"},
+ {id:"hard",label:"Machine difficulty",min:0,max:100,val:40,fmt:v=>v+"%"},
+ {id:"rot",label:"Rotation max",min:0,max:6,step:0.5,val:2,fmt:v=>v+" deg"},
+ {id:"grain",label:"Print noise / grain",min:0,max:100,val:30,fmt:v=>v+"%"},
+ {id:"miss",label:"Missing-field rate",min:0,max:60,val:15,fmt:v=>v+"%"},
+ {id:"faint",label:"Faint-print rate",min:0,max:100,val:25,fmt:v=>v+"%"}
+];
+const state={docType:"freight",batch:[],logoURL:null,logoURLs:[],seedUsed:null};
+const ui={};
+/* ================= entity pools ================= */
+const FWD=[["DACHSER INDIA PVT. LTD.","Off 1005-1008, Phoenix Bldg, Vijay Cross Road, Ahmedabad 380009"],["DSV Air & Sea Pvt. Ltd.","Plot I-721, Sanand GIDC, Ahmedabad 382213"],["KUEHNE + NAGEL Pvt. Ltd.","301-302 Bldg 637, Gulbai Tekra Rd, Ellisbridge 380006"],["EPT EXIM SERVICES PVT. LTD.","G-1106 Titanium City Center, Satellite, Ahmedabad 380015"],["JEENA & CO.","Aslali-Narol Highway, Narol, Ahmedabad"],["MEGALO FREIGHT","Changodar Industrial Estate, Ahmedabad 382213"]];
+const CHARGES=[["Sea freight FCL","996521","USD",5490],["THC port of loading","996759","INR",17500],["B/L Fee FCL","996759","INR",5500],["Seal Fee FCL P.O.L","996759","INR",1120],["ENS charge FCL","996759","INR",3750],["Carrier charges origin","996759","INR",34250],["Haulage (delivery)","996759","EUR",2550],["AMS Security Fee Export","996719","INR",3750],["Emergency Bunker Surcharge (EBS)","996521","USD",320],["Agency Charges SB","996712","INR",1800],["Transportation (local)","996791","INR",6126],["Warehouse Charge CFS","996712","INR",14320],["VGM / Weighment","996759","INR",2400],["Documentation fee","996712","INR",3200]];
+const STORES=[["FreshDaily Mart","14 MG Road, Bengaluru 560001"],["ValueKart Superstore","Plot 22, Sector 18, Noida 201301"],["GreenGrocers","8 FC Road, Pune 411005"],["CityNeeds Bazaar","45 Park Street, Kolkata 700016"],["QuickBuy Retail","3rd Cross, Anna Nagar, Chennai 600040"],["DailyEssentials","12 Linking Road, Bandra, Mumbai 400050"]];
+const GROCERY=[["Toor Dal 1kg","0713",182],["Basmati Rice 5kg","1006",445],["Wheat Flour 10kg","1101",512],["Sugar 1kg","1701",58],["Sunflower Oil 1L","1512",168],["Milk 500ml","0401",34],["Eggs 12pc","0407",96],["Bread Whole Wheat","1905",55],["Salt 1kg","2501",32],["Tea 500g","0902",285],["Coffee 200g","0901",198],["Biscuits Pack","1905",45],["Soap Bar","3401",42],["Detergent 1kg","3402",145],["Shampoo 340ml","3305",225],["Toothpaste 150g","3306",118],["Onion 1kg","0703",48],["Tomato 1kg","0702",36],["Potato 2kg","0701",72],["Banana 1dz","0803",60]];
+const DISHES=[["Paneer Butter Masala","9963",320],["Dal Tadka","9963",240],["Jeera Rice","9963",210],["Butter Naan (2pc)","9963",90],["Masala Dosa","9963",180],["Chole Bhature","9963",220],["Veg Biryani","9963",280],["Chicken Curry","9963",360],["Fish Fry","9963",420],["Gulab Jamun (4pc)","9963",120],["Masala Papad","9963",60],["Sweet Lassi","9963",110],["Filter Coffee","9963",80],["Fresh Lime Soda","9963",95]];
+const SERVICES=[["Cloud hosting (monthly)","9984",8500],["Software license (seat)","9973",12000],["Consulting (day)","9982",25000],["AMC support (qtr)","9987",18000],["Data migration","9984",45000],["Security audit","9982",60000],["Training (batch)","9992",15000],["API integration","9984",32000]];
+const UTILITIES=[["Torrent Power Ltd.","Torrent House, Ahmedabad 380009"],["Adani Electricity","Adani House, Ahmedabad 380009"],["BESCOM","K.R. Circle, Bengaluru 560001"],["Tata Power Delhi","Cennet Building, New Delhi 110034"]];
+const FIRST=["Aarav","Priya","Rohan","Sneha","Vikram","Anita","Kunal","Meera","Arjun","Divya","Rahul","Kavya","Suresh","Lakshmi","Imran","Fatima","Gurpreet","Simran","Rajesh","Pooja"];
+const LAST=["Sharma","Patel","Iyer","Khan","Gupta","Reddy","Nair","Singh","Mehta","Das","Kulkarni","Joshi","Agarwal","Bose","Chopra"];
+const STREETS=["MG Road","Park Street","Linking Road","FC Road","Anna Nagar 3rd Cross","Sector 18 Market","Gandhi Nagar","Nehru Street","Station Road","Lake View Road"];
+const CITIES=[["Bengaluru","560001"],["Mumbai","400050"],["Pune","411005"],["Ahmedabad","380015"],["Chennai","600040"],["Kolkata","700016"],["Delhi","110034"],["Noida","201301"]];
+function person(){return pick(FIRST)+" "+pick(LAST)}
+function address(){const c=pick(CITIES);return R(1,99)+" "+pick(STREETS)+", "+c[0]+" "+c[1]}
+function phone(){return "+91-"+R(70000,99999)+" "+R(10000,99999)}
+
+/* ---- canonical record builder ---- */
+function baseRecord(type,idx,opts){
+  const variant=opts.layout>=100?R(1,50):(chance(opts.layout)?R(1,50):((idx%4)+1));
+  return {invoice_id:"SYN-"+type.toUpperCase().slice(0,3)+"-"+pad(idx+1,4),doc_type:type,
+    seed:state.seedUsed,template_variant:variant,layout_cluster:"L"+(variant%8),
+    split:opts.split==="train"?"train":(opts.split==="holdout"?(variant===4?"test":"train"):(chance(80)?"train":(chance(50)?"val":"test"))),
+    missing_fields:[],difficulty:{}};
+}
+function maybeMiss(rec,field,rate){if(chance(rate)){rec.missing_fields.push(field);return true}return false}
+function buildItems(pool,n,gstPick){
+  const used=new Set(),out=[];
+  for(let i=0;i<n;i++){let c,tries=0;do{c=pick(pool);tries++}while(used.has(c[0])&&tries<20);used.add(c[0]);
+    const qty=c[0].includes("1kg")||c[0].includes("1L")||c[0].includes("500")?R(1,4):R(1,6);
+    out.push({desc:c[0],hsn:c[1],qty,rate:c[2]+R(-8,12),curr:"INR",fx:1,gst:gstPick(c)});}
+  return out;
+}
+function totalsOf(items,igstMode){
+  let sub=0,gstAmt=0;items.forEach(it=>{const t=it.qty*it.rate*it.fx;sub+=t;gstAmt+=t*it.gst/100});
+  const cg=igstMode?0:gstAmt/2,sg=igstMode?0:gstAmt/2,ig=igstMode?gstAmt:0;
+  const grand=sub+gstAmt;
+  return {subtotal:+sub.toFixed(2),cgst:+cg.toFixed(2),sgst:+sg.toFixed(2),igst:+ig.toFixed(2),grand:+grand.toFixed(2),words:numWords(grand)};
+}
+/* ---- per-type generators ---- */
+function genFreight(idx,opts){
+  const f=pick(FWD),rec=baseRecord("freight",idx,opts);
+  const date=randDate(2024,2026);
+  rec.seller={name:f[0],address:f[1]+", Gujarat, India",gstin:genGSTIN(),pan:genPAN(),contact:"ops-in@forwarder.example / "+phone()};
+  rec.doc={title:"TAX INVOICE",no:String(R(1000000000,7999999999)),date,due:addDays(date,pick([15,30,45])),irn:hex(32),ack:"1626"+R(100000000,999999999)+" / "+date,pos:pick(GST_STATES)};
+  rec.buyer={name:"HARSHA ENGINEERS INTERNATIONAL LIMITED",address:"Sarkhej-Bavla Highway, PO Changodar, Ahmedabad 382213",gstin:genGSTIN(),cust_id:String(R(40000000,49999999))};
+  rec.shipment={shipper:"Harsha Engineers International, IN-Ahmedabad",consignee:pick(["Optimus 92 Kft., HU-Debrecen","Mubea GmbH, DE-Attendorn","SKF BV, NL-Nieuwegein"]),notify:pick(["EPT Global Logistics USA LLC, Charleston SC","Forwarder Agent, Rotterdam NL"]),pol:pick(["INMUN","INNSA","INMAA"]),pod:pick(["DEHAM","NLRTM","USCHS"]),etd:date,eta:addDays(date,R(25,45)),vessel:pick(["Norfolk Express","MSC Elaine","Tirua V6128","MSC Reena"]),voyage:"IV"+R(100,999)+"A",mbl:"HLXCUBO"+R(10000,99999)+"AWQG"+R(1,9),hbl:"70"+R(100000000,499999999),container:pick(["HLXU8364248 / 40HC","FFAU4143091 / 40HC","TGBU6174371 / 40HC","ESDU1420273 / 20GP"]),incoterm:pick(["DAP","FOB","CIF","EXW"]),goods:"ENGINEERING ITEMS, PRESSED TAPER ROLLER BEARING CAGES | HS 84829900 | "+R(20,60)+" pkgs | "+R(8000,12000)+" kg"};
+  const es=[];for(let i=0;i<R(1,3);i++)es.push("ES02627"+R(10000,29999));rec.party_invoice_nos=es;
+  rec.sb_be=R(4000000,6999999)+", "+R(4000000,6999999)+" | "+addDays(date,-R(5,15));
+  const used=new Set();rec.items=[];
+  const n=Math.max(2,Math.round(opts.items/2)+R(1,3));
+  for(let i=0;i<n;i++){let c,t=0;do{c=pick(CHARGES);t++}while(used.has(c[0])&&t<20);used.add(c[0]);rec.items.push({desc:c[0],hsn:c[1],qty:c[3]>3000?1:R(1,3),rate:c[3],curr:c[2],fx:c[2]==="USD"?98.25:(c[2]==="EUR"?112.17:1),gst:c[1]==="996521"?2.5:9});}
+  rec.totals=totalsOf(rec.items,false);
+  rec.bank="HSBC Bank Mumbai | A/c 006-195598-001 | IFSC HSBC0400002 | SWIFT HSBCINBB";
+  rec.terms="Terms: Net 30 | Interest 18% on overdue | Disputes within 7 days | Mumbai jurisdiction";
+  ["irn","ack","hbl","bank"].forEach(f=>{if(maybeMiss(rec,f,opts.miss)){if(f==="irn")rec.doc.irn="NOT_FOUND";if(f==="ack")rec.doc.ack="NOT_FOUND";if(f==="hbl")rec.shipment.hbl="NOT_FOUND";if(f==="bank")rec.bank="NOT_FOUND"}});
+  return rec;
+}
+function genRetail(idx,opts){
+  const s=pick(STORES),rec=baseRecord("retail",idx,opts);
+  const date=randDate(2024,2026);
+  rec.seller={name:s[0],address:s[1]+", Phone: "+phone(),gstin:genGSTIN(),pan:genPAN()};
+  rec.doc={title:"RETAIL BILL",no:"RB-"+R(100000,999999),date,time:pad(R(9,21),2)+":"+pad(R(10,59),2),cashier:person(),counter:"C"+R(1,8)};
+  rec.buyer={name:chance(60)?person():"Walk-in",address:chance(50)?address():"NOT_FOUND",phone:chance(50)?phone():"NOT_FOUND"};
+  rec.items=buildItems(GROCERY,Math.max(2,Math.round(opts.items/2)+R(0,3)),()=>[0,5,5,12,18][R(0,4)]);
+  rec.totals=totalsOf(rec.items,false);
+  rec.pay={mode:pick(["UPI","Cash","Card","UPI","Card"]),txn:"TXN"+R(10000000,99999999)};
+  if(maybeMiss(rec,"buyer_phone",opts.miss))rec.buyer.phone="NOT_FOUND";
+  return rec;
+}
+function genGrocery(idx,opts){
+  const s=pick(STORES),rec=baseRecord("grocery",idx,opts);
+  const date=randDate(2024,2026);
+  rec.seller={name:s[0]+" (GST)",address:s[1],gstin:genGSTIN(),pan:genPAN(),contact:phone()};
+  rec.doc={title:"TAX INVOICE",no:"GST-"+R(10000,99999),date,due:date,pos:pick(GST_STATES),irn:hex(32)};
+  rec.buyer={name:person(),address:address(),gstin:chance(30)?genGSTIN():"URP",phone:phone()};
+  rec.items=buildItems(GROCERY,Math.max(2,opts.items+R(-2,2)),()=>[0,5,5,12,18][R(0,4)]);
+  rec.totals=totalsOf(rec.items,false);
+  rec.bank="HDFC A/c "+R(10000000000000,99999999999999)+" | IFSC HDFC0001234";
+  if(maybeMiss(rec,"irn",opts.miss))rec.doc.irn="NOT_FOUND";
+  return rec;
+}
+function genElectric(idx,opts){
+  const u=pick(UTILITIES),rec=baseRecord("electric",idx,opts);
+  const date=randDate(2024,2026);
+  const units=R(80,650),prev=R(10000,60000);
+  rec.seller={name:u[0],address:u[1]+" | Helpline 1912",gstin:genGSTIN()};
+  rec.doc={title:"ELECTRICITY BILL",no:"EB"+R(100000000,999999999),date,due:addDays(date,15),bill_month:date.slice(0,7)};
+  rec.consumer={name:person(),address:address(),consumer_no:String(R(1000000000,9999999999)),meter_no:"M"+R(1000000,9999999),tariff:pick(["LT-I Domestic","LT-II Commercial","HT Industrial"]),phase:pick(["1-Phase","3-Phase"]),sanctioned_kw:R(1,10)};
+  rec.meter={prev,cur:prev+units,units,billed_days:R(28,32),meter_status:pick(["Normal","Normal","Normal","Estimated"])};
+  const slabs=[];let rem=units,lo=0;
+  [[100,3.2],[200,4.5],[Infinity,6.1]].forEach(([w,rate])=>{if(rem<=0)return;const q=Math.min(rem,w-(lo||0)===0?w:w);const take=Math.min(rem,w===Infinity?rem:(w-(slabs.reduce((a,s)=>a+s.units,0))));if(take<=0)return;slabs.push({slab:"Slab "+(slabs.length+1),units:take,rate});rem-=take;});
+  rec.slabs=slabs;
+  const energy=slabs.reduce((a,s)=>a+s.units*s.rate,0);
+  const fixed=rec.consumer.sanctioned_kw*25, fuel=units*0.42, duty=energy*0.09;
+  rec.charges=[{desc:"Fixed charge ("+rec.consumer.sanctioned_kw+" kW)",amount:+fixed.toFixed(2)},{desc:"Energy charge ("+units+" units)",amount:+energy.toFixed(2)},{desc:"Fuel surcharge",amount:+fuel.toFixed(2)},{desc:"Electricity duty",amount:+duty.toFixed(2)}];
+  rec.items=rec.charges.map(c=>({desc:c.desc,hsn:"2716",qty:1,rate:c.amount,curr:"INR",fx:1,gst:0}));
+  const grand=fixed+energy+fuel+duty;
+  rec.totals={subtotal:+grand.toFixed(2),cgst:0,sgst:0,igst:0,grand:+grand.toFixed(2),words:numWords(grand)};
+  rec.pay={mode:pick(["Online","UPI Autopay","Counter","Cheque"]),due_note:"Pay by "+addDays(date,15)+" to avoid 1.5% late fee"};
+  if(maybeMiss(rec,"meter_no",opts.miss))rec.consumer.meter_no="NOT_FOUND";
+  return rec;
+}
+function genRestaurant(idx,opts){
+  const rec=baseRecord("restaurant",idx,opts);
+  const date=randDate(2024,2026);
+  rec.seller={name:pick(["Spice Route Kitchen","Tandoori Nights","Cafe Malabar","Urban Tadka","The Copper Thali"]),address:address(),gstin:genGSTIN(),fssai:"1"+R(10000000000000,99999999999999)};
+  rec.doc={title:"RESTAURANT BILL",no:"KOT-"+R(10000,99999),date,time:pad(R(11,22),2)+":"+pad(R(10,59),2),table:"T"+R(1,20),steward:person(),covers:R(1,8)};
+  rec.buyer={name:chance(50)?person():"Walk-in",phone:chance(50)?phone():"NOT_FOUND"};
+  rec.items=buildItems(DISHES,Math.max(2,Math.round(opts.items/2)+R(0,2)),()=>5);
+  rec.totals=totalsOf(rec.items,false);
+  rec.pay={mode:pick(["UPI","Card","Cash"])};
+  if(maybeMiss(rec,"buyer_phone",opts.miss))rec.buyer.phone="NOT_FOUND";
+  return rec;
+}
+function genService(idx,opts){
+  const rec=baseRecord("service",idx,opts);
+  const date=randDate(2024,2026);
+  rec.seller={name:pick(["Nimbus Cloud Pvt. Ltd.","Brightline Consulting","PixelForge Studio","Datawise Analytics LLP"]),address:address(),gstin:genGSTIN(),pan:genPAN(),contact:"billing@example.com / "+phone()};
+  rec.doc={title:"INVOICE",no:"INV-"+R(20240000,20269999),date,due:addDays(date,30),po:chance(70)?"PO-"+R(1000,9999):"NOT_FOUND"};
+  rec.buyer={name:pick(["Acme Retail Ltd.","Globex Foods","Initech Systems","Umbrella Logistics"]),address:address(),gstin:genGSTIN()};
+  rec.items=buildItems(SERVICES,Math.max(1,Math.round(opts.items/3)+R(0,2)),()=>18);
+  rec.totals=totalsOf(rec.items,chance(30));
+  rec.bank="ICICI A/c "+R(100000000000,999999999999)+" | IFSC ICIC0000456";
+  if(maybeMiss(rec,"bank",opts.miss))rec.bank="NOT_FOUND";
+  if(maybeMiss(rec,"po",opts.miss))rec.doc.po="NOT_FOUND";
+  return rec;
+}
+const GENERATORS={freight:genFreight,retail:genRetail,grocery:genGrocery,electric:genElectric,restaurant:genRestaurant,service:genService};
+/* ================= renderers ================= */
+function itemsRows(items,showFx){
+  return items.map((it,i)=>{const tax=it.qty*it.rate*it.fx,t=tax*it.gst/100;
+    return `<tr><td>${i+1}</td><td>${esc(it.desc)}</td><td>${esc(it.hsn)}</td><td class="d-r">${it.qty}</td><td class="d-r">${fmtIN(it.rate)}</td>${showFx?`<td>${esc(it.curr)}</td><td class="d-r">${it.fx}</td>`:""}<td class="d-r">${fmtIN(tax)}</td><td class="d-r">${it.gst}%</td><td class="d-r">${fmtIN(tax+2*t)}</td></tr>`}).join("");
+}
+function totalsBlock(t,igst){
+  return `<table class="d-tbl" style="width:320px;margin-left:auto" data-field="totals"><tr><td>Subtotal</td><td class="d-r">${fmtIN(t.subtotal)}</td></tr>${igst?`<tr><td>IGST</td><td class="d-r">${fmtIN(t.igst)}</td></tr>`:`<tr><td>CGST</td><td class="d-r">${fmtIN(t.cgst)}</td></tr><tr><td>SGST</td><td class="d-r">${fmtIN(t.sgst)}</td></tr>`}<tr class="d-tot"><td>GRAND TOTAL</td><td class="d-r" data-field="grand_total">${fmtIN(t.grand)}</td></tr></table><div class="d-words">Amount in words: <b>${esc(t.words)}</b></div>`;
+}
+const LOGO_TYPES=["freight","retail","grocery","electric","restaurant","service"];
+function logoSrc(rec){const m=document.getElementById("o_logo").value;
+  if(m==="upload"&&state.logoURLs.length)return state.logoURLs[(rec&&rec.logo_idx||0)%state.logoURLs.length];
+  if(m==="upload"&&state.logoURL)return state.logoURL;
+  if(m==="database"&&rec&&rec.logo_file)return rec.logo_file;return null}
+function logoHtml(rec){const s=logoSrc(rec);return s?`<img class="brandlogo" data-field="seller_logo" src="${s}" alt="seller logo" onerror="this.outerHTML='<span>SELLER<br>LOGO</span>'">`:`<span>SELLER<br>LOGO</span>`}
+function tableCls(tstyle){return tstyle==="mixed"?pick(["","d-zebra","d-borderless"]):(tstyle==="grid"?"":("d-"+tstyle))}
+function renderFreight(r,opts){
+  const sh=r.shipment;
+  return `<div class="d-top" data-field="header"><div class="d-logo">${logoHtml(r)}</div>
+  <div class="d-co"><h2 data-field="seller_name">${esc(r.seller.name)}</h2><div class="d-addr" data-field="seller_address">${esc(r.seller.address)}</div>
+  <div class="d-meta"><div><b>GSTIN</b><span data-field="seller_gstin">${esc(r.seller.gstin)}</span></div><div><b>PAN</b>${esc(r.seller.pan)}</div><div><b>Contact</b>${esc(r.seller.contact)}</div>
+  <div><b>IRN</b><span data-field="irn">${esc(r.doc.irn)}</span></div><div><b>ACK</b>${esc(r.doc.ack)}</div><div><b>Place of supply</b>${esc(r.doc.pos)}</div></div></div></div>
+  <div class="d-docbar" data-field="title_bar"><span>${esc(r.doc.title)} - ORIGINAL FOR RECIPIENT</span><span>Doc No <b data-field="doc_no">${esc(r.doc.no)}</b> | Date <b data-field="doc_date">${esc(r.doc.date)}</b> | Due ${esc(r.doc.due)}</span></div>
+  <div class="d-cols3"><div class="d-box" data-field="bill_to"><h4>Bill to</h4><b>${esc(r.buyer.name)}</b><br>${esc(r.buyer.address)}<br>GSTIN ${esc(r.buyer.gstin)} | Cust ${esc(r.buyer.cust_id)}</div>
+  <div class="d-box"><h4>Shipment</h4>Shipper: ${esc(sh.shipper)}<br>Consignee: ${esc(sh.consignee)}<br>Notify: ${esc(sh.notify)}</div>
+  <div class="d-box" data-field="routing"><h4>Routing / References</h4>${esc(sh.pol)} - ${esc(sh.pod)} | ETD ${esc(sh.etd)} ETA ${esc(sh.eta)}<br>Vessel ${esc(sh.vessel)} ${esc(sh.voyage)}<br>MBL ${esc(sh.mbl)} | HBL <b data-field="hbl">${esc(sh.hbl)}</b><br>Cntr ${esc(sh.container)} | ${esc(sh.incoterm)}<br>ES: <b data-field="party_invoice_nos">${esc(r.party_invoice_nos.join(", "))}</b><br>SB/BE: ${esc(r.sb_be)}</div></div>
+  <div class="d-box" style="margin-top:8px"><h4>Goods</h4>${esc(sh.goods)}</div>
+  <table class="d-tbl ${tableCls(opts.tstyle)}" data-field="charges_table"><thead><tr><th>#</th><th>Description</th><th>SAC/HSN</th><th>Qty</th><th>Rate</th><th>Curr</th><th>FX</th><th>Taxable</th><th>GST%</th><th>Total</th></tr></thead><tbody>${itemsRows(r.items,true)}</tbody></table>
+  ${totalsBlock(r.totals,false)}
+  <div class="d-foot"><div class="d-box" data-field="bank"><h4>Bank details</h4>${esc(r.bank)}<br>${esc(r.terms)}</div><div class="d-box"><h4>Authorised signatory</h4><div class="d-sign"><span>Signature / Seal</span><span>E &amp; O.E.</span></div></div></div>`;
+}
+function renderGroceryService(r,opts,isService){
+  return `<div class="d-top" data-field="header"><div class="d-logo">${logoHtml(r)}</div>
+  <div class="d-co"><h2 data-field="seller_name">${esc(r.seller.name)}</h2><div class="d-addr" data-field="seller_address">${esc(r.seller.address)}</div>
+  <div class="d-meta"><div><b>GSTIN</b><span data-field="seller_gstin">${esc(r.seller.gstin)}</span></div><div><b>PAN</b>${esc(r.seller.pan||"NOT_FOUND")}</div><div><b>Contact</b>${esc(r.seller.contact||"")}</div></div></div></div>
+  <div class="d-docbar" data-field="title_bar"><span>${esc(r.doc.title)}</span><span>No <b data-field="doc_no">${esc(r.doc.no)}</b> | Date <b data-field="doc_date">${esc(r.doc.date)}</b>${r.doc.irn?` | IRN <span data-field="irn">${esc(r.doc.irn).slice(0,16)}...</span>`:""}${r.doc.po?` | PO ${esc(r.doc.po)}`:""}</span></div>
+  <div class="d-cols3" style="grid-template-columns:1fr 1fr"><div class="d-box" data-field="bill_to"><h4>Bill to</h4><b>${esc(r.buyer.name)}</b><br>${esc(r.buyer.address)}<br>GSTIN ${esc(r.buyer.gstin)}${r.buyer.phone?` | ${esc(r.buyer.phone)}`:""}</div>
+  <div class="d-box"><h4>Terms</h4>Due: ${esc(r.doc.due||r.doc.date)}${r.doc.pos?`<br>Place of supply: ${esc(r.doc.pos)}`:""}<br>E &amp; O.E.</div></div>
+  <table class="d-tbl ${tableCls(opts.tstyle)}" data-field="charges_table"><thead><tr><th>#</th><th>Item</th><th>HSN</th><th>Qty</th><th>Rate</th><th>Taxable</th><th>GST%</th><th>Total</th></tr></thead><tbody>${itemsRows(r.items,false)}</tbody></table>
+  ${totalsBlock(r.totals,r.totals.igst>0)}
+  <div class="d-foot"><div class="d-box" data-field="bank"><h4>Bank</h4>${esc(r.bank||"NOT_FOUND")}</div><div class="d-box"><h4>Signatory</h4><div class="d-sign"><span>Signature / Seal</span><span>Thank you</span></div></div></div>`;
+}
+function renderRetail(r){
+  const rows=r.items.map((it,i)=>`<div class="r-line"><span>${i+1}. ${esc(it.desc)} x${it.qty}</span><span>${fmtIN(it.qty*it.rate)}</span></div>`).join("");
+  return `<div class="d-center" data-field="header"><div class="r-logo">${logoHtml(r)}</div><b style="font-size:15px" data-field="seller_name">${esc(r.seller.name)}</b><br><span data-field="seller_address">${esc(r.seller.address)}</span><br>GSTIN: <span data-field="seller_gstin">${esc(r.seller.gstin)}</span></div>
+  <div class="r-hr"></div>
+  <div data-field="title_bar">Bill No: <b data-field="doc_no">${esc(r.doc.no)}</b><br>Date: <b data-field="doc_date">${esc(r.doc.date)}</b> ${esc(r.doc.time)} | ${esc(r.doc.counter)}<br>Cashier: ${esc(r.doc.cashier)} | Buyer: ${esc(r.buyer.name)}</div>
+  <div class="r-hr"></div>${rows}<div class="r-hr"></div>
+  <div data-field="totals"><div class="r-line"><span>Subtotal</span><span>${fmtIN(r.totals.subtotal)}</span></div>
+  <div class="r-line"><span>CGST+SGST</span><span>${fmtIN(r.totals.cgst+r.totals.sgst)}</span></div>
+  <div class="r-line"><b>GRAND TOTAL</b><b data-field="grand_total">${fmtIN(r.totals.grand)}</b></div></div>
+  <div class="r-hr"></div><div>Paid: ${esc(r.pay.mode)} ${esc(r.pay.txn)}</div>
+  <div class="d-center">Thank you, visit again<br><span data-field="seller_gstin2">${esc(r.seller.gstin.slice(0,2))} GST State</span></div>
+  <div class="d-barcode">*${esc(r.doc.no)}*</div>`;
+}
+function renderRestaurant(r,opts){
+  const rows=r.items.map((it,i)=>`<tr><td>${i+1}</td><td>${esc(it.desc)}</td><td class="d-r">${it.qty}</td><td class="d-r">${fmtIN(it.rate)}</td><td class="d-r">${fmtIN(it.qty*it.rate)}</td></tr>`).join("");
+  return `<div class="d-center" data-field="header"><div class="r-logo">${logoHtml(r)}</div><b style="font-size:18px" data-field="seller_name">${esc(r.seller.name)}</b><br><span data-field="seller_address">${esc(r.seller.address)}</span><br>GSTIN <span data-field="seller_gstin">${esc(r.seller.gstin)}</span> | FSSAI ${esc(r.seller.fssai)}</div>
+  <div class="d-docbar" data-field="title_bar"><span>${esc(r.doc.title)}</span><span><b data-field="doc_no">${esc(r.doc.no)}</b> | <b data-field="doc_date">${esc(r.doc.date)}</b> ${esc(r.doc.time)}</span></div>
+  <div class="d-cols3"><div class="d-box"><h4>Table</h4>${esc(r.doc.table)} | Covers ${r.doc.covers}</div><div class="d-box"><h4>Steward</h4>${esc(r.doc.steward)}</div><div class="d-box"><h4>Guest</h4>${esc(r.buyer.name)}</div></div>
+  <table class="d-tbl ${tableCls(opts.tstyle)}" data-field="charges_table"><thead><tr><th>#</th><th>Dish</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead><tbody>${rows}</tbody></table>
+  ${totalsBlock(r.totals,false)}
+  <div class="d-center">Paid via ${esc(r.pay.mode)} | Thank you</div>`;
+}
+function renderElectric(r,opts){
+  const slabs=r.slabs.map(s=>`<tr><td>${esc(s.slab)}</td><td class="d-r">${s.units}</td><td class="d-r">${s.rate}</td><td class="d-r">${fmtIN(s.units*s.rate)}</td></tr>`).join("");
+  const ch=r.charges.map(c=>`<div class="r-line"><span>${esc(c.desc)}</span><span>${fmtIN(c.amount)}</span></div>`).join("");
+  return `<div class="d-top" data-field="header"><div class="d-logo">${logoHtml(r)}</div>
+  <div class="d-co"><h2 data-field="seller_name">${esc(r.seller.name)}</h2><div class="d-addr" data-field="seller_address">${esc(r.seller.address)}</div>
+  <div class="d-meta"><div><b>Bill No</b><span data-field="doc_no">${esc(r.doc.no)}</span></div><div><b>Bill month</b><span data-field="doc_date">${esc(r.doc.bill_month)}</span></div><div><b>Due date</b>${esc(r.doc.due)}</div></div></div></div>
+  <div class="d-docbar" data-field="title_bar"><span>${esc(r.doc.title)} - ${esc(r.doc.bill_month)}</span><span>Consumer <b data-field="consumer_no">${esc(r.consumer.consumer_no)}</b></span></div>
+  <div class="d-cols3"><div class="d-box" data-field="bill_to"><h4>Consumer</h4><b>${esc(r.consumer.name)}</b><br>${esc(r.consumer.address)}</div>
+  <div class="d-box"><h4>Connection</h4>Meter: <b data-field="meter_no">${esc(r.consumer.meter_no)}</b><br>${esc(r.consumer.tariff)} | ${esc(r.consumer.phase)}<br>Sanctioned: ${r.consumer.sanctioned_kw} kW</div>
+  <div class="d-box" data-field="routing"><h4>Meter readings</h4>Prev: ${r.meter.prev}<br>Cur: ${r.meter.cur}<br>Units: <b>${r.meter.units}</b> / ${r.meter.billed_days} days<br>Status: ${esc(r.meter.meter_status)}</div></div>
+  <table class="d-tbl ${tableCls(opts.tstyle)}" data-field="charges_table"><thead><tr><th>Slab</th><th>Units</th><th>Rate (Rs/kWh)</th><th>Amount</th></tr></thead><tbody>${slabs}</tbody></table>
+  <div class="d-box" style="margin-top:8px" data-field="totals"><h4>Bill breakup</h4>${ch}<div class="r-line"><b>PAYABLE</b><b data-field="grand_total">${fmtIN(r.totals.grand)}</b></div></div>
+  <div class="d-words">${esc(r.pay.due_note)}</div><div class="d-barcode">*${esc(r.consumer.consumer_no)}*</div>`;
+}
+const RENDERERS={freight:renderFreight,retail:r=>renderRetail(r),grocery:(r,o)=>renderGroceryService(r,o,false),electric:renderElectric,restaurant:renderRestaurant,service:(r,o)=>renderGroceryService(r,o,true)};
+/* ---- degradation (scan-realistic difficulty) ---- */
+const NOISE_URI="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="160" height="160" filter="url(%23n)" opacity="0.5"/></svg>');
+function decorateSheet(el,rec,opts){
+  const hard=opts.hard, d=rec.difficulty;
+  const rot=(rng()*2-1)*opts.rot;
+  el.style.transform=`rotate(${rot.toFixed(2)}deg)`;
+  rec.render={rotation_deg:+rot.toFixed(2)};
+  const faint=chance(opts.faint);
+  if(faint){el.style.filter="contrast(0.82) brightness(1.06)";d.faint=true}
+  if(opts.grain>0&&chance(40+opts.grain/2)){const g=document.createElement("div");g.className="grainlayer";g.style.backgroundImage=`url("${NOISE_URI}")`;g.style.opacity=(opts.grain/100*0.5).toFixed(2);el.appendChild(g);d.grain=true;rec.render.grain=opts.grain}
+  if(opts.stamp&&chance(20+hard/2)){const s=document.createElement("div");s.className="stamp";s.textContent=pick(["PAID","ORIGINAL","VERIFIED","GST AUDITED"]);s.style.top=R(30,60)+"%";s.style.right=R(8,30)+"%";el.appendChild(s);d.stamp=true}
+  if(chance(hard/3)){const w=document.createElement("div");w.className="wm";w.textContent=pick(["ORIGINAL","TAX INVOICE","COMPUTER COPY"]);el.appendChild(w);d.watermark=true}
+  if(hard>55&&chance(40)){el.style.filter=(el.style.filter?el.style.filter+" ":"")+"blur(0.4px)";d.blur=true}
+  if(opts.paper){el.style.background="#f4f1e8";d.scan_paper=true}
+  d.rotated=Math.abs(rot)>0.4;
+}
+/* ---- batch generation ---- */
+function collectOpts(){
+  const g=id=>{const el=document.getElementById("s_"+id);return el?parseFloat(el.value):0};
+  return {count:Math.round(g("count"))||12,items:Math.round(g("items"))||6,layout:g("layout"),hard:g("hard"),rot:g("rot"),grain:g("grain"),miss:g("miss"),faint:g("faint"),
+    tstyle:document.getElementById("o_tstyle").value,split:document.getElementById("o_split").value,paper:document.getElementById("o_paper").checked,stamp:document.getElementById("o_stamp").checked};
+}
+function mixedTypes(){
+  const extra=[...document.querySelectorAll("#mixBox input:checked")].map(c=>c.value);
+  const all=[state.docType,...extra.filter(t=>t!==state.docType)];
+  return all.length?all:[state.docType];
+}
+function generate(){
+  switchTab("preview");
+  const seedRaw=document.getElementById("o_seed").value;
+  state.seedUsed=seedRaw===""?R(1,999999):parseInt(seedRaw,10);
+  rng=mulberry32(state.seedUsed);
+  const opts=collectOpts(),types=mixedTypes();
+  const logoOffset=R(0,802);
+  state.batch=[];
+  for(let i=0;i<opts.count;i++){const t=types[i%types.length];const rec=GENERATORS[t](i,opts);if(LOGO_TYPES.includes(t)){rec.logo_file="invoice-lab/logos/logo_"+pad((logoOffset+i)%803,4)+".png";rec.logo_idx=(logoOffset+i)%Math.max(1,state.logoURLs.length)}rec.render=Object.assign({opts},rec.render||{});state.batch.push(rec)}
+  renderBatch(opts);
+  document.getElementById("seedBadge").textContent="seed "+state.seedUsed;
+  document.getElementById("splitBadge").textContent="split "+opts.split+" "+(opts.split==="auto"?"80/10/10":"");
+  document.getElementById("docCountBadge").textContent=state.batch.length+" generated";
+  document.getElementById("stBatch").textContent=state.batch.length;
+  document.getElementById("stMiss").textContent=opts.miss+"%";
+  refreshSelectors();renderGT();renderCard();
+}
+/* ---- render + DOM-measured boxes (0-1000) ---- */
+function renderBatch(opts){
+  const stage=document.getElementById("stage");stage.innerHTML="";
+  const show=Math.min(state.batch.length,24);
+  let hard=0;
+  state.batch.slice(0,show).forEach(rec=>{
+    const wrap=document.createElement("div");
+    wrap.className="sheet"+(rec.doc_type==="retail"?" receipt-sheet":"");
+    wrap.innerHTML=RENDERERS[rec.doc_type](rec,opts)+`<div style="margin-top:6px;font-size:10px;color:#666;font-family:var(--ds-mono)">${esc(rec.invoice_id)} | ${esc(rec.doc_type)} | variant ${rec.template_variant} | cluster ${esc(rec.layout_cluster)} | split ${esc(rec.split)}${(document.getElementById("o_logo").value==="upload"&&state.logoURLs.length)?` | logo upload#${(rec.logo_idx||0)+1}`:(rec.logo_file?` | logo ${esc(rec.logo_file.split("/").pop())}`:"")}${rec.missing_fields.length?` | missing: ${esc(rec.missing_fields.join(","))}`:""}</div>`;
+    decorateSheet(wrap,rec,opts);
+    if(rec.difficulty.stamp||rec.difficulty.blur||rec.difficulty.faint)hard++;
+    stage.appendChild(wrap);
+    rec.layout_bboxes_1000=measureBoxes(wrap);
+    wrap.querySelectorAll("img.brandlogo").forEach(img=>{
+      const patch=()=>{const sr=wrap.getBoundingClientRect(),r=img.getBoundingClientRect();
+        if(r.width>2&&r.height>2)rec.layout_bboxes_1000.seller_logo=[Math.round((r.left-sr.left)/sr.width*1000),Math.round((r.top-sr.top)/sr.height*1000),Math.round(r.width/sr.width*1000),Math.round(r.height/sr.height*1000)];};
+      if(img.complete&&img.naturalWidth>0)patch();else img.addEventListener("load",patch,{once:true});
+    });
+  });
+  document.getElementById("stRendered").textContent=show;
+  document.getElementById("stHard").textContent=hard;
+  document.getElementById("renderNote").textContent=state.batch.length>show?`showing ${show} of ${state.batch.length} (all ${state.batch.length} in exports)`:`${show} sheets`;
+}
+function measureBoxes(sheet){
+  const sr=sheet.getBoundingClientRect(),out={};
+  sheet.querySelectorAll("[data-field]").forEach(el=>{
+    const r=el.getBoundingClientRect(),k=el.getAttribute("data-field");
+    if(k&&!out[k])out[k]=[Math.round((r.left-sr.left)/sr.width*1000),Math.round((r.top-sr.top)/sr.height*1000),Math.round(r.width/sr.width*1000),Math.round(r.height/sr.height*1000)];
+  });
+  return out;
+}
+/* ================= export formats ================= */
+function readingOrderText(r){
+  const L=[r.seller.name,r.seller.address,"GSTIN "+r.seller.gstin,r.doc.title+" "+r.doc.no+" "+r.doc.date];
+  (r.items||[]).forEach(it=>L.push(`${it.desc} ${it.hsn} x${it.qty} @ ${it.rate} = ${(it.qty*it.rate*it.fx).toFixed(2)}`));
+  L.push("Subtotal "+r.totals.subtotal,"Grand total "+r.totals.grand,r.totals.words);
+  return L.join("\n");
+}
+function chargesMarkdown(r){
+  const h="| # | Description | HSN | Qty | Rate | Taxable | GST% | Total |",s="|---|---|---|---|---|---|---|---";
+  const rows=(r.items||[]).map((it,i)=>`| ${i+1} | ${it.desc} | ${it.hsn} | ${it.qty} | ${it.rate} | ${(it.qty*it.rate*it.fx).toFixed(2)} | ${it.gst} | ${(it.qty*it.rate*it.fx*(1+2*it.gst/100)).toFixed(2)} |`);
+  return [h,s,...rows].join("\n");
+}
+function flatFields(r){
+  const f={doc_no:r.doc.no,date:r.doc.date,seller:r.seller.name,seller_gstin:r.seller.gstin,grand_total:String(r.totals.grand),subtotal:String(r.totals.subtotal)};
+  if(r.doc.irn)f.irn=r.doc.irn;
+  if(r.buyer&&r.buyer.gstin)f.buyer_gstin=r.buyer.gstin;
+  if(r.shipment){f.hbl=r.shipment.hbl;f.mbl=r.shipment.mbl;f.container=r.shipment.container}
+  if(r.party_invoice_nos)f.party_invoice_nos=r.party_invoice_nos.join(", ");
+  if(r.consumer){f.consumer_no=r.consumer.consumer_no;f.meter_no=r.consumer.meter_no;f.units=String(r.meter.units)}
+  return f;
+}
+const EXPORTERS={
+  canonical:r=>r,
+  sroie:r=>({company:r.seller.name,address:r.seller.address,date:r.doc.date,total:String(r.totals.grand)}),
+  cord:r=>({store:{name:r.seller.name,address:r.seller.address},receipt_no:r.doc.no,date:r.doc.date,
+    menu:(r.items||[]).map(it=>({nm:it.desc,num:String(it.qty),price:String(it.rate),amount:String(+(it.qty*it.rate*it.fx).toFixed(2))})),
+    subtotal:String(r.totals.subtotal),tax:String(+(r.totals.cgst+r.totals.sgst+r.totals.igst).toFixed(2)),total:String(r.totals.grand)}),
+  donut:r=>({image:r.invoice_id+".png",ground_truth:flatFields(r)}),
+  bio:r=>{const toks=[];const push=(txt,tag)=>String(txt).split(/\s+/).forEach((w,i)=>toks.push({token:w,tag:tag==="O"?"O":((i===0?"B-":"I-")+tag)}));
+    push(r.seller.name,"SELLER");push(r.doc.no,"DOCNO");push(r.doc.date,"DATE");push(String(r.totals.grand),"TOTAL");
+    (r.items||[]).forEach(it=>push(it.desc,"ITEM"));return {tokens:toks.map(t=>t.token),ner_tags:toks.map(t=>t.tag)}},
+  kile:r=>({doc_id:r.invoice_id,classes:Object.entries(r.layout_bboxes_1000||{}).map(([k,b])=>({label:k,bbox_xywh_1000:b})),
+    line_items:(r.items||[]).map((it,i)=>({line:i+1,desc:it.desc,qty:it.qty,rate:it.rate}))}),
+  coco:(r,idx)=>({image:{id:idx+1,file_name:r.invoice_id+".png",width:1000,height:1000},
+    annotations:Object.entries(r.layout_bboxes_1000||{}).map(([k,b],a)=>({id:(idx+1)*100+a,image_id:idx+1,category_name:k,bbox:b,area:b[2]*b[3]}))}),
+  csv:r=>(r.items||[]).map((it,i)=>[r.invoice_id,i+1,`"${it.desc}"`,it.hsn,it.qty,it.rate,it.curr,it.fx,it.gst].join(",")).join("\n"),
+  qa:r=>{const f=flatFields(r);return Object.entries(f).map(([k,v])=>({instruction:`Extract ${k} from the document image. Reply with the value only, or NOT_FOUND.`,input:"<image> "+r.invoice_id+".png",output:String(v)}))}
+};
+function renderGT(){
+  const pre=document.getElementById("gtPre");
+  if(!state.batch.length){pre.textContent="Generate a batch first.";return}
+  const i=parseInt(document.getElementById("gtIndex").value||"0",10)||0;
+  const fmt=document.getElementById("gtFormat").value;
+  const out=EXPORTERS[fmt](state.batch[i],i);
+  pre.textContent=(fmt==="csv")?("invoice_id,line,desc,hsn,qty,rate,curr,fx,gst\n"+out):JSON.stringify(out,null,2);
+}
+function downloadJSON(){
+  if(!state.batch.length){alert("Generate a batch first.");return}
+  const recs=state.batch.map(r=>Object.assign({},r,{ocr:{reading_order_text:readingOrderText(r)},tables:{charges_markdown:chargesMarkdown(r)},eval_manifest:{fields:Object.keys(flatFields(r)),metrics:["field-F1","Exact-Match","CER/WER","TEDS","mAP"],strata:["doc_type","template_variant","split","difficulty"]}}));
+  downloadFile("invoicelab_groundtruth.json",JSON.stringify(recs,null,2),"application/json");
+}
+function downloadJSONL(){
+  if(!state.batch.length){alert("Generate a batch first.");return}
+  const lines=state.batch.map(r=>JSON.stringify({id:r.invoice_id,image:r.invoice_id+".png",doc_type:r.doc_type,split:r.split,ground_truth:flatFields(r),qa:EXPORTERS.qa(r)}));
+  downloadFile("invoicelab_train.jsonl",lines.join("\n"),"application/jsonl");
+}
+function downloadGT(){
+  if(!state.batch.length){alert("Generate a batch first.");return}
+  const fmt=document.getElementById("gtFormat").value;
+  if(fmt==="csv"){downloadFile("invoicelab_lines.csv","invoice_id,line,desc,hsn,qty,rate,curr,fx,gst\n"+state.batch.map(r=>EXPORTERS.csv(r)).join("\n"),"text/csv");return}
+  downloadFile(`invoicelab_${fmt}.json`,JSON.stringify(state.batch.map((r,i)=>EXPORTERS[fmt](r,i)),null,2),"application/json");
+}
+function copyGT(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById("gtPre").textContent)}
+/* ================= dataset card + agent API ================= */
+const ILAB_VERSION="1.4.0";
+function countBy(arr,fn){const m={};arr.forEach(x=>{const k=fn(x);m[k]=(m[k]||0)+1});return m}
+function histOf(vals,bins){const h={};bins.forEach(b=>h[b[0]]=0);vals.forEach(v=>{const b=bins.find(bb=>bb[1](v));if(b)h[b[0]]++});return h}
+function buildDatasetCard(){
+  const b=state.batch,opts=collectOpts();
+  const byType=countBy(b,r=>r.doc_type),bySplit=countBy(b,r=>r.split),byCluster=countBy(b,r=>r.layout_cluster),byVariant=countBy(b,r=>"v"+r.template_variant);
+  const dflags={};b.forEach(r=>Object.keys(r.difficulty||{}).forEach(k=>{if(r.difficulty[k])dflags[k]=(dflags[k]||0)+1}));
+  const missFreq={};let missDocs=0;b.forEach(r=>{(r.missing_fields||[]).forEach(f=>missFreq[f]=(missFreq[f]||0)+1);if((r.missing_fields||[]).length)missDocs++});
+  return {name:"InvoiceLab synthetic IDP dataset",version:ILAB_VERSION,created_at:new Date().toISOString(),seed:state.seedUsed,
+    generator:{params:opts,primary_type:state.docType},
+    counts:{total:b.length,by_doc_type:byType,by_split:bySplit,by_layout_cluster:byCluster,by_template_variant:byVariant,docs_with_missing_fields:missDocs},
+    variations:{difficulty_flags:dflags,missing_field_frequency:missFreq,
+      items_per_doc:histOf(b.map(r=>(r.items||[]).length),[["1-2",v=>v<=2],["3-5",v=>v<=5],["6-10",v=>v<=10],["11+",v=>true]]),
+      grand_total_inr:histOf(b.map(r=>r.totals.grand),[["<1k",v=>v<1000],["1k-10k",v=>v<1e4],["10k-100k",v=>v<1e5],["100k-1M",v=>v<1e6],[">1M",v=>true]]),
+      abs_rotation_deg:histOf(b.map(r=>Math.abs((r.render&&r.render.rotation_deg)||0)),[["0-0.5",v=>v<=0.5],["0.5-1.5",v=>v<=1.5],["1.5-3",v=>v<=3],[">3",v=>true]])},
+    files:{image_pattern:"<invoice_id>.png inside invoicelab_raster_png.zip via Raster PNG",ground_truth:"invoicelab_groundtruth.json",join_key:"invoice_id",boxes:"layout_bboxes_1000 in 0-1000 space, measured at 100% zoom"},
+    intended_use:"VLM/OCR training and evaluation for invoice/receipt/bill KIE; robustness splits (clean/faded/bad-scan); intra/inter-template study.",
+    limitations:"Fully synthetic entities; raster logos degrade to monogram plates under file://; boxes measured from live DOM.",
+    license:"Synthetic output generated locally; verify logo-database rights before redistribution."};
+}
+function mdHist(title,map){const mx=Math.max(0,...Object.values(map));const rows=Object.entries(map).map(([k,v])=>" | "+k+" | "+v+" | "+(mx>0?"█".repeat(Math.max(v>0?1:0,Math.round(v/mx*20))):"")+" |").join("\n");return "### "+title+"\n| value | count | freq |\n|---|---|---|\n"+rows+"\n"}
+function cardMarkdown(c){
+  const L=["# Dataset card: "+c.name,"","- version: "+c.version,"- created: "+c.created_at,"- seed: "+c.seed,"- records: "+c.counts.total,"- primary type: "+c.generator.primary_type,"- params: "+JSON.stringify(c.generator.params),""];
+  L.push("## Classes","",mdHist("doc_type",c.counts.by_doc_type),mdHist("split",c.counts.by_split),mdHist("layout_cluster",c.counts.by_layout_cluster));
+  L.push("## Variations","",mdHist("difficulty_flags",c.variations.difficulty_flags),mdHist("missing_field_frequency",c.variations.missing_field_frequency),mdHist("items_per_doc",c.variations.items_per_doc),mdHist("grand_total_inr",c.variations.grand_total_inr),mdHist("abs_rotation_deg",c.variations.abs_rotation_deg));
+  L.push("## Files","",...Object.entries(c.files).map(([k,v])=>"- "+k+": "+v),"","## Intended use",""," "+c.intended_use,"","## Limitations",""," "+c.limitations,"","## License",""," "+c.license,"");
+  return L.join("\n");
+}
+function renderCard(){const pre=document.getElementById("cardPre");if(!pre)return;if(!state.batch.length){pre.textContent="Generate a batch first.";document.getElementById("cardCharts").innerHTML="";return}const c=buildDatasetCard();pre.textContent=cardMarkdown(c);renderCardCharts(c)}
+const CHART_COLORS=["#0C66E4","#1F845A","#E56910","#6E5DC6","#C9372C","#227D9B","#946104","#5E4DB2"];
+function barChart(title,map){
+  const tot=Object.values(map).reduce((a,x)=>a+x,0),mx=Math.max(1,...Object.values(map));
+  const rows=Object.entries(map).map(([k,v],i)=>{const pct=tot?Math.round(v/tot*100):0;
+    return `<div class="brow"><span class="bl" title="${esc(k)}">${esc(k)}</span><span class="bt"><span class="bf" style="width:${(v/mx*100).toFixed(1)}%;background:${CHART_COLORS[i%CHART_COLORS.length]}"></span></span><span class="bv">${v} (${pct}%)</span></div>`}).join("");
+  return `<div class="chart" data-chart="${esc(title)}"><h4>${esc(title)} · n=${tot}</h4>${rows||'<div style="font-size:12px;color:var(--ds-text-subtle)">no data</div>'}</div>`;
+}
+function renderCardCharts(c){document.getElementById("cardCharts").innerHTML=`<div class="charts">${barChart("doc_type",c.counts.by_doc_type)}${barChart("split",c.counts.by_split)}${barChart("layout_cluster",c.counts.by_layout_cluster)}${barChart("difficulty_flags",c.variations.difficulty_flags)}${barChart("missing_field_frequency",c.variations.missing_field_frequency)}${barChart("items_per_doc",c.variations.items_per_doc)}${barChart("grand_total_inr",c.variations.grand_total_inr)}${barChart("abs_rotation_deg",c.variations.abs_rotation_deg)}</div>`}
+function downloadCardMD(){if(!state.batch.length){alert("Generate a batch first.");return}downloadFile("invoicelab_dataset_card.md",cardMarkdown(buildDatasetCard()),"text/markdown")}
+function downloadCardJSON(){if(!state.batch.length){alert("Generate a batch first.");return}downloadFile("invoicelab_dataset_card.json",JSON.stringify(buildDatasetCard(),null,2),"application/json")}
+function downloadPack(){if(!state.batch.length){alert("Generate a batch first.");return}downloadFile("invoicelab_dataset_pack.json",JSON.stringify({dataset_card:buildDatasetCard(),records:state.batch},null,2),"application/json")}
+function apiRun(o){o=o||{};
+  if(o.types&&o.types.length){const valid=o.types.filter(t=>GENERATORS[t]);if(valid.length){setDocType(valid[0]);document.querySelectorAll("#mixBox input").forEach(c=>{c.checked=valid.includes(c.value)})}}
+  const setS=(k,v)=>{if(v==null||isNaN(v))return;const el=document.getElementById("s_"+k);if(!el)return;if(v>parseFloat(el.max))el.max=v;if(v<parseFloat(el.min))el.min=v;el.value=v;el.dispatchEvent(new Event("input"))};
+  setS("count",o.count??o.n);["items","layout","hard","rot","grain","miss","faint"].forEach(k=>setS(k,o[k]));
+  if(o.split)document.getElementById("o_split").value=o.split;
+  if(o.tstyle)document.getElementById("o_tstyle").value=o.tstyle;
+  if(o.seed!=null&&o.seed!=="")document.getElementById("o_seed").value=o.seed;
+  if(o.paper!=null)document.getElementById("o_paper").checked=!!o.paper;
+  generate();window.InvoiceLab.done=true;
+  return {docs:state.batch.length,seed:state.seedUsed,types:[...new Set(state.batch.map(r=>r.doc_type))]};
+}
+function applyAgentParams(q){
+  const o={};const num=k=>q.has(k)?parseFloat(q.get(k)):undefined;
+  if(q.has("seed"))o.seed=q.get("seed");
+  if(q.has("n")||q.has("count"))o.count=num(q.has("count")?"count":"n");
+  if(q.has("types"))o.types=q.get("types").split(",").map(s=>s.trim()).filter(s=>GENERATORS[s]);
+  ["items","layout","hard","rot","grain","miss","faint"].forEach(k=>{if(q.has(k))o[k]=num(k)});
+  if(q.has("split"))o.split=q.get("split");if(q.has("tstyle"))o.tstyle=q.get("tstyle");
+  if(q.has("paper"))o.paper=q.get("paper")==="1";
+  return apiRun(o);
+}
+window.InvoiceLab={version:ILAB_VERSION,done:false,run:apiRun,card:()=>buildDatasetCard(),pack:()=>({dataset_card:buildDatasetCard(),records:state.batch}),batch:()=>state.batch};
+/* ================= raster export (image-only PNG/PDF) ================= */
+const RASTER_SCALE=2,RASTER_DPI=192;
+function logoMonogram(rec){
+  const pal=["#0C66E4","#1F845A","#E56910","#6E5DC6","#C9372C","#42526E"];
+  const m=rec&&rec.logo_file?rec.logo_file.match(/(\d+)\.png/):null;
+  const bg=pal[m?parseInt(m[1],10)%pal.length:0];
+  const words=(rec?rec.seller.name:"Seller").split(/\s+/);
+  return {bg,init:((words[0]||"S")[0]+((words[1]||"")[0]||"")).toUpperCase()};
+}
+async function dataURLof(url){
+  const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),4000);
+  try{const res=await fetch(url,{signal:ctl.signal});if(!res.ok)throw new Error("http "+res.status);
+    const blob=await res.blob();
+    return await new Promise((res2,rej)=>{const fr=new FileReader();fr.onload=()=>res2(fr.result);fr.onerror=rej;fr.readAsDataURL(blob)});
+  }finally{clearTimeout(to)}
+}
+async function prepClone(sheet,rec){
+  const clone=sheet.cloneNode(true);
+  clone.style.transform="none";clone.style.margin="0";clone.style.boxShadow="none";
+  clone.querySelectorAll("*").forEach(el=>{[...el.attributes].forEach(a=>{if(a.name.startsWith("on"))el.removeAttribute(a.name)})});
+  let mono=false;
+  for(const img of clone.querySelectorAll("img.brandlogo")){
+    const src=img.getAttribute("src");
+    if(src&&src.startsWith("data:"))continue;
+    try{img.setAttribute("src",await dataURLof(src))}
+    catch(e){const mg=logoMonogram(rec);const d=document.createElement("div");
+      d.setAttribute("style",`width:130px;height:96px;background:${mg.bg};color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;font-family:sans-serif`);
+      d.textContent=mg.init;img.replaceWith(d);mono=true}
+  }
+  return {clone,mono};
+}
+function sheetSVG(clone,w,h){
+  const css=document.querySelector("style").textContent.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const body=clone.outerHTML.replace(/<br>/g,"<br/>").replace(/<img([^>]*?)>/g,"<img$1/>");
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" style="width:${w}px;height:${h}px;background:#fff"><style>${css}</style>${body}</div></foreignObject></svg>`;
+}
+async function rasterizeSheet(sheet,rec){
+  const w=sheet.offsetWidth,h=sheet.offsetHeight;
+  const {clone,mono}=await prepClone(sheet,rec);
+  const url="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(sheetSVG(clone,w,h));
+  const img=new Image();
+  await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url});
+  const deg=(rec.render&&rec.render.rotation_deg)||0,rad=deg*Math.PI/180;
+  const cw=Math.ceil((Math.abs(w*Math.cos(rad))+Math.abs(h*Math.sin(rad)))*RASTER_SCALE);
+  const ch=Math.ceil((Math.abs(w*Math.sin(rad))+Math.abs(h*Math.cos(rad)))*RASTER_SCALE);
+  const cv=document.createElement("canvas");cv.width=cw;cv.height=ch;
+  const cx=cv.getContext("2d");cx.fillStyle="#fff";cx.fillRect(0,0,cw,ch);
+  cx.translate(cw/2,ch/2);cx.rotate(rad);cx.scale(RASTER_SCALE,RASTER_SCALE);cx.drawImage(img,-w/2,-h/2,w,h);
+  return {canvas:cv,mono};
+}
+function b64ToBytes(b64){const bin=atob(b64);const u8=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u8[i]=bin.charCodeAt(i);return u8}
+function buildRasterPdf(pages){
+  const te=new TextEncoder();const seq=[];
+  const kids=[];let id=3;const meta=[];
+  pages.forEach(p=>{const pid=id++,cid=id++,iid=id++;kids.push(pid+" 0 R");meta.push({pid,cid,iid,p})});
+  seq.push({id:0,c:["%PDF-1.4\n%\u00e2\u00e3\u00cf\u00d3\n"]});
+  seq.push({id:1,c:["1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n"]});
+  seq.push({id:2,c:[`2 0 obj\n<< /Type /Pages /Kids [${kids.join(" ")}] /Count ${pages.length} >>\nendobj\n`]});
+  meta.forEach((m,i)=>{const pw=(m.p.w*72/RASTER_DPI).toFixed(2),ph=(m.p.h*72/RASTER_DPI).toFixed(2);
+    seq.push({id:m.pid,c:[`${m.pid} 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /Resources << /XObject << /Im${i} ${m.iid} 0 R >> /ProcSet [/PDF /ImageC] >> /Contents ${m.cid} 0 R >>\nendobj\n`]});
+    const cs=`q\n${pw} 0 0 ${ph} 0 0 cm\n/Im${i} Do\nQ\n`;
+    seq.push({id:m.cid,c:[`${m.cid} 0 obj\n<< /Length ${cs.length} >>\nstream\n${cs}endstream\nendobj\n`]});
+    seq.push({id:m.iid,c:[`${m.iid} 0 obj\n<< /Type /XObject /Subtype /Image /Width ${m.p.w} /Height ${m.p.h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${m.p.jpeg.length} >>\nstream\n`,m.p.jpeg,"\nendstream\nendobj\n"]});
+  });
+  seq.sort((a,b)=>a.id-b.id);
+  const parts=[];const off={};let pos=0;
+  seq.forEach(o=>{if(o.id>0)off[o.id]=pos;o.c.forEach(c=>{const b=typeof c==="string"?te.encode(c):c;parts.push(b);pos+=b.length})});
+  const maxId=id-1;let xref=`xref\n0 ${maxId+1}\n0000000000 65535 f \n`;
+  for(let i=1;i<=maxId;i++)xref+=String(off[i]).padStart(10,"0")+" 00000 n \n";
+  parts.push(te.encode(xref+`trailer\n<< /Size ${maxId+1} /Root 1 0 R >>\nstartxref\n${pos}\n%%EOF`));
+  return new Blob(parts,{type:"application/pdf"});
+}
+function crc32(u8){let t=crc32.T;if(!t){t=crc32.T=new Int32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c}}let c=0xFFFFFFFF;for(let i=0;i<u8.length;i++)c=t[(c^u8[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function buildZip(files){
+  const te=new TextEncoder(),parts=[],central=[];let off=0;
+  files.forEach(f=>{const nb=te.encode(f.name),crc=crc32(f.bytes),lh=new DataView(new ArrayBuffer(30));
+    lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(8,0,true);
+    lh.setUint16(10,0,true);lh.setUint16(12,0,true);lh.setUint32(14,crc,true);
+    lh.setUint32(18,f.bytes.length,true);lh.setUint32(22,f.bytes.length,true);
+    lh.setUint16(26,nb.length,true);lh.setUint16(28,0,true);
+    parts.push(new Uint8Array(lh.buffer),nb,f.bytes);
+    central.push({nb,crc,size:f.bytes.length,off});off+=30+nb.length+f.bytes.length;});
+  const cstart=off,cparts=[];
+  central.forEach(c=>{const ch=new DataView(new ArrayBuffer(46));
+    ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);
+    ch.setUint16(8,0x0800,true);ch.setUint16(10,0,true);ch.setUint16(12,0,true);ch.setUint16(14,0,true);
+    ch.setUint32(16,c.crc,true);ch.setUint32(20,c.size,true);ch.setUint32(24,c.size,true);
+    ch.setUint16(28,c.nb.length,true);ch.setUint16(30,0,true);ch.setUint16(32,0,true);
+    ch.setUint16(34,0,true);ch.setUint16(36,0,true);ch.setUint32(38,0,true);ch.setUint32(42,c.off,true);
+    cparts.push(new Uint8Array(ch.buffer),c.nb);off+=46+c.nb.length;});
+  const en=new DataView(new ArrayBuffer(22));
+  en.setUint32(0,0x06054b50,true);en.setUint16(4,0,true);en.setUint16(6,0,true);
+  en.setUint16(8,central.length,true);en.setUint16(10,central.length,true);
+  en.setUint32(12,off-cstart,true);en.setUint32(16,cstart,true);en.setUint16(20,0,true);
+  return new Blob([...parts,...cparts,new Uint8Array(en.buffer)],{type:"application/zip"});
+}
+function renderedSheets(){return [...document.querySelectorAll("#stage .sheet")]}
+async function exportRasterPNG(){
+  if(!renderedSheets().length){alert("Generate a batch first.");return}
+  switchTab("preview");
+  const saveTarget=await pickSaveTarget("invoicelab_raster_png.zip");
+  if(saveTarget===null){dlNote("Save cancelled.");return}
+  const sheets=renderedSheets();
+  const note=document.getElementById("renderNote");let monoAny=false;const files=[];
+  for(let i=0;i<sheets.length;i++){
+    note.textContent=`rasterizing ${i+1}/${sheets.length}...`;
+    const rec=state.batch[i];
+    try{const {canvas,mono}=await rasterizeSheet(sheets[i],rec);monoAny=monoAny||mono;
+      const blob=await new Promise((res,rej)=>canvas.toBlob(b=>b?res(b):rej(new Error("toBlob failed")),"image/png"));
+      registerDownload(rec.invoice_id+".png",blob,URL.createObjectURL(blob));
+      files.push({name:rec.invoice_id+".png",bytes:new Uint8Array(await blob.arrayBuffer())});
+    }catch(e){note.textContent="raster failed on "+rec.invoice_id+": "+e.message;return}
+  }
+  const zipName="invoicelab_raster_png.zip",zipBlob=buildZip(files);
+  if(saveTarget){const zurl=URL.createObjectURL(zipBlob);registerDownload(zipName,zipBlob,zurl);
+    try{await writeHandle(saveTarget,zipBlob)}catch(e){downloadFile(zipName,zipBlob,"application/zip")}}
+  else downloadFile(zipName,zipBlob,"application/zip");
+  note.textContent=`${sheets.length} raster PNGs zipped (${zipName})`+(monoAny?" (monogram logo plates: file:// cannot inline PNGs; serve over localhost for full fidelity)":" (logos inlined)")+(saveTarget?" Saved to the location you chose.":"")+" Individual PNGs are also in the Download center.";
+}
+async function exportRasterPDF(){
+  if(!renderedSheets().length){alert("Generate a batch first.");return}
+  switchTab("preview");
+  const saveTarget=await pickSaveTarget("invoicelab_raster.pdf");
+  if(saveTarget===null){dlNote("Save cancelled.");return}
+  const sheets=renderedSheets();
+  const note=document.getElementById("renderNote");const pages=[];let monoAny=false;
+  for(let i=0;i<sheets.length;i++){
+    note.textContent=`rasterizing ${i+1}/${sheets.length}...`;
+    const rec=state.batch[i];
+    try{const {canvas,mono}=await rasterizeSheet(sheets[i],rec);monoAny=monoAny||mono;
+      const jpeg=b64ToBytes(canvas.toDataURL("image/jpeg",0.92).split(",")[1]);
+      const jb=new Blob([jpeg],{type:"image/jpeg"});
+      registerDownload(rec.invoice_id+".jpg",jb,URL.createObjectURL(jb));
+      pages.push({w:canvas.width,h:canvas.height,jpeg});
+    }catch(e){note.textContent="raster failed on "+rec.invoice_id+": "+e.message;return}
+  }
+  const pdfName="invoicelab_raster.pdf",pdfBlob=buildRasterPdf(pages);
+  if(saveTarget){const purl=URL.createObjectURL(pdfBlob);registerDownload(pdfName,pdfBlob,purl);
+    try{await writeHandle(saveTarget,pdfBlob)}catch(e){downloadFile(pdfName,pdfBlob,"application/pdf")}}
+  else downloadFile(pdfName,pdfBlob,"application/pdf");
+  note.textContent=`raster PDF exported (${pages.length} image-only pages)`+(monoAny?" (monogram logo plates: file:// mode)":" (logos inlined)")+(saveTarget?" Saved to the location you chose.":"")+" Individual page JPGs are also in the Download center.";
+}
+/* ================= eval harness ================= */
+const norm=v=>String(v??"").toLowerCase().replace(/\s+/g," ").trim();
+function runEval(){
+  const out=document.getElementById("evalOut");
+  if(!state.batch.length){out.innerHTML='<div class="msg msg-warn"><div>Generate a batch first.</div></div>';return}
+  let pred;try{pred=JSON.parse(document.getElementById("predText").value)}catch(e){out.innerHTML='<div class="msg msg-warn"><div>Prediction is not valid JSON.</div></div>';return}
+  const i=parseInt(document.getElementById("evalIndex").value||"0",10)||0;
+  const gt=flatFields(state.batch[i]);
+  const keys=[...new Set([...Object.keys(gt),...Object.keys(pred)])];
+  let tp=0,fp=0,fn=0;const rows=keys.map(k=>{
+    const g=gt[k],p=pred[k];const vok=g!==undefined&&norm(g)!=="not_found";
+    const pok=p!==undefined&&norm(p)!=="not_found";
+    const em=vok&&pok&&norm(g)===norm(p);
+    if(em)tp++;else{if(pok&&(!vok||norm(g)!==norm(p)))fp++;if(vok&&(!pok||norm(g)!==norm(p)))fn++}
+    const mark=em?'<span class="lozenge lz-green">match</span>':(vok&&!pok?'<span class="lozenge lz-red">miss</span>':(!vok&&pok?'<span class="lozenge lz-orange">hallucination</span>':'<span class="lozenge lz-red">wrong</span>'));
+    return `<tr><td class="mono">${esc(k)}</td><td class="mono">${esc(g??"-")}</td><td class="mono">${esc(p??"-")}</td><td>${mark}</td></tr>`;
+  });
+  const prec=tp+fp?tp/(tp+fp):1,rec=tp+fn?tp/(tp+fn):1,f1=prec+rec?2*prec*rec/(prec+rec):0;
+  const meter=(l,v)=>`<div class="brow"><span class="bl">${l}</span><span class="bt"><span class="bf" style="width:${(v*100).toFixed(1)}%;background:${v>=0.8?"#1F845A":v>=0.5?"#E56910":"#C9372C"}"></span></span><span class="bv">${(v*100).toFixed(1)}%</span></div>`;
+  out.innerHTML=`<div class="chart" style="max-width:480px;margin:10px 0"><h4>Scores · ${tp}/${tp+fn} fields exact</h4>${meter("micro-F1",f1)}${meter("Precision",prec)}${meter("Recall",rec)}</div>
+  <table class="grid"><thead><tr><th>Field</th><th>Ground truth</th><th>Prediction</th><th>Verdict</th></tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+function fillPerfectPred(){
+  if(!state.batch.length)return;
+  const i=parseInt(document.getElementById("evalIndex").value||"0",10)||0;
+  document.getElementById("predText").value=JSON.stringify(flatFields(state.batch[i]),null,2);
+}
+/* ================= presets / datasets / nav ================= */
+function applyPreset(id){
+  const set=(k,v)=>{const el=document.getElementById("s_"+k);if(el){el.value=v;el.dispatchEvent(new Event("input"))}};
+  if(id==="sroie"){setDocType("retail");document.getElementById("gtFormat").value="sroie";set("hard",70);set("rot",3);set("grain",60)}
+  if(id==="cord"){setDocType("retail");document.getElementById("gtFormat").value="cord";set("hard",25)}
+  if(id==="donut"){setDocType("service");document.getElementById("gtFormat").value="donut";set("hard",10);set("rot",0.5);set("grain",5)}
+  if(id==="kile"){setDocType("freight");document.getElementById("gtFormat").value="kile"}
+  if(id==="intra"){set("layout",0);document.getElementById("o_split").value="auto"}
+  if(id==="inter"){set("layout",100);document.getElementById("o_split").value="holdout"}
+  generate();switchTab(id==="sroie"||id==="cord"||id==="donut"||id==="kile"?"groundtruth":"preview");
+}
+function applyDataset(n){
+  const d=DATASETS.find(x=>x.n===n);if(!d)return;
+  setDocType(d.map.doc);document.getElementById("gtFormat").value=d.map.fmt;
+  generate();switchTab("groundtruth");
+}
+function setDocType(id){
+  state.docType=id;
+  document.querySelectorAll("#docTypeNav .navitem").forEach(b=>b.classList.toggle("active",b.dataset.type===id));
+  document.getElementById("pageTitle").textContent=DOC_TYPES.find(t=>t.id===id).name;
+}
+function switchTab(name){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.tab===name));
+  document.querySelectorAll(".tabpanel").forEach(p=>p.classList.toggle("active",p.id==="tab-"+name));
+  if(name==="groundtruth")renderGT();
+  if(name==="card")renderCard();
+}
+function topFilter(q){
+  q=q.toLowerCase();
+  document.querySelectorAll("#docTypeNav .navitem").forEach(b=>b.style.display=b.textContent.toLowerCase().includes(q)?"":"none");
+  document.querySelectorAll("#dsTable tbody tr").forEach(tr=>tr.style.display=tr.textContent.toLowerCase().includes(q)?"":"none");
+  if(q)switchTab("datasets");
+}
+function scanPreset(){const set=(k,v)=>{const el=document.getElementById("s_"+k);el.value=v;el.dispatchEvent(new Event("input"))};set("hard",80);set("rot",4);set("grain",70);set("faint",60);document.getElementById("o_paper").checked=true;generate()}
+function cleanPreset(){const set=(k,v)=>{const el=document.getElementById("s_"+k);el.value=v;el.dispatchEvent(new Event("input"))};set("hard",5);set("rot",0.5);set("grain",0);set("faint",0);document.getElementById("o_paper").checked=false;generate()}
+function resetAll(){location.reload()}
+function refreshSelectors(){
+  const gt=document.getElementById("gtIndex"),ev=document.getElementById("evalIndex");
+  gt.innerHTML=state.batch.map((r,i)=>`<option value="${i}">${esc(r.invoice_id)} (${esc(r.doc_type)})</option>`).join("");
+  ev.innerHTML=gt.innerHTML;
+}
+document.getElementById("logoInput").addEventListener("change",e=>{
+  const fs=[...e.target.files];if(!fs.length)return;
+  let pending=fs.length;const urls=new Array(fs.length);
+  fs.forEach((f,i)=>{const rd=new FileReader();
+    rd.onload=ev=>{urls[i]=ev.target.result;
+      if(--pending===0){state.logoURLs=urls;state.logoURL=urls[0];
+        document.getElementById("o_logo").value="upload";if(state.batch.length)generate();}};
+    rd.readAsDataURL(f)});
+});
+document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement.tagName!=="INPUT"&&document.activeElement.tagName!=="TEXTAREA"){e.preventDefault();document.getElementById("topSearch").focus()}});
+/* ---- init ---- */
+(function init(){
+  const nav=document.getElementById("docTypeNav");
+  DOC_TYPES.forEach(t=>{const b=document.createElement("button");b.className="navitem"+(t.id===state.docType?" active":"");b.dataset.type=t.id;
+    b.innerHTML=`<span class="dot" style="background:${t.color}"></span><span>${t.name}<br><small style="color:var(--ds-text-subtle)">${t.desc}</small></span>`;
+    b.onclick=()=>{setDocType(t.id);if(state.batch.length)generate()};nav.appendChild(b)});
+  const pn=document.getElementById("presetNav");
+  PRESETS.forEach(p=>{const b=document.createElement("button");b.className="navitem";b.textContent=p.name;b.onclick=()=>applyPreset(p.id);pn.appendChild(b)});
+  const sw=document.getElementById("sliders");
+  SLIDERS.forEach(s=>{const d=document.createElement("div");d.className="ctl";
+    d.innerHTML=`<label>${s.label} <output id="o_${s.id}">${s.fmt(s.val)}</output></label><input type="range" id="s_${s.id}" min="${s.min}" max="${s.max}" step="${s.step||1}" value="${s.val}">`;
+    sw.appendChild(d);
+    d.querySelector("input").addEventListener("input",e=>{document.getElementById("o_"+s.id).textContent=s.fmt(parseFloat(e.target.value))})});
+  const mb=document.getElementById("mixBox");
+  DOC_TYPES.forEach(t=>{if(t.id==="freight")return;const d=document.createElement("div");d.className="checkrow";
+    d.innerHTML=`<input type="checkbox" id="mix_${t.id}" value="${t.id}"> <label for="mix_${t.id}">${t.name}</label>`;mb.appendChild(d)});
+  const tb=document.querySelector("#dsTable tbody");
+  DATASETS.forEach(d=>{const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${d.n}</td><td><b>${esc(d.name)}</b></td><td>${esc(d.desc)}</td><td class="mono">${esc(d.size)}</td><td><a href="${d.link}" target="_blank" rel="noopener">link</a></td><td><button class="btn btn-default btn-sm" onclick="applyDataset(${d.n})">Apply</button></td>`;
+    tb.appendChild(tr)});
+  document.getElementById("dsCountSide").textContent=DATASETS.length;
+  let agentRun=false;
+  try{const q=new URLSearchParams(location.search);if(q.has("agent")||q.has("auto")){applyAgentParams(q);agentRun=true;document.getElementById("renderNote").textContent+=" | agent run complete"}}catch(e){}
+  if(!agentRun)generate();
+})();
+</script>
+</body>
+</html>
