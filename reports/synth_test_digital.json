@@ -1,0 +1,581 @@
+{
+  "split": "test",
+  "source": "digital",
+  "n": 40,
+  "summary": {
+    "documents": 40,
+    "strict": {
+      "field_accuracy": 0.9790322580645161,
+      "critical_field_accuracy": 0.98125,
+      "charge_field_accuracy": 0.9795454545454545,
+      "invoice_exact_match": 0.75,
+      "per_field": {
+        "Invoice No": 1.0,
+        "Invoice Date": 1.0,
+        "Container Number": 1.0,
+        "MAWB No": 0.975,
+        "HAWB No": 0.975,
+        "Vendor Name": 0.925,
+        "Bill of Lading / HBL": 0.975,
+        "WEIGHT": 1.0,
+        "Sea Freight": 0.925,
+        "Air Freight": 1.0,
+        "Terminal Handling Charges": 0.95,
+        "Airway WayBill Charges": 1.0,
+        "BL Charges": 1.0,
+        "ENS Charges": 1.0,
+        "Seal Charges": 1.0,
+        "VGM": 1.0,
+        "EDI Fees": 0.975,
+        "DAP Charges": 1.0,
+        "Other Charges": 0.9,
+        "AMS CHARGES": 0.975,
+        "Handlign Charges": 0.975,
+        "Pre Carriage Haulage": 0.95,
+        "Ex Rate": 0.95,
+        "Misc": 1.0,
+        "Transportation": 0.925,
+        "Warehouse charges Port": 0.975,
+        "Examination charges": 1.0,
+        "Fuel Charges": 1.0,
+        "Cargo Screening": 1.0,
+        "Agency Charges": 1.0,
+        "Shipping bill charges": 1.0
+      }
+    },
+    "lenient": {
+      "field_accuracy": 0.9790322580645161,
+      "critical_field_accuracy": 0.98125,
+      "charge_field_accuracy": 0.9795454545454545,
+      "invoice_exact_match": 0.75,
+      "per_field": {
+        "Invoice No": 1.0,
+        "Invoice Date": 1.0,
+        "Container Number": 1.0,
+        "MAWB No": 0.975,
+        "HAWB No": 0.975,
+        "Vendor Name": 0.925,
+        "Bill of Lading / HBL": 0.975,
+        "WEIGHT": 1.0,
+        "Sea Freight": 0.925,
+        "Air Freight": 1.0,
+        "Terminal Handling Charges": 0.95,
+        "Airway WayBill Charges": 1.0,
+        "BL Charges": 1.0,
+        "ENS Charges": 1.0,
+        "Seal Charges": 1.0,
+        "VGM": 1.0,
+        "EDI Fees": 0.975,
+        "DAP Charges": 1.0,
+        "Other Charges": 0.9,
+        "AMS CHARGES": 0.975,
+        "Handlign Charges": 0.975,
+        "Pre Carriage Haulage": 0.95,
+        "Ex Rate": 0.95,
+        "Misc": 1.0,
+        "Transportation": 0.925,
+        "Warehouse charges Port": 0.975,
+        "Examination charges": 1.0,
+        "Fuel Charges": 1.0,
+        "Cargo Screening": 1.0,
+        "Agency Charges": 1.0,
+        "Shipping bill charges": 1.0
+      }
+    },
+    "line_items": {
+      "gold": 219,
+      "amount_recall": 1.0,
+      "category_accuracy_strict": 0.958904109589041,
+      "category_accuracy_lenient": 0.958904109589041,
+      "spurious": 0
+    },
+    "unseen_slices": {
+      "label_unseen": [
+        0.9762,
+        84
+      ],
+      "label_seen": [
+        1.0,
+        88
+      ],
+      "charge_unseen": [
+        0.9245,
+        106
+      ],
+      "charge_seen": [
+        0.9912,
+        113
+      ]
+    },
+    "citations": {
+      "citation_accuracy_iou50": 0.9607,
+      "uncited_rate": 0.0,
+      "cited": 229,
+      "correct": 220,
+      "uncited": 0,
+      "values": 229
+    },
+    "auto_accept_rate": 0.55,
+    "auto_accept_precision_invoice": 0.9091,
+    "errors": 0,
+    "seconds_per_doc": 9.96
+  },
+  "documents": [
+    {
+      "id": "ILB_014525",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013805",
+      "errors": {
+        "Handlign Charges": [
+          "40333.33",
+          ""
+        ],
+        "Warehouse charges Port": [
+          "",
+          "40333.33"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'HAMALI CHARGES CFS/2425/070654': Warehouse charges Port (0.51) — review",
+        "Category of 'HAMALI CHARGES CFS/2425/070654': the reader read it as Handlign Charges, the semantic models as Warehouse charges Port — review",
+        "Warehouse charges Port '40333.33' was below the confidence needed for automatic acceptance (51%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013593",
+      "errors": {
+        "Vendor Name": [
+          "MERIDIAN EXPRESS CARGO SERVICES PVT LTD",
+          "MERIDIAN EXPRESS CARGO SERVICES PVT"
+        ],
+        "Terminal Handling Charges": [
+          "11710.00",
+          ""
+        ],
+        "Other Charges": [
+          "13250.00",
+          "24960.00"
+        ]
+      },
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013820",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'SECURITY X-RAY': Cargo Screening (0.89) — review",
+        "Cargo Screening '5070.00' was below the confidence needed for automatic acceptance (89%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014431",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013852",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'ORIGIN INLAND TRANSPORT CFS/2425/056406': Pre Carriage Haulage (0.58) — review",
+        "Pre Carriage Haulage '36025.28' was below the confidence needed for automatic acceptance (58%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014803",
+      "errors": {
+        "Bill of Lading / HBL": [
+          "",
+          "OF8870196"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Bill of Lading / HBL filled from label 'LOT HBL NO' (reader left it empty) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014515",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013704",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Category of 'CHARGES OTHC POD': the reader read it as Other Charges, the semantic models as Terminal Handling Charges — review",
+        "Category of 'EXPORT CHARGES LSS': the reader read it as Seal Charges, the semantic models as Fuel Charges — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014324",
+      "errors": {
+        "Sea Freight": [
+          "185631.38",
+          ""
+        ],
+        "Transportation": [
+          "",
+          "185631.38"
+        ]
+      },
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014535",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014604",
+      "errors": {
+        "MAWB No": [
+          "157-7706 2403",
+          "157-7706"
+        ],
+        "Vendor Name": [
+          "Trans Global Global Logistics Services Pvt Ltd",
+          "Trans Global Global Logistics Services Private Limited"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Vendor Name 'Trans Global Global Logistics Services Private Limited' was matched to the printed text only approximately (82%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014821",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013882",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014279",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'CARTAGE EUR 399.82 @ 101.480000': Transportation (0.69) — review",
+        "Transportation '40573.73' was below the confidence needed for automatic acceptance (69%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014153",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Category of 'OTHER CHARGES OTHC': the reader read it as Other Charges, the semantic models as Terminal Handling Charges — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014287",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'ISPS SURCHARGE POL': Other Charges (0.72) — review",
+        "Other Charges '280.00' was below the confidence needed for automatic acceptance (72%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014524",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013775",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014192",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'DO FEE (DESTINATION)': Other Charges (0.87) — review",
+        "Other Charges '353.34' was below the confidence needed for automatic acceptance (87%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014328",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013993",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013907",
+      "errors": {
+        "Sea Freight": [
+          "405969.25",
+          ""
+        ],
+        "Terminal Handling Charges": [
+          "11330.00",
+          ""
+        ],
+        "Other Charges": [
+          "170.00",
+          "11500.00"
+        ],
+        "Transportation": [
+          "",
+          "405969.25"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Category of 'EGM FILING - 40HC': the reader read it as ENS Charges, the semantic models as EDI Fees — review",
+        "Low-confidence category for 'OCEAN TRANSPORTATION POL': Transportation (0.88) — review",
+        "Category of 'OCEAN TRANSPORTATION POL': the reader read it as Sea Freight, the semantic models as Transportation — review",
+        "Transportation '405969.25' was below the confidence needed for automatic acceptance (88%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014709",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'T1 DOCUMENT FCL': Other Charges (0.77) — review",
+        "Category of 'T1 DOCUMENT FCL': the reader read it as BL Charges, the semantic models as Other Charges — review",
+        "Other Charges '21170.00' was below the confidence needed for automatic acceptance (77%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014164",
+      "errors": {
+        "Vendor Name": [
+          "Trans Global Global Logistics Services Pvt Ltd",
+          "Trans Global Global Logistics Services Private Limited"
+        ],
+        "Sea Freight": [
+          "404360.00",
+          ""
+        ],
+        "Other Charges": [
+          "",
+          "18430.00"
+        ],
+        "Pre Carriage Haulage": [
+          "18430.00",
+          ""
+        ],
+        "Transportation": [
+          "39844.62",
+          "444204.62"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'PICK-UP TO POL': Other Charges (0.77) — review",
+        "Category of 'PICK-UP TO POL': the reader read it as Transportation, the semantic models as Other Charges — review",
+        "Low-confidence category for 'OTHCH (ORIGIN) SNXI/2627/057289': Terminal Handling Charges (0.51) — review",
+        "Category of 'OTHCH (ORIGIN) SNXI/2627/057289': the reader read it as Other Charges, the semantic models as Terminal Handling Charges — review",
+        "Low-confidence category for 'OCEAN TRANSPORTATION': Transportation (0.87) — review",
+        "Category of 'OCEAN TRANSPORTATION': the reader read it as Sea Freight, the semantic models as Transportation — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013997",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013598",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013600",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014664",
+      "errors": {
+        "Other Charges": [
+          "",
+          "5040.00"
+        ],
+        "Pre Carriage Haulage": [
+          "5040.00",
+          ""
+        ],
+        "Ex Rate": [
+          "EUR 104.6538",
+          "EUR 104.654"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'SERVICE CHARGES PICK-UP TO POL SNTI/2425/007333': Other Charges (0.69) — review",
+        "Category of 'SERVICE CHARGES PICK-UP TO POL SNTI/2425/007333': the reader read it as Pre Carriage Haulage, the semantic models as Other Charges — review",
+        "Other Charges '5040.00' was below the confidence needed for automatic acceptance (69%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014301",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014591",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014071",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013966",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014693",
+      "errors": {
+        "EDI Fees": [
+          "430.00",
+          ""
+        ],
+        "AMS CHARGES": [
+          "",
+          "430.00"
+        ],
+        "Ex Rate": [
+          "USD 86.7658, EUR 102.3276",
+          "USD 86.7658, EUR 102.328"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'CHARGES E-Manifest Filing': AMS CHARGES (0.39) — review",
+        "Category of 'CHARGES E-Manifest Filing': the reader read it as EDI Fees, the semantic models as AMS CHARGES — review",
+        "AMS CHARGES '430.00' was below the confidence needed for automatic acceptance (39%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014326",
+      "errors": {
+        "HAWB No": [
+          "",
+          "515.79"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'DESTUFFING CHARGES - 20GP': Handlign Charges (0.89) — review",
+        "HAWB No filled from label 'E-AWB FEE' (reader left it empty) — review",
+        "Handlign Charges '6140.00' was below the confidence needed for automatic acceptance (89%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014537",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'CHARGES T1 DOCUMENT': Other Charges (0.66) — review",
+        "Category of 'CHARGES T1 DOCUMENT': the reader read it as BL Charges, the semantic models as Other Charges — review",
+        "Other Charges '9980.00' was below the confidence needed for automatic acceptance (66%) — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014735",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_013692",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Category of 'EGM FILING PER SHIPMENT': the reader read it as Shipping bill charges, the semantic models as EDI Fees — review"
+      ],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014175",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    },
+    {
+      "id": "ILB_014728",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "digital"
+    }
+  ]
+}

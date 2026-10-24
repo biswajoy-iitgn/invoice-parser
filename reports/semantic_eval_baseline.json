@@ -1,0 +1,115 @@
+{
+  "backends": [
+    "alias-bank",
+    "lexicon"
+  ],
+  "weights": {
+    "embedding": 1.0,
+    "embedding_temperature": 0.05,
+    "laya": 1.0,
+    "lexicon": 0.35,
+    "reader": 0.6,
+    "alias_bonus": 3.0
+  },
+  "sizes": {
+    "val": 4000,
+    "test": 4000,
+    "real": 47
+  },
+  "results": {
+    "val": [
+      {
+        "name": "fused (engine)",
+        "all": 0.7735,
+        "seen": 0.7234,
+        "unseen": 0.836,
+        "labels": 0.8611,
+        "charges": 0.5872
+      },
+      {
+        "name": "alias bank only",
+        "all": 0.673,
+        "seen": 0.6311,
+        "unseen": 0.7253,
+        "labels": 0.8611,
+        "charges": 0.2729
+      },
+      {
+        "name": "lexicon only",
+        "all": 0.6785,
+        "seen": 0.6369,
+        "unseen": 0.7303,
+        "labels": 0.7402,
+        "charges": 0.5473
+      }
+    ],
+    "test": [
+      {
+        "name": "fused (engine)",
+        "all": 0.7575,
+        "seen": 0.7216,
+        "unseen": 0.8022,
+        "labels": 0.8368,
+        "charges": 0.5979
+      },
+      {
+        "name": "alias bank only",
+        "all": 0.6532,
+        "seen": 0.6297,
+        "unseen": 0.6826,
+        "labels": 0.8368,
+        "charges": 0.2839
+      },
+      {
+        "name": "lexicon only",
+        "all": 0.6823,
+        "seen": 0.6428,
+        "unseen": 0.7315,
+        "labels": 0.7391,
+        "charges": 0.5678
+      }
+    ],
+    "real": [
+      {
+        "name": "fused (engine)",
+        "all": 0.9149,
+        "seen": null,
+        "unseen": 0.9149,
+        "labels": null,
+        "charges": 0.9149
+      },
+      {
+        "name": "alias bank only",
+        "all": 0.4255,
+        "seen": null,
+        "unseen": 0.4255,
+        "labels": null,
+        "charges": 0.4255
+      },
+      {
+        "name": "lexicon only",
+        "all": 0.8511,
+        "seen": null,
+        "unseen": 0.8511,
+        "labels": null,
+        "charges": 0.8511
+      },
+      {
+        "name": "OLD LAYA (previous checkpoint)",
+        "all": 0.6809,
+        "seen": null,
+        "unseen": 0.6809,
+        "labels": null,
+        "charges": 0.6809
+      },
+      {
+        "name": "OLD deterministic matcher",
+        "all": 0.9362,
+        "seen": null,
+        "unseen": 0.9362,
+        "labels": null,
+        "charges": 0.9362
+      }
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings — Invoice Extractor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230052cc'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/ui/app.css">
+<style>
+  /* Page-specific: table-row hover affordance in the database summary. */
+  #dbTables tbody tr:hover td { background: var(--bg); }
+</style>
+</head>
+<body>
+<header class="app-header">
+  <a class="skip" href="#main">Skip to content</a>
+  <a class="brand" href="/" aria-label="Invoice Extractor home"><svg class="brand-mark" aria-hidden="true"><use href="/ui/icons.svg#i-logo"/></svg><span class="brand-name">Invoice Extractor</span></a>
+  <nav class="app-nav" aria-label="Primary">
+    <a href="/">Extract</a>
+    <a href="/database">Database</a>
+    <a href="/analytics">Analytics</a>
+    <a href="/audit">Audit trail</a>
+    <a href="/settings" aria-current="page">Settings</a>
+  </nav>
+</header>
+<main class="content narrow" id="main">
+  <div class="page-head">
+    <h1>Settings</h1>
+    <p class="page-desc">Database connection and engine updates.</p>
+  </div>
+  <section class="card" id="dbcard" aria-labelledby="dbH">
+    <div class="row">
+      <h2 class="grow" id="dbH">Database</h2>
+      <span id="dbPill"></span>
+      <button class="btn secondary small" id="dbRefresh" type="button">Refresh</button>
+    </div>
+    <p class="meta" id="dbMeta" aria-live="polite" style="margin:8px 0"></p>
+    <div class="sheetwrap" id="dbTablesWrap" hidden>
+      <table id="dbTables" aria-label="Database tables">
+        <thead><tr><th>Table</th><th class="num">Rows</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p style="margin:8px 0 0"><a href="/database">Open the database browser <svg width="12" height="12" aria-hidden="true" style="vertical-align:-1px"><use href="/ui/icons.svg#i-arrow-right"/></svg></a></p>
+    <details class="why" style="margin-top:8px"><summary>Connect</summary>
+      <form id="dbForm">
+      <div class="row" style="margin-top:8px;align-items:flex-end">
+        <div class="field" style="flex:2;min-width:240px">
+          <label for="dbUrl">Database address (required)</label>
+          <div class="row">
+            <input type="password" id="dbUrl" placeholder="Paste the database address here" autocomplete="off" aria-describedby="dbMsg" required style="flex:1;min-width:160px">
+            <button class="btn secondary small" id="dbToggle" type="button" aria-pressed="false" aria-controls="dbUrl">Show</button>
+          </div>
+        </div>
+        <div class="field" style="flex:1;min-width:160px">
+          <label for="dbOrg">Organization</label>
+          <input type="text" id="dbOrg" placeholder="Only if you store invoices" autocomplete="off" aria-describedby="dbMsg">
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <button class="btn secondary small" id="dbTest" type="button">Test</button>
+        <button class="btn small" id="dbSave" type="submit">Save</button>
+        <span class="meta" id="dbMsg" aria-live="polite"></span>
+      </div>
+      <div class="meta" style="margin:8px 0 0">Test tries it without keeping anything. Save checks it first, then remembers it —
+        restart the app to use it. Looking around works without the organization; storing invoices needs it.</div>
+      </form>
+    </details>
+  </section>
+
+  <section class="card" id="updates" aria-labelledby="updH">
+    <div class="row">
+      <h2 class="grow" id="updH">Engine updates</h2>
+      <label class="meta" style="display:inline-flex;gap:8px;align-items:center"><input type="checkbox" id="updAuto"> Update automatically when the app starts</label>
+      <button class="btn secondary small" id="updRefresh" type="button">Check again</button>
+      <button class="btn small" id="updAll" type="button" hidden>Update all</button>
+    </div>
+    <p class="meta" id="updMeta" aria-live="polite" style="margin:8px 0"></p>
+    <div class="sheetwrap" id="updWrap" hidden>
+      <table id="updTable" aria-label="Engine versions">
+        <thead><tr><th>Engine</th><th>Installed</th><th>Latest</th><th>Status</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</main>
+
+<script src="/ui/app.js"></script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = App.esc, toast = App.toast, confirmDialog = App.confirmDialog, dbPill = App.pill;
+  function dbError(msg) { var m = $("dbMsg"); m.textContent = msg; m.classList.add("err");
+    $("dbUrl").setAttribute("aria-invalid", "true"); }
+  function dbClearError() { var m = $("dbMsg"); m.classList.remove("err");
+    $("dbUrl").removeAttribute("aria-invalid"); $("dbOrg").removeAttribute("aria-invalid"); }
+
+  // ---------------------------------------------------------- database --
+  async function refreshDb() {
+    $("dbPill").innerHTML = '<span class="spinner" aria-hidden="true"></span>';
+    $("dbMeta").textContent = "Checking the database…";
+    try {
+      var s = await (await fetch("/api/db/status")).json();
+      $("dbPill").innerHTML = dbPill(s);
+      $("dbMeta").textContent = s.configured
+        ? [s.host, s.organization ? "org " + s.organization : "org missing",
+           s.latency_ms != null ? s.latency_ms + " ms" : null,
+           s.note || s.error || ""].filter(Boolean).join(" · ")
+        : "Invoices are kept as files only. Connect a database below to store them.";
+      if (s.configured && s.reachable) {
+        var tr = await fetch("/api/db/schema");
+        if (tr.ok) {
+          var t = await tr.json();
+          var tb = document.querySelector("#dbTables tbody"); tb.innerHTML = "";
+          t.tables.filter(function (r) { return r.main; }).forEach(function (r) {
+            var row = document.createElement("tr");
+            if (r.blurb) row.title = r.blurb;
+            var td1 = document.createElement("td");
+            var a = document.createElement("a");
+            a.href = "/database/" + encodeURIComponent(r.name);
+            a.textContent = r.friendly;
+            td1.append(a);
+            var td2 = document.createElement("td"); td2.className = "num";
+            td2.textContent = r.rows == null ? "—" : Number(r.rows).toLocaleString("en-US");
+            row.append(td1, td2); tb.append(row);
+          });
+          $("dbTablesWrap").hidden = false;
+        } else { $("dbTablesWrap").hidden = true; }
+      } else { $("dbTablesWrap").hidden = true; }
+    } catch (e) { $("dbPill").innerHTML = ""; $("dbMeta").textContent = "Couldn't check the database."; toast("Couldn't check the database.", "error"); }
+  }
+  async function dbPost(path, btn) {
+    btn.disabled = true; dbClearError(); $("dbMsg").textContent = "Working…";
+    try {
+      var r = await fetch(path, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: $("dbUrl").value, org: $("dbOrg").value }) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) throw new Error(d.detail || ("Failed (" + r.status + ")"));
+      return d;
+    } finally { btn.disabled = false; }
+  }
+  $("dbRefresh").addEventListener("click", refreshDb);
+  $("dbToggle").addEventListener("click", function () {
+    var u = $("dbUrl"), show = u.type === "password";
+    u.type = show ? "text" : "password";
+    this.textContent = show ? "Hide" : "Show";
+    this.setAttribute("aria-pressed", String(show));
+  });
+  $("dbTest").addEventListener("click", async function () {
+    try {
+      var d = await dbPost("/api/db/test", $("dbTest"));
+      if (d.reachable) { dbClearError();
+        $("dbMsg").textContent = "That works" + (d.latency_ms != null ? " · " + d.latency_ms + " ms" : "") +
+          (d.organization ? " · " + d.organization : "");
+      } else { dbError("No good: " + (d.error || "unknown error")); }
+    } catch (e) { dbError(e.message); toast(e.message, "error"); }
+  });
+  $("dbForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    if (!$("dbUrl").value.trim()) {
+      dbError("Paste the database address first."); return; }
+    var saveOk = await confirmDialog({ title: "Save database address?",
+      body: "The app will use it after restart.", confirmLabel: "Save", danger: false });
+    if (!saveOk) return;
+    try {
+      await dbPost("/api/db/configure", $("dbSave"));
+      $("dbUrl").value = "";
+      dbClearError();
+      $("dbMsg").textContent = "Saved. Restart the app to use it.";
+      toast("Database saved — restart the app to use it");
+      refreshDb();
+    } catch (err) { dbError(err.message); toast(err.message, "error"); }
+  });
+  refreshDb();
+
+  // --------------------------------------------------- engine updates --
+  var updPending = [];
+  async function refreshUpdates(hard) {
+    $("updMeta").textContent = "Checking…";
+    try {
+      var ur = await fetch(hard ? "/api/updates/refresh" : "/api/updates");
+      if (!ur.ok) throw new Error("updates (" + ur.status + ")");
+      var u = await ur.json();
+      $("updAuto").checked = !!u.auto_update;
+      var tb = document.querySelector("#updTable tbody"); tb.innerHTML = "";
+      updPending = [];
+      u.packages.forEach(function (p) {
+        var tr = document.createElement("tr");
+        function td(t, cls) { var e = document.createElement("td"); if (cls) e.className = cls; e.textContent = t == null ? "—" : t; return e; }
+        tr.append(td(p.role || p.name), td(p.current), td(p.latest));
+        var st = document.createElement("td");
+        if (p.update_available) {
+          updPending.push(p.name);
+          st.innerHTML = '<span class="pill p-REVIEW">New version</span>';
+        } else if (p.error || p.note) {
+          st.innerHTML = '<span class="pill p-queued" title="' + esc(p.error || p.note) + '">Unknown</span>';
+        } else {
+          st.innerHTML = '<span class="pill p-done">Current</span>';
+        }
+        tr.append(st);
+        var act = document.createElement("td");
+        if (p.update_available) {
+          var b = document.createElement("button");
+          b.className = "btn secondary small"; b.type = "button"; b.textContent = "Update";
+          (function (name, btn) { btn.addEventListener("click", function () { applyUpdates([name], btn); }); })(p.name, b);
+          act.append(b);
+        }
+        tr.append(act); tb.append(tr);
+      });
+      $("updAll").hidden = !updPending.length;
+      $("updWrap").hidden = false;
+      $("updMeta").textContent = updPending.length
+        ? updPending.length + " new version" + (updPending.length > 1 ? "s" : "") + ". Updates run when nothing is processing; restart to use them."
+        : "Everything is current.";
+    } catch (e) { $("updMeta").textContent = "Couldn't check for updates."; toast("Couldn't check for updates.", "error"); }
+  }
+  async function applyUpdates(pkgs, btn) {
+    var updOk = await confirmDialog({ title: "Update " + pkgs.join(", ") + " now?",
+      body: "This takes a few minutes. Updates run when nothing is processing.", confirmLabel: "Update" });
+    if (!updOk) return;
+    btn.disabled = true;
+    $("updMeta").textContent = "Updating " + pkgs.join(", ") + " — this takes a few minutes.";
+    try {
+      var r = await fetch("/api/updates/apply", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ packages: pkgs }) });
+      var d = await r.json().catch(function () { return {}; });
+      if (!r.ok) throw new Error(d.detail || ("Failed (" + r.status + ")"));
+      $("updMeta").textContent = "Update started in the background. Restart the app once it finishes.";
+      toast("Engine update started — restart the app when it finishes");
+    } catch (e) { $("updMeta").textContent = e.message; toast(e.message, "error"); }
+    btn.disabled = false;
+    refreshUpdates();
+  }
+  $("updRefresh").addEventListener("click", function () { refreshUpdates(true); });
+  $("updAll").addEventListener("click", function () { applyUpdates(updPending.slice(), $("updAll")); });
+  $("updAuto").addEventListener("change", async function () {
+    try {
+      var r = await fetch("/api/updates/auto", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ enabled: $("updAuto").checked }) });
+      if (!r.ok) throw new Error("Couldn't save (" + r.status + ")");
+      toast($("updAuto").checked ? "On: updates install at next start" : "Automatic updates off");
+    } catch (e) { $("updAuto").checked = !$("updAuto").checked; toast(e.message, "error"); }
+  });
+  refreshUpdates();
+})();
+</script>
+</body>
+</html>

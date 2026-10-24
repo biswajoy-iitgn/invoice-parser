@@ -12,12 +12,13 @@ Pipeline:
 from __future__ import annotations
 
 import json
+import os
 import re
 import time
-from datetime import datetime
 
 import ollama
 
+from .grounding import cite_fields
 from .ingest import load_pages, pages_to_prompt_text, pages_to_raw_text
 from .schema import (
     CHARGE_CATEGORIES,
@@ -26,10 +27,33 @@ from .schema import (
     OUTPUT_FIELDS,
     glossary_text,
 )
+from .laya_client import semantic_field
+from .validation import ground_fields, normalize_date
+
+
+def citations_reading(citations: dict) -> list:
+    """Grounded citations -> reading entries (field + printed text + box)."""
+    reading = []
+    for field, hits in (citations or {}).items():
+        if field.startswith("__item_"):
+            continue
+        for h in hits or []:
+            if not isinstance(h, dict):
+                continue
+            text = (h.get("source_text", "") or "").strip()
+            if not text:
+                continue
+            box = h.get("bbox") or []
+            reading.append({"page": h.get("page"), "label": field,
+                            "content": text[:1500],
+                            "bbox": [round(float(v), 1) for v in box] if len(box) == 4 else []})
+    return reading
 
 DEFAULT_MODEL = "qwen3-vl:8b-instruct"
 RECONCILE_TOLERANCE_INR = 1.0
 FALLBACK_BUCKETS = {"Other Charges", "Misc"}
+
+READER_PROMPT = "INVOICE TEXT:\n\n{document_text}\n\nReturn the JSON now."
 
 SYSTEM_PROMPT = f"""You are an expert freight-forwarding / logistics invoice analyst.
 You read the raw text of one invoice (possibly several pages, columns may be misaligned)
@@ -133,27 +157,20 @@ def amount_in_text(amount: float, text: str) -> bool:
     return False
 
 
-DATE_FORMATS = [
-    "%d-%m-%Y", "%d/%m/%Y", "%d.%m.%Y", "%d-%b-%Y", "%d-%b-%y", "%d %b %Y", "%d %B %Y",
-    "%d-%B-%Y", "%Y-%m-%d", "%d/%m/%y", "%d-%m-%y", "%b %d, %Y", "%d %b %y",
-]
-
-
-def normalize_date(raw: str) -> str:
-    s = re.sub(r"\s+", " ", raw.strip().replace(",", ", ")).replace(" ,", ",")
-    s = re.sub(r",\s+", ", ", s)
-    for fmt in DATE_FORMATS:
-        try:
-            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
-        except ValueError:
-            continue
-    return raw.strip()
-
-
 def call_llm(document_text: str, model: str) -> dict:
+    prompt = READER_PROMPT.format(document_text=document_text)
+    backend = os.environ.get("READER_BACKEND", "ollama").lower()
+    if backend not in ("mlx", "llamacpp", "ollama"):
+        raise RuntimeError(f"unknown READER_BACKEND {backend!r}")
+    if backend == "mlx":
+        from .mlx_reader import MLX_PROMPT, call_mlx
+
+        return call_mlx(MLX_PROMPT.format(document_text=document_text))
+    if backend == "llamacpp":
+        return call_llamacpp(document_text)
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": f"INVOICE TEXT:\n\n{document_text}\n\nReturn the JSON now."},
+        {"role": "user", "content": prompt},
     ]
     last_err = None
     for attempt in range(2):
@@ -172,20 +189,101 @@ def call_llm(document_text: str, model: str) -> dict:
     raise RuntimeError(f"LLM returned invalid JSON twice: {last_err}")
 
 
+def call_llamacpp(document_text: str) -> dict:
+    """Reader via llama.cpp OpenAI-compatible server (Metal, multi-slot).
+
+    Uses grammar-constrained JSON Schema decoding, so output always parses;
+    retries only cover transport errors. Server: LLAMACPP_HOST (default
+    http://127.0.0.1:8080), model alias from INVOICE_MODEL or DEFAULT_MODEL.
+    """
+    import httpx
+
+    host = os.environ.get("LLAMACPP_HOST", "http://127.0.0.1:8080").rstrip("/")
+    model = os.environ.get("INVOICE_MODEL", DEFAULT_MODEL)
+    body = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user",
+             "content": READER_PROMPT.format(document_text=document_text)},
+        ],
+        "temperature": 0,
+        "seed": 7,
+        "max_tokens": 8192,
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {"name": "invoice", "strict": True, "schema": LLM_JSON_SCHEMA},
+        },
+    }
+    last_err: Exception | None = None
+    for _ in range(2):
+        try:
+            resp = httpx.post(f"{host}/v1/chat/completions", json=body, timeout=600.0)
+            resp.raise_for_status()
+            return json.loads(resp.json()["choices"][0]["message"]["content"])
+        except (httpx.HTTPError, KeyError, json.JSONDecodeError) as exc:
+            last_err = exc
+    raise RuntimeError(f"llama.cpp reader failed twice: {last_err}")
+
+
 def _clean(s) -> str:
     return re.sub(r"\s+", " ", str(s or "")).strip()
 
 
+def resolve_category(llm_cat: str, desc: str) -> tuple[str, str, list[str], str, str, str]:
+    """Resolve one line-item category; always returns a charge field.
+
+    Returns (category, basis, lexicon_matches, semantic_category,
+    semantic_backend, llm_category). The semantic vote is constrained to charge fields so
+    it can never overwrite a header field with an amount.
+    """
+    llm_cat = llm_cat if llm_cat in CHARGE_FIELDS else "Other Charges"
+    lex = lexicon_categories(desc)
+    sem_cat, sem_backend = semantic_field(desc)
+    if sem_cat not in CHARGE_FIELDS:
+        sem_cat = "Other Charges"  # line items can only be charge fields
+    category, basis = llm_cat, "llm"
+    if llm_cat in FALLBACK_BUCKETS and len(lex) == 1 and lex[0] not in FALLBACK_BUCKETS:
+        category, basis = lex[0], "lexicon-override"
+    elif llm_cat in FALLBACK_BUCKETS and sem_cat not in FALLBACK_BUCKETS and (not lex or sem_cat in lex):
+        category, basis = sem_cat, f"semantic-override:{sem_backend}"
+    elif lex and llm_cat in lex:
+        basis = "llm+lexicon"
+    elif sem_cat == llm_cat:
+        basis = f"llm+semantic:{sem_backend}"
+    return category, basis, lex, sem_cat, sem_backend, llm_cat
+
+
 def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = False) -> tuple[dict, dict]:
-    """Returns (fields, audit). `fields` has exactly OUTPUT_FIELDS; missing values are ""."""
+    """Returns (fields, audit). `fields` has exactly OUTPUT_FIELDS; missing values are "".
+
+    INVOICE_PIPELINE=v2 (default) runs the cited pipeline (pipeline.py: text layer / PP-OCRv6,
+    fine-tuned reader, semantic engine, bounding-box citations). INVOICE_PIPELINE=legacy runs the
+    original Docling/Hunyuan + base-LLM flow below (kept for A/B comparison)."""
+    if os.environ.get("INVOICE_PIPELINE", "v2").lower() != "legacy":
+        from .pipeline import extract_invoice as _v2
+
+        return _v2(path, model=model, force_ocr=force_ocr)
     t0 = time.time()
     pages = load_pages(path, force_ocr=force_ocr)
-    doc_text = pages_to_prompt_text(pages)
-    evidence = pages_to_raw_text(pages) + "\n" + doc_text
     t_ingest = time.time() - t0
+    return extract_from_pages(pages, path, model=model, t_ingest=t_ingest)
+
+
+def extract_from_pages(pages, path: str, model: str = DEFAULT_MODEL,
+                       t_ingest: float = 0.0) -> tuple[dict, dict]:
+    """Reader + validation stages over pre-ingested pages.
+
+    `path` is used for audit/citations (the image must exist locally).
+    Lets GPU-host transcriptions run through the identical Mac reader.
+    """
+    t0 = time.time()
+    doc_text = pages_to_prompt_text(pages)
+    transcription = pages_to_raw_text(pages)
+    evidence = transcription + "\n" + doc_text
 
     raw = call_llm(doc_text, model)
-    t_llm = time.time() - t0 - t_ingest
+    t_llm = time.time() - t0
 
     mode = raw.get("transport_mode", "unknown")
     fields = {k: "" for k in OUTPUT_FIELDS}
@@ -203,8 +301,12 @@ def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = Fal
     if mode != "sea":
         fields["MAWB No"] = _clean(raw.get("mawb_no"))
         fields["HAWB No"] = _clean(raw.get("hawb_no"))
-    fields["Bill of Lading / HBL"] = _clean(raw.get("house_bl_no")) or _clean(raw.get("master_bl_no"))
-    fields["Weight"] = _clean(raw.get("gross_weight")) or _clean(raw.get("chargeable_weight"))
+    house_bl, master_bl = _clean(raw.get("house_bl_no")), _clean(raw.get("master_bl_no"))
+    if house_bl and master_bl:
+        fields["Bill of Lading / HBL"] = f"HBL {house_bl}; MBL {master_bl}"
+    else:
+        fields["Bill of Lading / HBL"] = house_bl or master_bl
+    fields["WEIGHT"] = _clean(raw.get("gross_weight")) or _clean(raw.get("chargeable_weight"))
 
     rates = []
     for r in raw.get("exchange_rates") or []:
@@ -223,13 +325,8 @@ def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = Fal
         amount = item.get("amount_inr")
         if not desc or not isinstance(amount, (int, float)):
             continue
-        llm_cat = item.get("category") if item.get("category") in CHARGE_FIELDS else "Other Charges"
-        lex = lexicon_categories(desc)
-        category, basis = llm_cat, "llm"
-        if llm_cat in FALLBACK_BUCKETS and len(lex) == 1 and lex[0] not in FALLBACK_BUCKETS:
-            category, basis = lex[0], "lexicon-override"
-        elif lex and llm_cat in lex:
-            basis = "llm+lexicon"
+        category, basis, lex, sem_cat, sem_backend, llm_cat = resolve_category(
+            item.get("category"), desc)
         verified = amount_in_text(amount, evidence)
         totals[category] = round(totals.get(category, 0.0) + amount, 2)
         audit_items.append({
@@ -239,6 +336,8 @@ def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = Fal
             "category_basis": basis,
             "llm_category": llm_cat,
             "lexicon_matches": lex,
+            "semantic_category": sem_cat,
+            "semantic_backend": sem_backend,
             "amount_found_in_document": verified,
         })
 
@@ -261,9 +360,13 @@ def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = Fal
                      if i["lexicon_matches"] and i["category"] not in i["lexicon_matches"]]
     if disagreements:
         warnings.append("LLM category differs from synonym lexicon (review): " + "; ".join(disagreements))
+    if house_bl and master_bl:
+        warnings.append(f"House BL {house_bl} and master BL {master_bl} both printed; stored both")
+    evidence_flat = re.sub(r"\s+", "", evidence).lower()
     for key in ("Invoice No", "Vendor Name"):
-        if fields[key] and fields[key].replace(" ", "").lower() not in re.sub(r"\s+", "", evidence).lower():
-            warnings.append(f"{key} '{fields[key]}' not found verbatim in document")
+        val = str(fields[key] or "")
+        if val and val.replace(" ", "").lower() not in evidence_flat:
+            warnings.append(f"{key} '{val}' not found verbatim in document")
 
     audit = {
         "file": path,
@@ -278,8 +381,55 @@ def extract_invoice(path: str, model: str = DEFAULT_MODEL, force_ocr: bool = Fal
         "subtotal_before_tax": subtotal,
         "total_invoice_amount": raw.get("total_invoice_amount"),
         "subtotal_reconciled": reconciled,
-        "needs_review": bool(warnings),
+        # No calibrated field-level confidence model exists yet, so automatic
+        # acceptance is disabled: every invoice routes to REVIEW.
+        "review_route": "REVIEW",
+        "needs_review": True,
         "warnings": warnings,
         "timing_sec": {"ingest": round(t_ingest, 2), "llm": round(t_llm, 2)},
+        "evidence": evidence,
+        "transcription": transcription,
     }
+    verified_sums = {c for c in totals
+                     if all(i["amount_found_in_document"] for i in audit_items if i["category"] == c)}
+    fields, unsupported_fields = ground_fields(fields, evidence, verified_sums)
+    if unsupported_fields:
+        warnings.append("Unsupported values were blanked by evidence guard: " + ", ".join(unsupported_fields))
+        audit["unsupported_fields"] = unsupported_fields
+    # Citation boxes: measured OCR/text-layer hits per value (never guessed).
+    t_cite = time.time()
+    try:
+        ext = os.path.splitext(path)[1].lower()
+        # Ground fields + line items in one pass (shared OCR words / page scans).
+        cite_values = dict(fields)
+        item_keys = []
+        for i, it in enumerate(audit_items):
+            key = f"__item_{i}"
+            item_keys.append(key)
+            cite_values[key] = f"{it['description']} {it['amount_inr']}".strip()
+        if ext == ".pdf":
+            citations: dict[str, list] = {k: [] for k in cite_values}
+            for p in pages:
+                for k, hits in cite_fields(cite_values, path, is_pdf=True,
+                                           page_no=p.number).items():
+                    citations[k].extend(hits)
+            for k in citations:
+                citations[k] = sorted(citations[k], key=lambda h: -h.score)[:2]
+        else:
+            citations = cite_fields(cite_values, path, is_pdf=False)
+        audit["citations"] = {k: [h.__dict__ for h in v]
+                              for k, v in citations.items() if k in fields}
+        audit["line_item_citations"] = [
+            [h.__dict__ for h in citations.get(key, [])] for key in item_keys]
+        cited = sum(1 for k, v in fields.items() if v and citations.get(k))
+        audit["citation_coverage"] = round(cited / max(1, sum(1 for v in fields.values() if v)), 4)
+        audit["reading"] = citations_reading(audit.get("citations") or {})
+        audit["reading_note"] = "Grounded field citations (measured page hits)"
+    except Exception as exc:
+        audit["citations"] = {}
+        audit["line_item_citations"] = []
+        audit["reading"] = []
+        audit["reading_note"] = "Citation pass failed — nothing was read"
+        audit["citation_error"] = f"{type(exc).__name__}: {exc}"[:200]
+    audit["timing_sec"]["cite"] = round(time.time() - t_cite, 2)
     return fields, audit

@@ -1,0 +1,786 @@
+{
+  "Invoice No": {
+    "canonical_name": "Invoice No",
+    "aliases": [
+      "invoice number",
+      "invoice no",
+      "invoice #",
+      "tax invoice no",
+      "document number",
+      "doc no",
+      "bill no"
+    ],
+    "abbreviations": [
+      "INV No",
+      "Inv #"
+    ],
+    "semantic_description": "Issuer's own invoice/document identifier",
+    "expected_value_type": "identifier",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "party invoice number",
+      "job number",
+      "IRN",
+      "ack no"
+    ],
+    "ambiguity_notes": "Never the shipper commercial (party) invoice no, IRN, or job/customer numbers."
+  },
+  "Invoice Date": {
+    "canonical_name": "Invoice Date",
+    "aliases": [
+      "invoice date",
+      "document date",
+      "tax invoice date",
+      "bill date",
+      "date of issue"
+    ],
+    "abbreviations": [
+      "Inv Date"
+    ],
+    "semantic_description": "Date the invoice was issued",
+    "expected_value_type": "date",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "due date",
+      "service date",
+      "ack date",
+      "etd",
+      "eta"
+    ],
+    "ambiguity_notes": "Not due date, ack date, or sailing/flight dates."
+  },
+  "Container Number": {
+    "canonical_name": "Container Number",
+    "aliases": [
+      "container number",
+      "container no",
+      "container #",
+      "container",
+      "cntr no",
+      "cntr"
+    ],
+    "abbreviations": [
+      "Cntr No"
+    ],
+    "semantic_description": "Shipping container identifier (ISO 6346: 4 letters + 7 digits)",
+    "expected_value_type": "identifier",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "container handling charges",
+      "seal number",
+      "seal charges"
+    ],
+    "ambiguity_notes": "Entity field, not a charge. Validate ISO 6346 check digit where possible."
+  },
+  "MAWB No": {
+    "canonical_name": "MAWB No",
+    "aliases": [
+      "master air waybill number",
+      "master airway bill no",
+      "master awb",
+      "mawb number"
+    ],
+    "abbreviations": [
+      "MAWB",
+      "M AWB"
+    ],
+    "semantic_description": "Master air waybill identifier (air shipments only)",
+    "expected_value_type": "identifier",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "airway bill fee",
+      "awb charges",
+      "hawb no"
+    ],
+    "ambiguity_notes": "Entity field. AWB Charges / fees are charge fields, not this."
+  },
+  "HAWB No": {
+    "canonical_name": "HAWB No",
+    "aliases": [
+      "house air waybill number",
+      "house airway bill no",
+      "house awb",
+      "hawb number"
+    ],
+    "abbreviations": [
+      "HAWB",
+      "H AWB"
+    ],
+    "semantic_description": "House air waybill identifier (air shipments only)",
+    "expected_value_type": "identifier",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "airway bill fee",
+      "awb charges",
+      "mawb no"
+    ],
+    "ambiguity_notes": "Entity field. A label like 'H B/L No./HAWB No.' holds the house document; decide B/L vs AWB from transport mode."
+  },
+  "Vendor Name": {
+    "canonical_name": "Vendor Name",
+    "aliases": [
+      "seller",
+      "supplier",
+      "issued by",
+      "service provider",
+      "billed by",
+      "from"
+    ],
+    "abbreviations": [],
+    "semantic_description": "Company issuing this invoice",
+    "expected_value_type": "organization",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "bill to",
+      "consignee",
+      "shipper",
+      "buyer",
+      "notify party",
+      "bank"
+    ],
+    "ambiguity_notes": "The issuer, never the bill-to customer, shipper, consignee, or bank."
+  },
+  "Bill of Lading / HBL": {
+    "canonical_name": "Bill of Lading / HBL",
+    "aliases": [
+      "house bill of lading",
+      "bill of lading number",
+      "bill of lading no",
+      "house bl",
+      "bl no",
+      "mbl",
+      "master bill of lading",
+      "ocean bill of lading"
+    ],
+    "abbreviations": [
+      "HBL",
+      "H B/L",
+      "BL No",
+      "MBL"
+    ],
+    "semantic_description": "House (or master) bill of lading reference (sea shipments)",
+    "expected_value_type": "identifier",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "BL charges",
+      "bl fee",
+      "documentation fee"
+    ],
+    "ambiguity_notes": "Entity field, not BL Charges. If only one BL number exists and it is not clearly master, treat as house."
+  },
+  "WEIGHT": {
+    "canonical_name": "WEIGHT",
+    "aliases": [
+      "gross weight",
+      "chargeable weight",
+      "shipment weight",
+      "total weight",
+      "gross wt",
+      "charg wt"
+    ],
+    "abbreviations": [
+      "Wt",
+      "Kgs",
+      "KG"
+    ],
+    "semantic_description": "Shipment weight as printed, with unit",
+    "expected_value_type": "measurement",
+    "expected_unit": "kg or lb",
+    "currency_allowed": false,
+    "negative_examples": [
+      "charge amount",
+      "vgm fee"
+    ],
+    "ambiguity_notes": "Keep the printed unit. VGM is a weighing fee, not the weight itself."
+  },
+  "Ex Rate": {
+    "canonical_name": "Ex Rate",
+    "aliases": [
+      "exchange rate",
+      "ex rate",
+      "rate of exchange",
+      "fx rate",
+      "conversion rate",
+      "currency rate"
+    ],
+    "abbreviations": [
+      "Ex. Rate",
+      "FX"
+    ],
+    "semantic_description": "Foreign-currency to INR rates printed on the invoice",
+    "expected_value_type": "rate",
+    "expected_unit": "",
+    "currency_allowed": false,
+    "negative_examples": [
+      "amount",
+      "total",
+      "rate per unit (line rate)"
+    ],
+    "ambiguity_notes": "Currency conversion rates only (skip INR->INR). Line-item unit rates are not Ex Rate."
+  },
+  "Sea Freight": {
+    "canonical_name": "Sea Freight",
+    "aliases": [
+      "sea freight",
+      "ocean freight",
+      "seafreight",
+      "sea export freight",
+      "ocean export freight",
+      "sea shipment freight",
+      "basic ocean freight"
+    ],
+    "abbreviations": [
+      "O/F",
+      "OFR"
+    ],
+    "semantic_description": "Ocean/sea freight for carrying cargo port to port (FCL/LCL). Aliases: sea freight, ocean freight, seafreight, sea export freight, freight (on a sea shipment), O/F.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "air freight",
+      "airfreight",
+      "local freight",
+      "freight forwarder name"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Air Freight": {
+    "canonical_name": "Air Freight",
+    "aliases": [
+      "air freight",
+      "airfreight",
+      "air export freight",
+      "air cargo freight",
+      "air shipment freight"
+    ],
+    "abbreviations": [
+      "A/F",
+      "AFR"
+    ],
+    "semantic_description": "Air freight for carrying cargo airport to airport. Aliases: air freight, airfreight, air export freight, freight (on an air shipment), A/F.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "sea freight",
+      "ocean freight",
+      "awb fee",
+      "airway bill charges"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Terminal Handling Charges": {
+    "canonical_name": "Terminal Handling Charges",
+    "aliases": [
+      "terminal handling",
+      "terminal handling fee",
+      "terminal handling charge",
+      "terminal handling origin",
+      "thc origin",
+      "thc destination",
+      "port handling",
+      "terminal charges"
+    ],
+    "abbreviations": [
+      "THC",
+      "OTHC",
+      "DTHC"
+    ],
+    "semantic_description": "Terminal / port handling charges at origin or destination terminal. Aliases: THC, terminal handling, THC origin, OTHC, DTHC, THC port of loading.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "handling charges",
+      "forwarder handling fee",
+      "labour charges"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Airway WayBill Charges": {
+    "canonical_name": "Airway WayBill Charges",
+    "aliases": [
+      "airway bill charges",
+      "air waybill fee",
+      "awb fee",
+      "airway bill fee",
+      "mawb fee",
+      "hawb fee",
+      "air waybill issuance fee"
+    ],
+    "abbreviations": [
+      "AWB fee"
+    ],
+    "semantic_description": "Fee for issuing the air waybill. Aliases: AWB fee, airway bill charges, air waybill fee, MAWB/HAWB fee.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "mawb no",
+      "hawb no",
+      "air waybill number",
+      "air freight"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "BL Charges": {
+    "canonical_name": "BL Charges",
+    "aliases": [
+      "bl fee",
+      "bl fees",
+      "b/l fee",
+      "bill of lading charges",
+      "bill of lading fee",
+      "documentation fee",
+      "doc fee",
+      "swb fee",
+      "seaway bill fee",
+      "bl issuance fee"
+    ],
+    "abbreviations": [
+      "B/L fee",
+      "DOC fee"
+    ],
+    "semantic_description": "Fee for issuing the Bill of Lading / documentation. Aliases: B/L fee, BL fees, bill of lading charges, documentation fee, doc fee, SWB fee.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "bl no",
+      "bill of lading number",
+      "hbl",
+      "house bill of lading"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "ENS Charges": {
+    "canonical_name": "ENS Charges",
+    "aliases": [
+      "ens charge",
+      "ens filing",
+      "entry summary declaration",
+      "ics2 filing",
+      "europe security filing"
+    ],
+    "abbreviations": [
+      "ENS",
+      "ICS2"
+    ],
+    "semantic_description": "EU Entry Summary Declaration (ENS / ICS2) security filing for cargo to Europe. Aliases: ENS charge, ENS filing, ICS2, entry summary declaration. Generic 'security manifest' filing on a Europe-bound shipment also belongs here.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "ams charges",
+      "isf filing",
+      "customs examination"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Seal Charges": {
+    "canonical_name": "Seal Charges",
+    "aliases": [
+      "seal fee",
+      "seal charges",
+      "container seal fee",
+      "e-seal",
+      "bolt seal",
+      "seal affixing charges"
+    ],
+    "abbreviations": [],
+    "semantic_description": "Container seal fee. Aliases: seal fee, seal charges, seal, e-seal, bolt seal.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "seal number",
+      "container number"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "VGM": {
+    "canonical_name": "VGM",
+    "aliases": [
+      "verified gross mass",
+      "vgm fee",
+      "vgm charges",
+      "weighment",
+      "weighment charges",
+      "solas weighing"
+    ],
+    "abbreviations": [
+      "VGM"
+    ],
+    "semantic_description": "Verified Gross Mass (SOLAS container weighing) certificate/fee. Aliases: VGM, verified gross mass, weighment.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "gross weight",
+      "chargeable weight"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "EDI Fees": {
+    "canonical_name": "EDI Fees",
+    "aliases": [
+      "edi fee",
+      "edi charges",
+      "e-manifest filing",
+      "igm filing",
+      "egm filing",
+      "electronic data interchange"
+    ],
+    "abbreviations": [
+      "EDI",
+      "IGM",
+      "EGM"
+    ],
+    "semantic_description": "Electronic data interchange / e-filing fees. Aliases: EDI fee, EDI charges, e-manifest filing, IGM/EGM filing.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "documentation fee",
+      "shipping bill charges"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "DAP Charges": {
+    "canonical_name": "DAP Charges",
+    "aliases": [
+      "dap charges",
+      "destination delivery charges",
+      "delivery to consignee door",
+      "ddp charges",
+      "destination charges"
+    ],
+    "abbreviations": [
+      "DAP",
+      "DDP"
+    ],
+    "semantic_description": "Destination charges billed because of DAP/DDP delivery terms, e.g. 'DAP charges', destination delivery charges, delivery to consignee door at destination.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "transportation",
+      "local freight",
+      "cartage"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "AMS CHARGES": {
+    "canonical_name": "AMS CHARGES",
+    "aliases": [
+      "ams fee",
+      "ams security fee",
+      "ams filing",
+      "automated manifest system",
+      "isf filing",
+      "usa security manifest"
+    ],
+    "abbreviations": [
+      "AMS",
+      "ISF",
+      "ACI"
+    ],
+    "semantic_description": "US Automated Manifest System (AMS) / ISF security filing for cargo to the USA. Aliases: AMS fee, AMS security fee, ISF, ACI (Canada). Generic 'security manifest' filing on a USA-bound shipment belongs here.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "ens charges",
+      "ics2",
+      "customs examination"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Handlign Charges": {
+    "canonical_name": "Handlign Charges",
+    "aliases": [
+      "handling charges",
+      "handling",
+      "cargo handling",
+      "loading and unloading",
+      "labour charges",
+      "handling import",
+      "handling export",
+      "stuffing charges",
+      "destuffing charges",
+      "forwarder handling fee"
+    ],
+    "abbreviations": [],
+    "semantic_description": "Cargo handling other than terminal handling: loading/unloading, labour, handling import/export, stuffing/destuffing, forwarder handling fee.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "terminal handling charges",
+      "thc",
+      "othc",
+      "dthc"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Pre Carriage Haulage": {
+    "canonical_name": "Pre Carriage Haulage",
+    "aliases": [
+      "pre-carriage",
+      "pre carriage",
+      "inland haulage",
+      "inland haulage charges",
+      "carrier haulage origin",
+      "carrier charges origin",
+      "origin haulage",
+      "linehaul to port",
+      "rail haulage to port",
+      "icd haulage to port"
+    ],
+    "abbreviations": [
+      "IHC"
+    ],
+    "semantic_description": "Inland transport from shipper / ICD to the port of loading BEFORE the main voyage. Aliases: pre-carriage, inland haulage charges (IHC), carrier haulage origin, carrier charges origin, origin haulage, linehaul to port, rail/ICD haulage to port.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "transportation",
+      "on-carriage",
+      "local freight"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Transportation": {
+    "canonical_name": "Transportation",
+    "aliases": [
+      "transportation",
+      "transportation charges",
+      "local freight",
+      "cartage",
+      "trucking",
+      "trucking charges",
+      "road freight",
+      "haulage from port to warehouse",
+      "on-carriage",
+      "local transportation"
+    ],
+    "abbreviations": [],
+    "semantic_description": "Local/domestic trucking not tied to a specific leg above: transportation, local freight, cartage, trucking, road freight, haulage from port to warehouse, on-carriage.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "pre-carriage",
+      "sea freight",
+      "air freight"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Warehouse charges Port": {
+    "canonical_name": "Warehouse charges Port",
+    "aliases": [
+      "warehouse charge",
+      "warehouse charges",
+      "cfs charges",
+      "cfs warehouse",
+      "ground rent",
+      "storage charges",
+      "storage",
+      "demurrage at cfs",
+      "icd storage",
+      "air cargo storage"
+    ],
+    "abbreviations": [
+      "CFS",
+      "ICD"
+    ],
+    "semantic_description": "Storage / warehouse / CFS / ICD / air-cargo complex charges at the port. Aliases: warehouse charge (port/CFS/ICD/air cargo), CFS charges, ground rent, storage, demurrage at CFS.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "transportation",
+      "handling charges"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Examination charges": {
+    "canonical_name": "Examination charges",
+    "aliases": [
+      "examination charges",
+      "customs examination",
+      "customs exam",
+      "cargo inspection",
+      "inspection",
+      "inspection charges",
+      "scanning charges"
+    ],
+    "abbreviations": [],
+    "semantic_description": "Customs examination / inspection of cargo. Aliases: examination charges, customs exam, inspection, scanning.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "cargo screening",
+      "x-ray",
+      "customs clearance"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Fuel Charges": {
+    "canonical_name": "Fuel Charges",
+    "aliases": [
+      "fuel surcharge",
+      "fuel charges",
+      "bunker adjustment factor",
+      "emergency bunker surcharge",
+      "low sulphur surcharge",
+      "bunker surcharge"
+    ],
+    "abbreviations": [
+      "FSC",
+      "BAF",
+      "EBS",
+      "LSS"
+    ],
+    "semantic_description": "Fuel / bunker surcharges. Aliases: fuel surcharge, FSC, BAF, bunker adjustment factor, emergency bunker surcharge (EBS), low sulphur surcharge (LSS).",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "sea freight",
+      "air freight"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Cargo Screening": {
+    "canonical_name": "Cargo Screening",
+    "aliases": [
+      "screening charges",
+      "cargo screening charges",
+      "security screening",
+      "x-ray",
+      "xray screening",
+      "air cargo screening"
+    ],
+    "abbreviations": [],
+    "semantic_description": "Security screening / X-ray of (air) cargo. Aliases: screening charges, X-ray, security screening.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "customs examination",
+      "inspection",
+      "customs clearance"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Agency Charges": {
+    "canonical_name": "Agency Charges",
+    "aliases": [
+      "agency charges",
+      "agency fee",
+      "clearing charges",
+      "customs clearance",
+      "customs clearance charges",
+      "cha charges",
+      "service charge of the agent",
+      "clearing agent fee"
+    ],
+    "abbreviations": [
+      "CHA"
+    ],
+    "semantic_description": "Customs broker / clearing agent / agency fee. Aliases: agency, agency charges, clearing charges, customs clearance, CHA charges, service charge of the agent.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "documentation fee",
+      "shipping bill charges",
+      "agency name"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Shipping bill charges": {
+    "canonical_name": "Shipping bill charges",
+    "aliases": [
+      "shipping bill charges",
+      "shipping bill passing",
+      "sb filing",
+      "sb charges",
+      "shipping bill fee",
+      "export shipping bill"
+    ],
+    "abbreviations": [
+      "SB"
+    ],
+    "semantic_description": "Fee for filing/processing the export shipping bill. Aliases: shipping bill charges, shipping bill passing, SB filing, SB charges.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "shipping bill number",
+      "sb number",
+      "documentation fee"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Misc": {
+    "canonical_name": "Misc",
+    "aliases": [
+      "miscellaneous",
+      "miscellaneous charges",
+      "sundry charges",
+      "incidental charges",
+      "misc charges"
+    ],
+    "abbreviations": [
+      "Misc."
+    ],
+    "semantic_description": "Line items explicitly labelled miscellaneous / sundry / incidental.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "other charges"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  },
+  "Other Charges": {
+    "canonical_name": "Other Charges",
+    "aliases": [
+      "other charges",
+      "isps charges",
+      "equipment surcharge",
+      "mandatory user charges",
+      "do fee",
+      "delivery order fee",
+      "t1 document",
+      "service fee",
+      "ssr charges",
+      "carrier surcharges",
+      "wrs charges"
+    ],
+    "abbreviations": [
+      "ISPS",
+      "DO fee"
+    ],
+    "semantic_description": "Any real charge that fits none of the categories above, e.g. ISPS, equipment surcharge, mandatory user charges, DO fee, T1 document, service fee, SSR charges, carrier surcharges.",
+    "expected_value_type": "currency",
+    "expected_unit": "INR (amount excluding GST unless printed otherwise)",
+    "currency_allowed": true,
+    "negative_examples": [
+      "miscellaneous"
+    ],
+    "ambiguity_notes": "Classify by meaning incl. sub-descriptions; generic 'OTHER CHARGES' rows classify by the specific sub-description printed below."
+  }
+}

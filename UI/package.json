@@ -1,0 +1,24 @@
+{
+  "name": "ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "qa": "node scripts/qa.mjs"
+  },
+  "dependencies": {
+    "@fluentui/react-charts": "^9.3.25",
+    "@fluentui/react-components": "^9.74.0",
+    "@fluentui/react-icons": "^2.0.344",
+    "@fluentui/react-nav": "^9.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

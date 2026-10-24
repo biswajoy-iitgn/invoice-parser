@@ -1,0 +1,5 @@
+{
+  "critical_fields": ["Invoice No", "Invoice Date", "Vendor Name", "Container Number", "MAWB No", "HAWB No", "Bill of Lading / HBL", "WEIGHT"],
+  "policy": "Auto-accept requires every critical field to be supported by source evidence with no validator or cross-source disagreement. Thresholds are calibrated on validation only; the test split is never used for tuning.",
+  "auto_accept": {"enabled": false, "reason": "No calibrated per-field confidence model yet; all invoices route to REVIEW."}
+}

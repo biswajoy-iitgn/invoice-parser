@@ -1,0 +1,58 @@
+# Local / single-host production stack: API + Ollama (Qwen3-VL reader).
+#
+# Usage:
+#   docker compose -f docker/docker-compose.yml up -d --build
+#   docker compose -f docker/docker-compose.yml exec ollama ollama pull qwen3-vl:8b-instruct
+#   curl -s localhost:8000/ready
+#
+# The fine-tuned LAYA checkpoint must be mounted at ./volumes/laya-invoice-ft
+# (contains model.safetensors, rl_agent_config.json, tokenizer/). PaddleX
+# official models cache in the paddlex volume after first use.
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: invoice-extractor:1.0
+    ports:
+      - "8000:8000"
+    environment:
+      INVOICE_INGEST: auto
+      INVOICE_MODEL: qwen3-vl:8b-instruct
+      OLLAMA_HOST: http://ollama:11434
+      LAYA_MODEL_DIR: /app/checkpoints/laya-invoice/laya-invoice-ft
+      LOG_LEVEL: INFO
+    volumes:
+      - ./volumes/laya-invoice-ft:/app/checkpoints/laya-invoice/laya-invoice-ft:ro
+      - paddlex-cache:/home/app/.paddlex
+    depends_on:
+      ollama:
+        condition: service_started
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+volumes:
+  ollama-models:
+  paddlex-cache:

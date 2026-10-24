@@ -1,0 +1,28 @@
+{
+  "_about": "Business rules applied on top of the learned models when a charge line is categorised. The first matching rule wins; a correction made in the review screen (a learned alias) always overrides a rule. Patterns are case-insensitive regular expressions tested against the charge description. Edit 'field' to send that kind of line somewhere else, or set 'review' to true to have every such line checked by a person. A rule may carry 'regions' (EU, US, CA, UK, OTHER): it then applies only when the invoice's destination is in one of them.",
+  "rules": [
+    {
+      "name": "delivery-haulage",
+      "all": [
+        "\\b(haulage|trucking|cartage|drayage|transport(ation)?|carriage)\\b",
+        "\\b(deliver(y|ed|ies)?|destination|door|consignee|last[- ]mile|final[- ]mile)\\b"
+      ],
+      "none": [
+        "\\b(origin|pick[- ]?up|pre[- ]?carriage|export|shipper|factory)\\b"
+      ],
+      "field": "DAP Charges",
+      "review": false,
+      "why": "Haulage on the delivery (destination) side is a delivered-at-place cost, not pre-carriage."
+    },
+    {
+      "name": "combined-security-filing",
+      "field": "AMS CHARGES",
+      "review": true,
+      "why": "One line names advance-manifest filings for different regions (EU: ENS / ICS2 and US or Canada: AMS / ISF / ACD); it is booked under AMS and flagged because the invoice itself does not say which one applies.",
+      "all": [
+        "\\b(ENS|ICS ?2)\\b",
+        "\\b(AMS|ISF|ACD|ACI)\\b"
+      ]
+    }
+  ]
+}

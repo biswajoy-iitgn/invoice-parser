@@ -35,6 +35,8 @@ def _sha256(path: str) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
+    from .service import ENGINES, process_file  # lazy: same engine selection as /extract
+
     ap = argparse.ArgumentParser(
         prog="invoice_extractor",
         description="Extract freight/logistics invoice fields to JSON.",
@@ -44,6 +46,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--model", default=DEFAULT_MODEL, help=f"Ollama model for extraction (default: {DEFAULT_MODEL})")
     ap.add_argument("--force-ocr", action="store_true", help="OCR every page even when a text layer exists")
     ap.add_argument("--no-audit", action="store_true", help="do not write the *.audit.json sidecar files")
+    ap.add_argument("--engine", default="", choices=ENGINES,
+                    help="route through the service engine selection (default: cited v2/legacy pipeline)")
     args = ap.parse_args(argv)
 
     files = _collect(args.inputs)
@@ -64,6 +68,13 @@ def main(argv: list[str] | None = None) -> int:
                 fields, audit = cache[digest]
                 audit = {**audit, "file": path, "duplicate_of": cache[digest][1]["file"]}
                 note = "duplicate, reused result"
+            elif args.engine:
+                from pathlib import Path
+
+                body = process_file(Path(path), name, Path(path).read_bytes(), engine=args.engine)
+                fields, audit = body["fields"], body["audit"]
+                cache[digest] = (fields, audit)
+                note = f"{body.get('timing', {}).get('total_s', 0):.1f}s"
             else:
                 fields, audit = extract_invoice(path, model=args.model, force_ocr=args.force_ocr)
                 cache[digest] = (fields, audit)

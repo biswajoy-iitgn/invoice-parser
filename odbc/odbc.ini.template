@@ -1,0 +1,25 @@
+; odbc.ini template for the invoice reporting DSN.
+; Copy to the manager-specific location and fill in HOST/DB/UID (never commit secrets):
+;   macOS Excel (Actual Technologies, iODBC): ~/Library/ODBC/odbc.ini
+;   macOS/Linux CLI/tests (unixODBC + psqlODBC): ~/.odbc.ini or $ODBCINI
+;   Windows: prefer the ODBC Data Source Administrator GUI / PowerShell (see docs/)
+; Driver values are installation-specific; examples below.
+
+[NEON_INVOICE_DB]
+Description = Invoice reporting view (read-only)
+; --- unixODBC + psqlODBC (macOS brew / Linux) ---
+; Driver = /opt/homebrew/lib/psqlodbcw.so
+; Servername = <neon-host>
+; Port = 5432
+; Database = <db>
+; Username = invoice_reporting_ro
+; Password = <prompt-or-vault-never-here>
+; SSLMode = require
+; --- iODBC + Actual Technologies Open Source Databases (Excel for Mac) ---
+; Driver = /Library/ODBC/Actual Open Source Databases.bundle/Contents/MacOS/Actual Open Source Databases
+; Server = <neon-host>
+; Port = 5432
+; Database = <db>
+; Type = PostgreSQL        ; REQUIRED: without it the Actual driver speaks MySQL and hangs
+; UID = invoice_reporting_ro
+; SSLMode = require       ; lowercase: the driver rejects REQUIRE

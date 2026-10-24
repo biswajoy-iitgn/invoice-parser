@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Trail — Invoice Extractor</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230052cc'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/ui/app.css">
+<style>
+/* Audit page only: lookup form, definition grid, verdict colors. */
+#auditForm{display:flex;gap:8px;flex-wrap:wrap;align-items:end}
+#auditForm .field{flex:1;min-width:260px;gap:4px}
+#auditForm label{font-size:0.75rem;color:var(--muted);font-weight:500}
+.kv{display:grid;grid-template-columns:190px 1fr;gap:4px 12px}.kv span:nth-child(odd){color:var(--ink-2)}
+@media (max-width:600px){.kv{grid-template-columns:1fr}.kv span:nth-child(odd){font-weight:600;margin-top:4px}}
+.ok{color:var(--green);font-weight:600}.bad{color:var(--red);font-weight:600}.warn{color:var(--amber)}
+.ok svg,.bad svg{width:12px;height:12px;vertical-align:-1px;margin-right:2px}
+.scroll{overflow-x:auto}#out ul{margin:4px 0 0;padding-left:18px}
+#out table{font-size:0.8125rem}
+.muted{color:var(--muted)}
+/* Table captions repeat their card heading; keep them for assistive tech only. */
+table caption{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+</style></head><body>
+<header class="app-header"><a class="skip" href="#main">Skip to content</a>
+<a class="brand" href="/" aria-label="Invoice Extractor home"><svg class="brand-mark" aria-hidden="true"><use href="/ui/icons.svg#i-logo"/></svg><span class="brand-name">Invoice Extractor</span></a>
+<nav class="app-nav" aria-label="Primary"><a href="/">Extract</a><a href="/database">Database</a><a href="/analytics">Analytics</a><a href="/audit" aria-current="page">Audit trail</a><a href="/settings">Settings</a></nav></header>
+<main class="content narrow" id="main">
+<p class="crumbs" id="crumbs" hidden><a href="/audit">Audit trail</a><span class="sep">/</span><span aria-current="page" id="crumbInv"></span></p>
+<div class="page-head"><h1>Audit trail</h1>
+<p class="page-desc">Where an invoice's values came from, what produced them, and everything done to it since.</p></div>
+<div class="card"><h2>Audit log integrity</h2><div id="chain" class="muted" role="status">Checking…</div></div>
+<div class="card"><h2>Look up an invoice</h2><form id="auditForm"><div class="field"><label for="q">Invoice number</label><input id="q" placeholder="e.g. INV-2024-001" autocomplete="off"></div><div><button class="btn">Show trail</button></div></form><div id="msg" class="muted" style="margin-top:8px" role="status"></div></div>
+<div id="out"></div></main>
+<script>
+const $=s=>document.querySelector(s),el=(t,a={},x)=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e};
+const when=t=>t?String(t).replace("T"," ").slice(0,19):"";
+function table(caption,cols,rows){const w=el("div",{class:"scroll",tabindex:"0",role:"region","aria-label":caption}),t=el("table"),head=el("thead"),h=el("tr"),body=el("tbody");for(const c of cols)h.append(el("th",{scope:"col"},c[0]));head.append(h);t.append(el("caption",{class:"muted"},caption),head);
+  for(const r of rows){const tr=el("tr");for(const c of cols){const td=el("td",c[2]?{class:c[2]}:{});const v=c[1](r);if(v instanceof Node)td.append(v);else td.textContent=v==null?"":v;tr.append(td)}body.append(tr)}t.append(body);w.append(t);return w}
+function retryBtn(label,fn){const b=el("button",{class:"btn secondary",type:"button"},label||"Try again");b.style.marginLeft="8px";b.addEventListener("click",fn);return b}
+function settingsLink(){const a=el("a",{href:"/settings"},"Settings");return a}
+function kv(pairs){const d=el("div",{class:"kv"});for(const[k,v,c]of pairs){d.append(el("span",{},k),el("span",c?{class:c}:{},v==null||v===""?"—":String(v)))}return d}
+function verify(){const b=$("#chain");b.className="muted";b.textContent="Checking…";
+  fetch("/api/audit/verify").then(r=>{if(!r.ok)throw new Error("verify ("+r.status+")");return r.json()}).then(c=>{b.className="";b.replaceChildren();
+  if(c.detail){b.className="muted";b.textContent=c.detail;return}
+  const tip=c.intact?"Each entry carries the digest of the one before it; entries cannot be edited or deleted.":"Digest mismatch — history was changed after it was written.";
+  const v=el("span",{class:c.intact?"ok":"bad",title:tip});v.innerHTML='<svg aria-hidden="true"><use href="/ui/icons.svg#'+(c.intact?"i-check":"i-alert")+'"/></svg> '+(c.intact?"Intact":"Altered");
+  b.append(v,document.createTextNode(c.intact?` — ${c.checked} entries verified.`:` — entry ${c.first_altered_entry} altered. Treat stored values as untrusted until re-verified.`))}).catch(()=>{b.replaceChildren();b.append("Service unreachable. ",retryBtn("Try again",verify))})}
+verify();
+async function show(n){const out=$("#out");out.replaceChildren();const msg=$("#msg");msg.textContent="Loading…";$("#crumbs").hidden=true;
+  let r;try{r=await fetch("/api/audit/invoice/"+encodeURIComponent(n))}
+  catch(e){msg.replaceChildren();msg.append("Couldn't reach the service. Check your connection and ",retryBtn("Try again",()=>show(n)));return}
+  if(!r.ok){msg.replaceChildren();
+    if(r.status===409){msg.append("No database connected. Connect one in ",settingsLink(),", then try again.");return}
+    msg.append(r.status===404?"No invoice with that number in the database.":"That invoice couldn't be loaded. Check the number and ",retryBtn("Try again",()=>show(n)));return}
+  const d=await r.json();
+  if(!d.trails.length){msg.textContent="No history found for that invoice number.";return}
+  if(d.trails[0].audit_log && !d.trails[0].audit_log.length){msg.textContent+=" The invoice exists but has no audit entries yet.";return}
+  msg.textContent=d.matches>1?d.matches+" invoices share this number (different vendors).":"1 invoice found.";
+  $("#crumbs").hidden=false;$("#crumbInv").textContent=n;document.title=n+" — Audit trail — Invoice Extractor";
+  for(const t of d.trails){const i=t.invoice,doc=t.document||{};
+    const c1=el("div",{class:"card"});c1.append(el("h2",{},`Invoice ${i.invoice_number} · ${i.vendor||"no vendor"}`),kv([["Invoice date",i.invoice_date],["Extraction",i.extraction_status],["Review",i.review_status],["First stored",when(i.created_at)],["Last updated",when(i.updated_at)]]));out.append(c1);
+    const c2=el("div",{class:"card"});c2.append(el("h2",{},"Source document"),kv([["File",doc.original_filename],["Pages",doc.page_count],["Size",doc.file_size?doc.file_size.toLocaleString()+" bytes":""],["Received",when(doc.created_at)],["SHA-256 of the file",doc.document_hash,"mono"]]));out.append(c2);
+    const c3=el("div",{class:"card"});c3.append(el("h2",{},`Extraction runs (${t.runs.length})`),table("Extraction runs",[["Started",r=>when(r.started_at)],["Pipeline",r=>r.pipeline_version],["Models and rules",r=>r.model_configuration||"not recorded"],["Status",r=>r.status],["Seconds",r=>r.processing_time_ms!=null?(r.processing_time_ms/1000).toFixed(1):""],["Routed to",r=>r.route||""],
+      ["Warnings",r=>{const w=r.warnings||[];if(!w.length)return"none";const u=el("ul");for(const x of w)u.append(el("li",{},x));return u}],["Current",r=>r.id===i.current_extraction_run_id?"Current":"—"]],t.runs));
+    if(t.models_of_current_run.length){c3.append(el("h2",{style:"margin-top:16px"},"What produced the current values"),table("Models",[["Role",m=>m.role],["Model",m=>m.model],["Version",m=>m.version,"mono"],["File",m=>m.checkpoint_uri],["SHA-256",m=>(m.configuration||{}).sha256||"","mono"]],t.models_of_current_run))}out.append(c3);
+    const c4=el("div",{class:"card"});c4.append(el("h2",{},"Where each value was read"),table("Fields",[["Field",f=>f.canonical_code],["Value",f=>f.value],["Text on the page",f=>f.source_text],["Page",f=>f.source_page||"—"],["Box (x0, y0, x1, y1)",f=>{const b=f.source_bbox;return(b&&b.some(v=>+v))?b.map(v=>(+v).toFixed(0)).join(", "):"—"},"mono"],["Confidence",f=>f.confidence!=null?(+f.confidence).toFixed(2):""],["Routed",f=>f.route]],t.current_run_fields));out.append(c4);
+    const c5=el("div",{class:"card"});c5.append(el("h2",{},`Audit log (${t.audit_log.length})`),table("Audit log",[["#",a=>a.seq],["When",a=>when(a.created_at)],["Action",a=>a.action],["Details",a=>{const n=a.new_json||{};return[n.file,n.route&&("routed "+n.route),n.model_configuration,n.reviewer&&("by "+n.reviewer)].filter(Boolean).join(" · ")}],["Digest",a=>(a.row_hash||"").slice(0,16)+"…","mono"]],t.audit_log));out.append(c5)}const h=out.querySelector("h2");if(h){h.tabIndex=-1;h.focus()}}
+$("#auditForm").addEventListener("submit",e=>{e.preventDefault();const n=$("#q").value.trim();if(n){history.replaceState(null,"","/audit/"+encodeURIComponent(n));show(n)}else{$("#msg").textContent="Enter an invoice number to look up.";$("#q").focus()}});
+const q=new URLSearchParams(location.search).get("invoice")||(location.pathname.indexOf("/audit/")===0?decodeURIComponent(location.pathname.slice(7)):null);if(q){$("#q").value=q;show(q)}
+</script></body></html>

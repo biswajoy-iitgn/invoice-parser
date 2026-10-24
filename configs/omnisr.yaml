@@ -1,0 +1,12 @@
+# SUPERSEDED (licensing): the OmniSR path was removed in favor of SwinIR
+# (see training/train_swinir.py, invoice_extractor/sr_swinir.py). Kept for
+# reference; do not use for new runs.
+seed: 91731
+epochs: 100
+batch_size: 16
+patch_size: 128
+scale: 2
+learning_rate: 0.0002
+checkpoint_every_steps: 100
+max_minutes: 85
+device: auto

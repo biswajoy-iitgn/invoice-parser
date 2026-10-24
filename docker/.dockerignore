@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.git/
+dataset/
+work/
+checkpoints/
+*.gguf
+.DS_Store
+sessions/
+runs/

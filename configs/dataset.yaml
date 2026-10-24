@@ -1,0 +1,11 @@
+# SUPERSEDED: describes the v1 corpus (5000 invoices; 3000/1000/1000 split).
+# Blessed corpus is InvoiceLab v2 (15000 invoices; 12000/1500/1500) — see
+# DATASET.md and scripts/build_invoicelab_v2.py. Kept for reference.
+seed: 91731
+count: 5000
+split: {train: 3000, val: 1000, test: 1000}
+split_policy: template_family_holdout
+generator_reference: ../Table_Parsing/invoice-maker.html
+image_format: PNG
+sr_scales: [2, 3, 4]
+sr_dpi: [50, 72, 96, 120, 150]

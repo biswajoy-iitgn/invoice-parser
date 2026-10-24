@@ -8,7 +8,7 @@ HEADER_FIELDS = [
     "HAWB No",
     "Vendor Name",
     "Bill of Lading / HBL",
-    "Weight",
+    "WEIGHT",
 ]
 
 # Output order follows the order the fields were requested in.
@@ -20,11 +20,11 @@ OUTPUT_FIELDS = [
     "HAWB No",
     "Vendor Name",
     "Bill of Lading / HBL",
-    "Weight",
+    "WEIGHT",
     "Sea Freight",
     "Air Freight",
     "Terminal Handling Charges",
-    "Airway Bill Charges",
+    "Air Waybill Charges",
     "BL Charges",
     "ENS Charges",
     "Seal Charges",
@@ -32,18 +32,18 @@ OUTPUT_FIELDS = [
     "EDI Fees",
     "DAP Charges",
     "Other Charges",
-    "AMS Charges",
+    "AMS CHARGES",
     "Handling Charges",
     "Pre Carriage Haulage",
     "Ex Rate",
     "Misc",
     "Transportation",
-    "Warehouse Charges Port",
-    "Examination Charges",
+    "Warehouse charges Port",
+    "Examination charges",
     "Fuel Charges",
     "Cargo Screening",
     "Agency Charges",
-    "Shipping Bill Charges",
+    "Shipping bill charges",
 ]
 
 # Each charge category: meaning (fed to the LLM) and high-precision regex synonyms
@@ -53,7 +53,7 @@ CHARGE_CATEGORIES = {
     "Sea Freight": {
         "meaning": "Ocean/sea freight for carrying cargo port to port (FCL/LCL). "
         "Aliases: sea freight, ocean freight, seafreight, sea export freight, freight (on a sea shipment), O/F.",
-        "patterns": [r"sea\s*-?\s*freight", r"ocean\s+freight", r"sea\s+export\s+freight", r"\bO/F\b"],
+        "patterns": [r"sea\s*-?\s*freight", r"seafreight", r"ocean\s+freight", r"sea\s+export\s+freight", r"\bO/F\b"],
     },
     "Air Freight": {
         "meaning": "Air freight for carrying cargo airport to airport. "
@@ -65,7 +65,7 @@ CHARGE_CATEGORIES = {
         "Aliases: THC, terminal handling, THC origin, OTHC, DTHC, THC port of loading.",
         "patterns": [r"\bO?D?THC\b", r"terminal\s+handling"],
     },
-    "Airway Bill Charges": {
+    "Air Waybill Charges": {
         "meaning": "Fee for issuing the air waybill. Aliases: AWB fee, airway bill charges, air waybill fee, MAWB/HAWB fee.",
         "patterns": [r"\bAWB\s+(fee|charge)", r"air\s*way\s*bill", r"airwaybill", r"\b[MH]AWB\s+(fee|charge)"],
     },
@@ -98,7 +98,7 @@ CHARGE_CATEGORIES = {
         "destination delivery charges, delivery to consignee door at destination.",
         "patterns": [r"\bDAP\b", r"\bDDP\b", r"destination\s+delivery", r"\bdelivery\s+charges?\b"],
     },
-    "AMS Charges": {
+    "AMS CHARGES": {
         "meaning": "US Automated Manifest System (AMS) / ISF security filing for cargo to the USA. "
         "Aliases: AMS fee, AMS security fee, ISF, ACI (Canada). Generic 'security manifest' filing on a USA-bound shipment belongs here.",
         "patterns": [r"\bAMS\b", r"\bISF\b", r"\bACI\b"],
@@ -110,21 +110,24 @@ CHARGE_CATEGORIES = {
     },
     "Pre Carriage Haulage": {
         "meaning": "Inland transport from shipper / ICD to the port of loading BEFORE the main voyage. "
-        "Aliases: pre-carriage, inland haulage charges (IHC), carrier haulage origin, carrier charges origin, "
-        "origin haulage, linehaul to port, rail/ICD haulage to port.",
-        "patterns": [r"pre[\s-]*carriage", r"inland\s+haulage", r"\bIHC\b", r"origin\s+haulage", r"carrier\s+charges?\s+origin"],
+        "Aliases: pre-carriage, inland haulage charges (IHC), carrier haulage origin, "
+        "origin haulage, linehaul to port, rail/ICD haulage to port, delivery haulage "
+        "(DACHSER 'Haulage (delivery)'). Bare 'carrier charges origin' without a "
+        "haulage/pre-carriage cue stays Other Charges.",
+        "patterns": [r"pre[\s-]*carriage", r"inland\s+haulage", r"\bIHC\b", r"origin\s+haulage",
+                     r"haulage\s*\(delivery\)"],
     },
     "Transportation": {
         "meaning": "Local/domestic trucking not tied to a specific leg above: transportation, local freight, "
         "cartage, trucking, road freight, haulage from port to warehouse, on-carriage.",
         "patterns": [r"transportation", r"local\s+freigh?t", r"cartage", r"trucking", r"on[\s-]*carriage"],
     },
-    "Warehouse Charges Port": {
+    "Warehouse charges Port": {
         "meaning": "Storage / warehouse / CFS / ICD / air-cargo complex charges at the port. "
         "Aliases: warehouse charge (port/CFS/ICD/air cargo), CFS charges, ground rent, storage, demurrage at CFS.",
         "patterns": [r"warehous\w*\s+(charges?|fees?|rent)", r"\bCFS\b", r"ground\s+rent", r"storage"],
     },
-    "Examination Charges": {
+    "Examination charges": {
         "meaning": "Customs examination / inspection of cargo. Aliases: examination charges, customs exam, inspection, scanning.",
         "patterns": [r"examination", r"\bexam\b", r"inspection"],
     },
@@ -142,7 +145,7 @@ CHARGE_CATEGORIES = {
         "customs clearance, CHA charges, service charge of the agent.",
         "patterns": [r"\bagency\b", r"clearing\s+charges?", r"customs\s+clearance", r"\bCHA\b"],
     },
-    "Shipping Bill Charges": {
+    "Shipping bill charges": {
         "meaning": "Fee for filing/processing the export shipping bill. Aliases: shipping bill charges, "
         "shipping bill passing, SB filing, SB charges.",
         "patterns": [r"shipping\s+bill", r"\bS/?B\s+(filing|charges?|fee)"],
