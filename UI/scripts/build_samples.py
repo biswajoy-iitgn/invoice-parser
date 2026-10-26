@@ -1,16 +1,21 @@
 """Render the repo's sample invoices for the UI demo and locate each chosen value's box.
 
 Values are read by a person from each PDF (not from eval gold); this script only finds where
-they are printed. Output: public/samples/*.jpg and src/samples.json.
+they are printed. Personal and financial data are redacted before rendering, and the phone photos
+are made from the redacted pages. Output: public/samples/*.jpg and src/samples.json.
 Run: ../.venv/bin/python scripts/build_samples.py
 """
-import json, os, fitz
+import io, json, os, random, re
+
+import fitz
+from PIL import Image, ImageChops, ImageFilter, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, '..', 'sample invoices')
-SCANS = os.path.join(ROOT, '..', 'eval', 'real_invoices', 'scanned')
 OUT_IMG = os.path.join(ROOT, 'public', 'samples')
-DPI = 110
+DPI = 160  # digital pages: value crops in Review scale to 2.2x without blurring
+SCAN_DPI = 110  # phone photos carry no boxes, so no crops
+THUMB_DPI = 48  # first page about 400 px wide: sharp in 190 px cards on 2x screens, about a tenth of the page's weight
 
 # key: (printed text, normalized value, page, occurrence, confidence, note)
 DOCS = {
@@ -141,38 +146,158 @@ DOCS = {
 }
 
 
-def render(doc, slug, prefix):
+# ---- privacy: what ships in the app must not carry personal or financial data ----
+# Redacted for real (PyMuPDF removes the text, not just covers it): people's names and signature stamps, email addresses, phone numbers,
+# bank account numbers, IFSC, SWIFT and MICR codes. Kept: company names, GSTINs and the invoice values the app extracts.
+EMAIL = re.compile(r'[\w.+-]+@[\w-]+\.[\w.-]+')
+PERSON = re.compile(r'\b(?:Mr|Mrs|Ms|Miss|Dr)\.?\s+[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+)?')
+SPLIT_PHONE = re.compile(r'\+91(?:[ -]\d{2,5}){2,4}')
+PHONE_LABEL = re.compile(r'(?i)\b(?:phone|tel|telephone|mob|mobile|fax|ph|contact)\b')
+BANK_LABEL = re.compile(r'(?i)(?:\ba/?c\b|acc\.?\s*no|account|ifsc|swift|micr)')
+IFSC = re.compile(r'[A-Z]{4}0[A-Z0-9]{6}')
+SWIFT = re.compile(r'^[A-Z]{4}IN[A-Z0-9]{2}(?:[A-Z0-9]{3})?$')  # Indian banks' SWIFT codes
+REDACT_FILL = (0.86, 0.87, 0.88)
+
+
+def private_rects(page):
+    """Rects of personal and financial data on a page, with what they are."""
+    found = []
+    words = page.get_text('words')
+    lines = {}
+    for w in words:
+        lines.setdefault((w[5], w[6]), []).append(w)
+    for ws in lines.values():
+        text = ' '.join(w[4] for w in ws)
+        for w in ws:
+            token = w[4].strip(',;:()')
+            digits = sum(ch.isdigit() for ch in token)
+            if EMAIL.search(token):
+                found.append((fitz.Rect(w[:4]), 'email', token))
+            elif token.startswith('+91') and digits >= 10:
+                found.append((fitz.Rect(w[:4]), 'phone', token))
+            elif PHONE_LABEL.search(text) and digits >= 8:
+                found.append((fitz.Rect(w[:4]), 'phone', token))
+            elif BANK_LABEL.search(text) and (digits >= 8 or IFSC.search(token) or (re.search(r'(?i)swift', text) and SWIFT.match(token))):
+                found.append((fitz.Rect(w[:4]), 'bank', token))
+    text = page.get_text()
+    for m in PERSON.finditer(text):
+        for r in page.search_for(m.group(0)):
+            found.append((r, 'name', m.group(0)))
+    for x0, y0, x1, y1, block, *_ in page.get_text('blocks'):  # signature stamps carry the signer's name and time
+        if re.search(r'(?i)signed by', block):
+            found.append((fitz.Rect(x0, y0, x1, y1), 'signer', ' '.join(block.split())))
+    for m in SPLIT_PHONE.finditer(text):  # numbers printed as separate words: +91 22 4232 8200
+        for r in page.search_for(m.group(0)):
+            found.append((r, 'phone', m.group(0)))
+    return found
+
+
+def redact(doc, name, protected):
+    """Apply redactions, never over a box the app shows as an extracted value."""
+    for i, page in enumerate(doc):
+        for w in list(page.widgets()):  # signature fields draw the signer's name from their own appearance
+            if w.field_type_string == 'Signature':
+                page.add_redact_annot(w.rect, fill=REDACT_FILL)
+                page.delete_widget(w)
+                print(f'  {name} p{i + 1}: signature field')
+        keep = [fitz.Rect(b) for b in protected.get(i, [])]
+        for rect, kind, text in private_rects(page):
+            if any(rect.intersects(k) for k in keep):
+                print(f'  kept {kind} on {name} p{i + 1}: it is an extracted value')
+                continue
+            page.add_redact_annot(rect + (-1, -1, 1, 1), fill=REDACT_FILL)
+            print(f'  {name} p{i + 1}: {kind} {text[:24]}')
+        page.apply_redactions(images=fitz.PDF_REDACT_IMAGE_NONE)
+
+
+def photo(png, seed):
+    """A phone photo made from the redacted page: paper tint, slight tilt and perspective, uneven light, a desk."""
+    rnd = random.Random(seed)
+    page = Image.open(io.BytesIO(png)).convert('RGB')
+    w, h = page.size
+    paper = ImageChops.multiply(page, Image.new('RGB', page.size, (246, 241, 230)))
+    shade = Image.linear_gradient('L').rotate(rnd.choice([30, 45, 60]), expand=False).resize(page.size)
+    paper = Image.composite(paper, ImageChops.multiply(paper, Image.new('RGB', page.size, (214, 206, 192))), ImageOps.invert(shade))
+    W, H = int(w * 1.08), int(h * 1.035)
+    d = lambda: rnd.uniform(0.012, 0.03)
+    quad = [(-d() * w, -d() * h), (w * (1 + d()), -d() * h), (w * (1 + d() * 0.5), h * (1 + d())), (-d() * w * 0.5, h * (1 + d()))]
+    coeffs = _perspective([(0, 0), (w, 0), (w, h), (0, h)], quad)
+    warped = paper.transform((w, h), Image.PERSPECTIVE, coeffs, Image.BICUBIC, fillcolor=(0, 0, 0))
+    mask = Image.new('L', (w, h), 255).transform((w, h), Image.PERSPECTIVE, coeffs, Image.BICUBIC, fillcolor=0)
+    desk = Image.new('RGB', (W, H), (88, 82, 74))
+    desk.paste(warped.rotate(rnd.uniform(-1.4, 1.4), Image.BICUBIC, fillcolor=(88, 82, 74)), ((W - w) // 2, (H - h) // 2),
+               mask.rotate(0))
+    out = desk.filter(ImageFilter.GaussianBlur(0.6))
+    buf = io.BytesIO()
+    out.save(buf, 'JPEG', quality=72)
+    return buf.getvalue(), out.size
+
+
+def _perspective(src, dst):
+    """Coefficients for PIL's PERSPECTIVE transform mapping dst corners back to src."""
+    import numpy as np
+    a = []
+    for (x, y), (u, v) in zip(src, dst):
+        a.append([u, v, 1, 0, 0, 0, -x * u, -x * v])
+        a.append([0, 0, 0, u, v, 1, -y * u, -y * v])
+    b = [c for xy in src for c in xy]
+    return list(np.linalg.solve(np.array(a, float), np.array(b, float)))
+
+
+def render(doc, slug, prefix, dpi=DPI):
     pages = []
     for i, page in enumerate(doc):
         name = f'{prefix}{slug}-{i + 1}.jpg'
-        page.get_pixmap(dpi=DPI).save(os.path.join(OUT_IMG, name), jpg_quality=82)
+        page.get_pixmap(dpi=dpi).save(os.path.join(OUT_IMG, name), jpg_quality=82)
         pages.append({'src': f'/samples/{name}', 'w': round(page.rect.width, 2), 'h': round(page.rect.height, 2)})
+        if i == 0:
+            thumb = f'{prefix}{slug}-thumb.jpg'
+            page.get_pixmap(dpi=THUMB_DPI).save(os.path.join(OUT_IMG, thumb), jpg_quality=80)
+            pages[0]['thumb'] = f'/samples/{thumb}'
+    return pages
+
+
+def render_photos(doc, slug):
+    pages = []
+    for i, page in enumerate(doc):
+        jpg, (pw, ph) = photo(page.get_pixmap(dpi=SCAN_DPI).tobytes('png'), f'{slug}-{i}')
+        name = f'phone-{slug}-{i + 1}.jpg'
+        open(os.path.join(OUT_IMG, name), 'wb').write(jpg)
+        pages.append({'src': f'/samples/{name}', 'w': round(page.rect.width * 1.08, 2), 'h': round(page.rect.height * 1.035, 2)})
+        if i == 0:
+            thumb = Image.open(io.BytesIO(jpg)).resize((round(pw * THUMB_DPI / SCAN_DPI), round(ph * THUMB_DPI / SCAN_DPI)), Image.LANCZOS)
+            tname = f'phone-{slug}-thumb.jpg'
+            thumb.save(os.path.join(OUT_IMG, tname), 'JPEG', quality=80)
+            pages[0]['thumb'] = f'/samples/{tname}'
     return pages
 
 
 def main():
     os.makedirs(OUT_IMG, exist_ok=True)
+    for f in os.listdir(OUT_IMG):
+        if f.endswith('.jpg'):
+            os.remove(os.path.join(OUT_IMG, f))
     out = []
     for name, (vendor, fields) in DOCS.items():
         slug = name.lower().replace(' ', '-')
         doc = fitz.open(os.path.join(SRC, f'{name}.pdf'))
-        rec = {'id': f'doc-{slug}', 'name': f'{name}.pdf', 'vendor': vendor, 'kind': 'vector',
-               'pages': render(doc, slug, ''), 'fields': []}
+        rec = {'id': f'doc-{slug}', 'name': f'{name}.pdf', 'vendor': vendor, 'kind': 'vector', 'fields': []}
+        protected = {}
         for key, spec in fields.items():
             text, value, page, occ, conf, *note = spec
             hits = doc[page].search_for(text)
             assert len(hits) > occ, f'{name}/{key}: "{text}" found {len(hits)}x on page {page + 1}'
             r = hits[occ]
+            protected.setdefault(page, []).append(r)
             rec['fields'].append({'key': key, 'value': value, 'conf': conf, 'page': page,
                                   'box': [round(r.x0, 1), round(r.y0, 1), round(r.x1, 1), round(r.y1, 1)],
                                   **({'note': note[0]} if note else {})})
+        redact(doc, name, protected)
+        rec['pages'] = render(doc, slug, '')
         out.append(rec)
-        # Phone photo of the same invoice: real pixels, no text layer, so no boxes in the demo.
-        scan = os.path.join(SCANS, f"REAL_{name.replace(' ', '_')}__phone.pdf")
-        if os.path.exists(scan):
-            sd = fitz.open(scan)
-            out.append({'id': f'scan-{slug}', 'name': f"{name.replace(' ', '_')}_phone.jpg", 'vendor': vendor, 'kind': 'scan',
-                        'pages': render(sd, slug, 'phone-'), 'twin': rec['id']})
+        # The phone photo is made from the redacted page, so no real photo (or held-out eval data) ships.
+        out.append({'id': f'scan-{slug}', 'name': f"{name.replace(' ', '_')}_phone.jpg", 'vendor': vendor, 'kind': 'scan',
+                    'pages': render_photos(doc, slug), 'twin': rec['id']})
     json.dump(out, open(os.path.join(ROOT, 'src', 'samples.json'), 'w'), indent=1)
     print(len(out), 'documents')
 

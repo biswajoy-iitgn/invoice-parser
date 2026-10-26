@@ -4,18 +4,6 @@
   "name": "DACHSER.pdf",
   "vendor": "DACHSER India Pvt. Ltd.",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/dachser-1.jpg",
-    "w": 595.0,
-    "h": 842.0
-   },
-   {
-    "src": "/samples/dachser-2.jpg",
-    "w": 595.0,
-    "h": 842.0
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -263,6 +251,19 @@
     ],
     "note": "Matches amount in words"
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/dachser-1.jpg",
+    "w": 595.0,
+    "h": 842.0,
+    "thumb": "/samples/dachser-thumb.jpg"
+   },
+   {
+    "src": "/samples/dachser-2.jpg",
+    "w": 595.0,
+    "h": 842.0
+   }
   ]
  },
  {
@@ -273,13 +274,14 @@
   "pages": [
    {
     "src": "/samples/phone-dachser-1.jpg",
-    "w": 643.68,
-    "h": 871.2
+    "w": 642.6,
+    "h": 871.47,
+    "thumb": "/samples/phone-dachser-thumb.jpg"
    },
    {
     "src": "/samples/phone-dachser-2.jpg",
-    "w": 633.12,
-    "h": 868.32
+    "w": 642.6,
+    "h": 871.47
    }
   ],
   "twin": "doc-dachser"
@@ -289,18 +291,6 @@
   "name": "DSV.pdf",
   "vendor": "DSV Air & Sea Pvt. Ltd.",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/dsv-1.jpg",
-    "w": 595.28,
-    "h": 841.89
-   },
-   {
-    "src": "/samples/dsv-2.jpg",
-    "w": 595.28,
-    "h": 841.89
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -521,6 +511,19 @@
      617.0
     ]
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/dsv-1.jpg",
+    "w": 595.28,
+    "h": 841.89,
+    "thumb": "/samples/dsv-thumb.jpg"
+   },
+   {
+    "src": "/samples/dsv-2.jpg",
+    "w": 595.28,
+    "h": 841.89
+   }
   ]
  },
  {
@@ -531,13 +534,14 @@
   "pages": [
    {
     "src": "/samples/phone-dsv-1.jpg",
-    "w": 635.04,
-    "h": 891.36
+    "w": 642.9,
+    "h": 871.36,
+    "thumb": "/samples/phone-dsv-thumb.jpg"
    },
    {
     "src": "/samples/phone-dsv-2.jpg",
-    "w": 622.08,
-    "h": 879.84
+    "w": 642.9,
+    "h": 871.36
    }
   ],
   "twin": "doc-dsv"
@@ -547,18 +551,6 @@
   "name": "EPT EXIM.pdf",
   "vendor": "EPT Exim Services Pvt. Ltd.",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/ept-exim-1.jpg",
-    "w": 595.42,
-    "h": 841.69
-   },
-   {
-    "src": "/samples/ept-exim-2.jpg",
-    "w": 595.42,
-    "h": 841.69
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -705,6 +697,19 @@
      512.8
     ]
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/ept-exim-1.jpg",
+    "w": 595.42,
+    "h": 841.69,
+    "thumb": "/samples/ept-exim-thumb.jpg"
+   },
+   {
+    "src": "/samples/ept-exim-2.jpg",
+    "w": 595.42,
+    "h": 841.69
+   }
   ]
  },
  {
@@ -715,13 +720,14 @@
   "pages": [
    {
     "src": "/samples/phone-ept-exim-1.jpg",
-    "w": 623.52,
-    "h": 887.04
+    "w": 643.05,
+    "h": 871.15,
+    "thumb": "/samples/phone-ept-exim-thumb.jpg"
    },
    {
     "src": "/samples/phone-ept-exim-2.jpg",
-    "w": 645.6,
-    "h": 875.04
+    "w": 643.05,
+    "h": 871.15
    }
   ],
   "twin": "doc-ept-exim"
@@ -731,18 +737,6 @@
   "name": "EPT GLOBAL.pdf",
   "vendor": "EPT Global Logistics Pvt. Ltd.",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/ept-global-1.jpg",
-    "w": 595.42,
-    "h": 841.69
-   },
-   {
-    "src": "/samples/ept-global-2.jpg",
-    "w": 595.42,
-    "h": 841.69
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -964,6 +958,19 @@
      575.6
     ]
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/ept-global-1.jpg",
+    "w": 595.42,
+    "h": 841.69,
+    "thumb": "/samples/ept-global-thumb.jpg"
+   },
+   {
+    "src": "/samples/ept-global-2.jpg",
+    "w": 595.42,
+    "h": 841.69
+   }
   ]
  },
  {
@@ -974,13 +981,14 @@
   "pages": [
    {
     "src": "/samples/phone-ept-global-1.jpg",
-    "w": 618.24,
-    "h": 884.16
+    "w": 643.05,
+    "h": 871.15,
+    "thumb": "/samples/phone-ept-global-thumb.jpg"
    },
    {
     "src": "/samples/phone-ept-global-2.jpg",
-    "w": 648.0,
-    "h": 884.64
+    "w": 643.05,
+    "h": 871.15
    }
   ],
   "twin": "doc-ept-global"
@@ -990,13 +998,6 @@
   "name": "JEENA.pdf",
   "vendor": "Jeena & Company",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/jeena-1.jpg",
-    "w": 595.0,
-    "h": 841.0
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -1158,6 +1159,14 @@
      427.7
     ]
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/jeena-1.jpg",
+    "w": 595.0,
+    "h": 841.0,
+    "thumb": "/samples/jeena-thumb.jpg"
+   }
   ]
  },
  {
@@ -1168,8 +1177,9 @@
   "pages": [
    {
     "src": "/samples/phone-jeena-1.jpg",
-    "w": 644.16,
-    "h": 861.12
+    "w": 642.6,
+    "h": 870.43,
+    "thumb": "/samples/phone-jeena-thumb.jpg"
    }
   ],
   "twin": "doc-jeena"
@@ -1179,33 +1189,6 @@
   "name": "KUEHNE NAGEL.pdf",
   "vendor": "Kuehne + Nagel Pvt. Ltd.",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/kuehne-nagel-1.jpg",
-    "w": 595.0,
-    "h": 842.0
-   },
-   {
-    "src": "/samples/kuehne-nagel-2.jpg",
-    "w": 595.2,
-    "h": 841.92
-   },
-   {
-    "src": "/samples/kuehne-nagel-3.jpg",
-    "w": 595.2,
-    "h": 841.92
-   },
-   {
-    "src": "/samples/kuehne-nagel-4.jpg",
-    "w": 595.2,
-    "h": 841.92
-   },
-   {
-    "src": "/samples/kuehne-nagel-5.jpg",
-    "w": 595.2,
-    "h": 841.92
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -1416,6 +1399,34 @@
      397.3
     ]
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/kuehne-nagel-1.jpg",
+    "w": 595.0,
+    "h": 842.0,
+    "thumb": "/samples/kuehne-nagel-thumb.jpg"
+   },
+   {
+    "src": "/samples/kuehne-nagel-2.jpg",
+    "w": 595.2,
+    "h": 841.92
+   },
+   {
+    "src": "/samples/kuehne-nagel-3.jpg",
+    "w": 595.2,
+    "h": 841.92
+   },
+   {
+    "src": "/samples/kuehne-nagel-4.jpg",
+    "w": 595.2,
+    "h": 841.92
+   },
+   {
+    "src": "/samples/kuehne-nagel-5.jpg",
+    "w": 595.2,
+    "h": 841.92
+   }
   ]
  },
  {
@@ -1426,28 +1437,29 @@
   "pages": [
    {
     "src": "/samples/phone-kuehne-nagel-1.jpg",
-    "w": 623.04,
-    "h": 866.4
+    "w": 642.6,
+    "h": 871.47,
+    "thumb": "/samples/phone-kuehne-nagel-thumb.jpg"
    },
    {
     "src": "/samples/phone-kuehne-nagel-2.jpg",
-    "w": 620.64,
-    "h": 879.36
+    "w": 642.82,
+    "h": 871.39
    },
    {
     "src": "/samples/phone-kuehne-nagel-3.jpg",
-    "w": 637.92,
-    "h": 877.92
+    "w": 642.82,
+    "h": 871.39
    },
    {
     "src": "/samples/phone-kuehne-nagel-4.jpg",
-    "w": 631.2,
-    "h": 879.36
+    "w": 642.82,
+    "h": 871.39
    },
    {
     "src": "/samples/phone-kuehne-nagel-5.jpg",
-    "w": 632.16,
-    "h": 880.32
+    "w": 642.82,
+    "h": 871.39
    }
   ],
   "twin": "doc-kuehne-nagel"
@@ -1457,18 +1469,6 @@
   "name": "MEGALO.pdf",
   "vendor": "Megalo Worldwide Logistics Pvt. Ltd.",
   "kind": "vector",
-  "pages": [
-   {
-    "src": "/samples/megalo-1.jpg",
-    "w": 595.28,
-    "h": 841.89
-   },
-   {
-    "src": "/samples/megalo-2.jpg",
-    "w": 595.28,
-    "h": 841.89
-   }
-  ],
   "fields": [
    {
     "key": "invoice_no",
@@ -1616,6 +1616,19 @@
     ],
     "note": "Net payable after 0.13 round-off"
    }
+  ],
+  "pages": [
+   {
+    "src": "/samples/megalo-1.jpg",
+    "w": 595.28,
+    "h": 841.89,
+    "thumb": "/samples/megalo-thumb.jpg"
+   },
+   {
+    "src": "/samples/megalo-2.jpg",
+    "w": 595.28,
+    "h": 841.89
+   }
   ]
  },
  {
@@ -1626,13 +1639,14 @@
   "pages": [
    {
     "src": "/samples/phone-megalo-1.jpg",
-    "w": 639.84,
-    "h": 887.04
+    "w": 642.9,
+    "h": 871.36,
+    "thumb": "/samples/phone-megalo-thumb.jpg"
    },
    {
     "src": "/samples/phone-megalo-2.jpg",
-    "w": 634.08,
-    "h": 878.4
+    "w": 642.9,
+    "h": 871.36
    }
   ],
   "twin": "doc-megalo"

@@ -11,7 +11,7 @@ const warnings = [];
 const fail = (area, msg) => failures.push(`${area}: ${msg}`);
 const warn = (area, msg) => warnings.push(`${area}: ${msg}`);
 const walk = (d) => readdirSync(d).flatMap((f) => (statSync(join(d, f)).isDirectory() ? walk(join(d, f)) : [join(d, f)]));
-const files = walk(SRC).filter((f) => /\.(jsx?|css)$/.test(f));
+const files = walk(SRC).filter((f) => /\.(tsx?|css)$/.test(f));
 const read = (f) => readFileSync(f, 'utf8');
 const rel = (f) => f.replace(ROOT + '/', '');
 
@@ -35,7 +35,7 @@ function gradients(s) {
 }
 
 // ---------- 1. Harsha palette: every colour in the code is a Harsha ramp step, white, black, or Rule Black ----------
-const theme = read(join(SRC, 'theme.js'));
+const theme = read(join(SRC, 'theme.ts'));
 const PALETTE = new Set([...theme.matchAll(/#[0-9A-Fa-f]{6}\b/g)].map((m) => m[0].toUpperCase()));
 ['#FFFFFF', '#000000', '#231F20', '#0066B3', '#303F99', '#DB2128', '#00AB4E', '#A7A9AC',
   '#00437A', '#6AA9EB', '#90C6FF', '#F1F8FF', '#005121', '#006B2E', '#9FF2B0', '#EAFCED', '#171D6C', '#AEBFF6', '#EBEDEF', '#CF081C', '#F0F3F7',
@@ -107,11 +107,11 @@ const PROPER = new Set(('Harsha Engineers Excel CSV PDF PDFs AI API APIs OCR ERP
   'Server MySQL Oracle GSTIN PAN IFSC ISO CGST SGST ENS AMS MAWB DPI JSON Gujarati Hindi English German Chinese DACHSER DSV EPT EXIM GLOBAL JEENA KUEHNE NAGEL MEGALO ' +
   'Kuehne Nagel Megalo Jeena Exim Global Logistics Pvt Ltd India Air Sea Company Priya Shah Rahul Patel Meera Joshi Finance DB ERP Analytics Precision Qwen3 LoRA ' +
   'LLM PII USD INR R-1042 R-1041 Sysadmin Document Extraction Rows Columns ISPS PP-OCRv5 SwinIR PyMuPDF LAYA Docling MinerU Tesseract SageMaker Bedrock ' +
-  'Home Review Documents Insights Settings Databases Profiles Automations People Updates Navigation ' +
+  'Home Extract Review Documents Insights Settings Databases Profiles Automations People Updates Navigation ' +
   'Anthropic OpenAI-Compatible REST Textract Vision Read Intelligence ONNX Runtime PaddlePaddle PyTorch Transformers Ollama vLLM').split(' '));
 const SMALL = new Set('a an the and or of to in on for with by at as is it be not no from per vs'.split(' '));
 const strings = [];
-for (const f of files.filter((x) => x.endsWith('.jsx'))) {
+for (const f of files.filter((x) => x.endsWith('.tsx'))) {
   const s = read(f);
   for (const m of s.matchAll(/>\s*([A-Za-z][^<>{}\n]{2,}?)\s*</g)) strings.push([f, m[1].trim()]);
   for (const m of s.matchAll(/\b(label|placeholder|title|hint|content|aria-label|secondaryContent|body|header|description|validationMessage)="([^"]{3,})"/g)) strings.push([f, m[2]]);
@@ -134,10 +134,11 @@ const PICT = join(ROOT, 'public', 'pictograms');
 if (!existsSync(join(PICT, 'LICENSE.md'))) fail('assets', 'public/pictograms/LICENSE.md missing');
 for (const f of files) {
   const s = read(f);
-  for (const m of s.matchAll(/(?:picto|name)=["']([a-z_]+)["']|picto: ["']([a-z_]+)["']|\/pictograms\/([a-z_]+)\.png|(?:PICTOS?|NOTE_PICTO)\s*=\s*\{([^}]*)\}/g)) {
+  // Picture references only: <Picto name>, picto= props and keys, file paths, and the PICTO maps (not form field names)
+  for (const m of s.matchAll(/(?:<Picto name|picto)=["']([a-z_]+)["']|picto: ["']([a-z_]+)["']|\/pictograms\/([a-z_]+)\.png|(?:PICTOS?|NOTE_PICTO)\s*=\s*\{([^}]*)\}/g)) {
     const names = m[4] ? [...m[4].matchAll(/'([a-z_]+)'/g)].map((x) => x[1]) : [m[1] || m[2] || m[3]];
     for (const n of names) {
-      if (!n || /^(role|lang|apikey|bearer|oauth|iam|none)$/.test(n)) continue; // radio group names, not pictures
+      if (!n) continue;
       if (!existsSync(join(PICT, `${n}.png`))) fail('assets', `${rel(f)} references missing picture "${n}"`);
     }
   }
@@ -147,14 +148,16 @@ for (const d of samples) for (const p of d.pages) if (!existsSync(join(ROOT, 'pu
 if (!existsSync(join(ROOT, 'public', 'fonts', 'eurostile-extended-black.ttf'))) fail('assets', 'Harsha brand font missing');
 
 // ---------- 6. Fluent only: no hand-drawn icons, no raw controls, no second UI kit ----------
-for (const f of files.filter((x) => x.endsWith('.jsx'))) {
+for (const f of files.filter((x) => x.endsWith('.tsx'))) {
   const s = read(f);
-  if (/<svg\b/.test(s)) fail('fluent', `${rel(f)} draws its own SVG`);
+  // Fluent has no diagram control: the schema view's connectors are the one drawing, coloured from Fluent tokens.
+  if (/<svg\b/.test(s) && rel(f) !== 'src/schema.tsx') fail('fluent', `${rel(f)} draws its own SVG`);
   for (const m of s.matchAll(/<(button|select|textarea)\b/g)) fail('fluent', `${rel(f)} hand-builds a <${m[1]}>; use the Fluent control`);
   for (const m of s.matchAll(/<input\b[^>]*>/g)) if (!/type="file"[^>]*hidden|hidden[^>]*type="file"/.test(m[0])) fail('fluent', `${rel(f)} hand-builds an <input>`);
 }
 const pkg = JSON.parse(read(join(ROOT, 'package.json')));
-const ALLOWED = /^(@fluentui\/react-(components|icons|nav|charts)|react|react-dom)$/;
+// Fluent, React, and the Noto Sans font files (assets, not a UI kit) served from the app instead of a font CDN.
+const ALLOWED = /^(@fluentui\/react-(components|icons|nav|charts)|react|react-dom|@fontsource\/noto-sans(-gujarati|-devanagari)?)$/;
 for (const dep of Object.keys(pkg.dependencies || {})) if (!ALLOWED.test(dep)) fail('fluent', `dependency ${dep} is not Fluent or React`);
 
 // ---------- 7. brand face only on titles ----------
