@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 output/
-bench/
+/bench/
 sample invoices/
 dataset/
 work/
