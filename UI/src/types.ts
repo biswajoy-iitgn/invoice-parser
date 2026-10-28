@@ -22,10 +22,28 @@ export interface ProfileField {
   columns?: string[];
 }
 export type Preset = 'fast' | 'balanced' | 'accurate';
+/** What reads a profile's documents: the invoice reader (fixed fields), field-bound reading, or everything printed. */
+export type ReadEngine = 'invoice_v2' | 'generic' | 'general';
+export interface ProfileModels { reader?: string; tables?: string }
 export type ExportTarget = 'excel' | 'csv' | 'database';
 export interface Profile {
   id: string; name: string; docType: string; template: string; preset: Preset; evaluator: boolean; onPremOnly: boolean;
   linked: string[]; languages: string[]; exports: ExportTarget[]; owner: string; fields: ProfileField[];
+  /** The extraction service's profile (configs/profiles/*.yaml) this one reads with, and the models it chose. */
+  serverId?: string; engine?: ReadEngine; models?: ProfileModels; editableModels?: (keyof ProfileModels)[];
+}
+
+/** What the service returns for one document read under a profile (invoice_extractor/profiles.py). */
+export interface ResultField { label: string; value: string; status: 'verified' | 'unverified' | 'missing' | 'invalid'; issue?: string; modelRead?: string; visionRead?: string; box?: Box; page?: number }
+export interface ResultTable { title: string; columns: string[]; rows: string[][]; verified: number | null; source: string }
+/** One arithmetic check: ok is null when it could not run (a value was missing or not a number). */
+export interface ResultCheck { name: string; ok: boolean | null; detail: string }
+export interface ProfileResult {
+  profile: string; documentType: string; title: string; decision: 'REVIEW' | 'ACCEPT'; reasons: string[];
+  fields: ResultField[]; tables: ResultTable[]; checks: ResultCheck[]; text: { page: number; source: string; text: string }[];
+  models?: { reader: string; tables: string }; seconds?: number;
+  /** Which profile read it and with what, when the service chose (profile "auto"). */
+  route?: { profile: string; detected: boolean; reader: string; tables: string; why: string[] };
 }
 
 // Batches and the documents in them.
@@ -34,6 +52,10 @@ export interface RunDoc {
   id: string; name: string; pages: number; kind: DocKind; profile: string; route: number | null; status: DocStatus; score: number | null;
   seconds?: number; edited?: boolean; day?: string; flagged?: string[]; values?: Values; archived?: boolean;
   sample?: string | null; step?: number; final?: DocStatus; reason?: string;
+  /** A document read by the service: every value, table and the text, as printed. Set instead of a sample. */
+  result?: ProfileResult;
+  /** Being read by the service, not stepped through the sample pipeline. */
+  live?: boolean;
   /** Who approved it and which flagged values they checked or corrected. */
   approval?: { by: string; at: string; checked: string[]; changed: string[] };
 }
@@ -47,7 +69,7 @@ export interface DocRecord extends Omit<Doc, 'sample' | 'values'> { sample?: Sam
 // Databases the results are exported to.
 export interface Connection { id: string; name: string; kind: string; host: string; database: string; status: 'connected' | 'offline' | 'untested' }
 export type Column = [name: string, type: string, key: string];
-export interface TableDef { columns: Column[]; rows: string[][] }
+export interface TableDef { columns: Column[]; rows: string[][]; count?: number | null; loaded?: boolean }
 export type Tables = Record<string, Record<string, TableDef>>;
 
 // Automations.
@@ -59,7 +81,6 @@ export interface Workflow { id: string; name: string; when: When; action: Action
 export type Role = 'admin' | 'user';
 export interface User { id: string; name: string; email: string; role: Role; groups: string[]; last: string }
 export interface AuditEntry { at: string; actor: string; action: string; target: string; hash: string }
-export interface Update { name: string; engine: string; current: string; latest: string; notes: string }
 
 // Notifications.
 export type NoteKind = 'approval' | 'run' | 'insight' | 'engine';

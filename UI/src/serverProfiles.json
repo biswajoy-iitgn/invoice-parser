@@ -1,0 +1,992 @@
+{
+ "profiles": [
+  {
+   "id": "gate_pass",
+   "name": "Gate pass slip",
+   "description": "People, vehicles and material passing the gate.",
+   "engine": "generic",
+   "min_verified": 0.9,
+   "fields": [
+    {
+     "key": "gate_pass_no",
+     "label": "Gate pass number",
+     "type": "id",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "date",
+     "label": "Date",
+     "type": "date",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "vehicle_no",
+     "label": "Vehicle number",
+     "type": "vehicle",
+     "required": true,
+     "hint": "registration plate",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "driver_name",
+     "label": "Driver name",
+     "type": "text",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "driver_mobile",
+     "label": "Driver mobile",
+     "type": "mobile",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "department",
+     "label": "Department",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "destination",
+     "label": "Destination",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "issued_by",
+     "label": "Issued by",
+     "type": "text",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "pass_type",
+     "label": "Returnable or non-returnable",
+     "type": "choice",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": [
+      "RETURNABLE",
+      "NON-RETURNABLE"
+     ]
+    },
+    {
+     "key": "expected_return",
+     "label": "Expected return date",
+     "type": "date",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    }
+   ],
+   "tables": [
+    {
+     "key": "items",
+     "label": "the material list",
+     "columns": [
+      "Description",
+      "Qty",
+      "Unit"
+     ],
+     "required": true,
+     "hint": ""
+    }
+   ],
+   "checks": [
+    {
+     "type": "range",
+     "table": "items",
+     "column": "Qty",
+     "min": 0,
+     "name": "quantities are not negative"
+    },
+    {
+     "type": "complete",
+     "table": "items",
+     "columns": [
+      "Description",
+      "Qty"
+     ],
+     "name": "every item has a description and a quantity"
+    },
+    {
+     "type": "compare",
+     "left": "date",
+     "op": "<=",
+     "right": "expected_return",
+     "as": "date",
+     "name": "return is not before the pass date"
+    },
+    {
+     "type": "date_window",
+     "field": "date",
+     "max_age_days": 400,
+     "name": "pass date is recent and not in the future"
+    }
+   ],
+   "models": {
+    "reader": "qwen3-vl-4b"
+   },
+   "editable_models": [
+    "reader"
+   ]
+  },
+  {
+   "id": "general",
+   "name": "Any document",
+   "description": "Anything printed, with no field list.",
+   "engine": "general",
+   "min_verified": 0.9,
+   "fields": [],
+   "tables": [],
+   "checks": [],
+   "models": {
+    "reader": "qwen3-vl-4b",
+    "tables": "document-parser"
+   },
+   "editable_models": [
+    "reader",
+    "tables"
+   ]
+  },
+  {
+   "id": "logistics_invoice",
+   "name": "Logistics invoice",
+   "description": "Freight forwarder, shipping line or customs agent invoice for one shipment, with its charge lines.",
+   "engine": "generic",
+   "min_verified": 0.9,
+   "fields": [
+    {
+     "key": "invoice_no",
+     "label": "Invoice number",
+     "type": "id",
+     "required": true,
+     "hint": "the invoice's own number, printed as Invoice No., Document No. or Bill No.; not an order or job number",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "invoice_date",
+     "label": "Invoice date",
+     "type": "date",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "vendor_name",
+     "label": "Vendor name",
+     "type": "text",
+     "required": true,
+     "hint": "the company that issued the invoice",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "seller_gstin",
+     "label": "Vendor GSTIN",
+     "type": "gstin",
+     "required": false,
+     "hint": "the issuer's GST number",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "buyer_gstin",
+     "label": "Customer GSTIN",
+     "type": "gstin",
+     "required": false,
+     "hint": "the billed party's GST number",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "mbl",
+     "label": "Master bill of lading or MAWB",
+     "type": "id",
+     "required": false,
+     "hint": "printed as M B/L, MBL, Master B/L or MAWB",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "hbl",
+     "label": "House bill of lading or HAWB",
+     "type": "id",
+     "required": false,
+     "hint": "printed as H B/L, HBL, House B/L or HAWB",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "container_no",
+     "label": "Container number",
+     "type": "container",
+     "required": false,
+     "hint": "four letters and seven digits; the first one if several",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "gross_weight",
+     "label": "Gross weight",
+     "type": "text",
+     "required": false,
+     "hint": "with its unit as printed",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "exchange_rate",
+     "label": "Exchange rate",
+     "type": "text",
+     "required": false,
+     "hint": "as printed, with the currency, e.g. USD 98.25",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "sub_total",
+     "label": "Total before tax",
+     "type": "amount",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "tax_total",
+     "label": "Total tax",
+     "type": "amount",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "total",
+     "label": "Invoice total",
+     "type": "amount",
+     "required": true,
+     "hint": "the grand total payable",
+     "pattern": "",
+     "choices": []
+    }
+   ],
+   "tables": [
+    {
+     "key": "charges",
+     "label": "the charge lines",
+     "columns": [
+      "Description",
+      "Amount"
+     ],
+     "required": true,
+     "hint": "one row per charge; Amount is the line's taxable value before tax, as printed"
+    }
+   ],
+   "checks": [
+    {
+     "type": "sum",
+     "table": "charges",
+     "column": "Amount",
+     "field": "sub_total",
+     "tolerance": 1,
+     "name": "charge lines add up to the total before tax"
+    },
+    {
+     "type": "field_formula",
+     "result": "total",
+     "expr": "subtotal + taxtotal",
+     "tolerance": 1,
+     "name": "total is the subtotal plus tax"
+    },
+    {
+     "type": "date_window",
+     "field": "invoice_date",
+     "max_age_days": 730,
+     "name": "invoice date is recent and not in the future"
+    }
+   ],
+   "models": {
+    "reader": "qwen3-vl-4b"
+   },
+   "editable_models": [
+    "reader"
+   ]
+  },
+  {
+   "id": "mill_certificate",
+   "name": "Mill test certificate",
+   "description": "Steel mill test certificate with a heat analysis, mechanical properties and the receiving notes written on it.",
+   "engine": "generic",
+   "min_verified": 0.9,
+   "fields": [
+    {
+     "key": "certificate_no",
+     "label": "Test certificate number",
+     "type": "id",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "certificate_date",
+     "label": "Test certificate date",
+     "type": "date",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "customer",
+     "label": "Customer",
+     "type": "text",
+     "required": true,
+     "hint": "the \"To\" address",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "sale_order_no",
+     "label": "Sale order number",
+     "type": "id",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "sales_order_date",
+     "label": "Sales order date",
+     "type": "date",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "specification",
+     "label": "Specification",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "product_type",
+     "label": "Product type",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "invoice_no",
+     "label": "Invoice number",
+     "type": "id",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "vehicle_no",
+     "label": "Vehicle number",
+     "type": "vehicle",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "coil_no",
+     "label": "ASPL coil number",
+     "type": "id",
+     "required": true,
+     "hint": "handwritten near the bottom right",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "received_date",
+     "label": "Received date",
+     "type": "date",
+     "required": true,
+     "hint": "handwritten next to the coil number, day-month-year",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "footer_certificate_no",
+     "label": "Certificate number in the footer",
+     "type": "id",
+     "required": false,
+     "hint": "the number after 'Page 1 of 1 for TC:' at the bottom",
+     "pattern": "",
+     "choices": []
+    }
+   ],
+   "tables": [
+    {
+     "key": "heat",
+     "label": "the heat analysis table (chemistry in percent)",
+     "columns": [
+      "Heat No",
+      "C",
+      "MN",
+      "S",
+      "P",
+      "SI",
+      "AL",
+      "CR",
+      "CU",
+      "NI",
+      "TI",
+      "V",
+      "NB",
+      "MO",
+      "N",
+      "MAE",
+      "CE"
+     ],
+     "required": true,
+     "hint": ""
+    },
+    {
+     "key": "mechanical",
+     "label": "the mechanical properties table (one row per batch, then a Total row)",
+     "columns": [
+      "Item No",
+      "Batch ID",
+      "Thk",
+      "Wid",
+      "Qty Net",
+      "YS",
+      "UTS",
+      "EL",
+      "BEND"
+     ],
+     "required": true,
+     "hint": ""
+    }
+   ],
+   "checks": [
+    {
+     "type": "row_formula",
+     "table": "heat",
+     "result": "CE",
+     "expr": "C + MN/6 + (CR+MO+V)/5 + (NI+CU)/15",
+     "tolerance": 0.002,
+     "name": "carbon equivalent follows from the chemistry"
+    },
+    {
+     "type": "row_formula",
+     "table": "heat",
+     "result": "MAE",
+     "expr": "NB + TI + V",
+     "tolerance": 0.002,
+     "name": "MAE is Nb + Ti + V"
+    },
+    {
+     "type": "total_row",
+     "table": "mechanical",
+     "columns": [
+      "Qty Net"
+     ],
+     "tolerance": 0.01,
+     "name": "batch quantities add up to the Total row"
+    },
+    {
+     "type": "range",
+     "table": "heat",
+     "column": "C",
+     "min": 0,
+     "max": 1,
+     "name": "carbon within 0 to 1 percent"
+    },
+    {
+     "type": "compare",
+     "table": "heat",
+     "left": "C+MN+S+P+SI+AL+CR+CU+NI+TI+V+NB+MO+N",
+     "op": "<",
+     "right": 5,
+     "name": "alloying elements stay under 5 percent"
+    },
+    {
+     "type": "compare",
+     "table": "mechanical",
+     "left": "YS",
+     "op": "<=",
+     "right": "UTS",
+     "name": "yield strength does not exceed tensile strength"
+    },
+    {
+     "type": "range",
+     "table": "mechanical",
+     "column": "EL",
+     "min": 0,
+     "max": 100,
+     "name": "elongation within 0 to 100 percent"
+    },
+    {
+     "type": "unique",
+     "table": "mechanical",
+     "column": "Batch ID",
+     "name": "no batch listed twice"
+    },
+    {
+     "type": "complete",
+     "table": "mechanical",
+     "columns": [
+      "Batch ID",
+      "Qty Net"
+     ],
+     "name": "every batch has an ID and a quantity"
+    },
+    {
+     "type": "same",
+     "a": "certificate_no",
+     "b": "footer_certificate_no",
+     "name": "header and footer certificate numbers agree"
+    },
+    {
+     "type": "compare",
+     "left": "sales_order_date",
+     "op": "<=",
+     "right": "certificate_date",
+     "as": "date",
+     "name": "sales order is not after the certificate"
+    },
+    {
+     "type": "compare",
+     "left": "certificate_date",
+     "op": "<=",
+     "right": "received_date",
+     "as": "date",
+     "name": "received on or after the certificate date"
+    },
+    {
+     "type": "date_window",
+     "field": "certificate_date",
+     "name": "certificate date is not in the future"
+    }
+   ],
+   "models": {
+    "reader": "qwen3-vl-4b"
+   },
+   "editable_models": [
+    "reader"
+   ]
+  },
+  {
+   "id": "quality_report",
+   "name": "Quality certificate / test report",
+   "description": "Fields printed at the top, then one row per tested item with its mechanical and chemical results.",
+   "engine": "generic",
+   "min_verified": 0.9,
+   "fields": [
+    {
+     "key": "report_no",
+     "label": "Report / certificate number",
+     "type": "id",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "customer",
+     "label": "Customer",
+     "type": "text",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "order_no",
+     "label": "Order / PO number",
+     "type": "id",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "report_date",
+     "label": "Report date",
+     "type": "date",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "standard",
+     "label": "Standard or specification",
+     "type": "text",
+     "required": false,
+     "hint": "for example EN 10204 3.1",
+     "pattern": "",
+     "choices": []
+    }
+   ],
+   "tables": [
+    {
+     "key": "results",
+     "label": "the test results table",
+     "columns": [
+      "Size",
+      "Coil / Packet Ref.No.",
+      "Heat Number",
+      "Tensile Strength",
+      "Yield Strength",
+      "Elongation",
+      "C",
+      "Si",
+      "Mn",
+      "P",
+      "S"
+     ],
+     "required": true,
+     "hint": "copy decimal commas as printed (0,047 stays 0,047)"
+    }
+   ],
+   "checks": [
+    {
+     "type": "compare",
+     "table": "results",
+     "left": "Yield Strength",
+     "op": "<=",
+     "right": "Tensile Strength",
+     "name": "yield strength does not exceed tensile strength"
+    },
+    {
+     "type": "range",
+     "table": "results",
+     "column": "Elongation",
+     "min": 0,
+     "max": 100,
+     "name": "elongation within 0 to 100 percent"
+    },
+    {
+     "type": "unique",
+     "table": "results",
+     "column": "Coil / Packet Ref.No.",
+     "name": "no coil listed twice"
+    },
+    {
+     "type": "complete",
+     "table": "results",
+     "columns": [
+      "Heat Number"
+     ],
+     "name": "every row has a heat number"
+    },
+    {
+     "type": "date_window",
+     "field": "report_date",
+     "name": "report date is not in the future"
+    }
+   ],
+   "models": {
+    "reader": "qwen3-vl-4b"
+   },
+   "editable_models": [
+    "reader"
+   ]
+  },
+  {
+   "id": "roster",
+   "name": "Weekly staff roster",
+   "description": "Shifts and hours per employee for a week.",
+   "engine": "generic",
+   "min_verified": 0.9,
+   "fields": [
+    {
+     "key": "department",
+     "label": "Department",
+     "type": "text",
+     "required": true,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "week_start",
+     "label": "Week start date",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "scheduler",
+     "label": "Scheduler",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "total_hours",
+     "label": "Weekly total hours",
+     "type": "number",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    },
+    {
+     "key": "total_pay",
+     "label": "Weekly total pay",
+     "type": "amount",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    }
+   ],
+   "tables": [
+    {
+     "key": "employees",
+     "label": "the employee rows",
+     "columns": [
+      "ID",
+      "Name",
+      "Role",
+      "Hourly Rate",
+      "Total Hours",
+      "Total Pay"
+     ],
+     "required": true,
+     "hint": ""
+    }
+   ],
+   "checks": [
+    {
+     "type": "row_formula",
+     "table": "employees",
+     "result": "Total Pay",
+     "expr": "HourlyRate * TotalHours",
+     "tolerance": 0.05,
+     "name": "pay is rate times hours"
+    },
+    {
+     "type": "sum",
+     "table": "employees",
+     "column": "Total Pay",
+     "field": "total_pay",
+     "tolerance": 0.05
+    },
+    {
+     "type": "sum",
+     "table": "employees",
+     "column": "Total Hours",
+     "field": "total_hours",
+     "tolerance": 0.01
+    },
+    {
+     "type": "unique",
+     "table": "employees",
+     "column": "ID",
+     "name": "no employee listed twice"
+    },
+    {
+     "type": "complete",
+     "table": "employees",
+     "columns": [
+      "ID",
+      "Hourly Rate",
+      "Total Hours",
+      "Total Pay"
+     ],
+     "name": "every employee row is complete"
+    },
+    {
+     "type": "range",
+     "table": "employees",
+     "column": "Total Hours",
+     "min": 0,
+     "max": 168,
+     "name": "weekly hours within a week"
+    },
+    {
+     "type": "range",
+     "table": "employees",
+     "column": "Hourly Rate",
+     "min": 0.01,
+     "name": "hourly rate is positive"
+    }
+   ],
+   "models": {
+    "reader": "nuextract3"
+   },
+   "editable_models": [
+    "reader"
+   ]
+  },
+  {
+   "id": "specialised_table",
+   "name": "Specialised table document",
+   "description": "A document whose main content is one complex table.",
+   "engine": "generic",
+   "min_verified": 0.95,
+   "fields": [
+    {
+     "key": "title",
+     "label": "Table title or document title",
+     "type": "text",
+     "required": false,
+     "hint": "",
+     "pattern": "",
+     "choices": []
+    }
+   ],
+   "tables": [
+    {
+     "key": "table",
+     "label": "the main table",
+     "columns": [
+      "Item",
+      "Value",
+      "Unit"
+     ],
+     "required": true,
+     "hint": ""
+    }
+   ],
+   "checks": [],
+   "models": {
+    "reader": "qwen3-vl-4b"
+   },
+   "editable_models": [
+    "reader"
+   ]
+  }
+ ],
+ "models": {
+  "readers": [
+   {
+    "id": "qwen3-vl-8b",
+    "name": "Qwen3-VL-8B Instruct",
+    "model": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+    "serve": {
+     "path": "mlx-community/Qwen3-VL-8B-Instruct-8bit",
+     "memory_gb": 10
+    },
+    "licence": "Apache-2.0",
+    "commercial": true,
+    "note": "Not used by any profile: no better than the 4B on invoices (49/53, 42/45 lines), no rows on the mill certificates, and 4x slower than NuExtract3 on the roster (reports/reader_bakeoff.md)."
+   },
+   {
+    "id": "qwen3-vl-4b",
+    "name": "Qwen3-VL-4B Instruct (4-bit)",
+    "model": "mlx-community/Qwen3-VL-4B-Instruct-4bit",
+    "serve": {
+     "path": "mlx-community/Qwen3-VL-4B-Instruct-4bit",
+     "memory_gb": 3.5
+    },
+    "licence": "Apache-2.0",
+    "commercial": true,
+    "default": true,
+    "note": "Default reader, best of four tested (reports/reader_bakeoff.md): 50 of 53 invoice fields and 45 of 45 charge lines, 20 s per invoice; the only one that read the mill certificates' heat tables right (7 and 9 rows). Returns no rows on the dense roster."
+   },
+   {
+    "id": "qwen3.5-4b",
+    "name": "Qwen3.5-4B (4-bit)",
+    "model": "mlx-community/Qwen3.5-4B-MLX-4bit",
+    "serve": {
+     "path": "mlx-community/Qwen3.5-4B-MLX-4bit",
+     "memory_gb": 4
+    },
+    "licence": "Apache-2.0",
+    "commercial": true,
+    "note": "Newer generation (March 2026), not used by any profile: weaker on invoices (47/53 fields, 32/45 lines) and on the mill certificates (3 of 7 heat rows); reads the roster well (16 rows, 15 s)."
+   },
+   {
+    "id": "nuextract3",
+    "name": "NuExtract3 (4B, nvfp4)",
+    "model": "numind/NuExtract3-mlx-nvfp4",
+    "serve": {
+     "path": "work/models/NuExtract3-mlx-nvfp4",
+     "memory_gb": 4
+    },
+    "style": "nuextract",
+    "licence": "Apache-2.0",
+    "commercial": true,
+    "note": "Qwen3.5-4B fine-tuned by NuMind for template-driven JSON extraction; the roster's reader (16 of 16 rows, 100% of cells on the page, 10 s). 4x faster than the default on invoices (5 s) with 48/53 fields and 41/45 lines; misses rows on wide tables. Needs scripts/prepare_nuextract.py once (run_app.py does it)."
+   },
+   {
+    "id": "qwen3-vl-30b-a3b",
+    "name": "Qwen3-VL-30B-A3B Instruct (4-bit)",
+    "model": "mlx-community/Qwen3-VL-30B-A3B-Instruct-4bit",
+    "serve": {
+     "path": "mlx-community/Qwen3-VL-30B-A3B-Instruct-4bit",
+     "memory_gb": 18
+    },
+    "licence": "Apache-2.0",
+    "commercial": true,
+    "note": "Larger general reader; slower, more memory. Not benchmarked here."
+   }
+  ],
+  "tables": [
+   {
+    "id": "document-parser",
+    "name": "PaddleOCR-VL-1.6",
+    "serve": {
+     "path": "PaddlePaddle/PaddleOCR-VL-1.6",
+     "memory_gb": 3
+    },
+    "licence": "Apache-2.0",
+    "commercial": true,
+    "default": true,
+    "note": "Best table reader tested. 98 TEDS on clean financial tables, 93 on phone photos; 92-100% of cells exact on invoices, certificates and a roster."
+   },
+   {
+    "id": "reader",
+    "name": "The reader model",
+    "licence": "same as the reader",
+    "commercial": true,
+    "note": "Tables come from the reader's own output. Weaker on wide or merged-cell tables."
+   },
+   {
+    "id": "off",
+    "name": "No tables",
+    "licence": "",
+    "commercial": true,
+    "note": "Only labelled values and text."
+   }
+  ]
+ }
+}

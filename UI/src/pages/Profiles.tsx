@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Button, Card, CardHeader, CardFooter, Text, Caption1, TabList, Tab, Checkbox, Switch, Field, Input, Dropdown, Option, Combobox, RadioGroup, Radio, Link, MessageBar, MessageBarBody, MessageBarActions,
   Textarea, Tooltip, Dialog, DialogSurface, DialogBody, DialogTitle, DialogContent, DialogActions, DialogTrigger,
@@ -10,9 +10,11 @@ import {
 import { useApp, PageHeader, EmptyState, Title, Glyph, RHead, RHeader, RBody, RRow, RCell, RTable, count } from '../ui';
 import { TEMPLATES, WHEN, ACTION, fieldsOf, appliesTo } from '../data';
 import { whereItRuns } from '../engines';
+import { api, SNAPSHOT } from '../api';
+import type { ModelCatalog, ModelEntry } from '../api';
 import { Crumbs } from './Runs';
 import { useCardStyles, useControlStyles } from '../styles';
-import type { ExportTarget, FieldType, Preset, Profile, ProfileField, Workflow } from '../types';
+import type { ExportTarget, FieldType, Preset, Profile, ProfileField, ProfileModels, Workflow } from '../types';
 
 const ICONS: Record<string, typeof ReceiptRegular> = {
   invoice: ReceiptRegular, po: ClipboardTextLtrRegular, dn: VehicleTruckProfileRegular, contract: DocumentSignatureRegular, letter: MailRegular, datasheet: DocumentDataRegular,
@@ -65,8 +67,9 @@ export function Profiles() {
               <Card key={p.id} className="card profile-card">
                 <CardHeader image={<Glyph icon={ICONS[p.template] || DocumentRegular} />} header={<Text as="h2" weight="semibold" size={400}>{p.name}</Text>}
                   description={<Caption1>{p.owner ? `${p.docType}, used by ${p.owner}` : p.docType}</Caption1>} />
-                <Text>{n ? `${count(n, 'field', 'fields')}, ${READS[p.preset]}` : 'No fields yet'}</Text>
+                <Text>{p.engine === 'general' ? 'Every value, table and the text' : n ? `${count(n, 'field', 'fields')}, ${READS[p.preset]}` : 'No fields yet'}</Text>
                 <Caption1 className="muted">{`Exports to ${p.exports.map((e) => EXPORT_SHORT[e]).join(' and ') || 'nothing yet'}`}</Caption1>
+                {p.models && <Caption1 className="muted">{modelLine(p)}</Caption1>}
                 {p.onPremOnly && <Caption1 className="muted">Stays on-premises</Caption1>}
                 <CardFooter className={cs.footer}><Button onClick={() => go('profile', p.id)}>Edit profile</Button></CardFooter>
               </Card>
@@ -109,6 +112,41 @@ export function Profiles() {
   );
 }
 
+const MODEL_LABEL: Record<keyof ProfileModels, string> = { reader: 'AI model', tables: 'Table reader' };
+const nameOf = (list: ModelEntry[], id?: string) => list.find((m) => m.id === id)?.name ?? id ?? '';
+const modelLine = (p: Profile) => {
+  const bits = [p.models?.reader && nameOf(SNAPSHOT.models.readers, p.models.reader), p.editableModels?.includes('tables') && p.models?.tables && nameOf(SNAPSHOT.models.tables, p.models.tables)];
+  return `Reads with ${bits.filter(Boolean).join(' and ') || 'the invoice reader'}`;
+};
+const licence = (m: ModelEntry) => [m.licence, m.commercial ? 'commercial use OK' : 'research use only'].filter(Boolean).join(', ');
+
+/** Changing how a profile reads is a choice of models: one dropdown each, with the licence and what was measured. */
+function ModelPicker({ p, set }: { p: Profile; set: (patch: Partial<Profile>) => void }) {
+  const [catalog, setCatalog] = useState<ModelCatalog>(SNAPSHOT.models);
+  useEffect(() => { api.models().then(setCatalog).catch(() => { /* offline: the bundled catalog stands */ }); }, []);
+  const kinds = (p.editableModels ?? []) as (keyof ProfileModels)[];
+  if (!p.engine) return null;
+  if (!kinds.length) return <MessageBar intent="info"><MessageBarBody>This profile reads with the freight invoice model. Its fields are fixed by that model, so there is nothing to switch.</MessageBarBody></MessageBar>;
+  return (
+    <>
+      <Title as="h2" size="section">Models</Title>
+      <div className="form-grid">
+        {kinds.map((k) => {
+          const list = catalog[k === 'reader' ? 'readers' : 'tables'];
+          const chosen = list.find((m) => m.id === (p.models?.[k] ?? list.find((m2) => m2.default)?.id));
+          return (
+            <Field key={k} label={MODEL_LABEL[k]} hint={chosen ? `${licence(chosen)}. ${chosen.note ?? ''}`.trim() : undefined}>
+              <Dropdown value={chosen?.name ?? ''} selectedOptions={chosen ? [chosen.id] : []} onOptionSelect={(_, d) => set({ models: { ...p.models, [k]: d.optionValue } })}>
+                {list.map((m) => <Option key={m.id} value={m.id} text={m.name}>{`${m.name}${m.default ? ' (default)' : ''}`}</Option>)}
+              </Dropdown>
+            </Field>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
 type FieldDraft = { key?: string; label: string; type: FieldType; group: string; hint: string; columns: string };
 const toDraft = (f?: ProfileField, group = 'Fields'): FieldDraft =>
   f ? { key: f.key, label: f.label, type: f.type, group: f.group, hint: f.hint ?? '', columns: (f.columns ?? []).join(', ') } : { label: '', type: 'Text', group, hint: '', columns: '' };
@@ -117,7 +155,7 @@ export function ProfileEditor() {
   const { profiles, setProfiles, route, go, notify, tables, workflows, setWorkflows, engines, connections, log } = useApp();
   const saved = profiles.find((p) => p.id === route.id);
   const [p, setP] = useState<Profile | undefined>(saved);
-  const [tab, setTab] = useState('fields');
+  const [tab, setTab] = useState(saved?.engine === 'general' ? 'reading' : 'fields');
   const [field, setField] = useState<FieldDraft | null>(null);
   const [removing, setRemoving] = useState(false);
   const cc = useControlStyles();
@@ -133,7 +171,16 @@ export function ProfileEditor() {
   const dirty = JSON.stringify(p) !== JSON.stringify(saved);
   const set = (patch: Partial<Profile>) => setP({ ...p, ...patch });
   const patchField = (key: string, patch: Partial<ProfileField>) => set({ fields: p.fields.map((f) => (f.key === key ? { ...f, ...patch } : f)) });
-  const save = () => { setProfiles(profiles.map((x) => (x.id === p.id ? p : x))); log('Saved profile', p.name); notify(`${p.name} saved`); };
+  const save = async () => {
+    // a change of models goes to the service, which keeps it in the profile's file; the rest of the profile is kept here
+    let kept = true;
+    if (p.serverId && p.editableModels?.length && JSON.stringify(p.models) !== JSON.stringify(saved.models)) {
+      try { await api.saveModels(p.serverId, Object.fromEntries(p.editableModels.map((k) => [k, p.models?.[k]]).filter(([, v]) => v))); } catch (e) { kept = false; notify("The service didn't take the model change", 'warning', (e as Error).message); }
+    }
+    setProfiles(profiles.map((x) => (x.id === p.id ? p : x)));
+    log('Saved profile', p.name);
+    if (kept) notify(`${p.name} saved`);
+  };
   const groups = [...new Set(p.fields.map((f) => f.group))];
   const saveField = () => {
     if (!field) return;
@@ -173,11 +220,16 @@ export function ProfileEditor() {
         <Tab value="output">Where results go</Tab>
       </TabList></div>
 
-      {tab === 'fields' && (
+      {tab === 'fields' && p.engine === 'general' && (
+        <div role="tabpanel" aria-label="Fields" className="stack">
+          <MessageBar intent="info"><MessageBarBody>This profile reads everything printed: every labelled value, every table and the full text. There is no field list to keep. Use a profile with fields when a document type needs required values.</MessageBarBody></MessageBar>
+        </div>
+      )}
+      {tab === 'fields' && p.engine !== 'general' && (
         <div role="tabpanel" aria-label="Fields" className="stack">
           <div className="row between">
             <Text>{p.fields.length ? `${p.fields.filter((f) => f.enabled).length} of ${count(p.fields.length, 'field', 'fields')} included` : 'No fields yet'}</Text>
-            <Button icon={<AddRegular />} onClick={() => setField(toDraft(undefined, groups.at(-1)))}>Add field</Button>
+            <Button icon={<AddRegular />} onClick={() => setField(toDraft(undefined, groups[groups.length - 1]))}>Add field</Button>
           </div>
           {p.fields.length === 0 && (
             <EmptyState compact picto="card_index_dividers" title="Say what to read" body="Add a field for each value you want from this kind of document. Describe where it is, and the AI uses that.">
@@ -216,6 +268,7 @@ export function ProfileEditor() {
 
       {tab === 'reading' && (
         <div role="tabpanel" aria-label="Reading" className="stack">
+          <ModelPicker p={p} set={set} />
           <div className="form-grid">
             <Field label="Quality">
               <RadioGroup value={p.preset} onChange={(_, d) => set({ preset: d.value as Preset })}>

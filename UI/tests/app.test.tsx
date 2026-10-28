@@ -64,7 +64,7 @@ describe('app', () => {
     await user.click(screen.getByRole('button', { name: 'Create' }));
     expect(await screen.findByRole('heading', { level: 1, name: 'Mill test certificate' })).toBeInTheDocument();
     await user.click(screen.getAllByRole('button', { name: 'Add field' })[0]);
-    await user.type(screen.getByRole('textbox', { name: /^Field name/ }), 'Heat number');
+    await user.type(await screen.findByRole('textbox', { name: /^Field name/ }), 'Heat number');
     await user.click(screen.getByRole('button', { name: 'Add' }));
     expect(await screen.findByText('Heat number')).toBeInTheDocument();
     expect(screen.getByText('1 of 1 field included')).toBeInTheDocument();

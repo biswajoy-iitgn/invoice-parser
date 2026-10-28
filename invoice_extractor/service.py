@@ -1,20 +1,10 @@
-"""Production HTTP API for the invoice-extraction pipeline.
+"""The document-extraction service behind the Fluent UI (UI/, served at /).
 
-Endpoints
----------
-POST /extract   multipart file upload (PDF/PNG/JPG/TIFF) -> extracted fields
-GET  /health    liveness: process is up
-GET  /ready     readiness: ingest mode, paddle stack, LAYA checkpoint, LLM
-GET  /metrics   Prometheus exposition (hand-rolled, no extra deps)
+Documents are read under a profile (profiles.py; "auto" lets router.py pick one), in batches (batch.py) or one at a time;
+models run in the model pool (model_pool.py). Sign-in and roles: auth.py. Also the database browser, the audit log, engine
+updates, and /health, /ready, /metrics.
 
-Run::
-
-    uvicorn invoice_extractor.service:app --host 0.0.0.0 --port 8000
-
-The pipeline entry point is :func:`extract.extract_invoice`; this service
-adds upload validation, structured logging, request IDs and metrics. The
-VLM call is the latency bottleneck, so deploy with multiple workers
-(``--workers N``) or behind a queue for batch jobs.
+Run with scripts/run_app.py (builds the UI, loads .env.local).
 """
 
 from __future__ import annotations
@@ -29,43 +19,22 @@ import time
 import urllib.request
 import uuid
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
-from fastapi.responses import HTMLResponse, FileResponse, JSONResponse, PlainTextResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, RedirectResponse
 
 from contextlib import asynccontextmanager, contextmanager
 
-from .extract import DEFAULT_MODEL, extract_invoice
-
-UI_INDEX = Path(__file__).parent / "ui" / "index.html"
-UI_AUDIT = Path(__file__).parent / "ui" / "audit.html"
-UI_SETTINGS = Path(__file__).parent / "ui" / "settings.html"
-UI_DATABASE = Path(__file__).parent / "ui" / "database.html"
+# The Fluent UI (UI/, `npm --prefix UI run build`) is the app at /.
+FLUENT_DIST = Path(os.environ.get("FLUENT_DIST") or Path(__file__).resolve().parents[1] / "UI" / "dist")
 UPLOAD_DIR = Path(__file__).parent.parent / "work" / "uploads"
-PDF_RENDER_ZOOM = 2.0
-_UPLOAD_NAME_RE = re.compile(
-    r"[0-9a-f]{32}(?:_p\d+)?\.(?:pdf|docx|png|jpg|jpeg|tif|tiff|bmp|webp)")
 
 log = logging.getLogger("invoice_extractor.service")
 
-# Sheet engines: mineru (MinerU 4, default), paddle (PaddleOCR-VL 1.6),
-# ppdoclayout (PP-DocLayoutV3 layout-first + PaddleOCR-VL 1.6) and docling
-# map a parsed document straight onto the sheet columns. v2 runs the current
-# cited pipeline (pipeline.extract_invoice); legacy keeps extract.extract_invoice
-# for comparison.
-ENGINES = ("mineru", "paddle", "ppdoclayout", "docling", "v2", "legacy")
-ENGINE_LABELS = {"mineru": "MinerU 4", "paddle": "PaddleOCR-VL", "ppdoclayout": "PP-DocLayoutV3 + VL",
-                 "docling": "Docling", "v2": "v2 pipeline", "legacy": "legacy"}
-DEFAULT_ENGINE = os.environ.get("INVOICE_ENGINE", "mineru").lower()
-if DEFAULT_ENGINE not in ENGINES:
-    DEFAULT_ENGINE = "mineru"
-
-ALLOWED_SUFFIXES = {".pdf", ".docx", ".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp"}
+ALLOWED_SUFFIXES = {".pdf", ".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp"}   # what pipeline.load_pages reads
 MAX_UPLOAD_BYTES = int(os.environ.get("INVOICE_MAX_UPLOAD_BYTES", str(25 * 1024 * 1024)))
 MAX_PDF_PAGES = int(os.environ.get("INVOICE_MAX_PDF_PAGES", "60"))
-MODEL = os.environ.get("INVOICE_MODEL", DEFAULT_MODEL)
-OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")
 
 # ---------------------------------------------------------------------------
 # Minimal in-process metrics (Prometheus text exposition, no dependency)
@@ -89,16 +58,28 @@ def _bump(key: str, amount: float = 1.0) -> None:
 # In-flight single/batch extractions, so upgrades wait for true idle.
 _EXTRACT_LOCK = threading.Lock()
 _EXTRACT_INFLIGHT = 0
+_EXTRACT_WAITING = 0
+# Every extraction (single, profile read, batch item) takes a slot: no more documents in flight than the reader serves at once
+# (run_app.py READER_SLOTS), so a folder of 200 files queues here instead of piling 200 renders and model calls into memory.
+EXTRACT_SLOTS = int(os.environ.get("INVOICE_MAX_PARALLEL") or os.environ.get("INVOICE_BATCH_WORKERS") or "4")
+_EXTRACT_SEM = threading.BoundedSemaphore(max(1, EXTRACT_SLOTS))
 
 
 @contextmanager
 def _track_extraction():
-    global _EXTRACT_INFLIGHT
+    global _EXTRACT_INFLIGHT, _EXTRACT_WAITING
     with _EXTRACT_LOCK:
-        _EXTRACT_INFLIGHT += 1
+        _EXTRACT_WAITING += 1
+    try:
+        _EXTRACT_SEM.acquire()
+    finally:
+        with _EXTRACT_LOCK:
+            _EXTRACT_WAITING -= 1
+            _EXTRACT_INFLIGHT += 1
     try:
         yield
     finally:
+        _EXTRACT_SEM.release()
         with _EXTRACT_LOCK:
             _EXTRACT_INFLIGHT -= 1
 
@@ -109,31 +90,113 @@ def _track_extraction():
 
 @asynccontextmanager
 async def _lifespan(app):
-    # Pre-warm the semantic engine off the request path: first /ready would
-    # otherwise pay the torch/LAYA model load inside a page-load fetch.
+    from . import auth
+
+    if not auth.enabled():
+        log.warning("SIGN-IN IS OFF (AUTH=off): anyone who can reach this service can read and change everything")
+    elif auth.count_users() == 0:
+        log.warning("no one can sign in yet: run  python -m invoice_extractor.auth create-admin EMAIL \"NAME\"  "
+                    "or open the app on this machine to create the first administrator")
+    # Nothing heavy loads at start unless asked: the reader with READER_WARM=1; otherwise each model loads when first needed.
     import threading
 
     def _warm():
-        try:
-            from .semantic import engine as _semantic_engine
-            _semantic_engine()
-        except Exception:
-            pass
-    threading.Thread(target=_warm, name="warm-semantic", daemon=True).start()
+        if os.environ.get("READER_WARM") == "1" and os.environ.get("READER_BACKEND", "pool") == "pool":
+            try:
+                from .model_pool import pool
+                from .router import reader_id
+
+                with pool().use(reader_id()):
+                    log.info("reader warmed: %s", reader_id())
+            except Exception as exc:
+                log.warning("reader warm-up failed: %s", exc)
+    threading.Thread(target=_warm, name="warm-models", daemon=True).start()
     yield
+    from .model_pool import pool
+
+    pool().stop_all()                     # a clean stop takes its model servers with it
 
 
+_DOCS = os.environ.get("API_DOCS") == "1"         # the interactive API docs list every endpoint: off unless asked for
 app = FastAPI(
     title="Invoice Extractor",
     version="1.0.0",
-    description="OmniSR + PP-StructureV3 + PaddleOCR-VL + LAYA invoice extraction API.",
+    description="Document extraction: text layer or PP-OCRv6, a Qwen3-VL reader, PaddleOCR-VL tables, every value cited.",
     lifespan=_lifespan,
+    docs_url="/docs" if _DOCS else None, redoc_url=None, openapi_url="/openapi.json" if _DOCS else None,
 )
+_APP_CSP = ("default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; "
+            "frame-src blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'")
+# Whole request bodies are capped before they reach a handler (the framework would otherwise spool any size to disk):
+# a batch request carries at most INVOICE_MAX_BATCH_FILES uploads of MAX_UPLOAD_BYTES each.
+MAX_REQUEST_BYTES = int(os.environ.get("MAX_REQUEST_BYTES", str(300 * 1024 * 1024)))
+
+
+ALLOWED_HOSTS = {h.strip().lower() for h in os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost,::1,testserver").split(",") if h.strip()}
+
+
+def _foreign_request(request: Request) -> str:
+    """Why a request must be refused, else "". The API has no login and can reconfigure the database and install packages,
+    so a web page the user happens to visit must not reach it: a foreign Host is DNS rebinding, a foreign Origin on a write is CSRF."""
+    from urllib.parse import urlsplit
+
+    host = (urlsplit("//" + request.headers.get("host", "")).hostname or "").lower()
+    if "*" not in ALLOWED_HOSTS and host not in ALLOWED_HOSTS:
+        return f"host {host!r} is not allowed (ALLOWED_HOSTS)"
+    origin = request.headers.get("origin")
+    # the page's host, not host:port: the UI dev server (Vite proxy, :5173) writes to the API on another port
+    if request.method not in ("GET", "HEAD", "OPTIONS") and origin and "*" not in ALLOWED_HOSTS \
+            and (urlsplit(origin).hostname or "").lower() not in ALLOWED_HOSTS:
+        return "cross-origin write refused"
+    return ""
+
+
+# Who may call what (auth.py). The app shell and its files are public (the sign-in screen is part of it); everything that
+# reads or changes data needs a session; settings, the database, users, updates and the audit log need an administrator.
+_PUBLIC = {"/", "/health", "/ready", "/api/auth/login", "/api/auth/logout", "/api/auth/me", "/api/auth/setup", "/favicon.ico"}
+_PUBLIC_PREFIX = ("/assets/", "/fonts/", "/pictograms/", "/samples/", "/boot.js", "/harsha-logo.png")
+_ADMIN_PREFIX = ("/api/db/", "/api/updates", "/api/users", "/api/audit/", "/metrics")
+_LOOPBACK = {"127.0.0.1", "::1", "localhost", "testclient"}
+
+
+def _access(request: Request) -> tuple[int, str]:
+    """(status, why) when the request must be refused, else (0, ""); sets request.state.user."""
+    from . import auth
+
+    request.state.user = None
+    path = request.url.path
+    if not auth.enabled():
+        request.state.user = {"id": "local", "email": "", "name": "Local user", "role": "admin", "must_change": False}
+        return 0, ""
+    if path in _PUBLIC or path.startswith(_PUBLIC_PREFIX):
+        request.state.user = auth.user_for(request.cookies.get(auth.COOKIE))
+        return 0, ""
+    if path == "/metrics" and request.client and request.client.host in _LOOPBACK:
+        return 0, ""                                     # the local Prometheus scraper; anyone else signs in as an admin
+    user = auth.user_for(request.cookies.get(auth.COOKIE))
+    if user is None:
+        return 401, "sign in first"
+    request.state.user = user
+    if user["must_change"] and path != "/api/auth/password":
+        return 403, "change your password first"
+    needs_admin = path.startswith(_ADMIN_PREFIX) or (path.startswith("/api/profiles/") and path.endswith("/models"))
+    if needs_admin and user["role"] != "admin":
+        return 403, "only an administrator can do this"
+    return 0, ""
 
 
 @app.middleware("http")
 async def request_id_middleware(request: Request, call_next):
     request_id = request.headers.get("X-Request-ID") or uuid.uuid4().hex[:12]
+    if why := _foreign_request(request):
+        log.warning("refused request_id=%s %s %s: %s", request_id, request.method, request.url.path, why)
+        return JSONResponse(status_code=403, content={"detail": why})
+    length = request.headers.get("content-length")
+    if length and length.isdigit() and int(length) > MAX_REQUEST_BYTES:
+        return JSONResponse(status_code=413, content={"detail": f"request larger than {MAX_REQUEST_BYTES} bytes"})
+    status, why = _access(request)
+    if status:
+        return JSONResponse(status_code=status, content={"detail": why}, headers={"Cache-Control": "no-store"})
     start = time.perf_counter()
     try:
         response = await call_next(request)
@@ -142,12 +205,187 @@ async def request_id_middleware(request: Request, call_next):
         raise
     elapsed = time.perf_counter() - start
     response.headers["X-Request-ID"] = request_id
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")          # no clickjacking of Settings / Database
+    response.headers.setdefault("Referrer-Policy", "no-referrer")
+    response.headers.setdefault("Permissions-Policy", "camera=(self), microphone=(), geolocation=(), payment=(), usb=()")
+    response.headers.setdefault("Cross-Origin-Opener-Policy", "same-origin")
+    if request.url.scheme == "https" or os.environ.get("COOKIE_SECURE") == "1":
+        response.headers.setdefault("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+    if request.url.path == "/":                     # the app shell: the same policy as its meta tag, plus framing (meta can't)
+        response.headers.setdefault("Content-Security-Policy", _APP_CSP)
+    if request.url.path.startswith("/assets/") and response.status_code == 200:
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"   # Vite names them by content hash
     log.info(
         "request_id=%s method=%s path=%s status=%s elapsed_ms=%.1f",
         request_id, request.method, request.url.path,
         getattr(response, "status_code", "?"), elapsed * 1000.0,
     )
     return response
+
+
+# ---------------------------------------------------------------------------
+# Sign-in, sessions, people (auth.py)
+# ---------------------------------------------------------------------------
+
+_LOGIN_TRIES: dict[str, list[float]] = {}      # client address -> recent attempt times
+_LOGIN_LOCK = threading.Lock()
+LOGIN_PER_10_MIN = int(os.environ.get("LOGIN_PER_10_MIN", "20"))
+
+
+def _client_ip(request: Request) -> str:
+    return request.client.host if request.client else "?"
+
+
+async def _json(request: Request) -> dict:
+    try:
+        body = await request.json()
+    except ValueError:
+        body = None
+    if not isinstance(body, dict):
+        raise HTTPException(status_code=400, detail="send a JSON object")
+    return body
+
+
+def _set_session(response: JSONResponse, request: Request, token: str) -> None:
+    from . import auth
+
+    secure = request.url.scheme == "https" or os.environ.get("COOKIE_SECURE") == "1"
+    response.set_cookie(auth.COOKIE, token, max_age=int(auth.MAX_S), httponly=True, samesite="strict", secure=secure, path="/")
+
+
+@app.get("/api/auth/me")
+def auth_me(request: Request) -> JSONResponse:
+    """Who is signed in: {user | null, sign_in: on/off, needs_setup: no one exists yet (only this machine may create the first)}."""
+    from . import auth
+
+    if not auth.enabled():
+        return JSONResponse(content={"user": request.state.user, "sign_in": False, "needs_setup": False})
+    setup = auth.count_users() == 0 and _client_ip(request) in _LOOPBACK
+    return JSONResponse(content={"user": request.state.user, "sign_in": True, "needs_setup": setup}, headers={"Cache-Control": "no-store"})
+
+
+@app.post("/api/auth/login")
+async def auth_login(request: Request) -> JSONResponse:
+    from . import auth
+
+    ip = _client_ip(request)
+    now = time.time()
+    with _LOGIN_LOCK:
+        tries = [t for t in _LOGIN_TRIES.get(ip, []) if now - t < 600]
+        if len(tries) >= LOGIN_PER_10_MIN:
+            raise HTTPException(status_code=429, detail="too many sign-in attempts from here; wait a few minutes")
+        _LOGIN_TRIES[ip] = tries + [now]
+    body = await _json(request)
+    try:
+        token, user = auth.login(str(body.get("email") or ""), str(body.get("password") or ""))
+    except PermissionError as exc:
+        log.warning("sign-in refused for %r from %s: %s", str(body.get("email") or "")[:80], ip, exc)
+        raise HTTPException(status_code=401, detail=str(exc)) from exc
+    log.info("signed in: %s from %s", user["email"], ip)
+    resp = JSONResponse(content={"user": user})
+    _set_session(resp, request, token)
+    return resp
+
+
+@app.post("/api/auth/logout")
+def auth_logout(request: Request) -> JSONResponse:
+    from . import auth
+
+    auth.logout(request.cookies.get(auth.COOKIE))
+    resp = JSONResponse(content={"signed_out": True})
+    resp.delete_cookie(auth.COOKIE, path="/")
+    return resp
+
+
+@app.post("/api/auth/password")
+async def auth_password(request: Request) -> JSONResponse:
+    """Change your own password (also the forced change after a temporary one). Every other session of yours ends."""
+    from . import auth
+
+    body = await _json(request)
+    user = request.state.user
+    try:
+        auth.change_password(user, str(body.get("old") or ""), str(body.get("new") or ""))
+        token, user = auth.login(user["email"], str(body.get("new") or ""))
+    except (PermissionError, ValueError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    log.info("password changed: %s", user["email"])
+    resp = JSONResponse(content={"user": user})
+    _set_session(resp, request, token)
+    return resp
+
+
+@app.post("/api/auth/setup")
+async def auth_setup(request: Request) -> JSONResponse:
+    """The first administrator, from this machine only, while no one exists."""
+    from . import auth
+
+    if not auth.enabled() or auth.count_users() or _client_ip(request) not in _LOOPBACK:
+        raise HTTPException(status_code=403, detail="setup is done, or not from this machine")
+    body = await _json(request)
+    try:
+        auth.create_user(str(body.get("email") or ""), str(body.get("name") or ""), "admin", str(body.get("password") or ""), must_change=False)
+        token, user = auth.login(str(body.get("email")), str(body.get("password")))
+    except (ValueError, PermissionError) as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    log.info("first administrator created: %s", user["email"])
+    resp = JSONResponse(content={"user": user})
+    _set_session(resp, request, token)
+    return resp
+
+
+@app.get("/api/users")
+def users_list() -> JSONResponse:
+    from . import auth
+
+    return JSONResponse(content={"users": auth.list_users()})
+
+
+@app.post("/api/users")
+async def users_create(request: Request) -> JSONResponse:
+    """Add a person with a temporary password they must change at first sign-in."""
+    from . import auth
+
+    body = await _json(request)
+    try:
+        u = auth.create_user(str(body.get("email") or ""), str(body.get("name") or ""), str(body.get("role") or "user"),
+                             str(body.get("password") or ""), must_change=True)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    log.info("person added: %s (%s) by %s", u["email"], u["role"], request.state.user["email"])
+    return JSONResponse(content=u, status_code=201)
+
+
+@app.patch("/api/users/{user_id}")
+async def users_update(user_id: str, request: Request) -> JSONResponse:
+    from . import auth
+
+    body = await _json(request)
+    try:
+        u = auth.update_user(user_id, request.state.user, role=body.get("role"), disabled=body.get("disabled"), name=body.get("name"))
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail="no such person") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    log.info("person changed: %s %s by %s", u["email"], {k: body[k] for k in ("role", "disabled") if k in body}, request.state.user["email"])
+    return JSONResponse(content=u)
+
+
+@app.post("/api/users/{user_id}/password")
+async def users_reset_password(user_id: str, request: Request) -> JSONResponse:
+    """An administrator sets a temporary password; the person changes it at next sign-in, and their sessions end."""
+    from . import auth
+
+    body = await _json(request)
+    try:
+        auth.reset_password(user_id, str(body.get("password") or ""), must_change=True)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail="no such person") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    log.info("password reset for %s by %s", user_id, request.state.user["email"])
+    return JSONResponse(content={"reset": True})
 
 
 @app.get("/health")
@@ -158,117 +396,24 @@ def health() -> Dict[str, str]:
 
 @app.get("/", include_in_schema=False)
 def index() -> FileResponse:
-    """Single-page UI: upload an invoice, review fields, download Excel."""
-    if not UI_INDEX.exists():
-        raise HTTPException(status_code=500, detail="UI not installed")
-    return FileResponse(UI_INDEX, media_type="text/html", headers={"Cache-Control": "no-store"})
+    """The Fluent UI. Its pages are hash routes (/#/review/...), so this one file serves all of them."""
+    page = FLUENT_DIST / "index.html"
+    if not page.exists():
+        raise HTTPException(status_code=503, detail="The UI is not built: run npm --prefix UI run build (scripts/run_app.py does it)")
+    return FileResponse(page, media_type="text/html", headers={"Cache-Control": "no-store"})
+
+
+# Old addresses open the matching Fluent page (bookmarks, links in old exports and e-mails).
+_FLUENT_ROUTE = {"audit": "audit", "settings": "engines", "database": "data"}
 
 
 @app.get("/audit", include_in_schema=False)
-def audit_page() -> FileResponse:
-    """Audit-trail UI: hash-chain status + per-invoice trail (needs DATABASE_URL)."""
-    if not UI_AUDIT.exists():
-        raise HTTPException(status_code=500, detail="UI not installed")
-    return FileResponse(UI_AUDIT, media_type="text/html", headers={"Cache-Control": "no-store"})
-
-
-@app.get("/audit/{invoice_number:path}", include_in_schema=False)
-def audit_invoice_page(invoice_number: str) -> FileResponse:
-    """Same audit UI with the invoice number in the path: /audit/INV-2024-001."""
-    return audit_page()
-
-
+@app.get("/audit/{rest:path}", include_in_schema=False)
 @app.get("/settings", include_in_schema=False)
-def settings_page() -> FileResponse:
-    """Settings UI: database connection + engine updates."""
-    if not UI_SETTINGS.exists():
-        raise HTTPException(status_code=500, detail="UI not installed")
-    return FileResponse(UI_SETTINGS, media_type="text/html", headers={"Cache-Control": "no-store"})
-
-
 @app.get("/database", include_in_schema=False)
-def database_page() -> FileResponse:
-    """Database browser UI: tables, rows, and how tables link together."""
-    if not UI_DATABASE.exists():
-        raise HTTPException(status_code=500, detail="UI not installed")
-    return FileResponse(UI_DATABASE, media_type="text/html", headers={"Cache-Control": "no-store"})
-
-
-@app.get("/database/{table}", include_in_schema=False)
-def database_table_page(table: str) -> FileResponse:
-    """Same browser with the table in the path: /database/invoices."""
-    return database_page()
-
-
-_UI_ASSETS = {"mineru.png": "image/png", "paddle.png": "image/png",
-              "docling.svg": "image/svg+xml", "ppdoclayout.svg": "image/svg+xml"}
-
-
-@app.get("/ui/assets/{name}", include_in_schema=False)
-def ui_asset(name: str) -> FileResponse:
-    """Serve bundled engine logos (safelist; no path traversal)."""
-    if name not in _UI_ASSETS:
-        raise HTTPException(status_code=404, detail="unknown asset")
-    return FileResponse(Path(__file__).parent / "ui" / "assets" / name, media_type=_UI_ASSETS[name])
-
-
-@app.get("/uploads/{name}", include_in_schema=False)
-def uploads(name: str) -> FileResponse:
-    """Serve kept uploads / rendered pages back to the UI viewer."""
-    if not _UPLOAD_NAME_RE.fullmatch(name):
-        raise HTTPException(status_code=404, detail="not found")
-    path = UPLOAD_DIR / name
-    if not path.is_file():
-        raise HTTPException(status_code=404, detail="not found")
-    return FileResponse(path)
-
-
-@app.post("/api/export")
-async def export_excel(request: Request) -> StreamingResponse:
-    """Download extracted fields as a one-sheet .xlsx workbook."""
-    import io
-
-    try:
-        payload = await request.json()
-    except Exception:
-        raise HTTPException(status_code=400, detail="invalid JSON body")
-    fields = payload.get("fields")
-    if not isinstance(fields, dict) or not fields:
-        raise HTTPException(status_code=400, detail="body must be {fields: {name: value}}")
-    filename = str(payload.get("filename") or "invoice")
-
-    import openpyxl
-
-    from .schema import OUTPUT_FIELDS
-
-    wb = openpyxl.Workbook()
-    ws = wb.active
-    ws.title = "Invoice"
-    ws.append(["Field", "Value"])
-    known = set(OUTPUT_FIELDS)
-    for key in [k for k in OUTPUT_FIELDS if k in fields] + [k for k in sorted(fields) if k not in known]:
-        ws.append([key, fields[key]])
-    ws.column_dimensions["A"].width = 28
-    ws.column_dimensions["B"].width = 48
-    buf = io.BytesIO()
-    wb.save(buf)
-    buf.seek(0)
-    out_name = Path(filename).stem or "invoice"
-    return StreamingResponse(
-        buf,
-        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        headers={"Content-Disposition": f'attachment; filename="{out_name}.xlsx"'},
-    )
-
-
-def _check_ollama(timeout: float = 2.0) -> Dict[str, object]:
-    try:
-        with urllib.request.urlopen(f"{OLLAMA_HOST}/api/tags", timeout=timeout) as resp:
-            body = json.loads(resp.read().decode("utf-8", "replace"))
-        names = [m.get("name", "") for m in body.get("models", [])]
-        return {"reachable": True, "models": names, "want_model": MODEL, "want_present": any(MODEL in n for n in names)}
-    except Exception as exc:
-        return {"reachable": False, "error": f"{type(exc).__name__}: {exc}"[:200]}
+@app.get("/database/{rest:path}", include_in_schema=False)
+def old_page(request: Request, rest: str = "") -> RedirectResponse:
+    return RedirectResponse(f"/#/{_FLUENT_ROUTE[request.url.path.split('/')[1]]}", status_code=307)
 
 
 LLAMACPP_HOST = os.environ.get("LLAMACPP_HOST", "http://127.0.0.1:8080")
@@ -278,7 +423,7 @@ def _check_llamacpp(timeout: float = 5.0) -> Dict[str, object]:
     try:
         with urllib.request.urlopen(f"{LLAMACPP_HOST}/health", timeout=timeout) as resp:
             body = json.loads(resp.read().decode("utf-8", "replace"))
-        return {"reachable": True, "status": body.get("status"), "model": MODEL}
+        return {"reachable": True, "status": body.get("status")}
     except Exception as exc:
         return {"reachable": False, "error": f"{type(exc).__name__}: {exc}"[:200]}
 
@@ -307,101 +452,48 @@ def _check_database() -> Dict[str, object]:
 
 
 @app.get("/ready")
-def ready() -> JSONResponse:
-    """Readiness: pipeline mode, OCR (PP-OCRv6), reader server, semantic engine layers."""
+def ready(request: Request) -> JSONResponse:
+    """Readiness: can this service read a document now? OCR for scans, the reader the model pool would start, the database
+    when one is configured, and the classic page's engine when it is set. Probes what exists; starts no model.
+    The details (paths, errors, loaded models) go to administrators and this machine only; others get the status."""
+    from . import auth, ppocr_client
+    from .model_pool import pool
+
     checks: Dict[str, object] = {}
     ok = True
-    needs_reader = DEFAULT_ENGINE in ("v2", "legacy")
-    pipeline = os.environ.get("INVOICE_PIPELINE", "v2").lower()
-    checks["pipeline"] = pipeline
-    if pipeline == "legacy":
-        from .laya_client import DEFAULT_MODEL_DIR
-        from .paddle_backends import paddle_available
+    checks["ocr"] = {"engine": "PP-OCRv6", "available": ppocr_client.available(), "error": ppocr_client.last_error()}
+    backend = os.environ.get("READER_BACKEND", "pool").lower()
+    if backend == "pool":
+        from .router import reader_id
 
-        checks["ingest_mode"] = os.environ.get("INVOICE_INGEST", "hunyuan")
-        checks["paddle"] = {"available": paddle_available()}
-        checks["laya_checkpoint"] = {"path": str(DEFAULT_MODEL_DIR), "present": Path(DEFAULT_MODEL_DIR).exists()}
+        rid = reader_id()
+        checks["reader"] = {"backend": "pool", "model": rid, "on_disk": pool().available(rid)}
+        ok &= pool().available(rid)
     else:
-        from . import ppocr_client
-
-        checks["ocr"] = {"engine": "PP-OCRv6", "python": ppocr_client.PYTHON, "available": ppocr_client.available(),
-                         "error": ppocr_client.last_error()}
-        try:
-            from . import vl_client
-
-            checks["doc_parser"] = {"model": vl_client.MODEL, "enabled": vl_client.enabled()}
-        except Exception as exc:
-            checks["doc_parser"] = {"enabled": False, "error": f"{type(exc).__name__}: {exc}"[:160]}
-        if needs_reader and not ppocr_client.available():
-            ok = False
-        try:
-            from .semantic import engine
-
-            checks["semantic_backends"] = engine().backends
-        except Exception as exc:
-            checks["semantic_backends"] = [f"error: {type(exc).__name__}"]
-    backend = os.environ.get("READER_BACKEND", "llamacpp" if pipeline != "legacy" else "ollama").lower()
-    checks["reader_backend"] = backend
-    if backend == "llamacpp":
-        llm = _check_llamacpp()
-        checks["llamacpp"] = llm
-    elif backend == "ollama":
-        llm = _check_ollama()
-        checks["ollama"] = llm
-    else:
-        llm = {"reachable": True}
-    if needs_reader and not llm.get("reachable"):
-        ok = False
+        checks["reader"] = {"backend": backend, **_check_llamacpp()}
+        ok &= bool(checks["reader"].get("reachable"))
+    checks["table_reader"] = {"model": "document-parser", "on_disk": pool().available("document-parser")}
+    checks["models"] = {"loaded": pool().loaded(), "loaded_gb": pool().loaded_gb(), "budget_gb": pool().budget_gb}
     checks["database"] = _check_database()
     if checks["database"].get("configured") and not checks["database"].get("reachable"):
         ok = False
-    engines: Dict[str, object] = {"default": DEFAULT_ENGINE}
-    try:
-        from . import mineru_engine
-
-        engines["mineru"] = {"bin": mineru_engine.resolve_bin()}
-    except Exception as exc:
-        engines["mineru"] = {"bin": None, "error": f"{type(exc).__name__}: {exc}"[:160]}
-    try:
-        from . import paddle_vl_client
-
-        engines["paddle"] = {"python": paddle_vl_client.PYTHON,
-                             "available": paddle_vl_client.available(),
-                             "error": paddle_vl_client.last_error()}
-    except Exception as exc:
-        engines["paddle"] = {"available": False, "error": f"{type(exc).__name__}: {exc}"[:160]}
-    try:
-        from . import paddle_vl_client as _pvl
-        from . import ppdoclayout_engine
-
-        engines["ppdoclayout"] = {"python": _pvl.PYTHON,
-                                  "available": ppdoclayout_engine.available(),
-                                  "error": _pvl.last_error()}
-    except Exception as exc:
-        engines["ppdoclayout"] = {"available": False, "error": f"{type(exc).__name__}: {exc}"[:160]}
-    try:
-        from . import docling_engine
-
-        engines["docling"] = {"available": docling_engine.available()}
-    except Exception as exc:
-        engines["docling"] = {"available": False, "error": f"{type(exc).__name__}: {exc}"[:160]}
-    if DEFAULT_ENGINE == "mineru" and not engines["mineru"].get("bin"):
-        ok = False
-    if DEFAULT_ENGINE == "paddle" and not engines["paddle"].get("available"):
-        ok = False
-    if DEFAULT_ENGINE == "ppdoclayout" and not engines["ppdoclayout"].get("available"):
-        ok = False
-    if DEFAULT_ENGINE == "docling" and not engines["docling"].get("available"):
-        ok = False
-    checks["engines"] = engines
+    checks["sign_in"] = "on" if auth.enabled() else "OFF (AUTH=off): anyone who reaches this service can use it"
     checks["status"] = "ok" if ok else "not-ready"
-    return JSONResponse(status_code=200 if ok else 503, content=checks)
+    user = getattr(request.state, "user", None)
+    trusted = (user or {}).get("role") == "admin" or (request.client and request.client.host in _LOOPBACK)
+    return JSONResponse(status_code=200 if ok else 503, content=checks if trusted else {"status": checks["status"]})
 
 
 @app.get("/metrics")
 def metrics() -> PlainTextResponse:
     with _metrics_lock:
         snap = dict(_metrics)
+    with _EXTRACT_LOCK:
+        running, waiting = _EXTRACT_INFLIGHT, _EXTRACT_WAITING
+    queue = _BATCHES.queued() if _BATCHES is not None else {"queued": 0, "processing": 0}
+    from .model_pool import pool
+
+    pool_gb, pool_budget, pool_starts = pool().loaded_gb(), pool().budget_gb, pool().starts
     lines = [
         "# HELP invoice_requests_total total extraction requests",
         "# TYPE invoice_requests_total counter",
@@ -418,6 +510,27 @@ def metrics() -> PlainTextResponse:
         "# HELP invoice_latency_seconds_sum total extraction latency",
         "# TYPE invoice_latency_seconds_sum counter",
         f"invoice_latency_seconds_sum {snap['latency_sum']:.3f}",
+        "# HELP invoice_extractions_running documents being read now",
+        "# TYPE invoice_extractions_running gauge",
+        f"invoice_extractions_running {running}",
+        "# HELP invoice_extractions_waiting documents waiting for a free slot",
+        "# TYPE invoice_extractions_waiting gauge",
+        f"invoice_extractions_waiting {waiting}",
+        "# HELP invoice_extraction_slots documents read at once at most (INVOICE_MAX_PARALLEL)",
+        "# TYPE invoice_extraction_slots gauge",
+        f"invoice_extraction_slots {EXTRACT_SLOTS}",
+        "# HELP invoice_batch_items_queued batch items not started yet",
+        "# TYPE invoice_batch_items_queued gauge",
+        f"invoice_batch_items_queued {queue['queued']}",
+        "# HELP invoice_models_loaded_gb memory of the models loaded now (model pool)",
+        "# TYPE invoice_models_loaded_gb gauge",
+        f"invoice_models_loaded_gb {pool_gb}",
+        "# HELP invoice_models_budget_gb most the model pool may load at once (MODEL_MEMORY_GB)",
+        "# TYPE invoice_models_budget_gb gauge",
+        f"invoice_models_budget_gb {pool_budget}",
+        "# HELP invoice_model_starts_total model servers started",
+        "# TYPE invoice_model_starts_total counter",
+        f"invoice_model_starts_total {pool_starts}",
     ]
     return PlainTextResponse("\n".join(lines) + "\n", media_type="text/plain; version=0.0.4")
 
@@ -436,74 +549,11 @@ def _save_upload(upload: UploadFile, data: bytes) -> Path:
     return path
 
 
-def _display_pages(path: Path) -> tuple[list[dict], float]:
-    """Render browser-displayable pages. Returns (pages, bbox_scale).
-
-    Images convert to PNG at native size (scale 1, coordinates exact);
-    PDFs render at PDF_RENDER_ZOOM (bboxes must be multiplied by it).
-    Office files have no page render (no preview).
-    """
-    from PIL import Image
-
-    pages: list[dict] = []
-    if path.suffix.lower() == ".docx":
-        return pages, 1.0
-    if path.suffix.lower() == ".pdf":
-        import fitz
-
-        with fitz.open(path) as pdf:
-            for i, page in enumerate(pdf):
-                pix = page.get_pixmap(matrix=fitz.Matrix(PDF_RENDER_ZOOM, PDF_RENDER_ZOOM))
-                name = f"{path.stem}_p{i + 1}.png"
-                pix.save(UPLOAD_DIR / name)
-                pages.append({"number": i + 1, "url": f"/uploads/{name}",
-                              "width": pix.width, "height": pix.height})
-        return pages, PDF_RENDER_ZOOM
-    img = Image.open(path)
-    name = f"{path.stem}_p1.png"
-    img.save(UPLOAD_DIR / name)
-    w, h = img.size
-    pages.append({"number": 1, "url": f"/uploads/{name}", "width": w, "height": h})
-    return pages, 1.0
-
-
-BOX_PAD_PX = 5
-BOX_MIN_WH = (30, 22)
-
-
-def _display_hits(hits: list[dict], scale: float, page: dict) -> list[dict]:
-    """Scale raw boxes to display pixels + pad to a readable minimum.
-
-    Raw hits are tight word unions; the viewer needs breathing room.
-    Stored/DB evidence keeps the exact boxes — this is display-only.
-    """
-    out = []
-    pw, ph = page["width"], page["height"]
-    for h in hits:
-        h = dict(h)
-        box = h.get("bbox") or []
-        if len(box) != 4:
-            continue  # malformed hit: skip it, never kill the whole render
-        x1, y1, x2, y2 = box
-        x1, y1, x2, y2 = x1 * scale, y1 * scale, x2 * scale, y2 * scale
-        cx, cy = (x1 + x2) / 2, (y1 + y2) / 2
-        w = max(x2 - x1 + 2 * BOX_PAD_PX, BOX_MIN_WH[0])
-        hgt = max(y2 - y1 + 2 * BOX_PAD_PX, BOX_MIN_WH[1])
-        h["bbox"] = [max(0, cx - w / 2), max(0, cy - hgt / 2),
-                     min(pw, cx + w / 2), min(ph, cy + hgt / 2)]
-        out.append(h)
-    return out
-
-
 def _validate_upload(path: Path) -> List[str]:
     """Content validation beyond suffix: magic bytes + PDF page cap."""
     problems: List[str] = []
     head = path.read_bytes()[:16]
     suffix = path.suffix.lower()
-    if suffix == ".docx":
-        if not head.startswith(b"PK\x03\x04"):
-            problems.append("file suffix is .docx but content is not an Office document")
-        return problems
     if suffix == ".pdf":
         if not head.startswith(b"%PDF"):
             problems.append("file suffix is .pdf but content is not a PDF")
@@ -520,7 +570,8 @@ def _validate_upload(path: Path) -> List[str]:
         except ImportError:
             pass
         except Exception as exc:
-            problems.append(f"unreadable PDF: {exc}"[:200])
+            log.info("unreadable PDF %s: %s", path.name, exc)
+            problems.append("unreadable PDF: the file is damaged or not a PDF")   # the error text carries the server path
     else:
         magic_ok = head.startswith((b"\x89PNG", b"\xff\xd8\xff", b"II*\x00", b"MM\x00*",
                                     b"BM", b"RIFF"))
@@ -535,175 +586,6 @@ class UploadRejected(Exception):
         self.status, self.detail = status, detail
 
 
-def _scale_hits(hits, scale, by_no, pages):
-    if not pages:
-        return []  # docx: no page render, nothing to scale to
-    return [h for hit in hits or [] for h in _display_hits([hit], scale, by_no.get(hit.get("page", 1), pages[0]))]
-
-
-def process_file(path: Path, filename: str, data: bytes | None = None, content_type: str = "",
-                 engine: str = "") -> dict:
-    """Validate + extract + display rendering for one stored upload (used by /extract and batches)."""
-    problems = _validate_upload(path)
-    if problems:
-        raise UploadRejected(422, "; ".join(problems))
-    started = time.perf_counter()
-    engine = (engine or DEFAULT_ENGINE).lower()
-    if engine == "mineru":
-        from . import mineru_engine
-
-        fields, audit = mineru_engine.extract(path)
-    elif engine == "paddle":
-        from . import paddle_engine
-
-        fields, audit = paddle_engine.extract(path)
-    elif engine == "ppdoclayout":
-        from . import ppdoclayout_engine
-
-        fields, audit = ppdoclayout_engine.extract(path)
-    elif engine == "docling":
-        from . import docling_engine
-
-        fields, audit = docling_engine.extract(path)
-    elif engine == "v2":
-        from . import pipeline as v2_pipeline
-
-        fields, audit = v2_pipeline.extract_invoice(str(path), model=MODEL)
-    else:  # "legacy" (or an unknown default): the original cited pipeline
-        fields, audit = extract_invoice(str(path), model=MODEL)
-    audit.setdefault("engine", engine)
-    if engine in ("mineru", "paddle", "ppdoclayout", "docling") and path.suffix.lower() == ".pdf" \
-            and not audit.get("citations"):
-        try:
-            from . import textboxes
-
-            cites = textboxes.citations_for(path, fields)
-            if cites:
-                audit["citations"] = cites
-                audit.setdefault("fields_explained", {}).update(textboxes.explained_for(cites))
-        except Exception as exc:
-            audit.setdefault("warnings", []).append(f"page boxes unavailable: {exc}"[:160])
-    elapsed = time.perf_counter() - started
-    audit_out = {k: v for k, v in audit.items() if k not in ("evidence", "layout_text")}
-    audit_out["evidence_chars"] = len(audit.get("evidence") or "")
-    try:
-        pages, scale = _display_pages(path)
-        by_no = {p["number"]: p for p in pages}
-        audit_out["pages"] = pages
-        audit_out["citations"] = {k: _scale_hits(v, scale, by_no, pages)
-                                  for k, v in (audit.get("citations") or {}).items()}
-        audit_out["line_item_citations"] = [_scale_hits(v, scale, by_no, pages)
-                                            for v in (audit.get("line_item_citations") or [])]
-        for e in (audit_out.get("fields_explained") or {}).values():
-            e["citations"] = _scale_hits(e.get("citations"), scale, by_no, pages)
-            for c in e.get("contributions", []):
-                c["citations"] = _scale_hits(c.get("citations"), scale, by_no, pages)
-        # full capture: every printed item, with its box in the same display coordinates as the page images
-        audit_out["facts"] = [{**f, "bbox": [round(v * scale, 1) for v in f["bbox"]],
-                               "label_bbox": [round(v * scale, 1) for v in f.get("label_bbox") or []]}
-                              for f in audit.get("facts") or [] if len(f.get("bbox") or []) == 4]
-        audit_out["facts_scaled"] = True
-        # layout-first engines: detected regions + per-region VL readings,
-        # scaled the same way for the overlay and reading panel
-        audit_out["layout"] = [
-            {"page": e.get("page"),
-             "regions": [{"label": r.get("label", ""),
-                          "bbox": [round(v * scale, 1) for v in r["bbox"]]}
-                         for r in e.get("regions") or [] if len(r.get("bbox") or []) == 4]}
-            for e in audit.get("layout") or []]
-        audit_out["reading"] = [
-            {"page": b.get("page"), "label": b.get("label", ""),
-             "content": (b.get("content", "") or "")[:1500],
-             "bbox": ([round(v * scale, 1) for v in b["bbox"]]
-                       if len(b.get("bbox") or []) == 4 else [])}
-            # keep unread-but-boxed regions (empty text shows as "—") so row
-            # indexes stay aligned with the layout overlay
-            for b in audit.get("reading") or []
-            if (b.get("content", "") or "").strip() or len(b.get("bbox") or []) == 4]
-        audit_out["reading_note"] = audit.get("reading_note", "")
-        if isinstance(audit.get("organized"), dict):
-            audit_out["organized"] = {**audit["organized"], "details": [
-                {**d, "bbox": [round(v * scale, 1) for v in d["bbox"]]}
-                for d in audit["organized"].get("details", []) if len(d.get("bbox") or []) == 4]}
-    except Exception as exc:
-        log.warning("display render failed (extraction unaffected): %s", exc)
-        audit_out["pages"] = []
-        audit_out["facts_scaled"] = False
-        audit_out["render_error"] = f"{type(exc).__name__}: {exc}"[:200]
-    persistence: Dict[str, object] = {"persisted": False}
-    if os.environ.get("DATABASE_URL") and os.environ.get("INVOICE_ORG_ID"):
-        try:
-            from database.persist import persist_extraction, sha256_bytes
-
-            if data is None:        # batch items arrive as stored files, not request bodies
-                import mimetypes
-
-                data = path.read_bytes()
-                content_type = content_type or (mimetypes.guess_type(filename or path.name)[0] or "")
-
-            persistence = persist_extraction(
-                filename=filename or "upload", mime=content_type or "", size=len(data),
-                data_sha256=sha256_bytes(data), fields=fields, audit=audit,
-                model_config=os.environ.get("INVOICE_MODEL_CONFIG"), source_path=str(path))
-        except Exception as exc:
-            log.warning("persistence failed (extraction unaffected): %s", exc)
-            persistence = {"persisted": False, "reason": f"{type(exc).__name__}: {exc}"[:200]}
-    # Raw (print-scale) boxes travel with the result so batch_persist stores the
-    # same coordinates as single extracts; "audit" stays display-scaled for the UI.
-    # persist_extraction reads neither blob, so both are dropped to keep results small.
-    audit_raw = {k: v for k, v in audit.items() if k not in ("evidence", "layout_text")}
-    body = {"filename": filename, "fields": fields, "audit": audit_out, "audit_raw": audit_raw,
-            "persistence": persistence,
-            "timing": {"total_s": round(elapsed, 3)},
-            "limits": {"max_pdf_pages": MAX_PDF_PAGES, "max_upload_bytes": MAX_UPLOAD_BYTES}}
-    return json.loads(json.dumps(body, default=str))
-
-
-@app.post("/extract")
-async def extract(request: Request, file: UploadFile = File(...), engine: str = "") -> JSONResponse:
-    """Extract structured fields from one uploaded invoice document."""
-    _bump("requests_total")
-    started = time.perf_counter()
-    data = await file.read()
-    if not data:
-        _bump("requests_error")
-        raise HTTPException(status_code=400, detail="empty upload")
-    if len(data) > MAX_UPLOAD_BYTES:
-        _bump("requests_error")
-        raise HTTPException(status_code=413, detail=f"file exceeds {MAX_UPLOAD_BYTES} byte limit")
-    try:
-        tmp_path = _save_upload(file, data)
-        eng = _check_engine(engine)
-        with _track_extraction():
-            body = await _run_in_thread(lambda: process_file(tmp_path, file.filename, data, file.content_type or "",
-                                                              engine=eng))
-        elapsed = time.perf_counter() - started
-        _bump("requests_ok")
-        _bump("latency_sum", elapsed)
-        if body["audit"].get("needs_review"):
-            _bump("needs_review")
-        body["timing"]["total_s"] = round(elapsed, 3)
-        return JSONResponse(content=body)
-    except HTTPException:
-        raise
-    except UploadRejected as exc:
-        _bump("requests_error")
-        raise HTTPException(status_code=exc.status, detail=exc.detail) from exc
-    except RuntimeError as exc:
-        # Pipeline errors (LLM unreachable, backend failure): client-visible 502.
-        _bump("requests_error")
-        log.warning("extraction backend failure: %s: %s", type(exc).__name__, exc)
-        raise HTTPException(status_code=502,
-                            detail="The extraction backend failed. "
-                                   "Retry once; if it repeats check /ready.") from exc
-    except Exception as exc:  # pragma: no cover - defensive
-        _bump("requests_error")
-        rid = request.headers.get("X-Request-ID")
-        log.exception("extraction failed%s: %s", f" request_id={rid}" if rid else "", exc)
-        hint = f" (request {rid})" if rid else ""
-        raise HTTPException(status_code=500,
-                            detail=f"Extraction failed{hint}. "
-                                   "Retry once; if it repeats check /ready.") from exc
     # NOTE: uploads are kept (not deleted): the UI viewer serves them back.
 
 
@@ -727,35 +609,55 @@ def batches():
     if _BATCHES is None:
         from .batch import BatchManager
 
-        def runner(path: Path, filename: str, engine: str = "") -> dict:
-            _bump("requests_total")
-            try:
-                with _track_extraction():
-                    body = process_file(path, filename, engine=engine)
-            except Exception:
-                _bump("requests_error")
-                raise
-            _bump("requests_ok")
-            _bump("latency_sum", body["timing"]["total_s"])
-            if body["audit"].get("needs_review"):
-                _bump("needs_review")
-            return body
-
-        _BATCHES = BatchManager(runner)
+        _BATCHES = BatchManager(lambda path, filename, profile: _profile_read(path, profile))
     return _BATCHES
 
 
-def _check_engine(engine: str) -> str:
-    engine = (engine or "").lower()
-    if engine and engine not in ENGINES:
-        raise HTTPException(status_code=400, detail=f"unknown engine {engine!r}; choose from {list(ENGINES)}")
-    return engine
+def _profile_read(path: Path, profile_id: str) -> dict:
+    """One stored upload read under a profile: {"result", "audit", "seconds"}. Counted in /metrics like every extraction."""
+    from . import profiles
+
+    problems = _validate_upload(path)
+    if problems:
+        raise UploadRejected(422, "; ".join(problems))
+    profile = profile_id if profile_id == profiles.AUTO else profiles.get(profile_id)   # "auto": the router picks
+    _bump("requests_total")
+    started = time.perf_counter()
+    try:
+        with _track_extraction():
+            result, audit = profiles.extract(str(path), profile)
+    except Exception:
+        _bump("requests_error")
+        raise
+    seconds = round(time.perf_counter() - started, 2)
+    _bump("requests_ok")
+    _bump("latency_sum", seconds)
+    if result.get("decision") != "ACCEPT":
+        _bump("needs_review")
+    audit.pop("reader_raw", None)
+    audit.pop("evidence", None)              # the text is in result["text"]; the raw reply stays in the reader log
+    return {"result": result, "audit": audit, "seconds": seconds}
 
 
-async def _accept_files(batch_id: str, files: List[UploadFile], engine: str = "") -> list[dict]:
+def _check_profile(profile: str) -> str:
+    if not profile:
+        return ""
+    from . import profiles
+
+    if profile == profiles.AUTO:                 # the router picks per document
+        return profile
+
+    try:
+        profiles.get(profile)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc.args[0])) from exc
+    return profile
+
+
+async def _accept_files(batch_id: str, files: List[UploadFile], profile: str) -> list[dict]:
     accepted = []
     for f in files:
-        data = await f.read()
+        data = await f.read(MAX_UPLOAD_BYTES + 1)
         entry = {"filename": f.filename}
         if not data:
             entry["error"] = "empty upload"
@@ -764,7 +666,7 @@ async def _accept_files(batch_id: str, files: List[UploadFile], engine: str = ""
         else:
             try:
                 path = _save_upload(f, data)
-                it = batches().add(batch_id, f.filename or path.name, data, path, engine=engine)
+                it = batches().add(batch_id, f.filename or path.name, data, path, profile)
                 entry.update(id=it.id, status=it.status)
             except HTTPException as exc:
                 entry["error"] = exc.detail
@@ -773,22 +675,24 @@ async def _accept_files(batch_id: str, files: List[UploadFile], engine: str = ""
 
 
 @app.post("/api/batches")
-async def create_batch(files: List[UploadFile] = File(...), engine: str = Form("")) -> JSONResponse:
-    """Start a batch with any number of PDF/DOCX/image files; processing runs in the background."""
+async def create_batch(files: List[UploadFile] = File(...), profile: str = Form("auto")) -> JSONResponse:
+    """Start a batch with any number of PDF/image files, read in the background under `profile` ("auto": the router picks
+    one per document)."""
     if not files:
         raise HTTPException(status_code=400, detail="no files")
     if len(files) > int(os.environ.get("INVOICE_MAX_BATCH_FILES", "500")):
         raise HTTPException(status_code=413, detail="too many files in one request")
-    b = batches().create(engine=_check_engine(engine) or DEFAULT_ENGINE)
-    accepted = await _accept_files(b.id, files)
+    profile = _check_profile(profile)
+    b = batches().create()
+    accepted = await _accept_files(b.id, files, profile)
     return JSONResponse(content={"batch_id": b.id, "accepted": accepted, **batches().status(b.id)})
 
 
 @app.post("/api/batches/{batch_id}/files")
-async def add_to_batch(batch_id: str, files: List[UploadFile] = File(...), engine: str = Form("")) -> JSONResponse:
+async def add_to_batch(batch_id: str, files: List[UploadFile] = File(...), profile: str = Form("auto")) -> JSONResponse:
     if batch_id not in batches().batches:
         raise HTTPException(status_code=404, detail="unknown batch")
-    accepted = await _accept_files(batch_id, files, engine=_check_engine(engine))
+    accepted = await _accept_files(batch_id, files, _check_profile(profile))
     return JSONResponse(content={"accepted": accepted, **batches().status(batch_id)})
 
 
@@ -823,178 +727,60 @@ def batch_retry(batch_id: str, item_id: str) -> JSONResponse:
     return JSONResponse(content={"id": it.id, "status": it.status})
 
 
-@app.get("/api/batches/{batch_id}/export.xlsx")
-def batch_export_xlsx(batch_id: str) -> StreamingResponse:
-    import io
+# ---------------------------------------------------------------------------
+# Profiles: document types as config (invoice_extractor/profiles.py, configs/profiles/*.yaml)
+# ---------------------------------------------------------------------------
 
-    from .batch import export_workbook
+@app.get("/api/profiles")
+def api_profiles() -> JSONResponse:
+    from . import profiles
 
-    if batch_id not in batches().batches:
-        raise HTTPException(status_code=404, detail="unknown batch")
-    data = export_workbook(batches().done_results(batch_id))
-    return StreamingResponse(io.BytesIO(data),
-                             media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                             headers={"Content-Disposition": f'attachment; filename="invoices_{batch_id}.xlsx"'})
+    return JSONResponse(content={"profiles": [profiles.describe(p) for p in profiles.load_all().values()]})
 
 
-@app.get("/api/batches/{batch_id}/export.json")
-def batch_export_json(batch_id: str) -> JSONResponse:
-    if batch_id not in batches().batches:
-        raise HTTPException(status_code=404, detail="unknown batch")
-    out = {it.filename: res.get("fields", {}) for it, res in batches().done_results(batch_id)}
-    return JSONResponse(content=out, headers={"Content-Disposition": f'attachment; filename="invoices_{batch_id}.json"'})
+@app.get("/api/models")
+def api_models() -> JSONResponse:
+    from . import profiles
+
+    return JSONResponse(content=profiles.catalog())
 
 
-@app.get("/api/batches/{batch_id}/sheet")
-def batch_sheet(batch_id: str) -> JSONResponse:
-    """One row per invoice with every sheet column; unfinished rows carry fields=null (skeleton)."""
-    from .schema import OUTPUT_FIELDS
-
-    mgr = batches()
-    if batch_id not in mgr.batches:
-        raise HTTPException(status_code=404, detail="unknown batch")
-    rows = []
-    for sl, it in enumerate(mgr.batches[batch_id].items, 1):
-        fields = None
-        if it.status == "done":
-            try:
-                fields = mgr.result(batch_id, it.id).get("fields")
-            except (KeyError, FileNotFoundError):
-                fields = None
-        rows.append({"sl": sl, "item_id": it.id, "filename": it.filename, "status": it.status,
-                     "route": it.route, "error": it.error, "fields": fields})
-    return JSONResponse(content={"columns": ["Sl.No.", "Invoice", *OUTPUT_FIELDS], "rows": rows})
-
-
-@app.post("/api/batches/{batch_id}/persist")
-def batch_persist(batch_id: str) -> JSONResponse:
-    """Upload every finished invoice of the batch to the configured database."""
-    import mimetypes
-
-    from database.persist import persist_extraction, sha256_bytes
-
-    from .batch import BATCH_DIR
-
-    mgr = batches()
-    if batch_id not in mgr.batches:
-        raise HTTPException(status_code=404, detail="unknown batch")
-    if not (os.environ.get("DATABASE_URL") and os.environ.get("INVOICE_ORG_ID")):
-        raise HTTPException(status_code=409, detail="no database configured (DATABASE_URL / INVOICE_ORG_ID)")
-    stored, failed = [], []
-    for it, res in mgr.done_results(batch_id):
-        try:
-            data = Path(it.path).read_bytes()
-        except OSError as exc:
-            log.warning("batch persist upload missing for %s: %s: %s",
-                        it.filename, type(exc).__name__, exc)
-            failed.append({"filename": it.filename,
-                           "error": "The uploaded file is missing on this server. "
-                                    "Re-upload it and retry."})
-            continue
-        try:
-            out = persist_extraction(
-                filename=it.filename,
-                mime=mimetypes.guess_type(it.filename)[0] or "", size=len(data),
-                data_sha256=sha256_bytes(data), fields=res.get("fields", {}),
-                # Raw print-scale boxes, like single extracts persist; fall back to
-                # the display audit for results stored before audit_raw existed.
-                audit=res.get("audit_raw") or res.get("audit", {}), source_path=it.path)
-        except Exception as exc:
-            log.warning("batch persist failed for %s: %s: %s",
-                        it.filename, type(exc).__name__, exc)
-            failed.append({"filename": it.filename,
-                           "error": "Couldn't store this invoice. "
-                                    "Check Settings → Database and retry."})
-            continue
-        if out.get("persisted"):
-            res["persistence"] = out
-            it.summary["persisted"] = True
-            it.summary["persist_error"] = ""
-            try:
-                (BATCH_DIR / batch_id / f"{it.id}.json").write_text(json.dumps(res, default=str))
-            except OSError:
-                pass
-            stored.append(it.filename)
-        else:
-            failed.append({"filename": it.filename, "error": out.get("reason", "not stored")})
-    mgr._persist(batch_id)
-    return JSONResponse(content={"stored": stored, "failed": failed,
-                                 "done": len(stored) + len(failed)})
-
-
-@app.post("/api/semantic/feedback")
-async def semantic_feedback(request: Request) -> JSONResponse:
-    """A reviewer confirms what a printed label/charge means; the alias bank learns it immediately."""
-    from .semantic import CLASSES, engine
+@app.put("/api/profiles/{profile_id}/models")
+async def api_profile_models(profile_id: str, request: Request) -> JSONResponse:
+    from . import profiles
 
     try:
         body = await request.json()
-    except Exception:
-        raise HTTPException(status_code=400, detail="invalid JSON body")
-    kind, text, fld = body.get("kind", "charge"), str(body.get("text", "")).strip(), body.get("field")
-    if kind not in ("label", "charge") or not text or fld not in CLASSES:
-        raise HTTPException(status_code=400, detail="need kind (label|charge), text, field (canonical)")
-    reviewer = str(body.get("reviewer", ""))[:80]
-    engine().learn(kind, text, fld, reviewer=reviewer)
-    audited = False
-    if os.environ.get("DATABASE_URL") and os.environ.get("INVOICE_ORG_ID"):
-        try:      # who taught the system what, and when (the alias then applies to every later invoice)
-            from database.db import Store
-
-            Store(os.environ["INVOICE_ORG_ID"]).log_audit(
-                entity="semantic_alias", entity_id=str(uuid.uuid4()), action="REVIEW",
-                old={"previous_field": body.get("previous_field"), "invoice_number": body.get("invoice_number")},
-                new={"kind": kind, "text": text, "field": fld, "reviewer": reviewer})
-            audited = True
-        except Exception as exc:
-            log.warning("audit log write failed for a category correction: %s", exc)
-    return JSONResponse(content={"learned": True, "kind": kind, "text": text, "field": fld, "audited": audited})
-
-
-@app.post("/api/semantic/revert")
-async def semantic_revert(request: Request) -> JSONResponse:
-    """Undo a reviewer-confirmed alias (pairs with /api/semantic/feedback)."""
-    from .semantic import engine
-
+    except ValueError:
+        body = None
+    if not isinstance(body, dict):
+        raise HTTPException(status_code=400, detail="body must be {reader?: id, tables?: id}")
     try:
-        body = await request.json()
-    except Exception:
-        raise HTTPException(status_code=400, detail="invalid JSON body")
-    kind, text = body.get("kind", "charge"), str(body.get("text", "")).strip()
-    if kind not in ("label", "charge") or not text:
-        raise HTTPException(status_code=400, detail="need kind (label|charge), text")
-    return JSONResponse(content={"reverted": engine().revert(kind, text)})
+        return JSONResponse(content=profiles.describe(profiles.save_models(profile_id, body)))
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc.args[0])) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
-@app.get("/ui/app.js", include_in_schema=False)
-def ui_app_js() -> FileResponse:
-    """Shared vanilla helpers (esc/toast/confirmDialog/pill), one copy for all pages."""
-    return FileResponse(Path(__file__).parent / "ui" / "app.js", media_type="application/javascript",
-                        headers={"Cache-Control": "no-store"})
-
-
-@app.get("/ui/app.css", include_in_schema=False)
-def ui_app_css() -> FileResponse:
-    """Shared design tokens + application shell, one copy for all pages."""
-    return FileResponse(Path(__file__).parent / "ui" / "app.css", media_type="text/css",
-                        headers={"Cache-Control": "no-store"})
-
-
-@app.get("/ui/icons.svg", include_in_schema=False)
-def ui_icons_svg() -> FileResponse:
-    """Shared SVG icon sprite referenced via <use href="/ui/icons.svg#i-…">."""
-    return FileResponse(Path(__file__).parent / "ui" / "icons.svg", media_type="image/svg+xml",
-                        headers={"Cache-Control": "no-store"})
-
-
-@app.get("/api/schema")
-def api_schema() -> JSONResponse:
-    from .schema import CHARGE_FIELDS, OUTPUT_FIELDS
-
-    return JSONResponse(content={"output_fields": OUTPUT_FIELDS, "charge_fields": CHARGE_FIELDS,
-                                 "engines": list(ENGINES),
-                                 "engine_labels": ENGINE_LABELS,
-                                 "default_engine": DEFAULT_ENGINE})
+@app.post("/api/profiles/{profile_id}/extract")
+async def api_profile_extract(profile_id: str, file: UploadFile = File(...)) -> JSONResponse:
+    """Read one uploaded document under a profile: cited fields, tables and text, with the decision and why."""
+    _check_profile(profile_id)
+    data = await file.read(MAX_UPLOAD_BYTES + 1)   # bounded: never buffer an oversized upload whole
+    if not data:
+        raise HTTPException(status_code=400, detail="empty upload")
+    if len(data) > MAX_UPLOAD_BYTES:
+        raise HTTPException(status_code=413, detail=f"file exceeds {MAX_UPLOAD_BYTES} byte limit")
+    path = _save_upload(file, data)
+    try:
+        body = await _run_in_thread(lambda: _profile_read(path, profile_id))   # the slot is taken in the worker, never on the event loop
+    except UploadRejected as exc:
+        raise HTTPException(status_code=exc.status, detail=exc.detail) from exc
+    except (RuntimeError, ValueError) as exc:     # reader down, or it returned no JSON object
+        log.warning("profile extraction failed: %s", exc)
+        raise HTTPException(status_code=502, detail="The reader failed. Check /ready and the reader server.") from exc
+    return JSONResponse(content={**body, "file": file.filename})
 
 
 # ---------------------------------------------------------------------------
@@ -1195,6 +981,16 @@ def db_table_preview(name: str) -> JSONResponse:
     return JSONResponse(content={"name": name, "columns": cols, "rows": rows})
 
 
+def _write_env_local(lines: list[str]) -> None:
+    """.env.local holds the database password: created owner-only (never briefly world-readable) and replaced atomically."""
+    tmp = _ENV_LOCAL.with_name(f".{_ENV_LOCAL.name}.{os.getpid()}.tmp")
+    fd = os.open(tmp, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "w") as fh:
+        fh.write("\n".join(lines) + "\n")
+    os.chmod(tmp, 0o600)
+    os.replace(tmp, _ENV_LOCAL)
+
+
 @app.post("/api/db/configure")
 async def db_configure(request: Request) -> JSONResponse:
     """Validate a bare connection string, then save it to .env.local (mode 600, other lines
@@ -1208,6 +1004,8 @@ async def db_configure(request: Request) -> JSONResponse:
     org = str(body.get("org") or "").strip()
     if not url:
         raise HTTPException(status_code=400, detail="need url")
+    if any(c in url + org for c in "\r\n\0"):          # one line each in .env.local: no smuggled settings
+        raise HTTPException(status_code=400, detail="url and org must be single lines")
     probe = _try_db(url, org)
     if not probe.get("reachable"):
         raise HTTPException(status_code=502, detail="candidate database unreachable: " +
@@ -1229,8 +1027,7 @@ async def db_configure(request: Request) -> JSONResponse:
     for k, v in updates.items():
         if k not in seen:
             out.append(f"{k}={v}")
-    _ENV_LOCAL.write_text("\n".join(out) + "\n")
-    os.chmod(_ENV_LOCAL, 0o600)
+    _write_env_local(out)
     return JSONResponse(content={"saved": True, "host": probe["host"], "organization": probe.get("organization"),
                                  "note": "saved to .env.local; restart the app to use it"})
 
@@ -1239,21 +1036,32 @@ async def db_configure(request: Request) -> JSONResponse:
 # Engine updates: version checks + guarded upgrades
 # ---------------------------------------------------------------------------
 
-# Pip packages the app can upgrade itself, with the UI role each serves.
-_UPDATEABLE = (("docling", "Docling engine"), ("paddleocr", "PaddleOCR-VL engine"),
-               ("paddlex", "PaddleX runtime"), ("laya", "LAYA semantic layer"),
-               ("sentence-transformers", "Embedding layer"), ("MINERU", None))
+# Packages the app can upgrade itself, the role each serves, and the interpreter that runs it: OCR and the table reader's
+# layout step run in the Paddle environment (PPOCR_PYTHON), the model servers in this one (model_pool.PYTHON).
+def _paddle_python() -> str:
+    return os.environ.get("PPOCR_PYTHON") or os.path.expanduser("~/paddle-env/bin/python")
 
-_UPDATEABLE_NAMES = tuple(n for n, _ in _UPDATEABLE if not n.isupper())
+
+_UPDATEABLE = (("paddleocr", "PP-OCRv6 text and PaddleOCR-VL tables", "paddle"), ("paddlex", "Paddle pipelines runtime", "paddle"),
+               ("mlx-vlm", "Model servers (reader, table reader)", "app"))
+_UPDATEABLE_NAMES = tuple(n for n, _, _ in _UPDATEABLE)
+_ENV_OF = {n: env for n, _, env in _UPDATEABLE}
 _UPDATES_CACHE: dict = {}
 _UPDATES_TTL = 6 * 3600
 
 
-def _installed_version(name: str) -> str | None:
-    try:
-        from importlib.metadata import version
+def _interpreter(name: str) -> str:
+    return _paddle_python() if _ENV_OF.get(name) == "paddle" else sys.executable
 
-        return version(name)
+
+def _installed_version(name: str) -> str | None:
+    """The version installed where the package actually runs (the Paddle environment for OCR and tables)."""
+    import subprocess
+
+    try:
+        out = subprocess.run([_interpreter(name), "-c", f"import importlib.metadata as m; print(m.version({name!r}))"],
+                             capture_output=True, text=True, timeout=30)
+        return out.stdout.strip() or None
     except Exception:
         return None
 
@@ -1273,10 +1081,7 @@ def _updates(hard: bool = False) -> dict:
     if not hard and _UPDATES_CACHE and now - _UPDATES_CACHE.get("at", 0) < _UPDATES_TTL:
         return _UPDATES_CACHE["report"]
     pkgs = []
-    for name, role in _UPDATEABLE:
-        if name.isupper():      # external binary, version display only
-            pkgs.append(_external_version(name, role))
-            continue
+    for name, role, _env in _UPDATEABLE:
         current = _installed_version(name)
         try:
             latest = _pypi_latest(name)
@@ -1292,37 +1097,12 @@ def _updates(hard: bool = False) -> dict:
     return report
 
 
-def _external_version(key: str, role: str | None) -> dict:
-    if key == "MINERU":
-        try:
-            from . import mineru_engine
-
-            b = mineru_engine.resolve_bin()
-        except Exception:
-            b = None
-        if not b:
-            return {"name": "mineru", "role": "MinerU engine (external)", "current": None,
-                    "latest": None, "note": "binary not found (MINERU_BIN)"}
-        import subprocess
-
-        try:
-            import re
-            out = subprocess.run([b, "--version"], capture_output=True, text=True, timeout=30)
-            ver = (out.stdout or out.stderr or "").strip().splitlines()
-            raw = ver[0][:80] if ver else "?"
-            m = re.search(r"\d+\.\d+(?:\.\d+)?", raw)
-            return {"name": "mineru", "role": "MinerU engine (external)", "current": m.group(0) if m else raw,
-                    "latest": None, "note": "external binary: upgrade outside the app"}
-        except Exception as exc:
-            return {"name": "mineru", "role": "MinerU engine (external)", "current": None,
-                    "latest": None, "error": f"{type(exc).__name__}"}
-    return {"name": key, "role": role, "current": None, "latest": None}
-
-
 @app.get("/api/updates")
 def updates_status(refresh: bool = False) -> JSONResponse:
-    """Engine versions vs PyPI (cached 6h). ?refresh=1 bypasses the cache."""
-    return JSONResponse(content=_updates(hard=refresh))
+    """Engine versions vs PyPI (cached 6h). ?refresh=1 bypasses the cache. `job` is the install running or last run."""
+    with _UPGRADE_LOCK:
+        job = dict(_UPGRADE_JOB)
+    return JSONResponse(content={**_updates(hard=refresh), "job": job})
 
 
 @app.get("/api/updates/refresh")
@@ -1333,7 +1113,7 @@ def updates_refresh() -> JSONResponse:
 def _updates_busy() -> str | None:
     """Refuse upgrades while extraction work is in flight (batches or singles)."""
     with _EXTRACT_LOCK:
-        singles = _EXTRACT_INFLIGHT
+        singles = _EXTRACT_INFLIGHT + _EXTRACT_WAITING   # waiting for a slot counts: it is about to run
     if singles:
         return f"{singles} single extraction(s)"
     try:
@@ -1361,8 +1141,14 @@ def _run_upgrade(packages: list) -> None:
     import subprocess
 
     try:
-        proc = subprocess.run([sys.executable, "-m", "pip", "install", "-U", *packages],
-                              capture_output=True, text=True, timeout=1800)
+        # each package where it runs; one pip per environment, stopping at the first failure
+        by_env: dict[str, list[str]] = {}
+        for name in packages:
+            by_env.setdefault(_interpreter(name), []).append(name)
+        for python, names in by_env.items():
+            proc = subprocess.run([python, "-m", "pip", "install", "-U", *names], capture_output=True, text=True, timeout=1800)
+            if proc.returncode:
+                break
     except Exception as exc:
         with _UPGRADE_LOCK:
             _UPGRADE_JOB.update(running=False, returncode=None,
@@ -1429,120 +1215,18 @@ async def updates_auto(request: Request) -> JSONResponse:
             out.append(line)
     if not seen:
         out.append(f"ENGINE_AUTO_UPDATE={'1' if enabled else '0'}")
-    _ENV_LOCAL.write_text("\n".join(out) + "\n")
-    os.chmod(_ENV_LOCAL, 0o600)
+    _write_env_local(out)
+    os.environ["ENGINE_AUTO_UPDATE"] = "1" if enabled else "0"     # /api/updates reports it before the restart too
     _UPDATES_CACHE.clear()
     return JSONResponse(content={"auto_update": enabled,
                                  "note": "takes effect at next start (run_app.py upgrades before serving)"})
 
 
 # ---------------------------------------------------------------------------
-# Analytics (periodic) and audit trail
+# Audit trail
 # ---------------------------------------------------------------------------
 
-ANALYTICS_EVERY_MIN = float(os.environ.get("ANALYTICS_EVERY_MINUTES", "360"))
-_ANALYTICS_STATE: Dict[str, object] = {"last": None, "running": False}
-_ANALYTICS_LOCK = threading.Lock()
 
-
-def _analytics_run(trigger: str, if_changed: bool = False) -> dict:
-    from analytics.run import run
-
-    if not _ANALYTICS_LOCK.acquire(blocking=False):
-        return {"skipped": True, "reason": "an analysis is already running"}
-    _ANALYTICS_STATE["running"] = True
-    try:
-        res = run(trigger=trigger, if_changed=if_changed)
-        _ANALYTICS_STATE["last"] = {"at": time.strftime("%Y-%m-%d %H:%M:%S"), "trigger": trigger, **res}
-        return res
-    finally:
-        _ANALYTICS_STATE["running"] = False
-        _ANALYTICS_LOCK.release()
-
-
-def _analytics_loop() -> None:
-    """Re-analyse on a schedule, but only when an invoice was added or changed since the last report."""
-    time.sleep(20)
-    while True:
-        try:
-            res = _analytics_run("schedule", if_changed=True)
-            log.info("scheduled analytics: %s", res.get("reason") if res.get("skipped") else res.get("dir"))
-        except Exception as exc:
-            log.warning("scheduled analytics failed: %s", exc)
-            _ANALYTICS_STATE["last"] = {"at": time.strftime("%Y-%m-%d %H:%M:%S"), "error": f"{type(exc).__name__}: {exc}"[:200]}
-        time.sleep(max(60.0, ANALYTICS_EVERY_MIN * 60.0))
-
-
-if ANALYTICS_EVERY_MIN > 0 and os.environ.get("DATABASE_URL") and os.environ.get("INVOICE_ORG_ID"):
-    threading.Thread(target=_analytics_loop, name="analytics-scheduler", daemon=True).start()
-
-
-def _analytics_file(name: str) -> Path:
-    from analytics.run import OUT_ROOT
-
-    return OUT_ROOT / "latest" / name
-
-
-@app.get("/analytics", include_in_schema=False)
-def analytics_page():
-    f = _analytics_file("dashboard.html")
-    if not f.exists():
-        return HTMLResponse("""<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>Analytics — Invoice Extractor</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230052cc'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="/ui/app.css"></head><body>
-<header class="app-header"><a class="skip" href="#main">Skip to content</a>
-<a class="brand" href="/" aria-label="Invoice Extractor home"><svg class="brand-mark" aria-hidden="true"><use href="/ui/icons.svg#i-logo"/></svg><span class="brand-name">Invoice Extractor</span></a>
-<nav class="app-nav" aria-label="Primary"><a href="/">Extract</a><a href="/database">Database</a><a href="/analytics" aria-current="page">Analytics</a><a href="/audit">Audit trail</a><a href="/settings">Settings</a></nav></header>
-<main class="content narrow" id="main"><div class="page-head"><h1>Analytics</h1>
-<p class="page-desc">Spend trends, vendor breakdowns, and data-quality findings.</p></div>
-<div class="card"><div class="empty-state" role="status">
-<svg class="art" aria-hidden="true"><use href="/ui/icons.svg#i-file"/></svg>
-<h2>No report yet</h2><p>The report appears once invoices are stored in the database.</p>
-<p><button class="btn" id="runAnalytics" type="button">Run analytics now</button></p>
-<p class="meta" id="runMsg" aria-live="polite"></p></div></div></main>
-<script>(function(){var b=document.getElementById("runAnalytics"),m=document.getElementById("runMsg");
-b.addEventListener("click",function(){b.disabled=true;m.textContent="Running — this can take a minute…";
-fetch("/api/analytics/run",{method:"POST"}).then(function(r){return r.json().then(function(d){return{r:r,d:d}})})
-.then(function(x){if(!x.r.ok)throw new Error(x.d.detail||("Failed ("+x.r.status+")"));
-if(x.d.skipped){m.textContent=x.d.reason||"Nothing new to report.";b.disabled=false;return}location.reload()})
-.catch(function(e){m.textContent=e.message;m.classList.add("err");b.disabled=false})})})();</script>
-</body></html>""")
-    return FileResponse(f, media_type="text/html", headers={"Cache-Control": "no-store"})
-
-
-@app.get("/api/analytics/latest")
-def analytics_latest() -> JSONResponse:
-    f = _analytics_file("insights.json")
-    if not f.exists():
-        raise HTTPException(status_code=404, detail="no analytics run yet")
-    return JSONResponse(content=json.loads(f.read_text()))
-
-
-@app.get("/api/analytics/latest/mis_report.xlsx")
-def analytics_mis() -> FileResponse:
-    f = _analytics_file("mis_report.xlsx")
-    if not f.exists():
-        raise HTTPException(status_code=404, detail="no analytics run yet")
-    return FileResponse(f, filename="mis_report.xlsx",
-                        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-
-
-@app.post("/api/analytics/run")
-async def analytics_run_now() -> JSONResponse:
-    if not os.environ.get("DATABASE_URL"):
-        raise HTTPException(status_code=409, detail="no database configured")
-    try:
-        res = await _run_in_thread(lambda: _analytics_run("api"))
-    except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"analytics failed: {type(exc).__name__}: {exc}"[:300])
-    return JSONResponse(content=json.loads(json.dumps(res, default=str)))
-
-
-@app.get("/api/analytics/status")
-def analytics_status() -> JSONResponse:
-    return JSONResponse(content={"every_minutes": ANALYTICS_EVERY_MIN, "running": _ANALYTICS_STATE["running"],
-                                 "last": _ANALYTICS_STATE["last"], "report_available": _analytics_file("dashboard.html").exists()})
 
 
 @app.get("/api/audit/verify")
@@ -1554,134 +1238,24 @@ def audit_verify() -> JSONResponse:
     return JSONResponse(content=verify_chain())
 
 
-@app.get("/api/audit/invoice/{invoice_number:path}")
-def audit_invoice(invoice_number: str) -> JSONResponse:
-    if not os.environ.get("DATABASE_URL"):
+@app.get("/api/audit/entries")
+def audit_entries(limit: int = 200, before: int | None = None) -> JSONResponse:
+    """The organization's audit log, newest first, `limit` at a time (`before`: the oldest seq already shown)."""
+    org = os.environ.get("INVOICE_ORG_ID")
+    if not (os.environ.get("DATABASE_URL") and org):
         raise HTTPException(status_code=409, detail="no database configured")
-    from database.audit import invoice_trail
+    from database.audit import entries
 
-    trail = invoice_trail(invoice_number)
-    if not trail["matches"]:
-        raise HTTPException(status_code=404, detail="invoice not found in the database")
-    return JSONResponse(content=json.loads(json.dumps(trail, default=str)))
+    return JSONResponse(content=json.loads(json.dumps(entries(org, max(1, min(limit, 1000)), before), default=str)))
 
 
 # ---------------------------------------------------------------- evidence --
-_UUID_RE = re.compile(r"[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}")
 
 
-def _evidence(invoice_id: str) -> dict:
-    if not _UUID_RE.fullmatch(invoice_id):
-        raise HTTPException(status_code=400, detail="invalid invoice id")
-    if not (os.environ.get("DATABASE_URL") and os.environ.get("INVOICE_ORG_ID")):
-        raise HTTPException(status_code=409, detail="no database configured")
-    from database.db import Store
+# Last, so every route above wins: the Fluent build's files (/assets, /fonts, /boot.js, ...). Missing until it is built.
+from fastapi.staticfiles import StaticFiles  # noqa: E402
 
-    ev = Store(os.environ["INVOICE_ORG_ID"]).evidence(invoice_id)
-    if not ev:
-        raise HTTPException(status_code=404, detail="unknown invoice")
-    return ev
-
-
-@app.get("/evidence/{invoice_id}/page/{page}.jpg", include_in_schema=False)
-def evidence_page(invoice_id: str, page: int) -> FileResponse:
-    """One stored page image (boxes on the extracted values); checked against the hash recorded when it was made."""
-    import hashlib
-
-    from database.persist import evidence_dir
-
-    row = next((p for p in _evidence(invoice_id)["pages"] if p["page_number"] == page), None)
-    if not row:
-        raise HTTPException(status_code=404, detail="no evidence image for this page")
-    root = evidence_dir().resolve()
-    target = (root / row["storage_uri"]).resolve()
-    if root not in target.parents or not target.is_file():
-        raise HTTPException(status_code=404, detail="the stored image is missing on this server")
-    intact = hashlib.sha256(target.read_bytes()).hexdigest() == row["sha256"]
-    return FileResponse(target, media_type="image/jpeg",
-                        headers={"Cache-Control": "no-store", "X-Evidence-Sha256": row["sha256"],
-                                 "X-Evidence-Intact": "yes" if intact else "NO - file differs from the recorded hash"})
-
-
-@app.get("/api/evidence/{invoice_id}")
-def evidence_json(invoice_id: str) -> JSONResponse:
-    ev = _evidence(invoice_id)
-    return JSONResponse(json.loads(json.dumps(ev, default=str)))
-
-
-@app.get("/evidence/{invoice_id}", include_in_schema=False)
-def evidence_view(invoice_id: str) -> HTMLResponse:
-    """What Excel's "Open" link shows: the invoice's values and the pages they were read from."""
-    import hashlib
-    import html
-    from urllib.parse import quote
-
-    from database.persist import evidence_dir
-
-    ev = _evidence(invoice_id)
-    inv, pages = ev["invoice"], ev["pages"]
-    from database.db import Store
-
-    facts = Store(os.environ["INVOICE_ORG_ID"]).facts(invoice_id)
-    attrs = Store(os.environ["INVOICE_ORG_ID"]).attributes(invoice_id)
-    final = inv.get("final_output_json") or {}
-    fields = final.get("fields") or {}
-    esc = lambda x: html.escape(str(x if x is not None else ""))
-    rows = "".join(f"<tr><th>{esc(k)}</th><td>{esc(v) if v else '—'}</td></tr>" for k, v in fields.items())
-    warn = "".join(f"<li>{esc(w)}</li>" for w in final.get("warnings") or [])
-    root = evidence_dir().resolve()
-    figs = []
-    for p in pages:
-        f = (root / p["storage_uri"]).resolve()
-        state = ("missing on this server" if not f.is_file() else
-                 "matches the recorded hash" if hashlib.sha256(f.read_bytes()).hexdigest() == p["sha256"] else
-                 "DIFFERS from the recorded hash")
-        bad = state != "matches the recorded hash"
-        figs.append(f'<figure><img src="/evidence/{invoice_id}/page/{p["page_number"]}.jpg" alt="page {p["page_number"]}">'
-                    f'<figcaption>Page {p["page_number"]} · {p["boxes"]} values marked · stored {esc(p["created_at"])[:19]} UTC'
-                    f' · SHA-256 {esc(p["sha256"])[:16]}… <strong class="{"bad" if bad else "ok"}">({state})</strong>'
-                    f'{" — re-extract the invoice and compare with the audit trail." if bad else ""}</figcaption></figure>')
-    desc = " · ".join(p for p in [
-        esc(inv.get("vendor_name")), esc(inv.get("invoice_date")),
-        ("review status " + esc(inv.get("review_status"))) if inv.get("review_status") else "",
-        ("result " + esc(final.get("review_route"))) if final.get("review_route") else "",
-        ("last updated " + esc(inv.get("updated_at"))[:19] + " UTC") if inv.get("updated_at") else "",
-    ] if p)
-    body = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>Evidence · {esc(inv.get("invoice_number"))}</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230052cc'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="/ui/app.css">
-<style>
- .ev-grid {{ display:grid; grid-template-columns:minmax(260px,380px) 1fr; gap:20px; align-items:start; }}
- @media (max-width:900px) {{ .ev-grid {{ grid-template-columns:1fr; }} }}
- .ev-fields th {{ width:44%; }} .ev-fields td {{ overflow-wrap:anywhere; }}
- figure {{ margin:0 0 22px; }} figure img {{ width:100%; height:auto; border:1px solid var(--line); background:#fff; }}
- figcaption {{ color:var(--muted); font-size:13px; margin-top:4px; overflow-wrap:anywhere; }}
- ul {{ padding-left:18px; }}
- table.all th, table.all td {{ font-size:12.5px; padding:3px 6px; width:auto; font-weight:400; }}
- table.all tr:first-child th {{ font-weight:600; }} em {{ color:var(--muted); }}
- .bad {{ color:var(--red); }} .ok {{ color:var(--green); }}
-</style></head><body>
-<header class="app-header"><a class="skip" href="#main">Skip to content</a>
-<a class="brand" href="/" aria-label="Invoice Extractor home"><svg class="brand-mark" aria-hidden="true"><use href="/ui/icons.svg#i-logo"/></svg><span class="brand-name">Invoice Extractor</span></a>
-<nav class="app-nav" aria-label="Primary"><a href="/">Extract</a><a href="/database">Database</a><a href="/analytics">Analytics</a><a href="/audit">Audit trail</a><a href="/settings">Settings</a></nav></header>
-<main class="content" id="main" style="max-width:1500px">
-<p class="crumbs"><a href="/audit/{quote(str(inv.get("invoice_number") or ""), safe="")}">Audit trail</a><span class="sep">/</span><span aria-current="page">Evidence</span></p>
-<div class="page-head"><h1>Invoice {esc(inv.get("invoice_number") or "(no number)")}</h1>
-<p class="page-desc">{desc}</p></div>
-<div class="ev-grid"><section><div class="card"><table class="ev-fields">{rows}</table></div>
-{"<div class='card'><h2>Why it needs review</h2><ul>" + warn + "</ul></div>" if warn else ""}
-{("<h3>Details, arranged</h3><p class='page-desc'>Arranged by " + esc(attrs[0]["arranged_by"]) + " from the extracted items; each value is text of an extracted item, with its page.</p><table class='all'><tr><th>Group</th><th>Detail</th><th>Value</th><th>Page</th></tr>" + "".join(
-    f"<tr><td>{esc(a['grp'])}</td><td>{esc(a['detail'].replace('_', ' '))}</td><td>{esc(a['value'])}"
-    + ("" if a['valid'] else " <em>(check failed)</em>") + f"</td><td>{a['page_number']}</td></tr>" for a in attrs) + "</table>") if attrs else ""}
-{("<details><summary>Everything read from the document (" + str(len(facts)) + " items)</summary>"
-"<table class='all'><tr><th>Page</th><th>Where</th><th>Label</th><th>Value</th></tr>" + "".join(
-    f"<tr><td>{f['page_number']}</td><td>{esc(f['section'])}</td><td>{esc(f['label'])}</td><td>{esc(f['value'])}"
-    + (f" <em>({esc(f['output_field'])})</em>" if f['output_field'] else "") + "</td></tr>" for f in facts) + "</table></details>") if facts else ""}
-</section>
-<section>{"".join(figs) or "<p>No evidence image stored for this invoice.</p>"}</section>
-</div></main></body></html>"""
-    return HTMLResponse(body, headers={"Cache-Control": "no-store"})
+app.mount("/", StaticFiles(directory=FLUENT_DIST, check_dir=False), name="fluent")
 
 
 def main() -> None:  # pragma: no cover - entry point
@@ -1691,4 +1265,5 @@ def main() -> None:  # pragma: no cover - entry point
         level=os.environ.get("LOG_LEVEL", "INFO"),
         format="%(asctime)s %(levelname)s %(name)s %(message)s",
     )
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", "8000")))
+    # loopback unless HOST says otherwise: the API has no login (see ALLOWED_HOSTS)
+    uvicorn.run(app, host=os.environ.get("HOST", "127.0.0.1"), port=int(os.environ.get("PORT", "8000")))

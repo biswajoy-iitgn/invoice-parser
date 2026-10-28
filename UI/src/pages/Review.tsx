@@ -16,6 +16,7 @@ import { stamp } from '../audit';
 import { FileIcon, cardAction } from './Home';
 import ExportMenu from './Export';
 import { useControlStyles } from '../styles';
+import { ResultView } from './ResultView';
 import type { Box, Doc, ProfileField, SampleField, SamplePage } from '../types';
 import type { ReactNode } from 'react';
 
@@ -121,7 +122,7 @@ function Queue({ queue, current, openCount }: { queue: Doc[]; current: string; o
         {queue.map((d) => {
           const sample = DOCS[d.sample || d.id];
           const on = d.id === current;
-          const left = on ? openCount : sample ? sample.fields.filter((f) => f.conf < flagBelow).length : 0;
+          const left = on ? openCount : sample ? sample.fields.filter((f) => f.conf < flagBelow).length : d.flagged?.length ?? 0;
           const note = d.status === 'accepted' ? 'Approved' : left ? `${count(left, 'value', 'values')} to check` : 'Ready to approve';
           return (
             <ListItem key={d.id} value={d.id} ref={on ? onRef : null} className={`queue-item${on ? ' is-on' : ''}`} aria-current={on ? 'page' : undefined}
@@ -238,7 +239,14 @@ export default function Review() {
             </div>
           </section>
           <aside className="values" aria-label="Extracted values">
-            {rec.archived ? (
+            {rec.result ? (
+              <ResultView result={rec.result} approved={rec.status === 'accepted' || rec.status === 'exported'} onApprove={() => {
+                const approval = { by: me.name, at: stamp(), checked: rec.result?.fields.filter((f) => f.status !== 'verified').map((f) => f.label) ?? [], changed: [] as string[] };
+                setRuns((all) => all.map((r) => (r.id !== rec.run ? r : { ...r, docs: r.docs.map((d) => (d.id === rec.id ? { ...d, status: 'accepted', approval } : d)) })));
+                log('Approved document', rec.name);
+                notify(`${rec.name} approved`);
+              }} />
+            ) : rec.archived ? (
               <>
                 <Title as="h2" size="pane">{count(fields.length, 'value', 'values')}</Title>
                 <dl className="kv read-only">

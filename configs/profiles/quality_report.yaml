@@ -1,0 +1,25 @@
+# Use case 2: material/quality certificates and inspection reports (tested on EN 10204 3.1 mill certificates).
+# The test table differs per supplier: edit `columns` to the ones you need, one profile per supplier if they differ a lot.
+id: quality_report
+name: Quality certificate / test report
+detect: [quality certificate, test report, inspection report, first article, dimensional, nominal, tolerance, measured value]   # router.py: phrases that identify this kind of document
+description: Fields printed at the top, then one row per tested item with its mechanical and chemical results.
+min_verified: 0.9
+fields:
+  - {key: report_no, label: Report / certificate number, type: id, required: true}
+  - {key: customer, label: Customer, type: text, required: true}
+  - {key: order_no, label: Order / PO number, type: id}
+  - {key: report_date, label: Report date, type: date, required: true}
+  - {key: standard, label: Standard or specification, type: text, hint: "for example EN 10204 3.1"}
+tables:
+  - key: results
+    label: the test results table
+    required: true
+    columns: [Size, "Coil / Packet Ref.No.", Heat Number, Tensile Strength, Yield Strength, Elongation, C, Si, Mn, P, S]
+    hint: copy decimal commas as printed (0,047 stays 0,047)
+checks:
+  - {type: compare, table: results, left: "Yield Strength", op: "<=", right: "Tensile Strength", name: yield strength does not exceed tensile strength}
+  - {type: range, table: results, column: Elongation, min: 0, max: 100, name: elongation within 0 to 100 percent}
+  - {type: unique, table: results, column: "Coil / Packet Ref.No.", name: no coil listed twice}
+  - {type: complete, table: results, columns: [Heat Number], name: every row has a heat number}
+  - {type: date_window, field: report_date, name: report date is not in the future}

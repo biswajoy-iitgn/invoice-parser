@@ -1,0 +1,44 @@
+# Use case 2, steel mill test certificates (tested on ArcelorMittal Nippon Steel certificates received as scans and photos).
+# Two printed tables and two handwritten receiving notes. The checks are arithmetic: the printed CE and MAE must follow
+# from the chemistry beside them, and the batch quantities must add up to the Total row.
+id: mill_certificate
+name: Mill test certificate
+detect: [mill test certificate, inspection certificate, en 10204, heat no, heat number, chemical composition, yield strength, tensile strength, elongation]   # router.py: phrases that identify this kind of document
+description: Steel mill test certificate with a heat analysis, mechanical properties and the receiving notes written on it.
+min_verified: 0.9
+fields:
+  - {key: certificate_no, label: Test certificate number, type: id, required: true}
+  - {key: certificate_date, label: Test certificate date, type: date, required: true}
+  - {key: customer, label: Customer, type: text, hint: 'the "To" address', required: true}
+  - {key: sale_order_no, label: Sale order number, type: id}
+  - {key: sales_order_date, label: Sales order date, type: date}
+  - {key: specification, label: Specification, type: text}
+  - {key: product_type, label: Product type, type: text}
+  - {key: invoice_no, label: Invoice number, type: id}
+  - {key: vehicle_no, label: Vehicle number, type: vehicle}
+  - {key: coil_no, label: ASPL coil number, type: id, required: true, hint: "handwritten near the bottom right"}
+  - {key: received_date, label: Received date, type: date, required: true, hint: "handwritten next to the coil number, day-month-year"}
+  - {key: footer_certificate_no, label: Certificate number in the footer, type: id, hint: "the number after 'Page 1 of 1 for TC:' at the bottom"}
+tables:
+  - key: heat
+    label: the heat analysis table (chemistry in percent)
+    required: true
+    columns: [Heat No, C, MN, S, P, SI, AL, CR, CU, NI, TI, V, NB, MO, N, MAE, CE]
+  - key: mechanical
+    label: the mechanical properties table (one row per batch, then a Total row)
+    required: true
+    columns: [Item No, Batch ID, Thk, Wid, Qty Net, YS, UTS, EL, BEND]
+checks:
+  - {type: row_formula, table: heat, result: CE, expr: "C + MN/6 + (CR+MO+V)/5 + (NI+CU)/15", tolerance: 0.002, name: carbon equivalent follows from the chemistry}
+  - {type: row_formula, table: heat, result: MAE, expr: "NB + TI + V", tolerance: 0.002, name: MAE is Nb + Ti + V}
+  - {type: total_row, table: mechanical, columns: [Qty Net], tolerance: 0.01, name: batch quantities add up to the Total row}
+  - {type: range, table: heat, column: C, min: 0, max: 1, name: carbon within 0 to 1 percent}
+  - {type: compare, table: heat, left: "C+MN+S+P+SI+AL+CR+CU+NI+TI+V+NB+MO+N", op: "<", right: 5, name: alloying elements stay under 5 percent}
+  - {type: compare, table: mechanical, left: YS, op: "<=", right: UTS, name: yield strength does not exceed tensile strength}
+  - {type: range, table: mechanical, column: EL, min: 0, max: 100, name: elongation within 0 to 100 percent}
+  - {type: unique, table: mechanical, column: Batch ID, name: no batch listed twice}
+  - {type: complete, table: mechanical, columns: [Batch ID, Qty Net], name: every batch has an ID and a quantity}
+  - {type: same, a: certificate_no, b: footer_certificate_no, name: header and footer certificate numbers agree}
+  - {type: compare, left: sales_order_date, op: "<=", right: certificate_date, as: date, name: sales order is not after the certificate}
+  - {type: compare, left: certificate_date, op: "<=", right: received_date, as: date, name: received on or after the certificate date}
+  - {type: date_window, field: certificate_date, name: certificate date is not in the future}

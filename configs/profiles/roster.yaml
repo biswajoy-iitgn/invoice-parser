@@ -1,0 +1,25 @@
+# Use case 4: rosters / shift schedules read from a PDF into a sheet.
+# This reads the per-employee summary. For the day-by-day grid add columns (Sunday ... Saturday) to the table.
+id: roster
+name: Weekly staff roster
+detect: [roster, shift, schedule, weekly hours, total hours, employee, time in, time out]   # router.py: phrases that identify this kind of document
+description: Shifts and hours per employee for a week.
+min_verified: 0.9
+fields:
+  - {key: department, label: Department, type: text, required: true}
+  - {key: week_start, label: Week start date, type: text}
+  - {key: scheduler, label: Scheduler, type: text}
+  - {key: total_hours, label: Weekly total hours, type: number}
+  - {key: total_pay, label: Weekly total pay, type: amount}
+tables:
+  - {key: employees, label: the employee rows, required: true, columns: [ID, Name, Role, Hourly Rate, Total Hours, Total Pay]}
+checks:
+  - {type: row_formula, table: employees, result: Total Pay, expr: "HourlyRate * TotalHours", tolerance: 0.05, name: pay is rate times hours}
+  - {type: sum, table: employees, column: Total Pay, field: total_pay, tolerance: 0.05}
+  - {type: sum, table: employees, column: Total Hours, field: total_hours, tolerance: 0.01}
+  - {type: unique, table: employees, column: ID, name: no employee listed twice}
+  - {type: complete, table: employees, columns: [ID, Hourly Rate, Total Hours, Total Pay], name: every employee row is complete}
+  - {type: range, table: employees, column: Total Hours, min: 0, max: 168, name: weekly hours within a week}
+  - {type: range, table: employees, column: Hourly Rate, min: 0.01, name: hourly rate is positive}
+models:                       # the dense day-by-day grid: NuExtract3 read all 16 employees (100% of cells on the page) in 10 s;
+  reader: "nuextract3"        # Qwen3-VL-4B returned no rows, the 8B took 42 s and 10 GB (reports/reader_bakeoff.md)

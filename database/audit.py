@@ -22,6 +22,18 @@ def verify_chain() -> dict:
             "first_altered_entry": row["first_bad_seq"], "first": str(info["first"] or ""), "last": str(info["last"] or "")}
 
 
+def entries(org: str, limit: int = 200, before: int | None = None) -> dict:
+    """One organization's audit entries, newest first: {"entries": [...], "more": bool}."""
+    with connect() as conn, conn.cursor() as cur:
+        cur.execute("SELECT set_config('app.current_org', %s, TRUE)", (org,))
+        cur.execute(
+            """SELECT seq, created_at, user_id, entity, entity_id, action, row_hash FROM audit_logs
+                WHERE organization_id = %s AND (%s::bigint IS NULL OR seq < %s) ORDER BY seq DESC LIMIT %s""",
+            (org, before, before, limit + 1))
+        rows = cur.fetchall()
+    return {"entries": rows[:limit], "more": len(rows) > limit}
+
+
 def invoice_trail(invoice_number: str, org: str | None = None) -> dict:
     org = org or os.environ.get("INVOICE_ORG_ID")
     with connect() as conn, conn.cursor() as cur:

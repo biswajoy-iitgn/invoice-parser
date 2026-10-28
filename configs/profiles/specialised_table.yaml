@@ -1,0 +1,10 @@
+# Use case 5 TEMPLATE: copy this file for each specialised table document and set the real columns.
+# Tables are read by whichever reader is configured; every cell is checked against the page.
+id: specialised_table
+name: Specialised table document
+description: A document whose main content is one complex table.
+min_verified: 0.95
+fields:
+  - {key: title, label: Table title or document title, type: text}
+tables:
+  - {key: table, label: the main table, required: true, columns: [Item, Value, Unit]}

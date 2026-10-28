@@ -92,6 +92,31 @@ def clean_lines(ids, valid: set[str] | None = None) -> list[str]:
     return out
 
 
+def _close_truncated(text: str) -> str | None:
+    """A JSON object cut off mid-way (token limit): keep everything up to the last complete value and close the brackets."""
+    stack, snap, in_str, esc = [], None, False, False
+    for i, ch in enumerate(text):
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch in "{[":
+            stack.append(ch)
+        elif ch in "}]" and stack:
+            stack.pop()
+            snap = (i, list(stack))
+    if snap is None:
+        return None
+    i, open_ = snap
+    return text[: i + 1] + "".join("}" if c == "{" else "]" for c in reversed(open_))
+
+
 def parse_output(text: str) -> dict:
     """Tolerant JSON extraction (strips think tags / fences); raises ValueError when no object."""
     text = re.sub(r"<think>.*?</think>", "", text or "", flags=re.DOTALL).strip()
@@ -101,5 +126,14 @@ def parse_output(text: str) -> dict:
     except json.JSONDecodeError:
         m = re.search(r"\{.*\}", text, re.DOTALL)
         if m:
-            return json.loads(m.group(0))
+            try:
+                return json.loads(m.group(0))
+            except json.JSONDecodeError:
+                pass
+        fixed = _close_truncated(text[text.find("{"):]) if "{" in text else None
+        if fixed:
+            try:
+                return {**json.loads(fixed), "_truncated": True}   # the reader ran out of tokens: what was complete is kept
+            except json.JSONDecodeError:
+                pass
     raise ValueError(f"reader returned no JSON object: {text[:200]!r}")

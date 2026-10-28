@@ -6,8 +6,10 @@ picture (a logo, a stamp). PaddleOCR-VL reads the page the way a person does: it
 tables, headers, footers, seals, pictures), reads each one, keeps a paragraph in one piece, returns tables as rows
 and cells, and gives the blocks in reading order with their boxes.
 
-Paddle has no wheel for the app's Python, so the model runs in one persistent worker process started with the
-interpreter in PPOCR_PYTHON (default ~/paddle-env/bin/python). On this Mac it runs on CPU: about 90 s per page.
+Paddle has no wheel for the app's Python, so the pipeline runs in one persistent worker process started with the
+interpreter in PPOCR_PYTHON (default ~/paddle-env/bin/python). Layout detection runs there on CPU; the VLM that reads each
+block runs on the model pool's GPU server (model_pool.py, catalog id `document-parser`), started only when a page needs
+it. Without the pool's model on this machine, the whole pipeline runs on CPU: about 90 s per page.
 Results are cached on disk by the SHA-256 of the page image, so a page is parsed once.
 
   DOC_PARSER=paddleocr-vl | off     (default: paddleocr-vl when the Paddle interpreter exists)
@@ -15,6 +17,7 @@ Results are cached on disk by the SHA-256 of the page image, so a page is parsed
 from __future__ import annotations
 
 import atexit
+import contextlib
 import hashlib
 import json
 import os
@@ -33,6 +36,7 @@ MODEL = f"PaddleOCR-VL {VERSION.lstrip('v')}"
 
 _lock = threading.Lock()
 _proc: subprocess.Popen | None = None
+_proc_server: str | None = None           # the GPU server the running worker was started against
 
 
 def enabled() -> bool:
@@ -40,8 +44,10 @@ def enabled() -> bool:
     return mode not in ("off", "0", "none", "") and Path(PYTHON).exists()
 
 
-def _start() -> subprocess.Popen:
+def _start(server: tuple[str, str] | None = None) -> subprocess.Popen:
     env = dict(os.environ, PADDLE_DEVICE=os.environ.get("PADDLE_DEVICE", "cpu"), PADDLEOCR_VL_VERSION=VERSION)
+    if server:
+        env.update(VL_SERVER_URL=server[0] + "/v1", VL_SERVER_MODEL=server[1])
     proc = subprocess.Popen([PYTHON, str(WORKER)], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                             stderr=subprocess.DEVNULL, text=True, env=env, bufsize=1)
     while True:
@@ -76,9 +82,13 @@ def parse_image(png: str) -> dict:
     hit = CACHE / f"{key}.json"
     if hit.exists():
         return {**json.loads(hit.read_text()), "cached": True}
-    with _lock:                                   # one page at a time: the model uses every CPU core
+    with _lock, _gpu() as server:                 # one page at a time: layout detection uses every CPU core
+        global _proc_server
+        if _proc is not None and _proc.poll() is None and _proc_server != (server and server[0]):
+            _close()                              # the GPU server moved (restarted after an idle stop): reconnect
         if _proc is None or _proc.poll() is not None:
-            _proc = _start()
+            _proc = _start(server)
+            _proc_server = server and server[0]
         _proc.stdin.write(json.dumps({"image": str(png)}) + "\n")
         _proc.stdin.flush()
         if not select.select([_proc.stdout], [], [], TIMEOUT)[0]:
@@ -96,6 +106,22 @@ def parse_image(png: str) -> dict:
     tmp.write_text(json.dumps(out, ensure_ascii=False))
     tmp.replace(hit)
     return {**out, "cached": False}
+
+
+@contextlib.contextmanager
+def _gpu():
+    """(url, model) of the pool's PaddleOCR-VL server, held for this page; None when the pool can't serve it here."""
+    try:
+        from .model_pool import pool
+
+        if os.environ.get("DOC_PARSER_GPU", "1") != "1" or not pool().available("document-parser"):
+            yield None
+            return
+    except Exception:
+        yield None
+        return
+    with pool().use("document-parser") as url:
+        yield url, pool().servers["document-parser"].path
 
 
 def parse_document(path: str, dpi: int = 150) -> list[dict]:

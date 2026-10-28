@@ -17,7 +17,15 @@ def main() -> None:
     version = os.environ.get("PADDLEOCR_VL_VERSION", "v1.6")
     from paddleocr import PaddleOCRVL
 
-    vl = PaddleOCRVL(pipeline_version=version)
+    server = os.environ.get("VL_SERVER_URL")
+    if server:   # the VLM runs on the model pool's GPU server; layout detection stays here on CPU (as benchmarked)
+        vl = PaddleOCRVL(pipeline_version=version, vl_rec_backend="mlx-vlm-server", vl_rec_server_url=server,
+                         vl_rec_api_model_name=os.environ["VL_SERVER_MODEL"], use_doc_orientation_classify=False,
+                         use_doc_unwarping=False, device="cpu")
+    else:
+        vl = PaddleOCRVL(pipeline_version=version)
+    # seal recognition stays off (the shipped default): its own seal-OCR models doubled the page time and misread a stamp the
+    # VLM read in full from a crop; the layout step did not find the stamp on a phone photo (reports/reader_bakeoff.md)
 
     def reply(obj: dict) -> None:
         real_out.write(json.dumps(obj, ensure_ascii=False) + "\n")

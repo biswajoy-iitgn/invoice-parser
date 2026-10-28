@@ -155,6 +155,7 @@ html, body, #root { height: 100%; margin: 0; }
 .file-card-preview { height: 148px; overflow: hidden; padding: 16px 22px 0; background: linear-gradient(180deg, var(--colorNeutralBackground3), var(--colorNeutralBackground2)); }
 /* A page sheet peeking out of a tray (OneDrive). CardPreview stretches children to 100% x 100%, so crop, never squash. */
 .file-card-preview > img { object-fit: cover; object-position: top center; border-radius: 3px 3px 0 0; box-shadow: var(--shadow4); background: var(--appPaper); }
+.file-card-blank { height: 100%; display: grid; place-items: center; font-size: 48px; color: var(--colorNeutralForeground3); }
 .file-card .flag-names { display: flex; align-items: flex-start; gap: 6px; padding: 0 14px 14px; }
 .file-card .flag-names svg { color: var(--colorBrandForeground1); flex-shrink: 0; margin-top: 1px; font-size: 16px; }
 .workspace { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
@@ -365,6 +366,7 @@ button.kpi, button.engine-card { cursor: pointer; font: inherit; color: inherit;
 .page-loading { display: grid; place-items: center; min-height: 40vh; }
 .signed-out { min-height: 100%; display: grid; place-items: center; padding: 24px; background: var(--appBg); }
 .signed-out-card { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; max-width: 400px; padding: 40px 32px; border-radius: var(--borderRadiusXLarge); background: var(--appSurface); box-shadow: var(--shadow16); }
+.signed-out-card .fui-Field, .signed-out-card > button, .signed-out-card .fui-MessageBar { align-self: stretch; text-align: start; }
 .signed-out-logo { margin-bottom: 8px; }
 .main > .view-as { margin: 12px 32px 0; width: auto; }
 @media (prefers-reduced-motion: reduce) {
@@ -420,3 +422,8 @@ button.kpi, button.engine-card { cursor: pointer; font: inherit; color: inherit;
 .steps { margin: 0; padding-inline-start: 20px; display: flex; flex-direction: column; gap: 16px; }
 .steps li { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 kbd { font-family: var(--fontFamilyMonospace); font-size: 12px; padding: 1px 6px; border: 1px solid var(--colorNeutralStroke1); border-radius: var(--borderRadiusSmall); background: var(--colorNeutralBackground3); white-space: nowrap; }
+
+/* A document read by the service: wide tables scroll sideways inside the values pane, long text keeps its line breaks */
+.result-table { max-width: 100%; }
+.result-table table { min-width: max-content; }
+.result-text textarea { font-family: var(--fontFamilyMonospace); font-size: var(--fontSizeBase200); white-space: pre; }

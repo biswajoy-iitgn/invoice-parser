@@ -37,3 +37,4 @@ docling==2.130.0
 #             (GPU hosts: paddlepaddle-gpu from the Paddle index matching the CUDA version)
 #   llama.cpp (brew install llama.cpp): llama-server serves Qwen3-VL-8B-Instruct GGUF + the reader LoRA
 #   SwinIR network code: git clone https://github.com/JingyunLiang/SwinIR work/SwinIR (Apache-2.0)
+psutil>=7

@@ -18,12 +18,15 @@ import { useShellStyles, useStaticStyles } from './styles';
 import { theme, darkTheme } from './theme';
 import { PROFILES, RUNS, TABLES, WORKFLOWS, PATHS, NOTIFICATIONS, DOCS, USERS, AUDIT, CONNECTIONS, meanConf } from './data';
 import { ENGINE_DEFAULTS } from './engines';
+import { account, api, readOnService, SIGNED_OUT, SNAPSHOT, withServer } from './api';
+import type { Account } from './api';
+import type { Gate } from './signin';
 import type { EngineState } from './engines';
 import { chain, hashOf, stamp } from './audit';
 import { HelpMenu } from './help';
 import type { HelpDialog } from './help';
 import type {
-  AppContextValue, AuditEntry, Connection, Doc, DocRecord, Intent, Note, NoteKind, Profile, Role, Route, Run, RunDoc, Tables, UploadItem, Values, Workflow,
+  AppContextValue, AuditEntry, Connection, Doc, DocRecord, Intent, Note, NoteKind, Profile, Role, Route, Run, RunDoc, Tables, UploadItem, User, Values, Workflow,
 } from './types';
 import Home from './pages/Home';
 
@@ -43,6 +46,7 @@ const ProfileEditor = named(() => import('./pages/Profiles'), 'ProfileEditor');
 const Users = named(() => import('./pages/Admin'), 'Users');
 const Audit = named(() => import('./pages/Admin'), 'Audit');
 const Updates = named(() => import('./pages/Admin'), 'Updates');
+const SignIn = lazy(() => import('./signin'));
 
 // Wait UX: nothing for short loads, a labelled spinner after 400 ms.
 function PageLoading() {
@@ -94,7 +98,7 @@ const PAGES: Record<string, ComponentType> = {
 const ALIAS: Record<string, string> = { runs: 'extract', upload: 'extract', settings: 'profiles', automations: 'workflows', databases: 'data' };
 const SETTINGS_OF: Record<string, string> = { profile: 'profiles' };
 const NOTE_ICON: Record<NoteKind, [FluentIcon, string]> = { approval: [CheckmarkCircleRegular, 'is-ok'], run: [DocumentTextExtractRegular, ''], insight: [LightbulbRegular, ''], engine: [PlugDisconnectedRegular, 'is-bad'] };
-const ME = USERS[0]; // the signed-in person; a server session supplies this
+const SAMPLE_ME = USERS[0]; // who the app shows when the service can't be reached (samples, tests)
 const LANGS = [['en', 'English'], ['gu', 'ગુજરાતી'], ['hi', 'हिन्दी']];
 
 // Mock reader: a file whose name matches a bundled sample opens that sample's real pages and values.
@@ -124,8 +128,28 @@ export default function App() {
   const phone = useMedia('(max-width: 640px)');
   // English, Gujarati and Hindi all read left to right; in development, ?dir=rtl previews the mirrored layout.
   const dir = import.meta.env.DEV && new URLSearchParams(location.search).get('dir') === 'rtl' ? 'rtl' : 'ltr';
-  const [signedIn, setSignedIn] = useState(true);
-  const [profiles, setProfiles] = useState<Profile[]>(saved.profiles || PROFILES);
+  // Who is signed in comes from the service, and so does their role (it enforces it on every call). Until it answers, and
+  // when it can't be reached (samples, tests), the app runs as the sample person; it never holds data of its own.
+  const [me, setMe] = useState<User>(SAMPLE_ME);
+  const [realRole, setRealRole] = useState<Role>('admin');
+  const [gate, setGate] = useState<Gate | null>(null);
+  const signedIn = (u: Account) => {
+    setMe({ id: u.id, name: u.name, email: u.email, role: u.role, groups: [], last: 'Now' });
+    setRealRole(u.role);
+    setRole(u.role);
+    setGate(u.must_change ? 'change' : null);
+  };
+  useEffect(() => {
+    account.me().then((r) => {
+      if (r.user) signedIn(r.user);
+      else if (r.sign_in) setGate(r.needs_setup ? 'setup' : 'out');
+    }).catch(() => { /* no service: the sample workspace */ });
+    const out = () => setGate('out');
+    window.addEventListener(SIGNED_OUT, out);
+    return () => window.removeEventListener(SIGNED_OUT, out);
+  }, []);
+  const [profiles, setProfiles] = useState<Profile[]>(() => withServer(saved.profiles || PROFILES, SNAPSHOT.profiles));
+  useEffect(() => { api.profiles().then((d) => setProfiles((all) => withServer(all, d))).catch(() => { /* offline: the bundled snapshot stands */ }); }, []);
   const [runs, setRuns] = useState<Run[]>(saved.runs || RUNS);
   const [tables, setTables] = useState<Tables>(saved.tables || TABLES);
   const [workflows, setWorkflows] = useState<Workflow[]>(saved.workflows || WORKFLOWS);
@@ -160,7 +184,7 @@ export default function App() {
     auditQueue.current = auditQueue.current.then(async () => { auditRef.current = await chain(auditRef.current); setAudit(auditRef.current); });
   }, []);
   const log = (action: string, target: string) => {
-    const e = { at: stamp(), actor: ME.name, action, target };
+    const e = { at: stamp(), actor: me.name, action, target };
     auditQueue.current = auditQueue.current.then(async () => {
       auditRef.current = [{ ...e, hash: await hashOf(auditRef.current[0]?.hash ?? '', e) }, ...auditRef.current];
       setAudit(auditRef.current);
@@ -208,46 +232,78 @@ export default function App() {
   // Simulated pipeline: each document walks its path, staggered so the batch reads naturally.
   const startRun = (items: UploadItem[], forced: string | null, source: string) => {
     const id = `R-${Math.max(...runs.map((r) => Number(r.id.slice(2)))) + 1}`;
+    // A file that isn't a sample is read by the service: under the chosen profile, or with the type auto-detected, under
+    // whichever profile the service's router picks for it (it answers with the profile it chose).
+    const chosen = forced ? profiles.find((p) => p.id === forced) : undefined;
+    const serverId: string | null = forced ? chosen?.serverId || 'general' : 'auto';
     const docs = items.map((it, i): RunDoc => {
       const sampleId = it.sampleId || matchSample(it.name);
       const doc = sampleId ? DOCS[sampleId] : null;
+      const live = !!it.file && !doc && serverId !== null;
       if (it.file) blobs.current[`${id}-${i}`] = { url: URL.createObjectURL(it.file), type: it.file.type };
       return {
         id: sampleId && !runs.some((r) => r.docs.some((d) => d.id === sampleId)) ? sampleId : `${id}-${i}`,
         sample: sampleId || null, name: it.name, pages: doc?.pages.length || 1, kind: doc?.kind || (/\.pdf$/i.test(it.name) ? 'vector' : 'scan'),
-        profile: forced || 'freight', route: forced ? null : doc ? 0.97 : 0.52,
-        status: 'queued', step: -1, score: null,
+        profile: (live && (serverId === 'auto' ? 'auto' : profiles.find((p) => p.serverId === serverId)?.id)) || forced || 'freight', route: forced || live ? null : doc ? 0.97 : 0.52,
+        status: live ? 'running' : 'queued', step: -1, score: null, live,
         // approved without a person only when auto-approve is on and nothing is below the check level
-        final: !doc ? 'failed' : engines.cfg.autoAccept && !doc.fields.some((f) => f.conf < engines.cfg.accept) ? 'accepted' : 'review',
-        reason: doc ? '' : "Couldn't read this file",
+        final: live ? undefined : !doc ? 'failed' : engines.cfg.autoAccept && !doc.fields.some((f) => f.conf < engines.cfg.accept) ? 'accepted' : 'review',
+        reason: doc || live ? '' : "Couldn't read this file",
       };
     });
-    setRuns((all) => [{ id, profile: forced || 'auto', source, started: 'Just now', by: ME.name, status: 'running', docs }, ...all]);
+    setRuns((all) => [{ id, profile: forced || 'auto', source, started: 'Just now', by: me.name, status: docs.some((d) => d.live || d.final) ? 'running' : 'done', docs }, ...all]);
     log('Uploaded documents', `${id}, ${count(docs.length, 'file', 'files')}`);
     go('run', id);
+    const finished = (d: RunDoc) => (d.live ? d.status !== 'running' && d.status !== 'queued' : d.step === PATHS[d.kind].length);
+    const runStatus = (ds: RunDoc[]): Run['status'] => (ds.every(finished) ? (ds.some((d) => d.status === 'review' || d.status === 'failed') ? 'review' : 'done') : 'running');
+    const summary = (ds: RunDoc[]) => {
+      const rev = ds.filter((d) => d.status === 'review').length;
+      const failed = ds.filter((d) => d.status === 'failed').length;
+      return { rev, failed, body: [count(ds.length, 'document', 'documents'), rev && `${rev} need review`, failed && `${failed} failed`].filter(Boolean).join(', ') };
+    };
+    // documents read by the service settle on their own, as each answer arrives
+    // every outcome so far, so the closing note counts all of them (live answers and the simulated finish)
+    const outcome: Record<string, Partial<RunDoc>> = {};
+    const progress = { live: docs.filter((d) => d.live).length, simDone: docs.every((d) => d.live) };
+    const finish = () => {
+      if (progress.live > 0 || !progress.simDone) return;
+      const { failed, body } = summary(docs.map((d) => ({ ...d, ...(d.live ? {} : { status: d.final ?? 'failed' }), ...outcome[d.id] })));
+      pushNote({ kind: 'run', title: `Batch ${id} finished`, body, page: ['run', id] });
+      notify(`Batch ${id} finished`, failed ? 'warning' : 'success', body);
+    };
+    const settle = (docId: string, raw: Partial<RunDoc>) => {
+      // the router's choice, as this workspace's profile
+      const picked = raw.result?.route && profiles.find((p) => p.serverId === raw.result?.route?.profile)?.id;
+      const patch = picked ? { ...raw, profile: picked } : raw;
+      progress.live -= 1;
+      outcome[docId] = patch;
+      setRuns((all) => all.map((run) => (run.id !== id ? run : { ...run, docs: run.docs.map((d) => (d.id === docId ? { ...d, ...patch } : d)), status: runStatus(run.docs.map((d) => (d.id === docId ? { ...d, ...patch } : d))) })));
+      finish();
+    };
+    const live = docs.flatMap((d, i) => (d.live ? [{ doc: d, file: items[i].file as File }] : []));
+    if (live.length) void readOnService(serverId as string, live, settle, engines.cfg.autoAccept);
     let tick = 0;
-    const longest = Math.max(...docs.map((d, i) => PATHS[d.kind].length + i));
+    const sim = docs.filter((d) => !d.live);
+    const longest = Math.max(0, ...sim.map((d) => PATHS[d.kind].length + docs.indexOf(d)));
+    if (sim.length === 0) return;
     const timer = setInterval(() => {
       tick += 1;
       setRuns((all) => all.map((run) => {
         if (run.id !== id) return run;
         const next = run.docs.map((d, i): RunDoc => {
+          if (d.live) return d;
           const len = PATHS[d.kind].length;
           const s = Math.min(tick - i, len);
           if (s < 0) return d;
           if (s === len) return { ...d, step: s, status: d.final ?? 'failed', score: d.sample ? meanConf(DOCS[d.sample]) : null };
           return { ...d, step: s, status: 'running' };
         });
-        const done = next.every((d) => d.step === PATHS[d.kind].length);
-        return { ...run, docs: next, status: (done ? (next.some((d) => d.status === 'review' || d.status === 'failed') ? 'review' : 'done') : 'running') as Run['status'] };
+        return { ...run, docs: next, status: runStatus(next) };
       }));
       if (tick > longest) {
         clearInterval(timer);
-        const rev = docs.filter((d) => d.final === 'review').length;
-        const failed = docs.filter((d) => d.final === 'failed').length;
-        const body = [count(docs.length, 'document', 'documents'), rev && `${rev} need review`, failed && `${failed} failed`].filter(Boolean).join(', ');
-        pushNote({ kind: 'run', title: `Batch ${id} finished`, body, page: ['run', id] });
-        notify(`Batch ${id} finished`, failed ? 'warning' : 'success', body);
+        progress.simDone = true;
+        finish();
       }
     }, 420);
   };
@@ -269,11 +325,12 @@ export default function App() {
   };
   const signOut = () => {
     try { localStorage.removeItem(SAVE_KEY); } catch { /* nothing was stored */ }
-    setSignedIn(false);
+    void account.logout().catch(() => { /* already gone */ });
+    setGate('out');
   };
   const app: AppContextValue = {
     route: page, go, role, profiles, setProfiles, runs, setRuns, tables, setTables, workflows, setWorkflows, notify, pushNote, startRun,
-    reviewCount, allDocs, docRecord, edits, setEdits, query, setQuery, dark, me: ME, engines, setEngines, engineDraft, setEngineDraft,
+    reviewCount, allDocs, docRecord, edits, setEdits, query, setQuery, dark, me, engines, setEngines, engineDraft, setEngineDraft,
     flagBelow: engines.cfg.accept, audit, log, connections, setConnections, samples, removeSamples,
   };
 
@@ -302,17 +359,10 @@ export default function App() {
   ];
   const moreOn = more.some(([k]) => k === railKey);
 
-  if (!signedIn) {
+  if (gate) {
     return (
       <FluentProvider theme={dark ? darkTheme : theme} dir={dir}>
-        <main className="signed-out">
-          <div className="signed-out-card">
-            <span className="logo-chip signed-out-logo"><img src="/harsha-logo.png" alt="Harsha Engineers" className="logo" /></span>
-            <Title>{"You're signed out"}</Title>
-            <Body1 className="muted">Nothing from your session is left in this browser. Sign in again to get back to your documents.</Body1>
-            <Button appearance="primary" className={ss.signIn} onClick={() => { history.replaceState(null, '', '#/home'); location.reload(); }}>Sign in</Button>
-          </div>
-        </main>
+        <Suspense fallback={<PageLoading />}><SignIn gate={gate} onDone={signedIn} /></Suspense>
       </FluentProvider>
     );
   }
@@ -341,19 +391,23 @@ export default function App() {
             }}>
               <MenuTrigger disableButtonEnhancement>
                 <Tooltip content="Account" relationship="label">
-                  <Button appearance="transparent" className={mergeClasses('me', ss.headerButton)} icon={<Avatar name={ME.name} size={28} color="neutral" />} />
+                  <Button appearance="transparent" className={mergeClasses('me', ss.headerButton)} icon={<Avatar name={me.name} size={28} color="neutral" />} />
                 </Tooltip>
               </MenuTrigger>
               <MenuPopover>
-                <div className="me-card"><Persona name={ME.name} secondaryText={ME.email} tertiaryText="Sysadmin" avatar={{ color: 'brand' }} /></div>
+                <div className="me-card"><Persona name={me.name} secondaryText={me.email} tertiaryText={realRole === 'admin' ? 'Sysadmin' : 'User'} avatar={{ color: 'brand' }} /></div>
                 <MenuDivider />
                 <MenuList>
-                  <MenuGroup>
-                    <MenuGroupHeader>Preview as</MenuGroupHeader>
-                    <MenuItemRadio name="role" value="admin">Sysadmin (you)</MenuItemRadio>
-                    <MenuItemRadio name="role" value="user">User</MenuItemRadio>
-                  </MenuGroup>
-                  <MenuDivider />
+                  {realRole === 'admin' && (
+                    <>
+                      <MenuGroup>
+                        <MenuGroupHeader>Preview as</MenuGroupHeader>
+                        <MenuItemRadio name="role" value="admin">Sysadmin (you)</MenuItemRadio>
+                        <MenuItemRadio name="role" value="user">User</MenuItemRadio>
+                      </MenuGroup>
+                      <MenuDivider />
+                    </>
+                  )}
                   <MenuGroup>
                     <MenuGroupHeader>Appearance</MenuGroupHeader>
                     <MenuItemRadio name="appearance" value="system">Use system setting</MenuItemRadio>

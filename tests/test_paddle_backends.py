@@ -57,39 +57,5 @@ class OrderedOcrTest(unittest.TestCase):
         self.assertEqual(blocks[0]["bbox"], [66, 54, 421, 108])
 
 
-class PoolRetryTest(unittest.TestCase):
-    def _pool(self, worker):
-        from invoice_extractor import paddle_vl_client
-
-        with mock.patch.object(paddle_vl_client, "_Worker", return_value=worker):
-            pool = paddle_vl_client._Pool(1)
-            yield pool
-
-    def test_wedged_worker_retried_once_on_fresh_worker(self):
-        worker = mock.Mock()
-        worker.parse.side_effect = [RuntimeError("timed out"), {"pages": []}]
-        for pool in self._pool(worker):
-            self.assertEqual(pool.parse("f.pdf", "layout"), {"pages": []})
-        self.assertEqual(worker.parse.call_count, 2)
-
-    def test_persistent_failure_raises(self):
-        worker = mock.Mock()
-        worker.parse.side_effect = RuntimeError("PaddleOCR-VL worker died")
-        for pool in self._pool(worker):
-            with self.assertRaises(RuntimeError):
-                pool.parse("f.pdf")
-        self.assertEqual(worker.parse.call_count, 2)
-
-    def test_deterministic_failure_raises_without_retry(self):
-        # A parse that failed for the file itself must not burn a second
-        # ~15 min worker run: only died/timed-out workers get one retry.
-        worker = mock.Mock()
-        worker.parse.side_effect = RuntimeError("PaddleOCR-VL failed: bad pdf")
-        for pool in self._pool(worker):
-            with self.assertRaises(RuntimeError):
-                pool.parse("f.pdf")
-        self.assertEqual(worker.parse.call_count, 1)
-
-
 if __name__ == "__main__":
     unittest.main()

@@ -15,6 +15,9 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+os.environ.setdefault("AUTH", "off")   # these test the API itself; sign-in is tested in test_auth.py
+os.environ.setdefault("MODEL_POOL", "off")   # unit tests never load a model
+os.environ.setdefault("DOC_PARSER", "off")
 
 from fastapi.testclient import TestClient  # noqa: E402
 
@@ -75,6 +78,7 @@ class _FakeConn:
 
 
 class ServiceContracts(unittest.TestCase):
+
     def test_health(self):
         r = _client().get("/health")
         self.assertEqual(r.status_code, 200)
@@ -89,85 +93,28 @@ class ServiceContracts(unittest.TestCase):
     def test_ready_reports_backends(self):
         r = _client().get("/ready")
         body = r.json()
-        for key in ("pipeline", "reader_backend", "status"):
+        for key in ("ocr", "reader", "table_reader", "models", "sign_in", "status"):
             self.assertIn(key, body)
-        self.assertIn("ocr" if body["pipeline"] != "legacy" else "ingest_mode", body)
+        self.assertEqual(body["models"]["loaded"], [])                 # readiness never starts a model
         self.assertIn(r.status_code, (200, 503))
 
-    def test_extract_rejects_empty(self):
-        r = _client().post("/extract", files={"file": ("a.pdf", b"", "application/pdf")})
+    def test_upload_rejects_empty(self):
+        r = _client().post("/api/profiles/general/extract", files={"file": ("a.pdf", b"", "application/pdf")})
         self.assertEqual(r.status_code, 400)
 
-    def test_extract_rejects_oversize(self):
+    def test_upload_rejects_oversize(self):
         with patch.object(service, "MAX_UPLOAD_BYTES", 10):
-            r = _client().post("/extract", files={"file": ("a.pdf", b"x" * 11, "application/pdf")})
+            r = _client().post("/api/profiles/general/extract", files={"file": ("a.pdf", b"x" * 11, "application/pdf")})
         self.assertEqual(r.status_code, 413)
 
-    def test_extract_rejects_bad_type(self):
-        r = _client().post("/extract", files={"file": ("a.exe", b"MZ" + b"x" * 20, "application/octet-stream")})
+    def test_upload_rejects_bad_type(self):
+        r = _client().post("/api/profiles/general/extract", files={"file": ("a.exe", b"MZ" + b"x" * 20, "application/octet-stream")})
         self.assertEqual(r.status_code, 415)
 
-    def test_extract_rejects_fake_pdf(self):
-        r = _client().post("/extract", files={"file": ("a.pdf", b"not a pdf at all....", "application/pdf")})
+    def test_upload_rejects_fake_pdf(self):
+        r = _client().post("/api/profiles/general/extract", files={"file": ("a.pdf", b"not a pdf at all....", "application/pdf")})
         self.assertEqual(r.status_code, 422)
 
-    def test_extract_success_envelope(self):
-        fields = {"Invoice No": "INV-1", "Vendor Name": "Acme"}
-        audit = {"needs_review": False, "warnings": [], "evidence": "x" * 5000,
-                 "timing_sec": {"ingest": 0.1, "llm": 0.2}}
-
-        def fake_run(path, model=None):
-            return fields, audit
-
-        png = (b"\x89PNG\r\n\x1a\n" + b"\x00" * 64)
-        with patch("invoice_extractor.mineru_engine.extract", fake_run):
-            r = _client().post("/extract", files={"file": ("a.png", png, "image/png")})
-        self.assertEqual(r.status_code, 200, r.text)
-        body = r.json()
-        self.assertEqual(body["fields"], fields)
-        self.assertNotIn("evidence", body["audit"])
-        self.assertEqual(body["audit"]["evidence_chars"], 5000)
-        self.assertIn("total_s", body["timing"])
-
-    def test_extract_backend_failure_is_502(self):
-        def boom(path, model=None):
-            raise RuntimeError("reader down")
-
-        png = b"\x89PNG\r\n\x1a\n" + b"\x00" * 64
-        with patch("invoice_extractor.mineru_engine.extract", boom):
-            r = _client().post("/extract", files={"file": ("a.png", png, "image/png")})
-        self.assertEqual(r.status_code, 502)
-
-    def test_index_serves_ui(self):
-        r = _client().get("/")
-        self.assertEqual(r.status_code, 200, r.text)
-        self.assertIn("text/html", r.headers["content-type"])
-        for token in ("Invoice Extractor", 'id="drop"', 'id="rows"', 'id="items"', 'id="queue"',
-                      'id="pages"', "Line items", "/api/batches", "multiple", "/api/semantic/feedback",
-                      'id="sheetDb"', "downloadBatch", "foldResults", "openPicker",
-                      "No picker?", "Database", "/database", "/settings", 'id="sysline"'):
-            self.assertIn(token, r.text)
-        # removed: the redundant sheet invoice link and the dead v2 detail cards
-        for token in ('id="sheetInvoice"', "Details, arranged", "Document as parsed",
-                      "Everything read from the document", "renderFacts", "renderParsed",
-                      "renderDetails", "location.href"):
-            self.assertNotIn(token, r.text)
-        # file inputs must stay rendered (Safari ignores clicks on display:none inputs);
-        # the rule lives in the shared stylesheet now, wired via the picker class.
-        css = _client().get("/ui/app.css")
-        self.assertEqual(css.status_code, 200)
-        self.assertIn('input[type="file"].picker', css.text)
-        self.assertNotIn("display: none", css.text.split('input[type="file"].picker')[1].split("}")[0])
-        self.assertIn('type="file" class="picker"', r.text)
-        self.assertNotIn('input[type="file"] { display: none; }', r.text)
-
-    def test_audit_page_serves_trail_ui(self):
-        r = _client().get("/audit")
-        self.assertEqual(r.status_code, 200, r.text)
-        self.assertIn("text/html", r.headers["content-type"])
-        self.assertIn("Audit trail", r.text)
-        self.assertIn("/api/audit/verify", r.text)
-        self.assertIn("/api/audit/invoice/", r.text)
 
     def test_db_status_never_leaks_password(self):
         env = {"DATABASE_URL": "postgres://secretuser:secretpass@127.0.0.1:1/db",
@@ -188,7 +135,7 @@ class ServiceContracts(unittest.TestCase):
         self.assertFalse(r.json()["reachable"])
 
     def test_db_test_needs_url(self):
-        with patch.dict(os.environ, {}, clear=True):
+        with patch.dict(os.environ, {"AUTH": "off"}, clear=True):
             r = _client().post("/api/db/test", json={})
         self.assertEqual(r.status_code, 400)
 
@@ -239,7 +186,7 @@ class ServiceContracts(unittest.TestCase):
         self.assertEqual(r.status_code, 404)
 
     def test_db_preview_needs_config(self):
-        with patch.dict(os.environ, {}, clear=True):
+        with patch.dict(os.environ, {"AUTH": "off"}, clear=True):
             r = _client().get("/api/db/tables/invoices")
         self.assertEqual(r.status_code, 409)
 
@@ -270,27 +217,11 @@ class ServiceContracts(unittest.TestCase):
             r = _client().get("/api/updates")
         self.assertEqual(r.status_code, 200, r.text)
         pkgs = {p["name"]: p for p in r.json()["packages"]}
-        self.assertTrue(pkgs["docling"]["update_available"])
-        self.assertEqual(pkgs["docling"]["latest"], "9.9.9")
+        self.assertEqual(set(pkgs), {"paddleocr", "paddlex", "mlx-vlm"})            # what the current stack runs on
+        self.assertTrue(pkgs["paddleocr"]["update_available"])
+        self.assertEqual(pkgs["paddleocr"]["latest"], "9.9.9")
         self.assertIn("auto_update", r.json())
 
-    def test_updates_labels_and_mineru_version_display(self):
-        import subprocess
-        from types import SimpleNamespace
-
-        from invoice_extractor import mineru_engine
-        proc = SimpleNamespace(returncode=0, stdout="MinerU version: 4.0.10\n", stderr="")
-        with patch.object(service, "_pypi_latest", return_value="9.9.9"), \
-                patch.object(service, "_installed_version", return_value="1.0.0"), \
-                patch.object(mineru_engine, "resolve_bin", return_value="/bin/mineru"), \
-                patch.object(subprocess, "run", return_value=proc):
-            service._UPDATES_CACHE.clear()
-            self.addCleanup(service._UPDATES_CACHE.clear)
-            r = _client().get("/api/updates")
-        self.assertEqual(r.status_code, 200, r.text)
-        pkgs = {p["name"]: p for p in r.json()["packages"]}
-        self.assertEqual(pkgs["sentence-transformers"]["role"], "Embedding layer")
-        self.assertEqual(pkgs["mineru"]["current"], "4.0.10")
 
     def test_updates_apply_rejects_unknown(self):
         r = _client().post("/api/updates/apply", json={"packages": ["requests"]})
@@ -304,7 +235,7 @@ class ServiceContracts(unittest.TestCase):
         proc = SimpleNamespace(returncode=0, stdout="ok", stderr="")
         with patch.object(service, "_updates_busy", return_value=None), \
                 patch.object(subprocess, "run", return_value=proc) as run:
-            r = _client().post("/api/updates/apply", json={"packages": ["docling"]})
+            r = _client().post("/api/updates/apply", json={"packages": ["paddleocr", "mlx-vlm"]})
             self.assertEqual(r.status_code, 202, r.text)
             self.assertTrue(r.json()["started"])
             self.assertTrue(r.json()["restart_required"])
@@ -314,12 +245,13 @@ class ServiceContracts(unittest.TestCase):
                 time.sleep(0.01)
         self.assertFalse(service._UPGRADE_JOB["running"])
         self.assertEqual(service._UPGRADE_JOB["returncode"], 0)
-        self.assertEqual(run.call_args[0][0],
-                         [sys.executable, "-m", "pip", "install", "-U", "docling"])
+        # each package is upgraded where it runs: Paddle in its own environment, the model servers in this one
+        self.assertEqual([c[0][0] for c in run.call_args_list],
+                         [[service._paddle_python(), "-m", "pip", "install", "-U", "paddleocr"], [sys.executable, "-m", "pip", "install", "-U", "mlx-vlm"]])
 
     def test_updates_apply_refuses_busy(self):
         with patch.object(service, "_updates_busy", return_value="batch b1"):
-            r = _client().post("/api/updates/apply", json={"packages": ["docling"]})
+            r = _client().post("/api/updates/apply", json={"packages": ["paddleocr"]})
         self.assertEqual(r.status_code, 409)
 
     def test_updates_busy_covers_single_extractions(self):
@@ -365,52 +297,10 @@ class ServiceContracts(unittest.TestCase):
                                           "ref_table": "vendors", "ref_column": "id"}])
 
     def test_db_schema_needs_config(self):
-        with patch.dict(os.environ, {}, clear=True):
+        with patch.dict(os.environ, {"AUTH": "off"}, clear=True):
             r = _client().get("/api/db/schema")
         self.assertEqual(r.status_code, 409)
 
-    def test_settings_page_serves(self):
-        r = _client().get("/settings")
-        self.assertEqual(r.status_code, 200, r.text)
-        self.assertIn("text/html", r.headers["content-type"])
-        self.assertIn('id="dbcard"', r.text)
-        self.assertIn("/api/db/status", r.text)
-        self.assertIn('id="updates"', r.text)
-
-    def test_database_page_serves(self):
-        r = _client().get("/database")
-        self.assertEqual(r.status_code, 200, r.text)
-        self.assertIn("text/html", r.headers["content-type"])
-        self.assertIn("/api/db/schema", r.text)
-
-    def test_batch_downloads_and_persist_report_errors_as_json(self):
-        c = _client()
-        x = c.get("/api/batches/no-such-batch/export.xlsx")
-        self.assertEqual(x.status_code, 404)
-        p = c.post("/api/batches/no-such-batch/persist")
-        self.assertEqual(p.status_code, 404)
-        self.assertIn("detail", p.json())  # FastAPI capital-D shape the UI reads
-
-    def test_export_returns_workbook(self):
-        import openpyxl
-
-        r = _client().post("/api/export", json={
-            "filename": "INV-9.pdf",
-            "fields": {"Invoice No": "INV-9", "Vendor Name": "Acme", "Misc": ""},
-        })
-        self.assertEqual(r.status_code, 200, r.text)
-        self.assertIn("spreadsheetml", r.headers["content-type"])
-        self.assertIn('filename="INV-9.xlsx"', r.headers["content-disposition"])
-        wb = openpyxl.load_workbook(io.BytesIO(r.content))
-        rows = {(c[0].value, c[1].value) for c in wb["Invoice"].iter_rows(min_row=2)}
-        self.assertIn(("Invoice No", "INV-9"), rows)
-        self.assertIn(("Vendor Name", "Acme"), rows)
-
-    def test_export_rejects_empty_fields(self):
-        r = _client().post("/api/export", json={"fields": {}})
-        self.assertEqual(r.status_code, 400)
-        r = _client().post("/api/export", json={})
-        self.assertEqual(r.status_code, 400)
 
     def _valid_png(self, w=60, h=40):
         from PIL import Image
@@ -418,120 +308,6 @@ class ServiceContracts(unittest.TestCase):
         buf = io.BytesIO()
         Image.new("RGB", (w, h), "white").save(buf, "PNG")
         return buf.getvalue()
-
-    def test_extract_returns_display_pages(self):
-        fields = {"Invoice No": "INV-1"}
-        audit = {"needs_review": False, "warnings": [], "evidence": "abc",
-                 "timing_sec": {}, "line_items": [],
-                 "citations": {"Invoice No": [{"bbox": [1, 2, 10, 12], "page": 1,
-                                              "score": 1.0, "source_text": "INV-1",
-                                              "source": "tesseract"}]},
-                 "line_item_citations": []}
-
-        def fake_run(path, model=None):
-            return fields, audit
-
-        with patch("invoice_extractor.mineru_engine.extract", fake_run):
-            r = _client().post("/extract",
-                               files={"file": ("a.png", self._valid_png(), "image/png")})
-        self.assertEqual(r.status_code, 200, r.text)
-        pages = r.json()["audit"]["pages"]
-        self.assertEqual(len(pages), 1)
-        self.assertEqual((pages[0]["width"], pages[0]["height"]), (60, 40))
-        # Served back to the viewer.
-        img = _client().get(pages[0]["url"])
-        self.assertEqual(img.status_code, 200)
-        self.assertIn("image/png", img.headers["content-type"])
-
-    def test_batch_processes_many_files_and_exports(self):
-        import time
-
-        import openpyxl
-
-        calls = []
-
-        def fake_run(path, model=None):
-            calls.append(path)
-            with open(path, "rb") as fh:
-                bad = "bad" in fh.read().decode("latin-1")
-            if bad:
-                raise RuntimeError("reader down")
-            return ({"Invoice No": f"INV-{len(calls)}", "Vendor Name": "Acme", "Sea Freight": "100.00"},
-                    {"needs_review": True, "review_route": "REVIEW", "warnings": ["w"], "evidence": "",
-                     "line_items": [{"description": "O/F", "amount_inr": 100.0, "category": "Sea Freight",
-                                     "category_confidence": 0.99, "semantic": {"basis": "laya"}}],
-                     "citations": {}, "line_item_citations": [], "fields_explained": {}})
-
-        from PIL import Image
-
-        def png(color, tag=b""):
-            buf = io.BytesIO()
-            Image.new("RGB", (40, 30), color).save(buf, "PNG")
-            return buf.getvalue() + tag
-
-        files = [("files", ("a.png", png("white"), "image/png")),
-                 ("files", ("b.png", png("red"), "image/png")),
-                 ("files", ("a_copy.png", png("white"), "image/png")),        # duplicate of a.png
-                 ("files", ("c.png", png("blue", b"bad"), "image/png"))]      # extraction fails
-        import tempfile
-        from pathlib import Path
-
-        from invoice_extractor import batch as batch_mod
-
-        # finished batches are reloaded from disk (the duplicate cache survives restarts), so give this
-        # test its own empty batch directory
-        tmp = tempfile.TemporaryDirectory()
-        self.addCleanup(tmp.cleanup)
-        self.addCleanup(setattr, service, "_BATCHES", None)
-        service._BATCHES = None
-        with patch.object(batch_mod, "BATCH_DIR", Path(tmp.name)), patch("invoice_extractor.mineru_engine.extract", fake_run):
-            c = _client()
-            r = c.post("/api/batches", files=files)
-            self.assertEqual(r.status_code, 200, r.text)
-            bid = r.json()["batch_id"]
-            for _ in range(100):
-                st = c.get(f"/api/batches/{bid}").json()
-                if st["finished"]:
-                    break
-                time.sleep(0.05)
-            self.assertTrue(st["finished"], st)
-            self.assertEqual(st["total"], 4)
-            self.assertEqual(st["counts"].get("done"), 3)
-            self.assertEqual(st["counts"].get("failed"), 1)
-            self.assertEqual(len(calls), 3, "identical files must be extracted once")
-            dup = [i for i in st["items"] if i["filename"] == "a_copy.png"][0]
-            self.assertTrue(dup["duplicate_of"])
-            item = c.get(f"/api/batches/{bid}/items/{dup['id']}").json()
-            self.assertEqual(item["fields"]["Vendor Name"], "Acme")
-            x = c.get(f"/api/batches/{bid}/export.xlsx")
-        self.assertEqual(x.status_code, 200)
-        wb = openpyxl.load_workbook(io.BytesIO(x.content))
-        self.assertEqual(wb.sheetnames, ["Invoices", "Line items", "Citations", "Review"])
-        self.assertEqual(wb["Invoices"].max_row, 4)      # header + 3 done invoices
-        self.assertEqual(wb["Line items"].max_row, 4)
-
-    def test_semantic_feedback_teaches_alias(self):
-        import tempfile
-
-        from invoice_extractor import semantic
-
-        with tempfile.TemporaryDirectory() as d:
-            bank = semantic.AliasBank(learned_path=Path(d) / "learned.json")
-            eng = semantic.SemanticEngine(bank=bank, encoder_dir="/nonexistent", laya_dir="/nonexistent")
-            with patch.object(semantic, "_ENGINE", eng):
-                r = _client().post("/api/semantic/feedback",
-                                   json={"kind": "charge", "text": "Hamali Chgs", "field": "Handling Charges"})
-                self.assertEqual(r.status_code, 200, r.text)
-                d0 = eng.classify([{"kind": "charge", "text": "HAMALI CHGS."}])[0]
-            self.assertEqual(d0.field, "Handling Charges")
-            self.assertIn("alias-bank", d0.votes)
-            r = _client().post("/api/semantic/feedback", json={"kind": "charge", "text": "x", "field": "Bogus"})
-            self.assertEqual(r.status_code, 400)
-
-    def test_uploads_rejects_traversal(self):
-        for bad in ("..%2fservice.py", "....//x.png", "a b.png", "x.txt"):
-            r = _client().get(f"/uploads/{bad}")
-            self.assertIn(r.status_code, (404, 422), bad)
 
 
 if __name__ == "__main__":

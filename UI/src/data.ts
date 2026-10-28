@@ -3,7 +3,7 @@
 import SAMPLES_JSON from './samples.json';
 import { count } from './format';
 import type {
-  AuditEntry, Connection, DocKind, DocStatus, FieldType, Note, Profile, ProfileField, Run, RunDoc, SampleDoc, Tables, Update, User, Values, Workflow,
+  AuditEntry, Connection, DocKind, DocStatus, FieldType, Note, Profile, ProfileField, Run, RunDoc, SampleDoc, Tables, User, Values, Workflow,
 } from './types';
 
 const SAMPLES = SAMPLES_JSON as unknown as SampleDoc[];
@@ -63,7 +63,7 @@ export const FIELD_LABELS: Record<string, string> = Object.fromEntries(Object.va
 
 export const PROFILES: Profile[] = [
   {
-    id: 'freight', name: 'Freight invoice', docType: 'Invoice', template: 'invoice', preset: 'accurate', evaluator: true, onPremOnly: false,
+    id: 'freight', serverId: 'logistics_invoice', name: 'Freight invoice', docType: 'Invoice', template: 'invoice', preset: 'accurate', evaluator: true, onPremOnly: false,
     linked: ['fin.invoices', 'fin.invoice_charges'], languages: ['English'], exports: ['excel', 'database'], owner: 'Finance',
     fields: fieldsOf('invoice', 'all', ['invoice_no', 'invoice_date', 'vendor', 'gross_total']),
   },
@@ -262,15 +262,6 @@ export const AUDIT: AuditEntry[] = [
   { at: '23 Oct, 17:02:55', actor: 'Biswajoy Bhattacharjee', action: 'Published profile', target: 'Freight invoice v7', hash: '' },
   { at: '23 Oct, 11:12:40', actor: 'Priya Shah', action: 'Edited field', target: `${editedOn23.name}, ${FIELD_LABELS[editedOn23.flagged[0]]}`, hash: '' },
   { at: '23 Oct, 02:00:03', actor: 'System', action: 'Refreshed insights', target: 'Nightly job', hash: '' },
-];
-
-export const UPDATES: Update[] = [
-  { name: 'PP-OCRv5 Server', engine: 'Text recognition', current: '3.1.0', latest: '3.2.1', notes: 'Better accuracy on rotated phone photos' },
-  { name: 'Qwen3-VL-8B Invoice LoRA', engine: 'AI model', current: 'v2.3', latest: 'v2.3', notes: '' },
-  { name: 'PP-DocLayout-L', engine: 'Page layout', current: '1.4.0', latest: '1.4.0', notes: '' },
-  { name: 'SwinIR Document x2', engine: 'Image enhancement', current: '0.9.2', latest: '1.0.0', notes: 'Faster on CPU' },
-  { name: 'PyMuPDF', engine: 'Digital text', current: '1.26.4', latest: '1.26.5', notes: 'Security fix' },
-  { name: 'LAYA cross-encoder', engine: 'Field matching', current: 'v4', latest: 'v4', notes: '' },
 ];
 
 export const NOTIFICATIONS: Note[] = [

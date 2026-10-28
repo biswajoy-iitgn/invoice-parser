@@ -3,8 +3,10 @@
 import type { AuditEntry } from './types';
 
 const hex = (b: ArrayBuffer) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, '0')).join('');
+// Browsers expose crypto.subtle only on HTTPS or localhost: served over plain HTTP the browser's own log stays unchained
+// ('' hashes, so Verify stays off) instead of failing. The service's chain does not depend on this.
 export const hashOf = async (prev: string, e: Omit<AuditEntry, 'hash'>): Promise<string> =>
-  hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode([prev, e.at, e.actor, e.action, e.target].join('␟'))));
+  globalThis.crypto?.subtle ? hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode([prev, e.at, e.actor, e.action, e.target].join('␟')))) : '';
 
 /** Entries newest first, as shown, with every hash computed. */
 export async function chain(entries: AuditEntry[]): Promise<AuditEntry[]> {

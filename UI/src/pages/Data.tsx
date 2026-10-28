@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Button, Dropdown, Option, Field, TabList, Tab, Input, MessageBar, MessageBarBody, MessageBarTitle, MessageBarActions, Caption1, Spinner,
   Toolbar, ToolbarButton, ToolbarDivider, Tooltip,
@@ -11,6 +11,7 @@ import { useApp, PageHeader, StatusBadge, EmptyState, RHead, RHeader, RBody, RRo
 import { Sheet, usePaging } from '../sheet';
 import type { SheetCol } from '../sheet';
 import { SchemaDiagram } from '../schema';
+import { service } from '../api';
 import type { Connection, TableDef } from '../types';
 
 const PORTS: Record<string, string> = { PostgreSQL: '5432', 'SQL Server': '1433', MySQL: '3306', Oracle: '1521' };
@@ -19,11 +20,40 @@ const NUMERIC = /int|serial|numeric|decimal|float|double|real|money/i;
 interface Row { key: string; i: number; cells: string[] }
 type View = 'data' | 'schema' | 'connections';
 
+type Live = { conn: Connection; tables: Record<string, TableDef> };
+/** The service's database as the workbook shows it: columns and links from its schema, rows loaded when a table is opened. */
+function liveTables(sc: Awaited<ReturnType<typeof service.dbSchema>>): Record<string, TableDef> {
+  const fk = new Map(sc.links.map((l) => [`${l.table}.${l.column}`, l.ref_table]));
+  return Object.fromEntries(sc.tables.map((t) => [t.name, {
+    // ponytail: "id" is taken for the key (schema reports no primary keys); every table here keys on id
+    columns: t.columns.map((c) => [c.name, c.type, fk.has(`${t.name}.${c.name}`) ? `FK ${fk.get(`${t.name}.${c.name}`)}` : c.name === 'id' ? 'PK' : ''] as [string, string, string]),
+    rows: [], count: t.rows, loaded: false,
+  }]));
+}
+
 // A database is a workbook: a sheet per table (tabs at the foot, as in Excel), edited in place and saved together.
-// Schema shows how the tables relate.
+// Schema shows how the tables relate. With the service reachable it shows the service's own database, read-only (extraction
+// writes it); without it, the sample workspace.
 export default function Data() {
-  const { tables, setTables, role, notify, profiles, connections, setConnections, log } = useApp();
+  const app = useApp();
+  const { role, notify, profiles, log } = app;
   const admin = role === 'admin';
+  const [live, setLive] = useState<Live | 'none' | 'offline' | null>(null);
+  const [offlineWhy, setOfflineWhy] = useState('');
+  const load = () => service.dbStatus().then(async (st) => {
+    if (!st.configured) { setLive('none'); return; }
+    if (!st.reachable) { setLive('offline'); setOfflineWhy(st.error ?? ''); return; }
+    const conn: Connection = { id: 'live', name: st.organization || 'Extraction database', kind: 'PostgreSQL', host: st.host ?? '', database: '', status: 'connected' };
+    setLive({ conn, tables: liveTables(await service.dbSchema()) });
+  }).catch(() => setLive(null));          // the service itself can't be reached: the sample workspace stands
+  useEffect(() => { void load(); }, []);
+  const isLive = live !== null;
+  const liveConn = live && typeof live === 'object' ? live : null;
+  const connections = isLive ? (liveConn ? [liveConn.conn] : live === 'offline' ? [{ id: 'live', name: 'Extraction database', kind: 'PostgreSQL', host: '', database: '', status: 'offline' as const }] : []) : app.connections;
+  const tables = isLive ? { live: liveConn?.tables ?? {} } : app.tables;
+  const setTables = isLive ? () => {} : app.setTables;
+  const setConnections = app.setConnections;
+  const editable = admin && !isLive;
   // Users see only tables a profile exports to, read-only.
   const linked = new Set(profiles.flatMap((p) => p.linked || []));
   const visible = (cid: string) => Object.keys(tables[cid] || {}).filter((n) => admin || linked.has(`${cid}.${n}`));
@@ -62,11 +92,22 @@ export default function Data() {
     setTables({ ...tables, [c.id]: { ...tables[c.id], [name]: { ...t, rows: [...t.rows, t.columns.map(() => '')] } } });
   };
   const toggleDelete = (r: Row) => setPending({ target, staged, deleted: deleted.includes(r.i) ? deleted.filter((x) => x !== r.i) : [...deleted, r.i] });
-  const retry = () => {
+  const retry = async () => {
     if (!c) return;
     setRetrying(true);
-    setTimeout(() => { setRetrying(false); log('Tried to reconnect', c.name); notify(`Still can't reach ${c.name}`, 'error', `${c.host} didn't answer.`); }, 1200);
+    if (isLive) await load();
+    else await new Promise((res) => setTimeout(res, 1200));
+    setRetrying(false);
+    log('Tried to reconnect', c.name);
+    if (!isLive || live === 'offline') notify(`Still can't reach ${c.name}`, 'error', offlineWhy || `${c.host} didn't answer.`);
   };
+  // a live table's rows arrive when it is opened
+  useEffect(() => {
+    if (!liveConn || !name || liveConn.tables[name]?.loaded) return;
+    service.dbTable(name).then((r) => setLive((cur) => (cur && typeof cur === 'object'
+      ? { ...cur, tables: { ...cur.tables, [name]: { ...cur.tables[name], rows: r.rows.map((row) => row.map((v) => v ?? '')), loaded: true } } } : cur)))
+      .catch((e: Error) => notify(`${name} couldn't be read`, 'error', e.message));
+  }, [liveConn, name]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const cols: SheetCol<Row>[] = (t?.columns ?? []).map(([col, type, key], j) => ({
     key: col,
@@ -81,15 +122,16 @@ export default function Data() {
     value: (r) => staged[`${r.i}:${j}`] ?? r.cells[j],
     render: (r) => staged[`${r.i}:${j}`] ?? r.cells[j],
     // an existing row's key stays fixed; a new row needs one
-    editable: (r) => admin && !(key === 'PK' && r.cells[j]),
+    editable: (r) => editable && !(key === 'PK' && r.cells[j]),
   }));
 
   return (
     <div className="page">
-      <PageHeader title="Databases" description={admin ? 'Browse and edit the databases that documents are exported to.' : 'See what was exported. Ask a sysadmin if something needs changing.'}>
+      <PageHeader title="Databases" description={isLive ? 'What the service has stored: documents, extractions, values and the audit trail.' : admin ? 'Browse and edit the databases that documents are exported to.' : 'See what was exported. Ask a sysadmin if something needs changing.'}>
         {admin && <Button icon={<PlugConnectedRegular />} onClick={() => setAdding(true)}>Add database</Button>}
       </PageHeader>
 
+      {live === null && <MessageBar intent="info" layout="multiline"><MessageBarBody>{"The service can't be reached, so this shows the sample workspace."}</MessageBarBody></MessageBar>}
       {!c ? (
         <EmptyState picto="card_index_dividers" title="No databases yet" body={admin ? 'Add the database that documents are exported to.' : 'Nothing has been exported to a database you can see.'}>
           {admin && <Button appearance="primary" onClick={() => setAdding(true)}>Add database</Button>}
@@ -108,7 +150,7 @@ export default function Data() {
               <Dropdown aria-label="Database" className="cmd-dropdown" value={`${c.name} (${c.kind})`} selectedOptions={[c.id]} onOptionSelect={(_, d) => pick(d.optionValue ?? c.id)}>
                 {shown.map((x) => <Option key={x.id} value={x.id} text={`${x.name} (${x.kind})`}>{`${x.name} (${x.kind})${x.status === 'connected' ? '' : x.status === 'offline' ? ', offline' : ', not checked yet'}`}</Option>)}
               </Dropdown>
-              {view === 'data' && admin && t && (
+              {view === 'data' && editable && t && (
                 <>
                   <ToolbarDivider />
                   <ToolbarButton icon={<AddRegular />} onClick={addRow}>Add row</ToolbarButton>
@@ -148,7 +190,7 @@ export default function Data() {
             <div role="tabpanel" aria-label="Schema">
               <SchemaDiagram tables={Object.fromEntries(names.map((n) => [n, tables[c.id][n]]))} onOpen={(n) => { setTable(n); setView('data'); }} />
             </div>
-          ) : t && (
+          ) : t && isLive && !t.loaded ? <Spinner label={'Loading\u00a0…'} /> : t && (
             <div role="tabpanel" aria-label="Data" className="stack">
               {changes > 0 && (
                 <MessageBar intent="info">
@@ -162,7 +204,7 @@ export default function Data() {
               <div className="workbook">
                 {rows.length ? (
                   <Sheet key={target} label={`${name} table`} cols={cols} rows={paged.items} all={rows} offset={paged.offset} onActiveRow={setActiveRow}
-                    onEdit={admin ? (r, col, v) => {
+                    onEdit={editable ? (r, col, v) => {
                       const j = t.columns.findIndex(([n]) => n === col);
                       const k = `${r.i}:${j}`;
                       const next = { ...staged };
@@ -175,10 +217,11 @@ export default function Data() {
                 <div className="sheet-foot">
                   <div className="tabs-scroll">
                     <TabList size="small" selectedValue={name} onTabSelect={(_, d) => pick(c.id, String(d.value))} aria-label="Tables" className="sheet-tabs">
-                      {names.map((n) => <Tab key={n} value={n}>{`${n} (${tables[c.id][n].rows.length})`}</Tab>)}
+                      {names.map((n) => <Tab key={n} value={n}>{`${n} (${tables[c.id][n].count ?? tables[c.id][n].rows.length})`}</Tab>)}
                     </TabList>
                   </div>
-                  {admin && <Caption1 className="muted">Double-click, Enter or start typing to edit a cell</Caption1>}
+                  {editable ? <Caption1 className="muted">Double-click, Enter or start typing to edit a cell</Caption1>
+                    : isLive && t && (t.count ?? 0) > t.rows.length && <Caption1 className="muted">{`Newest ${t.rows.length} of ${t.count} rows`}</Caption1>}
                 </div>
               </div>
             </div>
@@ -186,7 +229,7 @@ export default function Data() {
         </>
       )}
 
-      <ConnectionDialog open={adding} setOpen={setAdding} onAdd={(x) => {
+      <ConnectionDialog open={adding} setOpen={setAdding} live={isLive} onSaved={(note) => { log('Connected the database', 'Settings'); notify('Database saved', 'success', note); void load(); }} onAdd={(x) => {
         setConnections([...connections, x]);
         setTables({ ...tables, [x.id]: {} });
         pick(x.id);
@@ -197,14 +240,30 @@ export default function Data() {
   );
 }
 
-function ConnectionDialog({ open, setOpen, onAdd }: { open: boolean; setOpen: (open: boolean) => void; onAdd: (c: Connection) => void }) {
-  const [f, setF] = useState({ name: '', kind: 'PostgreSQL', host: '', port: '5432', database: '', user: '', password: '' });
+/** With the service, the connection is tested and saved there (.env.local, readable by the service only) and the password never
+ * comes back; the service stores to PostgreSQL. Without it, the sample workspace gains a connection and keeps no password. */
+function ConnectionDialog({ open, setOpen, onAdd, live, onSaved }: { open: boolean; setOpen: (open: boolean) => void; onAdd: (c: Connection) => void; live: boolean; onSaved: (note: string) => void }) {
+  const [f, setF] = useState({ name: '', kind: 'PostgreSQL', host: '', port: '5432', database: '', user: '', password: '', org: '' });
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
   const set = (k: keyof typeof f) => (_: unknown, d: { value: string }) => setF({ ...f, [k]: d.value });
-  const ok = f.name && f.host && f.database;
+  const ok = f.name && f.host && f.database && (!live || f.kind === 'PostgreSQL');
+  const submit = async () => {
+    if (!live) { onAdd({ id: `c-${Date.now()}`, name: f.name, kind: f.kind, host: `${f.host}:${f.port}`, database: f.database, status: 'untested' }); setOpen(false); return; }
+    setSaving(true); setError('');
+    const auth = f.user ? `${encodeURIComponent(f.user)}${f.password ? `:${encodeURIComponent(f.password)}` : ''}@` : '';
+    try {
+      const r = await service.dbConfigure(`postgresql://${auth}${f.host}:${f.port}/${encodeURIComponent(f.database)}`, f.org.trim());
+      setF({ ...f, password: '' });
+      setOpen(false);
+      onSaved(r.note ?? 'Restart the app to start storing extractions there.');
+    } catch (e) { setError((e as Error).message); }
+    setSaving(false);
+  };
   return (
     <Dialog open={open} onOpenChange={(_, d) => setOpen(d.open)}>
       <DialogSurface>
-        <form onSubmit={(e) => { e.preventDefault(); if (!ok) return; onAdd({ id: `c-${Date.now()}`, name: f.name, kind: f.kind, host: `${f.host}:${f.port}`, database: f.database, status: 'untested' }); setOpen(false); }}>
+        <form onSubmit={(e) => { e.preventDefault(); if (ok) void submit(); }}>
           <DialogBody>
             <DialogTitle>Add a database</DialogTitle>
             <DialogContent className="form">
@@ -221,11 +280,14 @@ function ConnectionDialog({ open, setOpen, onAdd }: { open: boolean; setOpen: (o
               <Field label="Database name" required><Input value={f.database} onChange={set('database')} /></Field>
               <div className="form-grid">
                 <Field label="User name"><Input value={f.user} onChange={set('user')} autoComplete="off" /></Field>
-                <Field label="Password" hint="Stored in the server vault"><Input type="password" value={f.password} onChange={set('password')} autoComplete="new-password" /></Field>
+                <Field label="Password" hint={live ? 'Kept by the service, never shown again' : 'Not kept in the sample workspace'}><Input type="password" value={f.password} onChange={set('password')} autoComplete="new-password" /></Field>
               </div>
+              {live && <Field label="Organization ID" hint="Extractions are stored for this organization. Leave empty to read without storing."><Input value={f.org} onChange={set('org')} autoComplete="off" /></Field>}
+              {live && f.kind !== 'PostgreSQL' && <MessageBar intent="warning" layout="multiline"><MessageBarBody>The service stores to PostgreSQL only.</MessageBarBody></MessageBar>}
+              {error && <MessageBar intent="error" layout="multiline"><MessageBarBody>{error}</MessageBarBody></MessageBar>}
             </DialogContent>
             <DialogActions>
-              <Button appearance="primary" type="submit" disabled={!ok}>Add</Button>
+              <Button appearance="primary" type="submit" disabled={!ok || saving} icon={saving ? <Spinner size="tiny" /> : undefined}>{live ? 'Test and save' : 'Add'}</Button>
               <DialogTrigger disableButtonEnhancement><Button>Cancel</Button></DialogTrigger>
             </DialogActions>
           </DialogBody>

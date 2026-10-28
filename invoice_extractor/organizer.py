@@ -149,19 +149,14 @@ def _listing(facts: list[dict]) -> tuple[str, dict]:
 
 
 def _call(listing: str) -> tuple[list[dict], dict]:
-    import httpx
+    from .pipeline import chat
 
-    host = os.environ.get("LLAMACPP_HOST", "http://127.0.0.1:8080").rstrip("/")
-    body = {"model": os.environ.get("ORGANIZER_MODEL", "invoice-organizer"),
-            "messages": [{"role": "system", "content": SYSTEM},
-                         {"role": "user", "content": "Extracted items:\n" + listing}],
-            "temperature": 0, "seed": 7, "max_tokens": int(os.environ.get("ORGANIZER_MAX_TOKENS", "3000")),
-            "lora": [{"id": 0, "scale": 0.0}],        # the reader's adapter is for the 31-field task only
-            "response_format": {"type": "json_schema", "json_schema": {"name": "details", "schema": SCHEMA}}}
-    r = httpx.post(f"{host}/v1/chat/completions", json=body, timeout=float(os.environ.get("ORGANIZER_TIMEOUT", "300")))
-    r.raise_for_status()
-    out = r.json()
-    text = out["choices"][0]["message"]["content"]
+    # the reader's own server (pool or llama.cpp); with llama.cpp the invoice adapter is switched off for this task
+    lora = {} if os.environ.get("READER_BACKEND", "pool") == "pool" else {"lora": [{"id": 0, "scale": 0.0}]}
+    text = chat([{"role": "system", "content": SYSTEM}, {"role": "user", "content": "Extracted items:\n" + listing}],
+                os.environ.get("ORGANIZER_MODEL"), SCHEMA, int(os.environ.get("ORGANIZER_MAX_TOKENS", "3000")),
+                float(os.environ.get("ORGANIZER_TIMEOUT", "300")), extra=lora)
+    out = {}
     try:
         items = json.loads(text).get("details", [])
     except json.JSONDecodeError:                       # cut off by max_tokens: keep the complete entries

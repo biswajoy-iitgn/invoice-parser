@@ -1,11 +1,20 @@
 // Dialogs opened from Help and Home, loaded on first use.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Button, Text, Body1, Caption1, Field, Textarea, Checkbox, Dialog, DialogSurface, DialogBody, DialogTitle, DialogContent, DialogActions, DialogTrigger,
 } from '@fluentui/react-components';
 import { useApp, RHead, RHeader, RBody, RRow, RCell, RTable } from './ui';
-import { UPDATES } from './data';
+import { service } from './api';
+import type { EnginePackage } from './api';
 import type { HelpDialog } from './help';
+
+/** The engines the service runs, as installed there. */
+function EngineVersions() {
+  const [pkgs, setPkgs] = useState<EnginePackage[] | null>(null);
+  useEffect(() => { service.updates().then((r) => setPkgs(r.packages)).catch(() => setPkgs([])); }, []);
+  if (!pkgs?.length) return <RRow><RCell colSpan={3}>{pkgs ? "The service can't be reached" : 'Loading\u00a0…'}</RCell></RRow>;
+  return <>{pkgs.map((u) => <RRow key={u.name}><RCell data-label="Engine">{u.role}</RCell><RCell data-label="Component">{u.name}</RCell><RCell data-label="Version">{u.current ?? 'Not installed'}</RCell></RRow>)}</>;
+}
 
 const SHORTCUTS: [string, string, string][] = [
   ['Anywhere', 'Alt+Q', 'Search documents'],
@@ -106,7 +115,7 @@ export function HelpDialogs({ open, close }: { open: HelpDialog; close: () => vo
               <RTable size="small" layout="auto" aria-label="Engine versions">
                 <RHeader><RRow><RHead>Engine</RHead><RHead>Component</RHead><RHead>Version</RHead></RRow></RHeader>
                 <RBody>
-                  {UPDATES.map((u) => <RRow key={u.name}><RCell data-label="Engine">{u.engine}</RCell><RCell data-label="Component">{u.name}</RCell><RCell data-label="Version">{u.current}</RCell></RRow>)}
+                  <EngineVersions />
                 </RBody>
               </RTable>
             </DialogContent>

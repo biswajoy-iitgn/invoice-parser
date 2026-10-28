@@ -105,6 +105,8 @@ class DatabaseContracts(unittest.TestCase):
         Store(o1).upsert_document(filename="a.pdf", mime="application/pdf", size=1,
                                   uri="u", sha256="cc" * 32, pages=1)
         with psycopg.connect(URL) as conn:
+            conn.execute("""DO $$ BEGIN IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'rls_probe')
+                            THEN DROP OWNED BY rls_probe; END IF; END $$""")      # re-runnable: grants from a previous run
             conn.execute("DROP ROLE IF EXISTS rls_probe")
             conn.execute("CREATE ROLE rls_probe LOGIN PASSWORD 'probe'")
             conn.execute("GRANT SELECT ON documents TO rls_probe")
@@ -157,15 +159,27 @@ class AuditTrail(unittest.TestCase):
             self.assertIsNone(bad)
             rows = conn.execute("SELECT seq, prev_hash, row_hash FROM audit_logs ORDER BY seq DESC LIMIT 2").fetchall()
             self.assertEqual(rows[0][1], rows[1][2])           # each entry carries the digest of the one before
+        from database.audit import entries
+
+        page = entries(org, 2)
+        self.assertEqual(len(page["entries"]), 2)
+        self.assertTrue(page["more"])
+        self.assertGreater(page["entries"][0]["seq"], page["entries"][1]["seq"])     # newest first
+        rest = entries(org, 10, before=page["entries"][-1]["seq"])
+        self.assertEqual((len(rest["entries"]), rest["more"]), (1, False))
         for stmt in ("UPDATE audit_logs SET action = 'DELETE'", "DELETE FROM audit_logs", "TRUNCATE audit_logs"):
             with self.assertRaises(psycopg.Error), psycopg.connect(URL) as conn:
                 conn.execute(stmt)
         # an administrator who switches the guard off and edits history is still caught by the chain
         with psycopg.connect(URL) as conn:
             conn.execute("ALTER TABLE audit_logs DISABLE TRIGGER audit_logs_no_change")
-            victim = conn.execute("SELECT seq FROM audit_logs ORDER BY seq DESC OFFSET 1 LIMIT 1").fetchone()[0]
+            victim, original = conn.execute("SELECT seq, new_json FROM audit_logs ORDER BY seq DESC OFFSET 1 LIMIT 1").fetchone()
             conn.execute("UPDATE audit_logs SET new_json = '{\"n\": 99}' WHERE seq = %s", (victim,))
             conn.execute("ALTER TABLE audit_logs ENABLE TRIGGER audit_logs_no_change")
         with psycopg.connect(URL) as conn:
             _, bad = conn.execute("SELECT * FROM audit_chain_verify()").fetchone()
             self.assertEqual(bad, victim)
+        with psycopg.connect(URL) as conn:                     # put history back so the next run starts from an intact chain
+            conn.execute("ALTER TABLE audit_logs DISABLE TRIGGER audit_logs_no_change")
+            conn.execute("UPDATE audit_logs SET new_json = %s WHERE seq = %s", (psycopg.types.json.Jsonb(original), victim))
+            conn.execute("ALTER TABLE audit_logs ENABLE TRIGGER audit_logs_no_change")

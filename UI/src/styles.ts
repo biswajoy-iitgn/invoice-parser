@@ -36,7 +36,6 @@ export const useShellStyles = makeStyles({
     backdropFilter: ACRYLIC,
     '@media (prefers-reduced-transparency: reduce)': { backgroundColor: 'var(--appSurface)', backdropFilter: 'none' },
   },
-  signIn: { marginTop: '8px' },
 });
 
 export const useCardStyles = makeStyles({

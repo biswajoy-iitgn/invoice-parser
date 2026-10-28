@@ -24,6 +24,7 @@ import tempfile
 import time
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
+from functools import lru_cache
 from pathlib import Path
 
 from .layout import Line, Unit, has_text_layer, ocr_units, pdf_units, serialize
@@ -37,7 +38,7 @@ READER_MODEL = os.environ.get("READER_MODEL", "invoice-reader-qwen3vl8b")
 CONTAINER_RE = re.compile(r"\b([A-Z]{3}[UJZ])\s?(\d{6})\s?(\d)\b")
 NUM_RE = re.compile(r"-?\d[\d,]*\.?\d*")
 # Bump when the extraction logic changes in a way that can alter results: cached results are keyed by it.
-PIPELINE_REV = "2026-10-04.7"
+PIPELINE_REV = "2026-10-29.1"
 SEM_ACCEPT = float(os.environ.get("SEMANTIC_ACCEPT", "0.90"))
 OCR_TRUST = float(os.environ.get("OCR_TRUST", "0.95"))     # below this OCR score a header value goes to review
 LEGAL_RE = re.compile(r"\b(pvt\.?|private|ltd\.?|limited|llp|llc|inc\.?|gmbh|corp\.?|plc|company|co\.)(?=\s|$|[,.)])",
@@ -146,40 +147,94 @@ def load_pages(path: str, force_ocr: bool = False) -> list[PageData]:
 
 
 # ------------------------------------------------------------------ reader --
-def call_reader(layout_text: str, model: str | None = None) -> dict:
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": user_message(layout_text)}]
-    model = model or READER_MODEL
-    backend = os.environ.get("READER_BACKEND", "llamacpp").lower()
-    if backend == "llamacpp":
-        import httpx
+def chat(messages: list[dict], model: str | None = None, schema: dict | None = None, max_tokens: int = 6144,
+         timeout: float = 900.0, extra: dict | None = None) -> str:
+    """One chat completion from the reader, as text. READER_BACKEND=pool (default): the model pool's server for `model`
+    (a catalog id or served name; the catalog default when it is not on this machine), started on demand.
+    READER_BACKEND=llamacpp: the llama.cpp server at LLAMACPP_HOST."""
+    import httpx
 
-        host = os.environ.get("LLAMACPP_HOST", "http://127.0.0.1:8080").rstrip("/")
-        body = {"model": model, "messages": messages, "temperature": 0, "seed": 7, "max_tokens": 6144,
-                "response_format": {"type": "json_schema", "json_schema": {"name": "invoice", "schema": JSON_SCHEMA}}}
+    # thinking off: both reader families' cards recommend it for extraction (models without a thinking mode ignore it)
+    body = {"temperature": 0, "seed": 7, "max_tokens": max_tokens, "messages": messages, "enable_thinking": False, **(extra or {})}
+    if schema:
+        body["response_format"] = {"type": "json_schema", "json_schema": {"name": "answer", "schema": schema}}
+
+    def post(host: str, name: str) -> str:
         last = None
         for _ in range(2):
             try:
-                r = httpx.post(f"{host}/v1/chat/completions", json=body, timeout=900.0)
+                r = httpx.post(f"{host}/v1/chat/completions", json={**body, "model": name}, timeout=timeout)
                 r.raise_for_status()
-                return parse_output(r.json()["choices"][0]["message"]["content"])
+                return r.json()["choices"][0]["message"]["content"] or ""
             except Exception as exc:  # transport / decode
                 last = exc
-        raise RuntimeError(f"reader (llama.cpp at {host}) failed: {last}")
-    if backend == "ollama":
-        import ollama
+        raise RuntimeError(f"reader ({name} at {host}) failed: {last}")
 
-        resp = ollama.chat(model=model, messages=messages, format=JSON_SCHEMA, think=False,
-                           options={"temperature": 0, "seed": 7, "num_ctx": 16384, "num_predict": 6144},
-                           keep_alive="30m")
-        return parse_output(resp["message"]["content"])
-    if backend == "transformers":
-        from .reader_hf import generate
+    if os.environ.get("READER_BACKEND", "pool").lower() == "pool":
+        from .model_pool import pool
+        from .router import reader_id
 
-        return parse_output(generate(messages))
-    raise RuntimeError(f"unknown READER_BACKEND {backend!r}")
+        rid = reader_id(model)
+        with pool().use(rid) as url:
+            return post(url, pool().servers[rid].path)
+    return post(os.environ.get("LLAMACPP_HOST", "http://127.0.0.1:8080").rstrip("/"), model or READER_MODEL)
+
+
+def call_reader(layout_text: str, model: str | None = None, system: str | None = None, schema: dict | None = None,
+                images: list[bytes] | None = None) -> dict:
+    """system / schema default to the invoice contract; profiles.py passes its own. `images`: PNG pages shown to the reader
+    alongside the text (the text stays the source the values are cited against)."""
+    import base64
+
+    schema = schema or JSON_SCHEMA
+    if _style(model) == "nuextract":
+        return _call_nuextract(layout_text, model, system or SYSTEM_PROMPT, schema, images)
+    content = [{"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(png).decode()}} for png in images or []]
+    user = [*content, {"type": "text", "text": user_message(layout_text)}] if content else user_message(layout_text)
+    messages = [{"role": "system", "content": system or SYSTEM_PROMPT}, {"role": "user", "content": user}]
+    backend = os.environ.get("READER_BACKEND", "pool").lower()
+    if backend not in ("pool", "llamacpp"):
+        raise RuntimeError(f"unknown READER_BACKEND {backend!r} (pool or llamacpp)")
+    return parse_output(chat(messages, model, schema))
+
+
+def _style(model: str | None) -> str:
+    """How a reader is prompted (configs/models.yaml `style`): "" for a plain chat model, "nuextract" for NuExtract."""
+    if not model:
+        return ""
+    from .profiles import catalog
+
+    return next((e.get("style", "") for e in catalog()["readers"] if model in (e["id"], e.get("model"))), "")
+
+
+def nuextract_template(schema: dict):
+    """A reader JSON schema as a NuExtract template: text as printed ("verbatim-string"), choices as enums, tables as lists of
+    row objects. Our bookkeeping keys (evidence, lines) are left out: values are cited against the page anyway."""
+    t = schema.get("type")
+    if t == "object":
+        return {k: nuextract_template(v) for k, v in (schema.get("properties") or {}).items() if k not in ("evidence", "lines")}
+    if t == "array":
+        return [nuextract_template(schema.get("items") or {"type": "string"})]
+    if schema.get("enum"):
+        return [v for v in schema["enum"] if v]
+    return "verbatim-string"
+
+
+def _call_nuextract(layout_text: str, model: str, system: str, schema: dict, images: list[bytes] | None) -> dict:
+    """NuExtract: its own prompt format (template + instructions), no JSON-schema constraint (it is trained to follow the
+    template), nulls for absent values. The marked system message is read by its patched chat template."""
+    import base64
+
+    instructions = "\n".join(ln for ln in system.splitlines() if not ln.lstrip("- ").startswith(("evidence", "Return ONLY")))
+    marker = "【nuextract_template】" + json.dumps(nuextract_template(schema), ensure_ascii=False) + "【nuextract_instructions】" + instructions
+    content = [{"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(png).decode()}} for png in images or []]
+    user = [*content, {"type": "text", "text": layout_text}] if content else layout_text
+    raw = parse_output(chat([{"role": "system", "content": marker}, {"role": "user", "content": user}], model))
+    return {k: ("" if v is None else v) for k, v in raw.items()}
 
 
 # --------------------------------------------------------------- citations --
+@lru_cache(maxsize=65536)
 def _an(s: str) -> str:
     return re.sub(r"[^0-9a-z]", "", (s or "").casefold())
 
@@ -262,6 +317,8 @@ def locate(value, lines: list[Line], numeric: bool = False) -> list[dict]:
     want_num = _norm_num(f"{float(value):.2f}") if numeric and isinstance(value, (int, float)) else None
     target = _an(v)
     hits, fuzzy = [], []
+    sm = SequenceMatcher(None, "", target)     # target indexed once; set_seq1 per window
+    min_len = len(target) * 0.8
     # A value may wrap onto the next printed line (long vendor names, narrow cells): also scan
     # windows that continue into the following line of the same page.
     seqs = []
@@ -273,14 +330,15 @@ def locate(value, lines: list[Line], numeric: bool = False) -> list[dict]:
             acc = ""
             for j in range(i, min(len(us), i + 12)):
                 acc += _an(us[j].text)
-                text = " ".join(u.text for u in us[i:j + 1])
+                text = None                    # the window's printed text, joined only when it is needed
                 ok, span = False, None
-                if want_num is not None:
-                    if j == i:
-                        m = next((m for m in NUM_RE.finditer(text) if _norm_num(m.group(0)) == want_num), None)
-                        ok, span = m is not None, (m.span() if m else None)
+                if want_num is not None:       # a number is matched inside one unit, never across units
+                    text = us[i].text
+                    m = next((m for m in NUM_RE.finditer(text) if _norm_num(m.group(0)) == want_num), None)
+                    ok, span = m is not None, (m.span() if m else None)
                 elif target and target in acc and (j == i or target not in _an(" ".join(u.text for u in us[i + 1:j + 1]))):
                     ok = True
+                    text = " ".join(u.text for u in us[i:j + 1])
                     if j == i:      # where inside this unit's text the value sits
                         pos = [k for k, ch in enumerate(text) if _an(ch)]
                         at = _an(text).find(target)
@@ -296,9 +354,14 @@ def locate(value, lines: list[Line], numeric: bool = False) -> list[dict]:
                                  "text": text, "score": 1.0, "match": "exact",
                                  "ocr_score": round(min(u.score for u in us[i:j + 1]), 4)})
                     break
-                if want_num is None and target and len(acc) >= len(target) * 0.8:
-                    s = SequenceMatcher(None, acc, target).ratio()
+                if want_num is not None:
+                    break
+                if target and len(acc) >= min_len:
+                    sm.set_seq1(acc)
+                    # real_quick_ratio/quick_ratio are upper bounds of ratio: cheap rejects, same result
+                    s = sm.ratio() if sm.real_quick_ratio() >= 0.88 and sm.quick_ratio() >= 0.88 else 0.0
                     if s >= 0.88:
+                        text = " ".join(u.text for u in us[i:j + 1])
                         box = [min(u.box[0] for u in us[i:j + 1]), min(u.box[1] for u in us[i:j + 1]),
                                max(u.box[2] for u in us[i:j + 1]), max(u.box[3] for u in us[i:j + 1])]
                         fuzzy.append({"page": ln.page, "bbox": [round(b, 2) for b in box], "line": ln.id,
@@ -390,9 +453,13 @@ def _fmt(x: float) -> str:
     return f"{x:.2f}"
 
 
-def extract_invoice(path: str, model: str | None = None, force_ocr: bool = False) -> tuple[dict, dict]:
+def extract_invoice(path: str, model: str | None = None, force_ocr: bool = False, pages: list[PageData] | None = None,
+                    extras: bool = True) -> tuple[dict, dict]:
+    """The 31 invoice values and their audit. `pages`: already loaded (the router read them to choose the profile), so a scan
+    is not OCR'd twice. `extras=False` skips what only the classic page and the database's facts table use: the document
+    parser's pass over every page and the organizer's second model call."""
     t0 = time.time()
-    pages = load_pages(path, force_ocr=force_ocr)
+    pages = pages if pages is not None else load_pages(path, force_ocr=force_ocr)
     t_ingest = time.time() - t0
     text, index = serialize([(p.number, p.units) for p in pages])
     t1 = time.time()
@@ -402,7 +469,7 @@ def extract_invoice(path: str, model: str | None = None, force_ocr: bool = False
     try:
         from . import vl_client
 
-        use_blocks = vl_client.enabled()
+        use_blocks = extras and vl_client.enabled()
     except Exception:                # without the document parser the line rules' facts stand alone
         vl_client, use_blocks = None, False
     out = assemble(raw, text, index, pages, skip_facts=use_blocks)
@@ -435,7 +502,7 @@ def extract_invoice(path: str, model: str | None = None, force_ocr: bool = False
                 audit["facts"], audit["facts_error"] = [], f"{type(exc2).__name__}: {exc2}"[:200]
     # organizer: a language model arranges the extracted items under named details (organizer.py). Optional and
     # never blocking: ORGANIZE=0 switches it off, and a failure leaves the extraction as it is.
-    if os.environ.get("ORGANIZE", "1") == "1" and audit.get("facts"):
+    if extras and os.environ.get("ORGANIZE", "1") == "1" and audit.get("facts"):
         try:
             from .organizer import organize
 

@@ -156,11 +156,12 @@ export default function Home() {
         ) : (
           <div className="file-cards">
             {queue.slice(0, 4).map((d) => {
+              // a document the service read is not a bundled sample: no thumbnail, and its flagged values come with it
               const sample = DOCS[d.sample || d.id];
-              const flags = sample.fields.filter((f) => f.conf < flagBelow).length;
+              const flags = sample ? sample.fields.filter((f) => f.conf < flagBelow).length : d.flagged?.length ?? 0;
               return (
                 <Card key={d.id} className="file-card lift" {...cardAction(() => go('review', d.id), `Review ${d.name}, ${flags} to check`)}>
-                  <CardPreview className="file-card-preview"><img src={sample.pages[0].thumb || sample.pages[0].src} alt="" loading="lazy" decoding="async" /></CardPreview>
+                  <CardPreview className="file-card-preview">{sample ? <img src={sample.pages[0].thumb || sample.pages[0].src} alt="" loading="lazy" decoding="async" /> : <div className="file-card-blank"><FileIcon kind={d.kind} /></div>}</CardPreview>
                   <CardHeader className={cs.fileHeader} image={<FileIcon kind={d.kind} />} header={<Text weight="semibold" truncate wrap={false}>{d.name}</Text>}
                     description={<Caption1>{`${count(flags, 'value', 'values')} to check`}</Caption1>} />
                 </Card>

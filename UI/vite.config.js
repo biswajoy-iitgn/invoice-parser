@@ -27,9 +27,11 @@ export default defineConfig({
       transformIndexHtml: () => [{ tag: 'meta', attrs: { 'http-equiv': 'Content-Security-Policy', content: CSP }, injectTo: 'head-prepend' }],
     },
   ],
-  server: { port: 5173 },
+  // the extraction service: profiles, models and reading files (PORT=8001 .venv/bin/python scripts/run_app.py)
+  server: { port: 5173, proxy: { '/api': process.env.VITE_API_PROXY || 'http://127.0.0.1:8001' } },
   define: { __APP_VERSION__: JSON.stringify(pkg.version) },
-  build: { chunkSizeWarningLimit: 900 }, // scripts/budget.mjs is the size gate (gzip), not Vite's minified-size hint
+  // Browsers supported: the last two years of Chrome, Edge, Firefox and Safari (Safari 15.4+ on Mac and iPhone).
+  build: { target: ['chrome109', 'edge109', 'firefox115', 'safari15.4'], chunkSizeWarningLimit: 900 }, // scripts/budget.mjs is the size gate (gzip), not Vite's minified-size hint
   test: {
     environment: 'jsdom',
     include: ['tests/**/*.test.{ts,tsx}'],

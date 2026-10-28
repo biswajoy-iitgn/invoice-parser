@@ -8,6 +8,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "qa": "node scripts/qa.mjs",
+    "profiles:export": "cd .. && .venv/bin/python scripts/export_profiles.py",
     "qa:hover": "node scripts/qa-hover.mjs http://localhost:5174 light && node scripts/qa-hover.mjs http://localhost:5174 dark",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",

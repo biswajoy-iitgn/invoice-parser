@@ -58,8 +58,8 @@ box-shadow:0 6px 20px rgba(0,0,0,.14);padding:8px 10px;font-size:12.5px;display:
 @media (max-width:640px){.ana .meter{grid-template-columns:130px 1fr 76px}}
 </style></head><body>
 <header class="app-header"><a class="skip" href="#main">Skip to content</a>
-<a class="brand" href="/" aria-label="Invoice Extractor home"><svg class="brand-mark" aria-hidden="true"><use href="/ui/icons.svg#i-logo"/></svg><span class="brand-name">Invoice Extractor</span></a>
-<nav class="app-nav" aria-label="Primary"><a href="/">Extract</a><a href="/database">Database</a><a href="/analytics" aria-current="page">Analytics</a><a href="/audit">Audit trail</a><a href="/settings">Settings</a></nav></header>
+<a class="brand" href="/classic" aria-label="Invoice Extractor home"><svg class="brand-mark" aria-hidden="true"><use href="/ui/icons.svg#i-logo"/></svg><span class="brand-name">Invoice Extractor</span></a>
+<nav class="app-nav" aria-label="Primary"><a href="/classic">Extract</a><a href="/classic/database">Database</a><a href="/analytics" aria-current="page">Analytics</a><a href="/classic/audit">Audit trail</a><a href="/classic/settings">Settings</a></nav></header>
 <main class="content" id="main" style="max-width:1180px">
 <div class="page-head"><h1>Analytics</h1><p class="page-desc" id="sub"></p></div>
 <div class="ana">
