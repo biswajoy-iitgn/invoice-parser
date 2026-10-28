@@ -1,0 +1,29 @@
+# Use case 1: freight and logistics invoices, read like every other profile by the general reader (no fine-tuned adapter:
+# it showed no advantage). Every value is cited to its printed box; identifiers are checked by their check digits; the
+# charge lines must add up to the printed subtotal. The classic page's 31-column export (invoice_extractor/schema.py) still
+# uses the v2 invoice pipeline.
+id: logistics_invoice
+name: Logistics invoice
+detect: [tax invoice, invoice no, invoice number, freight, bill of lading, mawb, hawb, container no, consignee, shipper, port of loading, port of discharge, terminal handling, ocean freight, air freight]   # router.py: phrases that identify this kind of document
+description: Freight forwarder, shipping line or customs agent invoice for one shipment, with its charge lines.
+min_verified: 0.9
+fields:
+  - {key: invoice_no, label: Invoice number, type: id, required: true, hint: "the invoice's own number, printed as Invoice No., Document No. or Bill No.; not an order or job number"}
+  - {key: invoice_date, label: Invoice date, type: date, required: true}
+  - {key: vendor_name, label: Vendor name, type: text, required: true, hint: the company that issued the invoice}
+  - {key: seller_gstin, label: Vendor GSTIN, type: gstin, hint: the issuer's GST number}
+  - {key: buyer_gstin, label: Customer GSTIN, type: gstin, hint: the billed party's GST number}
+  - {key: mbl, label: Master bill of lading or MAWB, type: id, hint: "printed as M B/L, MBL, Master B/L or MAWB"}
+  - {key: hbl, label: House bill of lading or HAWB, type: id, hint: "printed as H B/L, HBL, House B/L or HAWB"}
+  - {key: container_no, label: Container number, type: container, hint: four letters and seven digits; the first one if several}
+  - {key: gross_weight, label: Gross weight, type: text, hint: with its unit as printed}
+  - {key: exchange_rate, label: Exchange rate, type: text, hint: "as printed, with the currency, e.g. USD 98.25"}
+  - {key: sub_total, label: Total before tax, type: amount}
+  - {key: tax_total, label: Total tax, type: amount}
+  - {key: total, label: Invoice total, type: amount, required: true, hint: the grand total payable}
+tables:
+  - {key: charges, label: the charge lines, required: true, columns: [Description, Amount], hint: "one row per charge; Amount is the line's taxable value before tax, as printed"}
+checks:
+  - {type: sum, table: charges, column: Amount, field: sub_total, tolerance: 1, name: charge lines add up to the total before tax}
+  - {type: field_formula, result: total, expr: "subtotal + taxtotal", tolerance: 1, name: total is the subtotal plus tax}
+  - {type: date_window, field: invoice_date, max_age_days: 730, name: invoice date is recent and not in the future}

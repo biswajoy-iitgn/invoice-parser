@@ -1,0 +1,8 @@
+{
+  "embedding": 1.0,
+  "laya": 0.5,
+  "lexicon": 0.0,
+  "alias_bonus": 3.0,
+  "embedding_temperature": 0.08,
+  "reader": 0.6
+}

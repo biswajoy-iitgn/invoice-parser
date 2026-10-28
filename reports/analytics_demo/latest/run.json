@@ -1,0 +1,26 @@
+{
+ "trigger": "manual",
+ "parameters": {},
+ "outputs": [
+  {
+   "file": "dashboard.html",
+   "sha256": "9ce50ab9860738b4c1152f77be11a376b66299b8bafc8b3179a4b37206ea0d49",
+   "bytes": 137657
+  },
+  {
+   "file": "insights.json",
+   "sha256": "035ebfec379dd27d7b09ac38a2c8a55307b2264450c55eedad582645a96a12aa",
+   "bytes": 136835
+  },
+  {
+   "file": "mis_report.xlsx",
+   "sha256": "4122e261cff2f668bd3d5b48b5a8c5ecf8ecd7b2836811b7e43b26b215724b15",
+   "bytes": 53922
+  }
+ ],
+ "record": {
+  "recorded": true,
+  "run_id": "de2fc655-85f4-4f57-b5bd-730fb40000cb"
+ },
+ "seconds": 2.52
+}

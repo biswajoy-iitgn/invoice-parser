@@ -1,0 +1,165 @@
+{
+  "backends": [
+    "alias-bank",
+    "lexicon",
+    "embedding",
+    "laya"
+  ],
+  "weights": {
+    "embedding": 1.0,
+    "laya": 0.5,
+    "lexicon": 0.0,
+    "alias_bonus": 3.0,
+    "embedding_temperature": 0.08,
+    "reader": 0.6
+  },
+  "sizes": {
+    "val": 4000,
+    "test": 4000,
+    "real": 47
+  },
+  "results": {
+    "val": [
+      {
+        "name": "fused (engine)",
+        "all": 0.9808,
+        "seen": 1.0,
+        "unseen": 0.9567,
+        "labels": 0.9849,
+        "charges": 0.9719
+      },
+      {
+        "name": "alias bank only",
+        "all": 0.673,
+        "seen": 0.6311,
+        "unseen": 0.7253,
+        "labels": 0.8611,
+        "charges": 0.2729
+      },
+      {
+        "name": "lexicon only",
+        "all": 0.6785,
+        "seen": 0.6369,
+        "unseen": 0.7303,
+        "labels": 0.7402,
+        "charges": 0.5473
+      },
+      {
+        "name": "embedding only",
+        "all": 0.9623,
+        "seen": 0.9914,
+        "unseen": 0.9258,
+        "labels": 0.9599,
+        "charges": 0.9672
+      },
+      {
+        "name": "LAYA v2 only",
+        "all": 0.9738,
+        "seen": 0.9995,
+        "unseen": 0.9416,
+        "labels": 0.9879,
+        "charges": 0.9437
+      }
+    ],
+    "test": [
+      {
+        "name": "fused (engine)",
+        "all": 0.9898,
+        "seen": 1.0,
+        "unseen": 0.977,
+        "labels": 1.0,
+        "charges": 0.9691
+      },
+      {
+        "name": "alias bank only",
+        "all": 0.6532,
+        "seen": 0.6297,
+        "unseen": 0.6826,
+        "labels": 0.8368,
+        "charges": 0.2839
+      },
+      {
+        "name": "lexicon only",
+        "all": 0.6823,
+        "seen": 0.6428,
+        "unseen": 0.7315,
+        "labels": 0.7391,
+        "charges": 0.5678
+      },
+      {
+        "name": "embedding only",
+        "all": 0.9798,
+        "seen": 0.9968,
+        "unseen": 0.9584,
+        "labels": 0.9824,
+        "charges": 0.9744
+      },
+      {
+        "name": "LAYA v2 only",
+        "all": 0.971,
+        "seen": 1.0,
+        "unseen": 0.9348,
+        "labels": 0.9944,
+        "charges": 0.9239
+      }
+    ],
+    "real": [
+      {
+        "name": "fused (engine)",
+        "all": 0.9787,
+        "seen": null,
+        "unseen": 0.9787,
+        "labels": null,
+        "charges": 0.9787
+      },
+      {
+        "name": "alias bank only",
+        "all": 0.4255,
+        "seen": null,
+        "unseen": 0.4255,
+        "labels": null,
+        "charges": 0.4255
+      },
+      {
+        "name": "lexicon only",
+        "all": 0.8511,
+        "seen": null,
+        "unseen": 0.8511,
+        "labels": null,
+        "charges": 0.8511
+      },
+      {
+        "name": "embedding only",
+        "all": 0.9362,
+        "seen": null,
+        "unseen": 0.9362,
+        "labels": null,
+        "charges": 0.9362
+      },
+      {
+        "name": "LAYA v2 only",
+        "all": 0.9574,
+        "seen": null,
+        "unseen": 0.9574,
+        "labels": null,
+        "charges": 0.9574
+      },
+      {
+        "name": "OLD LAYA (previous checkpoint)",
+        "all": 0.6809,
+        "seen": null,
+        "unseen": 0.6809,
+        "labels": null,
+        "charges": 0.6809
+      },
+      {
+        "name": "OLD deterministic matcher",
+        "all": 0.9362,
+        "seen": null,
+        "unseen": 0.9362,
+        "labels": null,
+        "charges": 0.9362
+      }
+    ]
+  }
+}

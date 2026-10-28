@@ -23,10 +23,17 @@ import re
 import shutil
 import subprocess
 import tempfile
-from dataclasses import dataclass, field
 from pathlib import Path
+from dataclasses import dataclass, field
 
-import fitz
+from .quality import maybe_super_resolve
+
+
+def _fitz():
+    import fitz  # lazy: only the legacy debug path opens PDFs directly
+
+    return fitz
+
 
 MIN_TEXT_CHARS = 80
 RENDER_DPI = 200
@@ -112,16 +119,84 @@ def _degraded_tables(doc, page_no: int) -> list[str]:
 
 
 def _ocr_page(page_number: int, png: str) -> Page:
-    text = hunyuan_ocr(png)
-    return Page(page_number, text, text, "hunyuan-ocr")
+    enabled = os.getenv("USE_OMNISR", "0").lower() in {"1", "true", "yes"}
+    force = os.getenv("FORCE_OMNISR", "0").lower() in {"1", "true", "yes"}
+    if os.getenv("BYPASS_OMNISR", "0").lower() in {"1", "true", "yes"}:
+        enabled = force = False
+    processed, quality = maybe_super_resolve(png, enabled=enabled, force=force,
+                                             config_path=os.getenv("SR_CONFIG", "configs/super_resolution.yaml"))
+    try:
+        text = hunyuan_ocr(processed)
+    finally:
+        if processed != png:
+            Path(processed).unlink(missing_ok=True)
+    notes = ["quality=" + str(quality)]
+    return Page(page_number, text, text, "hunyuan-ocr+omnisr" if quality.get("sr_applied") else "hunyuan-ocr", notes)
 
 
 def load_pages(path: str, force_ocr: bool = False) -> list[Page]:
+    """Primary path: Docling layout/tables + HunyuanOCR for scanned pages.
+
+    INVOICE_INGEST selects the ingest backend: "hunyuan" (default;
+    "legacy" is accepted as an alias) or "auto"/"paddle" for the
+    PP-StructureV3 path (needs the Paddle stack + CUDA host).
+    """
+    mode = os.getenv("INVOICE_INGEST", "hunyuan").lower()
+    if mode in ("hunyuan", "legacy"):
+        return _load_pages_legacy(path, force_ocr=force_ocr)
+    if mode == "docling-ocr":
+        return _load_pages_docling_ocr(path)
+    from .paddle_backends import pp_structure_pages
+    return pp_structure_pages(path)
+
+
+_docling_ocr_converter = None
+
+
+def _load_pages_docling_ocr(path: str) -> list[Page]:
+    """Docling layout + tables + Tesseract OCR (CPU) for any input.
+
+    Used by the pipeline tracker as the Docling arm. MPS is avoided: the
+    RT-DETR layout model builds float64 tensors, which MPS rejects.
+    """
+    global _docling_ocr_converter
+    if _docling_ocr_converter is None:
+        from docling.datamodel.accelerator_options import AcceleratorDevice, AcceleratorOptions
+        from docling.datamodel.base_models import InputFormat
+        from docling.datamodel.pipeline_options import PdfPipelineOptions, TesseractCliOcrOptions
+        from docling.document_converter import DocumentConverter, ImageFormatOption, PdfFormatOption
+
+        opts = PdfPipelineOptions(
+            do_ocr=True,
+            do_table_structure=True,
+            accelerator_options=AcceleratorOptions(device=AcceleratorDevice.CPU),
+            ocr_options=TesseractCliOcrOptions(lang=["eng"]),
+        )
+        _docling_ocr_converter = DocumentConverter(
+            format_options={InputFormat.IMAGE: ImageFormatOption(pipeline_options=opts),
+                            InputFormat.PDF: PdfFormatOption(pipeline_options=opts)})
+    doc = _docling_ocr_converter.convert(path).document
+    ext = os.path.splitext(path)[1].lower()
+    if ext in IMAGE_EXTS:
+        md = doc.export_to_markdown().strip()
+        return [Page(1, md, md, "docling-ocr",
+                     [f"tables={len(doc.tables)}"])]
+    out = []
+    with _fitz().open(path) as pdf:
+        n_pages = len(pdf)
+    for n in range(1, n_pages + 1):
+        md = doc.export_to_markdown(page_no=n).strip()
+        out.append(Page(n, md, md, "docling-ocr",
+                       [f"tables={len(doc.tables)}"]))
+    return out
+
+
+def _load_pages_legacy(path: str, force_ocr: bool = False) -> list[Page]:
     ext = os.path.splitext(path)[1].lower()
     if ext in IMAGE_EXTS:
         return [_ocr_page(1, path)]
 
-    with fitz.open(path) as pdf:
+    with _fitz().open(path) as pdf:
         layer = [p.get_text("text", sort=True) for p in pdf]
         scanned = [force_ocr or _alnum_count(t) < MIN_TEXT_CHARS for t in layer]
         ocr_pages: dict[int, Page] = {}

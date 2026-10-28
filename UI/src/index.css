@@ -1,0 +1,429 @@
+/* Layout, Harsha brand face and the Harsha-approved washes. Controls are styled by the Fluent theme (theme.js);
+   Fluent tokens are read as CSS vars. Spacing on the Fluent 4 px ramp. Gradients: one hue per wash (Harsha sky,
+   Growth, Seal, Steel), kept light so Rule Black text stays above 12:1. */
+@font-face {
+  font-family: 'Eurostile Extended';
+  src: url('/fonts/eurostile-extended-black.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-brand: 'Eurostile Extended', 'Noto Sans Gujarati', 'Noto Sans Devanagari', 'Noto Sans', sans-serif;
+  --ease-out: cubic-bezier(.33, 0, .1, 1);
+}
+/* Colours come from the Fluent theme (theme.js): Fluent tokens plus the app's own --app… tokens, light and dark. */
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+/* boot.js (then App) paints <html> and sets color-scheme before React renders, so there is no flash */
+.muted { color: var(--colorNeutralForeground3); }
+.warn-text { color: var(--colorStatusDangerForeground1); }
+.num { font-variant-numeric: tabular-nums; }
+.nowrap { white-space: nowrap; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; inset-inline-start: -9999px; top: 8px; z-index: 1000; padding: 8px 16px; background: var(--colorNeutralBackground1); color: var(--colorBrandForeground1); border-radius: var(--borderRadiusMedium); box-shadow: var(--shadow8); }
+.skip-link:focus { inset-inline-start: 8px; }
+
+/* ---- Harsha brand face: every title, header and big number (HDS ds.css) ---- */
+.brand-title { font-family: var(--font-brand); font-weight: 700; font-synthesis: none; letter-spacing: 0; margin: 0; color: var(--colorNeutralForeground1); }
+.big-number { font-family: var(--font-brand); font-weight: 700; font-synthesis: none; font-size: 26px; line-height: 34px; display: block; }
+
+/* ---- app shell ---- */
+.app { display: flex; flex-direction: column; height: 100%; color: var(--colorNeutralForeground1); background-color: var(--appBg);
+  /* Mica-style base: quiet, one faint sky wash under the header. The Home hero is the only colourful surface. */
+  background-image: linear-gradient(180deg, var(--appWash), transparent 320px);
+  background-attachment: fixed; }
+/* Suite header: Harsha sky bokashi (deep to brand) with a soft light bloom; white text stays above 5.6:1 */
+.appbar { height: 48px; flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding-inline: 6px 12px; position: relative; z-index: 2; color: #FFFFFF;
+  background:
+    radial-gradient(38% 160% at 78% -20%, rgba(106, 169, 235, .38), rgba(106, 169, 235, 0) 70%),
+    linear-gradient(90deg, var(--appSkyDeep), var(--appSky));
+  background:
+    radial-gradient(38% 160% at 78% -20%, rgba(106, 169, 235, .38), rgba(106, 169, 235, 0) 70%),
+    linear-gradient(in oklch 90deg, var(--appSkyDeep), var(--appSky)); }
+/* hover darkens the header (Microsoft 365 suite header), so white stays well above 4.5:1 */
+/* Fluent tints subtle-button icons brand blue on hover: on the blue header that is blue on blue, so they stay white */
+.appbar .brand { gap: 10px; padding: 4px 8px; height: 40px; min-width: 0; }
+.logo-chip { background: #FFFFFF; border-radius: var(--borderRadiusMedium); padding: 4px 8px; display: inline-flex; }
+.logo { height: 28px; width: auto; display: block; }
+.brand-name { font-family: var(--font-brand); font-weight: 700; font-size: 14px; letter-spacing: .01em; white-space: nowrap; }
+.appbar-search { flex: 1; display: flex; justify-content: center; min-width: 0; }
+.appbar-search > * { width: 100%; max-width: 480px; }
+.appbar-actions { display: flex; align-items: center; gap: 2px; }
+.me { min-width: 0; padding: 0 4px; }
+.me-card { padding: 8px 12px; }
+.help { max-width: 320px; display: flex; flex-direction: column; gap: 8px; }
+.body { flex: 1; display: flex; min-height: 0; }
+.main { flex: 1; overflow: auto; outline: none; min-width: 0; background: transparent; }
+
+/* Count pinned to the icon's corner, ringed in the surface colour (Teams, Outlook). Fluent buttons clip their content, so these don't. */
+.icon-count { position: relative; display: inline-flex; }
+.appbar .bell, .rail .rail-btn { overflow: visible; }
+.count-pip { position: absolute; top: -6px; inset-inline-start: calc(100% - 5px); min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px;
+  font: 600 10px/16px var(--fontFamilyBase); text-align: center; color: #FFFFFF; background: var(--pip, var(--appPip));
+  box-shadow: 0 0 0 2px var(--pip-ring, var(--appSky)); pointer-events: none; }
+.bell .count-pip { --pip: var(--appPip); --pip-ring: var(--appSky); }
+.rail .count-pip { --pip: var(--appSky); --pip-ring: var(--appSurface); }
+
+/* Teams-style app rail */
+.rail { width: 88px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 6px 0; overflow-y: auto;
+  background: var(--appGlass); border-inline-end: 1px solid var(--appGlassLine); }
+.rail ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.rail .rail-btn { position: relative; flex-direction: column; width: 76px; min-width: 0; height: 60px; padding: 8px 0 4px; gap: 2px; color: var(--colorNeutralForeground2); border-radius: var(--borderRadiusLarge); }
+.rail-label { font-size: 12px; line-height: 16px; font-weight: var(--fontWeightRegular); }
+.rail .rail-btn.is-on { color: var(--colorBrandForeground1); }
+.rail .rail-btn.is-on .rail-label { font-weight: var(--fontWeightSemibold); }
+/* Teams: a short bar in the 6 px gutter beside the icon, level with it, never beside the label */
+.rail .rail-btn.is-on::before { content: ''; position: absolute; inset-inline-start: -6px; top: 11px; height: 18px; width: 3px; border-radius: 2px; background: var(--colorBrandStroke1); }
+
+/* ---- page ---- */
+.page { max-width: 1320px; margin: 0 auto; padding: 28px 32px 48px; display: flex; flex-direction: column; gap: 28px; }
+.page-header { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.page-heading { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 320px; }
+.page-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.page.is-over { outline: 2px dashed var(--colorBrandStroke1); outline-offset: -8px; }
+.stack { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.stack-s { display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row.nowrap { flex-wrap: nowrap; gap: 4px; }
+.row.between { justify-content: space-between; }
+.row.center { justify-content: center; }
+.span-2 { grid-column: 1 / -1; }
+.narrow-field { max-width: 420px; }
+.form, .form-grid { display: grid; gap: 16px; }
+.form-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); align-items: start; }
+.grid-2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); align-items: start; }
+.grid-3 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); align-items: stretch; }
+.section { display: flex; flex-direction: column; gap: 12px; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.rounded { border-radius: var(--borderRadiusXLarge); }
+
+/* Fluent top-level transition: quick fade, no movement */
+.page, .doc-view, .settings-body { animation: fade-in var(--durationNormal) var(--curveDecelerateMid); }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---- Harsha washes: soft, airy, one hue per bloom ---- */
+.glow-growth {
+  background:
+    radial-gradient(60% 120% at 50% 0%, var(--appGrowthGlow), var(--appGrowthGlowClear) 70%),
+    linear-gradient(180deg, var(--appGrowthWash), var(--appSurface));
+}
+
+/* ---- Home ---- */
+.welcome { position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: center; gap: 24px; padding: 24px 28px; border-radius: 16px;
+  background: var(--appSurface); border: 1px solid var(--appCardLine); box-shadow: var(--shadow8); }
+/* Harsha sky-growth aurora: three one-hue blooms drifting slowly (22 to 27 s), the way Copilot heroes breathe. Still when motion is reduced. */
+.aurora { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #FFFFFF, #FFFFFF 35%, rgba(255, 255, 255, 0) 92%); mask-image: linear-gradient(180deg, #FFFFFF, #FFFFFF 35%, rgba(255, 255, 255, 0) 92%); }
+.aurora span { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); will-change: transform; }
+.aurora span:nth-child(1) { left: 8%; top: 0; width: 1000px; height: 560px; background: radial-gradient(closest-side, var(--appAurora1), var(--appAurora1Clear)); animation: drift-1 22s ease-in-out infinite alternate; }
+.aurora span:nth-child(2) { left: 50%; top: -10%; width: 1000px; height: 480px; background: radial-gradient(closest-side, var(--appAurora2), var(--appAurora2Clear)); animation: drift-2 27s ease-in-out infinite alternate; }
+.aurora span:nth-child(3) { left: 92%; top: 10%; width: 900px; height: 520px; background: radial-gradient(closest-side, var(--appAurora3), var(--appAurora3Clear)); animation: drift-3 25s ease-in-out infinite alternate; }
+/* WCAG 2.2.2: a pause control stops the drift */
+.welcome.is-still .aurora span { animation-play-state: paused; }
+.aurora-toggle { position: absolute; top: 10px; inset-inline-end: 10px; z-index: 2; }
+@keyframes drift-1 { to { transform: translate(calc(-50% + 140px), calc(-50% + 20px)) scale(1.08); } }
+@keyframes drift-2 { to { transform: translate(calc(-50% - 160px), calc(-50% + 24px)) scale(.94); } }
+@keyframes drift-3 { to { transform: translate(calc(-50% - 140px), calc(-50% + 16px)) scale(1.08); } }
+.welcome-copy { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; flex: 1; min-width: 0; }
+.welcome-actions { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin-top: 4px; }
+.welcome-actions .tile { flex: 0 1 340px; }
+.welcome-actions .tile { justify-content: flex-start; text-align: start; gap: 12px; padding: 12px 16px; min-height: 64px; max-width: none;
+  background: var(--appSurface); border-color: var(--colorNeutralStroke2); box-shadow: var(--shadow2);
+  transition: box-shadow var(--durationFast) var(--curveEasyEase), transform var(--durationFast) var(--curveEasyEase); }
+.welcome-actions .tile:hover { box-shadow: var(--shadow8); transform: translateY(-1px); background: var(--appSurface); }
+/* label sized to its text, not Fluent's 33% column; sits at the end of the tile row */
+/* A Fluent icon on a soft brand tile (Microsoft 365 app tiles) */
+.glyph { display: inline-grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--borderRadiusLarge);
+  background: var(--colorBrandBackground2); color: var(--colorBrandForeground1); font-size: 24px; }
+.glyph-l { width: 56px; height: 56px; font-size: 32px; border-radius: var(--borderRadiusXLarge); }
+.glyph.is-ok { background: var(--colorStatusSuccessBackground1); color: var(--colorStatusSuccessForeground1); }
+.glyph.is-bad { background: var(--colorStatusDangerBackground1); color: var(--colorStatusDangerForeground1); }
+/* Extract: one drop target (OneDrive) */
+.dropzone { align-items: center; text-align: center; gap: 10px; padding: 32px 24px; border: 2px dashed var(--colorNeutralStroke1); box-shadow: none; background: var(--colorNeutralBackground1); }
+.dropzone.is-over { border-style: solid; border-color: var(--colorBrandStroke1); background: var(--colorBrandBackground2); }
+.dropzone .row { margin-top: 6px; }
+.dropzone-type { margin-top: 8px; width: min(100%, 260px); text-align: start; }
+
+/* file cards (OneDrive "for you") */
+.file-cards { display: grid; gap: 16px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.file-cards.wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.file-card { cursor: pointer; padding: 0; gap: 0; overflow: hidden; }
+.file-card:focus-visible { outline: 2px solid var(--colorStrokeFocus2); outline-offset: 2px; }
+.file-card-preview { height: 148px; overflow: hidden; padding: 16px 22px 0; background: linear-gradient(180deg, var(--colorNeutralBackground3), var(--colorNeutralBackground2)); }
+/* A page sheet peeking out of a tray (OneDrive). CardPreview stretches children to 100% x 100%, so crop, never squash. */
+.file-card-preview > img { object-fit: cover; object-position: top center; border-radius: 3px 3px 0 0; box-shadow: var(--shadow4); background: var(--appPaper); }
+.file-card-blank { height: 100%; display: grid; place-items: center; font-size: 48px; color: var(--colorNeutralForeground3); }
+.file-card .flag-names { display: flex; align-items: flex-start; gap: 6px; padding: 0 14px 14px; }
+.file-card .flag-names svg { color: var(--colorBrandForeground1); flex-shrink: 0; margin-top: 1px; font-size: 16px; }
+.workspace { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.table-card { overflow-wrap: anywhere; }
+.file-row { display: flex; align-items: center; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--colorNeutralStroke2); }
+.file-row:last-child { border-bottom: 0; }
+.file-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.engine-card > .row { margin-top: auto; } /* status lines up across a row of cards */
+.lift { transition: box-shadow var(--durationFast) var(--curveEasyEase), transform var(--durationFast) var(--curveEasyEase); }
+.lift:hover { box-shadow: var(--shadow16); transform: translateY(-2px); }
+.list-card { padding: 4px 16px; }
+.name-cell { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.tabs-scroll { overflow-x: auto; max-width: 100%; }
+.settings-nav .settings-select { display: none; }
+.doc-name { overflow-wrap: anywhere; }
+.ft-pdf { color: var(--appPdf); flex-shrink: 0; }
+.ft-img { color: var(--colorBrandForeground1); flex-shrink: 0; }
+.data-table th, .data-table td { white-space: nowrap; }
+.data-table .is-num { text-align: end; font-variant-numeric: tabular-nums; }
+/* "Needs a check": an icon and a tint, so it never rests on colour alone (WCAG 1.4.1, and it survives High Contrast) */
+.check-mark { color: var(--colorBrandForeground1); font-size: 14px; vertical-align: -2px; margin-inline-end: 4px; flex-shrink: 0; }
+.check-legend { display: inline-flex; align-items: center; gap: 2px; }
+.chart-table .is-num { text-align: end; font-variant-numeric: tabular-nums; }
+/* ---- Extracted data: an Excel-style sheet ---- */
+.workbook { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+.sheet-wrap { overflow: auto; max-height: calc(100vh - 340px); min-height: 260px; border: 1px solid var(--appSheetLine); border-radius: var(--borderRadiusMedium) var(--borderRadiusMedium) 0 0; background: var(--colorNeutralBackground1); }
+.sheet-foot > .tabs-scroll { min-width: 0; flex: 1 1 auto; }
+.sheet-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 2px 4px; border: 1px solid var(--appSheetLine); border-top: 0; border-radius: 0 0 var(--borderRadiusMedium) var(--borderRadiusMedium); background: var(--appSheetHead); }
+
+/* ---- title + command bar (OneDrive, SharePoint) ---- */
+.titlebar { display: flex; align-items: center; gap: 12px; min-height: 36px; }
+.commandbar { position: sticky; top: 8px; z-index: 3; margin-top: -12px; padding: 4px 6px; flex-wrap: wrap; gap: 4px; border-radius: var(--borderRadiusXLarge);
+  background: var(--appGlassStrong); border: 1px solid var(--appGlassStrongLine); box-shadow: var(--shadow4); }
+.app .cmd-dropdown { min-width: min(100%, 160px); } /* two classes: Fluent Dropdown sets 250 px */
+.cmd-spacer { flex: 1; }
+.cmd-search { width: 300px; max-width: 100%; }
+.pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: -10px; }
+
+/* ---- cards, facts, lists (settings pages, insights) ---- */
+.card { padding: 20px; gap: 12px; }
+.card-head { display: flex; align-items: center; gap: 10px; }
+.card-head h2 { margin: 0; }
+.card-action { margin-inline-start: auto; }
+.card-icon { display: inline-flex; }
+.kpis { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.kpi { gap: 2px; padding: 16px 20px; }
+button.kpi, button.engine-card { cursor: pointer; font: inherit; color: inherit; border-width: 0; }
+.engine-card { text-align: start; }
+.profile-card { justify-content: space-between; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 0; padding: 16px 20px; background: var(--colorNeutralBackground1); border-radius: var(--borderRadiusXLarge); box-shadow: var(--shadow4); }
+.facts dt { color: var(--colorNeutralForeground3); }
+.facts dd { margin: 4px 0 0; }
+.list { list-style: none; margin: 0; padding: 0; }
+.list li { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 4px 0; border-bottom: 1px solid var(--colorNeutralStroke2); }
+.list li:last-child { border-bottom: 0; }
+.list-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+
+/* ---- empty states ---- */
+.empty { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 48px 16px; max-width: 520px; margin: 0 auto; }
+.empty h2 { margin: 8px 0 0; }
+.empty .row { margin-top: 8px; }
+.empty.compact { padding: 20px 8px; }
+.picto { width: 112px; height: 112px; object-fit: contain; filter: drop-shadow(0 10px 14px rgba(0, 67, 122, .14)); }
+.empty.compact .picto { width: 72px; height: 72px; }
+
+/* ---- notifications (acrylic panel) ---- */
+.notes { margin: 4px -8px 12px; display: flex; flex-direction: column; gap: 2px; }
+.notes .note { display: flex; gap: 12px; align-items: flex-start; padding-block: 12px; padding-inline: 20px 12px; border-radius: var(--borderRadiusLarge); cursor: pointer; position: relative; }
+.notes .note + .note::before { content: ''; position: absolute; inset-inline: 68px 12px; top: -1px; border-top: 1px solid var(--appHairline); }
+.notes .note:hover { background: var(--appHoverGlass); }
+.notes .note:focus-visible { outline: 2px solid var(--colorStrokeFocus2); }
+.note-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.note-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.notes .note.is-new .note-title { font-weight: var(--fontWeightSemibold); }
+.notes .note.is-new::after { content: ''; position: absolute; inset-inline-start: 7px; top: 28px; width: 6px; height: 6px; border-radius: 50%; background: var(--appSky); }
+
+/* ---- tables in settings ---- */
+.table-card { background: var(--colorNeutralBackground1); border-radius: var(--borderRadiusXLarge); box-shadow: var(--shadow4); overflow-x: auto; padding: 4px 8px; }
+.cell-stack { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding: 4px 0; }
+.stage { display: flex; flex-direction: column; gap: 4px; min-width: 160px; }
+.data-table :is(th, td) { white-space: nowrap; }
+.data-table .cell-btn, .cell-btn { justify-content: flex-start; min-width: 0; width: 100%; min-height: 32px; padding-inline: 4px; font-weight: var(--fontWeightRegular); color: var(--colorNeutralForeground1); }
+.cell-btn.is-edited { background: var(--colorBrandBackground2); font-weight: var(--fontWeightSemibold); }
+.row-deleted td { color: var(--colorNeutralForeground4); text-decoration: line-through; }
+.split { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 16px; align-items: start; }
+.tree-card { padding: 8px; }
+.tree-sel { background: var(--colorNeutralBackground1Selected); font-weight: var(--fontWeightSemibold); }
+.done-band { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 12px 20px; border-radius: var(--borderRadiusLarge); color: #FFFFFF; }
+.done-band *, .done-band .brand-title { color: #FFFFFF; }
+.bokashi-growth { background: linear-gradient(110deg, var(--appGrowthDeep), var(--appGrowth) 55%, var(--appGrowthLight)); background: linear-gradient(in oklch 110deg, var(--appGrowthDeep), var(--appGrowth) 55%, var(--appGrowthLight)); }
+
+/* ---- settings (steel wash) ---- */
+.settings { display: grid; grid-template-columns: 228px minmax(0, 1fr); min-height: 100%; }
+.settings-nav { padding: 28px 12px; border-inline-end: 1px solid var(--appGlassLine); background: var(--appGlass); }
+.settings-title { display: block; padding: 0 12px 14px; }
+.settings-body { min-width: 0; }
+.settings-body .page { padding-top: 28px; }
+
+/* ---- Review: one document, two calm panes (AI Builder validation station) ---- */
+.doc-view { display: flex; flex-direction: column; height: 100%; min-height: 0; background: var(--colorNeutralBackground1); }
+.doc-head { display: flex; align-items: center; gap: 12px; padding: 10px 20px 10px 12px; border-bottom: 1px solid var(--colorNeutralStroke2); background: var(--colorNeutralBackground1); flex-wrap: wrap; }
+.doc-title { flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; }
+.doc-actions { gap: 12px; }
+.progress-mini { display: flex; flex-direction: column; gap: 4px; min-width: 150px; max-width: 220px; }
+.doc-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 408px; }
+/* Outlook-style queue beside the document, from 1280 px */
+.doc-body.has-queue { grid-template-columns: 248px minmax(0, 1fr) 392px; }
+.queue { min-height: 0; overflow-y: auto; padding: 16px 8px; border-inline-end: 1px solid var(--colorNeutralStroke2); background: var(--colorNeutralBackground1); }
+.queue-title { display: block; padding: 0 8px 8px; }
+.queue .queue-item { position: relative; display: flex; align-items: center; gap: 10px; padding: 8px; border-radius: var(--borderRadiusMedium); cursor: pointer; }
+.queue .queue-item:hover { background: var(--colorNeutralBackground1Hover); }
+.queue .queue-item:focus-visible { outline: 2px solid var(--colorStrokeFocus2); outline-offset: -2px; }
+.queue .queue-item.is-on { background: var(--colorBrandBackground2); }
+.queue .queue-item.is-on::before { content: ''; position: absolute; inset-inline-start: 0; top: 12px; bottom: 12px; width: 3px; border-radius: 2px; background: var(--colorBrandStroke1); }
+.queue-thumb { width: 36px; height: 48px; object-fit: cover; object-position: top center; flex-shrink: 0; background: var(--appPaper); border: 1px solid var(--colorNeutralStroke2); border-radius: 2px; }
+.queue-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+@media (max-width: 1279px) {
+  .doc-body.has-queue { grid-template-columns: minmax(0, 1fr) 408px; }
+  .queue { display: none; }
+}
+.canvas { position: relative; min-height: 0; display: flex; flex-direction: column; background: var(--colorNeutralBackground3); border-inline-end: 1px solid var(--colorNeutralStroke2); }
+.canvas-scroll { flex: 1; overflow: auto; padding: 24px 32px 32px; outline: none; }
+.canvas-scroll:focus-visible { box-shadow: inset 0 0 0 2px var(--colorStrokeFocus2); }
+/* paper and its marks never mirror */
+.page-img { position: relative; margin: 0 auto; max-width: 860px; box-shadow: var(--shadow16); background: var(--appPaper); border-radius: 2px; direction: ltr; }
+.page-img img { display: block; width: 100%; height: auto; opacity: 0; transition: opacity var(--durationNormal) var(--curveEasyEase); }
+.page-img img.is-loaded { opacity: 1; }
+.page-skel { position: absolute; inset: 0; padding: 40px; display: flex; flex-direction: column; gap: 14px; }
+.box { position: absolute; border-radius: 3px; pointer-events: none; }
+.box.is-flag { border: 2px solid var(--colorBrandStroke1); background: rgba(0, 102, 179, .06); }
+.box.is-sel { border: 2px solid var(--appSky); margin: -3px; padding: 3px; box-sizing: content-box; background: rgba(0, 102, 179, .1); box-shadow: 0 0 0 4px rgba(106, 169, 235, .35), 0 0 18px rgba(0, 102, 179, .35); animation: glow 1.6s var(--curveEasyEase) 2; }
+@keyframes glow { 50% { box-shadow: 0 0 0 7px rgba(106, 169, 235, .2), 0 0 26px rgba(0, 102, 179, .45); } }
+/* docked above the page, never over the print (Edge PDF viewer) */
+.page-toolbar { justify-content: center; gap: 2px; padding: 2px 8px; flex-shrink: 0; background: var(--colorNeutralBackground1); border-bottom: 1px solid var(--colorNeutralStroke2); }
+.upload-img { display: block; max-width: 100%; margin: 0 auto; }
+.upload-pdf { width: 100%; height: 70vh; border: 0; }
+
+.values { overflow-y: auto; padding: 20px 24px 28px; display: flex; flex-direction: column; gap: 18px; background: var(--colorNeutralBackground1); }
+.ai-note { display: flex; gap: 8px; align-items: center; color: var(--colorNeutralForeground3); }
+.check-card { padding: 16px; gap: 12px; border: 1px solid var(--colorNeutralStroke2); box-shadow: none; transition: box-shadow var(--durationFast) var(--curveEasyEase), border-color var(--durationFast); }
+.check-card.is-sel { border-color: var(--appSkyLight); box-shadow: 0 0 0 3px rgba(106, 169, 235, .25); }
+.snippet { position: relative; overflow: hidden; border-radius: var(--borderRadiusMedium); background: var(--appPaper); border: 1px solid var(--colorNeutralStroke2); direction: ltr; cursor: pointer; }
+.snippet img { position: absolute; left: 0; top: 0; max-width: none; transform-origin: 0 0; }
+.snippet-box { position: absolute; border: 2px solid var(--colorBrandStroke1); border-radius: 3px; background: rgba(0, 102, 179, .06); }
+/* neighbouring print fades out at all four edges instead of being cut (mask uses alpha only) */
+.snippet-view { position: absolute; inset: 0;
+  -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 24px, #FFFFFF calc(100% - 24px), rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), #FFFFFF 12px, #FFFFFF calc(100% - 12px), rgba(255, 255, 255, 0));
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 24px, #FFFFFF calc(100% - 24px), rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), #FFFFFF 12px, #FFFFFF calc(100% - 12px), rgba(255, 255, 255, 0));
+  mask-composite: intersect; }
+.ready { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--borderRadiusXLarge); border: 1px solid var(--appOkLine); }
+.ready-icon { color: var(--appOk); }
+.checked { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.checked li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--colorNeutralStroke3); }
+.checked li:last-child { border-bottom: 0; }
+.ok-icon { color: var(--appOk); font-size: 18px; flex-shrink: 0; }
+.checked-text { flex: 1; min-width: 0; }
+.kv { margin: 0; display: flex; flex-direction: column; }
+.kv > div { display: grid; grid-template-columns: 44% 1fr; align-items: center; gap: 8px; padding: 2px 4px; border-radius: var(--borderRadiusMedium); }
+.kv.read-only > div { padding-block: 6px; border-bottom: 1px solid var(--colorNeutralStroke3); border-radius: 0; }
+.kv > div.is-sel { background: var(--colorBrandBackground2); }
+.kv dd { margin: 0; }
+/* Seal of proof: approved documents */
+.seal-band { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--borderRadiusXLarge); color: #FFFFFF;
+  background: linear-gradient(110deg, var(--appSealDeep), var(--appSeal) 60%, var(--appSealLight));
+  background: linear-gradient(in oklch 110deg, var(--appSealDeep), var(--appSeal) 60%, var(--appSealLight)); box-shadow: var(--shadow8); }
+.seal-band * { color: #FFFFFF; }
+.feedback { display: flex; align-items: center; gap: 4px; }
+.skip-doc { align-self: flex-start; }
+
+/* ---- human touches: gentle, purposeful motion ---- */
+.pop { animation: pop var(--durationSlow) var(--ease-out); }
+@keyframes pop { 0% { transform: scale(.4); opacity: 0; } 70% { transform: scale(1.12); } 100% { transform: scale(1); opacity: 1; } }
+
+/* ---- materials: acrylic only on transient surfaces; smoke behind dialogs; everything else solid ---- */
+/* Mica Alt on the shell (rail, settings nav): heavy blur of the base, so they take its tint. */
+.rail, .settings-nav { -webkit-backdrop-filter: blur(48px) saturate(160%); backdrop-filter: blur(48px) saturate(160%); }
+/* Acrylic on surfaces that float over content: the command bar and the notifications panel here; menus, popovers,
+   dropdown lists and toasts in styles.ts. */
+.commandbar { -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%); }
+.acrylic { background-color: var(--appAcrylic); -webkit-backdrop-filter: blur(30px) saturate(150%); backdrop-filter: blur(30px) saturate(150%); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .rail, .settings-nav { background: var(--appShellSolid); }
+  .commandbar { background-color: var(--appSurface); }
+  .acrylic { background-color: var(--appSurface); }
+}
+/* Reduce transparency: every material turns solid, no blur (Windows setting, HDS tier C) */
+@media (prefers-reduced-transparency: reduce) {
+  .app { background-image: none; }
+  .rail, .settings-nav { background: var(--appShellSolid); }
+  .commandbar { background: var(--appSurface); }
+  .rail, .settings-nav, .commandbar, .acrylic {
+    backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .acrylic { background-color: var(--appSurface); }
+}
+/* Windows High Contrast: marks, selection and counts use system colours instead of disappearing */
+@media (forced-colors: active) {
+  .box, .snippet-box { forced-color-adjust: none; border-color: Highlight; background: transparent; }
+  .box.is-sel { box-shadow: none; outline: 2px solid Highlight; outline-offset: 2px; }
+  .rail .rail-btn.is-on::before, .queue .queue-item.is-on::before { forced-color-adjust: none; background: Highlight; }
+  .queue .queue-item.is-on, .check-card.is-sel { outline: 2px solid Highlight; }
+  .count-pip { forced-color-adjust: none; background: Highlight; color: HighlightText; box-shadow: 0 0 0 1px Canvas; }
+  .snippet-view { -webkit-mask-image: none; mask-image: none; }
+  .aurora { display: none; }
+}
+[dir="rtl"] .flip-rtl { transform: scaleX(-1); }
+.skeleton-chart { height: 300px; }
+.page-loading { display: grid; place-items: center; min-height: 40vh; }
+.signed-out { min-height: 100%; display: grid; place-items: center; padding: 24px; background: var(--appBg); }
+.signed-out-card { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; max-width: 400px; padding: 40px 32px; border-radius: var(--borderRadiusXLarge); background: var(--appSurface); box-shadow: var(--shadow16); }
+.signed-out-card .fui-Field, .signed-out-card > button, .signed-out-card .fui-MessageBar { align-self: stretch; text-align: start; }
+.signed-out-logo { margin-bottom: 8px; }
+.main > .view-as { margin: 12px 32px 0; width: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .page, .doc-view, .settings-body, .pop, .box.is-sel, .aurora span { animation: none; }
+  .lift, .lift:hover, .welcome-actions .tile, .welcome-actions .tile:hover { transition: none; transform: none; }
+}
+
+/* ---- reflow (Fluent breakpoints; 200 % zoom lands at 683 px, 400 % at 341 px) ---- */
+@media (max-width: 1023px) {
+  .doc-body { display: flex; flex-direction: column; }
+  .values { order: -1; border-bottom: 1px solid var(--colorNeutralStroke2); overflow: visible; }
+  .canvas { border-inline-end: 0; min-height: 70vh; }
+  .doc-view { height: auto; }
+  .settings { grid-template-columns: minmax(0, 1fr); }
+  .settings-nav { border-inline-end: 0; border-bottom: 1px solid var(--colorNeutralStroke2); padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-width: 0; }
+  .settings-nav .settings-title { padding: 0; font-size: 18px; }
+  .settings-nav .settings-tabs { display: none; }
+  .settings-nav .settings-select { display: inline-flex; min-width: 0; flex: 1; max-width: 320px; }
+  .split { grid-template-columns: 1fr; }
+  .file-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .page { padding: 16px 16px 32px; gap: 20px; }
+  .welcome { padding: 20px 16px; }
+  .appbar-search { display: none; }
+  .table-card { background: none; box-shadow: none; padding: 0; }
+  .canvas-scroll { padding: 16px 12px 24px; }
+  .doc-head { padding: 8px 12px; }
+  .row.nowrap.doc-actions { flex-wrap: wrap; }
+  .progress-mini { width: 100%; }
+}
+@media (max-width: 480px) {
+  .brand-name { display: none; }
+  .welcome-actions .tile { flex-basis: 100%; max-width: none; }
+  .file-cards { grid-template-columns: minmax(0, 1fr); }
+}
+/* Phones: a bottom tab bar (Teams and Outlook mobile), More holds the rest */
+@media (max-width: 640px) {
+  .body { flex-direction: column; }
+  .rail.is-bar { order: 2; width: 100%; flex-direction: row; padding: 0 0 env(safe-area-inset-bottom); overflow: visible;
+    border-inline-end: 0; border-top: 1px solid var(--colorNeutralStroke2); background: var(--appAcrylic); }
+  .rail.is-bar ul { flex-direction: row; width: 100%; gap: 0; }
+  .rail.is-bar li { flex: 1; display: flex; justify-content: center; }
+  .rail.is-bar .rail-btn { width: 100%; max-width: 88px; height: 56px; }
+  .rail.is-bar .rail-btn.is-on::before { inset-inline: 30%; top: -1px; bottom: auto; width: auto; height: 3px; }
+  .main > .view-as { margin: 8px 16px 0; }
+}
+
+.col-head { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.col-type { color: var(--colorNeutralForeground3); font-size: 11px; font-weight: var(--fontWeightRegular); }
+.col-key { color: var(--colorBrandForeground1); }
+.mono { font-family: var(--fontFamilyMonospace); }
+.steps { margin: 0; padding-inline-start: 20px; display: flex; flex-direction: column; gap: 16px; }
+.steps li { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+kbd { font-family: var(--fontFamilyMonospace); font-size: 12px; padding: 1px 6px; border: 1px solid var(--colorNeutralStroke1); border-radius: var(--borderRadiusSmall); background: var(--colorNeutralBackground3); white-space: nowrap; }
+
+/* A document read by the service: wide tables scroll sideways inside the values pane, long text keeps its line breaks */
+.result-table { max-width: 100%; }
+.result-table table { min-width: max-content; }
+.result-text textarea { font-family: var(--fontFamilyMonospace); font-size: var(--fontSizeBase200); white-space: pre; }

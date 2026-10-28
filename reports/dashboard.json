@@ -1,0 +1,292 @@
+{
+  "pipelines": {
+    "A/lr": {
+      "n": 50,
+      "errors": 0,
+      "error_rate": 0.0,
+      "n_transcribed": 50,
+      "cer": {
+        "mean": 1.5981,
+        "median": 0.5998,
+        "p90": 0.8926,
+        "p95": 0.9931
+      },
+      "wer_mean": 1.0045,
+      "coverage": 0.3698,
+      "tok_hall": 0.6904,
+      "ned": 0.5166,
+      "read_order": 0.22,
+      "invoice_em": 0.0,
+      "critical_em": 0.0,
+      "field_hall_rate": 0.0,
+      "micro": {
+        "precision": 0.422,
+        "recall": 0.2065,
+        "f1": 0.2773,
+        "f2": 0.23
+      },
+      "macro_f1": 0.2039,
+      "latency_s": {
+        "ingest": {
+          "mean": 2.86,
+          "p95": 3.63
+        },
+        "llm": {
+          "mean": 7.29,
+          "p95": 11.31
+        },
+        "cite": {
+          "mean": 0.11,
+          "p95": 0.22
+        }
+      },
+      "total_s": {
+        "mean": 11.94,
+        "p95": 23.09
+      },
+      "throughput_pages_sec": 0.084,
+      "citation_coverage": 0.0627
+    },
+    "A/orig": {
+      "n": 50,
+      "errors": 0,
+      "error_rate": 0.0,
+      "n_transcribed": 50,
+      "cer": {
+        "mean": 0.2643,
+        "median": 0.2515,
+        "p90": 0.3495,
+        "p95": 0.3587
+      },
+      "wer_mean": 0.2453,
+      "coverage": 0.978,
+      "tok_hall": 0.1975,
+      "ned": 0.2083,
+      "read_order": 0.74,
+      "invoice_em": 0.56,
+      "critical_em": 0.84,
+      "field_hall_rate": 0.0,
+      "micro": {
+        "precision": 0.9985,
+        "recall": 0.9463,
+        "f1": 0.9717,
+        "f2": 0.9563
+      },
+      "macro_f1": 0.9015,
+      "latency_s": {
+        "ingest": {
+          "mean": 4.91,
+          "p95": 8.61
+        },
+        "llm": {
+          "mean": 9.79,
+          "p95": 16.72
+        },
+        "cite": {
+          "mean": 0.23,
+          "p95": 0.32
+        }
+      },
+      "total_s": {
+        "mean": 16.45,
+        "p95": 30.55
+      },
+      "throughput_pages_sec": 0.061,
+      "citation_coverage": 0.9907
+    },
+    "A/sr": {
+      "n": 50,
+      "errors": 0,
+      "error_rate": 0.0,
+      "n_transcribed": 50,
+      "cer": {
+        "mean": 1.6354,
+        "median": 0.6957,
+        "p90": 4.873,
+        "p95": 10.8454
+      },
+      "wer_mean": 2.1306,
+      "coverage": 0.2797,
+      "tok_hall": 0.7645,
+      "ned": 0.5879,
+      "read_order": 0.16,
+      "invoice_em": 0.0,
+      "critical_em": 0.06,
+      "field_hall_rate": 0.0,
+      "micro": {
+        "precision": 0.4133,
+        "recall": 0.1754,
+        "f1": 0.2463,
+        "f2": 0.1982
+      },
+      "macro_f1": 0.1804,
+      "latency_s": {
+        "ingest": {
+          "mean": 4.47,
+          "p95": 15.79
+        },
+        "llm": {
+          "mean": 5.49,
+          "p95": 8.96
+        },
+        "cite": {
+          "mean": 0.19,
+          "p95": 0.32
+        }
+      },
+      "total_s": {
+        "mean": 11.26,
+        "p95": 23.83
+      },
+      "throughput_pages_sec": 0.089,
+      "citation_coverage": 0.1396
+    },
+    "B/orig": {
+      "n": 50,
+      "errors": 32,
+      "error_rate": 0.64,
+      "n_transcribed": 18,
+      "cer": {
+        "mean": 0.2734,
+        "median": 0.2759,
+        "p90": 0.3236,
+        "p95": 0.3652
+      },
+      "wer_mean": 0.2603,
+      "coverage": 0.9661,
+      "tok_hall": 0.2082,
+      "ned": 0.2144,
+      "read_order": 0.6111,
+      "invoice_em": 0.1,
+      "critical_em": 0.12,
+      "field_hall_rate": 0.0,
+      "micro": {
+        "precision": 1.0,
+        "recall": 0.2956,
+        "f1": 0.4563,
+        "f2": 0.3441
+      },
+      "macro_f1": 0.4032,
+      "latency_s": {
+        "ingest": {
+          "mean": 1.34,
+          "p95": 3.98
+        },
+        "llm": {
+          "mean": 1.77,
+          "p95": 5.55
+        },
+        "cite": {
+          "mean": 0.08,
+          "p95": 0.22
+        }
+      },
+      "total_s": {
+        "mean": 9.92,
+        "p95": 12.94
+      },
+      "throughput_pages_sec": 0.101,
+      "citation_coverage": 0.3535
+    },
+    "D/lr": {
+      "n": 30,
+      "errors": 0,
+      "error_rate": 0.0,
+      "n_transcribed": 30,
+      "cer": {
+        "mean": 0.7381,
+        "median": 0.772,
+        "p90": 0.9569,
+        "p95": 0.9586
+      },
+      "wer_mean": 0.9468,
+      "coverage": 0.0698,
+      "tok_hall": 0.918,
+      "ned": 0.7354,
+      "read_order": 0.0,
+      "invoice_em": 0.0,
+      "critical_em": 0.0,
+      "field_hall_rate": 0.0,
+      "micro": {
+        "precision": 0.2234,
+        "recall": 0.0494,
+        "f1": 0.0809,
+        "f2": 0.0585
+      },
+      "macro_f1": 0.0605,
+      "latency_s": {
+        "ingest": {
+          "mean": 6.82,
+          "p95": 9.34
+        },
+        "llm": {
+          "mean": 4.08,
+          "p95": 9.95
+        },
+        "cite": {
+          "mean": 0.63,
+          "p95": 1.18
+        }
+      },
+      "total_s": {
+        "mean": 11.53,
+        "p95": 20.1
+      },
+      "throughput_pages_sec": 0.087,
+      "citation_coverage": 0.0211
+    },
+    "D/orig": {
+      "n": 30,
+      "errors": 0,
+      "error_rate": 0.0,
+      "n_transcribed": 30,
+      "cer": {
+        "mean": 0.309,
+        "median": 0.3109,
+        "p90": 0.3704,
+        "p95": 0.3743
+      },
+      "wer_mean": 0.344,
+      "coverage": 0.9098,
+      "tok_hall": 0.2187,
+      "ned": 0.2483,
+      "read_order": 0.1667,
+      "invoice_em": 0.1,
+      "critical_em": 0.5,
+      "field_hall_rate": 0.0,
+      "micro": {
+        "precision": 0.8817,
+        "recall": 0.7718,
+        "f1": 0.8231,
+        "f2": 0.7915
+      },
+      "macro_f1": 0.7209,
+      "latency_s": {
+        "ingest": {
+          "mean": 38.27,
+          "p95": 115.43
+        },
+        "llm": {
+          "mean": 7.77,
+          "p95": 9.52
+        },
+        "cite": {
+          "mean": 0.81,
+          "p95": 1.86
+        }
+      },
+      "total_s": {
+        "mean": 46.87,
+        "p95": 124.28
+      },
+      "throughput_pages_sec": 0.021,
+      "citation_coverage": 0.984
+    }
+  },
+  "config": {
+    "model": "see per-pipe",
+    "dataset": "val-50",
+    "charts": "NOT APPLICABLE",
+    "tables": "counts only (no GT)"
+  }
+}

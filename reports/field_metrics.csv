@@ -1,0 +1,32 @@
+field,support,em_rate,precision,recall,f1,f2
+Invoice No,50,1.0,1.0,1.0,1.0,1.0
+Invoice Date,50,1.0,1.0,1.0,1.0,1.0
+Container Number,50,0.94,1.0,0.94,0.9691,0.9514
+MAWB No,50,1.0,0.0,0.0,0.0,0.0
+HAWB No,50,1.0,0.0,0.0,0.0,0.0
+Vendor Name,50,1.0,1.0,1.0,1.0,1.0
+Bill of Lading / HBL,50,0.86,1.0,0.86,0.9247,0.8848
+WEIGHT,50,1.0,1.0,1.0,1.0,1.0
+Sea Freight,50,0.92,1.0,0.7647,0.8667,0.8025
+Air Freight,50,0.98,1.0,0.9286,0.963,0.942
+Terminal Handling Charges,50,1.0,1.0,1.0,1.0,1.0
+Airway WayBill Charges,50,1.0,1.0,1.0,1.0,1.0
+BL Charges,50,0.96,1.0,0.913,0.9545,0.9292
+ENS Charges,50,1.0,1.0,1.0,1.0,1.0
+Seal Charges,50,1.0,1.0,1.0,1.0,1.0
+VGM,50,1.0,1.0,1.0,1.0,1.0
+EDI Fees,50,1.0,1.0,1.0,1.0,1.0
+DAP Charges,50,0.88,1.0,0.6667,0.8,0.7143
+Other Charges,50,0.94,0.95,0.9048,0.9268,0.9135
+AMS CHARGES,50,1.0,1.0,1.0,1.0,1.0
+Handlign Charges,50,1.0,1.0,1.0,1.0,1.0
+Pre Carriage Haulage,50,1.0,1.0,1.0,1.0,1.0
+Ex Rate,50,1.0,1.0,1.0,1.0,1.0
+Misc,50,0.96,1.0,0.8333,0.9091,0.8621
+Transportation,50,0.96,1.0,0.8462,0.9167,0.873
+Warehouse charges Port,50,1.0,1.0,1.0,1.0,1.0
+Examination charges,50,0.96,1.0,0.8333,0.9091,0.8621
+Fuel Charges,50,0.94,1.0,0.88,0.9362,0.9016
+Cargo Screening,50,0.94,1.0,0.8125,0.8966,0.8442
+Agency Charges,50,1.0,1.0,1.0,1.0,1.0
+Shipping bill charges,50,0.98,1.0,0.95,0.9744,0.9596

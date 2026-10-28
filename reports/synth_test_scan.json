@@ -1,0 +1,515 @@
+{
+  "split": "test",
+  "source": "scan",
+  "n": 30,
+  "summary": {
+    "documents": 30,
+    "strict": {
+      "field_accuracy": 0.9709677419354839,
+      "critical_field_accuracy": 0.9833333333333333,
+      "charge_field_accuracy": 0.9681818181818181,
+      "invoice_exact_match": 0.6,
+      "per_field": {
+        "Invoice No": 1.0,
+        "Invoice Date": 1.0,
+        "Container Number": 1.0,
+        "MAWB No": 0.9666666666666667,
+        "HAWB No": 1.0,
+        "Vendor Name": 0.9666666666666667,
+        "Bill of Lading / HBL": 0.9666666666666667,
+        "WEIGHT": 0.9666666666666667,
+        "Sea Freight": 0.8666666666666667,
+        "Air Freight": 1.0,
+        "Terminal Handling Charges": 0.9333333333333333,
+        "Airway WayBill Charges": 1.0,
+        "BL Charges": 1.0,
+        "ENS Charges": 0.9666666666666667,
+        "Seal Charges": 1.0,
+        "VGM": 1.0,
+        "EDI Fees": 1.0,
+        "DAP Charges": 1.0,
+        "Other Charges": 0.8666666666666667,
+        "AMS CHARGES": 0.9666666666666667,
+        "Handlign Charges": 0.9666666666666667,
+        "Pre Carriage Haulage": 0.9333333333333333,
+        "Ex Rate": 0.9333333333333333,
+        "Misc": 1.0,
+        "Transportation": 0.9,
+        "Warehouse charges Port": 0.9666666666666667,
+        "Examination charges": 0.9666666666666667,
+        "Fuel Charges": 1.0,
+        "Cargo Screening": 1.0,
+        "Agency Charges": 0.9666666666666667,
+        "Shipping bill charges": 1.0
+      }
+    },
+    "lenient": {
+      "field_accuracy": 0.9709677419354839,
+      "critical_field_accuracy": 0.9833333333333333,
+      "charge_field_accuracy": 0.9681818181818181,
+      "invoice_exact_match": 0.6,
+      "per_field": {
+        "Invoice No": 1.0,
+        "Invoice Date": 1.0,
+        "Container Number": 1.0,
+        "MAWB No": 0.9666666666666667,
+        "HAWB No": 1.0,
+        "Vendor Name": 0.9666666666666667,
+        "Bill of Lading / HBL": 0.9666666666666667,
+        "WEIGHT": 0.9666666666666667,
+        "Sea Freight": 0.8666666666666667,
+        "Air Freight": 1.0,
+        "Terminal Handling Charges": 0.9333333333333333,
+        "Airway WayBill Charges": 1.0,
+        "BL Charges": 1.0,
+        "ENS Charges": 0.9666666666666667,
+        "Seal Charges": 1.0,
+        "VGM": 1.0,
+        "EDI Fees": 1.0,
+        "DAP Charges": 1.0,
+        "Other Charges": 0.8666666666666667,
+        "AMS CHARGES": 0.9666666666666667,
+        "Handlign Charges": 0.9666666666666667,
+        "Pre Carriage Haulage": 0.9333333333333333,
+        "Ex Rate": 0.9333333333333333,
+        "Misc": 1.0,
+        "Transportation": 0.9,
+        "Warehouse charges Port": 0.9666666666666667,
+        "Examination charges": 0.9666666666666667,
+        "Fuel Charges": 1.0,
+        "Cargo Screening": 1.0,
+        "Agency Charges": 0.9666666666666667,
+        "Shipping bill charges": 1.0
+      }
+    },
+    "line_items": {
+      "gold": 164,
+      "amount_recall": 0.9939024390243902,
+      "category_accuracy_strict": 0.9390243902439024,
+      "category_accuracy_lenient": 0.9390243902439024,
+      "spurious": 1
+    },
+    "unseen_slices": {
+      "label_unseen": [
+        0.9545,
+        66
+      ],
+      "label_seen": [
+        1.0,
+        65
+      ],
+      "charge_unseen": [
+        0.9167,
+        84
+      ],
+      "charge_seen": [
+        0.9625,
+        80
+      ]
+    },
+    "citations": {
+      "citation_accuracy_iou50": 0.9128,
+      "uncited_rate": 0.0,
+      "cited": 172,
+      "correct": 157,
+      "uncited": 0,
+      "values": 172
+    },
+    "auto_accept_rate": 0.4667,
+    "auto_accept_precision_invoice": 0.7857,
+    "errors": 0,
+    "seconds_per_doc": 24.26
+  },
+  "documents": [
+    {
+      "id": "ILB_014525",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "fax"
+    },
+    {
+      "id": "ILB_013805",
+      "errors": {
+        "Handlign Charges": [
+          "40333.33",
+          ""
+        ],
+        "Warehouse charges Port": [
+          "",
+          "40333.33"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'HAMALI CHARGES CFS/2425/070654': Warehouse charges Port (0.51) — review",
+        "Category of 'HAMALI CHARGES CFS/2425/070654': the reader read it as Handlign Charges, the semantic models as Warehouse charges Port — review",
+        "Warehouse charges Port '40333.33' was below the confidence needed for automatic acceptance (51%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_013593",
+      "errors": {
+        "Vendor Name": [
+          "MERIDIAN EXPRESS CARGO SERVICES PVT LTD",
+          "MERIDIAN EXPRESS CARGO SERVICES PVT"
+        ],
+        "Terminal Handling Charges": [
+          "11710.00",
+          ""
+        ],
+        "Other Charges": [
+          "13250.00",
+          "24960.00"
+        ]
+      },
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_013820",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'SECURITY X-RAY': Cargo Screening (0.89) — review",
+        "Cargo Screening '5070.00' was below the confidence needed for automatic acceptance (89%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014431",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_013852",
+      "errors": {
+        "WEIGHT": [
+          "",
+          "996521"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'ORIGIN INLAND TRANSPORT CFS/2425/056406': Pre Carriage Haulage (0.58) — review",
+        "WEIGHT filled from label 'W/M' (reader left it empty) — review",
+        "The document prints several gross weights (996521, 996713); kept 996521 — review",
+        "Pre Carriage Haulage '36025.28' was below the confidence needed for automatic acceptance (58%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014803",
+      "errors": {
+        "Bill of Lading / HBL": [
+          "",
+          "OF8870196"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Bill of Lading / HBL filled from label 'LOT HBL NO' (reader left it empty) — review",
+        "The document prints several gross weights (4441.24, 5786.2); kept 5786.200 Kgs — review"
+      ],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_014515",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_013704",
+      "errors": {
+        "ENS Charges": [
+          "1570.00",
+          ""
+        ],
+        "AMS CHARGES": [
+          "",
+          "1570.00"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "'ORIGIN CHARGES ENS/ICS2 (18%)' booked under AMS CHARGES: One line names several advance-manifest filings (ENS / AMS / ISF / ACD); it is booked under AMS and flagged because the invoice itself does not say which one applies. — review",
+        "Category of 'CHARGES OTHC POD': the reader read it as Other Charges, the semantic models as Terminal Handling Charges — review",
+        "Category of 'EXPORT CHARGES LSS': the reader read it as Seal Charges, the semantic models as Fuel Charges — review",
+        "The document prints several gross weights (8964.8, 996759); kept 8964.8 KGS. — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014324",
+      "errors": {
+        "Sea Freight": [
+          "185631.38",
+          ""
+        ],
+        "Transportation": [
+          "",
+          "185631.38"
+        ]
+      },
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014535",
+      "errors": {
+        "Agency Charges": [
+          "1280.00",
+          ""
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Line item 'Customs Clearance' amount 1,280.00 is not printed; excluded",
+        "Line items sum 53,947.16 != printed subtotal 55,227.16"
+      ],
+      "kind": "fax"
+    },
+    {
+      "id": "ILB_014604",
+      "errors": {
+        "MAWB No": [
+          "157-7706 2403",
+          ""
+        ]
+      },
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_014821",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_013882",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_014279",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'CARTAGE EUR 399.82 @101.480000': Transportation (0.67) — review",
+        "Transportation '40573.73' was below the confidence needed for automatic acceptance (67%) — review"
+      ],
+      "kind": "old_copy"
+    },
+    {
+      "id": "ILB_014153",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Category of 'OTHER CHARGES OTHC': the reader read it as Other Charges, the semantic models as Terminal Handling Charges — review"
+      ],
+      "kind": "fax"
+    },
+    {
+      "id": "ILB_014287",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'ISPS SURCHARGE POL': Other Charges (0.72) — review",
+        "Other Charges '280.00' was below the confidence needed for automatic acceptance (72%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014524",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "phone"
+    },
+    {
+      "id": "ILB_013775",
+      "errors": {
+        "Sea Freight": [
+          "894377.70",
+          ""
+        ],
+        "Ex Rate": [
+          "USD 91.17",
+          "USD 1.17"
+        ],
+        "Examination charges": [
+          "8653.76",
+          ""
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Line item 'O/F Charges' amount 894,377.70 is not printed; excluded",
+        "Line item 'Custums Exam per BL' amount 8,653.76 is not printed; excluded",
+        "Line items sum 50,450.08 != printed subtotal 953,481.54"
+      ],
+      "kind": "phone"
+    },
+    {
+      "id": "ILB_014192",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'DO FEE (DESTINATION)': Other Charges (0.87) — review",
+        "Other Charges '353.34' was below the confidence needed for automatic acceptance (87%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014328",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_013993",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_013907",
+      "errors": {
+        "Sea Freight": [
+          "405969.25",
+          ""
+        ],
+        "Terminal Handling Charges": [
+          "11330.00",
+          ""
+        ],
+        "Other Charges": [
+          "170.00",
+          "1009929.00"
+        ],
+        "Transportation": [
+          "",
+          "405969.25"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'OCEAN TRANSPORTATION POL': Transportation (0.88) — review",
+        "Category of 'OCEAN TRANSPORTATION POL': the reader read it as Sea Freight, the semantic models as Transportation — review",
+        "Line items sum 1,429,146.69 != printed subtotal 430,717.69",
+        "Transportation '405969.25' was below the confidence needed for automatic acceptance (88%) — review"
+      ],
+      "kind": "phone"
+    },
+    {
+      "id": "ILB_014709",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'T1 DOCUMENT FCL': Other Charges (0.77) — review",
+        "Category of 'T1 DOCUMENT FCL': the reader read it as BL Charges, the semantic models as Other Charges — review",
+        "Other Charges '21170.00' was below the confidence needed for automatic acceptance (77%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014164",
+      "errors": {
+        "Sea Freight": [
+          "404360.00",
+          ""
+        ],
+        "Other Charges": [
+          "",
+          "18430.00"
+        ],
+        "Pre Carriage Haulage": [
+          "18430.00",
+          ""
+        ],
+        "Transportation": [
+          "39844.62",
+          "444204.62"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'PICK-UP TO POL': Other Charges (0.77) — review",
+        "Category of 'PICK-UP TO POL': the reader read it as Transportation, the semantic models as Other Charges — review",
+        "Low-confidence category for 'OTHCH (ORIGIN) SNXI/2627/057289': Terminal Handling Charges (0.51) — review",
+        "Category of 'OTHCH (ORIGIN) SNXI/2627/057289': the reader read it as Other Charges, the semantic models as Terminal Handling Charges — review",
+        "Low-confidence category for 'OCEAN TRANSPORTATION': Transportation (0.87) — review",
+        "Category of 'OCEAN TRANSPORTATION': the reader read it as Sea Freight, the semantic models as Transportation — review"
+      ],
+      "kind": "phone"
+    },
+    {
+      "id": "ILB_013997",
+      "errors": {},
+      "route": "REVIEW",
+      "warnings": [
+        "The document prints several gross weights (2016, 2474); kept 2016 KG — review"
+      ],
+      "kind": "phone"
+    },
+    {
+      "id": "ILB_013598",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "office_mfp"
+    },
+    {
+      "id": "ILB_013600",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "fax"
+    },
+    {
+      "id": "ILB_014664",
+      "errors": {
+        "Other Charges": [
+          "",
+          "5040.00"
+        ],
+        "Pre Carriage Haulage": [
+          "5040.00",
+          ""
+        ],
+        "Ex Rate": [
+          "EUR 104.6538",
+          "EUR 104.654"
+        ]
+      },
+      "route": "REVIEW",
+      "warnings": [
+        "Low-confidence category for 'SERVICE CHARGES PICK-UP TO POL SNTI/2425/007333': Other Charges (0.68) — review",
+        "Category of 'SERVICE CHARGES PICK-UP TO POL SNTI/2425/007333': the reader read it as Transportation, the semantic models as Other Charges — review",
+        "Other Charges '5040.00' was below the confidence needed for automatic acceptance (68%) — review"
+      ],
+      "kind": "flatbed"
+    },
+    {
+      "id": "ILB_014301",
+      "errors": {},
+      "route": "AUTO_ACCEPT",
+      "warnings": [],
+      "kind": "flatbed"
+    }
+  ]
+}

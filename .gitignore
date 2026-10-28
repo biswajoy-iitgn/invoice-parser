@@ -3,5 +3,27 @@ __pycache__/
 *.pyc
 .DS_Store
 output/
-bench/
+/bench/
 sample invoices/
+dataset/
+work/
+checkpoints/
+reports/visual_errors/
+dataset_v2/
+eval/real_invoices/
+.claude/
+configs/learned_aliases.json
+*.gguf
+
+# local secrets
+.env.local
+.env
+exports/
+.venv-export/
+
+# evidence images of processed invoices (real invoice data)
+data/
+
+# browser tool logs and generated analytics runs
+.playwright-mcp/
+reports/analytics/

@@ -1,0 +1,12 @@
+# Reads ANY document, no field list: every labelled value, every table, and the full text, each cited to the page and
+# checked against it. Use it when the document type is unknown or has no profile of its own yet; a dedicated profile
+# (fields, patterns, checks) is stricter and should replace it once a document type is common.
+#
+# Reading stack, from reports/parser_bakeoff.md: the PDF text layer (digital) or PP-OCRv6 (scans) for the characters,
+# PaddleOCR-VL-1.6 for tables when the document parser is on (DOC_PARSER), the reader for labelled values, and a
+# printed-characters check on every value and cell.
+id: general
+name: Any document
+description: Anything printed, with no field list.
+engine: general
+min_verified: 0.9

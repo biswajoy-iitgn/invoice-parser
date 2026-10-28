@@ -1,0 +1,33 @@
+name: UI
+
+on:
+  push:
+    paths: ['UI/**', '.github/workflows/ui.yml']
+  pull_request:
+    paths: ['UI/**', '.github/workflows/ui.yml']
+
+defaults:
+  run:
+    working-directory: UI
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: UI/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run qa
+      - run: npm test
+      - run: npm run build
+      - run: npm run budget
+      # Pages in Chrome (preinstalled on the runner): axe WCAG 2.2 AA, layout and console checks at four sizes and both themes.
+      - run: npm run e2e
+        env:
+          CI: '1'

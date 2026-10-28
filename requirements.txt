@@ -1,3 +1,40 @@
-pymupdf>=1.24
-ollama>=0.5
-docling>=2.130
+# Runtime (verified on macOS ARM, Python 3.14, 2026-10-03). All model components are open source
+# with licenses that allow free commercial use (see TRAINING.md).
+pymupdf==1.28.0            # PDF text layer + rendering (AGPL-3.0; commercial license available from Artifex)
+torch==2.12.1
+torchvision==0.27.1
+pillow==12.3.0
+numpy==2.3.5
+pyyaml==6.0.2
+httpx==0.28.1              # reader client (llama.cpp / vLLM OpenAI-compatible server)
+transformers==5.14.1
+sentence-transformers==6.1.0   # semantic engine embedding layer (bge-small, MIT)
+laya==0.3.23               # semantic engine LAYA layer (Apache-2.0)
+safetensors==0.8.0
+openpyxl==3.1.5            # batch Excel export
+
+# HTTP service
+fastapi==0.139.2
+uvicorn==0.51.0
+python-multipart==0.0.32
+
+# System of record (Neon/local PostgreSQL) + ODBC verification (optional)
+psycopg[binary]==3.3.4
+pyodbc==5.3.0
+
+# Dataset generation (InvoiceLab Studio driven headlessly) and model tooling
+playwright==1.62.0
+huggingface_hub==1.24.0
+peft==0.20.0               # training / adapter export only
+datasets==5.0.0
+
+# Legacy pipeline (INVOICE_PIPELINE=legacy, kept for A/B comparison)
+ollama==0.6.2
+docling==2.130.0
+
+# Separate environments / external binaries (not pip-installed into this venv):
+#   PP-OCRv6: ~/paddle-env (Python 3.12) with paddlepaddle 3.3.1 + paddleocr==3.7.0 + paddlex[ocr]==3.7.2
+#             (GPU hosts: paddlepaddle-gpu from the Paddle index matching the CUDA version)
+#   llama.cpp (brew install llama.cpp): llama-server serves Qwen3-VL-8B-Instruct GGUF + the reader LoRA
+#   SwinIR network code: git clone https://github.com/JingyunLiang/SwinIR work/SwinIR (Apache-2.0)
+psutil>=7

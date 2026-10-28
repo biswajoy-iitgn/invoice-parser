@@ -1,0 +1,114 @@
+{
+  "summary": {
+    "documents": 6,
+    "matched": 20,
+    "errors": 11,
+    "by_category": {
+      "MISSING_FIELD": 10,
+      "WRONG_FIELD": 1
+    },
+    "by_field": {
+      "Bill of Lading / HBL": {
+        "MISSING_FIELD": 3
+      },
+      "Sea Freight": {
+        "MISSING_FIELD": 1
+      },
+      "BL Charges": {
+        "MISSING_FIELD": 2
+      },
+      "VGM": {
+        "MISSING_FIELD": 1
+      },
+      "Other Charges": {
+        "WRONG_FIELD": 1,
+        "MISSING_FIELD": 1
+      },
+      "Misc": {
+        "MISSING_FIELD": 1
+      },
+      "Examination charges": {
+        "MISSING_FIELD": 1
+      }
+    }
+  },
+  "errors": [
+    {
+      "id": "INV_SYN_003006",
+      "field": "Bill of Lading / HBL",
+      "category": "MISSING_FIELD",
+      "gold": "BL8373303",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003006",
+      "field": "Other Charges",
+      "category": "WRONG_FIELD",
+      "gold": "",
+      "pred": "3956.62"
+    },
+    {
+      "id": "INV_SYN_003006",
+      "field": "Misc",
+      "category": "MISSING_FIELD",
+      "gold": "3956.62",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003007",
+      "field": "Bill of Lading / HBL",
+      "category": "MISSING_FIELD",
+      "gold": "BL6854608",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003011",
+      "field": "Bill of Lading / HBL",
+      "category": "MISSING_FIELD",
+      "gold": "BL9975244",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003011",
+      "field": "BL Charges",
+      "category": "MISSING_FIELD",
+      "gold": "USD 18,569.52",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003014",
+      "field": "Examination charges",
+      "category": "MISSING_FIELD",
+      "gold": "USD 8,560.98",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003016",
+      "field": "Other Charges",
+      "category": "MISSING_FIELD",
+      "gold": "USD 13,607.02",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003017",
+      "field": "Sea Freight",
+      "category": "MISSING_FIELD",
+      "gold": "USD 18,392.54",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003017",
+      "field": "BL Charges",
+      "category": "MISSING_FIELD",
+      "gold": "USD 20,846.27",
+      "pred": ""
+    },
+    {
+      "id": "INV_SYN_003017",
+      "field": "VGM",
+      "category": "MISSING_FIELD",
+      "gold": "USD 27,596.83",
+      "pred": ""
+    }
+  ]
+}

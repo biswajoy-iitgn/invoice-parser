@@ -1,0 +1,6124 @@
+{
+ "meta": {
+  "engine": "analytics-1.0",
+  "generated_at": "2026-10-03 23:00:46",
+  "invoices": 2500,
+  "period_from": "2023-12-31",
+  "period_to": "2026-12-27",
+  "fingerprint": "0dd872dc2666d41d877a353a0edb65b2173334b80f93831877facf525866bc95",
+  "source": {
+   "host": "127.0.0.1",
+   "view": "reporting.invoice_export",
+   "organization": "82b783ff-c03f-41df-a8d8-7705d5141bbc"
+  },
+  "currency": "INR, before GST"
+ },
+ "kpis": [
+  {
+   "key": "invoices",
+   "label": "Invoices",
+   "value": 2500,
+   "display": "2,500"
+  },
+  {
+   "key": "spend",
+   "label": "Total charges before GST",
+   "value": 699302587.35,
+   "display": "\u20b969.93 Cr"
+  },
+  {
+   "key": "vendors",
+   "label": "Vendors",
+   "value": 210,
+   "display": "210"
+  },
+  {
+   "key": "avg",
+   "label": "Average invoice",
+   "value": 279721.03,
+   "display": "\u20b92.80 L"
+  },
+  {
+   "key": "review",
+   "label": "Awaiting review",
+   "value": 417,
+   "display": "417",
+   "note": "16.7% of invoices"
+  },
+  {
+   "key": "findings",
+   "label": "Findings to check",
+   "value": 68,
+   "display": "68",
+   "note": "21 high, 19 medium"
+  }
+ ],
+ "monthly": [
+  {
+   "month": "2023-12",
+   "invoices": 3,
+   "spend": 822585.9
+  },
+  {
+   "month": "2024-01",
+   "invoices": 72,
+   "spend": 17490266.69
+  },
+  {
+   "month": "2024-02",
+   "invoices": 65,
+   "spend": 19768597.48
+  },
+  {
+   "month": "2024-03",
+   "invoices": 76,
+   "spend": 21515252.77
+  },
+  {
+   "month": "2024-04",
+   "invoices": 62,
+   "spend": 18295029.34
+  },
+  {
+   "month": "2024-05",
+   "invoices": 67,
+   "spend": 17151807.85
+  },
+  {
+   "month": "2024-06",
+   "invoices": 54,
+   "spend": 14155194.73
+  },
+  {
+   "month": "2024-07",
+   "invoices": 79,
+   "spend": 23937737.27
+  },
+  {
+   "month": "2024-08",
+   "invoices": 68,
+   "spend": 15359855.92
+  },
+  {
+   "month": "2024-09",
+   "invoices": 60,
+   "spend": 16694281.06
+  },
+  {
+   "month": "2024-10",
+   "invoices": 68,
+   "spend": 20461013.02
+  },
+  {
+   "month": "2024-11",
+   "invoices": 83,
+   "spend": 25041450.95
+  },
+  {
+   "month": "2024-12",
+   "invoices": 76,
+   "spend": 21301622.82
+  },
+  {
+   "month": "2025-01",
+   "invoices": 66,
+   "spend": 18968730.83
+  },
+  {
+   "month": "2025-02",
+   "invoices": 66,
+   "spend": 17453701.48
+  },
+  {
+   "month": "2025-03",
+   "invoices": 69,
+   "spend": 22343980.12
+  },
+  {
+   "month": "2025-04",
+   "invoices": 56,
+   "spend": 14830404.42
+  },
+  {
+   "month": "2025-05",
+   "invoices": 62,
+   "spend": 18916689.39
+  },
+  {
+   "month": "2025-06",
+   "invoices": 71,
+   "spend": 22420088.21
+  },
+  {
+   "month": "2025-07",
+   "invoices": 60,
+   "spend": 19787472.55
+  },
+  {
+   "month": "2025-08",
+   "invoices": 74,
+   "spend": 20011944.78
+  },
+  {
+   "month": "2025-09",
+   "invoices": 66,
+   "spend": 19452201.53
+  },
+  {
+   "month": "2025-10",
+   "invoices": 85,
+   "spend": 21764030.63
+  },
+  {
+   "month": "2025-11",
+   "invoices": 93,
+   "spend": 26961863.51
+  },
+  {
+   "month": "2025-12",
+   "invoices": 73,
+   "spend": 19231257.05
+  },
+  {
+   "month": "2026-01",
+   "invoices": 71,
+   "spend": 16227533.14
+  },
+  {
+   "month": "2026-02",
+   "invoices": 60,
+   "spend": 14934268.19
+  },
+  {
+   "month": "2026-03",
+   "invoices": 71,
+   "spend": 18581552.53
+  },
+  {
+   "month": "2026-04",
+   "invoices": 56,
+   "spend": 15102819.3
+  },
+  {
+   "month": "2026-05",
+   "invoices": 80,
+   "spend": 19537754.43
+  },
+  {
+   "month": "2026-06",
+   "invoices": 66,
+   "spend": 19174275.45
+  },
+  {
+   "month": "2026-07",
+   "invoices": 68,
+   "spend": 16771494.16
+  },
+  {
+   "month": "2026-08",
+   "invoices": 74,
+   "spend": 21341321.24
+  },
+  {
+   "month": "2026-09",
+   "invoices": 70,
+   "spend": 24824822.08
+  },
+  {
+   "month": "2026-10",
+   "invoices": 61,
+   "spend": 19325125.74
+  },
+  {
+   "month": "2026-11",
+   "invoices": 83,
+   "spend": 19303142.66
+  },
+  {
+   "month": "2026-12",
+   "invoices": 66,
+   "spend": 20041418.13
+  }
+ ],
+ "month_over_month_pct": 16.3,
+ "vendors": [
+  {
+   "vendor": "FALCON FREIGHT SYSTEMS LTD.",
+   "invoices": 21,
+   "spend": 8178672.55,
+   "share": 1.2,
+   "avg_invoice": 389460.6
+  },
+  {
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "invoices": 21,
+   "spend": 7503581.96,
+   "share": 1.1,
+   "avg_invoice": 357313.43
+  },
+  {
+   "vendor": "Delta Clearing & Forwarding Limited",
+   "invoices": 16,
+   "spend": 7223422.18,
+   "share": 1.0,
+   "avg_invoice": 451463.89
+  },
+  {
+   "vendor": "SUMMIT FREIGHT CARRIERS SERVICES PVT LTD",
+   "invoices": 11,
+   "spend": 6994184.48,
+   "share": 1.0,
+   "avg_invoice": 635834.95
+  },
+  {
+   "vendor": "OCEANIC AIR & SEA PRIVATE LIMITED",
+   "invoices": 18,
+   "spend": 6927601.85,
+   "share": 1.0,
+   "avg_invoice": 384866.77
+  },
+  {
+   "vendor": "Ironclad Shipping Pvt. Ltd",
+   "invoices": 20,
+   "spend": 6568970.67,
+   "share": 0.9,
+   "avg_invoice": 328448.53
+  },
+  {
+   "vendor": "EAGLE OCEAN SERVICES PRIVATE LIMITED",
+   "invoices": 15,
+   "spend": 6276009.39,
+   "share": 0.9,
+   "avg_invoice": 418400.63
+  },
+  {
+   "vendor": "Samudra Exim Services LLP",
+   "invoices": 16,
+   "spend": 6218476.71,
+   "share": 0.9,
+   "avg_invoice": 388654.79
+  },
+  {
+   "vendor": "SEABIRD SHIPPING SERVICES SERVICES PVT LTD",
+   "invoices": 19,
+   "spend": 6130425.95,
+   "share": 0.9,
+   "avg_invoice": 322654.0
+  },
+  {
+   "vendor": "Horizon Exim Services (India) Private Limited",
+   "invoices": 20,
+   "spend": 6113393.7,
+   "share": 0.9,
+   "avg_invoice": 305669.68
+  },
+  {
+   "vendor": "STERLING FREIGHT CARRIERS AGENCIES",
+   "invoices": 15,
+   "spend": 5901963.24,
+   "share": 0.8,
+   "avg_invoice": 393464.22
+  },
+  {
+   "vendor": "GRANITE GLOBAL LOGISTICS & CO.",
+   "invoices": 18,
+   "spend": 5722463.93,
+   "share": 0.8,
+   "avg_invoice": 317914.66
+  },
+  {
+   "vendor": "KESTREL MARITIME PVT. LTD.",
+   "invoices": 17,
+   "spend": 5599927.18,
+   "share": 0.8,
+   "avg_invoice": 329407.48
+  },
+  {
+   "vendor": "Harbour Air & Sea Ltd.",
+   "invoices": 15,
+   "spend": 5498813.36,
+   "share": 0.8,
+   "avg_invoice": 366587.56
+  },
+  {
+   "vendor": "MARINER FREIGHT PRIVATE LIMITED",
+   "invoices": 12,
+   "spend": 5467954.73,
+   "share": 0.8,
+   "avg_invoice": 455662.89
+  },
+  {
+   "vendor": "Narmada Forwarders Agencies",
+   "invoices": 15,
+   "spend": 5416579.45,
+   "share": 0.8,
+   "avg_invoice": 361105.3
+  },
+  {
+   "vendor": "Narmada Shipping Agencies Pvt Ltd",
+   "invoices": 18,
+   "spend": 5392433.61,
+   "share": 0.8,
+   "avg_invoice": 299579.65
+  },
+  {
+   "vendor": "Titan Cargo Movers Ltd.",
+   "invoices": 16,
+   "spend": 5366117.81,
+   "share": 0.8,
+   "avg_invoice": 335382.36
+  },
+  {
+   "vendor": "Om Sai Freight Services Pvt Ltd",
+   "invoices": 15,
+   "spend": 5359431.16,
+   "share": 0.8,
+   "avg_invoice": 357295.41
+  },
+  {
+   "vendor": "Arihant Logistics Solutions & Co.",
+   "invoices": 16,
+   "spend": 5351444.56,
+   "share": 0.8,
+   "avg_invoice": 334465.28
+  },
+  {
+   "vendor": "Eagle Shipping Agencies Corporation",
+   "invoices": 15,
+   "spend": 5299577.09,
+   "share": 0.8,
+   "avg_invoice": 353305.14
+  },
+  {
+   "vendor": "KAILASH FREIGHT FORWARDERS LIMITED",
+   "invoices": 17,
+   "spend": 5287081.06,
+   "share": 0.8,
+   "avg_invoice": 311004.77
+  },
+  {
+   "vendor": "GOLDSTAR SHIPPING LINES LIMITED",
+   "invoices": 15,
+   "spend": 5253830.54,
+   "share": 0.8,
+   "avg_invoice": 350255.37
+  },
+  {
+   "vendor": "Frontier Shipping Services Limited",
+   "invoices": 17,
+   "spend": 5242127.44,
+   "share": 0.7,
+   "avg_invoice": 308360.44
+  },
+  {
+   "vendor": "Eagle Transport & Logistics Pvt Ltd",
+   "invoices": 14,
+   "spend": 5087895.31,
+   "share": 0.7,
+   "avg_invoice": 363421.09
+  },
+  {
+   "vendor": "Vayu Transport & Logistics (India) Private Limited",
+   "invoices": 16,
+   "spend": 4956328.22,
+   "share": 0.7,
+   "avg_invoice": 309770.51
+  },
+  {
+   "vendor": "Sea Hawk Maritime Services Pvt Ltd",
+   "invoices": 18,
+   "spend": 4951821.42,
+   "share": 0.7,
+   "avg_invoice": 275101.19
+  },
+  {
+   "vendor": "MARUTI MULTIMODAL LLP",
+   "invoices": 18,
+   "spend": 4895870.67,
+   "share": 0.7,
+   "avg_invoice": 271992.82
+  },
+  {
+   "vendor": "Mahavir Worldwide Logistics Ltd.",
+   "invoices": 19,
+   "spend": 4882964.05,
+   "share": 0.7,
+   "avg_invoice": 256998.11
+  },
+  {
+   "vendor": "Allied Multimodal Corporation",
+   "invoices": 17,
+   "spend": 4854476.92,
+   "share": 0.7,
+   "avg_invoice": 285557.47
+  },
+  {
+   "vendor": "Oriental Express Cargo Pvt. Ltd",
+   "invoices": 17,
+   "spend": 4786868.98,
+   "share": 0.7,
+   "avg_invoice": 281580.53
+  },
+  {
+   "vendor": "Overseas Logistics (India) Private Limited",
+   "invoices": 17,
+   "spend": 4728157.34,
+   "share": 0.7,
+   "avg_invoice": 278126.9
+  },
+  {
+   "vendor": "Ambica Shipping Agencies LLP",
+   "invoices": 13,
+   "spend": 4689439.06,
+   "share": 0.7,
+   "avg_invoice": 360726.08
+  },
+  {
+   "vendor": "Westport Transport & Logistics Pvt Ltd",
+   "invoices": 9,
+   "spend": 4659305.54,
+   "share": 0.7,
+   "avg_invoice": 517700.62
+  },
+  {
+   "vendor": "Portline Freight Pvt. Ltd",
+   "invoices": 14,
+   "spend": 4651492.67,
+   "share": 0.7,
+   "avg_invoice": 332249.48
+  },
+  {
+   "vendor": "Saffron Shipping Services Pvt Ltd",
+   "invoices": 13,
+   "spend": 4589612.7,
+   "share": 0.7,
+   "avg_invoice": 353047.13
+  },
+  {
+   "vendor": "Paragon Ocean Services LLP",
+   "invoices": 14,
+   "spend": 4582291.91,
+   "share": 0.7,
+   "avg_invoice": 327306.57
+  },
+  {
+   "vendor": "UNITED CARGO MOVERS PRIVATE LIMITED",
+   "invoices": 16,
+   "spend": 4580540.36,
+   "share": 0.7,
+   "avg_invoice": 286283.77
+  },
+  {
+   "vendor": "Silverline Transport & Logistics Limited",
+   "invoices": 13,
+   "spend": 4564779.04,
+   "share": 0.7,
+   "avg_invoice": 351136.85
+  },
+  {
+   "vendor": "SHIV SHAKTI SHIPPING AGENCIES PVT. LTD.",
+   "invoices": 12,
+   "spend": 4527367.03,
+   "share": 0.6,
+   "avg_invoice": 377280.59
+  },
+  {
+   "vendor": "SWIFT LOGISTICS SOLUTIONS LTD.",
+   "invoices": 12,
+   "spend": 4489120.06,
+   "share": 0.6,
+   "avg_invoice": 374093.34
+  },
+  {
+   "vendor": "KAVERI CARGO (INDIA) PRIVATE LIMITED",
+   "invoices": 14,
+   "spend": 4478798.47,
+   "share": 0.6,
+   "avg_invoice": 319914.18
+  },
+  {
+   "vendor": "Granite Clearing & Forwarding Ltd.",
+   "invoices": 15,
+   "spend": 4476731.54,
+   "share": 0.6,
+   "avg_invoice": 298448.77
+  },
+  {
+   "vendor": "Portline Supply Chain Limited",
+   "invoices": 13,
+   "spend": 4450202.31,
+   "share": 0.6,
+   "avg_invoice": 342323.25
+  },
+  {
+   "vendor": "Jubilee Freight Systems Services Pvt Ltd",
+   "invoices": 15,
+   "spend": 4392034.89,
+   "share": 0.6,
+   "avg_invoice": 292802.33
+  },
+  {
+   "vendor": "Summit Shipping PVT. LTD.",
+   "invoices": 14,
+   "spend": 4386846.71,
+   "share": 0.6,
+   "avg_invoice": 313346.19
+  },
+  {
+   "vendor": "Meridian Cargo LLP",
+   "invoices": 14,
+   "spend": 4375623.41,
+   "share": 0.6,
+   "avg_invoice": 312544.53
+  },
+  {
+   "vendor": "Blue Ocean Freight Carriers Ltd.",
+   "invoices": 14,
+   "spend": 4372994.04,
+   "share": 0.6,
+   "avg_invoice": 312356.72
+  },
+  {
+   "vendor": "STARLINE OCEAN SERVICES LLP",
+   "invoices": 13,
+   "spend": 4274525.93,
+   "share": 0.6,
+   "avg_invoice": 328809.69
+  },
+  {
+   "vendor": "Sagar Freight Carriers Pvt Ltd",
+   "invoices": 13,
+   "spend": 4272645.67,
+   "share": 0.6,
+   "avg_invoice": 328665.05
+  },
+  {
+   "vendor": "BHAVYA CLEARING & FORWARDING PVT. LTD.",
+   "invoices": 14,
+   "spend": 4258591.36,
+   "share": 0.6,
+   "avg_invoice": 304185.1
+  },
+  {
+   "vendor": "PORTLINE SHIPPING LINES LIMITED",
+   "invoices": 14,
+   "spend": 4246098.39,
+   "share": 0.6,
+   "avg_invoice": 303292.74
+  },
+  {
+   "vendor": "Titan Logistics Limited",
+   "invoices": 12,
+   "spend": 4161334.72,
+   "share": 0.6,
+   "avg_invoice": 346777.89
+  },
+  {
+   "vendor": "Worldlink Global Logistics PVT. LTD.",
+   "invoices": 19,
+   "spend": 4146942.62,
+   "share": 0.6,
+   "avg_invoice": 218260.14
+  },
+  {
+   "vendor": "ZENITH MULTIMODAL (INDIA) PRIVATE LIMITED",
+   "invoices": 9,
+   "spend": 4097987.11,
+   "share": 0.6,
+   "avg_invoice": 455331.9
+  },
+  {
+   "vendor": "Sterling Freight LLP",
+   "invoices": 14,
+   "spend": 4046788.82,
+   "share": 0.6,
+   "avg_invoice": 289056.34
+  },
+  {
+   "vendor": "Lotus Exim Services India Pvt. Ltd.",
+   "invoices": 9,
+   "spend": 4023222.13,
+   "share": 0.6,
+   "avg_invoice": 447024.68
+  },
+  {
+   "vendor": "Goldstar Clearing & Forwarding Services Pvt Ltd",
+   "invoices": 14,
+   "spend": 4006329.08,
+   "share": 0.6,
+   "avg_invoice": 286166.36
+  },
+  {
+   "vendor": "ORIENTAL AIR & SEA (INDIA) PRIVATE LIMITED",
+   "invoices": 16,
+   "spend": 3989826.55,
+   "share": 0.6,
+   "avg_invoice": 249364.16
+  },
+  {
+   "vendor": "PINNACLE SHIPPING LINES SERVICES PVT LTD",
+   "invoices": 16,
+   "spend": 3988166.11,
+   "share": 0.6,
+   "avg_invoice": 249260.38
+  },
+  {
+   "vendor": "Eastwind Cargo Movers Agencies",
+   "invoices": 17,
+   "spend": 3982661.73,
+   "share": 0.6,
+   "avg_invoice": 234274.22
+  },
+  {
+   "vendor": "Blue Ocean Air & Sea Pvt. Ltd",
+   "invoices": 10,
+   "spend": 3964656.81,
+   "share": 0.6,
+   "avg_invoice": 396465.68
+  },
+  {
+   "vendor": "Royal Freight Forwarders Private Limited",
+   "invoices": 15,
+   "spend": 3919178.94,
+   "share": 0.6,
+   "avg_invoice": 261278.6
+  },
+  {
+   "vendor": "Atlas Shipping Agencies Services Pvt Ltd",
+   "invoices": 15,
+   "spend": 3898594.22,
+   "share": 0.6,
+   "avg_invoice": 259906.28
+  },
+  {
+   "vendor": "Pacific Crest Shipping Lines (India) Private Limited",
+   "invoices": 12,
+   "spend": 3884072.45,
+   "share": 0.6,
+   "avg_invoice": 323672.7
+  },
+  {
+   "vendor": "Shree Balaji Freight Carriers Agencies",
+   "invoices": 12,
+   "spend": 3879855.36,
+   "share": 0.6,
+   "avg_invoice": 323321.28
+  },
+  {
+   "vendor": "Overseas Freight Systems Pvt. Ltd",
+   "invoices": 13,
+   "spend": 3864396.59,
+   "share": 0.6,
+   "avg_invoice": 297261.28
+  },
+  {
+   "vendor": "SAHYADRI SHIPPING PVT. LTD.",
+   "invoices": 12,
+   "spend": 3767625.86,
+   "share": 0.5,
+   "avg_invoice": 313968.82
+  },
+  {
+   "vendor": "SAFFRON EXIM SERVICES (INDIA) PRIVATE LIMITED",
+   "invoices": 14,
+   "spend": 3738769.77,
+   "share": 0.5,
+   "avg_invoice": 267054.98
+  },
+  {
+   "vendor": "Overseas Logistics Ltd.",
+   "invoices": 14,
+   "spend": 3725064.48,
+   "share": 0.5,
+   "avg_invoice": 266076.03
+  },
+  {
+   "vendor": "FALCON FREIGHT PVT LTD",
+   "invoices": 13,
+   "spend": 3709370.65,
+   "share": 0.5,
+   "avg_invoice": 285336.2
+  },
+  {
+   "vendor": "Varuna Cargo Movers Corporation",
+   "invoices": 13,
+   "spend": 3702899.55,
+   "share": 0.5,
+   "avg_invoice": 284838.43
+  },
+  {
+   "vendor": "Global Link Supply Chain (India) Private Limited",
+   "invoices": 12,
+   "spend": 3675291.57,
+   "share": 0.5,
+   "avg_invoice": 306274.3
+  },
+  {
+   "vendor": "NARMADA GLOBAL LOGISTICS SERVICES PVT LTD",
+   "invoices": 12,
+   "spend": 3651661.2,
+   "share": 0.5,
+   "avg_invoice": 304305.1
+  },
+  {
+   "vendor": "CRESTLINE FREIGHT SYSTEMS PVT. LTD.",
+   "invoices": 15,
+   "spend": 3627401.85,
+   "share": 0.5,
+   "avg_invoice": 241826.79
+  },
+  {
+   "vendor": "Atlas Shipping Services Pvt. Ltd",
+   "invoices": 13,
+   "spend": 3611235.61,
+   "share": 0.5,
+   "avg_invoice": 277787.35
+  },
+  {
+   "vendor": "Narmada Global Logistics Pvt. Ltd",
+   "invoices": 12,
+   "spend": 3593725.27,
+   "share": 0.5,
+   "avg_invoice": 299477.11
+  },
+  {
+   "vendor": "Kailash Supply Chain & Co.",
+   "invoices": 14,
+   "spend": 3550468.08,
+   "share": 0.5,
+   "avg_invoice": 253604.86
+  },
+  {
+   "vendor": "Sagar Forwarders Pvt Ltd",
+   "invoices": 17,
+   "spend": 3527545.06,
+   "share": 0.5,
+   "avg_invoice": 207502.65
+  },
+  {
+   "vendor": "Vinayak Forwarders Pvt. Ltd.",
+   "invoices": 16,
+   "spend": 3516288.19,
+   "share": 0.5,
+   "avg_invoice": 219768.01
+  },
+  {
+   "vendor": "SEABIRD CARGO PVT. LTD",
+   "invoices": 12,
+   "spend": 3503359.04,
+   "share": 0.5,
+   "avg_invoice": 291946.59
+  },
+  {
+   "vendor": "Anchor Cargo Movers Ltd.",
+   "invoices": 11,
+   "spend": 3496405.18,
+   "share": 0.5,
+   "avg_invoice": 317855.02
+  },
+  {
+   "vendor": "SIDDHI GLOBAL LOGISTICS & CO.",
+   "invoices": 13,
+   "spend": 3460965.06,
+   "share": 0.5,
+   "avg_invoice": 266228.08
+  },
+  {
+   "vendor": "INDUS LOGISTICS AGENCIES",
+   "invoices": 12,
+   "spend": 3450688.51,
+   "share": 0.5,
+   "avg_invoice": 287557.38
+  },
+  {
+   "vendor": "Polar Supply Chain Agencies",
+   "invoices": 13,
+   "spend": 3447803.97,
+   "share": 0.5,
+   "avg_invoice": 265215.69
+  },
+  {
+   "vendor": "KONKAN FREIGHT & CO.",
+   "invoices": 11,
+   "spend": 3400989.71,
+   "share": 0.5,
+   "avg_invoice": 309180.88
+  },
+  {
+   "vendor": "Allied Logistics & Co.",
+   "invoices": 14,
+   "spend": 3384324.45,
+   "share": 0.5,
+   "avg_invoice": 241737.46
+  },
+  {
+   "vendor": "Orbit Transport & Logistics Limited",
+   "invoices": 12,
+   "spend": 3369457.55,
+   "share": 0.5,
+   "avg_invoice": 280788.13
+  },
+  {
+   "vendor": "Eagle Exim Services Agencies",
+   "invoices": 9,
+   "spend": 3361643.21,
+   "share": 0.5,
+   "avg_invoice": 373515.91
+  },
+  {
+   "vendor": "Arihant Shipping (India) Private Limited",
+   "invoices": 12,
+   "spend": 3349644.12,
+   "share": 0.5,
+   "avg_invoice": 279137.01
+  },
+  {
+   "vendor": "Bhavya Freight Systems Corporation",
+   "invoices": 13,
+   "spend": 3311958.32,
+   "share": 0.5,
+   "avg_invoice": 254766.02
+  },
+  {
+   "vendor": "Allied Supply Chain Pvt Ltd",
+   "invoices": 10,
+   "spend": 3294424.32,
+   "share": 0.5,
+   "avg_invoice": 329442.43
+  },
+  {
+   "vendor": "Tristar Express Cargo PVT. LTD.",
+   "invoices": 17,
+   "spend": 3281606.94,
+   "share": 0.5,
+   "avg_invoice": 193035.7
+  },
+  {
+   "vendor": "Summit Transport & Logistics Agencies",
+   "invoices": 15,
+   "spend": 3273460.83,
+   "share": 0.5,
+   "avg_invoice": 218230.72
+  },
+  {
+   "vendor": "Royal Exim Services Ltd.",
+   "invoices": 13,
+   "spend": 3270946.3,
+   "share": 0.5,
+   "avg_invoice": 251611.25
+  },
+  {
+   "vendor": "SILVERLINE AIR & SEA PVT. LTD.",
+   "invoices": 14,
+   "spend": 3243665.54,
+   "share": 0.5,
+   "avg_invoice": 231690.4
+  },
+  {
+   "vendor": "Portline Clearing & Forwarding Private Limited",
+   "invoices": 13,
+   "spend": 3216689.96,
+   "share": 0.5,
+   "avg_invoice": 247437.69
+  },
+  {
+   "vendor": "Delta Freight Carriers Corporation",
+   "invoices": 9,
+   "spend": 3201109.55,
+   "share": 0.5,
+   "avg_invoice": 355678.84
+  },
+  {
+   "vendor": "APEX GLOBAL LOGISTICS AGENCIES",
+   "invoices": 11,
+   "spend": 3191842.31,
+   "share": 0.5,
+   "avg_invoice": 290167.48
+  },
+  {
+   "vendor": "Overseas Cargo Ltd.",
+   "invoices": 9,
+   "spend": 3183743.48,
+   "share": 0.5,
+   "avg_invoice": 353749.28
+  },
+  {
+   "vendor": "COSMOS OCEAN SERVICES PVT LTD",
+   "invoices": 12,
+   "spend": 3157807.02,
+   "share": 0.5,
+   "avg_invoice": 263150.59
+  },
+  {
+   "vendor": "OM SAI CARGO MOVERS INDIA PVT. LTD.",
+   "invoices": 15,
+   "spend": 3145792.6,
+   "share": 0.4,
+   "avg_invoice": 209719.51
+  },
+  {
+   "vendor": "ANCHOR FREIGHT FORWARDERS & CO.",
+   "invoices": 8,
+   "spend": 3131718.0,
+   "share": 0.4,
+   "avg_invoice": 391464.75
+  },
+  {
+   "vendor": "PARAGON FREIGHT SERVICES PVT LTD",
+   "invoices": 10,
+   "spend": 3130068.64,
+   "share": 0.4,
+   "avg_invoice": 313006.86
+  },
+  {
+   "vendor": "FALCON FREIGHT LIMITED",
+   "invoices": 8,
+   "spend": 3113082.57,
+   "share": 0.4,
+   "avg_invoice": 389135.32
+  },
+  {
+   "vendor": "OCEANIC MARITIME LTD.",
+   "invoices": 13,
+   "spend": 3111022.55,
+   "share": 0.4,
+   "avg_invoice": 239309.43
+  },
+  {
+   "vendor": "Oriental Freight Ltd.",
+   "invoices": 10,
+   "spend": 3083622.45,
+   "share": 0.4,
+   "avg_invoice": 308362.24
+  },
+  {
+   "vendor": "Crescent Maritime Pvt. Ltd",
+   "invoices": 13,
+   "spend": 3024045.11,
+   "share": 0.4,
+   "avg_invoice": 232618.85
+  },
+  {
+   "vendor": "PACIFIC CREST LOGISTICS SOLUTIONS AGENCIES",
+   "invoices": 11,
+   "spend": 3019733.84,
+   "share": 0.4,
+   "avg_invoice": 274521.26
+  },
+  {
+   "vendor": "Zenith Shipping Agencies PVT. LTD.",
+   "invoices": 13,
+   "spend": 2991473.94,
+   "share": 0.4,
+   "avg_invoice": 230113.38
+  },
+  {
+   "vendor": "ROYAL SHIPPING LINES PRIVATE LIMITED",
+   "invoices": 8,
+   "spend": 2983779.17,
+   "share": 0.4,
+   "avg_invoice": 372972.4
+  },
+  {
+   "vendor": "Cosmos Supply Chain India Pvt. Ltd.",
+   "invoices": 10,
+   "spend": 2964382.07,
+   "share": 0.4,
+   "avg_invoice": 296438.21
+  },
+  {
+   "vendor": "SWIFT FREIGHT PVT. LTD.",
+   "invoices": 9,
+   "spend": 2962143.34,
+   "share": 0.4,
+   "avg_invoice": 329127.04
+  },
+  {
+   "vendor": "Ambica Shipping Lines Pvt. Ltd",
+   "invoices": 12,
+   "spend": 2960756.21,
+   "share": 0.4,
+   "avg_invoice": 246729.68
+  },
+  {
+   "vendor": "SEA HAWK LOGISTICS SOLUTIONS PVT. LTD.",
+   "invoices": 12,
+   "spend": 2937374.33,
+   "share": 0.4,
+   "avg_invoice": 244781.19
+  },
+  {
+   "vendor": "Rapid Worldwide Logistics Corporation",
+   "invoices": 11,
+   "spend": 2933389.66,
+   "share": 0.4,
+   "avg_invoice": 266671.79
+  },
+  {
+   "vendor": "Apex Worldwide Logistics Pvt. Ltd.",
+   "invoices": 9,
+   "spend": 2909166.82,
+   "share": 0.4,
+   "avg_invoice": 323240.76
+  },
+  {
+   "vendor": "Paragon Cargo Movers (India) Private Limited",
+   "invoices": 10,
+   "spend": 2866935.09,
+   "share": 0.4,
+   "avg_invoice": 286693.51
+  },
+  {
+   "vendor": "Falcon Forwarders Private Limited",
+   "invoices": 13,
+   "spend": 2849503.76,
+   "share": 0.4,
+   "avg_invoice": 219192.6
+  },
+  {
+   "vendor": "Samudra Shipping Services Limited",
+   "invoices": 12,
+   "spend": 2811389.56,
+   "share": 0.4,
+   "avg_invoice": 234282.46
+  },
+  {
+   "vendor": "Landmark Supply Chain Ltd.",
+   "invoices": 14,
+   "spend": 2805645.52,
+   "share": 0.4,
+   "avg_invoice": 200403.25
+  },
+  {
+   "vendor": "TRISTAR FREIGHT SYSTEMS CORPORATION",
+   "invoices": 11,
+   "spend": 2805301.7,
+   "share": 0.4,
+   "avg_invoice": 255027.43
+  },
+  {
+   "vendor": "Lotus Transport & Logistics India Pvt. Ltd.",
+   "invoices": 8,
+   "spend": 2803058.65,
+   "share": 0.4,
+   "avg_invoice": 350382.33
+  },
+  {
+   "vendor": "Konkan Maritime Pvt Ltd",
+   "invoices": 13,
+   "spend": 2794476.22,
+   "share": 0.4,
+   "avg_invoice": 214959.71
+  },
+  {
+   "vendor": "Frontier Freight Carriers Ltd.",
+   "invoices": 9,
+   "spend": 2756503.7,
+   "share": 0.4,
+   "avg_invoice": 306278.19
+  },
+  {
+   "vendor": "SWIFT FREIGHT CARRIERS SERVICES PVT LTD",
+   "invoices": 7,
+   "spend": 2750552.64,
+   "share": 0.4,
+   "avg_invoice": 392936.09
+  },
+  {
+   "vendor": "EAGLE FORWARDERS SERVICES PVT LTD",
+   "invoices": 10,
+   "spend": 2741907.64,
+   "share": 0.4,
+   "avg_invoice": 274190.76
+  },
+  {
+   "vendor": "Apex Logistics Solutions Pvt Ltd",
+   "invoices": 9,
+   "spend": 2740114.67,
+   "share": 0.4,
+   "avg_invoice": 304457.19
+  },
+  {
+   "vendor": "Jay Ambe Exim Services Pvt. Ltd",
+   "invoices": 14,
+   "spend": 2728199.29,
+   "share": 0.4,
+   "avg_invoice": 194871.38
+  },
+  {
+   "vendor": "OVERSEAS SHIPPING (INDIA) PRIVATE LIMITED",
+   "invoices": 14,
+   "spend": 2714144.01,
+   "share": 0.4,
+   "avg_invoice": 193867.43
+  },
+  {
+   "vendor": "Trans Global Air & Sea LLP",
+   "invoices": 13,
+   "spend": 2713054.72,
+   "share": 0.4,
+   "avg_invoice": 208696.52
+  },
+  {
+   "vendor": "Narmada Multimodal India Pvt. Ltd.",
+   "invoices": 11,
+   "spend": 2704574.34,
+   "share": 0.4,
+   "avg_invoice": 245870.39
+  },
+  {
+   "vendor": "STARLINE FREIGHT CARRIERS PRIVATE LIMITED",
+   "invoices": 9,
+   "spend": 2695216.14,
+   "share": 0.4,
+   "avg_invoice": 299468.46
+  },
+  {
+   "vendor": "Starline Transport & Logistics Private Limited",
+   "invoices": 10,
+   "spend": 2691957.41,
+   "share": 0.4,
+   "avg_invoice": 269195.74
+  },
+  {
+   "vendor": "NORTHWIND EXIM SERVICES (INDIA) PRIVATE LIMITED",
+   "invoices": 9,
+   "spend": 2675302.72,
+   "share": 0.4,
+   "avg_invoice": 297255.86
+  },
+  {
+   "vendor": "VARUNA FREIGHT (INDIA) PRIVATE LIMITED",
+   "invoices": 7,
+   "spend": 2673419.14,
+   "share": 0.4,
+   "avg_invoice": 381917.02
+  },
+  {
+   "vendor": "Arihant Cargo Movers Corporation",
+   "invoices": 11,
+   "spend": 2654488.28,
+   "share": 0.4,
+   "avg_invoice": 241317.12
+  },
+  {
+   "vendor": "Silverline Freight & Co.",
+   "invoices": 10,
+   "spend": 2653898.54,
+   "share": 0.4,
+   "avg_invoice": 265389.85
+  },
+  {
+   "vendor": "OVERSEAS SHIPPING AGENCIES PVT LTD",
+   "invoices": 12,
+   "spend": 2644962.59,
+   "share": 0.4,
+   "avg_invoice": 220413.55
+  },
+  {
+   "vendor": "Cosmos Shipping Lines & Co.",
+   "invoices": 11,
+   "spend": 2644675.52,
+   "share": 0.4,
+   "avg_invoice": 240425.05
+  },
+  {
+   "vendor": "VAYU LOGISTICS SOLUTIONS AGENCIES",
+   "invoices": 12,
+   "spend": 2638216.99,
+   "share": 0.4,
+   "avg_invoice": 219851.42
+  },
+  {
+   "vendor": "Sterling Freight Forwarders Limited",
+   "invoices": 11,
+   "spend": 2629400.34,
+   "share": 0.4,
+   "avg_invoice": 239036.39
+  },
+  {
+   "vendor": "Allied Multimodal Services Pvt Ltd",
+   "invoices": 8,
+   "spend": 2628981.73,
+   "share": 0.4,
+   "avg_invoice": 328622.72
+  },
+  {
+   "vendor": "Southern Cross Cargo Movers (India) Private Limited",
+   "invoices": 11,
+   "spend": 2626242.32,
+   "share": 0.4,
+   "avg_invoice": 238749.3
+  },
+  {
+   "vendor": "Everest Ocean Services Corporation",
+   "invoices": 11,
+   "spend": 2614694.43,
+   "share": 0.4,
+   "avg_invoice": 237699.49
+  },
+  {
+   "vendor": "Aadhya Maritime Pvt. Ltd",
+   "invoices": 12,
+   "spend": 2605768.29,
+   "share": 0.4,
+   "avg_invoice": 217147.36
+  },
+  {
+   "vendor": "EAGLE SUPPLY CHAIN PVT. LTD.",
+   "invoices": 9,
+   "spend": 2592723.34,
+   "share": 0.4,
+   "avg_invoice": 288080.37
+  },
+  {
+   "vendor": "Ironclad Logistics Solutions Pvt Ltd",
+   "invoices": 10,
+   "spend": 2579150.18,
+   "share": 0.4,
+   "avg_invoice": 257915.02
+  },
+  {
+   "vendor": "Ganga Freight Systems (India) Private Limited",
+   "invoices": 14,
+   "spend": 2555607.45,
+   "share": 0.4,
+   "avg_invoice": 182543.39
+  },
+  {
+   "vendor": "Global Link Cargo Movers Corporation",
+   "invoices": 10,
+   "spend": 2536301.53,
+   "share": 0.4,
+   "avg_invoice": 253630.15
+  },
+  {
+   "vendor": "Sahyadri Maritime (India) Private Limited",
+   "invoices": 9,
+   "spend": 2529920.31,
+   "share": 0.4,
+   "avg_invoice": 281102.26
+  },
+  {
+   "vendor": "Jay Ambe Express Cargo LLP",
+   "invoices": 11,
+   "spend": 2522987.05,
+   "share": 0.4,
+   "avg_invoice": 229362.46
+  },
+  {
+   "vendor": "Granite Clearing & Forwarding & Co.",
+   "invoices": 9,
+   "spend": 2509728.98,
+   "share": 0.4,
+   "avg_invoice": 278858.78
+  },
+  {
+   "vendor": "Harbour Ocean Services Pvt. Ltd.",
+   "invoices": 6,
+   "spend": 2479719.73,
+   "share": 0.4,
+   "avg_invoice": 413286.62
+  },
+  {
+   "vendor": "Continental Exim Services LLP",
+   "invoices": 12,
+   "spend": 2475824.58,
+   "share": 0.4,
+   "avg_invoice": 206318.71
+  },
+  {
+   "vendor": "Konkan Multimodal PVT. LTD.",
+   "invoices": 6,
+   "spend": 2461362.76,
+   "share": 0.4,
+   "avg_invoice": 410227.13
+  },
+  {
+   "vendor": "Apex Supply Chain Pvt. Ltd",
+   "invoices": 13,
+   "spend": 2429384.42,
+   "share": 0.3,
+   "avg_invoice": 186875.72
+  },
+  {
+   "vendor": "DELTA TRANSPORT & LOGISTICS INDIA PVT. LTD.",
+   "invoices": 8,
+   "spend": 2418478.56,
+   "share": 0.3,
+   "avg_invoice": 302309.82
+  },
+  {
+   "vendor": "Samudra Logistics Solutions Private Limited",
+   "invoices": 6,
+   "spend": 2379184.13,
+   "share": 0.3,
+   "avg_invoice": 396530.69
+  },
+  {
+   "vendor": "Sterling Ocean Services Pvt Ltd",
+   "invoices": 9,
+   "spend": 2364807.89,
+   "share": 0.3,
+   "avg_invoice": 262756.43
+  },
+  {
+   "vendor": "Greenport Shipping (India) Private Limited",
+   "invoices": 11,
+   "spend": 2359359.81,
+   "share": 0.3,
+   "avg_invoice": 214487.26
+  },
+  {
+   "vendor": "Siddhi Clearing & Forwarding Services Pvt Ltd",
+   "invoices": 8,
+   "spend": 2338597.42,
+   "share": 0.3,
+   "avg_invoice": 292324.68
+  },
+  {
+   "vendor": "Crescent Supply Chain Agencies",
+   "invoices": 10,
+   "spend": 2331720.27,
+   "share": 0.3,
+   "avg_invoice": 233172.03
+  },
+  {
+   "vendor": "Silverline Maritime Limited",
+   "invoices": 9,
+   "spend": 2311189.43,
+   "share": 0.3,
+   "avg_invoice": 256798.83
+  },
+  {
+   "vendor": "Greenport Cargo India Pvt. Ltd.",
+   "invoices": 12,
+   "spend": 2309131.56,
+   "share": 0.3,
+   "avg_invoice": 192427.63
+  },
+  {
+   "vendor": "Shipwave Cargo Movers PVT. LTD.",
+   "invoices": 8,
+   "spend": 2290333.93,
+   "share": 0.3,
+   "avg_invoice": 286291.74
+  },
+  {
+   "vendor": "PARAGON FREIGHT PVT. LTD",
+   "invoices": 10,
+   "spend": 2236100.18,
+   "share": 0.3,
+   "avg_invoice": 223610.02
+  },
+  {
+   "vendor": "Worldlink Freight Systems Corporation",
+   "invoices": 11,
+   "spend": 2206282.3,
+   "share": 0.3,
+   "avg_invoice": 200571.12
+  },
+  {
+   "vendor": "EASTWIND TRANSPORT & LOGISTICS PRIVATE LIMITED",
+   "invoices": 11,
+   "spend": 2201111.9,
+   "share": 0.3,
+   "avg_invoice": 200101.08
+  },
+  {
+   "vendor": "KAVERI LOGISTICS PVT. LTD.",
+   "invoices": 12,
+   "spend": 2146841.38,
+   "share": 0.3,
+   "avg_invoice": 178903.45
+  },
+  {
+   "vendor": "Konkan Freight Pvt. Ltd",
+   "invoices": 8,
+   "spend": 2114920.93,
+   "share": 0.3,
+   "avg_invoice": 264365.12
+  },
+  {
+   "vendor": "PINNACLE LOGISTICS SOLUTIONS (INDIA) PRIVATE LIMITED",
+   "invoices": 10,
+   "spend": 2107451.5,
+   "share": 0.3,
+   "avg_invoice": 210745.15
+  },
+  {
+   "vendor": "Bluefin Multimodal Agencies",
+   "invoices": 10,
+   "spend": 2102206.51,
+   "share": 0.3,
+   "avg_invoice": 210220.65
+  },
+  {
+   "vendor": "Kailash Freight Pvt. Ltd",
+   "invoices": 8,
+   "spend": 2041923.59,
+   "share": 0.3,
+   "avg_invoice": 255240.45
+  },
+  {
+   "vendor": "Overseas Clearing & Forwarding LLP",
+   "invoices": 10,
+   "spend": 2040330.6,
+   "share": 0.3,
+   "avg_invoice": 204033.06
+  },
+  {
+   "vendor": "TAPI GLOBAL LOGISTICS PVT. LTD",
+   "invoices": 9,
+   "spend": 2038142.33,
+   "share": 0.3,
+   "avg_invoice": 226460.26
+  },
+  {
+   "vendor": "Neptune Logistics Limited",
+   "invoices": 8,
+   "spend": 2027760.98,
+   "share": 0.3,
+   "avg_invoice": 253470.12
+  },
+  {
+   "vendor": "AADHYA SHIPPING LINES CORPORATION",
+   "invoices": 8,
+   "spend": 2026561.19,
+   "share": 0.3,
+   "avg_invoice": 253320.15
+  },
+  {
+   "vendor": "Pinnacle Freight Pvt Ltd",
+   "invoices": 9,
+   "spend": 1945238.62,
+   "share": 0.3,
+   "avg_invoice": 216137.62
+  },
+  {
+   "vendor": "Pacific Crest Freight Carriers Services Pvt Ltd",
+   "invoices": 9,
+   "spend": 1942774.25,
+   "share": 0.3,
+   "avg_invoice": 215863.81
+  },
+  {
+   "vendor": "EVEREST WORLDWIDE LOGISTICS LLP",
+   "invoices": 13,
+   "spend": 1938339.45,
+   "share": 0.3,
+   "avg_invoice": 149103.03
+  },
+  {
+   "vendor": "Crescent Multimodal & Co.",
+   "invoices": 8,
+   "spend": 1931945.44,
+   "share": 0.3,
+   "avg_invoice": 241493.18
+  },
+  {
+   "vendor": "UNITED SHIPPING AGENCIES LTD.",
+   "invoices": 10,
+   "spend": 1918244.0,
+   "share": 0.3,
+   "avg_invoice": 191824.4
+  },
+  {
+   "vendor": "Landmark Shipping Lines Pvt Ltd",
+   "invoices": 10,
+   "spend": 1909703.26,
+   "share": 0.3,
+   "avg_invoice": 190970.33
+  },
+  {
+   "vendor": "MERIDIAN OCEAN SERVICES AGENCIES",
+   "invoices": 11,
+   "spend": 1851421.34,
+   "share": 0.3,
+   "avg_invoice": 168311.03
+  },
+  {
+   "vendor": "Prime Global Logistics Agencies",
+   "invoices": 9,
+   "spend": 1816581.51,
+   "share": 0.3,
+   "avg_invoice": 201842.39
+  },
+  {
+   "vendor": "Paragon Multimodal PVT. LTD.",
+   "invoices": 9,
+   "spend": 1790742.16,
+   "share": 0.3,
+   "avg_invoice": 198971.35
+  },
+  {
+   "vendor": "INDUS FREIGHT SYSTEMS CORPORATION",
+   "invoices": 9,
+   "spend": 1779837.78,
+   "share": 0.3,
+   "avg_invoice": 197759.75
+  },
+  {
+   "vendor": "Vinayak Maritime PVT. LTD.",
+   "invoices": 9,
+   "spend": 1739663.41,
+   "share": 0.2,
+   "avg_invoice": 193295.93
+  },
+  {
+   "vendor": "Orbit Multimodal Corporation",
+   "invoices": 11,
+   "spend": 1700951.98,
+   "share": 0.2,
+   "avg_invoice": 154632.0
+  },
+  {
+   "vendor": "Kestrel Forwarders Ltd.",
+   "invoices": 10,
+   "spend": 1695866.59,
+   "share": 0.2,
+   "avg_invoice": 169586.66
+  },
+  {
+   "vendor": "United Shipping Pvt. Ltd",
+   "invoices": 7,
+   "spend": 1683551.61,
+   "share": 0.2,
+   "avg_invoice": 240507.37
+  },
+  {
+   "vendor": "Vayu Maritime (India) Private Limited",
+   "invoices": 6,
+   "spend": 1678472.13,
+   "share": 0.2,
+   "avg_invoice": 279745.36
+  },
+  {
+   "vendor": "Mariner Global Logistics Services Pvt Ltd",
+   "invoices": 7,
+   "spend": 1647573.96,
+   "share": 0.2,
+   "avg_invoice": 235367.71
+  },
+  {
+   "vendor": "United Shipping India Pvt. Ltd.",
+   "invoices": 7,
+   "spend": 1625592.68,
+   "share": 0.2,
+   "avg_invoice": 232227.53
+  },
+  {
+   "vendor": "Allied Supply Chain Agencies",
+   "invoices": 10,
+   "spend": 1603995.5,
+   "share": 0.2,
+   "avg_invoice": 160399.55
+  },
+  {
+   "vendor": "VAYU AIR & SEA AGENCIES",
+   "invoices": 8,
+   "spend": 1496261.41,
+   "share": 0.2,
+   "avg_invoice": 187032.68
+  },
+  {
+   "vendor": "Silverline Global Logistics Corporation",
+   "invoices": 6,
+   "spend": 1461081.68,
+   "share": 0.2,
+   "avg_invoice": 243513.61
+  },
+  {
+   "vendor": "YAMUNA AIR & SEA PVT LTD",
+   "invoices": 13,
+   "spend": 1443189.66,
+   "share": 0.2,
+   "avg_invoice": 111014.59
+  },
+  {
+   "vendor": "Eastwind Maritime & Co.",
+   "invoices": 9,
+   "spend": 1372428.95,
+   "share": 0.2,
+   "avg_invoice": 152492.11
+  },
+  {
+   "vendor": "Pinnacle Ocean Services Pvt. Ltd",
+   "invoices": 6,
+   "spend": 1284762.42,
+   "share": 0.2,
+   "avg_invoice": 214127.07
+  },
+  {
+   "vendor": "STARLINE EXIM SERVICES PRIVATE LIMITED",
+   "invoices": 5,
+   "spend": 1170969.07,
+   "share": 0.2,
+   "avg_invoice": 234193.81
+  },
+  {
+   "vendor": "Wavecrest Air & Sea Services Pvt Ltd",
+   "invoices": 8,
+   "spend": 1154050.12,
+   "share": 0.2,
+   "avg_invoice": 144256.26
+  },
+  {
+   "vendor": "Cosmos Exim Services Ltd.",
+   "invoices": 11,
+   "spend": 1101149.17,
+   "share": 0.2,
+   "avg_invoice": 100104.47
+  },
+  {
+   "vendor": "WORLDLINK AIR & SEA LIMITED",
+   "invoices": 8,
+   "spend": 1085169.49,
+   "share": 0.2,
+   "avg_invoice": 135646.19
+  },
+  {
+   "vendor": "Navkar Transport & Logistics Pvt. Ltd.",
+   "invoices": 8,
+   "spend": 951932.46,
+   "share": 0.1,
+   "avg_invoice": 118991.56
+  },
+  {
+   "vendor": "EASTWIND SHIPPING AGENCIES",
+   "invoices": 8,
+   "spend": 940812.15,
+   "share": 0.1,
+   "avg_invoice": 117601.52
+  },
+  {
+   "vendor": "Dolphin Exim Services PVT. LTD.",
+   "invoices": 6,
+   "spend": 910494.71,
+   "share": 0.1,
+   "avg_invoice": 151749.12
+  },
+  {
+   "vendor": "Orbit Clearing & Forwarding Services Pvt Ltd",
+   "invoices": 7,
+   "spend": 896023.37,
+   "share": 0.1,
+   "avg_invoice": 128003.34
+  },
+  {
+   "vendor": "Overseas Logistics Solutions PVT. LTD.",
+   "invoices": 6,
+   "spend": 842678.7,
+   "share": 0.1,
+   "avg_invoice": 140446.45
+  }
+ ],
+ "categories": [
+  {
+   "code": "sea_freight",
+   "category": "Sea Freight",
+   "invoices": 1034,
+   "spend": 386236648.52,
+   "share": 55.2,
+   "avg": 373536.41
+  },
+  {
+   "code": "air_freight",
+   "category": "Air Freight",
+   "invoices": 379,
+   "spend": 92670165.36,
+   "share": 13.3,
+   "avg": 244512.31
+  },
+  {
+   "code": "dap_charges",
+   "category": "DAP Charges",
+   "invoices": 522,
+   "spend": 73769581.85,
+   "share": 10.5,
+   "avg": 141321.04
+  },
+  {
+   "code": "transportation",
+   "category": "Transportation",
+   "invoices": 1120,
+   "spend": 39319060.83,
+   "share": 5.6,
+   "avg": 35106.3
+  },
+  {
+   "code": "warehouse_charges_port",
+   "category": "Warehouse charges Port",
+   "invoices": 972,
+   "spend": 17248844.72,
+   "share": 2.5,
+   "avg": 17745.73
+  },
+  {
+   "code": "handling_charges",
+   "category": "Handlign Charges",
+   "invoices": 1051,
+   "spend": 17071071.59,
+   "share": 2.4,
+   "avg": 16242.69
+  },
+  {
+   "code": "terminal_handling_charges",
+   "category": "Terminal Handling Charges",
+   "invoices": 969,
+   "spend": 15612472.89,
+   "share": 2.2,
+   "avg": 16111.94
+  },
+  {
+   "code": "fuel_charges",
+   "category": "Fuel Charges",
+   "invoices": 556,
+   "spend": 15465168.0,
+   "share": 2.2,
+   "avg": 27815.05
+  },
+  {
+   "code": "pre_carriage_haulage",
+   "category": "Pre Carriage Haulage",
+   "invoices": 470,
+   "spend": 13837472.38,
+   "share": 2.0,
+   "avg": 29441.43
+  },
+  {
+   "code": "other_charges",
+   "category": "Other Charges",
+   "invoices": 1142,
+   "spend": 9780304.74,
+   "share": 1.4,
+   "avg": 8564.19
+  },
+  {
+   "code": "agency_charges",
+   "category": "Agency Charges",
+   "invoices": 1157,
+   "spend": 4658034.28,
+   "share": 0.7,
+   "avg": 4025.96
+  },
+  {
+   "code": "bl_charges",
+   "category": "BL Charges",
+   "invoices": 637,
+   "spend": 4654981.7,
+   "share": 0.7,
+   "avg": 7307.66
+  },
+  {
+   "code": "examination_charges",
+   "category": "Examination charges",
+   "invoices": 412,
+   "spend": 2765504.56,
+   "share": 0.4,
+   "avg": 6712.39
+  },
+  {
+   "code": "shipping_bill_charges",
+   "category": "Shipping bill charges",
+   "invoices": 745,
+   "spend": 986966.66,
+   "share": 0.1,
+   "avg": 1324.79
+  },
+  {
+   "code": "ens_charges",
+   "category": "ENS Charges",
+   "invoices": 248,
+   "spend": 954853.53,
+   "share": 0.1,
+   "avg": 3850.22
+  },
+  {
+   "code": "cargo_screening",
+   "category": "Cargo Screening",
+   "invoices": 303,
+   "spend": 841267.42,
+   "share": 0.1,
+   "avg": 2776.46
+  },
+  {
+   "code": "ams_charges",
+   "category": "AMS CHARGES",
+   "invoices": 223,
+   "spend": 774001.03,
+   "share": 0.1,
+   "avg": 3470.86
+  },
+  {
+   "code": "misc",
+   "category": "Misc",
+   "invoices": 297,
+   "spend": 636078.7,
+   "share": 0.1,
+   "avg": 2141.68
+  },
+  {
+   "code": "edi_fees",
+   "category": "EDI Fees",
+   "invoices": 486,
+   "spend": 536335.59,
+   "share": 0.1,
+   "avg": 1103.57
+  },
+  {
+   "code": "airway_waybill_charges",
+   "category": "Airway WayBill Charges",
+   "invoices": 305,
+   "spend": 509636.94,
+   "share": 0.1,
+   "avg": 1670.94
+  },
+  {
+   "code": "vgm",
+   "category": "VGM",
+   "invoices": 430,
+   "spend": 501786.69,
+   "share": 0.1,
+   "avg": 1166.95
+  },
+  {
+   "code": "seal_charges",
+   "category": "Seal Charges",
+   "invoices": 581,
+   "spend": 472349.37,
+   "share": 0.1,
+   "avg": 812.99
+  }
+ ],
+ "vendor_category": {
+  "categories": [
+   "Sea Freight",
+   "Air Freight",
+   "DAP Charges",
+   "Transportation",
+   "Warehouse charges Port",
+   "Handlign Charges",
+   "Other categories"
+  ],
+  "rows": [
+   {
+    "vendor": "FALCON FREIGHT SYSTEMS LTD.",
+    "values": [
+     5983526.91,
+     339380.22,
+     429628.25,
+     459497.97,
+     20518.64,
+     108603.93,
+     837516.63
+    ]
+   },
+   {
+    "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+    "values": [
+     5238159.34,
+     652166.34,
+     324761.68,
+     392765.25,
+     96163.52,
+     105094.09,
+     694471.74
+    ]
+   },
+   {
+    "vendor": "Delta Clearing & Forwarding Limited",
+    "values": [
+     3694944.62,
+     1406568.53,
+     985452.78,
+     199760.9,
+     77420.52,
+     114506.98,
+     744767.85
+    ]
+   },
+   {
+    "vendor": "SUMMIT FREIGHT CARRIERS SERVICES PVT LTD",
+    "values": [
+     5723425.95,
+     90221.33,
+     598531.62,
+     122099.11,
+     74147.26,
+     20240.63,
+     365518.58
+    ]
+   },
+   {
+    "vendor": "OCEANIC AIR & SEA PRIVATE LIMITED",
+    "values": [
+     4371905.25,
+     896665.57,
+     428679.89,
+     344422.31,
+     118309.21,
+     95559.33,
+     672060.29
+    ]
+   },
+   {
+    "vendor": "Ironclad Shipping Pvt. Ltd",
+    "values": [
+     3443808.59,
+     774217.53,
+     1044390.76,
+     268368.52,
+     162992.12,
+     151914.31,
+     723278.84
+    ]
+   },
+   {
+    "vendor": "EAGLE OCEAN SERVICES PRIVATE LIMITED",
+    "values": [
+     3298056.22,
+     1651929.99,
+     351416.8,
+     209747.91,
+     73454.69,
+     90212.17,
+     601191.61
+    ]
+   },
+   {
+    "vendor": "Samudra Exim Services LLP",
+    "values": [
+     3509847.75,
+     1006537.7,
+     582313.84,
+     299278.55,
+     65980.83,
+     116754.67,
+     637763.37
+    ]
+   },
+   {
+    "vendor": "All other vendors",
+    "values": [
+     350972973.89,
+     85852478.15,
+     69024406.23,
+     37023120.31,
+     16559857.93,
+     16268185.48,
+     67710645.57
+    ]
+   }
+  ]
+ },
+ "modes": [
+  {
+   "mode": "air",
+   "invoices": 598,
+   "spend": 144866313.2
+  },
+  {
+   "mode": "other",
+   "invoices": 136,
+   "spend": 7795929.74
+  },
+  {
+   "mode": "sea",
+   "invoices": 1766,
+   "spend": 546640344.41
+  }
+ ],
+ "unit_costs": [
+  {
+   "vendor": "Konkan Maritime Pvt Ltd",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 12.68,
+   "min_per_kg": 12.24,
+   "max_per_kg": 100.97
+  },
+  {
+   "vendor": "PARAGON FREIGHT PVT. LTD",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 17.74,
+   "min_per_kg": 11.36,
+   "max_per_kg": 906.78
+  },
+  {
+   "vendor": "Worldlink Global Logistics PVT. LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 19.19,
+   "min_per_kg": 9.78,
+   "max_per_kg": 89.23
+  },
+  {
+   "vendor": "Granite Clearing & Forwarding Ltd.",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 25.58,
+   "min_per_kg": 12.39,
+   "max_per_kg": 33.27
+  },
+  {
+   "vendor": "Harbour Air & Sea Ltd.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 26.6,
+   "min_per_kg": 25.67,
+   "max_per_kg": 194.82
+  },
+  {
+   "vendor": "FALCON FREIGHT SYSTEMS LTD.",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 46.73,
+   "min_per_kg": 10.67,
+   "max_per_kg": 231.0
+  },
+  {
+   "vendor": "Eagle Shipping Agencies Corporation",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 57.79,
+   "min_per_kg": 39.51,
+   "max_per_kg": 1032.43
+  },
+  {
+   "vendor": "Pacific Crest Freight Carriers Services Pvt Ltd",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 61.31,
+   "min_per_kg": 47.99,
+   "max_per_kg": 5189.03
+  },
+  {
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 69.12,
+   "min_per_kg": 60.76,
+   "max_per_kg": 625.76
+  },
+  {
+   "vendor": "Pacific Crest Shipping Lines (India) Private Limited",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 77.34,
+   "min_per_kg": 71.79,
+   "max_per_kg": 346.13
+  },
+  {
+   "vendor": "Sagar Freight Carriers Pvt Ltd",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 85.15,
+   "min_per_kg": 9.38,
+   "max_per_kg": 123.55
+  },
+  {
+   "vendor": "Apex Worldwide Logistics Pvt. Ltd.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 91.13,
+   "min_per_kg": 42.87,
+   "max_per_kg": 103.95
+  },
+  {
+   "vendor": "Crescent Maritime Pvt. Ltd",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 114.27,
+   "min_per_kg": 14.21,
+   "max_per_kg": 259.48
+  },
+  {
+   "vendor": "PINNACLE SHIPPING LINES SERVICES PVT LTD",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 129.29,
+   "min_per_kg": 105.51,
+   "max_per_kg": 179.51
+  },
+  {
+   "vendor": "Overseas Cargo Ltd.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 135.05,
+   "min_per_kg": 16.77,
+   "max_per_kg": 4793.71
+  },
+  {
+   "vendor": "OVERSEAS SHIPPING AGENCIES PVT LTD",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 145.57,
+   "min_per_kg": 90.14,
+   "max_per_kg": 3798.41
+  },
+  {
+   "vendor": "GRANITE GLOBAL LOGISTICS & CO.",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 148.16,
+   "min_per_kg": 30.05,
+   "max_per_kg": 243.42
+  },
+  {
+   "vendor": "Saffron Shipping Services Pvt Ltd",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 149.47,
+   "min_per_kg": 44.89,
+   "max_per_kg": 348.34
+  },
+  {
+   "vendor": "Allied Multimodal Corporation",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 150.03,
+   "min_per_kg": 18.36,
+   "max_per_kg": 255.39
+  },
+  {
+   "vendor": "Delta Clearing & Forwarding Limited",
+   "mode": "air",
+   "invoices": 5,
+   "median_per_kg": 166.28,
+   "min_per_kg": 32.73,
+   "max_per_kg": 1369.42
+  },
+  {
+   "vendor": "Sterling Ocean Services Pvt Ltd",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 168.81,
+   "min_per_kg": 132.69,
+   "max_per_kg": 297.36
+  },
+  {
+   "vendor": "Summit Shipping PVT. LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 169.64,
+   "min_per_kg": 64.4,
+   "max_per_kg": 365.5
+  },
+  {
+   "vendor": "BHAVYA CLEARING & FORWARDING PVT. LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 169.86,
+   "min_per_kg": 159.04,
+   "max_per_kg": 303.96
+  },
+  {
+   "vendor": "Silverline Freight & Co.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 170.39,
+   "min_per_kg": 35.79,
+   "max_per_kg": 1517.1
+  },
+  {
+   "vendor": "EAGLE OCEAN SERVICES PRIVATE LIMITED",
+   "mode": "air",
+   "invoices": 5,
+   "median_per_kg": 175.72,
+   "min_per_kg": 137.33,
+   "max_per_kg": 714.13
+  },
+  {
+   "vendor": "Cosmos Shipping Lines & Co.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 181.55,
+   "min_per_kg": 39.45,
+   "max_per_kg": 404.19
+  },
+  {
+   "vendor": "Anchor Cargo Movers Ltd.",
+   "mode": "air",
+   "invoices": 5,
+   "median_per_kg": 181.62,
+   "min_per_kg": 113.86,
+   "max_per_kg": 1640.82
+  },
+  {
+   "vendor": "Overseas Logistics (India) Private Limited",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 186.83,
+   "min_per_kg": 124.33,
+   "max_per_kg": 668.99
+  },
+  {
+   "vendor": "Narmada Multimodal India Pvt. Ltd.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 188.51,
+   "min_per_kg": 134.59,
+   "max_per_kg": 415.28
+  },
+  {
+   "vendor": "SWIFT LOGISTICS SOLUTIONS LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 196.17,
+   "min_per_kg": 42.52,
+   "max_per_kg": 811.29
+  },
+  {
+   "vendor": "Landmark Shipping Lines Pvt Ltd",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 210.46,
+   "min_per_kg": 20.23,
+   "max_per_kg": 501.02
+  },
+  {
+   "vendor": "PORTLINE SHIPPING LINES LIMITED",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 217.9,
+   "min_per_kg": 121.67,
+   "max_per_kg": 309.66
+  },
+  {
+   "vendor": "Jay Ambe Exim Services Pvt. Ltd",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 218.64,
+   "min_per_kg": 186.53,
+   "max_per_kg": 245.32
+  },
+  {
+   "vendor": "Jubilee Freight Systems Services Pvt Ltd",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 223.12,
+   "min_per_kg": 36.04,
+   "max_per_kg": 551.37
+  },
+  {
+   "vendor": "Silverline Transport & Logistics Limited",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 226.94,
+   "min_per_kg": 50.71,
+   "max_per_kg": 10560.9
+  },
+  {
+   "vendor": "Polar Supply Chain Agencies",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 231.85,
+   "min_per_kg": 60.65,
+   "max_per_kg": 407.85
+  },
+  {
+   "vendor": "KESTREL MARITIME PVT. LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 232.05,
+   "min_per_kg": 37.82,
+   "max_per_kg": 548.9
+  },
+  {
+   "vendor": "Ironclad Shipping Pvt. Ltd",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 233.07,
+   "min_per_kg": 21.0,
+   "max_per_kg": 890.71
+  },
+  {
+   "vendor": "TAPI GLOBAL LOGISTICS PVT. LTD",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 233.91,
+   "min_per_kg": 184.91,
+   "max_per_kg": 2045.46
+  },
+  {
+   "vendor": "Samudra Exim Services LLP",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 234.83,
+   "min_per_kg": 209.39,
+   "max_per_kg": 1062.78
+  },
+  {
+   "vendor": "Oriental Freight Ltd.",
+   "mode": "air",
+   "invoices": 5,
+   "median_per_kg": 252.92,
+   "min_per_kg": 37.23,
+   "max_per_kg": 3597.79
+  },
+  {
+   "vendor": "Mahavir Worldwide Logistics Ltd.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 254.05,
+   "min_per_kg": 221.33,
+   "max_per_kg": 255.13
+  },
+  {
+   "vendor": "Horizon Exim Services (India) Private Limited",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 266.11,
+   "min_per_kg": 137.87,
+   "max_per_kg": 671.5
+  },
+  {
+   "vendor": "ROYAL SHIPPING LINES PRIVATE LIMITED",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 283.92,
+   "min_per_kg": 195.94,
+   "max_per_kg": 780.42
+  },
+  {
+   "vendor": "Falcon Forwarders Private Limited",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 313.97,
+   "min_per_kg": 20.95,
+   "max_per_kg": 642.89
+  },
+  {
+   "vendor": "Titan Cargo Movers Ltd.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 335.34,
+   "min_per_kg": 313.35,
+   "max_per_kg": 577.48
+  },
+  {
+   "vendor": "EAGLE FORWARDERS SERVICES PVT LTD",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 362.94,
+   "min_per_kg": 48.29,
+   "max_per_kg": 6784.68
+  },
+  {
+   "vendor": "Arihant Shipping (India) Private Limited",
+   "mode": "air",
+   "invoices": 4,
+   "median_per_kg": 415.43,
+   "min_per_kg": 37.88,
+   "max_per_kg": 653.38
+  },
+  {
+   "vendor": "OCEANIC AIR & SEA PRIVATE LIMITED",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 427.04,
+   "min_per_kg": 69.69,
+   "max_per_kg": 651.92
+  },
+  {
+   "vendor": "UNITED CARGO MOVERS PRIVATE LIMITED",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 467.93,
+   "min_per_kg": 155.05,
+   "max_per_kg": 810.99
+  },
+  {
+   "vendor": "VARUNA FREIGHT (INDIA) PRIVATE LIMITED",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 496.26,
+   "min_per_kg": 44.59,
+   "max_per_kg": 528.41
+  },
+  {
+   "vendor": "Goldstar Clearing & Forwarding Services Pvt Ltd",
+   "mode": "air",
+   "invoices": 5,
+   "median_per_kg": 516.02,
+   "min_per_kg": 86.81,
+   "max_per_kg": 1560.88
+  },
+  {
+   "vendor": "SEA HAWK LOGISTICS SOLUTIONS PVT. LTD.",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 621.48,
+   "min_per_kg": 27.65,
+   "max_per_kg": 2039.18
+  },
+  {
+   "vendor": "Narmada Forwarders Agencies",
+   "mode": "air",
+   "invoices": 3,
+   "median_per_kg": 1487.64,
+   "min_per_kg": 1157.35,
+   "max_per_kg": 2133.75
+  },
+  {
+   "vendor": "Jay Ambe Exim Services Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 3.19,
+   "min_per_kg": 2.61,
+   "max_per_kg": 11.1
+  },
+  {
+   "vendor": "VAYU LOGISTICS SOLUTIONS AGENCIES",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 4.87,
+   "min_per_kg": 4.53,
+   "max_per_kg": 42.72
+  },
+  {
+   "vendor": "Apex Logistics Solutions Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 6.45,
+   "min_per_kg": 6.04,
+   "max_per_kg": 158.92
+  },
+  {
+   "vendor": "SEA HAWK LOGISTICS SOLUTIONS PVT. LTD.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 8.59,
+   "min_per_kg": 4.55,
+   "max_per_kg": 407.25
+  },
+  {
+   "vendor": "Overseas Logistics Ltd.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 10.55,
+   "min_per_kg": 4.95,
+   "max_per_kg": 150.98
+  },
+  {
+   "vendor": "Sea Hawk Maritime Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 10.62,
+   "min_per_kg": 2.61,
+   "max_per_kg": 54.96
+  },
+  {
+   "vendor": "Apex Worldwide Logistics Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 11.03,
+   "min_per_kg": 4.39,
+   "max_per_kg": 66.08
+  },
+  {
+   "vendor": "COSMOS OCEAN SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 11.51,
+   "min_per_kg": 2.43,
+   "max_per_kg": 490.33
+  },
+  {
+   "vendor": "OM SAI CARGO MOVERS INDIA PVT. LTD.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 12.66,
+   "min_per_kg": 2.71,
+   "max_per_kg": 293.24
+  },
+  {
+   "vendor": "Granite Clearing & Forwarding & Co.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 12.96,
+   "min_per_kg": 5.75,
+   "max_per_kg": 51.15
+  },
+  {
+   "vendor": "Narmada Multimodal India Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 14.52,
+   "min_per_kg": 3.15,
+   "max_per_kg": 20.74
+  },
+  {
+   "vendor": "Summit Transport & Logistics Agencies",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 15.34,
+   "min_per_kg": 2.43,
+   "max_per_kg": 128.45
+  },
+  {
+   "vendor": "Eagle Exim Services Agencies",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 15.63,
+   "min_per_kg": 14.07,
+   "max_per_kg": 153.44
+  },
+  {
+   "vendor": "Allied Multimodal Corporation",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 15.75,
+   "min_per_kg": 2.91,
+   "max_per_kg": 1082.39
+  },
+  {
+   "vendor": "Lotus Transport & Logistics India Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 15.77,
+   "min_per_kg": 1.9,
+   "max_per_kg": 36.05
+  },
+  {
+   "vendor": "SAHYADRI SHIPPING PVT. LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 16.03,
+   "min_per_kg": 11.93,
+   "max_per_kg": 2049.77
+  },
+  {
+   "vendor": "Allied Supply Chain Agencies",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 16.64,
+   "min_per_kg": 11.2,
+   "max_per_kg": 59.74
+  },
+  {
+   "vendor": "DELTA TRANSPORT & LOGISTICS INDIA PVT. LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 17.17,
+   "min_per_kg": 6.27,
+   "max_per_kg": 113.18
+  },
+  {
+   "vendor": "UNITED CARGO MOVERS PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 18.0,
+   "min_per_kg": 10.84,
+   "max_per_kg": 33.62
+  },
+  {
+   "vendor": "KAVERI CARGO (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 18.48,
+   "min_per_kg": 4.98,
+   "max_per_kg": 204.02
+  },
+  {
+   "vendor": "Sterling Freight LLP",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 18.82,
+   "min_per_kg": 5.58,
+   "max_per_kg": 1343.85
+  },
+  {
+   "vendor": "TAPI GLOBAL LOGISTICS PVT. LTD",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 19.01,
+   "min_per_kg": 1.73,
+   "max_per_kg": 780.47
+  },
+  {
+   "vendor": "SWIFT FREIGHT PVT. LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 19.06,
+   "min_per_kg": 11.77,
+   "max_per_kg": 49.0
+  },
+  {
+   "vendor": "Konkan Maritime Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 19.24,
+   "min_per_kg": 2.29,
+   "max_per_kg": 826.15
+  },
+  {
+   "vendor": "Global Link Supply Chain (India) Private Limited",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 20.08,
+   "min_per_kg": 5.72,
+   "max_per_kg": 86.91
+  },
+  {
+   "vendor": "EASTWIND TRANSPORT & LOGISTICS PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 20.46,
+   "min_per_kg": 2.13,
+   "max_per_kg": 38.14
+  },
+  {
+   "vendor": "Blue Ocean Freight Carriers Ltd.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 20.57,
+   "min_per_kg": 2.84,
+   "max_per_kg": 1907.25
+  },
+  {
+   "vendor": "Rapid Worldwide Logistics Corporation",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 20.68,
+   "min_per_kg": 3.01,
+   "max_per_kg": 51.41
+  },
+  {
+   "vendor": "SWIFT FREIGHT CARRIERS SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 21.18,
+   "min_per_kg": 4.97,
+   "max_per_kg": 212.84
+  },
+  {
+   "vendor": "Goldstar Clearing & Forwarding Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 21.76,
+   "min_per_kg": 13.31,
+   "max_per_kg": 76.98
+  },
+  {
+   "vendor": "STARLINE FREIGHT CARRIERS PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 22.01,
+   "min_per_kg": 8.36,
+   "max_per_kg": 44.34
+  },
+  {
+   "vendor": "Landmark Supply Chain Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 22.02,
+   "min_per_kg": 8.01,
+   "max_per_kg": 68.09
+  },
+  {
+   "vendor": "SEABIRD CARGO PVT. LTD",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 22.61,
+   "min_per_kg": 13.64,
+   "max_per_kg": 22.82
+  },
+  {
+   "vendor": "Narmada Shipping Agencies Pvt Ltd",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 22.63,
+   "min_per_kg": 16.81,
+   "max_per_kg": 160.14
+  },
+  {
+   "vendor": "SAFFRON EXIM SERVICES (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 8,
+   "median_per_kg": 23.09,
+   "min_per_kg": 1.81,
+   "max_per_kg": 123.45
+  },
+  {
+   "vendor": "PACIFIC CREST LOGISTICS SOLUTIONS AGENCIES",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 23.22,
+   "min_per_kg": 22.83,
+   "max_per_kg": 97.07
+  },
+  {
+   "vendor": "Mariner Global Logistics Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 24.51,
+   "min_per_kg": 4.42,
+   "max_per_kg": 28.24
+  },
+  {
+   "vendor": "Sagar Forwarders Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 24.88,
+   "min_per_kg": 16.25,
+   "max_per_kg": 25.67
+  },
+  {
+   "vendor": "Lotus Exim Services India Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 25.66,
+   "min_per_kg": 5.79,
+   "max_per_kg": 264.01
+  },
+  {
+   "vendor": "EAGLE OCEAN SERVICES PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 25.8,
+   "min_per_kg": 6.8,
+   "max_per_kg": 280.48
+  },
+  {
+   "vendor": "Ambica Shipping Lines Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 26.22,
+   "min_per_kg": 6.23,
+   "max_per_kg": 45.66
+  },
+  {
+   "vendor": "Overseas Freight Systems Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 27.55,
+   "min_per_kg": 9.97,
+   "max_per_kg": 1045.81
+  },
+  {
+   "vendor": "SILVERLINE AIR & SEA PVT. LTD.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 27.66,
+   "min_per_kg": 12.36,
+   "max_per_kg": 126.71
+  },
+  {
+   "vendor": "Varuna Cargo Movers Corporation",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 27.69,
+   "min_per_kg": 1.74,
+   "max_per_kg": 320.57
+  },
+  {
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 28.02,
+   "min_per_kg": 4.02,
+   "max_per_kg": 183.28
+  },
+  {
+   "vendor": "Oriental Express Cargo Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 28.33,
+   "min_per_kg": 2.63,
+   "max_per_kg": 1815.25
+  },
+  {
+   "vendor": "Harbour Air & Sea Ltd.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 28.69,
+   "min_per_kg": 6.61,
+   "max_per_kg": 240.13
+  },
+  {
+   "vendor": "Allied Logistics & Co.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 29.28,
+   "min_per_kg": 5.12,
+   "max_per_kg": 228.34
+  },
+  {
+   "vendor": "NORTHWIND EXIM SERVICES (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 29.41,
+   "min_per_kg": 13.35,
+   "max_per_kg": 83.23
+  },
+  {
+   "vendor": "PORTLINE SHIPPING LINES LIMITED",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 29.85,
+   "min_per_kg": 10.92,
+   "max_per_kg": 140.54
+  },
+  {
+   "vendor": "Narmada Global Logistics Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 30.57,
+   "min_per_kg": 5.93,
+   "max_per_kg": 1704.7
+  },
+  {
+   "vendor": "Samudra Logistics Solutions Private Limited",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 31.28,
+   "min_per_kg": 5.5,
+   "max_per_kg": 34.53
+  },
+  {
+   "vendor": "Ironclad Shipping Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 31.33,
+   "min_per_kg": 6.21,
+   "max_per_kg": 314.73
+  },
+  {
+   "vendor": "Orbit Transport & Logistics Limited",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 31.72,
+   "min_per_kg": 20.56,
+   "max_per_kg": 368.87
+  },
+  {
+   "vendor": "Arihant Shipping (India) Private Limited",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 32.79,
+   "min_per_kg": 4.25,
+   "max_per_kg": 272.75
+  },
+  {
+   "vendor": "Granite Clearing & Forwarding Ltd.",
+   "mode": "sea",
+   "invoices": 8,
+   "median_per_kg": 33.1,
+   "min_per_kg": 16.69,
+   "max_per_kg": 98.47
+  },
+  {
+   "vendor": "Kailash Supply Chain & Co.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 33.15,
+   "min_per_kg": 9.95,
+   "max_per_kg": 393.86
+  },
+  {
+   "vendor": "STARLINE OCEAN SERVICES LLP",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 33.38,
+   "min_per_kg": 7.4,
+   "max_per_kg": 48.69
+  },
+  {
+   "vendor": "Pacific Crest Shipping Lines (India) Private Limited",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 33.71,
+   "min_per_kg": 2.93,
+   "max_per_kg": 2395.92
+  },
+  {
+   "vendor": "BHAVYA CLEARING & FORWARDING PVT. LTD.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 34.8,
+   "min_per_kg": 8.26,
+   "max_per_kg": 1269.31
+  },
+  {
+   "vendor": "Samudra Shipping Services Limited",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 34.97,
+   "min_per_kg": 3.43,
+   "max_per_kg": 74.94
+  },
+  {
+   "vendor": "Polar Supply Chain Agencies",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 35.72,
+   "min_per_kg": 2.79,
+   "max_per_kg": 666.0
+  },
+  {
+   "vendor": "APEX GLOBAL LOGISTICS AGENCIES",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 36.47,
+   "min_per_kg": 13.2,
+   "max_per_kg": 52.91
+  },
+  {
+   "vendor": "KAILASH FREIGHT FORWARDERS LIMITED",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 37.22,
+   "min_per_kg": 4.87,
+   "max_per_kg": 829.52
+  },
+  {
+   "vendor": "Konkan Freight Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 37.62,
+   "min_per_kg": 21.28,
+   "max_per_kg": 247.2
+  },
+  {
+   "vendor": "STERLING FREIGHT CARRIERS AGENCIES",
+   "mode": "sea",
+   "invoices": 8,
+   "median_per_kg": 37.64,
+   "min_per_kg": 6.26,
+   "max_per_kg": 236.41
+  },
+  {
+   "vendor": "Allied Supply Chain Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 37.98,
+   "min_per_kg": 9.12,
+   "max_per_kg": 112.99
+  },
+  {
+   "vendor": "PARAGON FREIGHT SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 39.02,
+   "min_per_kg": 25.97,
+   "max_per_kg": 54.65
+  },
+  {
+   "vendor": "Overseas Logistics (India) Private Limited",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 39.11,
+   "min_per_kg": 8.86,
+   "max_per_kg": 548.69
+  },
+  {
+   "vendor": "Ironclad Logistics Solutions Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 39.12,
+   "min_per_kg": 37.17,
+   "max_per_kg": 474.79
+  },
+  {
+   "vendor": "FALCON FREIGHT SYSTEMS LTD.",
+   "mode": "sea",
+   "invoices": 10,
+   "median_per_kg": 39.26,
+   "min_per_kg": 8.73,
+   "max_per_kg": 328.12
+  },
+  {
+   "vendor": "Trans Global Air & Sea LLP",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 39.79,
+   "min_per_kg": 8.48,
+   "max_per_kg": 255.51
+  },
+  {
+   "vendor": "Titan Cargo Movers Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 40.24,
+   "min_per_kg": 23.37,
+   "max_per_kg": 585.59
+  },
+  {
+   "vendor": "Bluefin Multimodal Agencies",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 40.25,
+   "min_per_kg": 8.54,
+   "max_per_kg": 227.74
+  },
+  {
+   "vendor": "Vinayak Forwarders Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 40.47,
+   "min_per_kg": 7.77,
+   "max_per_kg": 231.08
+  },
+  {
+   "vendor": "Royal Freight Forwarders Private Limited",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 40.59,
+   "min_per_kg": 3.49,
+   "max_per_kg": 202.88
+  },
+  {
+   "vendor": "Zenith Shipping Agencies PVT. LTD.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 41.48,
+   "min_per_kg": 3.13,
+   "max_per_kg": 171.21
+  },
+  {
+   "vendor": "Continental Exim Services LLP",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 41.54,
+   "min_per_kg": 5.42,
+   "max_per_kg": 124.89
+  },
+  {
+   "vendor": "Greenport Cargo India Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 43.03,
+   "min_per_kg": 27.92,
+   "max_per_kg": 196.23
+  },
+  {
+   "vendor": "KAVERI LOGISTICS PVT. LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 43.71,
+   "min_per_kg": 4.57,
+   "max_per_kg": 129.55
+  },
+  {
+   "vendor": "Ambica Shipping Agencies LLP",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 43.89,
+   "min_per_kg": 9.34,
+   "max_per_kg": 362.3
+  },
+  {
+   "vendor": "OVERSEAS SHIPPING (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 44.21,
+   "min_per_kg": 4.56,
+   "max_per_kg": 70.78
+  },
+  {
+   "vendor": "Portline Supply Chain Limited",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 45.78,
+   "min_per_kg": 14.89,
+   "max_per_kg": 142.08
+  },
+  {
+   "vendor": "PINNACLE LOGISTICS SOLUTIONS (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 45.8,
+   "min_per_kg": 17.18,
+   "max_per_kg": 347.39
+  },
+  {
+   "vendor": "Shree Balaji Freight Carriers Agencies",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 47.13,
+   "min_per_kg": 1.46,
+   "max_per_kg": 58.21
+  },
+  {
+   "vendor": "Frontier Freight Carriers Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 47.53,
+   "min_per_kg": 10.71,
+   "max_per_kg": 1086.47
+  },
+  {
+   "vendor": "GOLDSTAR SHIPPING LINES LIMITED",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 47.61,
+   "min_per_kg": 3.55,
+   "max_per_kg": 473.61
+  },
+  {
+   "vendor": "Arihant Logistics Solutions & Co.",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 49.42,
+   "min_per_kg": 10.73,
+   "max_per_kg": 1417.13
+  },
+  {
+   "vendor": "Silverline Transport & Logistics Limited",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 50.34,
+   "min_per_kg": 11.19,
+   "max_per_kg": 490.53
+  },
+  {
+   "vendor": "Om Sai Freight Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 8,
+   "median_per_kg": 50.41,
+   "min_per_kg": 3.9,
+   "max_per_kg": 331.91
+  },
+  {
+   "vendor": "Harbour Ocean Services Pvt. Ltd.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 50.82,
+   "min_per_kg": 2.43,
+   "max_per_kg": 606.97
+  },
+  {
+   "vendor": "INDUS LOGISTICS AGENCIES",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 52.62,
+   "min_per_kg": 20.73,
+   "max_per_kg": 58.73
+  },
+  {
+   "vendor": "Vayu Transport & Logistics (India) Private Limited",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 52.97,
+   "min_per_kg": 15.68,
+   "max_per_kg": 220.65
+  },
+  {
+   "vendor": "CRESTLINE FREIGHT SYSTEMS PVT. LTD.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 53.19,
+   "min_per_kg": 7.63,
+   "max_per_kg": 185.04
+  },
+  {
+   "vendor": "Worldlink Freight Systems Corporation",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 54.65,
+   "min_per_kg": 15.54,
+   "max_per_kg": 69.77
+  },
+  {
+   "vendor": "MARUTI MULTIMODAL LLP",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 54.93,
+   "min_per_kg": 3.1,
+   "max_per_kg": 224.37
+  },
+  {
+   "vendor": "Westport Transport & Logistics Pvt Ltd",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 55.11,
+   "min_per_kg": 4.57,
+   "max_per_kg": 167.58
+  },
+  {
+   "vendor": "OCEANIC MARITIME LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 57.26,
+   "min_per_kg": 2.28,
+   "max_per_kg": 123.04
+  },
+  {
+   "vendor": "Meridian Cargo LLP",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 57.9,
+   "min_per_kg": 6.86,
+   "max_per_kg": 574.04
+  },
+  {
+   "vendor": "SUMMIT FREIGHT CARRIERS SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 59.47,
+   "min_per_kg": 22.23,
+   "max_per_kg": 78.11
+  },
+  {
+   "vendor": "SWIFT LOGISTICS SOLUTIONS LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 62.31,
+   "min_per_kg": 50.16,
+   "max_per_kg": 420.47
+  },
+  {
+   "vendor": "Eastwind Cargo Movers Agencies",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 63.59,
+   "min_per_kg": 1.99,
+   "max_per_kg": 71.46
+  },
+  {
+   "vendor": "PINNACLE SHIPPING LINES SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 65.05,
+   "min_per_kg": 21.25,
+   "max_per_kg": 944.81
+  },
+  {
+   "vendor": "SIDDHI GLOBAL LOGISTICS & CO.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 67.33,
+   "min_per_kg": 5.29,
+   "max_per_kg": 110.48
+  },
+  {
+   "vendor": "FALCON FREIGHT PVT LTD",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 67.63,
+   "min_per_kg": 12.59,
+   "max_per_kg": 156.91
+  },
+  {
+   "vendor": "Summit Shipping PVT. LTD.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 69.0,
+   "min_per_kg": 7.9,
+   "max_per_kg": 688.1
+  },
+  {
+   "vendor": "NARMADA GLOBAL LOGISTICS SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 69.83,
+   "min_per_kg": 46.01,
+   "max_per_kg": 621.39
+  },
+  {
+   "vendor": "KONKAN FREIGHT & CO.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 71.83,
+   "min_per_kg": 19.71,
+   "max_per_kg": 187.06
+  },
+  {
+   "vendor": "Allied Multimodal Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 72.25,
+   "min_per_kg": 51.54,
+   "max_per_kg": 324.82
+  },
+  {
+   "vendor": "Samudra Exim Services LLP",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 76.91,
+   "min_per_kg": 6.0,
+   "max_per_kg": 110.93
+  },
+  {
+   "vendor": "Jubilee Freight Systems Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 78.46,
+   "min_per_kg": 2.47,
+   "max_per_kg": 134.64
+  },
+  {
+   "vendor": "Mahavir Worldwide Logistics Ltd.",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 78.56,
+   "min_per_kg": 20.01,
+   "max_per_kg": 1652.69
+  },
+  {
+   "vendor": "Sagar Freight Carriers Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 78.91,
+   "min_per_kg": 68.72,
+   "max_per_kg": 87.2
+  },
+  {
+   "vendor": "Delta Clearing & Forwarding Limited",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 82.35,
+   "min_per_kg": 24.41,
+   "max_per_kg": 1951.86
+  },
+  {
+   "vendor": "Worldlink Global Logistics PVT. LTD.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 84.98,
+   "min_per_kg": 25.48,
+   "max_per_kg": 309.96
+  },
+  {
+   "vendor": "Konkan Multimodal PVT. LTD.",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 85.26,
+   "min_per_kg": 38.6,
+   "max_per_kg": 139.11
+  },
+  {
+   "vendor": "Atlas Shipping Services Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 85.43,
+   "min_per_kg": 8.95,
+   "max_per_kg": 202.78
+  },
+  {
+   "vendor": "Aadhya Maritime Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 92.23,
+   "min_per_kg": 41.45,
+   "max_per_kg": 452.02
+  },
+  {
+   "vendor": "Saffron Shipping Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 93.12,
+   "min_per_kg": 59.05,
+   "max_per_kg": 136.79
+  },
+  {
+   "vendor": "ZENITH MULTIMODAL (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 97.29,
+   "min_per_kg": 32.42,
+   "max_per_kg": 281.38
+  },
+  {
+   "vendor": "Ganga Freight Systems (India) Private Limited",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 98.98,
+   "min_per_kg": 24.66,
+   "max_per_kg": 122.87
+  },
+  {
+   "vendor": "Narmada Forwarders Agencies",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 102.75,
+   "min_per_kg": 36.62,
+   "max_per_kg": 198.16
+  },
+  {
+   "vendor": "SEABIRD SHIPPING SERVICES SERVICES PVT LTD",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 103.38,
+   "min_per_kg": 44.33,
+   "max_per_kg": 301.25
+  },
+  {
+   "vendor": "SHIV SHAKTI SHIPPING AGENCIES PVT. LTD.",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 105.19,
+   "min_per_kg": 1.32,
+   "max_per_kg": 1211.94
+  },
+  {
+   "vendor": "KESTREL MARITIME PVT. LTD.",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 109.67,
+   "min_per_kg": 12.13,
+   "max_per_kg": 4433.02
+  },
+  {
+   "vendor": "Eagle Shipping Agencies Corporation",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 111.34,
+   "min_per_kg": 37.69,
+   "max_per_kg": 369.39
+  },
+  {
+   "vendor": "Frontier Shipping Services Limited",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 121.47,
+   "min_per_kg": 27.77,
+   "max_per_kg": 182.8
+  },
+  {
+   "vendor": "ANCHOR FREIGHT FORWARDERS & CO.",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 136.81,
+   "min_per_kg": 3.91,
+   "max_per_kg": 682.43
+  },
+  {
+   "vendor": "Blue Ocean Air & Sea Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 149.0,
+   "min_per_kg": 12.84,
+   "max_per_kg": 301.6
+  },
+  {
+   "vendor": "Horizon Exim Services (India) Private Limited",
+   "mode": "sea",
+   "invoices": 7,
+   "median_per_kg": 151.1,
+   "min_per_kg": 19.16,
+   "max_per_kg": 209.7
+  },
+  {
+   "vendor": "Crescent Supply Chain Agencies",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 166.78,
+   "min_per_kg": 84.81,
+   "max_per_kg": 302.81
+  },
+  {
+   "vendor": "Atlas Shipping Agencies Services Pvt Ltd",
+   "mode": "sea",
+   "invoices": 4,
+   "median_per_kg": 175.22,
+   "min_per_kg": 2.19,
+   "max_per_kg": 8913.25
+  },
+  {
+   "vendor": "Falcon Forwarders Private Limited",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 184.46,
+   "min_per_kg": 5.25,
+   "max_per_kg": 1391.43
+  },
+  {
+   "vendor": "OCEANIC AIR & SEA PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 184.49,
+   "min_per_kg": 59.47,
+   "max_per_kg": 749.85
+  },
+  {
+   "vendor": "Titan Logistics Limited",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 185.78,
+   "min_per_kg": 29.41,
+   "max_per_kg": 333.72
+  },
+  {
+   "vendor": "Eagle Transport & Logistics Pvt Ltd",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 203.6,
+   "min_per_kg": 46.39,
+   "max_per_kg": 1003.08
+  },
+  {
+   "vendor": "Paragon Ocean Services LLP",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 217.79,
+   "min_per_kg": 3.09,
+   "max_per_kg": 272.25
+  },
+  {
+   "vendor": "GRANITE GLOBAL LOGISTICS & CO.",
+   "mode": "sea",
+   "invoices": 5,
+   "median_per_kg": 222.12,
+   "min_per_kg": 51.81,
+   "max_per_kg": 744.01
+  },
+  {
+   "vendor": "Portline Freight Pvt. Ltd",
+   "mode": "sea",
+   "invoices": 6,
+   "median_per_kg": 241.92,
+   "min_per_kg": 4.92,
+   "max_per_kg": 622.29
+  },
+  {
+   "vendor": "OVERSEAS SHIPPING AGENCIES PVT LTD",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 274.9,
+   "min_per_kg": 26.59,
+   "max_per_kg": 633.52
+  },
+  {
+   "vendor": "MARINER FREIGHT PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 412.74,
+   "min_per_kg": 167.92,
+   "max_per_kg": 1045.24
+  },
+  {
+   "vendor": "ORIENTAL AIR & SEA (INDIA) PRIVATE LIMITED",
+   "mode": "sea",
+   "invoices": 3,
+   "median_per_kg": 441.37,
+   "min_per_kg": 32.62,
+   "max_per_kg": 577.22
+  }
+ ],
+ "vendor_concentration_hhi": 0.0057,
+ "quality": {
+  "fill_rates": [
+   {
+    "field": "Invoice No",
+    "filled": 2500,
+    "of": 2500,
+    "rate": 100.0
+   },
+   {
+    "field": "Invoice Date",
+    "filled": 2500,
+    "of": 2500,
+    "rate": 100.0
+   },
+   {
+    "field": "Vendor Name",
+    "filled": 2500,
+    "of": 2500,
+    "rate": 100.0
+   },
+   {
+    "field": "WEIGHT",
+    "filled": 1697,
+    "of": 2500,
+    "rate": 67.9
+   },
+   {
+    "field": "Container Number (sea)",
+    "filled": 1403,
+    "of": 1766,
+    "rate": 79.4
+   },
+   {
+    "field": "Bill of Lading / HBL (sea)",
+    "filled": 1474,
+    "of": 1766,
+    "rate": 83.5
+   },
+   {
+    "field": "MAWB No (air)",
+    "filled": 505,
+    "of": 598,
+    "rate": 84.4
+   },
+   {
+    "field": "HAWB No (air)",
+    "filled": 457,
+    "of": 598,
+    "rate": 76.4
+   },
+   {
+    "field": "At least one charge",
+    "filled": 2500,
+    "of": 2500,
+    "rate": 100.0
+   }
+  ],
+  "review_status": {
+   "APPROVED": 2083,
+   "PENDING": 417
+  },
+  "extraction_status": {
+   "COMPLETED": 2500
+  },
+  "runs": {
+   "with_run_record": 2500,
+   "pipeline_versions": {
+    "invoice-extraction-v2": 2500
+   },
+   "routes": {
+    "AUTO_ACCEPT": 2083,
+    "REVIEW": 417
+   },
+   "invoices_with_warnings": 417
+  }
+ },
+ "findings": [
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Agency Charges of \u20b91,210 is only 17% of the typical amount",
+   "detail": "PORTLINE SHIPPING LINES LIMITED: typical Agency Charges is \u20b97,090 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "INV/24-25/23295"
+   ],
+   "metric": {
+    "z": -19.88,
+    "amount": 1210.0,
+    "typical": 7090.0,
+    "peers": 9,
+    "category": "Agency Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Agency Charges of \u20b91,270 is only 18% of the typical amount",
+   "detail": "PORTLINE SHIPPING LINES LIMITED: typical Agency Charges is \u20b97,090 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "INV/25-26/56458"
+   ],
+   "metric": {
+    "z": -19.34,
+    "amount": 1269.72,
+    "typical": 7090.0,
+    "peers": 9,
+    "category": "Agency Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Sea Freight of \u20b941,228 is only 7% of the typical amount",
+   "detail": "GREENPORT GLOBAL LOGISTICS LTD.: typical Sea Freight is \u20b95.69 L across 10 invoices (this vendor's own invoices).",
+   "invoices": [
+    "FWD-2026-184043"
+   ],
+   "metric": {
+    "z": -13.41,
+    "amount": 41228.4,
+    "typical": 568642.94,
+    "peers": 10,
+    "category": "Sea Freight"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Sea Freight of \u20b949,790 is only 9% of the typical amount",
+   "detail": "GREENPORT GLOBAL LOGISTICS LTD.: typical Sea Freight is \u20b95.69 L across 10 invoices (this vendor's own invoices).",
+   "invoices": [
+    "FWD-2024-124859"
+   ],
+   "metric": {
+    "z": -12.45,
+    "amount": 49790.0,
+    "typical": 568642.94,
+    "peers": 10,
+    "category": "Sea Freight"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Other Charges of \u20b990 is only 1% of the typical amount",
+   "detail": "Worldlink Global Logistics PVT. LTD.: typical Other Charges is \u20b912,832 across 10 invoices (this vendor's own invoices).",
+   "invoices": [
+    "7844214313"
+   ],
+   "metric": {
+    "z": -12.28,
+    "amount": 90.0,
+    "typical": 12831.53,
+    "peers": 10,
+    "category": "Other Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Agency Charges of \u20b91,060 is only 14% of the typical amount",
+   "detail": "KESTREL MARITIME PVT. LTD.: typical Agency Charges is \u20b97,380 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "KMP-159352"
+   ],
+   "metric": {
+    "z": -10.3,
+    "amount": 1060.0,
+    "typical": 7380.0,
+    "peers": 9,
+    "category": "Agency Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Other Charges of \u20b9364 is only 3% of the typical amount",
+   "detail": "Eagle Shipping Agencies Corporation: typical Other Charges is \u20b912,588 across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "ESA/EXP/2690/24-25"
+   ],
+   "metric": {
+    "z": -9.01,
+    "amount": 363.98,
+    "typical": 12587.94,
+    "peers": 8,
+    "category": "Other Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Handlign Charges of \u20b91,648 is only 16% of the typical amount",
+   "detail": "Atlas Shipping Agencies Services Pvt Ltd: typical Handlign Charges is \u20b910,307 across 10 invoices (this vendor's own invoices).",
+   "invoices": [
+    "ATSH256160"
+   ],
+   "metric": {
+    "z": -8.47,
+    "amount": 1648.05,
+    "typical": 10307.44,
+    "peers": 10,
+    "category": "Handlign Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Handlign Charges of \u20b9722 is only 2% of the typical amount",
+   "detail": "Vinayak Forwarders Pvt. Ltd.: typical Handlign Charges is \u20b930,355 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "VF/BLR/99197"
+   ],
+   "metric": {
+    "z": -8.32,
+    "amount": 722.48,
+    "typical": 30355.24,
+    "peers": 9,
+    "category": "Handlign Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Agency Charges of \u20b91,594 is only 22% of the typical amount",
+   "detail": "KESTREL MARITIME PVT. LTD.: typical Agency Charges is \u20b97,380 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "KMP-802437"
+   ],
+   "metric": {
+    "z": -8.13,
+    "amount": 1593.99,
+    "typical": 7380.0,
+    "peers": 9,
+    "category": "Agency Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Handlign Charges of \u20b9400 is only 4% of the typical amount",
+   "detail": "Frontier Shipping Services Limited: typical Handlign Charges is \u20b910,569 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "STV5123742"
+   ],
+   "metric": {
+    "z": -8.12,
+    "amount": 400.0,
+    "typical": 10569.3,
+    "peers": 9,
+    "category": "Handlign Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Handlign Charges of \u20b91,012 is only 3% of the typical amount",
+   "detail": "Vinayak Forwarders Pvt. Ltd.: typical Handlign Charges is \u20b930,355 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "VF/BLR/10290"
+   ],
+   "metric": {
+    "z": -7.57,
+    "amount": 1012.36,
+    "typical": 30355.24,
+    "peers": 9,
+    "category": "Handlign Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Handlign Charges of \u20b93,050 is only 12% of the typical amount",
+   "detail": "EAGLE FORWARDERS SERVICES PVT LTD: typical Handlign Charges is \u20b925,152 across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "E/30969/24-25"
+   ],
+   "metric": {
+    "z": -7.51,
+    "amount": 3050.0,
+    "typical": 25152.09,
+    "peers": 8,
+    "category": "Handlign Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Other Charges of \u20b9455 is only 8% of the typical amount",
+   "detail": "GOLDSTAR SHIPPING LINES LIMITED: typical Other Charges is \u20b95,810 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "SE24801105"
+   ],
+   "metric": {
+    "z": -7.4,
+    "amount": 455.35,
+    "typical": 5809.78,
+    "peers": 9,
+    "category": "Other Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Transportation of \u20b93,680 is only 8% of the typical amount",
+   "detail": "Summit Transport & Logistics Agencies: typical Transportation is \u20b946,372 across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "ST/NAG/77392"
+   ],
+   "metric": {
+    "z": -6.75,
+    "amount": 3680.0,
+    "typical": 46371.62,
+    "peers": 8,
+    "category": "Transportation"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Other Charges of \u20b9130 is only 1% of the typical amount",
+   "detail": "ORIENTAL AIR & SEA (INDIA) PRIVATE LIMITED: typical Other Charges is \u20b99,798 across 10 invoices (this vendor's own invoices).",
+   "invoices": [
+    "INV/24-25/83112"
+   ],
+   "metric": {
+    "z": -6.71,
+    "amount": 130.0,
+    "typical": 9797.53,
+    "peers": 10,
+    "category": "Other Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Other Charges of \u20b9460 is only 5% of the typical amount",
+   "detail": "MARUTI MULTIMODAL LLP: typical Other Charges is \u20b98,540 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "FWD-2025-846415"
+   ],
+   "metric": {
+    "z": -6.28,
+    "amount": 460.0,
+    "typical": 8540.0,
+    "peers": 9,
+    "category": "Other Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Sea Freight of \u20b91.17 L is only 22% of the typical amount",
+   "detail": "KAILASH FREIGHT FORWARDERS LIMITED: typical Sea Freight is \u20b95.20 L across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "IDR1956043"
+   ],
+   "metric": {
+    "z": -6.25,
+    "amount": 116949.25,
+    "typical": 519923.09,
+    "peers": 8,
+    "category": "Sea Freight"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Other Charges of \u20b9946 is only 13% of the typical amount",
+   "detail": "SAFFRON EXIM SERVICES (INDIA) PRIVATE LIMITED: typical Other Charges is \u20b97,100 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "SAEX249081"
+   ],
+   "metric": {
+    "z": -6.1,
+    "amount": 946.19,
+    "typical": 7100.0,
+    "peers": 9,
+    "category": "Other Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Sea Freight of \u20b91.50 L is only 29% of the typical amount",
+   "detail": "SEABIRD SHIPPING SERVICES SERVICES PVT LTD: typical Sea Freight is \u20b95.10 L across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "SSS/BOM/25478"
+   ],
+   "metric": {
+    "z": -6.04,
+    "amount": 149880.0,
+    "typical": 509970.59,
+    "peers": 8,
+    "category": "Sea Freight"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "high",
+   "title": "Terminal Handling Charges of \u20b95,025 is only 21% of the typical amount",
+   "detail": "Granite Clearing & Forwarding Ltd.: typical Terminal Handling Charges is \u20b924,420 across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "SE26383017"
+   ],
+   "metric": {
+    "z": -6.01,
+    "amount": 5024.57,
+    "typical": 24419.84,
+    "peers": 8,
+    "category": "Terminal Handling Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "medium",
+   "title": "Handlign Charges of \u20b92,126 is only 7% of the typical amount",
+   "detail": "Vinayak Forwarders Pvt. Ltd.: typical Handlign Charges is \u20b930,355 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "VF/BLR/27603"
+   ],
+   "metric": {
+    "z": -5.92,
+    "amount": 2125.81,
+    "typical": 30355.24,
+    "peers": 9,
+    "category": "Handlign Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "medium",
+   "title": "Transportation of \u20b93,320 is only 6% of the typical amount",
+   "detail": "Sea Hawk Maritime Services Pvt Ltd: typical Transportation is \u20b959,909 across 9 invoices (this vendor's own invoices).",
+   "invoices": [
+    "NOI9031836"
+   ],
+   "metric": {
+    "z": -5.86,
+    "amount": 3320.0,
+    "typical": 59908.94,
+    "peers": 9,
+    "category": "Transportation"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "medium",
+   "title": "Terminal Handling Charges of \u20b95,160 is only 22% of the typical amount",
+   "detail": "FALCON FREIGHT SYSTEMS LTD.: typical Terminal Handling Charges is \u20b923,530 across 10 invoices (this vendor's own invoices).",
+   "invoices": [
+    "FF/EXP/7899/26-27"
+   ],
+   "metric": {
+    "z": -5.83,
+    "amount": 5160.0,
+    "typical": 23529.64,
+    "peers": 10,
+    "category": "Terminal Handling Charges"
+   }
+  },
+  {
+   "type": "outlier_charge",
+   "severity": "medium",
+   "title": "Terminal Handling Charges of \u20b96,482 is only 24% of the typical amount",
+   "detail": "Ambica Shipping Agencies LLP: typical Terminal Handling Charges is \u20b926,872 across 8 invoices (this vendor's own invoices).",
+   "invoices": [
+    "AMSH255776"
+   ],
+   "metric": {
+    "z": -5.81,
+    "amount": 6481.56,
+    "typical": 26872.38,
+    "peers": 8,
+    "category": "Terminal Handling Charges"
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 115.914 is +23.1% vs the usual 94.15",
+   "detail": "PACIFIC CREST LOGISTICS SOLUTIONS AGENCIES: compared with other invoices of 2025-05. A higher rate inflates every converted charge.",
+   "invoices": [
+    "INV/25-26/08451"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 115.9141,
+    "reference": 94.145,
+    "deviation": 0.2312
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 114.166 is +22.1% vs the usual 93.53",
+   "detail": "EAGLE OCEAN SERVICES PRIVATE LIMITED: compared with other invoices of 2026-10. A higher rate inflates every converted charge.",
+   "invoices": [
+    "SE26245916"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 114.1661,
+    "reference": 93.5312,
+    "deviation": 0.2206
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 112.645 is +20.4% vs the usual 93.53",
+   "detail": "Apex Worldwide Logistics Pvt. Ltd.: compared with other invoices of 2026-10. A higher rate inflates every converted charge.",
+   "invoices": [
+    "AWL/VTZ/92482"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 112.6448,
+    "reference": 93.5312,
+    "deviation": 0.2044
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 115.76 is +20.3% vs the usual 96.22",
+   "detail": "Summit Transport & Logistics Agencies: compared with other invoices of 2024-09. A higher rate inflates every converted charge.",
+   "invoices": [
+    "ST/NAG/25739"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 115.76,
+    "reference": 96.2211,
+    "deviation": 0.2031
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 88.05 is -19.5% vs the usual 109.33",
+   "detail": "ROYAL SHIPPING LINES PRIVATE LIMITED: compared with other invoices of 2025-11. A higher rate inflates every converted charge.",
+   "invoices": [
+    "INV/25-26/52526"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 88.05,
+    "reference": 109.33,
+    "deviation": -0.1946
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 88.29 is -19.2% vs the usual 109.33",
+   "detail": "MARINER FREIGHT PRIVATE LIMITED: compared with other invoices of 2025-11. A higher rate inflates every converted charge.",
+   "invoices": [
+    "STVX256412131"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 88.29,
+    "reference": 109.33,
+    "deviation": -0.1924
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 88.42 is -19.1% vs the usual 109.33",
+   "detail": "Neptune Logistics Limited: compared with other invoices of 2025-11. A higher rate inflates every converted charge.",
+   "invoices": [
+    "SE25553169"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 88.42,
+    "reference": 109.33,
+    "deviation": -0.1913
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 89.1395 is -18.8% vs the usual 109.81",
+   "detail": "OCEANIC MARITIME LTD.: compared with other invoices of 2026-11. A higher rate inflates every converted charge.",
+   "invoices": [
+    "RAJR267633063"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 89.1395,
+    "reference": 109.8069,
+    "deviation": -0.1882
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 88.53 is -18.4% vs the usual 108.50",
+   "detail": "Everest Ocean Services Corporation: compared with other invoices of 2026-12. A higher rate inflates every converted charge.",
+   "invoices": [
+    "PNQ5574165"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 88.53,
+    "reference": 108.5,
+    "deviation": -0.1841
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 114.03 is +18.4% vs the usual 96.35",
+   "detail": "STERLING FREIGHT CARRIERS AGENCIES: compared with other invoices of 2025-01. A higher rate inflates every converted charge.",
+   "invoices": [
+    "SF/BOM/58384"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 114.03,
+    "reference": 96.3458,
+    "deviation": 0.1835
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 114 is +18.3% vs the usual 96.35",
+   "detail": "Jay Ambe Exim Services Pvt. Ltd: compared with other invoices of 2025-01. A higher rate inflates every converted charge.",
+   "invoices": [
+    "JA/EXP/1746/25-26"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 114.0,
+    "reference": 96.3458,
+    "deviation": 0.1832
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 88.6891 is -18.3% vs the usual 108.50",
+   "detail": "Shipwave Cargo Movers PVT. LTD.: compared with other invoices of 2026-12. A higher rate inflates every converted charge.",
+   "invoices": [
+    "SC/EXP/2240/26-27"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 88.6891,
+    "reference": 108.5,
+    "deviation": -0.1826
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 115.684 is +17.9% vs the usual 98.16",
+   "detail": "Pinnacle Freight Pvt Ltd: compared with other invoices of 2026-09. A higher rate inflates every converted charge.",
+   "invoices": [
+    "PNQX267405283"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 115.6839,
+    "reference": 98.155,
+    "deviation": 0.1786
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 114.953 is +17.7% vs the usual 97.69",
+   "detail": "Everest Ocean Services Corporation: compared with other invoices of 2024-04. A higher rate inflates every converted charge.",
+   "invoices": [
+    "PNQ7282140"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 114.9534,
+    "reference": 97.695,
+    "deviation": 0.1767
+   }
+  },
+  {
+   "type": "fx_rate",
+   "severity": "medium",
+   "title": "EUR rate 115.11 is +17.3% vs the usual 98.16",
+   "detail": "Ironclad Shipping Pvt. Ltd: compared with other invoices of 2026-09. A higher rate inflates every converted charge.",
+   "invoices": [
+    "ISP-630224"
+   ],
+   "metric": {
+    "currency": "EUR",
+    "rate": 115.11,
+    "reference": 98.155,
+    "deviation": 0.1727
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice PNQ5372237",
+   "detail": "OCEANIC AIR & SEA PRIVATE LIMITED, \u20b94.20 L: Air Freight 66% of the invoice (usually 47%), Pre Carriage Haulage 9% of the invoice (usually 0%).",
+   "invoices": [
+    "PNQ5372237"
+   ],
+   "metric": {
+    "score": 0.6542
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice SE24399061",
+   "detail": "GOLDSTAR SHIPPING LINES LIMITED, \u20b98.28 L: DAP Charges 27% of the invoice (usually 0%), Sea Freight 58% of the invoice (usually 50%).",
+   "invoices": [
+    "SE24399061"
+   ],
+   "metric": {
+    "score": 0.6517
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice SS/EXP/5095/24-25",
+   "detail": "Summit Shipping PVT. LTD., \u20b95.91 L: DAP Charges 32% of the invoice (usually 0%), Air Freight 63% of the invoice (usually 47%).",
+   "invoices": [
+    "SS/EXP/5095/24-25"
+   ],
+   "metric": {
+    "score": 0.6408
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice 7874874121",
+   "detail": "Worldlink Global Logistics PVT. LTD., \u20b94.22 L: DAP Charges 19% of the invoice (usually 0%), Pre Carriage Haulage 13% of the invoice (usually 0%).",
+   "invoices": [
+    "7874874121"
+   ],
+   "metric": {
+    "score": 0.6372
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice SCF/BLR/26063",
+   "detail": "Siddhi Clearing & Forwarding Services Pvt Ltd, \u20b93.26 L: Pre Carriage Haulage 18% of the invoice (usually 0%), Transportation 12% of the invoice (usually 0%).",
+   "invoices": [
+    "SCF/BLR/26063"
+   ],
+   "metric": {
+    "score": 0.6318
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice INV/26-27/35529",
+   "detail": "PARAGON FREIGHT PVT. LTD, \u20b94.15 L: DAP Charges 58% of the invoice (usually 0%), Air Freight 33% of the invoice (usually 47%).",
+   "invoices": [
+    "INV/26-27/35529"
+   ],
+   "metric": {
+    "score": 0.6283
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice SE26524897",
+   "detail": "Allied Supply Chain Agencies, \u20b93.19 L: Transportation 22% of the invoice (usually 0%), Warehouse charges Port 12% of the invoice (usually 0%).",
+   "invoices": [
+    "SE26524897"
+   ],
+   "metric": {
+    "score": 0.627
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice INV/25-26/54445",
+   "detail": "Falcon Forwarders Private Limited, \u20b93.83 L: Air Freight 72% of the invoice (usually 47%), Transportation 14% of the invoice (usually 0%).",
+   "invoices": [
+    "INV/25-26/54445"
+   ],
+   "metric": {
+    "score": 0.6263
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice SS/EXP/6617/25-26",
+   "detail": "SHIV SHAKTI SHIPPING AGENCIES PVT. LTD., \u20b92.67 L: Sea Freight 12% of the invoice (usually 50%), Transportation 30% of the invoice (usually 0%).",
+   "invoices": [
+    "SS/EXP/6617/25-26"
+   ],
+   "metric": {
+    "score": 0.6252
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice RAJX258607103",
+   "detail": "Trans Global Air & Sea LLP, \u20b91.32 L: Pre Carriage Haulage 35% of the invoice (usually 0%), Examination charges 10% of the invoice (usually 0%).",
+   "invoices": [
+    "RAJX258607103"
+   ],
+   "metric": {
+    "score": 0.624
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice SE25144667",
+   "detail": "Konkan Multimodal PVT. LTD., \u20b95.14 L: Air Freight 88% of the invoice (usually 47%), Fuel Charges 8% of the invoice (usually 0%).",
+   "invoices": [
+    "SE25144667"
+   ],
+   "metric": {
+    "score": 0.6239
+   }
+  },
+  {
+   "type": "unusual_invoice",
+   "severity": "low",
+   "title": "Unusual mix of charges on invoice NFABOMI2403475",
+   "detail": "Narmada Forwarders Agencies, \u20b91.66 L: Handlign Charges 15% of the invoice (usually 0%), Terminal Handling Charges 10% of the invoice (usually 1%).",
+   "invoices": [
+    "NFABOMI2403475"
+   ],
+   "metric": {
+    "score": 0.622
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "3 vendor names may be one company",
+   "detail": "FALCON FREIGHT LIMITED / FALCON FREIGHT PVT LTD / FALCON FREIGHT SYSTEMS LTD. \u2014 together 42 invoices, \u20b91.50 Cr. Merging them gives the true vendor total.",
+   "invoices": [
+    "FF/EXP/5650/24-25",
+    "FF/EXP/3145/24-25",
+    "INV/24-25/81077",
+    "FF/EXP/9396/24-25",
+    "INV/24-25/31183",
+    "24-25/FFL/5205",
+    "FF/EXP/4896/24-25",
+    "24-25/FFL/4744",
+    "INV/24-25/89002",
+    "FF/EXP/3258/24-25",
+    "24-25/FFL/4158",
+    "INV/24-25/49926"
+   ],
+   "metric": {
+    "names": [
+     "FALCON FREIGHT LIMITED",
+     "FALCON FREIGHT PVT LTD",
+     "FALCON FREIGHT SYSTEMS LTD."
+    ],
+    "spend": 15001125.77
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "STERLING FREIGHT CARRIERS AGENCIES / Sterling Freight LLP \u2014 together 29 invoices, \u20b999.49 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "E/60804/24-25",
+    "SF/BOM/73090",
+    "E/02361/24-25",
+    "SF/BOM/44647",
+    "SF/BOM/47861",
+    "E/48169/24-25",
+    "E/28413/24-25",
+    "SF/BOM/98178",
+    "E/45573/24-25",
+    "SF/BOM/69350",
+    "E/66161/24-25",
+    "SF/BOM/69065"
+   ],
+   "metric": {
+    "names": [
+     "STERLING FREIGHT CARRIERS AGENCIES",
+     "Sterling Freight LLP"
+    ],
+    "spend": 9948752.06
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "SUMMIT FREIGHT CARRIERS SERVICES PVT LTD / SWIFT FREIGHT CARRIERS SERVICES PVT LTD \u2014 together 18 invoices, \u20b997.45 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "SE24141648",
+    "SFGDMI2460165",
+    "SFGDMI2480417",
+    "SFGDMI2447213",
+    "SFGDMI2557229",
+    "SE25777832",
+    "SE25729066",
+    "SFGDMI2585492",
+    "SFGDMI2584607",
+    "SFGDMI2587312",
+    "SFGDMI2542127",
+    "SE25969847"
+   ],
+   "metric": {
+    "names": [
+     "SUMMIT FREIGHT CARRIERS SERVICES PVT LTD",
+     "SWIFT FREIGHT CARRIERS SERVICES PVT LTD"
+    ],
+    "spend": 9744737.12
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "3 vendor names may be one company",
+   "detail": "Overseas Logistics (India) Private Limited / Overseas Logistics Ltd. / Overseas Logistics Solutions PVT. LTD. \u2014 together 37 invoices, \u20b992.96 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "24-25/OL/9851",
+    "OLSCOKI2484649",
+    "OLSCOKI2434315",
+    "FWD-2024-201892",
+    "OLSCOKI2457594",
+    "24-25/OL/5925",
+    "24-25/OL/9818",
+    "FWD-2024-823010",
+    "24-25/OL/8621",
+    "24-25/OL/9214",
+    "24-25/OL/8565",
+    "24-25/OL/5326"
+   ],
+   "metric": {
+    "names": [
+     "Overseas Logistics (India) Private Limited",
+     "Overseas Logistics Ltd.",
+     "Overseas Logistics Solutions PVT. LTD."
+    ],
+    "spend": 9295900.52
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "Samudra Exim Services LLP / Samudra Shipping Services Limited \u2014 together 28 invoices, \u20b990.30 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "SE/NAG/86289",
+    "SE/NAG/47602",
+    "SE/NAG/26307",
+    "SSDELI2486344",
+    "SE/NAG/52490",
+    "SE/NAG/16349",
+    "SE/NAG/35284",
+    "SSDELI2414381",
+    "SE/NAG/26708",
+    "SE/NAG/59957",
+    "SSDELI2581719",
+    "SSDELI2591354"
+   ],
+   "metric": {
+    "names": [
+     "Samudra Exim Services LLP",
+     "Samudra Shipping Services Limited"
+    ],
+    "spend": 9029866.27
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "EAGLE FORWARDERS SERVICES PVT LTD / EAGLE OCEAN SERVICES PRIVATE LIMITED \u2014 together 25 invoices, \u20b990.18 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "E/30969/24-25",
+    "SE24559556",
+    "SE24505497",
+    "SE24625666",
+    "E/47514/24-25",
+    "E/73634/24-25",
+    "SE24628655",
+    "E/96721/24-25",
+    "E/21418/25-26",
+    "SE25207460",
+    "SE25427188",
+    "E/75384/25-26"
+   ],
+   "metric": {
+    "names": [
+     "EAGLE FORWARDERS SERVICES PVT LTD",
+     "EAGLE OCEAN SERVICES PRIVATE LIMITED"
+    ],
+    "spend": 9017917.03
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "SAFFRON EXIM SERVICES (INDIA) PRIVATE LIMITED / Saffron Shipping Services Pvt Ltd \u2014 together 27 invoices, \u20b983.28 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "7715211973",
+    "7772960983",
+    "SAEX242622",
+    "SAEX244120",
+    "SAEX243876",
+    "SAEX249081",
+    "7574621884",
+    "7926935355",
+    "7922002955",
+    "7792627210",
+    "7819080567",
+    "7841062594"
+   ],
+   "metric": {
+    "names": [
+     "SAFFRON EXIM SERVICES (INDIA) PRIVATE LIMITED",
+     "Saffron Shipping Services Pvt Ltd"
+    ],
+    "spend": 8328382.47
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "Ambica Shipping Agencies LLP / Ambica Shipping Lines Pvt. Ltd \u2014 together 25 invoices, \u20b976.50 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "AMSH241114",
+    "AS-210756",
+    "AS-657225",
+    "AS-634579",
+    "AMSH247214",
+    "AMSH242968",
+    "AS-728578",
+    "AS-510714",
+    "AMSH251733",
+    "AMSH255776",
+    "AS-563010",
+    "AMSH252247"
+   ],
+   "metric": {
+    "names": [
+     "Ambica Shipping Agencies LLP",
+     "Ambica Shipping Lines Pvt. Ltd"
+    ],
+    "spend": 7650195.27
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "Atlas Shipping Agencies Services Pvt Ltd / Atlas Shipping Services Pvt. Ltd \u2014 together 28 invoices, \u20b975.10 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "ASBOMI2492246",
+    "ATSH249447",
+    "ATSH242002",
+    "ASBOMI2475656",
+    "ATSH243153",
+    "ASBOMI2418098",
+    "ATSH249450",
+    "ATSH247841",
+    "ATSH241366",
+    "ATSH248472",
+    "ATSH245056",
+    "ATSH259668"
+   ],
+   "metric": {
+    "names": [
+     "Atlas Shipping Agencies Services Pvt Ltd",
+     "Atlas Shipping Services Pvt. Ltd"
+    ],
+    "spend": 7509829.83
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "KAILASH FREIGHT FORWARDERS LIMITED / Kailash Freight Pvt. Ltd \u2014 together 25 invoices, \u20b973.29 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "INV/24-25/40603",
+    "INV/24-25/98231",
+    "IDR7524589",
+    "IDR7380427",
+    "IDR4636469",
+    "IDR8631099",
+    "IDR7715994",
+    "IDR5859335",
+    "INV/24-25/41526",
+    "INV/25-26/17019",
+    "INV/25-26/10003",
+    "IDR5803118"
+   ],
+   "metric": {
+    "names": [
+     "KAILASH FREIGHT FORWARDERS LIMITED",
+     "Kailash Freight Pvt. Ltd"
+    ],
+    "spend": 7329004.65
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "NARMADA GLOBAL LOGISTICS SERVICES PVT LTD / Narmada Global Logistics Pvt. Ltd \u2014 together 24 invoices, \u20b972.45 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "INV/24-25/90064",
+    "STV1825769",
+    "INV/24-25/38662",
+    "STV4970878",
+    "INV/24-25/18352",
+    "STV8690996",
+    "INV/25-26/91301",
+    "INV/25-26/33433",
+    "STV1616192",
+    "INV/25-26/59491",
+    "INV/25-26/20966",
+    "INV/25-26/58634"
+   ],
+   "metric": {
+    "names": [
+     "NARMADA GLOBAL LOGISTICS SERVICES PVT LTD",
+     "Narmada Global Logistics Pvt. Ltd"
+    ],
+    "spend": 7245386.47
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "Granite Clearing & Forwarding & Co. / Granite Clearing & Forwarding Ltd. \u2014 together 24 invoices, \u20b969.86 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "SE23237855",
+    "SE24323983",
+    "BOMX248868665",
+    "SE24944778",
+    "BOMR247515218",
+    "BOMB245295994",
+    "BOMX241893137",
+    "SE24059542",
+    "SE24611128",
+    "BOMR243892383",
+    "SE25567302",
+    "SE25990444"
+   ],
+   "metric": {
+    "names": [
+     "Granite Clearing & Forwarding & Co.",
+     "Granite Clearing & Forwarding Ltd."
+    ],
+    "spend": 6986460.52
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "SILVERLINE AIR & SEA PVT. LTD. / Silverline Maritime Limited \u2014 together 23 invoices, \u20b955.55 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "7999582777",
+    "7567052458",
+    "SML/AMD/27452",
+    "SML/AMD/19728",
+    "7773400802",
+    "7318538230",
+    "7320421179",
+    "7667831562",
+    "SML/AMD/82274",
+    "7586020727",
+    "SML/AMD/65371",
+    "7526549595"
+   ],
+   "metric": {
+    "names": [
+     "SILVERLINE AIR & SEA PVT. LTD.",
+     "Silverline Maritime Limited"
+    ],
+    "spend": 5554854.97
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "KONKAN FREIGHT & CO. / Konkan Freight Pvt. Ltd \u2014 together 19 invoices, \u20b955.16 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "KFC24-25-3521",
+    "SE24762614",
+    "KFC24-25-8259",
+    "KFC24-25-5494",
+    "KFC24-25-0711",
+    "KFC24-25-7860",
+    "KFC24-25-2796",
+    "SE24518808",
+    "KFC25-26-4444",
+    "SE25043825",
+    "SE25781610",
+    "SE25697301"
+   ],
+   "metric": {
+    "names": [
+     "KONKAN FREIGHT & CO.",
+     "Konkan Freight Pvt. Ltd"
+    ],
+    "spend": 5515910.64
+   }
+  },
+  {
+   "type": "vendor_spelling",
+   "severity": "low",
+   "title": "2 vendor names may be one company",
+   "detail": "STARLINE EXIM SERVICES PRIVATE LIMITED / STARLINE OCEAN SERVICES LLP \u2014 together 18 invoices, \u20b954.45 L. Merging them gives the true vendor total.",
+   "invoices": [
+    "IDRX245855178",
+    "INV/24-25/81144",
+    "INV/24-25/36603",
+    "IDRR241174682",
+    "INV/24-25/77094",
+    "INV/24-25/06162",
+    "INV/25-26/52384",
+    "INV/25-26/44839",
+    "IDRB253003792",
+    "INV/25-26/58551",
+    "INV/25-26/19974",
+    "INV/25-26/70206"
+   ],
+   "metric": {
+    "names": [
+     "STARLINE EXIM SERVICES PRIVATE LIMITED",
+     "STARLINE OCEAN SERVICES LLP"
+    ],
+    "spend": 5445495.0
+   }
+  },
+  {
+   "type": "missing_data",
+   "severity": "low",
+   "title": "22 invoice(s) with sea shipment without B/L or container",
+   "detail": "Neither a bill of lading nor a container number was captured.",
+   "invoices": [
+    "FF/EXP/5650/24-25",
+    "SGNVMI2439149",
+    "RAJB243966016",
+    "FWD-2024-851244",
+    "NOI1564404",
+    "HECJBI2574551",
+    "FWD-2025-044822",
+    "E/66756/25-26",
+    "E/12121/25-26",
+    "PGL/EXP/8443/25-26",
+    "VTZ7011272",
+    "E/40168/25-26"
+   ],
+   "metric": {}
+  }
+ ],
+ "forecast": {
+  "available": true,
+  "method": "Holt linear trend, 80% interval from past one-step errors",
+  "based_on_months": 34,
+  "points": [
+   {
+    "month": "2026-10",
+    "spend": 27204604.81,
+    "low": 19523847.5,
+    "high": 34885362.12
+   },
+   {
+    "month": "2026-11",
+    "spend": 29830336.77,
+    "low": 18968105.61,
+    "high": 40692567.92
+   },
+   {
+    "month": "2026-12",
+    "spend": 32456068.72,
+    "low": 19152606.83,
+    "high": 45759530.62
+   }
+  ],
+  "backtest_error_pct": 11.7
+ },
+ "review_queue": [
+  {
+   "invoice": "AL24-25-4461",
+   "vendor": "Allied Logistics & Co.",
+   "date": "2024-01-02",
+   "total": 309745.42
+  },
+  {
+   "invoice": "7593014380",
+   "vendor": "Shree Balaji Freight Carriers Agencies",
+   "date": "2024-01-03",
+   "total": 106419.33
+  },
+  {
+   "invoice": "PCCCUI2407191",
+   "vendor": "Paragon Cargo Movers (India) Private Limited",
+   "date": "2024-01-03",
+   "total": 786137.72
+  },
+  {
+   "invoice": "GGN7062835",
+   "vendor": "CRESTLINE FREIGHT SYSTEMS PVT. LTD.",
+   "date": "2024-01-08",
+   "total": 525347.24
+  },
+  {
+   "invoice": "JA/EXP/1041/24-25",
+   "vendor": "Jay Ambe Exim Services Pvt. Ltd",
+   "date": "2024-01-08",
+   "total": 134078.26
+  },
+  {
+   "invoice": "SEHA242250",
+   "vendor": "SEA HAWK LOGISTICS SOLUTIONS PVT. LTD.",
+   "date": "2024-01-14",
+   "total": 237013.42
+  },
+  {
+   "invoice": "TUT5950838",
+   "vendor": "Portline Freight Pvt. Ltd",
+   "date": "2024-01-14",
+   "total": 56709.19
+  },
+  {
+   "invoice": "HYDB247028487",
+   "vendor": "Southern Cross Cargo Movers (India) Private Limited",
+   "date": "2024-01-16",
+   "total": 42320.79
+  },
+  {
+   "invoice": "SE24097809",
+   "vendor": "Eastwind Cargo Movers Agencies",
+   "date": "2024-01-16",
+   "total": 338488.55
+  },
+  {
+   "invoice": "E/60804/24-25",
+   "vendor": "Sterling Freight LLP",
+   "date": "2024-01-17",
+   "total": 49146.22
+  },
+  {
+   "invoice": "INV/24-25/94634",
+   "vendor": "PORTLINE SHIPPING LINES LIMITED",
+   "date": "2024-01-19",
+   "total": 499172.95
+  },
+  {
+   "invoice": "ESA/EXP/8960/24-25",
+   "vendor": "Eagle Shipping Agencies Corporation",
+   "date": "2024-01-20",
+   "total": 130967.23
+  },
+  {
+   "invoice": "LTL-653589",
+   "vendor": "Lotus Transport & Logistics India Pvt. Ltd.",
+   "date": "2024-01-20",
+   "total": 453647.59
+  },
+  {
+   "invoice": "MWL/EXP/3380/24-25",
+   "vendor": "Mahavir Worldwide Logistics Ltd.",
+   "date": "2024-01-23",
+   "total": 159116.57
+  },
+  {
+   "invoice": "SF/BOM/73090",
+   "vendor": "STERLING FREIGHT CARRIERS AGENCIES",
+   "date": "2024-01-31",
+   "total": 143833.63
+  },
+  {
+   "invoice": "24-25/IL/3083",
+   "vendor": "INDUS LOGISTICS AGENCIES",
+   "date": "2024-02-01",
+   "total": 14781.48
+  },
+  {
+   "invoice": "PNQ4523279",
+   "vendor": "OCEANIC AIR & SEA PRIVATE LIMITED",
+   "date": "2024-02-06",
+   "total": 14145.91
+  },
+  {
+   "invoice": "NFABOMI2403475",
+   "vendor": "Narmada Forwarders Agencies",
+   "date": "2024-02-10",
+   "total": 165616.58
+  },
+  {
+   "invoice": "RAJR243959137",
+   "vendor": "Trans Global Air & Sea LLP",
+   "date": "2024-02-11",
+   "total": 82421.09
+  },
+  {
+   "invoice": "NOI1226867",
+   "vendor": "Sea Hawk Maritime Services Pvt Ltd",
+   "date": "2024-02-14",
+   "total": 117622.08
+  },
+  {
+   "invoice": "SE24999443",
+   "vendor": "Eastwind Cargo Movers Agencies",
+   "date": "2024-02-14",
+   "total": 19265.29
+  },
+  {
+   "invoice": "KMP-132594",
+   "vendor": "KESTREL MARITIME PVT. LTD.",
+   "date": "2024-02-17",
+   "total": 615775.22
+  },
+  {
+   "invoice": "WA/EXP/5198/24-25",
+   "vendor": "WORLDLINK AIR & SEA LIMITED",
+   "date": "2024-02-20",
+   "total": 22678.24
+  },
+  {
+   "invoice": "DELB247600216",
+   "vendor": "Cosmos Shipping Lines & Co.",
+   "date": "2024-02-22",
+   "total": 849599.48
+  },
+  {
+   "invoice": "SE24323983",
+   "vendor": "Granite Clearing & Forwarding Ltd.",
+   "date": "2024-02-22",
+   "total": 595111.69
+  },
+  {
+   "invoice": "IFNAGI2479524",
+   "vendor": "INDUS FREIGHT SYSTEMS CORPORATION",
+   "date": "2024-02-26",
+   "total": 45430.59
+  },
+  {
+   "invoice": "E/85046/24-25",
+   "vendor": "Goldstar Clearing & Forwarding Services Pvt Ltd",
+   "date": "2024-02-27",
+   "total": 509567.99
+  },
+  {
+   "invoice": "NFABOMI2457088",
+   "vendor": "Narmada Forwarders Agencies",
+   "date": "2024-02-29",
+   "total": 539820.03
+  },
+  {
+   "invoice": "SE24788689",
+   "vendor": "Konkan Multimodal PVT. LTD.",
+   "date": "2024-03-04",
+   "total": 432369.62
+  },
+  {
+   "invoice": "KL/CJB/03909",
+   "vendor": "KAVERI LOGISTICS PVT. LTD.",
+   "date": "2024-03-05",
+   "total": 283132.66
+  },
+  {
+   "invoice": "7772960983",
+   "vendor": "Saffron Shipping Services Pvt Ltd",
+   "date": "2024-03-12",
+   "total": 358740.11
+  },
+  {
+   "invoice": "E/14236/24-25",
+   "vendor": "Delta Freight Carriers Corporation",
+   "date": "2024-03-12",
+   "total": 807949.39
+  },
+  {
+   "invoice": "INV/24-25/41237",
+   "vendor": "Falcon Forwarders Private Limited",
+   "date": "2024-03-12",
+   "total": 118129.34
+  },
+  {
+   "invoice": "SE24161387",
+   "vendor": "Jay Ambe Express Cargo LLP",
+   "date": "2024-03-15",
+   "total": 17813.98
+  },
+  {
+   "invoice": "NAGB247502134",
+   "vendor": "Landmark Shipping Lines Pvt Ltd",
+   "date": "2024-03-18",
+   "total": 133654.46
+  },
+  {
+   "invoice": "CCU8468272",
+   "vendor": "Sagar Freight Carriers Pvt Ltd",
+   "date": "2024-03-19",
+   "total": 1007329.2
+  },
+  {
+   "invoice": "SEHA248805",
+   "vendor": "SEA HAWK LOGISTICS SOLUTIONS PVT. LTD.",
+   "date": "2024-03-20",
+   "total": 655202.84
+  },
+  {
+   "invoice": "HYD5997266",
+   "vendor": "COSMOS OCEAN SERVICES PVT LTD",
+   "date": "2024-03-26",
+   "total": 23066.48
+  },
+  {
+   "invoice": "INV/24-25/60671",
+   "vendor": "Eagle Exim Services Agencies",
+   "date": "2024-03-27",
+   "total": 367541.4
+  },
+  {
+   "invoice": "24-25/ALS/0324",
+   "vendor": "Apex Logistics Solutions Pvt Ltd",
+   "date": "2024-03-31",
+   "total": 352571.83
+  },
+  {
+   "invoice": "SC24-25-5427",
+   "vendor": "SEABIRD CARGO PVT. LTD",
+   "date": "2024-04-04",
+   "total": 600467.0
+  },
+  {
+   "invoice": "PCCCUI2461980",
+   "vendor": "Paragon Cargo Movers (India) Private Limited",
+   "date": "2024-04-07",
+   "total": 31964.83
+  },
+  {
+   "invoice": "OCL-370664",
+   "vendor": "Overseas Cargo Ltd.",
+   "date": "2024-04-13",
+   "total": 31141.6
+  },
+  {
+   "invoice": "KFC24-25-5494",
+   "vendor": "KONKAN FREIGHT & CO.",
+   "date": "2024-04-16",
+   "total": 4648.44
+  },
+  {
+   "invoice": "PSL-463246",
+   "vendor": "PINNACLE SHIPPING LINES SERVICES PVT LTD",
+   "date": "2024-04-19",
+   "total": 11616.59
+  },
+  {
+   "invoice": "E/73345/24-25",
+   "vendor": "Delta Freight Carriers Corporation",
+   "date": "2024-04-20",
+   "total": 72837.01
+  },
+  {
+   "invoice": "PNQ7282140",
+   "vendor": "Everest Ocean Services Corporation",
+   "date": "2024-04-20",
+   "total": 201269.9
+  },
+  {
+   "invoice": "RAJB243966016",
+   "vendor": "Trans Global Air & Sea LLP",
+   "date": "2024-04-24",
+   "total": 824591.35
+  },
+  {
+   "invoice": "ATSH243153",
+   "vendor": "Atlas Shipping Agencies Services Pvt Ltd",
+   "date": "2024-04-30",
+   "total": 31196.01
+  },
+  {
+   "invoice": "7989505967",
+   "vendor": "Shree Balaji Freight Carriers Agencies",
+   "date": "2024-05-01",
+   "total": 122821.89
+  },
+  {
+   "invoice": "24-25/FFL/5205",
+   "vendor": "FALCON FREIGHT LIMITED",
+   "date": "2024-05-06",
+   "total": 253117.06
+  },
+  {
+   "invoice": "INV/24-25/28932",
+   "vendor": "ORIENTAL AIR & SEA (INDIA) PRIVATE LIMITED",
+   "date": "2024-05-07",
+   "total": 571816.72
+  },
+  {
+   "invoice": "FWD-2024-964314",
+   "vendor": "Overseas Freight Systems Pvt. Ltd",
+   "date": "2024-05-08",
+   "total": 660248.8
+  },
+  {
+   "invoice": "SE/NAG/16349",
+   "vendor": "Samudra Exim Services LLP",
+   "date": "2024-05-09",
+   "total": 329981.3
+  },
+  {
+   "invoice": "24-25/NE/2534",
+   "vendor": "NORTHWIND EXIM SERVICES (INDIA) PRIVATE LIMITED",
+   "date": "2024-05-14",
+   "total": 118938.68
+  },
+  {
+   "invoice": "E/56564/24-25",
+   "vendor": "Sagar Forwarders Pvt Ltd",
+   "date": "2024-05-19",
+   "total": 78345.56
+  },
+  {
+   "invoice": "LOEX245789",
+   "vendor": "Lotus Exim Services India Pvt. Ltd.",
+   "date": "2024-05-20",
+   "total": 813875.51
+  },
+  {
+   "invoice": "SF/BOM/44647",
+   "vendor": "STERLING FREIGHT CARRIERS AGENCIES",
+   "date": "2024-05-22",
+   "total": 273157.86
+  },
+  {
+   "invoice": "VTZ4827660",
+   "vendor": "Ganga Freight Systems (India) Private Limited",
+   "date": "2024-05-23",
+   "total": 71832.25
+  },
+  {
+   "invoice": "AC-351866",
+   "vendor": "Anchor Cargo Movers Ltd.",
+   "date": "2024-05-27",
+   "total": 489762.77
+  },
+  {
+   "invoice": "SE24267120",
+   "vendor": "GOLDSTAR SHIPPING LINES LIMITED",
+   "date": "2024-05-31",
+   "total": 208469.54
+  },
+  {
+   "invoice": "7312846729",
+   "vendor": "Orbit Clearing & Forwarding Services Pvt Ltd",
+   "date": "2024-06-07",
+   "total": 220795.03
+  },
+  {
+   "invoice": "7933517191",
+   "vendor": "Worldlink Global Logistics PVT. LTD.",
+   "date": "2024-06-08",
+   "total": 49351.07
+  },
+  {
+   "invoice": "SE24632269",
+   "vendor": "Eastwind Cargo Movers Agencies",
+   "date": "2024-06-08",
+   "total": 655096.67
+  },
+  {
+   "invoice": "E/38702/24-25",
+   "vendor": "Crescent Supply Chain Agencies",
+   "date": "2024-06-09",
+   "total": 74277.3
+  },
+  {
+   "invoice": "AMS/PNQ/79463",
+   "vendor": "Allied Multimodal Services Pvt Ltd",
+   "date": "2024-06-13",
+   "total": 90805.32
+  },
+  {
+   "invoice": "NAGR244421333",
+   "vendor": "Starline Transport & Logistics Private Limited",
+   "date": "2024-06-14",
+   "total": 62476.75
+  },
+  {
+   "invoice": "INV/24-25/04126",
+   "vendor": "UNITED SHIPPING AGENCIES LTD.",
+   "date": "2024-06-17",
+   "total": 349140.63
+  },
+  {
+   "invoice": "7299327211",
+   "vendor": "Bluefin Multimodal Agencies",
+   "date": "2024-06-22",
+   "total": 157379.86
+  },
+  {
+   "invoice": "HECJBI2436852",
+   "vendor": "Horizon Exim Services (India) Private Limited",
+   "date": "2024-06-22",
+   "total": 163464.12
+  },
+  {
+   "invoice": "DECL246340",
+   "vendor": "Delta Clearing & Forwarding Limited",
+   "date": "2024-06-23",
+   "total": 242754.18
+  },
+  {
+   "invoice": "OSF24-25-1278",
+   "vendor": "Om Sai Freight Services Pvt Ltd",
+   "date": "2024-06-27",
+   "total": 606073.94
+  },
+  {
+   "invoice": "AMDX247745230",
+   "vendor": "Rapid Worldwide Logistics Corporation",
+   "date": "2024-06-30",
+   "total": 2062.32
+  },
+  {
+   "invoice": "24-25/NE/4978",
+   "vendor": "NORTHWIND EXIM SERVICES (INDIA) PRIVATE LIMITED",
+   "date": "2024-07-01",
+   "total": 74098.37
+  },
+  {
+   "invoice": "KF-261773",
+   "vendor": "Kestrel Forwarders Ltd.",
+   "date": "2024-07-02",
+   "total": 63590.93
+  },
+  {
+   "invoice": "KSC24-25-1653",
+   "vendor": "Kailash Supply Chain & Co.",
+   "date": "2024-07-02",
+   "total": 12442.42
+  },
+  {
+   "invoice": "INV/24-25/77094",
+   "vendor": "STARLINE OCEAN SERVICES LLP",
+   "date": "2024-07-10",
+   "total": 136709.94
+  },
+  {
+   "invoice": "RAJX245297632",
+   "vendor": "Arihant Shipping (India) Private Limited",
+   "date": "2024-07-10",
+   "total": 394992.26
+  },
+  {
+   "invoice": "POS/EXP/1135/24-25",
+   "vendor": "Paragon Ocean Services LLP",
+   "date": "2024-07-11",
+   "total": 131074.8
+  },
+  {
+   "invoice": "E/65345/24-25",
+   "vendor": "Polar Supply Chain Agencies",
+   "date": "2024-07-12",
+   "total": 511798.85
+  },
+  {
+   "invoice": "7314681100",
+   "vendor": "Worldlink Global Logistics PVT. LTD.",
+   "date": "2024-07-15",
+   "total": 158539.63
+  },
+  {
+   "invoice": "INV/24-25/66196",
+   "vendor": "Eagle Exim Services Agencies",
+   "date": "2024-07-21",
+   "total": 291911.76
+  },
+  {
+   "invoice": "24-25/IL/1573",
+   "vendor": "INDUS LOGISTICS AGENCIES",
+   "date": "2024-07-26",
+   "total": 479912.92
+  },
+  {
+   "invoice": "YAGGNI2477356",
+   "vendor": "YAMUNA AIR & SEA PVT LTD",
+   "date": "2024-08-07",
+   "total": 130969.16
+  },
+  {
+   "invoice": "7318538230",
+   "vendor": "SILVERLINE AIR & SEA PVT. LTD.",
+   "date": "2024-08-08",
+   "total": 235432.34
+  },
+  {
+   "invoice": "HECJBI2433298",
+   "vendor": "Horizon Exim Services (India) Private Limited",
+   "date": "2024-08-08",
+   "total": 119190.75
+  },
+  {
+   "invoice": "IRLO247461",
+   "vendor": "Ironclad Logistics Solutions Pvt Ltd",
+   "date": "2024-08-11",
+   "total": 98191.23
+  },
+  {
+   "invoice": "ASL/CJB/97829",
+   "vendor": "AADHYA SHIPPING LINES CORPORATION",
+   "date": "2024-08-14",
+   "total": 13326.08
+  },
+  {
+   "invoice": "KFC24-25-2796",
+   "vendor": "KONKAN FREIGHT & CO.",
+   "date": "2024-08-14",
+   "total": 86735.8
+  },
+  {
+   "invoice": "INV/24-25/69593",
+   "vendor": "Sterling Ocean Services Pvt Ltd",
+   "date": "2024-08-20",
+   "total": 44703.48
+  },
+  {
+   "invoice": "OREX245419",
+   "vendor": "Oriental Express Cargo Pvt. Ltd",
+   "date": "2024-08-22",
+   "total": 134159.75
+  },
+  {
+   "invoice": "JAI8863315",
+   "vendor": "OM SAI CARGO MOVERS INDIA PVT. LTD.",
+   "date": "2024-08-27",
+   "total": 316856.34
+  },
+  {
+   "invoice": "YAGGNI2404906",
+   "vendor": "YAMUNA AIR & SEA PVT LTD",
+   "date": "2024-09-02",
+   "total": 262326.3
+  },
+  {
+   "invoice": "OREX246821",
+   "vendor": "Oriental Express Cargo Pvt. Ltd",
+   "date": "2024-09-07",
+   "total": 68624.4
+  },
+  {
+   "invoice": "FWD-2024-217787",
+   "vendor": "Aadhya Maritime Pvt. Ltd",
+   "date": "2024-09-08",
+   "total": 10643.31
+  },
+  {
+   "invoice": "INV/24-25/69631",
+   "vendor": "PACIFIC CREST LOGISTICS SOLUTIONS AGENCIES",
+   "date": "2024-09-09",
+   "total": 21745.06
+  },
+  {
+   "invoice": "IDR4636469",
+   "vendor": "KAILASH FREIGHT FORWARDERS LIMITED",
+   "date": "2024-09-12",
+   "total": 487840.89
+  },
+  {
+   "invoice": "SS/EXP/4265/24-25",
+   "vendor": "Summit Shipping PVT. LTD.",
+   "date": "2024-09-15",
+   "total": 227429.94
+  },
+  {
+   "invoice": "STV3133108",
+   "vendor": "Frontier Shipping Services Limited",
+   "date": "2024-09-15",
+   "total": 95019.36
+  },
+  {
+   "invoice": "AL24-25-6006",
+   "vendor": "Allied Logistics & Co.",
+   "date": "2024-09-20",
+   "total": 70698.99
+  },
+  {
+   "invoice": "24-25/OL/5326",
+   "vendor": "Overseas Logistics (India) Private Limited",
+   "date": "2024-09-23",
+   "total": 331652.22
+  },
+  {
+   "invoice": "WF-903531",
+   "vendor": "Worldlink Freight Systems Corporation",
+   "date": "2024-09-25",
+   "total": 118723.9
+  },
+  {
+   "invoice": "CCU8868620",
+   "vendor": "Sagar Freight Carriers Pvt Ltd",
+   "date": "2024-09-27",
+   "total": 523909.83
+  },
+  {
+   "invoice": "E/04617/24-25",
+   "vendor": "Goldstar Clearing & Forwarding Services Pvt Ltd",
+   "date": "2024-10-02",
+   "total": 108575.91
+  },
+  {
+   "invoice": "24-25/FFL/4158",
+   "vendor": "FALCON FREIGHT LIMITED",
+   "date": "2024-10-04",
+   "total": 841580.44
+  },
+  {
+   "invoice": "STV5677259",
+   "vendor": "Frontier Shipping Services Limited",
+   "date": "2024-10-06",
+   "total": 340488.74
+  },
+  {
+   "invoice": "STVR249683598",
+   "vendor": "MARINER FREIGHT PRIVATE LIMITED",
+   "date": "2024-10-07",
+   "total": 107171.65
+  },
+  {
+   "invoice": "ST/NAG/83848",
+   "vendor": "Summit Transport & Logistics Agencies",
+   "date": "2024-10-08",
+   "total": 145246.04
+  },
+  {
+   "invoice": "FWD-2024-062535",
+   "vendor": "Mariner Global Logistics Services Pvt Ltd",
+   "date": "2024-10-09",
+   "total": 82436.68
+  },
+  {
+   "invoice": "SE24430751",
+   "vendor": "Royal Freight Forwarders Private Limited",
+   "date": "2024-10-09",
+   "total": 113644.11
+  },
+  {
+   "invoice": "NM/GGN/73926",
+   "vendor": "Narmada Multimodal India Pvt. Ltd.",
+   "date": "2024-10-12",
+   "total": 553978.67
+  },
+  {
+   "invoice": "E/03705/24-25",
+   "vendor": "Bhavya Freight Systems Corporation",
+   "date": "2024-10-14",
+   "total": 626579.78
+  },
+  {
+   "invoice": "VT/GGN/86812",
+   "vendor": "Vayu Transport & Logistics (India) Private Limited",
+   "date": "2024-10-15",
+   "total": 823598.83
+  },
+  {
+   "invoice": "INV/24-25/35704",
+   "vendor": "Sterling Ocean Services Pvt Ltd",
+   "date": "2024-10-24",
+   "total": 592158.87
+  },
+  {
+   "invoice": "SE/NAG/35284",
+   "vendor": "Samudra Exim Services LLP",
+   "date": "2024-10-31",
+   "total": 89154.78
+  },
+  {
+   "invoice": "OREX243437",
+   "vendor": "Oriental Express Cargo Pvt. Ltd",
+   "date": "2024-11-02",
+   "total": 75049.76
+  },
+  {
+   "invoice": "SF/BOM/69350",
+   "vendor": "STERLING FREIGHT CARRIERS AGENCIES",
+   "date": "2024-11-03",
+   "total": 294790.3
+  },
+  {
+   "invoice": "FWD-2024-320115",
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "date": "2024-11-04",
+   "total": 1144216.2
+  },
+  {
+   "invoice": "GLS/DEL/65389",
+   "vendor": "Global Link Supply Chain (India) Private Limited",
+   "date": "2024-11-04",
+   "total": 272263.33
+  },
+  {
+   "invoice": "SCF/BLR/62483",
+   "vendor": "Siddhi Clearing & Forwarding Services Pvt Ltd",
+   "date": "2024-11-04",
+   "total": 1056207.83
+  },
+  {
+   "invoice": "FWD-2024-871614",
+   "vendor": "Harbour Air & Sea Ltd.",
+   "date": "2024-11-05",
+   "total": 191622.14
+  },
+  {
+   "invoice": "JA/EXP/2497/24-25",
+   "vendor": "Jay Ambe Exim Services Pvt. Ltd",
+   "date": "2024-11-05",
+   "total": 348205.47
+  },
+  {
+   "invoice": "VT/GGN/08196",
+   "vendor": "Vayu Transport & Logistics (India) Private Limited",
+   "date": "2024-11-12",
+   "total": 103113.42
+  },
+  {
+   "invoice": "CCU2305208",
+   "vendor": "Sagar Freight Carriers Pvt Ltd",
+   "date": "2024-11-14",
+   "total": 87573.8
+  },
+  {
+   "invoice": "FWD-2024-851244",
+   "vendor": "EASTWIND TRANSPORT & LOGISTICS PRIVATE LIMITED",
+   "date": "2024-11-14",
+   "total": 605637.15
+  },
+  {
+   "invoice": "INV/24-25/38999",
+   "vendor": "BHAVYA CLEARING & FORWARDING PVT. LTD.",
+   "date": "2024-11-15",
+   "total": 550129.4
+  },
+  {
+   "invoice": "FWD-2024-816873",
+   "vendor": "Aadhya Maritime Pvt. Ltd",
+   "date": "2024-11-16",
+   "total": 44200.03
+  },
+  {
+   "invoice": "MO-483858",
+   "vendor": "MERIDIAN OCEAN SERVICES AGENCIES",
+   "date": "2024-11-23",
+   "total": 73619.03
+  },
+  {
+   "invoice": "DE-156062",
+   "vendor": "Dolphin Exim Services PVT. LTD.",
+   "date": "2024-11-24",
+   "total": 10336.68
+  },
+  {
+   "invoice": "SE24647890",
+   "vendor": "GOLDSTAR SHIPPING LINES LIMITED",
+   "date": "2024-11-24",
+   "total": 58586.66
+  },
+  {
+   "invoice": "INV/24-25/25917",
+   "vendor": "Paragon Multimodal PVT. LTD.",
+   "date": "2024-11-25",
+   "total": 104261.73
+  },
+  {
+   "invoice": "NOI1564404",
+   "vendor": "Sea Hawk Maritime Services Pvt Ltd",
+   "date": "2024-11-25",
+   "total": 343361.98
+  },
+  {
+   "invoice": "FWD-2024-423419",
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "date": "2024-11-27",
+   "total": 218525.47
+  },
+  {
+   "invoice": "KCI/EXP/7907/24-25",
+   "vendor": "KAVERI CARGO (INDIA) PRIVATE LIMITED",
+   "date": "2024-12-01",
+   "total": 386516.45
+  },
+  {
+   "invoice": "EWL/EXP/2601/24-25",
+   "vendor": "EVEREST WORLDWIDE LOGISTICS LLP",
+   "date": "2024-12-02",
+   "total": 765013.62
+  },
+  {
+   "invoice": "VC24-25-5790",
+   "vendor": "Varuna Cargo Movers Corporation",
+   "date": "2024-12-02",
+   "total": 640813.38
+  },
+  {
+   "invoice": "FWD-2024-664812",
+   "vendor": "Harbour Air & Sea Ltd.",
+   "date": "2024-12-05",
+   "total": 154812.63
+  },
+  {
+   "invoice": "FWD-2024-695172",
+   "vendor": "Harbour Air & Sea Ltd.",
+   "date": "2024-12-05",
+   "total": 802708.45
+  },
+  {
+   "invoice": "GL/EXP/4549/24-25",
+   "vendor": "Global Link Cargo Movers Corporation",
+   "date": "2024-12-05",
+   "total": 222556.2
+  },
+  {
+   "invoice": "TUT9432402",
+   "vendor": "Portline Freight Pvt. Ltd",
+   "date": "2024-12-06",
+   "total": 605817.4
+  },
+  {
+   "invoice": "ATSH245056",
+   "vendor": "Atlas Shipping Agencies Services Pvt Ltd",
+   "date": "2024-12-12",
+   "total": 60728.82
+  },
+  {
+   "invoice": "FWD-2024-214369",
+   "vendor": "Overseas Logistics Ltd.",
+   "date": "2024-12-14",
+   "total": 42391.0
+  },
+  {
+   "invoice": "7665828533",
+   "vendor": "TAPI GLOBAL LOGISTICS PVT. LTD",
+   "date": "2024-12-17",
+   "total": 83419.52
+  },
+  {
+   "invoice": "FWD-2024-276404",
+   "vendor": "Mariner Global Logistics Services Pvt Ltd",
+   "date": "2024-12-19",
+   "total": 171276.7
+  },
+  {
+   "invoice": "E/86527/24-25",
+   "vendor": "Crescent Supply Chain Agencies",
+   "date": "2024-12-26",
+   "total": 762269.75
+  },
+  {
+   "invoice": "E/66161/24-25",
+   "vendor": "Sterling Freight LLP",
+   "date": "2024-12-27",
+   "total": 119627.16
+  },
+  {
+   "invoice": "VC25-26-5490",
+   "vendor": "Varuna Cargo Movers Corporation",
+   "date": "2025-01-03",
+   "total": 132415.62
+  },
+  {
+   "invoice": "APSU255513",
+   "vendor": "Apex Supply Chain Pvt. Ltd",
+   "date": "2025-01-04",
+   "total": 53112.29
+  },
+  {
+   "invoice": "VF/BLR/93439",
+   "vendor": "Vinayak Forwarders Pvt. Ltd.",
+   "date": "2025-01-06",
+   "total": 204152.49
+  },
+  {
+   "invoice": "25-26/ES/9388",
+   "vendor": "EAGLE SUPPLY CHAIN PVT. LTD.",
+   "date": "2025-01-09",
+   "total": 46766.44
+  },
+  {
+   "invoice": "INV/25-26/52384",
+   "vendor": "STARLINE OCEAN SERVICES LLP",
+   "date": "2025-01-11",
+   "total": 53843.71
+  },
+  {
+   "invoice": "JAIB255995749",
+   "vendor": "Navkar Transport & Logistics Pvt. Ltd.",
+   "date": "2025-01-12",
+   "total": 124985.43
+  },
+  {
+   "invoice": "OCFRAJI2567531",
+   "vendor": "Overseas Clearing & Forwarding LLP",
+   "date": "2025-01-13",
+   "total": 155974.53
+  },
+  {
+   "invoice": "PNQ5150464",
+   "vendor": "OCEANIC AIR & SEA PRIVATE LIMITED",
+   "date": "2025-01-15",
+   "total": 148612.63
+  },
+  {
+   "invoice": "SE25920633",
+   "vendor": "Allied Supply Chain Agencies",
+   "date": "2025-01-18",
+   "total": 165913.34
+  },
+  {
+   "invoice": "STV8155639",
+   "vendor": "Frontier Shipping Services Limited",
+   "date": "2025-01-19",
+   "total": 822686.08
+  },
+  {
+   "invoice": "E/47323/25-26",
+   "vendor": "GRANITE GLOBAL LOGISTICS & CO.",
+   "date": "2025-01-21",
+   "total": 318687.43
+  },
+  {
+   "invoice": "OSMAAI2587510",
+   "vendor": "OVERSEAS SHIPPING AGENCIES PVT LTD",
+   "date": "2025-01-27",
+   "total": 265623.4
+  },
+  {
+   "invoice": "SE25567302",
+   "vendor": "Granite Clearing & Forwarding Ltd.",
+   "date": "2025-01-27",
+   "total": 733017.07
+  },
+  {
+   "invoice": "RAJR257101635",
+   "vendor": "Arihant Shipping (India) Private Limited",
+   "date": "2025-01-31",
+   "total": 742074.09
+  },
+  {
+   "invoice": "VLS25-26-8670",
+   "vendor": "VAYU LOGISTICS SOLUTIONS AGENCIES",
+   "date": "2025-02-03",
+   "total": 339925.17
+  },
+  {
+   "invoice": "BLRR253601751",
+   "vendor": "Portline Clearing & Forwarding Private Limited",
+   "date": "2025-02-06",
+   "total": 298971.26
+  },
+  {
+   "invoice": "SML/AMD/65371",
+   "vendor": "Silverline Maritime Limited",
+   "date": "2025-02-08",
+   "total": 44860.11
+  },
+  {
+   "invoice": "NAGX255036518",
+   "vendor": "Landmark Shipping Lines Pvt Ltd",
+   "date": "2025-02-11",
+   "total": 130866.98
+  },
+  {
+   "invoice": "FF/EXP/6833/25-26",
+   "vendor": "FALCON FREIGHT SYSTEMS LTD.",
+   "date": "2025-02-17",
+   "total": 153589.9
+  },
+  {
+   "invoice": "ISP-671448",
+   "vendor": "Ironclad Shipping Pvt. Ltd",
+   "date": "2025-02-23",
+   "total": 187534.39
+  },
+  {
+   "invoice": "SGNVMI2523474",
+   "vendor": "SIDDHI GLOBAL LOGISTICS & CO.",
+   "date": "2025-02-25",
+   "total": 238393.86
+  },
+  {
+   "invoice": "ALS/EXP/2159/25-26",
+   "vendor": "Arihant Logistics Solutions & Co.",
+   "date": "2025-02-26",
+   "total": 717455.98
+  },
+  {
+   "invoice": "NOI6538541",
+   "vendor": "Pinnacle Ocean Services Pvt. Ltd",
+   "date": "2025-02-28",
+   "total": 12690.0
+  },
+  {
+   "invoice": "E/38707/25-26",
+   "vendor": "Sagar Forwarders Pvt Ltd",
+   "date": "2025-03-02",
+   "total": 109210.48
+  },
+  {
+   "invoice": "25-26/ALS/9653",
+   "vendor": "Apex Logistics Solutions Pvt Ltd",
+   "date": "2025-03-08",
+   "total": 253157.22
+  },
+  {
+   "invoice": "ASL/CJB/04102",
+   "vendor": "AADHYA SHIPPING LINES CORPORATION",
+   "date": "2025-03-08",
+   "total": 583923.84
+  },
+  {
+   "invoice": "INV/25-26/98712",
+   "vendor": "ROYAL SHIPPING LINES PRIVATE LIMITED",
+   "date": "2025-03-09",
+   "total": 620676.37
+  },
+  {
+   "invoice": "DECL257838",
+   "vendor": "Delta Clearing & Forwarding Limited",
+   "date": "2025-03-13",
+   "total": 130044.11
+  },
+  {
+   "invoice": "FWD-2025-031617",
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "date": "2025-03-13",
+   "total": 69137.54
+  },
+  {
+   "invoice": "KCI/EXP/3590/25-26",
+   "vendor": "KAVERI CARGO (INDIA) PRIVATE LIMITED",
+   "date": "2025-03-20",
+   "total": 69031.73
+  },
+  {
+   "invoice": "FF/EXP/9336/25-26",
+   "vendor": "FALCON FREIGHT SYSTEMS LTD.",
+   "date": "2025-03-22",
+   "total": 62342.57
+  },
+  {
+   "invoice": "OREX251092",
+   "vendor": "Oriental Express Cargo Pvt. Ltd",
+   "date": "2025-03-24",
+   "total": 20730.0
+  },
+  {
+   "invoice": "BO/EXP/5919/25-26",
+   "vendor": "Blue Ocean Freight Carriers Ltd.",
+   "date": "2025-03-26",
+   "total": 118759.25
+  },
+  {
+   "invoice": "KSC25-26-0938",
+   "vendor": "Kailash Supply Chain & Co.",
+   "date": "2025-04-05",
+   "total": 862606.08
+  },
+  {
+   "invoice": "25-26/AMC/9237",
+   "vendor": "Allied Multimodal Corporation",
+   "date": "2025-04-07",
+   "total": 120717.38
+  },
+  {
+   "invoice": "VT/GGN/46386",
+   "vendor": "Vayu Transport & Logistics (India) Private Limited",
+   "date": "2025-04-16",
+   "total": 275498.89
+  },
+  {
+   "invoice": "NOI7998855",
+   "vendor": "Pinnacle Ocean Services Pvt. Ltd",
+   "date": "2025-04-18",
+   "total": 46399.01
+  },
+  {
+   "invoice": "SE25208291",
+   "vendor": "Allied Supply Chain Agencies",
+   "date": "2025-04-19",
+   "total": 285047.7
+  },
+  {
+   "invoice": "E/74400/25-26",
+   "vendor": "Bhavya Freight Systems Corporation",
+   "date": "2025-04-20",
+   "total": 119831.68
+  },
+  {
+   "invoice": "7526549595",
+   "vendor": "SILVERLINE AIR & SEA PVT. LTD.",
+   "date": "2025-04-21",
+   "total": 28280.0
+  },
+  {
+   "invoice": "KSC25-26-0721",
+   "vendor": "Kailash Supply Chain & Co.",
+   "date": "2025-04-24",
+   "total": 272800.08
+  },
+  {
+   "invoice": "SML/AMD/15016",
+   "vendor": "Silverline Maritime Limited",
+   "date": "2025-05-04",
+   "total": 412028.87
+  },
+  {
+   "invoice": "PSL-618155",
+   "vendor": "PINNACLE SHIPPING LINES SERVICES PVT LTD",
+   "date": "2025-05-06",
+   "total": 45868.37
+  },
+  {
+   "invoice": "NFABOMI2568761",
+   "vendor": "Narmada Forwarders Agencies",
+   "date": "2025-05-08",
+   "total": 63271.68
+  },
+  {
+   "invoice": "SE25606760",
+   "vendor": "Jay Ambe Express Cargo LLP",
+   "date": "2025-05-08",
+   "total": 376409.55
+  },
+  {
+   "invoice": "WT25-26-5418",
+   "vendor": "Westport Transport & Logistics Pvt Ltd",
+   "date": "2025-05-12",
+   "total": 808966.55
+  },
+  {
+   "invoice": "INV/25-26/67305",
+   "vendor": "PORTLINE SHIPPING LINES LIMITED",
+   "date": "2025-05-13",
+   "total": 73592.49
+  },
+  {
+   "invoice": "TUT8265221",
+   "vendor": "Portline Freight Pvt. Ltd",
+   "date": "2025-05-13",
+   "total": 95584.54
+  },
+  {
+   "invoice": "ZSANOII2562802",
+   "vendor": "Zenith Shipping Agencies PVT. LTD.",
+   "date": "2025-05-13",
+   "total": 101066.13
+  },
+  {
+   "invoice": "DECL252002",
+   "vendor": "Delta Clearing & Forwarding Limited",
+   "date": "2025-05-15",
+   "total": 738002.12
+  },
+  {
+   "invoice": "FWD-2025-469059",
+   "vendor": "GREENPORT GLOBAL LOGISTICS LTD.",
+   "date": "2025-05-17",
+   "total": 82582.23
+  },
+  {
+   "invoice": "YAGGNI2589463",
+   "vendor": "YAMUNA AIR & SEA PVT LTD",
+   "date": "2025-05-21",
+   "total": 39961.5
+  },
+  {
+   "invoice": "INV/25-26/20966",
+   "vendor": "NARMADA GLOBAL LOGISTICS SERVICES PVT LTD",
+   "date": "2025-05-22",
+   "total": 245178.63
+  },
+  {
+   "invoice": "SML/AMD/72084",
+   "vendor": "Silverline Maritime Limited",
+   "date": "2025-05-22",
+   "total": 1071776.77
+  }
+ ],
+ "methods": {
+  "outlier_charge": "Robust z-score on log amounts (median / MAD), flagged at |z| >= 3.5; peers are the vendor's own invoices when it has 8+, else all invoices with that charge (12+).",
+  "unusual_invoice": "Isolation Forest (200 trees, 2% contamination) on log charge amounts; needs 40+ invoices.",
+  "fx_rate": "Deviation of 3% or more from the median rate of the same currency in the same month (3+ invoices), else overall (5+).",
+  "rate_change": "Median amount per vendor and charge, month over month, 20% or more with 3+ invoices in both months.",
+  "forecast": "Holt's linear trend on complete months (6+); interval = 1.28 x standard deviation of past one-step errors.",
+  "duplicates": "Same invoice number more than once; same vendor + date + amount; same B/L + amount on different dates.",
+  "vendor_spelling": "Names equal after removing legal suffixes, or sharing a distinctive first word with similar remainder."
+ },
+ "narrative": [
+  "2,500 invoices from 210 vendors, \u20b969.93 Cr in charges before GST, dated 2023-12-31 to 2026-12-27.",
+  "The three largest vendors (FALCON FREIGHT SYSTEMS LTD., GREENPORT GLOBAL LOGISTICS LTD., Delta Clearing & Forwarding Limited) account for 3% of spend.",
+  "Sea Freight is the largest cost at 55% of spend, followed by Air Freight (13%).",
+  "2026-09 came to \u20b92.48 Cr, +16% against the month before.",
+  "68 findings need a look (21 high priority); the first is: Agency Charges of \u20b91,210 is only 17% of the typical amount.",
+  "417 invoices are still waiting for review (16.7% of invoices).",
+  "Expected spend for the next three months: \u20b92.72 Cr, \u20b92.98 Cr, \u20b93.25 Cr (the same method was off by 12% on the last three months)."
+ ]
+}

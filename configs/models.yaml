@@ -1,0 +1,62 @@
+# Models a profile can choose (Profile.models in configs/profiles/*.yaml): one reader for labelled values and one way
+# to read tables. Only what the app can run today is listed; numbers are from reports/parser_bakeoff.md.
+# `serve` says how the model pool (invoice_extractor/model_pool.py) runs it: an mlx_vlm server holding `path` (a Hugging Face id
+# read from the local cache, or a folder in the repository) that needs about `memory_gb`. A model starts the first time a
+# document needs it and stops when idle; MODEL_MEMORY_GB caps what is loaded at once. A reader whose files are not on this
+# machine is replaced by the default (router.reader_id).
+readers:
+  - id: qwen3-vl-8b
+    name: Qwen3-VL-8B Instruct
+    model: mlx-community/Qwen3-VL-8B-Instruct-8bit
+    serve: {path: mlx-community/Qwen3-VL-8B-Instruct-8bit, memory_gb: 10}
+    licence: Apache-2.0
+    commercial: true
+    note: "Not used by any profile: no better than the 4B on invoices (49/53, 42/45 lines), no rows on the mill certificates, and 4x slower than NuExtract3 on the roster (reports/reader_bakeoff.md)."
+  - id: qwen3-vl-4b
+    name: Qwen3-VL-4B Instruct (4-bit)
+    model: mlx-community/Qwen3-VL-4B-Instruct-4bit
+    serve: {path: mlx-community/Qwen3-VL-4B-Instruct-4bit, memory_gb: 3.5}
+    licence: Apache-2.0
+    commercial: true
+    default: true
+    note: "Default reader, best of four tested (reports/reader_bakeoff.md): 50 of 53 invoice fields and 45 of 45 charge lines, 20 s per invoice; the only one that read the mill certificates' heat tables right (7 and 9 rows). Returns no rows on the dense roster."
+  - id: qwen3.5-4b
+    name: Qwen3.5-4B (4-bit)
+    model: mlx-community/Qwen3.5-4B-MLX-4bit
+    serve: {path: mlx-community/Qwen3.5-4B-MLX-4bit, memory_gb: 4}
+    licence: Apache-2.0
+    commercial: true
+    note: "Newer generation (March 2026), not used by any profile: weaker on invoices (47/53 fields, 32/45 lines) and on the mill certificates (3 of 7 heat rows); reads the roster well (16 rows, 15 s)."
+  - id: nuextract3
+    name: NuExtract3 (4B, nvfp4)
+    model: numind/NuExtract3-mlx-nvfp4
+    serve: {path: work/models/NuExtract3-mlx-nvfp4, memory_gb: 4}   # scripts/prepare_nuextract.py builds it
+    style: nuextract
+    licence: Apache-2.0
+    commercial: true
+    note: "Qwen3.5-4B fine-tuned by NuMind for template-driven JSON extraction; the roster's reader (16 of 16 rows, 100% of cells on the page, 10 s). 4x faster than the default on invoices (5 s) with 48/53 fields and 41/45 lines; misses rows on wide tables. Needs scripts/prepare_nuextract.py once (run_app.py does it)."
+  - id: qwen3-vl-30b-a3b
+    name: Qwen3-VL-30B-A3B Instruct (4-bit)
+    model: mlx-community/Qwen3-VL-30B-A3B-Instruct-4bit
+    serve: {path: mlx-community/Qwen3-VL-30B-A3B-Instruct-4bit, memory_gb: 18}
+    licence: Apache-2.0
+    commercial: true
+    note: Larger general reader; slower, more memory. Not benchmarked here.
+tables:
+  - id: document-parser
+    name: PaddleOCR-VL-1.6
+    serve: {path: PaddlePaddle/PaddleOCR-VL-1.6, memory_gb: 3}
+    licence: Apache-2.0
+    commercial: true
+    default: true
+    note: Best table reader tested. 98 TEDS on clean financial tables, 93 on phone photos; 92-100% of cells exact on invoices, certificates and a roster.
+  - id: reader
+    name: The reader model
+    licence: same as the reader
+    commercial: true
+    note: Tables come from the reader's own output. Weaker on wide or merged-cell tables.
+  - id: "off"
+    name: No tables
+    licence: ""
+    commercial: true
+    note: Only labelled values and text.

@@ -1,0 +1,7 @@
+enabled: true
+min_dimension: 1400
+sharpness_threshold: 35
+contrast_threshold: 24
+scale: 2
+# Configure after training; command must write to {output} and may use {input} and {scale}.
+command: ""

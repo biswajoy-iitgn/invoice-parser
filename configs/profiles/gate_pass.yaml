@@ -1,0 +1,25 @@
+# Use case 3: gate pass slips (identification of people, vehicles and material leaving or entering).
+# Tested on synthetic passes only; add fields for your own form (driver licence, ID card number, ...).
+id: gate_pass
+name: Gate pass slip
+detect: [gate pass, returnable, non-returnable, vehicle no, material outward, material inward, security, driver]   # router.py: phrases that identify this kind of document
+description: People, vehicles and material passing the gate.
+min_verified: 0.9
+fields:
+  - {key: gate_pass_no, label: Gate pass number, type: id, required: true}
+  - {key: date, label: Date, type: date, required: true}
+  - {key: vehicle_no, label: Vehicle number, type: vehicle, required: true, hint: registration plate}
+  - {key: driver_name, label: Driver name, type: text, required: true}
+  - {key: driver_mobile, label: Driver mobile, type: mobile}
+  - {key: department, label: Department, type: text}
+  - {key: destination, label: Destination, type: text}
+  - {key: issued_by, label: Issued by, type: text, required: true}
+  - {key: pass_type, label: Returnable or non-returnable, type: choice, choices: [RETURNABLE, NON-RETURNABLE]}
+  - {key: expected_return, label: Expected return date, type: date}
+tables:
+  - {key: items, label: the material list, required: true, columns: [Description, Qty, Unit]}
+checks:
+  - {type: range, table: items, column: Qty, min: 0, name: quantities are not negative}
+  - {type: complete, table: items, columns: [Description, Qty], name: every item has a description and a quantity}
+  - {type: compare, left: date, op: "<=", right: expected_return, as: date, name: return is not before the pass date}
+  - {type: date_window, field: date, max_age_days: 400, name: pass date is recent and not in the future}

@@ -1,0 +1,27 @@
+# Formulas tried on every table the general profile reads: when a table has the result column and every column the
+# expression names (titles with only letters and digits, case ignored), each row is checked. Tolerance is absolute and
+# covers the rounding of the printed values. Add your own: they apply to any document, no profile needed.
+formulas:
+  - name: carbon equivalent (CE)       # IS / IIW: C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15, printed on the mill certificates' notes
+    result: CE
+    expr: "C + MN/6 + (CR+MO+V)/5 + (NI+CU)/15"
+    tolerance: 0.002
+  - name: micro-alloy sum (MAE)         # Nb + Ti + V, from the certificates' legend
+    result: MAE
+    expr: "NB + TI + V"
+    tolerance: 0.002
+
+# Labelled values the general profile validates by what the label says they are (first matching rule wins). A value that
+# fails is marked invalid and the document goes to review. kinds: gstin pan ifsc mobile pin email vehicle irn hsn container mawb date
+identifiers:
+  - {label: 'gstin|gst\s*(no|number|in)', kind: gstin}
+  - {label: '\bpan\b(?!\w)', kind: pan}
+  - {label: 'ifsc', kind: ifsc}
+  - {label: 'mobile', kind: mobile}
+  - {label: '\bpin\s*code\b|\bpincode\b', kind: pin}
+  - {label: 'e-?mail', kind: email}
+  - {label: 'vehicle\s*(no|number)|truck\s*(no|number)|lorry\s*(no|number)', kind: vehicle}
+  - {label: '\birn\b', kind: irn}
+  - {label: 'container\s*(no|number)', kind: container}
+  - {label: '\b(mawb|master\s+air\s*waybill)\b', kind: mawb}
+  - {label: 'date', kind: date}

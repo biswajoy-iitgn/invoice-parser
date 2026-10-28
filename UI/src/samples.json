@@ -1,0 +1,1654 @@
+[
+ {
+  "id": "doc-dachser",
+  "name": "DACHSER.pdf",
+  "vendor": "DACHSER India Pvt. Ltd.",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "7044012289",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     28.3,
+     336.2,
+     78.3,
+     346.3
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "21 Aug 2026",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     397.9,
+     336.2,
+     443.9,
+     346.3
+    ],
+    "note": "Printed 21-08-2026"
+   },
+   {
+    "key": "vendor",
+    "value": "DACHSER India Pvt. Ltd.",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     32.6,
+     48.6,
+     159.8,
+     59.7
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AACCA7791D1ZS",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     327.9,
+     170.0,
+     402.9,
+     179.0
+    ]
+   },
+   {
+    "key": "container",
+    "value": "HLXU8364248",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     107.0,
+     515.3,
+     166.0,
+     525.3
+    ]
+   },
+   {
+    "key": "hbl",
+    "value": "70430050554",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     29.4,
+     455.1,
+     84.4,
+     465.1
+    ]
+   },
+   {
+    "key": "mbl",
+    "value": "HLCUBO12608AWQG7",
+    "conf": 0.81,
+    "page": 0,
+    "box": [
+     215.2,
+     455.1,
+     311.1,
+     465.1
+    ],
+    "note": "Format not matched for carrier HLCU"
+   },
+   {
+    "key": "weight",
+    "value": "10669 kg",
+    "conf": 0.94,
+    "page": 0,
+    "box": [
+     340.0,
+     515.3,
+     365.0,
+     525.3
+    ]
+   },
+   {
+    "key": "seal",
+    "value": "1120.00",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     483.3,
+     568.9,
+     518.3,
+     578.9
+    ]
+   },
+   {
+    "key": "ens",
+    "value": "3750.00",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     483.3,
+     580.2,
+     518.3,
+     590.2
+    ]
+   },
+   {
+    "key": "sea_freight",
+    "value": "527698.80",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     473.4,
+     591.6,
+     518.4,
+     601.6
+    ]
+   },
+   {
+    "key": "thc",
+    "value": "17500.00",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     478.3,
+     614.2,
+     518.3,
+     624.3
+    ]
+   },
+   {
+    "key": "bl_fee",
+    "value": "5500.00",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     483.3,
+     636.9,
+     518.3,
+     646.9
+    ]
+   },
+   {
+    "key": "transport",
+    "value": "286033.50",
+    "conf": 0.78,
+    "page": 0,
+    "box": [
+     473.4,
+     648.2,
+     518.4,
+     658.2
+    ],
+    "note": "\"Haulage (delivery)\" matched to Transportation at 78%"
+   },
+   {
+    "key": "other",
+    "value": "34250.00",
+    "conf": 0.88,
+    "page": 0,
+    "box": [
+     478.3,
+     625.5,
+     518.3,
+     635.5
+    ],
+    "note": "Carrier charges origin"
+   },
+   {
+    "key": "ex_rate",
+    "value": "96.12",
+    "conf": 0.93,
+    "page": 0,
+    "box": [
+     154.2,
+     603.5,
+     183.2,
+     611.3
+    ],
+    "note": "USD rate; EUR rate 112.17 also printed"
+   },
+   {
+    "key": "total",
+    "value": "875852.30",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     473.4,
+     672.0,
+     518.4,
+     682.1
+    ]
+   },
+   {
+    "key": "cgst",
+    "value": "44526.29",
+    "conf": 0.97,
+    "page": 1,
+    "box": [
+     190.0,
+     240.4,
+     230.0,
+     250.4
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "44526.29",
+    "conf": 0.97,
+    "page": 1,
+    "box": [
+     280.5,
+     240.4,
+     320.5,
+     250.4
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "964904.88",
+    "conf": 0.99,
+    "page": 1,
+    "box": [
+     479.6,
+     240.4,
+     524.6,
+     250.4
+    ],
+    "note": "Matches amount in words"
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/dachser-1.jpg",
+    "w": 595.0,
+    "h": 842.0,
+    "thumb": "/samples/dachser-thumb.jpg"
+   },
+   {
+    "src": "/samples/dachser-2.jpg",
+    "w": 595.0,
+    "h": 842.0
+   }
+  ]
+ },
+ {
+  "id": "scan-dachser",
+  "name": "DACHSER_phone.jpg",
+  "vendor": "DACHSER India Pvt. Ltd.",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-dachser-1.jpg",
+    "w": 642.6,
+    "h": 871.47,
+    "thumb": "/samples/phone-dachser-thumb.jpg"
+   },
+   {
+    "src": "/samples/phone-dachser-2.jpg",
+    "w": 642.6,
+    "h": 871.47
+   }
+  ],
+  "twin": "doc-dachser"
+ },
+ {
+  "id": "doc-dsv",
+  "name": "DSV.pdf",
+  "vendor": "DSV Air & Sea Pvt. Ltd.",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "IN1AMD261031252",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     169.0,
+     141.7,
+     345.8,
+     169.3
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "31 Aug 2026",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     455.2,
+     180.1,
+     492.6,
+     191.0
+    ],
+    "note": "Printed 31-Aug-26"
+   },
+   {
+    "key": "vendor",
+    "value": "DSV Air & Sea Pvt. Ltd.",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     219.3,
+     167.3,
+     303.4,
+     178.3
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AACCD3848A1Z5",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     64.6,
+     167.3,
+     138.4,
+     178.3
+    ]
+   },
+   {
+    "key": "container",
+    "value": "FFAU4143091",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     35.7,
+     579.3,
+     87.7,
+     590.3
+    ]
+   },
+   {
+    "key": "mbl",
+    "value": "MEDUAEO12208",
+    "conf": 0.93,
+    "page": 0,
+    "box": [
+     300.7,
+     532.5,
+     363.3,
+     543.5
+    ]
+   },
+   {
+    "key": "hbl",
+    "value": "AID0019575",
+    "conf": 0.79,
+    "page": 0,
+    "box": [
+     433.1,
+     532.5,
+     477.6,
+     543.5
+    ],
+    "note": "Also printed inside shipment number SAID0019575"
+   },
+   {
+    "key": "weight",
+    "value": "9895 kg",
+    "conf": 0.92,
+    "page": 0,
+    "box": [
+     212.3,
+     509.2,
+     245.7,
+     520.2
+    ]
+   },
+   {
+    "key": "sea_freight",
+    "value": "709856.25",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     501.5,
+     636.7,
+     561.2,
+     645.7
+    ]
+   },
+   {
+    "key": "thc",
+    "value": "15790.00",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     512.3,
+     702.2,
+     561.1,
+     711.2
+    ]
+   },
+   {
+    "key": "bl_fee",
+    "value": "6700.00",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     517.7,
+     745.9,
+     561.1,
+     754.9
+    ]
+   },
+   {
+    "key": "transport",
+    "value": "29810.00",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     512.3,
+     767.8,
+     561.1,
+     776.8
+    ],
+    "note": "Inland/Linehaul/Haulage"
+   },
+   {
+    "key": "seal",
+    "value": "982.50",
+    "conf": 0.95,
+    "page": 1,
+    "box": [
+     528.6,
+     358.6,
+     561.1,
+     367.6
+    ]
+   },
+   {
+    "key": "ex_rate",
+    "value": "98.25",
+    "conf": 0.94,
+    "page": 0,
+    "box": [
+     235.0,
+     636.6,
+     278.4,
+     644.6
+    ]
+   },
+   {
+    "key": "total",
+    "value": "767903.75",
+    "conf": 0.98,
+    "page": 1,
+    "box": [
+     501.5,
+     518.8,
+     561.2,
+     527.8
+    ]
+   },
+   {
+    "key": "cgst",
+    "value": "22970.69",
+    "conf": 0.97,
+    "page": 1,
+    "box": [
+     512.3,
+     529.5,
+     561.1,
+     538.5
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "22970.69",
+    "conf": 0.97,
+    "page": 1,
+    "box": [
+     512.3,
+     541.9,
+     561.1,
+     550.9
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "813845.13",
+    "conf": 0.99,
+    "page": 1,
+    "box": [
+     488.2,
+     606.0,
+     561.2,
+     617.0
+    ]
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/dsv-1.jpg",
+    "w": 595.28,
+    "h": 841.89,
+    "thumb": "/samples/dsv-thumb.jpg"
+   },
+   {
+    "src": "/samples/dsv-2.jpg",
+    "w": 595.28,
+    "h": 841.89
+   }
+  ]
+ },
+ {
+  "id": "scan-dsv",
+  "name": "DSV_phone.jpg",
+  "vendor": "DSV Air & Sea Pvt. Ltd.",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-dsv-1.jpg",
+    "w": 642.9,
+    "h": 871.36,
+    "thumb": "/samples/phone-dsv-thumb.jpg"
+   },
+   {
+    "src": "/samples/phone-dsv-2.jpg",
+    "w": 642.9,
+    "h": 871.36
+   }
+  ],
+  "twin": "doc-dsv"
+ },
+ {
+  "id": "doc-ept-exim",
+  "name": "EPT EXIM.pdf",
+  "vendor": "EPT Exim Services Pvt. Ltd.",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "ERIA261452",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     167.0,
+     143.6,
+     212.7,
+     151.6
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "08 Sep 2026",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     167.0,
+     154.6,
+     212.3,
+     162.6
+    ]
+   },
+   {
+    "key": "vendor",
+    "value": "EPT Exim Services Pvt. Ltd.",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     164.6,
+     50.7,
+     345.9,
+     63.7
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AADCE0916H1Z2",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     188.5,
+     95.8,
+     260.6,
+     103.8
+    ]
+   },
+   {
+    "key": "container",
+    "value": "ESDU1420273",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     435.6,
+     228.2,
+     488.4,
+     236.2
+    ]
+   },
+   {
+    "key": "agency",
+    "value": "1800.00",
+    "conf": 0.94,
+    "page": 0,
+    "box": [
+     531.2,
+     353.8,
+     562.1,
+     361.8
+    ]
+   },
+   {
+    "key": "transport",
+    "value": "6126.00",
+    "conf": 0.92,
+    "page": 0,
+    "box": [
+     531.2,
+     374.5,
+     562.1,
+     382.5
+    ]
+   },
+   {
+    "key": "warehouse",
+    "value": "14320.00",
+    "conf": 0.83,
+    "page": 0,
+    "box": [
+     526.7,
+     404.5,
+     562.1,
+     412.5
+    ],
+    "note": "Two warehouse lines; second line 1000.00 not added"
+   },
+   {
+    "key": "total",
+    "value": "23246.00",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     525.2,
+     466.9,
+     560.6,
+     474.9
+    ]
+   },
+   {
+    "key": "cgst",
+    "value": "2092.14",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     529.7,
+     479.2,
+     560.6,
+     487.2
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "2092.14",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     529.7,
+     491.4,
+     560.6,
+     499.4
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "27430.28",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     520.4,
+     503.8,
+     560.6,
+     512.8
+    ]
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/ept-exim-1.jpg",
+    "w": 595.42,
+    "h": 841.69,
+    "thumb": "/samples/ept-exim-thumb.jpg"
+   },
+   {
+    "src": "/samples/ept-exim-2.jpg",
+    "w": 595.42,
+    "h": 841.69
+   }
+  ]
+ },
+ {
+  "id": "scan-ept-exim",
+  "name": "EPT_EXIM_phone.jpg",
+  "vendor": "EPT Exim Services Pvt. Ltd.",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-ept-exim-1.jpg",
+    "w": 643.05,
+    "h": 871.15,
+    "thumb": "/samples/phone-ept-exim-thumb.jpg"
+   },
+   {
+    "src": "/samples/phone-ept-exim-2.jpg",
+    "w": 643.05,
+    "h": 871.15
+   }
+  ],
+  "twin": "doc-ept-exim"
+ },
+ {
+  "id": "doc-ept-global",
+  "name": "EPT GLOBAL.pdf",
+  "vendor": "EPT Global Logistics Pvt. Ltd.",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "GRIA260934",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     175.4,
+     143.6,
+     221.9,
+     151.6
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "21 Jul 2026",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     175.4,
+     154.6,
+     218.0,
+     162.6
+    ]
+   },
+   {
+    "key": "vendor",
+    "value": "EPT Global Logistics Pvt. Ltd.",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     175.4,
+     51.7,
+     309.8,
+     61.7
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AABCE7934M1ZD",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     199.3,
+     94.3,
+     273.3,
+     102.3
+    ]
+   },
+   {
+    "key": "container",
+    "value": "HLXU8386226",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     175.4,
+     198.4,
+     228.6,
+     206.4
+    ]
+   },
+   {
+    "key": "mbl",
+    "value": "HLCUBO12606CLPC8",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     438.6,
+     196.9,
+     518.7,
+     204.9
+    ]
+   },
+   {
+    "key": "hbl",
+    "value": "A260400",
+    "conf": 0.74,
+    "page": 0,
+    "box": [
+     438.6,
+     207.8,
+     471.6,
+     215.8
+    ],
+    "note": "Same value printed as Job No"
+   },
+   {
+    "key": "thc",
+    "value": "18541.00",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     531.0,
+     375.8,
+     562.1,
+     382.8
+    ]
+   },
+   {
+    "key": "bl_fee",
+    "value": "10500.00",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     531.0,
+     402.3,
+     562.1,
+     409.3
+    ]
+   },
+   {
+    "key": "ens",
+    "value": "10296.30",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     531.0,
+     500.4,
+     562.1,
+     507.4
+    ],
+    "note": "USD 35.00 x 3 at 98.06"
+   },
+   {
+    "key": "seal",
+    "value": "1120.00",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     534.9,
+     455.4,
+     562.1,
+     462.4
+    ]
+   },
+   {
+    "key": "transport",
+    "value": "34250.00",
+    "conf": 0.92,
+    "page": 0,
+    "box": [
+     531.0,
+     473.9,
+     562.1,
+     480.9
+    ],
+    "note": "Inland Haulage Charges (IHC)"
+   },
+   {
+    "key": "other",
+    "value": "3750.00",
+    "conf": 0.88,
+    "page": 0,
+    "box": [
+     534.9,
+     420.8,
+     562.1,
+     427.8
+    ],
+    "note": "Security manifest charges"
+   },
+   {
+    "key": "ex_rate",
+    "value": "98.06",
+    "conf": 0.93,
+    "page": 0,
+    "box": [
+     218.1,
+     500.4,
+     235.6,
+     507.4
+    ]
+   },
+   {
+    "key": "total",
+    "value": "78457.30",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     525.2,
+     529.7,
+     560.6,
+     537.7
+    ]
+   },
+   {
+    "key": "cgst",
+    "value": "7061.16",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     529.7,
+     541.9,
+     560.6,
+     549.9
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "7061.16",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     529.7,
+     554.2,
+     560.6,
+     562.2
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "92579.62",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     520.4,
+     566.6,
+     560.6,
+     575.6
+    ]
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/ept-global-1.jpg",
+    "w": 595.42,
+    "h": 841.69,
+    "thumb": "/samples/ept-global-thumb.jpg"
+   },
+   {
+    "src": "/samples/ept-global-2.jpg",
+    "w": 595.42,
+    "h": 841.69
+   }
+  ]
+ },
+ {
+  "id": "scan-ept-global",
+  "name": "EPT_GLOBAL_phone.jpg",
+  "vendor": "EPT Global Logistics Pvt. Ltd.",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-ept-global-1.jpg",
+    "w": 643.05,
+    "h": 871.15,
+    "thumb": "/samples/phone-ept-global-thumb.jpg"
+   },
+   {
+    "src": "/samples/phone-ept-global-2.jpg",
+    "w": 643.05,
+    "h": 871.15
+   }
+  ],
+  "twin": "doc-ept-global"
+ },
+ {
+  "id": "doc-jeena",
+  "name": "JEENA.pdf",
+  "vendor": "Jeena & Company",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "IVJCAMD270007254",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     366.9,
+     142.9,
+     450.6,
+     154.9
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "19 Aug 2026",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     522.5,
+     142.8,
+     568.8,
+     155.9
+    ],
+    "note": "Printed 19/8/2026"
+   },
+   {
+    "key": "vendor",
+    "value": "Jeena & Company",
+    "conf": 0.94,
+    "page": 0,
+    "box": [
+     242.4,
+     718.0,
+     342.1,
+     730.5
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AAAFJ1721H1ZX",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     229.1,
+     757.7,
+     304.3,
+     769.2
+    ]
+   },
+   {
+    "key": "container",
+    "value": "OOLU8876229",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     145.2,
+     252.6,
+     199.7,
+     263.5
+    ],
+    "note": "Read from remarks line"
+   },
+   {
+    "key": "hbl",
+    "value": "5836209",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     367.7,
+     157.8,
+     402.9,
+     169.8
+    ]
+   },
+   {
+    "key": "agency",
+    "value": "3450.00",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     330.9,
+     344.5,
+     354.4,
+     352.5
+    ]
+   },
+   {
+    "key": "warehouse",
+    "value": "26900.00",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     327.6,
+     386.0,
+     354.4,
+     394.1
+    ],
+    "note": "CFS charges"
+   },
+   {
+    "key": "other",
+    "value": "2500.00",
+    "conf": 0.86,
+    "page": 0,
+    "box": [
+     330.9,
+     330.6,
+     354.4,
+     338.7
+    ],
+    "note": "Loading and unloading"
+   },
+   {
+    "key": "total",
+    "value": "33100.00",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     317.7,
+     400.4,
+     354.0,
+     411.3
+    ]
+   },
+   {
+    "key": "cgst",
+    "value": "2979.00",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     393.7,
+     400.4,
+     425.4,
+     411.3
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "2979.00",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     465.2,
+     400.4,
+     496.9,
+     411.3
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "39058.00",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     533.9,
+     416.8,
+     570.4,
+     427.7
+    ]
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/jeena-1.jpg",
+    "w": 595.0,
+    "h": 841.0,
+    "thumb": "/samples/jeena-thumb.jpg"
+   }
+  ]
+ },
+ {
+  "id": "scan-jeena",
+  "name": "JEENA_phone.jpg",
+  "vendor": "Jeena & Company",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-jeena-1.jpg",
+    "w": 642.6,
+    "h": 870.43,
+    "thumb": "/samples/phone-jeena-thumb.jpg"
+   }
+  ],
+  "twin": "doc-jeena"
+ },
+ {
+  "id": "doc-kuehne-nagel",
+  "name": "KUEHNE NAGEL.pdf",
+  "vendor": "Kuehne + Nagel Pvt. Ltd.",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "AMD1142005",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     367.0,
+     171.1,
+     401.4,
+     181.9
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "13 Aug 2026",
+    "conf": 0.82,
+    "page": 0,
+    "box": [
+     367.0,
+     182.1,
+     396.2,
+     192.9
+    ],
+    "note": "IRN date also 13/08/2026"
+   },
+   {
+    "key": "vendor",
+    "value": "Kuehne + Nagel Pvt. Ltd.",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     24.0,
+     32.1,
+     116.4,
+     42.9
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AAACK2676H1ZM",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     52.0,
+     120.1,
+     104.4,
+     130.9
+    ]
+   },
+   {
+    "key": "container",
+    "value": "TGBU6174371",
+    "conf": 0.93,
+    "page": 2,
+    "box": [
+     49.2,
+     474.0,
+     115.2,
+     493.0
+    ],
+    "note": "Found on page 3"
+   },
+   {
+    "key": "mbl",
+    "value": "HLCUBO12607AZYT9",
+    "conf": 0.94,
+    "page": 1,
+    "box": [
+     49.2,
+     666.3,
+     145.1,
+     685.3
+    ]
+   },
+   {
+    "key": "hbl",
+    "value": "BANQ1075870945",
+    "conf": 0.76,
+    "page": 2,
+    "box": [
+     301.0,
+     654.0,
+     384.9,
+     673.0
+    ],
+    "note": "3 house bills listed; first used"
+   },
+   {
+    "key": "bl_fee",
+    "value": "15300.00",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     248.5,
+     356.5,
+     275.0,
+     367.3
+    ]
+   },
+   {
+    "key": "ens",
+    "value": "3750.00",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     251.5,
+     385.5,
+     275.0,
+     396.3
+    ],
+    "note": "AMS security fee export"
+   },
+   {
+    "key": "thc",
+    "value": "18541.00",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     249.6,
+     443.5,
+     275.0,
+     454.3
+    ]
+   },
+   {
+    "key": "sea_freight",
+    "value": "456533.74",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     245.5,
+     501.5,
+     275.0,
+     512.3
+    ]
+   },
+   {
+    "key": "other",
+    "value": "31553.09",
+    "conf": 0.85,
+    "page": 0,
+    "box": [
+     248.9,
+     414.5,
+     275.0,
+     425.3
+    ],
+    "note": "Emergency bunker surcharge"
+   },
+   {
+    "key": "ex_rate",
+    "value": "98.6034",
+    "conf": 0.95,
+    "page": 1,
+    "box": [
+     121.1,
+     630.3,
+     163.1,
+     649.3
+    ]
+   },
+   {
+    "key": "total",
+    "value": "526797.83",
+    "conf": 0.98,
+    "page": 2,
+    "box": [
+     408.9,
+     330.0,
+     468.8,
+     349.0
+    ]
+   },
+   {
+    "key": "cgst",
+    "value": "15686.16",
+    "conf": 0.97,
+    "page": 2,
+    "box": [
+     504.8,
+     354.0,
+     558.8,
+     373.0
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "15686.16",
+    "conf": 0.97,
+    "page": 2,
+    "box": [
+     504.8,
+     366.0,
+     558.8,
+     385.0
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "558170.15",
+    "conf": 0.99,
+    "page": 2,
+    "box": [
+     498.8,
+     377.9,
+     558.8,
+     397.3
+    ]
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/kuehne-nagel-1.jpg",
+    "w": 595.0,
+    "h": 842.0,
+    "thumb": "/samples/kuehne-nagel-thumb.jpg"
+   },
+   {
+    "src": "/samples/kuehne-nagel-2.jpg",
+    "w": 595.2,
+    "h": 841.92
+   },
+   {
+    "src": "/samples/kuehne-nagel-3.jpg",
+    "w": 595.2,
+    "h": 841.92
+   },
+   {
+    "src": "/samples/kuehne-nagel-4.jpg",
+    "w": 595.2,
+    "h": 841.92
+   },
+   {
+    "src": "/samples/kuehne-nagel-5.jpg",
+    "w": 595.2,
+    "h": 841.92
+   }
+  ]
+ },
+ {
+  "id": "scan-kuehne-nagel",
+  "name": "KUEHNE_NAGEL_phone.jpg",
+  "vendor": "Kuehne + Nagel Pvt. Ltd.",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-kuehne-nagel-1.jpg",
+    "w": 642.6,
+    "h": 871.47,
+    "thumb": "/samples/phone-kuehne-nagel-thumb.jpg"
+   },
+   {
+    "src": "/samples/phone-kuehne-nagel-2.jpg",
+    "w": 642.82,
+    "h": 871.39
+   },
+   {
+    "src": "/samples/phone-kuehne-nagel-3.jpg",
+    "w": 642.82,
+    "h": 871.39
+   },
+   {
+    "src": "/samples/phone-kuehne-nagel-4.jpg",
+    "w": 642.82,
+    "h": 871.39
+   },
+   {
+    "src": "/samples/phone-kuehne-nagel-5.jpg",
+    "w": 642.82,
+    "h": 871.39
+   }
+  ],
+  "twin": "doc-kuehne-nagel"
+ },
+ {
+  "id": "doc-megalo",
+  "name": "MEGALO.pdf",
+  "vendor": "Megalo Worldwide Logistics Pvt. Ltd.",
+  "kind": "vector",
+  "fields": [
+   {
+    "key": "invoice_no",
+    "value": "AMDTI26-27-0289",
+    "conf": 0.99,
+    "page": 0,
+    "box": [
+     450.8,
+     141.9,
+     543.9,
+     154.5
+    ]
+   },
+   {
+    "key": "invoice_date",
+    "value": "22 Aug 2026",
+    "conf": 0.97,
+    "page": 0,
+    "box": [
+     450.8,
+     157.4,
+     497.0,
+     166.3
+    ]
+   },
+   {
+    "key": "vendor",
+    "value": "Megalo Worldwide Logistics Pvt. Ltd.",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     194.3,
+     37.0,
+     441.7,
+     52.6
+    ]
+   },
+   {
+    "key": "vendor_gstin",
+    "value": "24AAPCA1490A1Z1",
+    "conf": 0.98,
+    "page": 0,
+    "box": [
+     193.5,
+     107.4,
+     255.0,
+     114.9
+    ]
+   },
+   {
+    "key": "container",
+    "value": "OOCU9862650",
+    "conf": 0.96,
+    "page": 0,
+    "box": [
+     103.5,
+     338.4,
+     158.6,
+     347.3
+    ]
+   },
+   {
+    "key": "mbl",
+    "value": "COSU6462596850",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     90.0,
+     239.4,
+     157.6,
+     248.3
+    ]
+   },
+   {
+    "key": "hbl",
+    "value": "AMDOE0169",
+    "conf": 0.95,
+    "page": 0,
+    "box": [
+     90.0,
+     251.4,
+     137.1,
+     260.3
+    ]
+   },
+   {
+    "key": "bl_fee",
+    "value": "5500.00",
+    "conf": 0.9,
+    "page": 0,
+    "box": [
+     417.6,
+     380.3,
+     441.0,
+     387.0
+    ]
+   },
+   {
+    "key": "total",
+    "value": "870836.31",
+    "conf": 0.97,
+    "page": 1,
+    "box": [
+     408.6,
+     591.9,
+     440.2,
+     598.6
+    ],
+    "note": "Page 2 total before tax"
+   },
+   {
+    "key": "cgst",
+    "value": "43910.28",
+    "conf": 0.96,
+    "page": 1,
+    "box": [
+     461.8,
+     591.9,
+     488.5,
+     598.6
+    ]
+   },
+   {
+    "key": "sgst",
+    "value": "43910.28",
+    "conf": 0.96,
+    "page": 1,
+    "box": [
+     509.8,
+     591.9,
+     536.5,
+     598.6
+    ]
+   },
+   {
+    "key": "gross_total",
+    "value": "958657.00",
+    "conf": 0.98,
+    "page": 1,
+    "box": [
+     537.5,
+     654.8,
+     579.7,
+     663.7
+    ],
+    "note": "Net payable after 0.13 round-off"
+   }
+  ],
+  "pages": [
+   {
+    "src": "/samples/megalo-1.jpg",
+    "w": 595.28,
+    "h": 841.89,
+    "thumb": "/samples/megalo-thumb.jpg"
+   },
+   {
+    "src": "/samples/megalo-2.jpg",
+    "w": 595.28,
+    "h": 841.89
+   }
+  ]
+ },
+ {
+  "id": "scan-megalo",
+  "name": "MEGALO_phone.jpg",
+  "vendor": "Megalo Worldwide Logistics Pvt. Ltd.",
+  "kind": "scan",
+  "pages": [
+   {
+    "src": "/samples/phone-megalo-1.jpg",
+    "w": 642.9,
+    "h": 871.36,
+    "thumb": "/samples/phone-megalo-thumb.jpg"
+   },
+   {
+    "src": "/samples/phone-megalo-2.jpg",
+    "w": 642.9,
+    "h": 871.36
+   }
+  ],
+  "twin": "doc-megalo"
+ }
+]
